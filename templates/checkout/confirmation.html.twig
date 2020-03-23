@@ -1,0 +1,75 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div id="app">
+        <div class="container-fluid">
+            <div class="row row-no-wrap">
+                <aside class="col-xs-12 col-lg-3"></aside>
+
+                <div class="col-xs-12 col-lg-9">
+                    <div class="row">
+                        <div class="top-bar">
+                            <h6 class="ml-2">
+                                Thank you for your purchase!
+                            </h6>
+                        </div>
+
+                        <div class="component-light purchase">
+                            <p>
+                                To complete the transaction, please print this page and mail it together
+                                with a check or money order to the following address:
+                            </p>
+                            <code>
+                                1233 Nineties Dr.<br />
+                                10443 Vintage City, VN<br />
+                                USA
+                            </code>
+                            <p>
+                                Your products will arrive within 12-24 weeks.
+                            </p>
+
+                            <hr />
+
+                            <code>
+                                Order Details<br /><br />
+
+                                Customer Name: {{ purchase.customerName }}<br />
+                                Address: {{ purchase.customerAddress }}<br />
+                                Zip: {{ purchase.customerZip }}<br />
+                                City: {{ purchase.customerCity }}<br />
+                                Phone: {{ purchase.customerPhone }}<br />
+                            </code>
+                            <hr />
+
+                            {% for item in purchase.purchaseItems %}
+                                <div class="row flex-row purchase-row">
+                                    <code>
+                                        {{ item.quantity }} |
+                                    </code>
+                                    <code class="flex-grow-1">
+                                        {% if item.color is not null %}{{ item.color.name }}{% endif %}
+                                        {{ item.product.name }}
+                                    </code>
+                                    <code>
+                                        | $ {{ (item.product.price / 100)|number_format(2) }} <br />
+                                    </code>
+                                </div>
+                            {% endfor %}
+
+                            <hr />
+
+                            <div class="row flex-row purchase-row">
+                                <code class="flex-grow-1">
+                                    Total Price:
+                                </code>
+                                <code>
+                                    $ {{ (totalPrice / 100)|number_format(2) }}
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
