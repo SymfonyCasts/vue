@@ -1,0 +1,12 @@
+diff --git a/assets/js/products.js b/assets/js/products.js
+new file mode 100644
+index 0000000..5ee4e03
+--- /dev/null
++++ b/assets/js/products.js
+@@ -0,0 +1,6 @@
++import Vue from 'vue';
++
++const app = new Vue({
++    el: '#app',
++    template: '<h1>Hello Vue!</h1>',
++});
