@@ -60,6 +60,12 @@ Encore
     // enables Sass/SCSS support
     .enableSassLoader()
 
+    .configureCssLoader(function(config) {
+        if (!Encore.isProduction()) {
+            config.localIdentName = '[name]_[local]';
+        }
+    });
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
