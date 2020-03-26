@@ -1,0 +1,30 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "vie-instance-install-vue-enable-vue-loader",
+            "name": "Vie Instance: Install Vue, Enable Vue Loader",
+            "description": null
+        },
+        {
+            "id": "vue-instance-create-instance",
+            "name": "Vue Instance: Create Instance",
+            "description": null
+        },
+        {
+            "id": "vue-instance-webpack-entry",
+            "name": "Vue Instance: Webpack Entry",
+            "description": null
+        },
+        {
+            "id": "vue-instance-templates-entry",
+            "name": "Vue Instance: Templates Entry",
+            "description": null
+        }
+    ],
+    "sha": "821ad3e459b1ff14b6727147fc18fdbf0d136954"
+}
