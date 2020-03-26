@@ -12,6 +12,8 @@
         "node-sass": "^4.13.0",
         "regenerator-runtime": "^0.13.2",
         "sass-loader": "^7.0.1",
+        "vue-loader": "^15.9.1",
+        "vue-template-compiler": "^2.6.11",
         "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
@@ -25,6 +27,7 @@
     },
     "dependencies": {
         "axios": "^0.19.2",
-        "bootstrap": "^4.4.1"
+        "bootstrap": "^4.4.1",
+        "vue": "^2.6.11"
     }
 }
