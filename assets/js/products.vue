@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row row-no-wrap">
-            <aside class="col-xs-12 col-lg-3">
+            <aside v-bind:class="[$style.aside, 'col-xs-12', 'col-lg-3']">
                 <h5 class="text-center">
                     Categories
                 </h5>
@@ -36,3 +36,30 @@ export default {
     name: 'Products',
 };
 </script>
+
+<style lang="scss" module>
+@import '../scss/components/light-component';
+
+.aside {
+    @include light-component;
+    margin-top: 65px;
+
+    ul {
+        border-bottom: 1px solid $light-component-border;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+
+        li a {
+            color: #000;
+        }
+
+        li a:hover {
+            background: $blue-component-link-hover;
+        }
+
+        li a.selected {
+            background: $light-component-border;
+        }
+    }
+}
+</style>
