@@ -24,7 +24,32 @@
             "id": "vue-instance-templates-entry",
             "name": "Vue Instance: Templates Entry",
             "description": null
+        },
+        {
+            "id": "first-vue-component-load-from-products-vue",
+            "name": "First Vue Component: Load from products.vue",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-create-component",
+            "name": "First Vue Component: Create Component",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-add-styles",
+            "name": "First Vue Component: Add Styles",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-configure-webpack",
+            "name": "First Vue Component: Configure Webpack",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-introduce-data-object",
+            "name": "First Vue Component: Introduce Data object",
+            "description": null
         }
     ],
-    "sha": "821ad3e459b1ff14b6727147fc18fdbf0d136954"
+    "sha": "8889f075997c1677c1b323afcab0b29d0f34550f"
 }
