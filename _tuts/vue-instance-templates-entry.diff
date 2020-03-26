@@ -1,0 +1,15 @@
+diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
+index 25f227e..e8e6d6d 100644
+--- a/templates/product/index.html.twig
++++ b/templates/product/index.html.twig
+@@ -7,8 +7,10 @@
+ 
+ {% block stylesheets %}
+     {{ parent() }}
++    {{ encore_entry_link_tags('products') }}
+ {% endblock %}
+ 
+ {% block javascripts %}
+     {{ parent() }}
++    {{ encore_entry_script_tags('products') }}
+ {% endblock %}
