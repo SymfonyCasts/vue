@@ -20,7 +20,9 @@
 
             <div class="col-xs-12 col-lg-9">
                 <div class="row">
-                    <h2 class="p-3">Products</h2>
+                    <h2 class="p-3">
+                        Products
+                    </h2>
                 </div>
 
                 <div class="row">
