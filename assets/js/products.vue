@@ -1,24 +1,26 @@
 <template>
     <div class="container-fluid">
         <div class="row row-no-wrap">
-            <aside class="col-xs-12 col-lg-3">
-                <h5 class="text-center">
-                    Categories
-                </h5>
+            <div class="col-xs-12 col-lg-3">
+                <aside class="p-3 mt-5 mb-5">
+                    <h5 class="text-center">
+                        Categories
+                    </h5>
 
-                <ul class="nav flex-column">
-                    <li class="nav-item">
-                        <a
-                            class="nav-link"
-                            href="/"
-                        >All Products</a>
-                    </li>
-                </ul>
-            </aside>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a
+                                class="nav-link"
+                                href="/"
+                            >All Products</a>
+                        </li>
+                    </ul>
+                </aside>
+            </div>
 
             <div class="col-xs-12 col-lg-9">
                 <div class="row">
-                    <h2>Products</h2>
+                    <h2 class="p-3">Products</h2>
                 </div>
 
                 <div class="row">
