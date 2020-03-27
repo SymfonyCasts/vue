@@ -1,8 +1,8 @@
 <template>
     <div class="container-fluid">
         <div class="row row-no-wrap">
-            <div class="col-xs-12 col-lg-3">
-                <aside class="p-3 mt-5 mb-5">
+            <aside class="col-xs-12 col-lg-3">
+                <div class="p-3 mt-5 mb-5">
                     <h5 class="text-center">
                         Categories
                     </h5>
@@ -15,8 +15,8 @@
                             >All Products</a>
                         </li>
                     </ul>
-                </aside>
-            </div>
+                </div>
+            </aside>
 
             <div class="col-xs-12 col-lg-9">
                 <div class="row">
