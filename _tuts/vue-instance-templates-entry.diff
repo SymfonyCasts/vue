@@ -1,16 +1,10 @@
 diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
-index 656e63b..5dc074f 100644
+index 219a986..a4ea49a 100644
 --- a/templates/product/index.html.twig
 +++ b/templates/product/index.html.twig
-@@ -4,8 +4,18 @@
-     <div class="container">
-         <div class="row">
-             <div class="col-sm">
--                <h1>Hi! I would ❤️ it if someone put a Vue app here...</h1>
-+                <h1>Hi! I would ❤ it if someone put a Vue app here...</h1>
-             </div>
-         </div>
-     </div>
+@@ -3,3 +3,13 @@
+ {% block body %}
+     <div id="app"></div>
  {% endblock %}
 +
 +{% block stylesheets %}

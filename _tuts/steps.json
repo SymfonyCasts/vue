@@ -49,7 +49,22 @@
             "id": "first-vue-component-introduce-data-object",
             "name": "First Vue Component: Introduce Data object",
             "description": null
+        },
+        {
+            "id": "child-component-add-legend-vue",
+            "name": "Child Component: Add legend.vue",
+            "description": null
+        },
+        {
+            "id": "child-component-better-props",
+            "name": "Child Component: Better Props",
+            "description": null
+        },
+        {
+            "id": "child-component-include-component",
+            "name": "Child Component: Include Component",
+            "description": null
         }
     ],
-    "sha": "8de92108aef7025d9dd2ee8d78403fef711bd81a"
+    "sha": "d2854848aaaa2610bd64fcd5416ee0a2ff83c7f0"
 }
