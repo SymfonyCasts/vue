@@ -24,7 +24,7 @@ export default {
 <style lang="scss" module>
 @import '../../scss/components/light-component';
 
-.aside {
+.component {
     @include light-component;
     margin-top: 65px;
 
