@@ -8,9 +8,47 @@
         {% endblock %}
     </head>
     <body>
-        {% include "include/header.html.twig" %}
+        <header class="header">
+            <nav class="navbar navbar-expand-lg navbar-dark justify-content-between">
+                <a class="navbar-brand" href="/">
+                    <img src="{{ asset('images/mvp-logo-light.png' ) }}"
+                            width="50"
+                            height="50"
+                            alt="MVP Office Supplies Logo"
+                    >
+
+                    <span class="p-3">MVP Office Supplies</span>
+                </a>
+
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
+                            <a class="nav-link" href="{{ path('app_logout') }}">
+                                Log out
+                            </a>
+                        {% else %}
+                            <a class="nav-link" href="{{ path('app_login') }}">
+                                Log in
+                            </a>
+                        {% endif %}
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            Shopping Cart (<span>0</span>)
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
         {% block body %}{% endblock %}
-        {% include "include/footer.html.twig" %}
+
+        <p class="footer mb-0">
+            Built with<span> &lt;3 </span>by your friends at
+            <a href="https://symfonycasts.com" target="_blank">
+                SymfonyCasts
+            </a>
+        </p>
 
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
