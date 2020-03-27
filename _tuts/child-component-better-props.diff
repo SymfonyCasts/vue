@@ -1,0 +1,17 @@
+diff --git a/assets/js/components/legend.vue b/assets/js/components/legend.vue
+index f24b3ed..9d2a642 100644
+--- a/assets/js/components/legend.vue
++++ b/assets/js/components/legend.vue
+@@ -8,6 +8,11 @@
+ <script>
+ export default {
+     name: 'Legend',
+-    props: ['title'],
++    props: {
++        title: {
++            type: String,
++            required: true,
++        },
++    },
+ };
+ </script>
