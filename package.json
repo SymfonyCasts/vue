@@ -4,6 +4,8 @@
     ],
     "devDependencies": {
         "@symfony/webpack-encore": "^0.28.0",
+        "axios": "^0.19.2",
+        "bootstrap": "^4.4.1",
         "core-js": "^3.0.0",
         "eslint": "^6.7.2",
         "eslint-config-airbnb-base": "^14.0.0",
@@ -12,6 +14,7 @@
         "node-sass": "^4.13.0",
         "regenerator-runtime": "^0.13.2",
         "sass-loader": "^7.0.1",
+        "vue": "^2.6.11",
         "vue-loader": "^15.9.1",
         "vue-template-compiler": "^2.6.11",
         "webpack-notifier": "^1.6.0"
@@ -24,10 +27,5 @@
         "watch": "encore dev --watch",
         "build": "encore production --progress",
         "lint": "node_modules/.bin/eslint assets/** --ignore-pattern *.scss"
-    },
-    "dependencies": {
-        "axios": "^0.19.2",
-        "bootstrap": "^4.4.1",
-        "vue": "^2.6.11"
     }
 }
