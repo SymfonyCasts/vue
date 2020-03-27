@@ -1,15 +1,24 @@
 diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
-index 25f227e..e8e6d6d 100644
+index 656e63b..5dc074f 100644
 --- a/templates/product/index.html.twig
 +++ b/templates/product/index.html.twig
-@@ -7,8 +7,10 @@
- 
- {% block stylesheets %}
-     {{ parent() }}
+@@ -4,8 +4,18 @@
+     <div class="container">
+         <div class="row">
+             <div class="col-sm">
+-                <h1>Hi! I would ❤️ it if someone put a Vue app here...</h1>
++                <h1>Hi! I would ❤ it if someone put a Vue app here...</h1>
+             </div>
+         </div>
+     </div>
+ {% endblock %}
++
++{% block stylesheets %}
++    {{ parent() }}
 +    {{ encore_entry_link_tags('products') }}
- {% endblock %}
- 
- {% block javascripts %}
-     {{ parent() }}
++{% endblock %}
++
++{% block javascripts %}
++    {{ parent() }}
 +    {{ encore_entry_script_tags('products') }}
- {% endblock %}
++{% endblock %}
