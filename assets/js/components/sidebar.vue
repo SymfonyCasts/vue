@@ -22,7 +22,7 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import '../../scss/components/light-component';
+@import '~styles/components/light-component';
 
 .component {
     @include light-component;
