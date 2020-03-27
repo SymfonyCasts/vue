@@ -1,0 +1,96 @@
+diff --git a/assets/js/app.js b/assets/js/app.js
+index 5a9d6ce..88da001 100644
+--- a/assets/js/app.js
++++ b/assets/js/app.js
+@@ -6,4 +6,4 @@
+  */
+ 
+ // any CSS you import will output into a single css file (app.css in this case)
+-import '../scss/app.scss';
++import 'styles/app.scss';
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index c5ae437..8390a30 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -13,7 +13,7 @@
+ </template>
+ 
+ <script>
+-import LegendComponent from './legend';
++import LegendComponent from '@/components/legend';
+ 
+ export default {
+     name: 'Catalog',
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index 5d53b96..31793e1 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -22,7 +22,7 @@ export default {
+ </script>
+ 
+ <style lang="scss" module>
+-@import '../../scss/components/light-component';
++@import '~styles/components/light-component';
+ 
+ .component {
+     @include light-component;
+diff --git a/assets/js/products.js b/assets/js/products.js
+index 290a2d1..8597d51 100644
+--- a/assets/js/products.js
++++ b/assets/js/products.js
+@@ -1,5 +1,5 @@
+ import Vue from 'vue';
+-import App from './products.vue';
++import App from '@/products.vue';
+ 
+ new Vue({
+     render: (h) => h(App),
+diff --git a/assets/js/products.vue b/assets/js/products.vue
+index 4861a96..7408b68 100644
+--- a/assets/js/products.vue
++++ b/assets/js/products.vue
+@@ -13,8 +13,8 @@
+ </template>
+ 
+ <script>
+-import CatalogComponent from './components/catalog';
+-import SidebarComponent from './components/sidebar';
++import CatalogComponent from '@/components/catalog';
++import SidebarComponent from '@/components/sidebar';
+ 
+ export default {
+     name: 'Products',
+diff --git a/assets/scss/app.scss b/assets/scss/app.scss
+index 8197ff3..21e2e7a 100644
+--- a/assets/scss/app.scss
++++ b/assets/scss/app.scss
+@@ -1,6 +1,6 @@
+-@import './components/black-component';
+-@import './components/light-component';
+-@import './variables/colors';
++@import '~styles/components/black-component';
++@import '~styles/components/light-component';
++@import '~styles/variables/colors';
+ @import '~bootstrap';
+ 
+ .header {
+diff --git a/assets/scss/components/black-component.scss b/assets/scss/components/black-component.scss
+index dc43766..a658b27 100644
+--- a/assets/scss/components/black-component.scss
++++ b/assets/scss/components/black-component.scss
+@@ -1,4 +1,4 @@
+-@import '../variables/colors';
++@import '~styles/variables/colors';
+ 
+ @mixin black-component {
+     background-color: $black-component-background;
+diff --git a/assets/scss/components/light-component.scss b/assets/scss/components/light-component.scss
+index 814d931..154982a 100644
+--- a/assets/scss/components/light-component.scss
++++ b/assets/scss/components/light-component.scss
+@@ -1,4 +1,4 @@
+-@import '../variables/colors';
++@import '~styles/variables/colors';
+ 
+ @mixin light-component {
+     border: 1px solid $light-component-border;
