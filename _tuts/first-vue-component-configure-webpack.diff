@@ -1,8 +1,8 @@
 diff --git a/webpack.config.js b/webpack.config.js
-index 04830e8..c856157 100644
+index 09b7d5b..47b8f4e 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
-@@ -60,6 +60,12 @@ Encore
+@@ -65,6 +65,12 @@ Encore
      // enables Sass/SCSS support
      .enableSassLoader()
  
