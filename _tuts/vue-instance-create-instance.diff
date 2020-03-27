@@ -10,3 +10,20 @@ index 0000000..5ee4e03
 +    el: '#app',
 +    template: '<h1>Hello Vue!</h1>',
 +});
+diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
+index 656e63b..219a986 100644
+--- a/templates/product/index.html.twig
++++ b/templates/product/index.html.twig
+@@ -1,11 +1,5 @@
+ {% extends 'base.html.twig' %}
+ 
+ {% block body %}
+-    <div class="container">
+-        <div class="row">
+-            <div class="col-sm">
+-                <h1>Hi! I would ❤️ it if someone put a Vue app here...</h1>
+-            </div>
+-        </div>
+-    </div>
++    <div id="app"></div>
+ {% endblock %}
