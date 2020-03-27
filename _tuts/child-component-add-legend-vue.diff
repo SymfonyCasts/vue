@@ -1,0 +1,19 @@
+diff --git a/assets/js/components/legend.vue b/assets/js/components/legend.vue
+new file mode 100644
+index 0000000..f24b3ed
+--- /dev/null
++++ b/assets/js/components/legend.vue
+@@ -0,0 +1,13 @@
++<template>
++    <span
++        class="p-3"
++        v-text="title"
++    />
++</template>
++
++<script>
++export default {
++    name: 'Legend',
++    props: ['title'],
++};
++</script>
