@@ -1,25 +1,17 @@
 diff --git a/package.json b/package.json
-index 0aea3dc..37135d3 100644
+index 0a4bfda..42c2db6 100644
 --- a/package.json
 +++ b/package.json
-@@ -12,6 +12,8 @@
+@@ -14,6 +14,9 @@
          "node-sass": "^4.13.0",
          "regenerator-runtime": "^0.13.2",
          "sass-loader": "^7.0.1",
++        "vue": "^2.6.11",
 +        "vue-loader": "^15.9.1",
 +        "vue-template-compiler": "^2.6.11",
          "webpack-notifier": "^1.6.0"
      },
      "license": "UNLICENSED",
-@@ -25,6 +27,7 @@
-     },
-     "dependencies": {
-         "axios": "^0.19.2",
--        "bootstrap": "^4.4.1"
-+        "bootstrap": "^4.4.1",
-+        "vue": "^2.6.11"
-     }
- }
 diff --git a/webpack.config.js b/webpack.config.js
 index 48d352e..1abb079 100644
 --- a/webpack.config.js
