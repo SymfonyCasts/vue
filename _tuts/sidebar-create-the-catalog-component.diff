@@ -1,0 +1,33 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+new file mode 100644
+index 0000000..c5ae437
+--- /dev/null
++++ b/assets/js/components/catalog.vue
+@@ -0,0 +1,27 @@
++<template>
++    <div>
++        <div class="row">
++            <h2 class="p-3">
++                Products
++            </h2>
++        </div>
++
++        <div class="row">
++            <legend-component :title="legend" />
++        </div>
++    </div>
++</template>
++
++<script>
++import LegendComponent from './legend';
++
++export default {
++    name: 'Catalog',
++    components: {
++        LegendComponent,
++    },
++    data: () => ({
++        legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
++    }),
++};
++</script>
