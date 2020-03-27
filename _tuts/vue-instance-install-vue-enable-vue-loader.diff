@@ -13,15 +13,11 @@ index 0a4bfda..42c2db6 100644
      },
      "license": "UNLICENSED",
 diff --git a/webpack.config.js b/webpack.config.js
-index 48d352e..1abb079 100644
+index 7aed099..1dacec8 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
-@@ -55,9 +55,12 @@ Encore
- 
-     .copyFiles({
-         from: './assets/images',
--        to: 'images/[path][name].[hash:8].[ext]'
-+        to: 'images/[path][name].[hash:8].[ext]',
+@@ -60,6 +60,9 @@ Encore
+             : 'images/[path][name].[ext]',
      })
  
 +    // Enable .vue file processing
