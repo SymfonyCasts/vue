@@ -27,8 +27,8 @@ on how you installed Composer.
 Make sure you have [Yarn installed](https://yarnpkg.com/en/docs/install) and then run:
 
 ```
-yarn
-yarn run watch
+yarn install
+yarn watch
 ```
 
 **Configure the .env (or .env.local) File**
