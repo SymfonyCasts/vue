@@ -64,7 +64,32 @@
             "id": "child-component-include-component",
             "name": "Child Component: Include Component",
             "description": null
+        },
+        {
+            "id": "sidebar-create-the-catalog-component",
+            "name": "SideBar: Create The Catalog Component",
+            "description": null
+        },
+        {
+            "id": "sidebar-create-the-sidebar-component",
+            "name": "Sidebar: Create the Sidebar Component",
+            "description": null
+        },
+        {
+            "id": "sidebar-stich-them-together",
+            "name": "Sidebar: stich them Together",
+            "description": null
+        },
+        {
+            "id": "sidebar-add-aliases-to-webpack",
+            "name": "Sidebar: Add Aliases to Webpack",
+            "description": null
+        },
+        {
+            "id": "sidebar-scan-and-correct-imports",
+            "name": "Sidebar: Scan and Correct Imports",
+            "description": null
         }
     ],
-    "sha": "fa1a0d68c49e23c4f7786eba718ab023a05ba103"
+    "sha": "86fb6efdafa569c40f8e59a4a4ea76ddbf6fadba"
 }
