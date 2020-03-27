@@ -53,6 +53,11 @@ Encore
         config.corejs = 3;
     })
 
+    .copyFiles({
+        from: './assets/images',
+        to: 'images/[path][name].[hash:8].[ext]',
+    })
+
     // Enable .vue file processing
     .enableVueLoader()
 
