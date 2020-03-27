@@ -26,6 +26,6 @@
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production --progress",
-        "lint": "node_modules/.bin/eslint assets/** --ignore-pattern *.scss"
+        "lint": "node_modules/.bin/eslint assets/** --ignore-pattern *.scss --ignore-pattern *.gif --ignore-pattern *.png"
     }
 }
