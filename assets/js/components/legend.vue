@@ -8,6 +8,11 @@
 <script>
 export default {
     name: 'Title',
-    props: ['title'],
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+    },
 };
 </script>
