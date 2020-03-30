@@ -11,6 +11,19 @@
                     href="/"
                 >All Products</a>
             </li>
+
+            <li
+                v-for="(category, index) in categories"
+                :key="index"
+                class="nav-item"
+            >
+                <a
+                    :href="category.link"
+                    class="nav-link"
+                >
+                    {{ category.name }}
+                </a>
+            </li>
         </ul>
     </div>
 </template>
@@ -18,6 +31,18 @@
 <script>
 export default {
     name: 'Sidebar',
+    data: () => ({
+        categories: [
+            {
+                name: 'Category A',
+                link: '#',
+            },
+            {
+                name: 'Category B',
+                link: '#',
+            },
+        ],
+    }),
 };
 </script>
 
