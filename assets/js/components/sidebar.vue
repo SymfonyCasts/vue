@@ -1,5 +1,8 @@
 <template>
-    <div :class="[$style.component, 'p-3', 'mt-5', 'mb-5']">
+    <div
+        :class="[$style.component, 'p-3', 'mt-5', 'mb-5']"
+        :style="{ width: collapsed ? '70px' : 'auto' }"
+    >
         <h5 class="text-center">
             Categories
         </h5>
@@ -25,6 +28,13 @@
                 </a>
             </li>
         </ul>
+
+        <div :class="$style.buttons">
+            <button
+                class="btn btn-secondary btn-sm"
+                v-text="collapsed ? '>>' : '<< Collapse'"
+            />
+        </div>
     </div>
 </template>
 
@@ -32,6 +42,7 @@
 export default {
     name: 'Sidebar',
     data: () => ({
+        collapsed: false,
         categories: [
             {
                 name: 'Category A',
@@ -69,6 +80,12 @@ export default {
         li a.selected {
             background: $light-component-border;
         }
+    }
+
+    .buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
     }
 }
 </style>
