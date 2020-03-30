@@ -1,12 +1,12 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 2b8212c..4861a96 100644
+index cc46189..4861a96 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -2,74 +2,25 @@
      <div class="container-fluid">
          <div class="row row-no-wrap">
              <aside class="col-xs-12 col-lg-3">
--                <div :class="[$style.aside, 'p-3', 'mt-5', 'mb-5']">
+-                <div :class="[$style.sidebar, 'p-3', 'mt-5', 'mb-5']">
 -                    <h5 class="text-center">
 -                        Categories
 -                    </h5>
@@ -60,7 +60,7 @@ index 2b8212c..4861a96 100644
 -<style lang="scss" module>
 -@import '../scss/components/light-component';
 -
--.aside {
+-.sidebar {
 -    @include light-component;
 -    margin-top: 65px;
 -
