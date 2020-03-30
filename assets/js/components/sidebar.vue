@@ -3,35 +3,38 @@
         :class="[$style.component, 'p-3', 'mt-5', 'mb-5']"
         :style="{ width: collapsed ? '70px' : 'auto' }"
     >
-        <h5 class="text-center">
-            Categories
-        </h5>
+        <div v-if="!collapsed">
+            <h5 class="text-center">
+                Categories
+            </h5>
 
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a
-                    class="nav-link"
-                    href="/"
-                >All Products</a>
-            </li>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a
+                        class="nav-link"
+                        href="/"
+                    >All Products</a>
+                </li>
 
-            <li
-                v-for="(category, index) in categories"
-                :key="index"
-                class="nav-item"
-            >
-                <a
-                    :href="category.link"
-                    class="nav-link"
+                <li
+                    v-for="(category, index) in categories"
+                    :key="index"
+                    class="nav-item"
                 >
-                    {{ category.name }}
-                </a>
-            </li>
-        </ul>
+                    <a
+                        :href="category.link"
+                        class="nav-link"
+                    >
+                        {{ category.name }}
+                    </a>
+                </li>
+            </ul>
+        </div>
 
         <div :class="$style.buttons">
             <button
                 class="btn btn-secondary btn-sm"
+                @click="toggleCollapsed"
                 v-text="collapsed ? '>>' : '<< Collapse'"
             />
         </div>
@@ -54,6 +57,11 @@ export default {
             },
         ],
     }),
+    methods: {
+        toggleCollapsed() {
+            this.collapsed = !this.collapsed;
+        },
+    },
 };
 </script>
 
