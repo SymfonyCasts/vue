@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row row-no-wrap">
             <aside class="col-xs-12 col-lg-3">
-                <div :class="[$style.aside, 'p-3', 'mt-5', 'mb-5']">
+                <div :class="[$style.sidebar, 'p-3', 'mt-5', 'mb-5']">
                     <h5 class="text-center">
                         Categories
                     </h5>
@@ -47,7 +47,7 @@ export default {
 <style lang="scss" module>
 @import '../scss/components/light-component';
 
-.aside {
+.sidebar {
     @include light-component;
     margin-top: 65px;
 
