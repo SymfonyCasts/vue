@@ -69,7 +69,7 @@ Encore
 
     .configureCssLoader(function(config) {
         if (!Encore.isProduction()) {
-            config.localIdentName = '[name]_[local]';
+            config.localIdentName = '[name]_[local]_[hash:base64:5]';
         }
     });
 
