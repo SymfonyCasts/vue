@@ -89,7 +89,22 @@
             "id": "sidebar-scan-and-correct-imports",
             "name": "Sidebar: Scan and Correct Imports",
             "description": null
+        },
+        {
+            "id": "collapsible-sidebar-adding-first-category-data",
+            "name": "Collapsible Sidebar: Adding First Category Data",
+            "description": null
+        },
+        {
+            "id": "collapsible-sidebar-collapsible-handle",
+            "name": "Collapsible Sidebar: Collapsible Handle",
+            "description": null
+        },
+        {
+            "id": "collapsible-sidebar-onclick-toggle-and-v-if",
+            "name": "Collapsible Sidebar: OnClick Toggle and v-if",
+            "description": null
         }
     ],
-    "sha": "722dc7b13ecb11a3ac91ee62f77ae182546d48cf"
+    "sha": "e23c6d23eac8c6b1a5b4f9ab782d668576b03f04"
 }
