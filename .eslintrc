@@ -20,6 +20,10 @@
     "no-param-reassign": 0,
     "import/extensions": 0,
     "import/no-unresolved": 0,
-    "import/prefer-default-export": 0
+    "import/prefer-default-export": 0,
+    "import/no-extraneous-dependencies": ["error", {
+      // allow devDependencies for packages
+      "devDependencies": true
+    }]
   }
 }
