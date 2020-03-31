@@ -31,7 +31,7 @@
         <div :class="$style.buttons">
             <button
                 class="btn btn-secondary btn-sm"
-                @click="toggleCollapsed"
+                @click="$emit('sidebar-collapsed')"
                 v-text="collapsed ? '>>' : '<< Collapse'"
             />
         </div>
@@ -41,8 +41,14 @@
 <script>
 export default {
     name: 'Sidebar',
+    props: {
+        collapsed: {
+            type: Boolean,
+            required: true,
+            default: false,
+        },
+    },
     data: () => ({
-        collapsed: false,
         categories: [
             {
                 name: 'Category A',
@@ -68,11 +74,6 @@ export default {
             }
 
             return classArray;
-        },
-    },
-    methods: {
-        toggleCollapsed() {
-            this.collapsed = !this.collapsed;
         },
     },
 };
