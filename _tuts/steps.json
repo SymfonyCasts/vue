@@ -104,7 +104,17 @@
             "id": "collapsible-sidebar-onclick-toggle-and-v-if",
             "name": "Collapsible Sidebar: OnClick Toggle and v-if",
             "description": null
+        },
+        {
+            "id": "sidebar-optimization-style-to-class",
+            "name": "Sidebar Optimization: Style to Class",
+            "description": null
+        },
+        {
+            "id": "sidebar-optimization-computed-property",
+            "name": "Sidebar optimization: Computed Property",
+            "description": null
         }
     ],
-    "sha": "e23c6d23eac8c6b1a5b4f9ab782d668576b03f04"
+    "sha": "53d4d771bcddab7a5e4a55f46c4f5db54b56e465"
 }
