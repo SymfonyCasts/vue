@@ -114,7 +114,27 @@
             "id": "sidebar-optimization-computed-property",
             "name": "Sidebar optimization: Computed Property",
             "description": null
+        },
+        {
+            "id": "collapsible-emmit-restructure-products",
+            "name": "Collapsible Emmit: Restructure Products",
+            "description": null
+        },
+        {
+            "id": "collapsible-emmit-restructure-sidebar",
+            "name": "Collapsible Emmit: Restructure Sidebar",
+            "description": null
+        },
+        {
+            "id": "collapsible-emmit-listen-to-emmit",
+            "name": "Collapsible Emmit: Listen to emmit",
+            "description": null
+        },
+        {
+            "id": "collapsible-emmit-change-layout",
+            "name": "Collapsible Emmit: Change Layout",
+            "description": null
         }
     ],
-    "sha": "53d4d771bcddab7a5e4a55f46c4f5db54b56e465"
+    "sha": "dbf4c02ca9d6067252c91045935adba385bde3f9"
 }
