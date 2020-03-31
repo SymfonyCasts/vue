@@ -134,7 +134,17 @@
             "id": "collapsible-emmit-change-layout",
             "name": "Collapsible Emmit: Change Layout",
             "description": null
+        },
+        {
+            "id": "products-listing-product-card",
+            "name": "Products Listing: Product Card",
+            "description": null
+        },
+        {
+            "id": "products-listing-attach-to-catalog",
+            "name": "Products Listing: Attach to Catalog",
+            "description": null
         }
     ],
-    "sha": "dbf4c02ca9d6067252c91045935adba385bde3f9"
+    "sha": "727031424663436c52063220cfe7657b6157f41a"
 }
