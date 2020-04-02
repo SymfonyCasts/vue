@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/loading.vue b/assets/js/components/loading.vue
 new file mode 100644
-index 0000000..893f08e
+index 0000000..601dc66
 --- /dev/null
 +++ b/assets/js/components/loading.vue
 @@ -0,0 +1,18 @@
@@ -18,7 +18,7 @@ index 0000000..893f08e
 +
 +<style lang="scss" module>
 +.component {
-+    background: url('/build/images/loading.gif') no-repeat left center;
++    background: url('../../images/loading.gif') no-repeat left center;
 +    padding: 0 0 4px 50px;
 +}
 +</style>
