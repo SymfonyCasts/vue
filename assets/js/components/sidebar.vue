@@ -49,16 +49,7 @@ export default {
         },
     },
     data: () => ({
-        categories: [
-            {
-                name: 'Category A',
-                link: '#',
-            },
-            {
-                name: 'Category B',
-                link: '#',
-            },
-        ],
+        categories: [],
     }),
     computed: {
         /**
