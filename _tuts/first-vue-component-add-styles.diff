@@ -1,5 +1,5 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index e52614f..4e37989 100644
+index e687971..f43b07f 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -2,7 +2,7 @@
@@ -11,7 +11,7 @@ index e52614f..4e37989 100644
                      <h5 class="text-center">
                          Categories
                      </h5>
-@@ -40,3 +40,30 @@ export default {
+@@ -52,3 +52,30 @@ export default {
      name: 'Products',
  };
  </script>
