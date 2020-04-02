@@ -27,7 +27,9 @@ class ProductController extends AbstractController
      */
     public function showCategory(int $id)
     {
-        return $this->render('product/index.html.twig');
+        return $this->render('product/index.html.twig', [
+            'currentCategoryId' => $id,
+        ]);
     }
 
     /**
