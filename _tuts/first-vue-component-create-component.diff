@@ -1,9 +1,9 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
 new file mode 100644
-index 0000000..e52614f
+index 0000000..e687971
 --- /dev/null
 +++ b/assets/js/products.vue
-@@ -0,0 +1,42 @@
+@@ -0,0 +1,54 @@
 +<template>
 +    <div class="container-fluid">
 +        <div class="row row-no-wrap">
@@ -19,6 +19,18 @@ index 0000000..e52614f
 +                                class="nav-link"
 +                                href="/"
 +                            >All Products</a>
++                        </li>
++                        <li class="nav-item">
++                            <a
++                                class="nav-link"
++                                href="#"
++                            >Category A</a>
++                        </li>
++                        <li class="nav-item">
++                            <a
++                                class="nav-link"
++                                href="#"
++                            >Category B</a>
 +                        </li>
 +                    </ul>
 +                </div>
