@@ -1,0 +1,20 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index 93d9fa5..e304dfa 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -1,5 +1,5 @@
+ <template>
+-    <div :class="[$style.sidebar, 'p-3', 'mt-5', 'mb-5']">
++    <div :class="[$style.component, 'p-3', 'mt-5', 'mb-5']">
+         <h5 class="text-center">
+             Categories
+         </h5>
+@@ -36,7 +36,7 @@ export default {
+ <style lang="scss" module>
+ @import '../../scss/components/light-component';
+ 
+-.sidebar {
++.component {
+     @include light-component;
+     margin-top: 65px;
+ 
