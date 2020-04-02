@@ -1,0 +1,32 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index d544f75..eb7557c 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -27,16 +27,26 @@ export default {
+         LegendComponent,
+         ProductList,
+     },
++    props: {
++        currentCategoryId: {
++            type: Number,
++            default: null,
++        },
++    },
+     data: () => ({
+         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
+         products: [],
+     }),
+     async created() {
++        const url = this.currentCategoryId
++            ? `/api/products?category=${this.currentCategoryId}`
++            : '/api/products';
++
+         this.products = [];
+ 
+         const response = await axios({
+             method: 'get',
+-            url: '/api/products',
++            url,
+         });
+ 
+         this.products = response.data['hydra:member'];
