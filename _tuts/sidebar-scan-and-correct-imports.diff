@@ -22,10 +22,10 @@ index c5ae437..8390a30 100644
  export default {
      name: 'Catalog',
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 5d53b96..31793e1 100644
+index e304dfa..ce91278 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -22,7 +22,7 @@ export default {
+@@ -34,7 +34,7 @@ export default {
  </script>
  
  <style lang="scss" module>

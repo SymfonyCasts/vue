@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 29ad693..38a51f9 100644
+index 2d820c6..fd840a7 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -26,9 +26,7 @@
+@@ -38,9 +38,7 @@
                  </div>
  
                  <div class="row">
@@ -13,7 +13,7 @@ index 29ad693..38a51f9 100644
                  </div>
              </div>
          </div>
-@@ -36,8 +34,13 @@
+@@ -48,8 +46,13 @@
  </template>
  
  <script>
