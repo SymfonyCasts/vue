@@ -1,5 +1,5 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 29ad693..cc46189 100644
+index 29ad693..38a51f9 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -26,9 +26,7 @@
@@ -9,7 +9,7 @@ index 29ad693..cc46189 100644
 -                    <span class="p-3">
 -                        {{ legend }}
 -                    </span>
-+                    <legend-component :title="legend" />
++                    <legend-component />
                  </div>
              </div>
          </div>
