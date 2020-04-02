@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 4e37989..29ad693 100644
+index f43b07f..2d820c6 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -27,7 +27,7 @@
+@@ -39,7 +39,7 @@
  
                  <div class="row">
                      <span class="p-3">
@@ -11,7 +11,7 @@ index 4e37989..29ad693 100644
                      </span>
                  </div>
              </div>
-@@ -38,6 +38,9 @@
+@@ -50,6 +50,9 @@
  <script>
  export default {
      name: 'Products',
