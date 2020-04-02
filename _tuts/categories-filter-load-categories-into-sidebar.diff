@@ -1,0 +1,22 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index 144d25b..df32552 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -49,16 +49,7 @@ export default {
+         },
+     },
+     data: () => ({
+-        categories: [
+-            {
+-                name: 'Category A',
+-                link: '#',
+-            },
+-            {
+-                name: 'Category B',
+-                link: '#',
+-            },
+-        ],
++        categories: [],
+     }),
+     computed: {
+         /**
