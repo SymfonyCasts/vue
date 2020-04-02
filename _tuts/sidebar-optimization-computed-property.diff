@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index b95ebe8..1896673 100644
+index 510b88b..1896673 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -1,13 +1,5 @@
+@@ -1,14 +1,6 @@
  <template>
 -    <div
 -        :class="{
@@ -13,10 +13,12 @@ index b95ebe8..1896673 100644
 -            'mb5': true
 -        }"
 -    >
+-        <div  v-if="!collapsed">
 +    <div :class="componentClass">
-         <div v-if="!collapsed">
++        <div v-if="!collapsed">
              <h5 class="text-center">
                  Categories
+             </h5>
 @@ -62,6 +54,22 @@ export default {
              },
          ],
