@@ -169,7 +169,42 @@
             "id": "products-listing-attach-to-catalog",
             "name": "Products Listing: Attach to Catalog",
             "description": null
+        },
+        {
+            "id": "loading-state-created-vs-mounted",
+            "name": "Loading State: Created vs Mounted",
+            "description": null
+        },
+        {
+            "id": "loading-state-create-loading-component",
+            "name": "Loading State: Create Loading Component",
+            "description": null
+        },
+        {
+            "id": "loading-state-add-loading-data-property",
+            "name": "Loading State: Add Loading data property",
+            "description": null
+        },
+        {
+            "id": "loading-state-import-loading-component-2",
+            "name": "Loading State: Import Loading Component 2",
+            "description": null
+        },
+        {
+            "id": "loading-state-product-list-template",
+            "name": "Loading State: Product List Template",
+            "description": null
+        },
+        {
+            "id": "blank-step-1",
+            "name": "blank step 1",
+            "description": null
+        },
+        {
+            "id": "blank-step-2",
+            "name": "blank step 2",
+            "description": null
         }
     ],
-    "sha": "0c9fe290b080c465c2b7ffdb83135905c0969d28"
+    "sha": "1334fab58aa4b6106d63722a7f88e0e001233b28"
 }
