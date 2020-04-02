@@ -34,13 +34,19 @@ export default {
     }),
     async created() {
         this.products = [];
+        this.loading = true;
 
-        const response = await axios({
-            method: 'get',
-            url: '/api/products',
-        });
+        try {
+            const response = await axios({
+                method: 'get',
+                url: '/api/products',
+            });
 
-        this.products = response.data['hydra:member'];
+            this.loading = false;
+            this.products = response.data['hydra:member'];
+        } catch (e) {
+            this.loading = false;
+        }
     },
 };
 </script>
