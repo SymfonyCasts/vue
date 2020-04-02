@@ -116,8 +116,18 @@
             "description": null
         },
         {
-            "id": "collapsible-sidebar-onclick-toggle-and-v-if",
-            "name": "Collapsible Sidebar: OnClick Toggle and v-if",
+            "id": "collapsible-sidebar-add-button",
+            "name": "Collapsible Sidebar: Add Button",
+            "description": null
+        },
+        {
+            "id": "collapsible-sidebar-onclick-toggle",
+            "name": "Collapsible Sidebar: OnClick Toggle",
+            "description": null
+        },
+        {
+            "id": "collapsible-sidebar-v-if-wrapper",
+            "name": "Collapsible Sidebar: v-if wrapper",
             "description": null
         },
         {
@@ -161,5 +171,5 @@
             "description": null
         }
     ],
-    "sha": "ddf3e414bd4f030e8fa2f026a97c1b12a3ad6e8c"
+    "sha": "0c9fe290b080c465c2b7ffdb83135905c0969d28"
 }
