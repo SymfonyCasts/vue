@@ -28,13 +28,6 @@
                 </a>
             </li>
         </ul>
-
-        <div :class="$style.buttons">
-            <button
-                class="btn btn-secondary btn-sm"
-                v-text="collapsed ? '>>' : '<< Collapse'"
-            />
-        </div>
     </div>
 </template>
 
@@ -80,12 +73,6 @@ export default {
         li a.selected {
             background: $light-component-border;
         }
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
     }
 }
 </style>
