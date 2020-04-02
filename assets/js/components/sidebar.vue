@@ -11,6 +11,18 @@
                     href="/"
                 >All Products</a>
             </li>
+            <li class="nav-item">
+                <a
+                    class="nav-link"
+                    href="#"
+                >Category A</a>
+            </li>
+            <li class="nav-item">
+                <a
+                    class="nav-link"
+                    href="#"
+                >Category B</a>
+            </li>
         </ul>
     </div>
 </template>
