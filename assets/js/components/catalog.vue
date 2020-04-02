@@ -8,7 +8,6 @@
 
         <product-list
             :products="products"
-            :loading="loading"
         />
 
         <div class="row">
@@ -31,23 +30,16 @@ export default {
     data: () => ({
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
         products: [],
-        loading: true,
     }),
     async created() {
         this.products = [];
-        this.loading = true;
 
-        try {
-            const response = await axios({
-                method: 'get',
-                url: '/api/products',
-            });
+        const response = await axios({
+            method: 'get',
+            url: '/api/products',
+        });
 
-            this.loading = false;
-            this.products = response.data['hydra:member'];
-        } catch (e) {
-            this.loading = false;
-        }
+        this.products = response.data['hydra:member'];
     },
 };
 </script>

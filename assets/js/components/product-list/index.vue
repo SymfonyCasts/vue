@@ -1,7 +1,10 @@
 <template>
     <div :class="$style.component">
+        <loading v-show="products.length === 0" />
+
         <product-card
             v-for="product in products"
+            v-show="products.length > 0"
             :key="product['@id']"
             :item="product"
         />
@@ -9,11 +12,13 @@
 </template>
 
 <script>
+import Loading from '@/components/loading';
 import ProductCard from '@/components/product-list/product-card';
 
 export default {
     name: 'ProductList',
     components: {
+        Loading,
         ProductCard,
     },
     props: {
@@ -26,6 +31,9 @@ export default {
             required: true,
         },
     },
+    data: () => ({
+        loading: true,
+    }),
 };
 </script>
 
