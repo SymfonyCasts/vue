@@ -56,13 +56,23 @@
             "description": null
         },
         {
+            "id": "child-component-import-from-products-vue",
+            "name": "Child Component: Import from products.vue",
+            "description": null
+        },
+        {
+            "id": "child-component-pass-value-as-props",
+            "name": "Child Component: Pass value as props",
+            "description": null
+        },
+        {
             "id": "child-component-better-props",
             "name": "Child Component: Better Props",
             "description": null
         },
         {
-            "id": "child-component-include-component",
-            "name": "Child Component: Include Component",
+            "id": "child-component-v-text",
+            "name": "Child Component: v-text",
             "description": null
         },
         {
@@ -146,5 +156,5 @@
             "description": null
         }
     ],
-    "sha": "727031424663436c52063220cfe7657b6157f41a"
+    "sha": "53863043b6c9357b3605f0d1674b1c9c543186b8"
 }

@@ -1,0 +1,31 @@
+diff --git a/assets/js/components/legend.vue b/assets/js/components/legend.vue
+index 96696bc..9bdd07b 100644
+--- a/assets/js/components/legend.vue
++++ b/assets/js/components/legend.vue
+@@ -1,11 +1,12 @@
+ <template>
+     <span class="p-3">
+-        Shipping takes 10-12 weeks, and products probably won't work
++        {{ title }}
+     </span>
+ </template>
+ 
+ <script>
+ export default {
+     name: 'Legend',
++    props: ['title'],
+ };
+ </script>
+diff --git a/assets/js/products.vue b/assets/js/products.vue
+index 38a51f9..cc46189 100644
+--- a/assets/js/products.vue
++++ b/assets/js/products.vue
+@@ -26,7 +26,7 @@
+                 </div>
+ 
+                 <div class="row">
+-                    <legend-component />
++                    <legend-component :title="legend" />
+                 </div>
+             </div>
+         </div>
