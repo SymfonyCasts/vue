@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 729d132..3184d6b 100644
+index 729d132..8643eee 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -1,5 +1,8 @@
@@ -12,21 +12,7 @@ index 729d132..3184d6b 100644
          <h5 class="text-center">
              Categories
          </h5>
-@@ -25,6 +28,13 @@
-                 </a>
-             </li>
-         </ul>
-+
-+        <div :class="$style.buttons">
-+            <button
-+                class="btn btn-secondary btn-sm"
-+                v-text="collapsed ? '>>' : '<< Collapse'"
-+            />
-+        </div>
-     </div>
- </template>
- 
-@@ -32,6 +42,7 @@
+@@ -32,6 +35,7 @@
  export default {
      name: 'Sidebar',
      data: () => ({
@@ -34,15 +20,3 @@ index 729d132..3184d6b 100644
          categories: [
              {
                  name: 'Category A',
-@@ -70,5 +81,11 @@ export default {
-             background: $light-component-border;
-         }
-     }
-+
-+    .buttons {
-+        display: flex;
-+        flex-direction: row;
-+        justify-content: flex-end;
-+    }
- }
- </style>
