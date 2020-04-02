@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import LegendComponent from './components/legend'
+import LegendComponent from './components/legend';
 
 export default {
     name: 'Products',
