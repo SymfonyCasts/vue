@@ -1,0 +1,30 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index 8643eee..3184d6b 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -28,6 +28,13 @@
+                 </a>
+             </li>
+         </ul>
++
++        <div :class="$style.buttons">
++            <button
++                class="btn btn-secondary btn-sm"
++                v-text="collapsed ? '>>' : '<< Collapse'"
++            />
++        </div>
+     </div>
+ </template>
+ 
+@@ -74,5 +81,11 @@ export default {
+             background: $light-component-border;
+         }
+     }
++
++    .buttons {
++        display: flex;
++        flex-direction: row;
++        justify-content: flex-end;
++    }
+ }
+ </style>
