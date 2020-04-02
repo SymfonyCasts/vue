@@ -214,7 +214,37 @@
             "id": "load-categories-correct-template",
             "name": "Load Categories: Correct Template",
             "description": null
+        },
+        {
+            "id": "categories-filter-controller-variable",
+            "name": "Categories Filter: Controller variable",
+            "description": null
+        },
+        {
+            "id": "categories-filter-template-variable",
+            "name": "Categories Filter: Template Variable",
+            "description": null
+        },
+        {
+            "id": "categories-filter-add-variable-to-app",
+            "name": "Categories Filter: Add variable to App",
+            "description": null
+        },
+        {
+            "id": "categories-filter-define-prop-in-product-app",
+            "name": "Categories Filter: Define prop in Product App",
+            "description": null
+        },
+        {
+            "id": "categories-filter-pass-the-prop-down-to-catalog",
+            "name": "Categories Filter: Pass the prop down to Catalog",
+            "description": null
+        },
+        {
+            "id": "categories-filter-add-categoryprop-in-catalog",
+            "name": "Categories Filter: Add categoryprop in Catalog",
+            "description": null
         }
     ],
-    "sha": "b722e2894a7d173a5af3c536adc648357efe60d3"
+    "sha": "7f75dcc825019a3d34b67bb3d69b674cad5cda73"
 }
