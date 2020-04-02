@@ -12,7 +12,7 @@ export default {
 
 <style lang="scss" module>
 .component {
-    background: url('/build/images/loading.gif') no-repeat left center;
+    background: url('../../images/loading.gif') no-repeat left center;
     padding: 0 0 4px 50px;
 }
 </style>
