@@ -8,7 +8,7 @@
             'mb5': true
         }"
     >
-        <div v-if="!collapsed">
+        <div  v-if="!collapsed">
             <h5 class="text-center">
                 Categories
             </h5>

@@ -1,28 +1,36 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 31793e1..729d132 100644
+index ce91278..729d132 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -11,6 +11,19 @@
+@@ -11,17 +11,18 @@
                      href="/"
                  >All Products</a>
              </li>
+-            <li class="nav-item">
+-                <a
+-                    class="nav-link"
+-                    href="#"
+-                >Category A</a>
+-            </li>
+-            <li class="nav-item">
 +
 +            <li
 +                v-for="(category, index) in categories"
 +                :key="index"
 +                class="nav-item"
 +            >
-+                <a
+                 <a
 +                    :href="category.link"
-+                    class="nav-link"
+                     class="nav-link"
+-                    href="#"
+-                >Category B</a>
 +                >
 +                    {{ category.name }}
 +                </a>
-+            </li>
+             </li>
          </ul>
      </div>
- </template>
-@@ -18,6 +31,18 @@
+@@ -30,6 +31,18 @@
  <script>
  export default {
      name: 'Sidebar',
