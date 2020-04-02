@@ -1,7 +1,8 @@
 <template>
-    <span class="p-3">
-        {{ title }}
-    </span>
+    <span
+        v-text="title"
+        class="p-3"
+    />
 </template>
 
 <script>
