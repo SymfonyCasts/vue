@@ -16,15 +16,15 @@ export default {
     components: {
         ProductCard,
     },
-    data: () => ({
-        loading: true,
-    }),
     props: {
         products: {
             type: Array,
             required: true,
         },
     },
+    data: () => ({
+        loading: true,
+    }),
 };
 </script>
 
