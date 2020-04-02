@@ -196,25 +196,25 @@
             "description": null
         },
         {
-            "id": "categories-filter-load-categories-into-sidebar",
-            "name": "Categories Filter: Load Categories Into Sidebar",
+            "id": "load-categories-remvoe-data",
+            "name": "Load Categories: Remvoe Data",
             "description": null
         },
         {
-            "id": "categories-filter-load-categories-into-sidebar-create-method",
-            "name": "Categories Filter: Load Categories Into Sidebar, Create method",
+            "id": "load-categories-create-method",
+            "name": "Load Categories: Create Method",
             "description": null
         },
         {
-            "id": "categories-filter-load-categories-into-sidebar-correct-create",
-            "name": "Categories Filter: Load Categories into Sidebar, correct create",
+            "id": "laod-categories-correct-create-method",
+            "name": "Laod Categories: Correct Create Method",
             "description": null
         },
         {
-            "id": "categories-filter-load-categories-into-sidebar-correct-template",
-            "name": "Categories Filter:  Load Categories into Sidebar, Correct Template",
+            "id": "load-categories-correct-template",
+            "name": "Load Categories: Correct Template",
             "description": null
         }
     ],
-    "sha": "5275d4fcd7d50eb38df40c21a12085807de88f0a"
+    "sha": "b722e2894a7d173a5af3c536adc648357efe60d3"
 }
