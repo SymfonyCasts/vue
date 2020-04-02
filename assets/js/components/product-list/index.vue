@@ -16,6 +16,9 @@ export default {
     components: {
         ProductCard,
     },
+    data: () => ({
+        loading: true,
+    }),
     props: {
         products: {
             type: Array,

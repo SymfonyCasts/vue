@@ -30,7 +30,6 @@ export default {
     data: () => ({
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
         products: [],
-        loading: true,
     }),
     async created() {
         this.products = [];
