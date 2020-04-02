@@ -3,7 +3,7 @@
         :class="[$style.component, 'p-3', 'mt-5', 'mb-5']"
         :style="{ width: collapsed ? '70px' : 'auto' }"
     >
-        <div v-if="!collapsed">
+        <div>
             <h5 class="text-center">
                 Categories
             </h5>
