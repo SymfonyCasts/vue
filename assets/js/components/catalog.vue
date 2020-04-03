@@ -44,12 +44,14 @@ export default {
             : '/api/products';
 
         this.products = [];
+        this.loading = true;
 
         const response = await axios({
             method: 'get',
             url,
         });
 
+        this.loading = false;
         this.products = response.data['hydra:member'];
     },
 };
