@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index df32552..5975869 100644
+index e134d33..fdea93f 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -39,6 +39,8 @@
@@ -11,10 +11,10 @@ index df32552..5975869 100644
  export default {
      name: 'Sidebar',
      props: {
-@@ -67,6 +69,16 @@ export default {
-             return classArray;
-         },
-     },
+@@ -51,6 +53,16 @@ export default {
+     data: () => ({
+         categories: [],
+     }),
 +    async created() {
 +        this.products = [];
 +
