@@ -1,10 +1,10 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 5975869..0ae3e46 100644
+index fdea93f..a3d43e1 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -70,14 +70,14 @@ export default {
-         },
-     },
+@@ -54,14 +54,14 @@ export default {
+         categories: [],
+     }),
      async created() {
 -        this.products = [];
 +        this.categories = [];
