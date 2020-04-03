@@ -1,0 +1,12 @@
+diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
+index b437c50..def694d 100644
+--- a/templates/product/index.html.twig
++++ b/templates/product/index.html.twig
+@@ -14,6 +14,7 @@
+ 
+     <script>
+         window.currentCategoryId = {{ currentCategoryId|default('null') }};
++        window.categories = {{ categoriesJson|raw }};
+     </script>
+ 
+     {{ encore_entry_script_tags('products') }}
