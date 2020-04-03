@@ -244,7 +244,62 @@
             "id": "categories-filter-add-categoryprop-in-catalog",
             "name": "Categories Filter: Add categoryprop in Catalog",
             "description": null
+        },
+        {
+            "id": "better-loading-add-loading-data-property",
+            "name": "Better Loading: Add loading data property",
+            "description": null
+        },
+        {
+            "id": "better-loading-implement-loading-in-created",
+            "name": "Better Loading: Implement loading in created",
+            "description": null
+        },
+        {
+            "id": "better-loading-try-catch",
+            "name": "Better Loading: Try catch",
+            "description": null
+        },
+        {
+            "id": "better-loading-catalog-template",
+            "name": "Better Loading: Catalog Template",
+            "description": null
+        },
+        {
+            "id": "better-loading-remove-data-property",
+            "name": "Better Loading: Remove data property",
+            "description": null
+        },
+        {
+            "id": "better-loading-add-prop-to-product-list",
+            "name": "Better Loading: Add prop to Product List",
+            "description": null
+        },
+        {
+            "id": "better-loading-product-list-template",
+            "name": "Better Loading: Product List Template",
+            "description": null
+        },
+        {
+            "id": "better-loading-sidebar-loading-data",
+            "name": "Better Loading: Sidebar loading data",
+            "description": null
+        },
+        {
+            "id": "better-loading-sidebar-created-method",
+            "name": "Better Loading: Sidebar Created Method",
+            "description": null
+        },
+        {
+            "id": "better-loading-sidebar-import-loading",
+            "name": "Better Loading: Sidebar Import Loading",
+            "description": null
+        },
+        {
+            "id": "better-loading-sidebar-loading-in-template",
+            "name": "Better Loading: Sidebar Loading in Template",
+            "description": null
         }
     ],
-    "sha": "7f75dcc825019a3d34b67bb3d69b674cad5cda73"
+    "sha": "02afa32058c677655d89d2bb66469b6a6574250a"
 }
