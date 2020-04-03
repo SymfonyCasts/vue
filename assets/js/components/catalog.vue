@@ -46,13 +46,17 @@ export default {
         this.products = [];
         this.loading = true;
 
-        const response = await axios({
-            method: 'get',
-            url,
-        });
+        try {
+            const response = await axios({
+                method: 'get',
+                url,
+            });
 
-        this.loading = false;
-        this.products = response.data['hydra:member'];
+            this.loading = false;
+            this.products = response.data['hydra:member'];
+        } catch (e) {
+            this.loading = false;
+        }
     },
 };
 </script>
