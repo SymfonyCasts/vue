@@ -41,4 +41,13 @@ class ProductController extends AbstractController
     {
         return $this->render('product/index.html.twig');
     }
+
+    /**
+     * @return Category[]
+     */
+    private function getCategories() {
+        $entityManager = $this->getDoctrine()->getManager();
+
+        return $entityManager->getRepository(Category::class)->findAll();
+    }
 }
