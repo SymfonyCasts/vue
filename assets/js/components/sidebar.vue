@@ -64,9 +64,6 @@ export default {
             default: () => ([]),
         },
     },
-    data: () => ({
-        categories: [],
-    }),
     computed: {
         /**
          * Computes the component classes depending on collapsed state
