@@ -1,5 +1,5 @@
 <template>
-    <div :class="componentClass">
+    <div :class="[$style.component, 'p-3', 'mt-5', 'mb5']">
         <div v-if="!collapsed">
             <h5 class="text-center">
                 Categories
@@ -58,22 +58,6 @@ export default {
         loading: true,
         categories: [],
     }),
-    computed: {
-        /**
-         * Computes the component classes depending on collapsed state
-         *
-         * @return string[]
-         */
-        componentClass() {
-            const classArray = [this.$style.component, 'p-3', 'mt-5', 'mb5'];
-
-            if (this.collapsed) {
-                classArray.push(this.$style.collapsed);
-            }
-
-            return classArray;
-        },
-    },
     async created() {
         this.loading = true;
         this.categories = [];
@@ -99,10 +83,6 @@ export default {
 .component {
     @include light-component;
     margin-top: 65px;
-
-    &.collapsed {
-        width: 70px;
-    }
 
     ul {
         border-bottom: 1px solid $light-component-border;
