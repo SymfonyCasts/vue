@@ -28,8 +28,8 @@ export default {
         ProductList,
     },
     data: () => ({
-        legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
         products: [],
+        legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
     async mounted() {
         this.products = [];
