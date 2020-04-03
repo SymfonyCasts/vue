@@ -299,7 +299,57 @@
             "id": "better-loading-sidebar-loading-in-template",
             "name": "Better Loading: Sidebar Loading in Template",
             "description": null
+        },
+        {
+            "id": "optimize-load-times-add-getcategories-method-to-controller",
+            "name": "Optimize Load Times: add getCategories method to Controller",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-add-categoriesjson-to-controller",
+            "name": "Optimized Load Times: Add categoriesJson to Controller",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-categoriesjson-in-template",
+            "name": "Optimized Load Times: categoriesJson in template",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-categories-in-products-js",
+            "name": "Optimized Load Times: Categories in products.js",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-add-categories-prop",
+            "name": "optimized Load Times: Add categories prop",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-pass-props-in-templates",
+            "name": "Optimized Load Times: Pass Props in Templates",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-remove-loading-from-sidebar",
+            "name": "Optimized Load Times: Remove Loading from Sidebar",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-remove-created-from-sidebar",
+            "name": "Optimized Load Times: Remove created from Sidebar",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-add-selected-class-in-template",
+            "name": "Optimized Load Times: Add selected class in template",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-add-selected-class-in-scss",
+            "name": "Optimized Load Times: Add selected class in scss",
+            "description": null
         }
     ],
-    "sha": "02afa32058c677655d89d2bb66469b6a6574250a"
+    "sha": "3d5392c058036eecec3169dc4fc16a2c9ab0f5d6"
 }
