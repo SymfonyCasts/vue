@@ -11,6 +11,11 @@
             </aside>
 
             <div :class="contentClass">
+                <title
+                    :current-category-id="currentCategoryId"
+                    :categories="categories"
+                />
+
                 <catalog-component :current-category-id="currentCategoryId" />
             </div>
         </div>
@@ -20,12 +25,14 @@
 <script>
 import CatalogComponent from '@/components/catalog';
 import SidebarComponent from '@/components/sidebar';
+import Title from '@/components/title';
 
 export default {
     name: 'Products',
     components: {
         CatalogComponent,
         SidebarComponent,
+        Title,
     },
     props: {
         currentCategoryId: {
