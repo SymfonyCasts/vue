@@ -1,0 +1,52 @@
+diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
+index 523ddf1..bc58924 100644
+--- a/src/Controller/ProductController.php
++++ b/src/Controller/ProductController.php
+@@ -13,33 +13,42 @@ class ProductController extends AbstractController
+ {
+     /**
+      * @Route("/", name="app_homepage")
++     * @param SerializerInterface $serializer
+      * @return Response
+      */
+-    public function index()
++    public function index(SerializerInterface $serializer)
+     {
+-        return $this->render('product/index.html.twig');
++        return $this->render('product/index.html.twig', [
++            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
++        ]);
+     }
+ 
+     /**
+      * @Route("/category/{id}", name="app_category")
+      * @param int $id
++     * @param SerializerInterface $serializer
+      * @return Response
+      */
+-    public function showCategory(int $id)
++    public function showCategory(int $id, SerializerInterface $serializer)
+     {
+         return $this->render('product/index.html.twig', [
+             'currentCategoryId' => $id,
++            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
+         ]);
+     }
+ 
+     /**
+      * @Route("/product/{id}", name="app_product")
+      * @param int $id
++     * @param SerializerInterface $serializer
+      * @return Response
+      */
+-    public function showProduct(int $id)
++    public function showProduct(int $id, SerializerInterface $serializer)
+     {
+-        return $this->render('product/index.html.twig');
++        return $this->render('product/index.html.twig', [
++            'currentProductId' => $id,
++            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
++        ]);
+     }
+ 
+     /**
