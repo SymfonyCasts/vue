@@ -76,10 +76,6 @@ export default {
         li a:hover {
             background: $blue-component-link-hover;
         }
-
-        li a.selected {
-            background: $light-component-border;
-        }
     }
 
     .buttons {
