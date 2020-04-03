@@ -1,0 +1,18 @@
+diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
+index f2f5f40..523ddf1 100644
+--- a/src/Controller/ProductController.php
++++ b/src/Controller/ProductController.php
+@@ -41,4 +41,13 @@ class ProductController extends AbstractController
+     {
+         return $this->render('product/index.html.twig');
+     }
++
++    /**
++     * @return Category[]
++     */
++    private function getCategories() {
++        $entityManager = $this->getDoctrine()->getManager();
++
++        return $entityManager->getRepository(Category::class)->findAll();
++    }
+ }
