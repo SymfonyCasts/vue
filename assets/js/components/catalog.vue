@@ -35,6 +35,7 @@ export default {
     },
     data: () => ({
         products: [],
+        loading: true,
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
     async created() {
