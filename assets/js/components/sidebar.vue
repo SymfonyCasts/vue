@@ -56,10 +56,6 @@ export default {
             default: () => ([]),
         },
     },
-    data: () => ({
-        loading: true,
-        categories: [],
-    }),
     async created() {
         this.loading = true;
         this.categories = [];
