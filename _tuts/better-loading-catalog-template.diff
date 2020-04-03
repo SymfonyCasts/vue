@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 63472ee..391b077 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -8,6 +8,7 @@
+ 
+         <product-list
+             :products="products"
++            :loading="loading"
+         />
+ 
+         <div class="row">
