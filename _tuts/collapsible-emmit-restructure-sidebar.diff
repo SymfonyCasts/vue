@@ -1,7 +1,14 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 1896673..144d25b 100644
+index e5738e1..b32a0b6 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
+@@ -1,5 +1,5 @@
+ <template>
+-    <div :class="componentClass">
++    <div :class="[$style.component, 'p-3', 'mt-5', 'mb5']">
+         <div v-if="!collapsed">
+             <h5 class="text-center">
+                 Categories
 @@ -31,7 +31,7 @@
          <div :class="$style.buttons">
              <button
@@ -27,10 +34,26 @@ index 1896673..144d25b 100644
          categories: [
              {
                  name: 'Category A',
-@@ -70,11 +76,6 @@ export default {
-             return classArray;
-         },
-     },
+@@ -54,27 +60,6 @@ export default {
+             },
+         ],
+     }),
+-    computed: {
+-        /**
+-         * Computes the component classes depending on collapsed state
+-         *
+-         * @return string[]
+-         */
+-        componentClass() {
+-            const classArray = [this.$style.component, 'p-3', 'mt-5', 'mb5'];
+-
+-            if (this.collapsed) {
+-                classArray.push(this.$style.collapsed);
+-            }
+-
+-            return classArray;
+-        },
+-    },
 -    methods: {
 -        toggleCollapsed() {
 -            this.collapsed = !this.collapsed;
@@ -39,3 +62,14 @@ index 1896673..144d25b 100644
  };
  </script>
  
+@@ -85,10 +70,6 @@ export default {
+     @include light-component;
+     margin-top: 65px;
+ 
+-    &.collapsed {
+-        width: 70px;
+-    }
+-
+     ul {
+         border-bottom: 1px solid $light-component-border;
+         margin-bottom: 20px;
