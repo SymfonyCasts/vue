@@ -1,0 +1,28 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 804b921..63472ee 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -46,13 +46,17 @@ export default {
+         this.products = [];
+         this.loading = true;
+ 
+-        const response = await axios({
+-            method: 'get',
+-            url,
+-        });
++        try {
++            const response = await axios({
++                method: 'get',
++                url,
++            });
+ 
+-        this.loading = false;
+-        this.products = response.data['hydra:member'];
++            this.loading = false;
++            this.products = response.data['hydra:member'];
++        } catch (e) {
++            this.loading = false;
++        }
+     },
+ };
+ </script>
