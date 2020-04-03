@@ -8,6 +8,7 @@
 
         <product-list
             :products="products"
+            :loading="loading"
         />
 
         <div class="row">
