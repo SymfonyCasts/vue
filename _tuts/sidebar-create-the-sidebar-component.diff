@@ -1,9 +1,9 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
 new file mode 100644
-index 0000000..93d9fa5
+index 0000000..1209fa0
 --- /dev/null
 +++ b/assets/js/components/sidebar.vue
-@@ -0,0 +1,61 @@
+@@ -0,0 +1,57 @@
 +<template>
 +    <div :class="[$style.sidebar, 'p-3', 'mt-5', 'mb-5']">
 +        <h5 class="text-center">
@@ -57,10 +57,6 @@ index 0000000..93d9fa5
 +
 +        li a:hover {
 +            background: $blue-component-link-hover;
-+        }
-+
-+        li a.selected {
-+            background: $light-component-border;
 +        }
 +    }
 +}
