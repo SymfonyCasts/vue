@@ -56,22 +56,6 @@ export default {
             default: () => ([]),
         },
     },
-    async created() {
-        this.loading = true;
-        this.categories = [];
-
-        try {
-            const response = await axios({
-                method: 'get',
-                url: '/api/categories',
-            });
-
-            this.loading = false;
-            this.categories = response.data['hydra:member'];
-        } catch (e) {
-            this.loading = false;
-        }
-    },
 };
 </script>
 
