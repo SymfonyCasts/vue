@@ -55,6 +55,14 @@ export default {
             required: true,
             default: false,
         },
+        currentCategoryId: {
+            type: Number,
+            default: null,
+        },
+        categories: {
+            type: Array,
+            default: () => ([]),
+        },
     },
     data: () => ({
         loading: true,
