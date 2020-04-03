@@ -1,0 +1,13 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index b857900..ae43bbf 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -5,6 +5,8 @@
+                 Categories
+             </h5>
+ 
++            <loading-component v-show="loading" />
++
+             <ul class="nav flex-column">
+                 <li class="nav-item">
+                     <a
