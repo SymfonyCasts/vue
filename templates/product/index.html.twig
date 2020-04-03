@@ -14,6 +14,7 @@
 
     <script>
         window.currentCategoryId = {{ currentCategoryId|default('null') }};
+        window.categories = {{ categoriesJson|raw }};
     </script>
 
     {{ encore_entry_script_tags('products') }}
