@@ -349,7 +349,22 @@
             "id": "optimized-load-times-add-selected-class-in-scss",
             "name": "Optimized Load Times: Add selected class in scss",
             "description": null
+        },
+        {
+            "id": "title-component-create-component",
+            "name": "Title Component: Create Component",
+            "description": null
+        },
+        {
+            "id": "title-component-remove-title",
+            "name": "Title Component: Remove title",
+            "description": null
+        },
+        {
+            "id": "title-component-add-component-to-products",
+            "name": "Title Component: Add component to Products",
+            "description": null
         }
     ],
-    "sha": "3d5392c058036eecec3169dc4fc16a2c9ab0f5d6"
+    "sha": "0019f0c6ebe0e9c1ee094ca226761feb18909502"
 }
