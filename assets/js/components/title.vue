@@ -21,7 +21,7 @@ export default {
     },
     computed: {
         category() {
-            if (typeof this.currentCategoryId === 'undefined') {
+            if (this.currentCategoryId === null) {
                 return {
                     id: null,
                     name: 'All Products',
