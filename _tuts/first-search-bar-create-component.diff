@@ -1,0 +1,33 @@
+diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
+new file mode 100644
+index 0000000..9829186
+--- /dev/null
++++ b/assets/js/components/search-bar.vue
+@@ -0,0 +1,27 @@
++<template>
++    <div :class="$style.component">
++        <input
++            v-model="searchTerm"
++            class="form-control"
++            placeholder="Search products..."
++            type="text"
++        />
++    </div>
++</template>
++
++<script>
++export default {
++    name: 'SearchBar',
++    data: () => ({
++        searchTerm: '',
++    }),
++};
++</script>
++
++<style lang="scss" module>
++@import '~styles/variables/colors.scss';
++
++.component {
++    width: 400px;
++}
++</style>
