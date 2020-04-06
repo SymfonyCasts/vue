@@ -2,7 +2,7 @@
     <div>
         <div class="row">
             <div :class="$style['top-bar']">
-                <breadcrumb
+                <title-component
                     :current-category-id="currentCategoryId"
                     :categories="categories"
                 />
