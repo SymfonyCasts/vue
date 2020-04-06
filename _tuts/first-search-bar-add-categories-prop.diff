@@ -1,0 +1,15 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index ae8eb57..0c8fa18 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -43,6 +43,10 @@ export default {
+             type: Number,
+             default: null,
+         },
++        categories: {
++            type: Array,
++            default: () => ([]),
++        },
+     },
+     data: () => ({
+         products: [],
