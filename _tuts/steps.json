@@ -301,8 +301,8 @@
             "description": null
         },
         {
-            "id": "optimize-load-times-add-getcategories-method-to-controller",
-            "name": "Optimize Load Times: add getCategories method to Controller",
+            "id": "optimized-load-times-add-getcategories-method-to-controller",
+            "name": "Optimized Load Times: Add getCategories method to Controller",
             "description": null
         },
         {
@@ -421,5 +421,5 @@
             "description": null
         }
     ],
-    "sha": "f449732dd364d1b3fd4ca06adaac62a9624dee7b"
+    "sha": "a369a424befa95a09669332e3c552037837b3785"
 }
