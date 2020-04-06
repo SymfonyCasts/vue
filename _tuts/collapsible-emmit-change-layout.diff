@@ -48,14 +48,14 @@ index 21e2e7a..7c847e7 100644
  .header {
 diff --git a/assets/scss/collapsible.scss b/assets/scss/collapsible.scss
 new file mode 100644
-index 0000000..8a060a4
+index 0000000..0570e0d
 --- /dev/null
 +++ b/assets/scss/collapsible.scss
 @@ -0,0 +1,7 @@
 +.aside-collapsed {
-+  padding: 0 15px;
++    padding: 0 15px;
 +}
 +
 +.row-no-wrap {
-+  flex-wrap: nowrap !important;
++    flex-wrap: nowrap !important;
 +}
