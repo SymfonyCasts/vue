@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 0c8fa18..81d6310 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -75,3 +75,7 @@ export default {
+     },
+ };
+ </script>
++
++<style lang="scss" module>
++    @import '~styles/top-bar.scss';
++</style>
