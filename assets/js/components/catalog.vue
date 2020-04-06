@@ -1,9 +1,21 @@
 <template>
     <div>
-        <product-list
-            :products="products"
-            :loading="loading"
-        />
+        <div class="row">
+            <div :class="$style['top-bar']">
+                <breadcrumb
+                    :current-category-id="currentCategoryId"
+                    :categories="categories"
+                />
+
+                <search-bar @search-products="onSearchProducts" />
+            </div>
+
+            <product-list
+                :products="products"
+                :loading="loading"
+            />
+        </div>
+
 
         <div class="row">
             <legend-component :title="legend" />
