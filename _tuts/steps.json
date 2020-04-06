@@ -364,7 +364,62 @@
             "id": "title-component-add-component-to-products",
             "name": "Title Component: Add component to Products",
             "description": null
+        },
+        {
+            "id": "first-search-bar-create-component",
+            "name": "First Search Bar: Create Component",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-watcher",
+            "name": "First Search Bar: Add Watcher",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-remove-title-from-products",
+            "name": "First Search Bar: Remove Title from Products",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-title-and-search-bar-to-catalog",
+            "name": "First Search Bar: Add title and search bar to catalog",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-include-new-components",
+            "name": "First Search Bar: Include new components",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-categories-prop",
+            "name": "First Search Bar: Add categories prop",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-scss-file",
+            "name": "First Search Bar: Add scss file",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-include-scss-file",
+            "name": "First Search Bar: Include scss file",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-searchterm-data-to-catalog",
+            "name": "First Search Bar: Add searchTerm data to catalog",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-onsearchproducts-method",
+            "name": "First Search Bar: onSearchProducts method",
+            "description": null
+        },
+        {
+            "id": "first-search-bad-add-computed-property",
+            "name": "First Search Bad: Add Computed property",
+            "description": null
         }
     ],
-    "sha": "0019f0c6ebe0e9c1ee094ca226761feb18909502"
+    "sha": "f449732dd364d1b3fd4ca06adaac62a9624dee7b"
 }
