@@ -1,5 +1,5 @@
 <template>
-    <div :class="[$style.component, 'p-3', 'mt-5', 'mb5']">
+    <div :class="[$style.component, 'p-3', 'mb-5']">
         <div v-if="!collapsed">
             <h5 class="text-center">
                 Categories
