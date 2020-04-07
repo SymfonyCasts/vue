@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index e16fe5c..fa39478 100644
+index e623ba9..3d945c5 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -11,7 +11,7 @@
@@ -11,7 +11,7 @@ index e16fe5c..fa39478 100644
                  :loading="loading"
              />
          </div>
-@@ -54,6 +54,15 @@ export default {
+@@ -53,6 +53,15 @@ export default {
          loading: true,
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
