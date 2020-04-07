@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
 new file mode 100644
-index 0000000..1209fa0
+index 0000000..0c8bcbd
 --- /dev/null
 +++ b/assets/js/components/sidebar.vue
 @@ -0,0 +1,57 @@
 +<template>
-+    <div :class="[$style.sidebar, 'p-3', 'mt-5', 'mb-5']">
++    <div :class="[$style.sidebar, 'p-3', 'mb-5']">
 +        <h5 class="text-center">
 +            Categories
 +        </h5>
