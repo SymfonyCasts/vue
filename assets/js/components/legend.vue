@@ -1,7 +1,7 @@
 <template>
     <span
-        v-text="title"
         class="p-3"
+        v-text="title"
     />
 </template>
 
