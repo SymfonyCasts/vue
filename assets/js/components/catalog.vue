@@ -16,7 +16,6 @@
             />
         </div>
 
-
         <div class="row">
             <legend-component :title="legend" />
         </div>
