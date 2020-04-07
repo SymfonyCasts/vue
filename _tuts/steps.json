@@ -509,7 +509,72 @@
             "id": "v-input-search-bar-fix-erasesearchterm",
             "name": "V-Input Search Bar: Fix eraseSearchTerm",
             "description": null
+        },
+        {
+            "id": "linking-products-add-a-tags",
+            "name": "Linking Products: Add A tags",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-button-click-event",
+            "name": "Linking Products: Add button @click event",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-producturl-property",
+            "name": "Linking Products: Add productUrl property",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-click-handler",
+            "name": "Linking Products: Add click handler",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-template-variable",
+            "name": "Linking Products: Add template variable",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-template-variable-to-main-component",
+            "name": "Linking Products: Add template variable to main component",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-prop-to-products-vue",
+            "name": "Linking Products: Add prop to Products.vue",
+            "description": null
+        },
+        {
+            "id": "linking-products-create-blank-product-component",
+            "name": "Linking Products: Create Blank Product Component",
+            "description": null
+        },
+        {
+            "id": "linking-products-include-product-from-products",
+            "name": "Linking Products: Include Product from Products",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-computed-property",
+            "name": "Linking Products: Add computed property",
+            "description": null
+        },
+        {
+            "id": "linking-products-modify-products-template",
+            "name": "Linking Products: Modify products template",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-missing-prop-to-catalog",
+            "name": "Linking Products: Add missing prop to catalog",
+            "description": null
+        },
+        {
+            "id": "linking-products-copy-props-to-product-component",
+            "name": "Linking Products: Copy props to Product component",
+            "description": null
         }
     ],
-    "sha": "b0de06b3228f1bf04a30e7233d87631482fb2b20"
+    "sha": "0ad32d44641f7ab04f24f9f1fa3862400cee399b"
 }
