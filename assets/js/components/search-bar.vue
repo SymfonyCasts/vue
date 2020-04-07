@@ -5,7 +5,7 @@
             class="form-control"
             placeholder="Search products..."
             type="text"
-        />
+        >
     </div>
 </template>
 
