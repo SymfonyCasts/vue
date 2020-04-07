@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index a915bc1..17beb50 100644
+index a915bc1..0650680 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -1,9 +1,21 @@
+@@ -1,9 +1,20 @@
  <template>
      <div>
 -        <product-list
@@ -24,7 +24,6 @@ index a915bc1..17beb50 100644
 +                :loading="loading"
 +            />
 +        </div>
-+
  
          <div class="row">
              <legend-component :title="legend" />
