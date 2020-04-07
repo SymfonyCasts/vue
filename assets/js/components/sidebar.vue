@@ -4,7 +4,6 @@
             [$style.component]: true,
             [$style.collapsed]: collapsed,
             'p-3': true,
-            'mt-5': true,
             'mb5': true
         }"
     >
