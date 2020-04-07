@@ -1,0 +1,30 @@
+diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
+index a4a169a..2382eff 100644
+--- a/assets/js/components/search-bar.vue
++++ b/assets/js/components/search-bar.vue
+@@ -24,11 +24,6 @@ export default {
+     data: () => ({
+         searchTerm: '',
+     }),
+-    watch: {
+-        searchTerm(newTerm) {
+-            this.$emit('search-products', { term: newTerm });
+-        },
+-    },
+     methods: {
+         /**
+          * Resets the search term
+@@ -36,6 +31,13 @@ export default {
+         eraseSearchTerm() {
+             this.searchTerm = '';
+         },
++
++        /**
++         * Handles input changes
++         */
++        onInput() {
++            this.$emit('search-products', { term: this.searchTerm });
++        },
+     },
+ };
+ </script>
