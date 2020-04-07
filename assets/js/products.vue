@@ -23,14 +23,12 @@
 <script>
 import CatalogComponent from '@/components/catalog';
 import SidebarComponent from '@/components/sidebar';
-import TitleComponent from '@/components/title';
 
 export default {
     name: 'Products',
     components: {
         CatalogComponent,
         SidebarComponent,
-        TitleComponent,
     },
     props: {
         currentCategoryId: {
