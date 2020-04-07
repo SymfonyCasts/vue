@@ -61,7 +61,7 @@ export default {
          * @return string[]
          */
         componentClass() {
-            const classArray = [this.$style.component, 'p-3', 'mt-5', 'mb5'];
+            const classArray = [this.$style.component, 'p-3', 'mb-5'];
 
             if (this.collapsed) {
                 classArray.push(this.$style.collapsed);
