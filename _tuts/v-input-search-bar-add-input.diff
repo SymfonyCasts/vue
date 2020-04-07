@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
+index 17e36fd..a4a169a 100644
+--- a/assets/js/components/search-bar.vue
++++ b/assets/js/components/search-bar.vue
+@@ -5,6 +5,7 @@
+             class="form-control"
+             placeholder="Search products..."
+             type="text"
++            @input="onInput"
+         >
+ 
+         <span
