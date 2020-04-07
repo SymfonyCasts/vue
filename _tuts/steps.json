@@ -419,7 +419,37 @@
             "id": "first-search-bar-add-computed-property",
             "name": "First Search Bar: Add Computed property",
             "description": null
+        },
+        {
+            "id": "better-search-bar-generateurl-method",
+            "name": "Better Search Bar: generateUrl method",
+            "description": null
+        },
+        {
+            "id": "better-search-bar-fetchproducts",
+            "name": "Better Search Bar: fetchProducts",
+            "description": null
+        },
+        {
+            "id": "better-search-bar-created-function-change",
+            "name": "Better Search Bar: created function change",
+            "description": null
+        },
+        {
+            "id": "better-search-bar-new-onsearchproducts",
+            "name": "Better Search Bar: new onSearchProducts",
+            "description": null
+        },
+        {
+            "id": "better-search-bar-template-correction",
+            "name": "Better Search Bar: Template Correction",
+            "description": null
+        },
+        {
+            "id": "better-search-bar-search-timeout",
+            "name": "Better Search Bar: Search Timeout",
+            "description": null
         }
     ],
-    "sha": "4e5a55f815312708485eefa129e9b620f644bd0a"
+    "sha": "5d690eead04265d58879282129ac742980c0c05c"
 }
