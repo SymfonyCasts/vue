@@ -44,5 +44,18 @@ export default {
 
 .component {
     width: 400px;
+
+    .erase {
+        color: $red-component-border;
+        cursor: pointer;
+        display: block;
+        font-weight: bold;
+        height: 20px;
+        left: 372px;
+        margin: -32px 0 0 0;
+        position: relative;
+        text-align: center;
+        width: 20px;
+    }
 }
 </style>
