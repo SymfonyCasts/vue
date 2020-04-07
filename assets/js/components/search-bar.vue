@@ -5,6 +5,7 @@
             class="form-control"
             placeholder="Search products..."
             type="text"
+            @input="onInput"
         >
 
         <span
