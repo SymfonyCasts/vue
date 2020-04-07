@@ -1,12 +1,12 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 48c03ca..b2000ea 100644
+index ca80fac..935fe3e 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -1,5 +1,8 @@
  <template>
--    <div :class="[$style.component, 'p-3', 'mt-5', 'mb-5']">
+-    <div :class="[$style.component, 'p-3', 'mb-5']">
 +    <div
-+        :class="[$style.component, 'p-3', 'mt-5', 'mb-5']"
++        :class="[$style.component, 'p-3', 'mb-5']"
 +        :style="{ width: collapsed ? '70px' : 'auto' }"
 +    >
          <h5 class="text-center">
