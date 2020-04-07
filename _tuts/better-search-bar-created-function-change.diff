@@ -1,0 +1,30 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index d7dd6df..6a82a69 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -54,24 +54,7 @@ export default {
+         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
+     }),
+     async created() {
+-        const url = this.currentCategoryId
+-            ? `/api/products?category=${this.currentCategoryId}`
+-            : '/api/products';
+-
+-        this.products = [];
+-        this.loading = true;
+-
+-        try {
+-            const response = await axios({
+-                method: 'get',
+-                url,
+-            });
+-
+-            this.loading = false;
+-            this.products = response.data['hydra:member'];
+-        } catch (e) {
+-            this.loading = false;
+-        }
++        this.fetchProducts('');
+     },
+     methods: {
+         /**
