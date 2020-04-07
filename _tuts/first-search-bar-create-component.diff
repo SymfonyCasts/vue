@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
 new file mode 100644
-index 0000000..9829186
+index 0000000..6312e74
 --- /dev/null
 +++ b/assets/js/components/search-bar.vue
 @@ -0,0 +1,27 @@
@@ -11,7 +11,7 @@ index 0000000..9829186
 +            class="form-control"
 +            placeholder="Search products..."
 +            type="text"
-+        />
++        >
 +    </div>
 +</template>
 +
