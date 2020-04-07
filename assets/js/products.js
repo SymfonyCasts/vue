@@ -6,6 +6,7 @@ new Vue({
         props: {
             currentCategoryId: window.currentCategoryId,
             categories: window.categories,
+            currentProductId: window.currentProductId,
         },
     }),
 }).$mount('#app');
