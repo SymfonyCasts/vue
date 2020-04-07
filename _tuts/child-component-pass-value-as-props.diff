@@ -17,7 +17,7 @@ index 96696bc..9bdd07b 100644
  };
  </script>
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 67b2dc8..3896e7e 100644
+index 8186697..c463c24 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -38,7 +38,7 @@
