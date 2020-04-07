@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
+index 878184f..e6a4888 100644
+--- a/assets/js/components/product-list/product-card.vue
++++ b/assets/js/components/product-list/product-card.vue
+@@ -25,6 +25,7 @@
+ 
+                 <button
+                     class="btn btn-info btn-sm"
++                    @click="goToProduct()"
+                 >
+                     View Product
+                 </button>
