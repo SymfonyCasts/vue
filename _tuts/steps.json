@@ -416,10 +416,10 @@
             "description": null
         },
         {
-            "id": "first-search-bad-add-computed-property",
-            "name": "First Search Bad: Add Computed property",
+            "id": "first-search-bar-add-computed-property",
+            "name": "First Search Bar: Add Computed property",
             "description": null
         }
     ],
-    "sha": "a369a424befa95a09669332e3c552037837b3785"
+    "sha": "b4d6522362fa550470c5e406b438841abca940f9"
 }
