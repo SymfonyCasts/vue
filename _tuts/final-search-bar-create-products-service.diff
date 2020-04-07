@@ -1,0 +1,26 @@
+diff --git a/assets/js/services/products.js b/assets/js/services/products.js
+new file mode 100644
+index 0000000..f5e2904
+--- /dev/null
++++ b/assets/js/services/products.js
+@@ -0,0 +1,20 @@
++import axios from 'axios';
++import generateListingUrl from '@/helpers/generate-listing-url';
++
++const products = {
++    /**
++     * Fetches products from the database according to current category and search term
++     *
++     * @param {number|null} category
++     * @param {string} searchTerm
++     * @return {Promise}
++     */
++    fetchProducts(category, searchTerm) {
++        return axios({
++            method: 'get',
++            url: generateListingUrl(category, searchTerm),
++        });
++    },
++};
++
++export default products;
