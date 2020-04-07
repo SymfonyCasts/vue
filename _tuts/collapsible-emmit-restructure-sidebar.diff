@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index e5738e1..b32a0b6 100644
+index 0b6cc44..3a46f62 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -1,5 +1,5 @@
  <template>
 -    <div :class="componentClass">
-+    <div :class="[$style.component, 'p-3', 'mt-5', 'mb5']">
++    <div :class="[$style.component, 'p-3', 'mb-5']">
          <div v-if="!collapsed">
              <h5 class="text-center">
                  Categories
@@ -45,7 +45,7 @@ index e5738e1..b32a0b6 100644
 -         * @return string[]
 -         */
 -        componentClass() {
--            const classArray = [this.$style.component, 'p-3', 'mt-5', 'mb5'];
+-            const classArray = [this.$style.component, 'p-3', 'mb-5'];
 -
 -            if (this.collapsed) {
 -                classArray.push(this.$style.collapsed);
