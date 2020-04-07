@@ -61,6 +61,14 @@ export default {
             const strPrice = this.item.price.toString();
             return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
         },
+
+        /**
+         * Returns the URL for the product
+         * @returns {string}
+         */
+        productUrl() {
+            return `/product/${this.item.id}`;
+        },
     },
 };
 </script>
