@@ -1,5 +1,5 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index aada0c7..6519269 100644
+index aada0c7..15c4909 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -11,12 +11,10 @@
@@ -16,3 +16,18 @@ index aada0c7..6519269 100644
              </div>
          </div>
      </div>
+@@ -25,14 +23,12 @@
+ <script>
+ import CatalogComponent from '@/components/catalog';
+ import SidebarComponent from '@/components/sidebar';
+-import TitleComponent from '@/components/title';
+ 
+ export default {
+     name: 'Products',
+     components: {
+         CatalogComponent,
+         SidebarComponent,
+-        TitleComponent,
+     },
+     props: {
+         currentCategoryId: {
