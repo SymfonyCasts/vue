@@ -42,6 +42,10 @@ export default {
             type: Number,
             default: null,
         },
+        currentProductId: {
+            type: Number,
+            default: null,
+        },
         categories: {
             type: Array,
             default: () => ([]),
