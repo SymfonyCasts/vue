@@ -116,5 +116,5 @@ export default {
 </script>
 
 <style lang="scss" module>
-    @import '~styles/top-bar.scss';
+@import '~styles/top-bar.scss';
 </style>
