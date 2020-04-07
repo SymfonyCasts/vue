@@ -479,7 +479,37 @@
             "id": "final-search-bar-remove-unused-function",
             "name": "Final Search Bar: Remove unused function",
             "description": null
+        },
+        {
+            "id": "v-input-search-bar-add-x-span",
+            "name": "V-Input Search Bar: Add x span",
+            "description": null
+        },
+        {
+            "id": "v-input-search-bar-event-handler",
+            "name": "V-Input Search Bar: event handler",
+            "description": null
+        },
+        {
+            "id": "v-input-search-bar-add-styles",
+            "name": "V-Input Search Bar: Add styles",
+            "description": null
+        },
+        {
+            "id": "v-input-search-bar-add-input",
+            "name": "V-input Search Bar: Add @input",
+            "description": null
+        },
+        {
+            "id": "v-input-search-bar-add-handler-remove-watcher",
+            "name": "V-input Search Bar: Add handler, remove watcher",
+            "description": null
+        },
+        {
+            "id": "v-input-search-bar-fix-erasesearchterm",
+            "name": "V-Input Search Bar: Fix eraseSearchTerm",
+            "description": null
         }
     ],
-    "sha": "dd46ff9f01f95205e6036d9d8f1e190f4995ff3f"
+    "sha": "b0de06b3228f1bf04a30e7233d87631482fb2b20"
 }
