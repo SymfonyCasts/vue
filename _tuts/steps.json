@@ -449,7 +449,37 @@
             "id": "better-search-bar-search-timeout",
             "name": "Better Search Bar: Search Timeout",
             "description": null
+        },
+        {
+            "id": "final-search-bar-generatelistingurl-helper-skeleton",
+            "name": "Final Search Bar: generateListingUrl helper skeleton",
+            "description": null
+        },
+        {
+            "id": "final-search-bar-generatelistingurl-paste-function-over",
+            "name": "Final Search Bar: generateListingUrl paste function over",
+            "description": null
+        },
+        {
+            "id": "final-search-bar-generatelistingurl-make-corrections",
+            "name": "Final Search Bar: generateListingUrl make corrections",
+            "description": null
+        },
+        {
+            "id": "final-search-bar-create-products-service",
+            "name": "Final Search Bar: create products service",
+            "description": null
+        },
+        {
+            "id": "final-search-bar-remove-axios-refactor-getproducts",
+            "name": "Final Search Bar: Remove axios, refactor getProducts",
+            "description": null
+        },
+        {
+            "id": "final-search-bar-remove-unused-function",
+            "name": "Final Search Bar: Remove unused function",
+            "description": null
         }
     ],
-    "sha": "5d690eead04265d58879282129ac742980c0c05c"
+    "sha": "dd46ff9f01f95205e6036d9d8f1e190f4995ff3f"
 }
