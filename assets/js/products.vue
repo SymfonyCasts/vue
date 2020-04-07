@@ -39,6 +39,10 @@ export default {
             type: Array,
             default: () => ([]),
         },
+        currentProductId: {
+            type: Number,
+            default: null,
+        },
     },
     data: () => ({
         sidebarCollapsed: false,
