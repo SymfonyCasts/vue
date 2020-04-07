@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row row-no-wrap">
             <aside class="col-xs-12 col-lg-3">
-                <div class="p-3 mt-5 mb-5">
+                <div class="p-3 mb-5">
                     <h5 class="text-center">
                         Categories
                     </h5>
