@@ -11,7 +11,7 @@
             </div>
 
             <product-list
-                :products="filteredProducts"
+                :products="products"
                 :loading="loading"
             />
         </div>
