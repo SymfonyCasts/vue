@@ -1,6 +1,6 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
 new file mode 100644
-index 0000000..e687971
+index 0000000..517e420
 --- /dev/null
 +++ b/assets/js/products.vue
 @@ -0,0 +1,54 @@
@@ -8,7 +8,7 @@ index 0000000..e687971
 +    <div class="container-fluid">
 +        <div class="row row-no-wrap">
 +            <aside class="col-xs-12 col-lg-3">
-+                <div class="p-3 mt-5 mb-5">
++                <div class="p-3 mb-5">
 +                    <h5 class="text-center">
 +                        Categories
 +                    </h5>
