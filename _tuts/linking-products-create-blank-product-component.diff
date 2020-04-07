@@ -1,0 +1,17 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+new file mode 100644
+index 0000000..4009b48
+--- /dev/null
++++ b/assets/js/components/product.vue
+@@ -0,0 +1,11 @@
++<template>
++    <div>
++        // Product goes here
++    </div>
++</template>
++
++<script>
++export default {
++    name: 'Product',
++};
++</script>
