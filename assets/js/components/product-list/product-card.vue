@@ -25,6 +25,7 @@
 
                 <button
                     class="btn btn-info btn-sm"
+                    @click="goToProduct()"
                 >
                     View Product
                 </button>
