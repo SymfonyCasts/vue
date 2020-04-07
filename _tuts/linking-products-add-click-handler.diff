@@ -1,0 +1,19 @@
+diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
+index e3f6a7e..b4ab9f0 100644
+--- a/assets/js/components/product-list/product-card.vue
++++ b/assets/js/components/product-list/product-card.vue
+@@ -70,6 +70,14 @@ export default {
+             return `/product/${this.item.id}`;
+         },
+     },
++    methods: {
++        /**
++         * Goes to the URL of the product
++         */
++        goToProduct() {
++            window.location = this.productUrl;
++        },
++    },
+ };
+ </script>
+ 
