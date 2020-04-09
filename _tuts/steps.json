@@ -161,13 +161,58 @@
             "description": null
         },
         {
-            "id": "products-listing-product-card",
-            "name": "Products Listing: Product Card",
+            "id": "products-listing-install-axios",
+            "name": "Products Listing: Install axios",
             "description": null
         },
         {
-            "id": "products-listing-attach-to-catalog",
-            "name": "Products Listing: Attach to Catalog",
+            "id": "products-listing-axios-call",
+            "name": "Products Listing: axios call",
+            "description": null
+        },
+        {
+            "id": "products-listing-add-products-to-data-member",
+            "name": "Products Listing: Add products to data member",
+            "description": null
+        },
+        {
+            "id": "products-listing-iterate-names-in-catalog",
+            "name": "Products Listing: Iterate names in catalog",
+            "description": null
+        },
+        {
+            "id": "products-listing-first-product-list",
+            "name": "Products Listing: First Product List",
+            "description": null
+        },
+        {
+            "id": "products-listing-paste-v-for-from-catalog",
+            "name": "Products Listing: Paste v-for from catalog",
+            "description": null
+        },
+        {
+            "id": "products-listing-include-product-list-from-catalog",
+            "name": "Products Listing: Include Product-List from Catalog",
+            "description": null
+        },
+        {
+            "id": "products-listing-create-product-card",
+            "name": "Products Listing: Create Product Card",
+            "description": null
+        },
+        {
+            "id": "products-listing-import-product-card",
+            "name": "Products Listing: Import Product Card",
+            "description": null
+        },
+        {
+            "id": "products-listing-paste-product-card-template",
+            "name": "Products Listing: Paste Product Card Template",
+            "description": null
+        },
+        {
+            "id": "products-listing-price-computed-property",
+            "name": "Products Listing: Price computed property",
             "description": null
         },
         {
@@ -576,5 +621,5 @@
             "description": null
         }
     ],
-    "sha": "0ad32d44641f7ab04f24f9f1fa3862400cee399b"
+    "sha": "27b00ed1934f7852545d5948f5e1fc70f55ab4b0"
 }
