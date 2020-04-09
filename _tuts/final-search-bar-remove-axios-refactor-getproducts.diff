@@ -1,21 +1,16 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 9da8d4c..40dc57a 100644
+index f057e23..40dc57a 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -23,11 +23,11 @@
+@@ -23,7 +23,7 @@
  </template>
  
  <script>
 -import axios from 'axios';
 +import productsService from '@/services/products';
-+import LegendComponent from '@/components/legend';
+ import LegendComponent from '@/components/legend';
  import ProductList from '@/components/product-list';
  import SearchBar from '@/components/search-bar';
- import TitleComponent from '@/components/title';
--import LegendComponent from '@/components/legend';
- 
- export default {
-     name: 'Catalog',
 @@ -55,7 +55,7 @@ export default {
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
