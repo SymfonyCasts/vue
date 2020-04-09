@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 
+use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
@@ -36,9 +37,10 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @return Category[]
+     * Get a list of all the categories
      */
-    private function getCategories() {
+    private function getCategories(): array
+    {
         $entityManager = $this->getDoctrine()->getManager();
 
         return $entityManager->getRepository(Category::class)->findAll();
