@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index 878184f..e6a4888 100644
+index 0eb872d..3113803 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
 @@ -25,6 +25,7 @@
