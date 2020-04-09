@@ -35,14 +35,4 @@ class ProductController extends AbstractController
     {
         return $this->render('product/index.html.twig');
     }
-
-    /**
-     * Get a list of all the categories
-     */
-    private function getCategories(): array
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        return $entityManager->getRepository(Category::class)->findAll();
-    }
 }
