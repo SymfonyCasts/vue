@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index e6a4888..e3f6a7e 100644
+index 3113803..6cb701c 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
-@@ -61,6 +61,14 @@ export default {
+@@ -56,6 +56,14 @@ export default {
              const strPrice = this.item.price.toString();
              return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
          },
