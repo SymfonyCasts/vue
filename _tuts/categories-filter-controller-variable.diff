@@ -1,10 +1,10 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index efae5f2..f2f5f40 100644
+index b2c263c..1c4b453 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
-@@ -27,7 +27,9 @@ class ProductController extends AbstractController
+@@ -22,7 +22,9 @@ class ProductController extends AbstractController
       */
-     public function showCategory(int $id)
+     public function showCategory(int $id): Response
      {
 -        return $this->render('product/index.html.twig');
 +        return $this->render('product/index.html.twig', [
