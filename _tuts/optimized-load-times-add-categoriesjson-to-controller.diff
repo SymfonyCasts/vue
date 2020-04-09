@@ -1,24 +1,25 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index c03afdc..e40d70d 100644
+index 1c4b453..0264359 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
-@@ -7,33 +7,40 @@ use App\Entity\Category;
+@@ -3,6 +3,7 @@
+ namespace App\Controller;
+ 
+ 
++use App\Repository\CategoryRepository;
  use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  use Symfony\Component\Routing\Annotation\Route;
  use Symfony\Component\HttpFoundation\Response;
-+use Symfony\Component\Serializer\SerializerInterface;
- 
- class ProductController extends AbstractController
- {
+@@ -12,18 +13,21 @@ class ProductController extends AbstractController
      /**
       * @Route("/", name="app_homepage")
       */
 -    public function index(): Response
-+    public function index(SerializerInterface $serializer): Response
++    public function index(CategoryRepository $categoryRepository): Response
      {
 -        return $this->render('product/index.html.twig');
 +        return $this->render('product/index.html.twig', [
-+            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
++            'categoriesJson' => $categoryRepository->findAll(),
 +        ]);
      }
  
@@ -26,25 +27,11 @@ index c03afdc..e40d70d 100644
       * @Route("/category/{id}", name="app_category")
       */
 -    public function showCategory(int $id): Response
-+    public function showCategory(int $id, SerializerInterface $serializer): Response
++    public function showCategory(int $id, CategoryRepository $categoryRepository): Response
      {
          return $this->render('product/index.html.twig', [
              'currentCategoryId' => $id,
-+            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
++            'categoriesJson' => $categoryRepository->findAll(),
          ]);
      }
  
-     /**
-      * @Route("/product/{id}", name="app_product")
-      */
--    public function showProduct(int $id): Response
-+    public function showProduct(int $id, SerializerInterface $serializer): Response
-     {
--        return $this->render('product/index.html.twig');
-+        return $this->render('product/index.html.twig', [
-+            'currentProductId' => $id,
-+            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
-+        ]);
-     }
- 
-     /**
