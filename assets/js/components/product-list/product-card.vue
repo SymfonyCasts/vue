@@ -16,7 +16,7 @@
 
             <div class="pt-2 my-3 d-md-flex justify-content-between">
                 <p class="p-0 d-inline">
-                    <strong>$ {{ item.price }}</strong>
+                    <strong>$ {{ price }}</strong>
                 </p>
 
                 <button
@@ -40,6 +40,16 @@ export default {
         item: {
             type: Object,
             required: true,
+        },
+    },
+    computed: {
+        /**
+         * Returns a formatted price for the product
+         * @returns {string}
+         */
+        price() {
+            const strPrice = this.item.price.toString();
+            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
         },
     },
 };
