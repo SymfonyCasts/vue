@@ -24,8 +24,8 @@
 
 <script>
 import axios from 'axios';
-import ProductList from '@/components/product-list';
 import LegendComponent from '@/components/legend';
+import ProductList from '@/components/product-list';
 
 export default {
     name: 'Catalog',
