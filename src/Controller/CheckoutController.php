@@ -12,19 +12,16 @@ class CheckoutController extends AbstractController
 {
     /**
      * @Route("/checkout", name="app_checkout")
-     * @return Response
      */
-    public function checkout()
+    public function checkout(): Response
     {
         return $this->render('checkout/index.html.twig');
     }
 
     /**
      * @route("/confirmation/{id}", name="app_confirmation")
-     * @param Purchase $purchase
-     * @return Response
      */
-    public function confirmation(Purchase $purchase)
+    public function confirmation(Purchase $purchase): Response
     {
         $totalPrice = 0;
         $purchaseItems = $purchase->getPurchaseItems();
