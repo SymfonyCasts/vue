@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product-list/index.vue b/assets/js/components/product-list/index.vue
-index bdf964a..7303456 100644
+index bdf964a..70de4c0 100644
 --- a/assets/js/components/product-list/index.vue
 +++ b/assets/js/components/product-list/index.vue
-@@ -1,10 +1,16 @@
+@@ -1,10 +1,17 @@
  <template>
      <div :class="$style.component">
 -        <loading v-show="products.length === 0" />
@@ -11,8 +11,9 @@ index bdf964a..7303456 100644
 +        <h5
 +            v-show="!loading && products.length === 0"
 +            class="mt-4 ml-4"
-+            v-text="'Whoopsie Daisy, no products found!'"
-+        />
++        >
++            Whoopsie Daisy, no products found!
++        </h5>
  
          <product-card
              v-for="product in products"
