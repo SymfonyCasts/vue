@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 12fe80d..e6c897c 100644
+index 12fe80d..7a9d0ff 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -6,12 +6,7 @@
@@ -16,12 +16,11 @@ index 12fe80d..e6c897c 100644
  
          <div class="row">
              <legend-component :title="legend" />
-@@ -21,12 +16,14 @@
- 
+@@ -22,11 +17,13 @@
  <script>
  import axios from 'axios';
-+import ProductList from '@/components/product-list';
  import LegendComponent from '@/components/legend';
++import ProductList from '@/components/product-list';
  
  export default {
      name: 'Catalog',
