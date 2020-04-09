@@ -27,9 +27,6 @@ export default {
             required: true,
         },
     },
-    data: () => ({
-        loading: true,
-    }),
 };
 </script>
 
