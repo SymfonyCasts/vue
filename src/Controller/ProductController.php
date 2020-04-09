@@ -42,14 +42,4 @@ class ProductController extends AbstractController
             'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
         ]);
     }
-
-    /**
-     * Get a list of all the categories
-     */
-    private function getCategories(): array
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        return $entityManager->getRepository(Category::class)->findAll();
-    }
 }
