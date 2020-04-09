@@ -1,16 +1,25 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index f2f5f40..523ddf1 100644
+index 1c4b453..c03afdc 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
-@@ -41,4 +41,13 @@ class ProductController extends AbstractController
+@@ -3,6 +3,7 @@
+ namespace App\Controller;
+ 
+ 
++use App\Entity\Category;
+ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+ use Symfony\Component\Routing\Annotation\Route;
+ use Symfony\Component\HttpFoundation\Response;
+@@ -34,4 +35,14 @@ class ProductController extends AbstractController
      {
          return $this->render('product/index.html.twig');
      }
 +
 +    /**
-+     * @return Category[]
++     * Get a list of all the categories
 +     */
-+    private function getCategories() {
++    private function getCategories(): array
++    {
 +        $entityManager = $this->getDoctrine()->getManager();
 +
 +        return $entityManager->getRepository(Category::class)->findAll();
