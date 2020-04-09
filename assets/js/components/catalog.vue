@@ -6,9 +6,7 @@
             </h2>
         </div>
 
-        <product-list
-            :products="products"
-        />
+        <product-list :products="products" />
 
         <div class="row">
             <legend-component :title="legend" />
@@ -18,8 +16,8 @@
 
 <script>
 import axios from 'axios';
-import LegendComponent from '@/components/legend';
 import ProductList from '@/components/product-list';
+import LegendComponent from '@/components/legend';
 
 export default {
     name: 'Catalog',
