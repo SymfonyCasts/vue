@@ -1,45 +1,26 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 8390a30..27ac8e4 100644
+index 8390a30..04a02d1 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -6,6 +6,10 @@
-             </h2>
-         </div>
- 
-+        <product-list
-+            :products="products"
-+        />
-+
-         <div class="row">
-             <legend-component :title="legend" />
-         </div>
-@@ -13,15 +17,29 @@
+@@ -13,6 +13,7 @@
  </template>
  
  <script>
 +import axios from 'axios';
  import LegendComponent from '@/components/legend';
-+import ProductList from '@/components/product-list';
  
  export default {
-     name: 'Catalog',
-     components: {
-         LegendComponent,
-+        ProductList,
-     },
+@@ -23,5 +24,13 @@ export default {
      data: () => ({
-+        products: [],
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
 +    async mounted() {
-+        this.products = [];
-+
 +        const response = await axios({
 +            method: 'get',
 +            url: '/api/products',
 +        });
 +
-+        this.products = response.data['hydra:member'];
++        console.log(response);
 +    },
  };
  </script>
