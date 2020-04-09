@@ -1,16 +1,18 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 914c016..04661cf 100644
+index 769860e..12fe80d 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -6,7 +6,10 @@
+@@ -6,6 +6,13 @@
              </h2>
          </div>
  
--        <product-list :products="products" />
-+        <product-list
-+            :products="products"
-+            :loading="loading"
-+        />
- 
++        <div
++            v-for="product in products"
++            :key="product['@id']"
++        >
++            {{ product.name }}
++        </div>
++
          <div class="row">
              <legend-component :title="legend" />
+         </div>
