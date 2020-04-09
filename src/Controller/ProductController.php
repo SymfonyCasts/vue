@@ -6,17 +6,15 @@ namespace App\Controller;
 use App\Entity\Category;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Serializer\SerializerInterface;
 
 class ProductController extends AbstractController
 {
     /**
      * @Route("/", name="app_homepage")
-     * @param SerializerInterface $serializer
-     * @return Response
      */
-    public function index(SerializerInterface $serializer)
+    public function index(SerializerInterface $serializer): Response
     {
         return $this->render('product/index.html.twig', [
             'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
@@ -25,11 +23,8 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/category/{id}", name="app_category")
-     * @param int $id
-     * @param SerializerInterface $serializer
-     * @return Response
      */
-    public function showCategory(int $id, SerializerInterface $serializer)
+    public function showCategory(int $id, SerializerInterface $serializer): Response
     {
         return $this->render('product/index.html.twig', [
             'currentCategoryId' => $id,
@@ -39,11 +34,8 @@ class ProductController extends AbstractController
 
     /**
      * @Route("/product/{id}", name="app_product")
-     * @param int $id
-     * @param SerializerInterface $serializer
-     * @return Response
      */
-    public function showProduct(int $id, SerializerInterface $serializer)
+    public function showProduct(int $id, SerializerInterface $serializer): Response
     {
         return $this->render('product/index.html.twig', [
             'currentProductId' => $id,
@@ -52,9 +44,10 @@ class ProductController extends AbstractController
     }
 
     /**
-     * @return Category[]
+     * Get a list of all the categories
      */
-    private function getCategories() {
+    private function getCategories(): array
+    {
         $entityManager = $this->getDoctrine()->getManager();
 
         return $entityManager->getRepository(Category::class)->findAll();
