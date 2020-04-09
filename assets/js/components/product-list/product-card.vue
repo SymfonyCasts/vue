@@ -28,12 +28,7 @@
         </div>
 
         <div>
-            <small>brought to you by </small>
-
-            <small
-                class="d-inline"
-                v-text="item.brand"
-            />
+            <small>brought to you by {{ item.brand }}</small>
         </div>
     </div>
 </template>
