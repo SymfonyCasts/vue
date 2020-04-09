@@ -13,8 +13,8 @@
 
 <script>
 import axios from 'axios';
-import LegendComponent from '@/components/legend';
 import ProductList from '@/components/product-list';
+import LegendComponent from '@/components/legend';
 
 export default {
     name: 'Catalog',
