@@ -1,0 +1,24 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 04a02d1..769860e 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -22,15 +22,18 @@ export default {
+         LegendComponent,
+     },
+     data: () => ({
++        products: [],
+         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
+     }),
+     async mounted() {
++        this.products = [];
++
+         const response = await axios({
+             method: 'get',
+             url: '/api/products',
+         });
+ 
+-        console.log(response);
++        this.products = response.data['hydra:member'];
+     },
+ };
+ </script>
