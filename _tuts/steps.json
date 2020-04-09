@@ -226,8 +226,8 @@
             "description": null
         },
         {
-            "id": "loading-state-add-loading-data-property",
-            "name": "Loading State: Add Loading data property",
+            "id": "loading-state-removed-step",
+            "name": "Loading State: Removed step",
             "description": null
         },
         {
@@ -621,5 +621,5 @@
             "description": null
         }
     ],
-    "sha": "5e8399ed265cf058c892c293ce350d73f3e3ae58"
+    "sha": "45dbf8d1625a97b5019298607095cb8cb31f9f4e"
 }
