@@ -3,53 +3,42 @@
 namespace App\Controller;
 
 
-use App\Entity\Category;
+use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Serializer\SerializerInterface;
 
 class ProductController extends AbstractController
 {
     /**
      * @Route("/", name="app_homepage")
      */
-    public function index(SerializerInterface $serializer): Response
+    public function index(CategoryRepository $categoryRepository): Response
     {
         return $this->render('product/index.html.twig', [
-            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
+            'categoriesJson' => $categoryRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("/category/{id}", name="app_category")
      */
-    public function showCategory(int $id, SerializerInterface $serializer): Response
+    public function showCategory(int $id, CategoryRepository $categoryRepository): Response
     {
         return $this->render('product/index.html.twig', [
             'currentCategoryId' => $id,
-            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
+            'categoriesJson' => $categoryRepository->findAll(),
         ]);
     }
 
     /**
      * @Route("/product/{id}", name="app_product")
      */
-    public function showProduct(int $id, SerializerInterface $serializer): Response
+    public function showProduct(int $id, CategoryRepository $categoryRepository): Response
     {
         return $this->render('product/index.html.twig', [
             'currentProductId' => $id,
-            'categoriesJson' => $serializer->serialize($this->getCategories(), 'json'),
+            'categoriesJson' => $categoryRepository->findAll(),
         ]);
-    }
-
-    /**
-     * Get a list of all the categories
-     */
-    private function getCategories(): array
-    {
-        $entityManager = $this->getDoctrine()->getManager();
-
-        return $entityManager->getRepository(Category::class)->findAll();
     }
 }
