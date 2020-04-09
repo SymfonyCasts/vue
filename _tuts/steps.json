@@ -346,8 +346,8 @@
             "description": null
         },
         {
-            "id": "optimized-load-times-add-getcategories-method-to-controller",
-            "name": "Optimized Load Times: Add getCategories method to Controller",
+            "id": "blank-step",
+            "name": "blank step",
             "description": null
         },
         {
@@ -576,6 +576,11 @@
             "description": null
         },
         {
+            "id": "linking-products-add-controller-variables",
+            "name": "Linking Products: Add Controller variables",
+            "description": null
+        },
+        {
             "id": "linking-products-add-template-variable",
             "name": "Linking Products: Add template variable",
             "description": null
@@ -621,5 +626,5 @@
             "description": null
         }
     ],
-    "sha": "45dbf8d1625a97b5019298607095cb8cb31f9f4e"
+    "sha": "5ce7605afe6b1c42420e14f67ba5ffc301281893"
 }
