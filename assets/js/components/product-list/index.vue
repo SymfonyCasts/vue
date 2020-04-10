@@ -1,7 +1,10 @@
 <template>
     <div :class="$style.component">
+        <loading v-show="products.length === 0" />
+
         <product-card
             v-for="product in products"
+            v-show="products.length > 0"
             :key="product['@id']"
             :item="product"
         />
