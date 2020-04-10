@@ -28,6 +28,14 @@ export default {
             this.$emit('search-products', { term: newTerm });
         },
     },
+    methods: {
+        /**
+         * Resets the search term
+         */
+        eraseSearchTerm() {
+            this.searchTerm = '';
+        },
+    },
 };
 </script>
 
