@@ -60,6 +60,9 @@ Encore
             : 'images/[path][name].[ext]',
     })
 
+    // Enable .vue file processing
+    .enableVueLoader()
+
     // enables Sass/SCSS support
     .enableSassLoader()
 
