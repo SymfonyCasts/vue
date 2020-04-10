@@ -1,0 +1,20 @@
+diff --git a/assets/js/products.vue b/assets/js/products.vue
+index dc4a717..1051d6f 100644
+--- a/assets/js/products.vue
++++ b/assets/js/products.vue
+@@ -26,6 +26,7 @@
+ import CatalogComponent from '@/components/catalog';
+ import ProductComponent from '@/components/product';
+ import SidebarComponent from '@/components/sidebar';
++import collapsible from '@/mixins/collapsible';
+ 
+ export default {
+     name: 'Products',
+@@ -34,6 +35,7 @@ export default {
+         ProductComponent,
+         SidebarComponent,
+     },
++    mixins: [collapsible],
+     props: {
+         currentCategoryId: {
+             type: Number,
