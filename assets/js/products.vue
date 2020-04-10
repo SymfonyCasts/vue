@@ -22,12 +22,14 @@
 
 <script>
 import CatalogComponent from '@/components/catalog';
+import ProductComponent from '@/components/product';
 import SidebarComponent from '@/components/sidebar';
 
 export default {
     name: 'Products',
     components: {
         CatalogComponent,
+        ProductComponent,
         SidebarComponent,
     },
     props: {
