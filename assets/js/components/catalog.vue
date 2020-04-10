@@ -22,15 +22,18 @@ export default {
         LegendComponent,
     },
     data: () => ({
+        products: [],
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
     async mounted() {
+        this.products = [];
+
         const response = await axios({
             method: 'get',
             url: '/api/products',
         });
 
-        console.log(response);
+        this.products = response.data['hydra:member'];
     },
 };
 </script>
