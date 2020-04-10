@@ -86,6 +86,11 @@ export default {
             this.loading = false;
         }
     },
+    methods: {
+        addToCart() {
+            // TODO
+        },
+    },
 };
 </script>
 
