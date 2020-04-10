@@ -58,6 +58,15 @@ export default {
     },
     methods: {
         /**
+         * Handles a change in the searchTerm provided by the search bar and fetches new products
+         *
+         * @param {string} term
+         */
+        onSearchProducts({ term }) {
+            this.fetchProducts(term);
+        },
+
+        /**
          * Fetches products from the database according to current category and search term
          *
          * @param {string} searchTerm
