@@ -1,0 +1,16 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index c5dc849..366ccd1 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -2,10 +2,7 @@
+     <div>
+         <div class="row">
+             <div :class="$style['top-bar']">
+-                <title-component
+-                    :current-category-id="currentCategoryId"
+-                    :categories="categories"
+-                />
++                <title-component :text="category.name" />
+ 
+                 <search-bar @search-products="onSearchProducts" />
+             </div>
