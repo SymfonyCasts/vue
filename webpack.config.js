@@ -1,4 +1,5 @@
 var Encore = require('@symfony/webpack-encore');
+var path = require('path');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -13,6 +14,12 @@ Encore
     .setPublicPath('/build')
     // only needed for CDN's or sub-directory deploy
     //.setManifestKeyPrefix('build/')
+
+    // This is our alias to the root vue components dir
+    .addAliases({
+        '@': path.resolve(__dirname, 'assets/js'),
+        styles: path.resolve(__dirname, 'assets/scss'),
+    })
 
     /*
      * ENTRY CONFIG
