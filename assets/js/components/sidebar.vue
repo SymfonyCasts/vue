@@ -51,6 +51,7 @@ export default {
         },
     },
     data: () => ({
+        loading: true,
         categories: [],
     }),
     async created() {
