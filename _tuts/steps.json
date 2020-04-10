@@ -639,7 +639,82 @@
             "id": "mixin-import-mixin-from-products",
             "name": "Mixin: Import mixin from products",
             "description": null
+        },
+        {
+            "id": "basic-product-page-service-getproduct-function",
+            "name": "Basic Product Page: Service getProduct function",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-add-basic-stuff-to-component",
+            "name": "Basic Product Page: Add basic stuff to component",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-paste-styles",
+            "name": "Basic Product Page: Paste styles",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-modify-title-vue",
+            "name": "Basic Product Page: Modify title.vue",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-add-data-to-catalog",
+            "name": "Basic Product Page: add Data to catalog",
+            "description": null
+        },
+        {
+            "id": "basic-prudct-page-copy-paste-from-title-to-catalog",
+            "name": "Basic Prudct Page: Copy\/Paste from Title to Catalog",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-remove-computed-property-from-title",
+            "name": "Basic Product Page: Remove computed property from Title",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-correct-catalog-template",
+            "name": "Basic Product Page: Correct catalog template",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-correct-product-template",
+            "name": "Basic Product Page: Correct Product Template",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-paste-product-template",
+            "name": "Basic Product Page: Paste product template",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-add-loading-component",
+            "name": "Basic Product Page: Add Loading component",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-add-dummy-addtocart-method",
+            "name": "Basic Product Page: Add dummy addToCart method",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-paste-computed-property-from-productcard",
+            "name": "Basic Product Page: Paste computed property from ProductCard",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-correct-price-computed-property",
+            "name": "Basic Product Page: Correct price computed property",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-correct-price-in-template",
+            "name": "Basic Product Page: Correct price in template",
+            "description": null
         }
     ],
-    "sha": "f97c914fa38df5d3a3fe072f45a71550e575ce41"
+    "sha": "42af744e2d857653eb24cad648a41f69cfcd14d7"
 }
