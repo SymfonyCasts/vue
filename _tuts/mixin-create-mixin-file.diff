@@ -1,0 +1,29 @@
+diff --git a/assets/js/mixins/collapsible.js b/assets/js/mixins/collapsible.js
+new file mode 100644
+index 0000000..b76183a
+--- /dev/null
++++ b/assets/js/mixins/collapsible.js
+@@ -0,0 +1,23 @@
++const collapsible = {
++    data: () => ({
++        sidebarCollapsed: false,
++    }),
++    computed: {
++        asideClass() {
++            return this.sidebarCollapsed ? 'aside-collapsed' : 'col-xs-12 col-lg-3';
++        },
++        contentClass() {
++            return this.sidebarCollapsed ? 'col-xs-12 col-lg-11' : 'col-xs-12 col-lg-9';
++        },
++    },
++    methods: {
++        /**
++         * Toggles the sidebarCollapsed value
++         */
++        toggleSidebarCollapsed() {
++            this.sidebarCollapsed = !this.sidebarCollapsed;
++        },
++    },
++};
++
++export default collapsible;
