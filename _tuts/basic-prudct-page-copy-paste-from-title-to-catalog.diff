@@ -1,0 +1,15 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index bc8ac8f..c5dc849 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -64,6 +64,10 @@ export default {
+     }),
+     async created() {
+         this.getProducts('');
++
++        if (this.currentCategoryId !== null) {
++            this.category = this.categories.find((cat) => (cat.id === this.currentCategoryId));
++        }
+     },
+     methods: {
+         /**
