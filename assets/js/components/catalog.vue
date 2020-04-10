@@ -52,6 +52,10 @@ export default {
         },
     },
     data: () => ({
+        category: {
+            id: null,
+            name: 'All Products',
+        },
         products: [],
         searchTerm: '',
         loading: true,
