@@ -55,14 +55,20 @@ export default {
         categories: [],
     }),
     async created() {
+        this.loading = true;
         this.categories = [];
 
-        const response = await axios({
-            method: 'get',
-            url: '/api/categories',
-        });
+        try {
+            const response = await axios({
+                method: 'get',
+                url: '/api/categories',
+            });
 
-        this.categories = response.data['hydra:member'];
+            this.loading = false;
+            this.categories = response.data['hydra:member'];
+        } catch (e) {
+            this.loading = false;
+        }
     },
 };
 </script>
