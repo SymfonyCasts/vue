@@ -6,7 +6,10 @@
             </h2>
         </div>
 
-        <product-list :products="products" />
+        <product-list
+            :products="products"
+            :loading="loading"
+        />
 
         <div class="row">
             <legend-component :title="legend" />
