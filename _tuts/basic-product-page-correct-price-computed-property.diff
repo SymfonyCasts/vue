@@ -1,0 +1,13 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 85ce77c..7803aba 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -82,7 +82,7 @@ export default {
+          * @returns {string}
+          */
+         price() {
+-            const strPrice = this.item.price.toString();
++            const strPrice = this.product.price.toString();
+             return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
+         },
+     },

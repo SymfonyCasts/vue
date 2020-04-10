@@ -1,0 +1,107 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 501cd50..ebd3400 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -4,7 +4,46 @@
+             <title-component :text="product.name" />
+         </div>
+ 
+-        TODO: Show product here!
++        <div :class="$style.content">
++            <loading v-show="loading" />
++
++            <div
++                v-show="!loading"
++                :class="$style.product"
++            >
++                <div :class="$style['img-wrapper']">
++                    <img
++                        class="d-block"
++                        :src="product.image"
++                        :alt="product.name"
++                    >
++
++                    <small>brought to you by </small>
++
++                    <small
++                        class="d-inline"
++                        v-text="product.brand"
++                    />
++                </div>
++
++                <div :class="$style['description-wrapper']">
++                    <div :class="$style.description">
++                        <p v-text="product.description" />
++
++                        <p>Price: <strong>$ {{ product.price }}</strong></p>
++                    </div>
++
++                    <div :class="$style['actions-wrapper']">
++                        <button
++                            class="btn btn-info btn-sm"
++                            @click="addToCart"
++                        >
++                            Add to Cart
++                        </button>
++                    </div>
++                </div>
++            </div>
++        </div>
+     </div>
+ </template>
+ 
+@@ -50,4 +89,54 @@ export default {
+ 
+ <style lang="scss" module>
+ @import '~styles/top-bar.scss';
++@import '~styles/components/light-component';
++
++.content {
++    margin-top: 25px;
++
++    .product {
++        @include light-component;
++        padding: 20px;
++        display: flex;
++        flex-direction: row;
++
++        .img-wrapper {
++            margin: 0 20px 0 0;
++
++            img {
++                width: 400px;
++                padding-bottom: 20px;
++                margin-bottom: 20px;
++                border-bottom: 1px solid $light-component-border;
++            }
++        }
++
++        .description-wrapper {
++            display: flex;
++            flex-direction: column;
++            align-items: flex-end;
++
++            .description {
++                height: 420px;
++                width: 500px;
++                margin-bottom: 20px;
++                padding-bottom: 20px;
++                border-bottom: 1px solid $light-component-border;
++            }
++
++            .actions-wrapper {
++                display: flex;
++                flex-direction: row;
++                justify-content: flex-end;
++                align-items: center;
++                height: 30px;
++
++                input {
++                    width: 80px;
++                    margin-right: 10px;
++                }
++            }
++        }
++    }
++}
+ </style>
