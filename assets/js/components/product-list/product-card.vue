@@ -65,6 +65,14 @@ export default {
             return `/product/${this.item.id}`;
         },
     },
+    methods: {
+        /**
+         * Goes to the URL of the product
+         */
+        goToProduct() {
+            window.location = this.productUrl;
+        },
+    },
 };
 </script>
 
