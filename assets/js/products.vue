@@ -13,8 +13,8 @@
 </template>
 
 <script>
-import CatalogComponent from './components/catalog';
-import SidebarComponent from './components/sidebar';
+import CatalogComponent from '@/components/catalog';
+import SidebarComponent from '@/components/sidebar';
 
 export default {
     name: 'Products',
