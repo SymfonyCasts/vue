@@ -73,6 +73,11 @@ export default {
             this.loading = false;
         }
     },
+    methods: {
+        onSearchProducts(event) {
+            this.searchTerm = event.term;
+        },
+    },
 };
 </script>
 
