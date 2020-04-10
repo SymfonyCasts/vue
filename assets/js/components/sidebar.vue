@@ -1,5 +1,5 @@
 <template>
-    <div :class="componentClass">
+    <div :class="[$style.component, 'p-3', 'mb-5']">
         <div v-if="!collapsed">
             <h5 class="text-center">
                 Categories
@@ -31,7 +31,7 @@
         <div :class="$style.buttons">
             <button
                 class="btn btn-secondary btn-sm"
-                @click="toggleCollapsed"
+                @click="$emit('sidebar-collapsed')"
                 v-text="collapsed ? '>>' : '<< Collapse'"
             />
         </div>
@@ -41,8 +41,14 @@
 <script>
 export default {
     name: 'Sidebar',
+    props: {
+        collapsed: {
+            type: Boolean,
+            required: true,
+            default: false,
+        },
+    },
     data: () => ({
-        collapsed: false,
         categories: [
             {
                 name: 'Category A',
@@ -54,27 +60,6 @@ export default {
             },
         ],
     }),
-    computed: {
-        /**
-         * Computes the component classes depending on collapsed state
-         *
-         * @return string[]
-         */
-        componentClass() {
-            const classArray = [this.$style.component, 'p-3', 'mb-5'];
-
-            if (this.collapsed) {
-                classArray.push(this.$style.collapsed);
-            }
-
-            return classArray;
-        },
-    },
-    methods: {
-        toggleCollapsed() {
-            this.collapsed = !this.collapsed;
-        },
-    },
 };
 </script>
 
@@ -84,10 +69,6 @@ export default {
 .component {
     @include light-component;
     margin-top: 65px;
-
-    &.collapsed {
-        width: 70px;
-    }
 
     ul {
         border-bottom: 1px solid $light-component-border;
