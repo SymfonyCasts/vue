@@ -1,0 +1,30 @@
+diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
+index fc93302..2dbf515 100644
+--- a/assets/js/components/title.vue
++++ b/assets/js/components/title.vue
+@@ -1,7 +1,7 @@
+ <template>
+     <div :class="$style.component">
+         <h6 class="ml-2">
+-            {{ category.name }}
++            {{ text }}
+         </h6>
+     </div>
+ </template>
+@@ -10,13 +10,9 @@
+ export default {
+     name: 'Title',
+     props: {
+-        currentCategoryId: {
+-            type: Number,
+-            default: null,
+-        },
+-        categories: {
+-            type: Array,
+-            default: () => ([]),
++        text: {
++            type: String,
++            required: true,
+         },
+     },
+     computed: {
