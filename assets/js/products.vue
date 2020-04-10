@@ -56,6 +56,9 @@ export default {
         contentClass() {
             return this.sidebarCollapsed ? 'col-xs-12 col-lg-11' : 'col-xs-12 col-lg-9';
         },
+        currentComponent() {
+            return this.currentProductId !== null ? 'ProductComponent' : 'CatalogComponent';
+        },
     },
     methods: {
         /**
