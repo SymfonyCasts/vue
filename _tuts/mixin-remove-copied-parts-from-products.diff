@@ -1,0 +1,32 @@
+diff --git a/assets/js/products.vue b/assets/js/products.vue
+index 75eec47..dc4a717 100644
+--- a/assets/js/products.vue
++++ b/assets/js/products.vue
+@@ -48,27 +48,10 @@ export default {
+             default: null,
+         },
+     },
+-    data: () => ({
+-        sidebarCollapsed: false,
+-    }),
+     computed: {
+-        asideClass() {
+-            return this.sidebarCollapsed ? 'aside-collapsed' : 'col-xs-12 col-lg-3';
+-        },
+-        contentClass() {
+-            return this.sidebarCollapsed ? 'col-xs-12 col-lg-11' : 'col-xs-12 col-lg-9';
+-        },
+         currentComponent() {
+             return this.currentProductId !== null ? 'ProductComponent' : 'CatalogComponent';
+         },
+     },
+-    methods: {
+-        /**
+-         * Toggles the sidebarCollapsed value
+-         */
+-        toggleSidebarCollapsed() {
+-            this.sidebarCollapsed = !this.sidebarCollapsed;
+-        },
+-    },
+ };
+ </script>
