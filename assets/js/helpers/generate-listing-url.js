@@ -8,15 +8,15 @@
 const generateListingUrl = (category, searchTerm) => {
     let url = '/api/products';
 
-    if (this.currentCategoryId || searchTerm !== '') {
+    if (category || searchTerm !== '') {
         url += '?';
 
-        if (this.currentCategoryId && searchTerm === '') {
-            url += `category=${this.currentCategoryId}`;
-        } else if (!this.currentCategoryId && searchTerm !== '') {
+        if (category && searchTerm === '') {
+            url += `category=${category}`;
+        } else if (!category && searchTerm !== '') {
             url += `name=${searchTerm}`;
         } else {
-            url += `category=${this.currentCategoryId}&name=${searchTerm}`;
+            url += `category=${category}&name=${searchTerm}`;
         }
     }
 
