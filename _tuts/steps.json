@@ -624,7 +624,22 @@
             "id": "linking-products-copy-props-to-product-component",
             "name": "Linking Products: Copy props to Product component",
             "description": null
+        },
+        {
+            "id": "mixin-create-mixin-file",
+            "name": "Mixin: Create Mixin File",
+            "description": null
+        },
+        {
+            "id": "mixin-remove-copied-parts-from-products",
+            "name": "Mixin: Remove copied parts from products",
+            "description": null
+        },
+        {
+            "id": "mixin-import-mixin-from-products",
+            "name": "Mixin: Import mixin from products",
+            "description": null
         }
     ],
-    "sha": "5ce7605afe6b1c42420e14f67ba5ffc301281893"
+    "sha": "f97c914fa38df5d3a3fe072f45a71550e575ce41"
 }
