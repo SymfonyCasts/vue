@@ -30,7 +30,7 @@
                     <div :class="$style.description">
                         <p v-text="product.description" />
 
-                        <p>Price: <strong>$ {{ product.price }}</strong></p>
+                        <p>Price: <strong>$ {{ price }}</strong></p>
                     </div>
 
                     <div :class="$style['actions-wrapper']">
