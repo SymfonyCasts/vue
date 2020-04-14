@@ -784,7 +784,52 @@
             "id": "cart-service-remove-test-cart",
             "name": "Cart Service: Remove test cart",
             "description": null
+        },
+        {
+            "id": "product-colors-color-service",
+            "name": "Product Colors: Color service",
+            "description": null
+        },
+        {
+            "id": "product-colors-color-selector-first-component",
+            "name": "Product Colors: Color Selector first component",
+            "description": null
+        },
+        {
+            "id": "product-colors-color-selector-template",
+            "name": "Product Colors: Color Selector Template",
+            "description": null
+        },
+        {
+            "id": "product-colors-color-selector-select-method",
+            "name": "Product Colors: Color Selector select method",
+            "description": null
+        },
+        {
+            "id": "product-colors-color-selector-styles",
+            "name": "Product Colors: Color Selector styles",
+            "description": null
+        },
+        {
+            "id": "product-colors-import-color-selector",
+            "name": "Product Colors: Import Color Selector",
+            "description": null
+        },
+        {
+            "id": "product-colors-add-data",
+            "name": "Product Colors: Add data",
+            "description": null
+        },
+        {
+            "id": "product-colors-add-color-selector-to-template",
+            "name": "Product Colors: Add Color Selector to template",
+            "description": null
+        },
+        {
+            "id": "product-colors-updateselectedcolor-method",
+            "name": "Product Colors: updateSelectedColor method",
+            "description": null
         }
     ],
-    "sha": "5da7fc872d2425cfd37dbeb1edf582c28b625000"
+    "sha": "93c8e972152a15d14cfa5b8f66b0c6a3e7471351"
 }
