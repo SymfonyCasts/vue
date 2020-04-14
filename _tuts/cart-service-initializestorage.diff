@@ -1,0 +1,15 @@
+diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
+index 65ac258..0600c28 100644
+--- a/assets/js/services/cart.js
++++ b/assets/js/services/cart.js
+@@ -44,7 +44,9 @@ const cart = {
+      * Initializes the local storage for our shopping cart
+      */
+     initializeStorage() {
+-        // TODO: implement
++        if (localStorage.getItem('cart') === null) {
++            localStorage.setItem('cart', '[]');
++        }
+     },
+ 
+     /**
