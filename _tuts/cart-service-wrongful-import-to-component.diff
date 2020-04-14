@@ -1,0 +1,21 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 77a5c5d..e31c8ba 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -30,7 +30,7 @@
+                     <div :class="$style.description">
+                         <p v-text="product.description" />
+ 
+-                        <p>Price: <strong>$ {{ price }}</strong></p>
++                        <p>Price: <strong>$ {{ formatPrice(product.price) }}</strong></p>
+                     </div>
+ 
+                     <div :class="$style['actions-wrapper']">
+@@ -48,6 +48,7 @@
+ </template>
+ 
+ <script>
++import formatPrice from '@/helpers/format-price';
+ import productsService from '@/services/products';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
