@@ -37,3 +37,25 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+    .component {
+        display: inline-block;
+        width: 105px;
+        height: 25px;
+
+        span {
+            display: inline-block;
+            border-radius: 4px;
+            border: 2px solid transparent;
+            cursor: pointer;
+            width: 25px;
+            height: 25px;
+            margin-right: 10px;
+
+            &.selected {
+                border: 2px solid black
+            }
+        }
+    }
+</style>
