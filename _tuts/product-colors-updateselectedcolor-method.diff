@@ -1,0 +1,20 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 236f098..c07e69c 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -116,6 +116,15 @@ export default {
+         addToCart() {
+             // TODO
+         },
++
++        /**
++         * Update the selectedColorId index accordingly
++         *
++         * @params {string} colorId
++         */
++        updateSelectedColor(colorId) {
++            this.selectedColorId = colorId;
++        },
+     },
+ };
+ </script>
