@@ -19,7 +19,24 @@ const cart = {
      * @param {number} qty
      */
     addItem(productId, colorId, qty) {
-        // TODO: implement
+        const storage = cart.getStorage();
+        const itemIndex = storage.findIndex(
+            (item) => (
+                item.productId === productId && item.colorId === colorId
+            ),
+        );
+
+        if (itemIndex !== -1) {
+            storage[itemIndex].qty += qty;
+        } else {
+            storage.push({
+                productId,
+                colorId,
+                qty,
+            });
+        }
+
+        cart.saveStorage(storage);
     },
 
     /**
