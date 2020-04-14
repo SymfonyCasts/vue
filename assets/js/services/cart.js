@@ -56,7 +56,7 @@ const cart = {
      * Clears the shopping cart
      */
     clear() {
-        // TODO: implement
+        cart.saveStorage([]);
     },
 
     /**
