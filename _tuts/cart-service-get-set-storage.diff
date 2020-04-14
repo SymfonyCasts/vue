@@ -1,5 +1,5 @@
 diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
-index 0600c28..dbb6869 100644
+index f3242dd..0b59c74 100644
 --- a/assets/js/services/cart.js
 +++ b/assets/js/services/cart.js
 @@ -55,7 +55,8 @@ const cart = {
