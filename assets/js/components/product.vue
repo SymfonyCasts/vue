@@ -30,7 +30,7 @@
                     <div :class="$style.description">
                         <p v-text="product.description" />
 
-                        <p>Price: <strong>$ {{ formatPrice(product.price) }}</strong></p>
+                        <p>Price: <strong>$ {{ price }}</strong></p>
                     </div>
 
                     <div :class="$style['actions-wrapper']">
@@ -83,8 +83,7 @@ export default {
          * @returns {string}
          */
         price() {
-            const strPrice = this.product.price.toString();
-            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
+            return formatPrice(this.product.price);
         },
     },
     async created() {
