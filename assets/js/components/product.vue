@@ -74,7 +74,7 @@ export default {
         },
     },
     data: () => ({
-        product: null,
+        product: { name: '', price: 0, colors: [] },
         loading: true,
     }),
     computed: {
