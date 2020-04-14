@@ -1,9 +1,9 @@
 diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
-index 5d9e649..e9b6de3 100644
+index b672661..27b26b3 100644
 --- a/assets/js/services/cart.js
 +++ b/assets/js/services/cart.js
 @@ -46,7 +46,10 @@ const cart = {
-      * @param {number|null} colorId
+      * @param {string|null} colorId
       */
      removeItem(productId, colorId) {
 -        // TODO: implement
