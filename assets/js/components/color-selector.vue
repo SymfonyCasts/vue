@@ -1,3 +1,15 @@
+<template>
+    <div :class="$style.component">
+        <span
+            v-for="(color, index) in colors"
+            :key="color['@id']"
+            :class="{ [$style.selected]: index === selectedIndex}"
+            :title="color.name"
+            :style="{ backgroundColor: `#${color.hexColor}` }"
+            @click="selectColor(index)"
+        />
+    </div>
+</template>
 
 <script>
 import colorsService from '@/services/colors';
