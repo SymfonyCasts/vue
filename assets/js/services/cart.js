@@ -46,7 +46,10 @@ const cart = {
      * @param {number|null} colorId
      */
     removeItem(productId, colorId) {
-        // TODO: implement
+        const storage = cart.getStorage();
+        cart.saveStorage(
+            storage.filter((item) => (!(item.productId === productId && item.colorId === colorId))),
+        );
     },
 
     /**
