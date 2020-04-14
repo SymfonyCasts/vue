@@ -1,0 +1,16 @@
+diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
+index 2b4816c..f98fa73 100644
+--- a/assets/js/components/color-selector.vue
++++ b/assets/js/components/color-selector.vue
+@@ -29,5 +29,11 @@ export default {
+             this.colors = [];
+         }
+     },
++    methods: {
++        selectColor(index) {
++            this.selectedIndex = index;
++            this.$emit('color-selected', this.colors[index]['@id']);
++        },
++    },
+ };
+ </script>
