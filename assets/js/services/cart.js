@@ -15,8 +15,8 @@ const cart = {
     /**
      * Adds a product into the cart, providing a product id, an optional color id and the quantity
      *
-     * @param {number} productId
-     * @param {number|null} colorId
+     * @param {string} productId
+     * @param {string|null} colorId
      * @param {number} qty
      */
     addItem(productId, colorId, qty) {
@@ -26,8 +26,8 @@ const cart = {
     /**
      * Removes an item from the shopping cart identified by productId and an optional colorId
      *
-     * @param {number} productId
-     * @param {number|null} colorId
+     * @param {string} productId
+     * @param {string|null} colorId
      */
     removeItem(productId, colorId) {
         // TODO: implement
