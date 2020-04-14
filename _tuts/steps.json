@@ -714,7 +714,77 @@
             "id": "basic-product-page-correct-price-in-template",
             "name": "Basic Product Page: Correct price in template",
             "description": null
+        },
+        {
+            "id": "cart-service-extract-formatprice-to-helper",
+            "name": "Cart Service: Extract formatPrice to helper",
+            "description": null
+        },
+        {
+            "id": "cart-service-wrongful-import-to-component",
+            "name": "Cart Service: Wrongful import to component",
+            "description": null
+        },
+        {
+            "id": "cart-service-correct-use-of-formatprice",
+            "name": "Cart Service: Correct use of formatPrice",
+            "description": null
+        },
+        {
+            "id": "cart-service-product-data-initialization",
+            "name": "Cart Service: Product data initialization",
+            "description": null
+        },
+        {
+            "id": "cart-service-formatprice-in-product-card",
+            "name": "Cart Service: formatPrice in product-card",
+            "description": null
+        },
+        {
+            "id": "cart-service-skeleton-service",
+            "name": "Cart Service: Skeleton Service",
+            "description": null
+        },
+        {
+            "id": "cart-service-initializestorage",
+            "name": "Cart Service: InitializeStorage",
+            "description": null
+        },
+        {
+            "id": "cart-service-get-set-storage",
+            "name": "Cart Service: get\/set Storage",
+            "description": null
+        },
+        {
+            "id": "cart-service-getitems",
+            "name": "Cart Service: getItems",
+            "description": null
+        },
+        {
+            "id": "cart-service-add-items",
+            "name": "Cart Service: Add Items",
+            "description": null
+        },
+        {
+            "id": "cart-service-remove-item",
+            "name": "Cart Service: Remove Item",
+            "description": null
+        },
+        {
+            "id": "cart-service-clear",
+            "name": "Cart Service: Clear",
+            "description": null
+        },
+        {
+            "id": "cart-service-test-cart-in-console",
+            "name": "Cart Service: Test cart in console",
+            "description": null
+        },
+        {
+            "id": "cart-service-remove-test-cart",
+            "name": "Cart Service: Remove test cart",
+            "description": null
         }
     ],
-    "sha": "42af744e2d857653eb24cad648a41f69cfcd14d7"
+    "sha": "09394d4b979bb397285a19cdc290f4f2f6c60264"
 }
