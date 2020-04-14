@@ -44,7 +44,9 @@ const cart = {
      * Initializes the local storage for our shopping cart
      */
     initializeStorage() {
-        // TODO: implement
+        if (localStorage.getItem('cart') === null) {
+            localStorage.setItem('cart', '[]');
+        }
     },
 
     /**
