@@ -1,0 +1,20 @@
+diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
+index 5ce4115..2b4816c 100644
+--- a/assets/js/components/color-selector.vue
++++ b/assets/js/components/color-selector.vue
+@@ -1,3 +1,15 @@
++<template>
++    <div :class="$style.component">
++        <span
++            v-for="(color, index) in colors"
++            :key="color['@id']"
++            :class="{ [$style.selected]: index === selectedIndex}"
++            :title="color.name"
++            :style="{ backgroundColor: `#${color.hexColor}` }"
++            @click="selectColor(index)"
++        />
++    </div>
++</template>
+ 
+ <script>
+ import colorsService from '@/services/colors';
