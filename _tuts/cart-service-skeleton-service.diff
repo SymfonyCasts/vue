@@ -1,6 +1,6 @@
 diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
 new file mode 100644
-index 0000000..65ac258
+index 0000000..bf1dcbf
 --- /dev/null
 +++ b/assets/js/services/cart.js
 @@ -0,0 +1,69 @@
@@ -21,8 +21,8 @@ index 0000000..65ac258
 +    /**
 +     * Adds a product into the cart, providing a product id, an optional color id and the quantity
 +     *
-+     * @param {number} productId
-+     * @param {number|null} colorId
++     * @param {string} productId
++     * @param {string|null} colorId
 +     * @param {number} qty
 +     */
 +    addItem(productId, colorId, qty) {
@@ -32,8 +32,8 @@ index 0000000..65ac258
 +    /**
 +     * Removes an item from the shopping cart identified by productId and an optional colorId
 +     *
-+     * @param {number} productId
-+     * @param {number|null} colorId
++     * @param {string} productId
++     * @param {string|null} colorId
 +     */
 +    removeItem(productId, colorId) {
 +        // TODO: implement
