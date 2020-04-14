@@ -1,0 +1,14 @@
+diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
+index dbb6869..b423112 100644
+--- a/assets/js/services/cart.js
++++ b/assets/js/services/cart.js
+@@ -8,8 +8,7 @@ const cart = {
+      * @return {object}
+      */
+     getItems() {
+-        // TODO: implement
+-        return {};
++        return cart.getStorage();
+     },
+ 
+     /**
