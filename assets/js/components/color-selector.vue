@@ -29,5 +29,11 @@ export default {
             this.colors = [];
         }
     },
+    methods: {
+        selectColor(index) {
+            this.selectedIndex = index;
+            this.$emit('color-selected', this.colors[index]['@id']);
+        },
+    },
 };
 </script>
