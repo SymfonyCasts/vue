@@ -24,17 +24,19 @@ export default {
     data: () => ({
         searchTerm: '',
     }),
-    watch: {
-        searchTerm(newTerm) {
-            this.$emit('search-products', { term: newTerm });
-        },
-    },
     methods: {
         /**
          * Resets the search term
          */
         eraseSearchTerm() {
             this.searchTerm = '';
+        },
+
+        /**
+         * Handles input changes
+         */
+        onInput() {
+            this.$emit('search-products', { term: this.searchTerm });
         },
     },
 };
