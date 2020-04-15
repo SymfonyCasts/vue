@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import cartService from '@/services/cart.js';
 import formatPrice from '@/helpers/format-price';
 import productsService from '@/services/products';
 import ColorSelector from '@/components/color-selector';
