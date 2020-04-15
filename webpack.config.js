@@ -32,6 +32,7 @@ Encore
      */
     .addEntry('app', './assets/js/app.js')
     .addEntry('products', './assets/js/products.js')
+    .addEntry('shopping-cart', './assets/js/shopping-cart.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
