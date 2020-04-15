@@ -1,0 +1,24 @@
+diff --git a/templates/cart/index.html.twig b/templates/cart/index.html.twig
+index d421398..742c21c 100644
+--- a/templates/cart/index.html.twig
++++ b/templates/cart/index.html.twig
+@@ -6,17 +6,10 @@
+ 
+ {% block stylesheets %}
+     {{ parent() }}
+-    {{ encore_entry_link_tags('products') }}
++    {{ encore_entry_link_tags('shopping-cart') }}
+ {% endblock %}
+ 
+ {% block javascripts %}
+     {{ parent() }}
+-
+-    <script>
+-        window.currentCategoryId = {{ currentCategoryId|default('null') }};
+-        window.categories = {{ categoriesJson|jsonld }};
+-        window.currentProductId = {{ currentProductId|default('null') }};
+-    </script>
+-
+-    {{ encore_entry_script_tags('products') }}
++    {{ encore_entry_script_tags('shopping-cart') }}
+ {% endblock %}
