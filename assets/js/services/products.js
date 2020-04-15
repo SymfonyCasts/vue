@@ -32,7 +32,7 @@ const products = {
     /**
      * Retrieves a set of products identified by an array of ids
      *
-     * @param {string[]} ids
+     * @param {number[]} ids
      * @return {Promise}
      */
     getProductsById(ids) {
