@@ -1,7 +1,7 @@
 <template>
     <div class="row">
         <div :class="$style['top-bar']">
-            <title-component />
+            <title-component :text="product.name" />
         </div>
 
         TODO: Show product here!
