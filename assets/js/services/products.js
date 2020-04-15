@@ -15,6 +15,19 @@ const products = {
             url: generateListingUrl(category, searchTerm),
         });
     },
+
+    /**
+     * Gets a product from the database according to the product id
+     *
+     * @param {number} id
+     * @return {Promise}
+     */
+    getProduct(id) {
+        return axios({
+            method: 'get',
+            url: `/api/products/${id}`,
+        });
+    },
 };
 
 export default products;
