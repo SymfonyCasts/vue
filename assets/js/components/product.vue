@@ -76,6 +76,16 @@ export default {
         product: null,
         loading: true,
     }),
+    computed: {
+        /**
+         * Returns a formatted price for the product
+         * @returns {string}
+         */
+        price() {
+            const strPrice = this.item.price.toString();
+            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
+        },
+    },
     async created() {
         try {
             const response = await productsService.getProduct(this.currentProductId);
