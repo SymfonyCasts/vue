@@ -7,6 +7,11 @@
 <script>
 export default {
     name: 'Legend',
-    props: ['title'],
+    props: {
+        title: {
+            type: String,
+            required: true,
+        },
+    },
 };
 </script>
