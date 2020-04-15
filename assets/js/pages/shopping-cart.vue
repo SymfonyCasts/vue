@@ -44,8 +44,10 @@ export default {
 
         // Retrieve both colors and products from the server
         try {
-            colorsResponse = await colorsService.getColors();
-            productsResponse = await productsService.getProductsById(productIds);
+            [colorsResponse, productsResponse] = await Promise.all([
+                colorsService.getColors(),
+                productsService.getProductsById(productIds),
+            ]);
         } catch (e) {
             this.loading = false;
         }
