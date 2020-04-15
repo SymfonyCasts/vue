@@ -1,0 +1,28 @@
+diff --git a/templates/cart/index.html.twig b/templates/cart/index.html.twig
+new file mode 100644
+index 0000000..d421398
+--- /dev/null
++++ b/templates/cart/index.html.twig
+@@ -0,0 +1,22 @@
++{% extends 'base.html.twig' %}
++
++{% block body %}
++    <div id="app"></div>
++{% endblock %}
++
++{% block stylesheets %}
++    {{ parent() }}
++    {{ encore_entry_link_tags('products') }}
++{% endblock %}
++
++{% block javascripts %}
++    {{ parent() }}
++
++    <script>
++        window.currentCategoryId = {{ currentCategoryId|default('null') }};
++        window.categories = {{ categoriesJson|jsonld }};
++        window.currentProductId = {{ currentProductId|default('null') }};
++    </script>
++
++    {{ encore_entry_script_tags('products') }}
++{% endblock %}
