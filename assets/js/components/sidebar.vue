@@ -8,7 +8,10 @@
             <ul class="nav flex-column">
                 <li class="nav-item">
                     <a
-                        class="nav-link"
+                        :class="{
+                            'nav-link': true,
+                            [$style.selected]: currentCategoryId === null,
+                        }"
                         href="/"
                     >All Products</a>
                 </li>
@@ -20,7 +23,10 @@
                 >
                     <a
                         :href="`/category/${category.id}`"
-                        class="nav-link"
+                        :class="{
+                            'nav-link': true,
+                            [$style.selected]: category.id === currentCategoryId,
+                        }"
                     >
                         {{ category.name }}
                     </a>
