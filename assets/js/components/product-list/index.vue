@@ -1,6 +1,11 @@
 <template>
     <div :class="$style.component">
-
+        <div
+            v-for="product in products"
+            :key="product['@id']"
+        >
+            {{ product.name }}
+        </div>
     </div>
 </template>
 
