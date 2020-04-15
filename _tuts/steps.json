@@ -829,7 +829,32 @@
             "id": "product-colors-updateselectedcolor-method",
             "name": "Product Colors: updateSelectedColor method",
             "description": null
+        },
+        {
+            "id": "add-to-cart-import-cart-service",
+            "name": "Add To Cart: Import cart service",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-implement-addtocart",
+            "name": "Add To Cart: Implement addToCart",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-implement-totalitems",
+            "name": "Add To Cart: Implement totalItems",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-use-totalitems-in-header",
+            "name": "Add To Cart: Use totalItems in header",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-add-id-to-template",
+            "name": "Add to Cart: Add id to template",
+            "description": null
         }
     ],
-    "sha": "93c8e972152a15d14cfa5b8f66b0c6a3e7471351"
+    "sha": "31d012e8fc00f8df9f215b8083ac20c5d624cf96"
 }
