@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import axios from 'axios';
+import productsService from '@/services/products';
 import LegendComponent from '@/components/legend';
 import ProductList from '@/components/product-list';
 import SearchBar from '@/components/search-bar';
@@ -55,7 +55,7 @@ export default {
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
     async created() {
-        this.fetchProducts('');
+        this.getProducts('');
     },
     methods: {
         /**
@@ -70,7 +70,7 @@ export default {
             }
 
             this.searchTimeout = window.setTimeout(() => {
-                this.fetchProducts(term);
+                this.getProducts(term);
             }, 200);
         },
 
@@ -79,15 +79,13 @@ export default {
          *
          * @param {string} searchTerm
          */
-        async fetchProducts(searchTerm) {
+        async getProducts(searchTerm) {
             this.products = [];
             this.loading = true;
 
             try {
-                const response = await axios({
-                    method: 'get',
-                    url: this.generateListingUrl(searchTerm),
-                });
+                const response = await productsService
+                    .fetchProducts(this.currentCategoryId, searchTerm);
 
                 this.loading = false;
                 this.products = response.data['hydra:member'];
