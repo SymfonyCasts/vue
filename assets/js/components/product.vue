@@ -77,6 +77,8 @@ export default {
     },
     data: () => ({
         product: { name: '', price: 0, colors: [] },
+        selectedColorId: null,
+        qty: 1,
         loading: true,
     }),
     computed: {
