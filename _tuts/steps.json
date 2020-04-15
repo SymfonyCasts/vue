@@ -854,7 +854,37 @@
             "id": "add-to-cart-add-id-to-template",
             "name": "Add to Cart: Add id to template",
             "description": null
+        },
+        {
+            "id": "new-entry-create-main-component",
+            "name": "New Entry: Create main component",
+            "description": null
+        },
+        {
+            "id": "new-entry-add-javascript-file",
+            "name": "New Entry: Add javascript file",
+            "description": null
+        },
+        {
+            "id": "new-entry-encore-config",
+            "name": "New Entry: Encore config",
+            "description": null
+        },
+        {
+            "id": "new-entry-paste-template",
+            "name": "New Entry: Paste template",
+            "description": null
+        },
+        {
+            "id": "new-entry-correct-template",
+            "name": "New Entry: Correct template",
+            "description": null
+        },
+        {
+            "id": "new-entry-add-link-in-header",
+            "name": "New Entry: Add link in header",
+            "description": null
         }
     ],
-    "sha": "31d012e8fc00f8df9f215b8083ac20c5d624cf96"
+    "sha": "4ff21389ac71d051e8faf7ba38f387f3c408b388"
 }
