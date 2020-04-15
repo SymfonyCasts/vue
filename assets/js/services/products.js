@@ -28,6 +28,35 @@ const products = {
             url: `/api/products/${id}`,
         });
     },
+
+    /**
+     * Retrieves a set of products identified by an array of ids
+     *
+     * @param {number[]} ids
+     * @return {Promise}
+     */
+    getProductsById(ids) {
+        if (ids.length) {
+            let idString = '';
+
+            ids.forEach((id) => {
+                if (idString.length) {
+                    idString += '&';
+                }
+
+                idString += `id[]=${id}`;
+            });
+
+            return axios({
+                method: 'get',
+                url: `/api/products?${idString}`,
+            });
+        } else {
+            return new Promise((resolve) => {
+                resolve([]);
+            });
+        }
+    },
 };
 
 export default products;
