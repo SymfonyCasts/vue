@@ -1,0 +1,14 @@
+diff --git a/assets/js/app.js b/assets/js/app.js
+index 88da001..25799a5 100644
+--- a/assets/js/app.js
++++ b/assets/js/app.js
+@@ -7,3 +7,9 @@
+ 
+ // any CSS you import will output into a single css file (app.css in this case)
+ import 'styles/app.scss';
++
++import cartService from '@/services/cart';
++
++const totalItems = cartService.totalItems();
++
++document.getElementById('shopping-cart-items').innerHTML = totalItems.toString();
