@@ -115,7 +115,14 @@ export default {
     },
     methods: {
         addToCart() {
-            // TODO
+            if (this.product.colors.length && this.selectedColorId === null) {
+                alert('Please, select a product color first!');
+                return;
+            }
+
+            cartService.addItem(this.product['@id'], this.selectedColorId, this.qty);
+
+            window.location = '/';
         },
 
         /**
