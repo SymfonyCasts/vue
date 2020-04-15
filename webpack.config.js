@@ -31,8 +31,8 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('products', './assets/js/products.js')
-    .addEntry('shopping-cart', './assets/js/shopping-cart.js')
+    .addEntry('products', './assets/js/pages/products.js')
+    .addEntry('shopping-cart', './assets/js/pages/shopping-cart.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
