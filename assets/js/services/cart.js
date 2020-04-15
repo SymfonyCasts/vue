@@ -8,8 +8,7 @@ const cart = {
      * @return {object}
      */
     getItems() {
-        // TODO: implement
-        return {};
+        return cart.getStorage();
     },
 
     /**
