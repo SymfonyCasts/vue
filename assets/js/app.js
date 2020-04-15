@@ -7,3 +7,9 @@
 
 // any CSS you import will output into a single css file (app.css in this case)
 import 'styles/app.scss';
+
+import cartService from '@/services/cart';
+
+const totalItems = cartService.totalItems();
+
+document.getElementById('shopping-cart-items').innerHTML = totalItems.toString();
