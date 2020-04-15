@@ -38,7 +38,7 @@ export default {
     }),
     async created() {
         const itemsInCart = cartService.getItems();
-        const productIds = itemsInCart.map((item) => (item.productId.split('/').pop()));
+        const productIds = itemsInCart.map((item) => (Number(item.productId.split('/').pop())));
         let colorsResponse = null;
         let productsResponse = null;
 
