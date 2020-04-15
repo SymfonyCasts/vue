@@ -37,11 +37,15 @@ export default {
         products: [],
     }),
     async created() {
+        const itemsInCart = cartService.getItems();
+        const productIds = itemsInCart.map((item) => (item.productId.split('/').pop()));
         let colorsResponse = null;
+        let productsResponse = null;
 
-        // Retrieve colors from the server
+        // Retrieve both colors and products from the server
         try {
-            colorsResponse = await colorsService.getColors();
+            colorsResponse = await colorsResponse.getColors();
+            productsResponse = await productsService.getProductsById(productIds);
         } catch (e) {
             this.loading = false;
         }
@@ -50,6 +54,8 @@ export default {
         colorsResponse.data['hydra:member'].forEach((color) => {
             this.colors[color['@id']] = color;
         });
+
+        this.products = productsResponse.data['hydra:member'];
 
         this.loading = false;
     },
