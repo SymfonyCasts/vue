@@ -38,37 +38,44 @@ export default {
     }),
     async created() {
         const itemsInCart = cartService.getItems();
-        const productIds = itemsInCart.map((item) => (Number(item.productId.split('/').pop())));
-        let colorsResponse = null;
-        let productsResponse = null;
 
-        // Retrieve both colors and products from the server
-        try {
-            [colorsResponse, productsResponse] = await Promise.all([
-                colorsService.getColors(),
-                productsService.getProductsById(productIds),
-            ]);
-        } catch (e) {
-            this.loading = false;
+        if (itemsInCart.length) {
+            const productIds = itemsInCart.map((item) => (Number(item.productId.split('/').pop())));
+            let colorsResponse = null;
+            let productsResponse = null;
+
+            // Retrieve both colors and products from the server
+            try {
+                [colorsResponse, productsResponse] = await Promise.all([
+                    colorsService.getColors(),
+                    productsService.getProductsById(productIds),
+                ]);
+            } catch (e) {
+                this.loading = false;
+            }
+
+            // Map all colors to our object dictionary by @id
+            if (colorsResponse !== null) {
+                colorsResponse.data['hydra:member'].forEach((color) => {
+                    this.colors[color['@id']] = color;
+                });
+            }
+
+            // Assign our returned products to our products array,
+            // applying the proper colorId, hexColor and qty values
+            if (productsResponse !== null) {
+                this.products = productsResponse.data['hydra:member'].map((product) => {
+                    const productInCart = itemsInCart.find((item) => (item.productId === product['@id']));
+
+                    return {
+                        ...product,
+                        colorId: productInCart.colorId,
+                        hexColor: productInCart.colorId ? this.colors[productInCart.colorId].hexColor : 'fff',
+                        qty: productInCart.qty,
+                    };
+                });
+            }
         }
-
-        // Map all colors to our object dictionary by @id
-        colorsResponse.data['hydra:member'].forEach((color) => {
-            this.colors[color['@id']] = color;
-        });
-
-        // Assign our returned products to our products array,
-        // applying the proper colorId, hexColor and qty values
-        this.products = productsResponse.data['hydra:member'].map((product) => {
-            const productInCart = itemsInCart.find((item) => (item.productId === product['@id']));
-
-            return {
-                ...product,
-                colorId: productInCart.colorId,
-                hexColor: productInCart.colorId ? this.colors[productInCart.colorId].hexColor : 'fff',
-                qty: productInCart.qty,
-            };
-        });
 
         this.loading = false;
     },
