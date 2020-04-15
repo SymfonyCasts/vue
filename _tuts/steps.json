@@ -909,7 +909,47 @@
             "id": "shopping-cart-listing-first-scss",
             "name": "Shopping Cart Listing: First Scss",
             "description": null
+        },
+        {
+            "id": "shopping-cart-listing-import-services",
+            "name": "Shopping Cart Listing: Import services",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-add-data-properties",
+            "name": "Shopping Cart Listing: Add Data Properties",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-load-colors-in-created",
+            "name": "Shopping Cart Listing: Load colors in created",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-add-getproductsbyid-to-service",
+            "name": "Shopping Cart Listing: Add getProductsById to service",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-load-products-in-created",
+            "name": "Shopping Cart Listing: Load products in created",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-add-cart-data-to-product-list",
+            "name": "Shopping Cart Listing: Add cart data to product list",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-optimize-load-times",
+            "name": "Shopping Cart Listing: Optimize Load Times",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-add-conditionals",
+            "name": "Shopping Cart Listing: Add conditionals",
+            "description": null
         }
     ],
-    "sha": "c63f17856d51d5ce0d9084ec492bfef676133793"
+    "sha": "6fcca806a37297529b2c69effd5109d9e224ea69"
 }
