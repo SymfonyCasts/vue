@@ -54,24 +54,7 @@ export default {
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
     async created() {
-        const url = this.currentCategoryId
-            ? `/api/products?category=${this.currentCategoryId}`
-            : '/api/products';
-
-        this.products = [];
-        this.loading = true;
-
-        try {
-            const response = await axios({
-                method: 'get',
-                url,
-            });
-
-            this.loading = false;
-            this.products = response.data['hydra:member'];
-        } catch (e) {
-            this.loading = false;
-        }
+        this.fetchProducts('');
     },
     methods: {
         /**
