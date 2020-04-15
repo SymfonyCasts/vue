@@ -82,7 +82,7 @@ export default {
          * @returns {string}
          */
         price() {
-            const strPrice = this.item.price.toString();
+            const strPrice = this.product.price.toString();
             return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
         },
     },
