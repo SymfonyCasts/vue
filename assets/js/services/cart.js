@@ -60,6 +60,15 @@ const cart = {
     },
 
     /**
+     * Returns the total number of items in our shopping cart
+     *
+     * @return {number}
+     */
+    totalItems() {
+        return cart.getStorage().reduce((acc, item) => (acc + item.qty), 0);
+    },
+
+    /**
      * Initializes the local storage for our shopping cart
      */
     initializeStorage() {
