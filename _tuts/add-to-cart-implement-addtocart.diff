@@ -1,0 +1,20 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 2f613b0..3c1a42a 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -115,7 +115,14 @@ export default {
+     },
+     methods: {
+         addToCart() {
+-            // TODO
++            if (this.product.colors.length && this.selectedColorId === null) {
++                alert('Please, select a product color first!');
++                return;
++            }
++
++            cartService.addItem(this.product['@id'], this.selectedColorId, this.qty);
++
++            window.location = '/';
+         },
+ 
+         /**
