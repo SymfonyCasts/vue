@@ -1,4 +1,4 @@
-@import '../variables/colors';
+@import '~styles/variables/colors';
 
 @mixin black-component {
     background-color: $black-component-background;
