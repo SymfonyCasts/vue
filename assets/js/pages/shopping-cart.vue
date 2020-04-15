@@ -19,6 +19,9 @@
 </template>
 
 <script>
+import cartService from '@/services/cart';
+import colorsService from '@/services/colors';
+import productsService from '@/services/products';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
