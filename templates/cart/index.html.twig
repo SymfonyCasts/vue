@@ -6,17 +6,10 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    {{ encore_entry_link_tags('products') }}
+    {{ encore_entry_link_tags('shopping-cart') }}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
-
-    <script>
-        window.currentCategoryId = {{ currentCategoryId|default('null') }};
-        window.categories = {{ categoriesJson|jsonld }};
-        window.currentProductId = {{ currentProductId|default('null') }};
-    </script>
-
-    {{ encore_entry_script_tags('products') }}
+    {{ encore_entry_script_tags('shopping-cart') }}
 {% endblock %}
