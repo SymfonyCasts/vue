@@ -32,7 +32,7 @@ const products = {
     /**
      * Retrieves a set of products identified by an array of ids
      *
-     * @param {number[]} ids
+     * @param {string[]} ids
      * @return {Promise}
      */
     getProductsById(ids) {
@@ -51,11 +51,11 @@ const products = {
                 method: 'get',
                 url: `/api/products?${idString}`,
             });
-        } else {
-            return new Promise((resolve) => {
-                resolve([]);
-            });
         }
+
+        return new Promise((resolve) => {
+            resolve([]);
+        });
     },
 };
 
