@@ -1,0 +1,20 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 2f00565..16b572d 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -35,4 +35,15 @@ export default {
+ </script>
+ 
+ <style lang="scss" module>
++@import '~styles/top-bar.scss';
++@import '~styles/components/light-component.scss';
++
++.content {
++    @include light-component;
++    margin-top: 25px;
++    padding: 20px;
++    display: flex;
++    flex-direction: column;
++    width: 900px;
++}
+ </style>
