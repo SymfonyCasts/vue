@@ -884,7 +884,32 @@
             "id": "new-entry-add-link-in-header",
             "name": "New Entry: Add link in header",
             "description": null
+        },
+        {
+            "id": "shopping-cart-listing-move-files",
+            "name": "Shopping Cart Listing: Move files",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-correct-references",
+            "name": "Shopping Cart Listing: Correct References",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-shopping-cart-template",
+            "name": "Shopping Cart Listing: Shopping Cart template",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-update-component-script",
+            "name": "Shopping Cart Listing: update component script",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-first-scss",
+            "name": "Shopping Cart Listing: First Scss",
+            "description": null
         }
     ],
-    "sha": "4ff21389ac71d051e8faf7ba38f387f3c408b388"
+    "sha": "c63f17856d51d5ce0d9084ec492bfef676133793"
 }
