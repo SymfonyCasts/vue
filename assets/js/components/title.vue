@@ -1,7 +1,7 @@
 <template>
     <div :class="$style.component">
         <h6 class="ml-2">
-            {{ category.name }}
+            {{ text }}
         </h6>
     </div>
 </template>
@@ -10,13 +10,9 @@
 export default {
     name: 'Title',
     props: {
-        currentCategoryId: {
-            type: Number,
-            default: null,
-        },
-        categories: {
-            type: Array,
-            default: () => ([]),
+        text: {
+            type: String,
+            required: true,
         },
     },
     computed: {
