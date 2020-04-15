@@ -55,7 +55,8 @@ const cart = {
      * @returns {array}
      */
     getStorage() {
-        // TODO: implement
+        cart.initializeStorage();
+        return JSON.parse(localStorage.getItem('cart'));
     },
 
     /**
@@ -64,7 +65,7 @@ const cart = {
      * @param {array} storage
      */
     saveStorage(storage) {
-        // TODO: implement
+        localStorage.setItem('cart', JSON.stringify(storage));
     },
 };
 
