@@ -116,6 +116,15 @@ export default {
         addToCart() {
             // TODO
         },
+
+        /**
+         * Update the selectedColorId index accordingly
+         *
+         * @params {string} colorId
+         */
+        updateSelectedColor(colorId) {
+            this.selectedColorId = colorId;
+        },
     },
 };
 </script>
