@@ -35,4 +35,15 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import '~styles/top-bar.scss';
+@import '~styles/components/light-component.scss';
+
+.content {
+    @include light-component;
+    margin-top: 25px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 900px;
+}
 </style>
