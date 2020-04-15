@@ -15,18 +15,6 @@ export default {
             required: true,
         },
     },
-    computed: {
-        category() {
-            if (this.currentCategoryId === null) {
-                return {
-                    id: null,
-                    name: 'All Products',
-                };
-            }
-
-            return this.categories.find((cat) => (cat.id === this.currentCategoryId));
-        },
-    },
 };
 </script>
 
