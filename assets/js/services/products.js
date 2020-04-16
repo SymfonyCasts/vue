@@ -1,5 +1,5 @@
 import axios from 'axios';
-import generateListingUrl from '@/helpers/generate-listing-url';
+import generateListingParams from '@/helpers/generate-listing-params';
 
 const products = {
     /**
@@ -12,7 +12,8 @@ const products = {
     fetchProducts(category, searchTerm) {
         return axios({
             method: 'get',
-            url: generateListingUrl(category, searchTerm),
+            url: '/api/products',
+            params: generateListingParams(category, searchTerm),
         });
     },
 
