@@ -54,7 +54,7 @@ export default {
         searchTimeout: null,
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
-    async created() {
+    created() {
         this.fetchProducts('');
     },
     methods: {
