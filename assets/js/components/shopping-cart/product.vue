@@ -20,6 +20,8 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import '~styles/variables/colors.scss';
+
 .component {
     display: flex;
     flex-direction: row;
