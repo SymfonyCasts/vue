@@ -1,0 +1,20 @@
+diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
+new file mode 100644
+index 0000000..2cec2ed
+--- /dev/null
++++ b/assets/js/components/shopping-cart/product.vue
+@@ -0,0 +1,13 @@
++<template>
++    
++</template>
++
++<script>
++    export default {
++        name: "product.vue"
++    }
++</script>
++
++<style scoped>
++
++</style>
+\ No newline at end of file
