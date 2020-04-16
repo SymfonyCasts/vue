@@ -11,6 +11,15 @@
 
                     <div :class="$style.content">
                         <loading v-show="loading" />
+
+                        <div
+                            v-show="!loading && !products.length"
+                            :class="$style['product-list']"
+                        >
+                            <div :class="$style['product-message']">
+                                Sorry! You haven't bought anything yet!
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
