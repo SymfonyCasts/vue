@@ -55,11 +55,12 @@ export default {
     }),
     computed: {
         filteredProducts() {
-            return this.searchTerm
-                ? this.products
-                    .filter((product) => (
-                        product.name.toLowerCase().search(this.searchTerm.toLowerCase()) !== -1))
-                : this.products;
+            if (!this.searchTerm) {
+                return this.products;
+            }
+
+            return this.products.filter((product) => (
+                product.name.toLowerCase().search(this.searchTerm.toLowerCase()) !== -1));
         },
     },
     async created() {
