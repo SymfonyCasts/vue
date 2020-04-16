@@ -86,7 +86,8 @@ export default {
             try {
                 const response = await axios({
                     method: 'get',
-                    url: this.generateListingUrl(searchTerm),
+                    url: '/api/products',
+                    params: this.generateListingParams(searchTerm),
                 });
 
                 this.loading = false;
