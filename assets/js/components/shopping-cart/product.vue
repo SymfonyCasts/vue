@@ -9,6 +9,13 @@
 <script>
 export default {
     name: 'ShoppingCartProduct',
+    props: {
+        product: {
+            type: Object,
+            require: true,
+            default: () => ({}),
+        },
+    },
 };
 </script>
 
