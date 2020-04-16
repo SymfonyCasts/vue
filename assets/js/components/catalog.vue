@@ -95,27 +95,24 @@ export default {
         },
 
         /**
-         * Generates the URL to call for a list of products by category or search term
+         * Generates the params for the URL to call for a list of products
+         * by category or search term
          *
          * @param {string} searchTerm
-         * @return {string}
+         * @return {object}
          */
-        generateListingUrl(searchTerm) {
-            let url = '/api/products';
+        generateListingParams(searchTerm) {
+            const params = {};
 
-            if (this.currentCategoryId || searchTerm !== '') {
-                url += '?';
-
-                if (this.currentCategoryId && searchTerm === '') {
-                    url += `category=${this.currentCategoryId}`;
-                } else if (!this.currentCategoryId && searchTerm !== '') {
-                    url += `name=${searchTerm}`;
-                } else {
-                    url += `category=${this.currentCategoryId}&name=${searchTerm}`;
-                }
+            if (this.currentCategoryId) {
+                params.category = this.currentCategoryId;
             }
 
-            return url;
+            if (searchTerm !== '') {
+                params.name = searchTerm;
+            }
+
+            return params;
         },
     },
 };
