@@ -33,7 +33,7 @@ export default {
 
 <style lang="scss" module>
 .component {
-    h6 {
+    h1 {
         font-size: 1.7rem;
     }
 }
