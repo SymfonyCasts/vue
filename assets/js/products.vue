@@ -16,6 +16,7 @@
                     :categories="categories"
                     :current-category-id="currentCategoryId"
                     :current-product-id="currentProductId"
+                    :class="$style.title"
                 />
             </div>
         </div>
@@ -72,3 +73,9 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+.title {
+    margin-left: 10px;
+}
+</style>
