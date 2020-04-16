@@ -1,8 +1,8 @@
 <template>
     <div :class="$style.component">
-        <h6 class="ml-2">
-            {{ category.name }}
-        </h6>
+        <h1>
+            {{ categoryName }}
+        </h1>
     </div>
 </template>
 
@@ -20,15 +20,12 @@ export default {
         },
     },
     computed: {
-        category() {
+        categoryName() {
             if (this.currentCategoryId === null) {
-                return {
-                    id: null,
-                    name: 'All Products',
-                };
+                return 'All Products';
             }
 
-            return this.categories.find((cat) => (cat.id === this.currentCategoryId));
+            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
         },
     },
 };
@@ -36,9 +33,8 @@ export default {
 
 <style lang="scss" module>
 .component {
-    h6 {
+    h1 {
         font-size: 1.7rem;
-        margin-left: -6px !important;
     }
 }
 </style>
