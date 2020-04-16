@@ -16,7 +16,7 @@ class ProductController extends AbstractController
     public function index(CategoryRepository $categoryRepository): Response
     {
         return $this->render('product/index.html.twig', [
-            'categoriesJson' => $categoryRepository->findAll(),
+            'categories' => $categoryRepository->findAll(),
         ]);
     }
 
@@ -27,7 +27,7 @@ class ProductController extends AbstractController
     {
         return $this->render('product/index.html.twig', [
             'currentCategoryId' => $id,
-            'categoriesJson' => $categoryRepository->findAll(),
+            'categories' => $categoryRepository->findAll(),
         ]);
     }
 
@@ -38,7 +38,7 @@ class ProductController extends AbstractController
     {
         return $this->render('product/index.html.twig', [
             'currentProductId' => $id,
-            'categoriesJson' => $categoryRepository->findAll(),
+            'categories' => $categoryRepository->findAll(),
         ]);
     }
 }
