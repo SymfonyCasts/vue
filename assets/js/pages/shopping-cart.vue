@@ -136,5 +136,34 @@ export default {
     display: flex;
     flex-direction: column;
     width: 900px;
+
+    .product-list {
+        margin-bottom: 25px;
+        display: flex;
+        flex-direction: column;
+
+        .product-message {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid $light-component-border;
+        }
+
+        .product-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+            border-bottom: 1px solid $light-component-border;
+            justify-content: flex-end;
+
+            span {
+                margin-right: 20px;
+            }
+        }
+    }
 }
 </style>
