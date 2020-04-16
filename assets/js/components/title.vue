@@ -1,8 +1,8 @@
 <template>
     <div :class="$style.component">
-        <h6 class="ml-2">
+        <h1>
             {{ text }}
-        </h6>
+        </h1>
     </div>
 </template>
 
@@ -20,9 +20,8 @@ export default {
 
 <style lang="scss" module>
 .component {
-    h6 {
+    h1 {
         font-size: 1.7rem;
-        margin-left: -6px !important;
     }
 }
 </style>
