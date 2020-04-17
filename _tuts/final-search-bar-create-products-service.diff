@@ -1,11 +1,11 @@
 diff --git a/assets/js/services/products.js b/assets/js/services/products.js
 new file mode 100644
-index 0000000..f5e2904
+index 0000000..944dfca
 --- /dev/null
 +++ b/assets/js/services/products.js
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,21 @@
 +import axios from 'axios';
-+import generateListingUrl from '@/helpers/generate-listing-url';
++import generateListingParams from '@/helpers/generate-listing-params';
 +
 +const products = {
 +    /**
@@ -18,7 +18,8 @@ index 0000000..f5e2904
 +    fetchProducts(category, searchTerm) {
 +        return axios({
 +            method: 'get',
-+            url: generateListingUrl(category, searchTerm),
++            url: '/api/products',
++            params: generateListingParams(category, searchTerm),
 +        });
 +    },
 +};
