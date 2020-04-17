@@ -1,17 +1,18 @@
-diff --git a/assets/js/helpers/generate-listing-url.js b/assets/js/helpers/generate-listing-url.js
+diff --git a/assets/js/helpers/generate-listing-params.js b/assets/js/helpers/generate-listing-params.js
 new file mode 100644
-index 0000000..949b6ee
+index 0000000..e6208b2
 --- /dev/null
-+++ b/assets/js/helpers/generate-listing-url.js
-@@ -0,0 +1,11 @@
++++ b/assets/js/helpers/generate-listing-params.js
+@@ -0,0 +1,12 @@
 +/**
-+ * Generates the URL to call for a list of products by category or search term
++ * Generates the params for the URL to call for a list of products
++ * by category or search term
 + *
 + * @param {number|null} category
 + * @param {string} searchTerm
-+ * @return {string}
++ * @return {object}
 + */
-+const generateListingUrl = (category, searchTerm) => {
++const generateListingParams = (category, searchTerm) => {
 +};
 +
-+export default generateListingUrl;
++export default generateListingParams;
