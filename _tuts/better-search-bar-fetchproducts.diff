@@ -1,24 +1,34 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 505990d..d7dd6df 100644
+index cea838c..7008a07 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -53,15 +53,6 @@ export default {
+@@ -11,7 +11,7 @@
+             </div>
+ 
+             <product-list
+-                :products="filteredProducts"
++                :products="products"
+                 :loading="loading"
+             />
+         </div>
+@@ -53,16 +53,6 @@ export default {
          loading: true,
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
 -    computed: {
 -        filteredProducts() {
--            return this.searchTerm
--                ? this.products
--                    .filter((product) => (
--                        product.name.toLowerCase().search(this.searchTerm.toLowerCase()) !== -1))
--                : this.products;
+-            if (!this.searchTerm) {
+-                return this.products;
+-            }
+-
+-            return this.products.filter((product) => (
+-                product.name.toLowerCase().search(this.searchTerm.toLowerCase()) !== -1));
 -        },
 -    },
      async created() {
          const url = this.currentCategoryId
              ? `/api/products?category=${this.currentCategoryId}`
-@@ -83,8 +74,26 @@ export default {
+@@ -84,8 +74,27 @@ export default {
          }
      },
      methods: {
@@ -36,7 +46,8 @@ index 505990d..d7dd6df 100644
 +            try {
 +                const response = await axios({
 +                    method: 'get',
-+                    url: this.generateListingUrl(searchTerm),
++                    url: '/api/products',
++                    params: this.generateListingParams(searchTerm),
 +                });
 +
 +                this.loading = false;
