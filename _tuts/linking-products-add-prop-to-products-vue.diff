@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 15c4909..e23370d 100644
+index 59a8b81..bd36351 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -39,6 +39,10 @@ export default {
+@@ -40,6 +40,10 @@ export default {
              type: Array,
              default: () => ([]),
          },
