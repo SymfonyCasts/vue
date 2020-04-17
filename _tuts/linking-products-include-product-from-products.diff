@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index e23370d..36c6562 100644
+index bd36351..32e196a 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -22,12 +22,14 @@
+@@ -23,12 +23,14 @@
  
  <script>
  import CatalogComponent from '@/components/catalog';
