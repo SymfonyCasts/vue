@@ -1,26 +1,22 @@
-diff --git a/assets/js/helpers/generate-listing-url.js b/assets/js/helpers/generate-listing-url.js
-index 949b6ee..50f71c5 100644
---- a/assets/js/helpers/generate-listing-url.js
-+++ b/assets/js/helpers/generate-listing-url.js
-@@ -6,6 +6,21 @@
-  * @return {string}
+diff --git a/assets/js/helpers/generate-listing-params.js b/assets/js/helpers/generate-listing-params.js
+index e6208b2..9c1bb94 100644
+--- a/assets/js/helpers/generate-listing-params.js
++++ b/assets/js/helpers/generate-listing-params.js
+@@ -7,6 +7,17 @@
+  * @return {object}
   */
- const generateListingUrl = (category, searchTerm) => {
-+    let url = '/api/products';
+ const generateListingParams = (category, searchTerm) => {
++    const params = {};
 +
-+    if (this.currentCategoryId || searchTerm !== '') {
-+        url += '?';
-+
-+        if (this.currentCategoryId && searchTerm === '') {
-+            url += `category=${this.currentCategoryId}`;
-+        } else if (!this.currentCategoryId && searchTerm !== '') {
-+            url += `name=${searchTerm}`;
-+        } else {
-+            url += `category=${this.currentCategoryId}&name=${searchTerm}`;
-+        }
++    if (this.currentCategoryId) {
++        params.category = this.currentCategoryId;
 +    }
 +
-+    return url;
++    if (searchTerm !== '') {
++        params.name = searchTerm;
++    }
++
++    return params;
  };
  
- export default generateListingUrl;
+ export default generateListingParams;
