@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index f057e23..40dc57a 100644
+index f0f8d9c..0ddf233 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -23,7 +23,7 @@
@@ -14,7 +14,7 @@ index f057e23..40dc57a 100644
 @@ -55,7 +55,7 @@ export default {
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
-     async created() {
+     created() {
 -        this.fetchProducts('');
 +        this.getProducts('');
      },
@@ -29,7 +29,7 @@ index f057e23..40dc57a 100644
              }, 200);
          },
  
-@@ -79,15 +79,13 @@ export default {
+@@ -79,16 +79,13 @@ export default {
           *
           * @param {string} searchTerm
           */
@@ -41,7 +41,8 @@ index f057e23..40dc57a 100644
              try {
 -                const response = await axios({
 -                    method: 'get',
--                    url: this.generateListingUrl(searchTerm),
+-                    url: '/api/products',
+-                    params: this.generateListingParams(searchTerm),
 -                });
 +                const response = await productsService
 +                    .fetchProducts(this.currentCategoryId, searchTerm);
