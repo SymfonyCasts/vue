@@ -1,5 +1,5 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index 1c4b453..0264359 100644
+index 1c4b453..7cfa8ce 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
 @@ -3,6 +3,7 @@
@@ -19,7 +19,7 @@ index 1c4b453..0264359 100644
      {
 -        return $this->render('product/index.html.twig');
 +        return $this->render('product/index.html.twig', [
-+            'categoriesJson' => $categoryRepository->findAll(),
++            'categories' => $categoryRepository->findAll(),
 +        ]);
      }
  
@@ -31,7 +31,7 @@ index 1c4b453..0264359 100644
      {
          return $this->render('product/index.html.twig', [
              'currentCategoryId' => $id,
-+            'categoriesJson' => $categoryRepository->findAll(),
++            'categories' => $categoryRepository->findAll(),
          ]);
      }
  
