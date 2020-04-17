@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index aada0c7..15c4909 100644
+index 828ffd9..59a8b81 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -11,12 +11,10 @@
+@@ -11,13 +11,11 @@
              </aside>
  
              <div :class="contentClass">
@@ -10,13 +10,14 @@ index aada0c7..15c4909 100644
 +                <catalog-component
                      :current-category-id="currentCategoryId"
                      :categories="categories"
+                     :class="$style.title"
                  />
 -
 -                <catalog-component :current-category-id="currentCategoryId" />
              </div>
          </div>
      </div>
-@@ -25,14 +23,12 @@
+@@ -26,14 +24,12 @@
  <script>
  import CatalogComponent from '@/components/catalog';
  import SidebarComponent from '@/components/sidebar';
