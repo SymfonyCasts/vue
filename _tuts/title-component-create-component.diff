@@ -1,14 +1,14 @@
 diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
 new file mode 100644
-index 0000000..fc93302
+index 0000000..4e82b59
 --- /dev/null
 +++ b/assets/js/components/title.vue
-@@ -0,0 +1,44 @@
+@@ -0,0 +1,40 @@
 +<template>
 +    <div :class="$style.component">
-+        <h6 class="ml-2">
-+            {{ category.name }}
-+        </h6>
++        <h1>
++            {{ categoryName }}
++        </h1>
 +    </div>
 +</template>
 +
@@ -26,15 +26,12 @@ index 0000000..fc93302
 +        },
 +    },
 +    computed: {
-+        category() {
++        categoryName() {
 +            if (this.currentCategoryId === null) {
-+                return {
-+                    id: null,
-+                    name: 'All Products',
-+                };
++                return 'All Products';
 +            }
 +
-+            return this.categories.find((cat) => (cat.id === this.currentCategoryId));
++            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
 +        },
 +    },
 +};
@@ -42,9 +39,8 @@ index 0000000..fc93302
 +
 +<style lang="scss" module>
 +.component {
-+    h6 {
++    h1 {
 +        font-size: 1.7rem;
-+        margin-left: -6px !important;
 +    }
 +}
 +</style>
