@@ -411,6 +411,11 @@
             "description": null
         },
         {
+            "id": "title-component-add-styles",
+            "name": "Title Component: Add styles",
+            "description": null
+        },
+        {
             "id": "first-search-bar-create-component",
             "name": "First Search Bar: Create Component",
             "description": null
@@ -486,8 +491,8 @@
             "description": null
         },
         {
-            "id": "better-search-bar-template-correction",
-            "name": "Better Search Bar: Template Correction",
+            "id": "deleted-step",
+            "name": "deleted step",
             "description": null
         },
         {
@@ -1006,5 +1011,5 @@
             "description": null
         }
     ],
-    "sha": "91e92f6bf4a6183a2bc48403d3a2216b2808a177"
+    "sha": "03be8cd5fe5437de63495adc54f77d3c8163721d"
 }
