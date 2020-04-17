@@ -1,8 +1,8 @@
 diff --git a/assets/js/services/products.js b/assets/js/services/products.js
-index ed9369e..9c788f4 100644
+index 2b936e1..1a6b126 100644
 --- a/assets/js/services/products.js
 +++ b/assets/js/services/products.js
-@@ -28,6 +28,35 @@ const products = {
+@@ -29,6 +29,35 @@ const products = {
              url: `/api/products/${id}`,
          });
      },
