@@ -1,5 +1,5 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 1aa3b0e..75eec47 100644
+index f4fb467..a597044 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -11,9 +11,11 @@
@@ -13,6 +13,6 @@ index 1aa3b0e..75eec47 100644
                      :categories="categories"
 +                    :current-category-id="currentCategoryId"
 +                    :current-product-id="currentProductId"
+                     :class="$style.title"
                  />
              </div>
-         </div>
