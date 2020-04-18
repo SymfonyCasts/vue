@@ -1,20 +1,17 @@
 <template>
     <div>
-        <div class="row">
-            <div :class="$style['top-bar']">
-                <title-component
-                    :current-category-id="currentCategoryId"
-                    :categories="categories"
-                />
+        <title-component
+            :current-category-id="currentCategoryId"
+            :categories="categories"
+            :class="$style.title"
+        />
 
-                <search-bar @search-products="onSearchProducts" />
-            </div>
+        <search-bar />
 
-            <product-list
-                :products="products"
-                :loading="loading"
-            />
-        </div>
+        <product-list
+            :products="products"
+            :loading="loading"
+        />
 
         <div class="row">
             <legend-component :title="legend" />
@@ -74,3 +71,9 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+.title {
+    margin-left: 10px;
+}
+</style>
