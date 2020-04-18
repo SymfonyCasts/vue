@@ -14,7 +14,6 @@
                 <catalog-component
                     :current-category-id="currentCategoryId"
                     :categories="categories"
-                    :class="$style.title"
                 />
             </div>
         </div>
@@ -68,9 +67,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" module>
-.title {
-    margin-left: 10px;
-}
-</style>
