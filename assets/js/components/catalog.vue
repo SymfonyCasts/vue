@@ -5,6 +5,7 @@
                 <title-component
                     :current-category-id="currentCategoryId"
                     :categories="categories"
+                    :class="$style.title"
                 />
 
                 <search-bar @search-products="onSearchProducts" />
