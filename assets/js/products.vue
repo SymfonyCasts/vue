@@ -50,7 +50,7 @@ export default {
     },
     computed: {
         currentComponent() {
-            return this.currentProductId !== null ? 'ProductComponent' : 'CatalogComponent';
+            return this.currentProductId !== null ? ProductComponent : CatalogComponent;
         },
     },
 };
