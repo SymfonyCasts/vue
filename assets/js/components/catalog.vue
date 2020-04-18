@@ -56,7 +56,6 @@ export default {
         products: [],
         searchTerm: '',
         loading: true,
-        searchTimeout: null,
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
     created() {
@@ -69,14 +68,7 @@ export default {
          * @param {string} term
          */
         onSearchProducts({ term }) {
-            if (this.searchTimeout !== null) {
-                window.clearTimeout(this.searchTimeout);
-                this.searchTimeout = null;
-            }
-
-            this.searchTimeout = window.setTimeout(() => {
-                this.getProducts(term);
-            }, 200);
+            this.getProducts(term);
         },
 
         /**
