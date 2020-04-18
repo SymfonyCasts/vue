@@ -11,7 +11,10 @@
             </aside>
 
             <div :class="contentClass">
-                <catalog-component :current-category-id="currentCategoryId" />
+                <catalog-component
+                    :current-category-id="currentCategoryId"
+                    :categories="categories"
+                />
             </div>
         </div>
     </div>
