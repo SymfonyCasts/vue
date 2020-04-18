@@ -1,20 +1,17 @@
 <template>
     <div>
-        <div class="row">
-            <div :class="$style['top-bar']">
-                <title-component
-                    :current-category-id="currentCategoryId"
-                    :categories="categories"
-                />
+        <title-component
+            :current-category-id="currentCategoryId"
+            :categories="categories"
+            :class="$style.title"
+        />
 
-                <search-bar @search-products="onSearchProducts" />
-            </div>
+        <search-bar />
 
-            <product-list
-                :products="products"
-                :loading="loading"
-            />
-        </div>
+        <product-list
+            :products="products"
+            :loading="loading"
+        />
 
         <div class="row">
             <legend-component :title="legend" />
@@ -26,17 +23,25 @@
 import axios from 'axios';
 import LegendComponent from '@/components/legend';
 import ProductList from '@/components/product-list';
+import SearchBar from '@/components/search-bar';
+import TitleComponent from '@/components/title';
 
 export default {
     name: 'Catalog',
     components: {
         LegendComponent,
         ProductList,
+        SearchBar,
+        TitleComponent,
     },
     props: {
         currentCategoryId: {
             type: Number,
             default: null,
+        },
+        categories: {
+            type: Array,
+            default: () => ([]),
         },
     },
     data: () => ({
@@ -66,3 +71,9 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+.title {
+    margin-left: 10px;
+}
+</style>
