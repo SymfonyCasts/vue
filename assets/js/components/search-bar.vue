@@ -10,7 +10,6 @@
         <span
             v-show="searchTerm !== ''"
             :class="$style.erase"
-            @click="eraseSearchTerm"
         >
             X
         </span>
