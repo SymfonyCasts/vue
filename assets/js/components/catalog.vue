@@ -8,7 +8,7 @@
                     :class="$style.title"
                 />
 
-                <search-bar />
+                <search-bar on-search-products="onSearchProducts" />
             </div>
 
             <product-list
