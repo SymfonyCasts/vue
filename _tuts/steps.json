@@ -411,6 +411,11 @@
             "description": null
         },
         {
+            "id": "title-component-add-styles",
+            "name": "Title Component: Add styles",
+            "description": null
+        },
+        {
             "id": "first-search-bar-create-component",
             "name": "First Search Bar: Create Component",
             "description": null
@@ -486,8 +491,8 @@
             "description": null
         },
         {
-            "id": "better-search-bar-template-correction",
-            "name": "Better Search Bar: Template Correction",
+            "id": "deleted-step",
+            "name": "deleted step",
             "description": null
         },
         {
@@ -949,7 +954,62 @@
             "id": "shopping-cart-listing-add-conditionals",
             "name": "Shopping Cart Listing: Add conditionals",
             "description": null
+        },
+        {
+            "id": "shopping-cart-ui-first-component",
+            "name": "Shopping Cart UI: First component",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-add-basic-template",
+            "name": "Shopping Cart UI: Add basic template",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-restyle-the-script-tag",
+            "name": "Shopping Cart UI: Restyle the script tag",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-add-basic-script",
+            "name": "Shopping Cart UI: Add basic script",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-correct-style-tag",
+            "name": "Shopping Cart UI: Correct style tag",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-add-basic-styles",
+            "name": "Shopping Cart UI: Add basic styles",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-no-cart-template-block",
+            "name": "Shopping Cart UI: No cart template block",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-products-list",
+            "name": "Shopping Cart UI: Products list",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-include-product-component",
+            "name": "Shopping Cart UI: Include Product component",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-computed-property-total-price",
+            "name": "Shopping Cart UI: Computed Property Total Price",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-paste-css",
+            "name": "Shopping Cart UI: Paste CSS",
+            "description": null
         }
     ],
-    "sha": "6fcca806a37297529b2c69effd5109d9e224ea69"
+    "sha": "03be8cd5fe5437de63495adc54f77d3c8163721d"
 }
