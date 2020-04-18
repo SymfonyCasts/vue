@@ -24,8 +24,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import '~styles/variables/colors.scss';
-
 .component {
     width: 400px;
 }
