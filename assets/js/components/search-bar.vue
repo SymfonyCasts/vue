@@ -23,6 +23,7 @@ export default {
     name: 'SearchBar',
     data: () => ({
         searchTerm: '',
+        searchTimeout: null,
     }),
     methods: {
         /**
@@ -36,7 +37,14 @@ export default {
          * Handles input changes
          */
         onInput() {
-            this.$emit('search-products', { term: this.searchTerm });
+            if (this.searchTimeout !== null) {
+                window.clearTimeout(this.searchTimeout);
+                this.searchTimeout = null;
+            }
+
+            this.searchTimeout = window.setTimeout(() => {
+                this.$emit('search-products', { term: this.searchTerm });
+            }, 200);
         },
     },
 };
