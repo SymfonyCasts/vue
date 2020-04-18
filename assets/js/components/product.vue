@@ -59,10 +59,6 @@ export default {
         TitleComponent,
     },
     props: {
-        currentCategoryId: {
-            type: Number,
-            default: null,
-        },
         currentProductId: {
             type: Number,
             default: null,
