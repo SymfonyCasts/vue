@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 85ce77c..7803aba 100644
+index c38dd6f..776a177 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -82,7 +82,7 @@ export default {
+@@ -78,7 +78,7 @@ export default {
           * @returns {string}
           */
          price() {
