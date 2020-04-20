@@ -7,5 +7,15 @@
 <script>
 export default {
     name: 'Product',
+    props: {
+        currentProductId: {
+            type: Number,
+            default: null,
+        },
+        categories: {
+            type: Array,
+            default: () => ([]),
+        },
+    },
 };
 </script>
