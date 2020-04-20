@@ -55,7 +55,18 @@ export default {
             this.colors[color['@id']] = color;
         });
 
-        this.products = productsResponse.data['hydra:member'];
+        // Assign our returned products to our products array,
+        // applying the proper colorId, hexColor and qty values
+        this.products = productsResponse.data['hydra:member'].map((product) => {
+            const productInCart = itemsInCart.find((item) => (item.productId === product['@id']));
+
+            return {
+                ...product,
+                colorId: productInCart.colorId,
+                hexColor: productInCart.colorId ? this.colors[productInCart.colorId].hexColor : 'fff',
+                qty: productInCart.qty,
+            };
+        });
 
         this.loading = false;
     },
