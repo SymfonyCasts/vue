@@ -88,6 +88,27 @@ export default {
         onSearchProducts(event) {
             this.searchTerm = event.term;
         },
+
+        /**
+         * Generates the params for the URL to call for a list of products
+         * by category or search term
+         *
+         * @param {string} searchTerm
+         * @return {object}
+         */
+        generateListingParams(searchTerm) {
+            const params = {};
+
+            if (this.currentCategoryId) {
+                params.category = this.currentCategoryId;
+            }
+
+            if (searchTerm !== '') {
+                params.name = searchTerm;
+            }
+
+            return params;
+        },
     },
 };
 </script>
