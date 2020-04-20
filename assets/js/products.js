@@ -5,6 +5,7 @@ new Vue({
     render: (h) => h(App, {
         props: {
             currentCategoryId: window.currentCategoryId,
+            categories: window.categories,
         },
     }),
 }).$mount('#app');
