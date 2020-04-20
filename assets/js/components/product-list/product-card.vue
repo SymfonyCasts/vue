@@ -39,6 +39,8 @@
 </template>
 
 <script>
+import formatPrice from '@/helpers/format-price';
+
 export default {
     name: 'ProductCard',
     props: {
@@ -53,8 +55,7 @@ export default {
          * @returns {string}
          */
         price() {
-            const strPrice = this.item.price.toString();
-            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
+            return formatPrice(this.item.price);
         },
 
         /**
