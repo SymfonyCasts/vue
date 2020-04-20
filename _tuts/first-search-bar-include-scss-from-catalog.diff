@@ -1,24 +1,31 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index a915bc1..0650680 100644
+index 08376a0..da9d6b1 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -1,9 +1,20 @@
+@@ -1,17 +1,21 @@
  <template>
      <div>
--        <product-list
--            :products="products"
--            :loading="loading"
+-        <title-component
+-            :current-category-id="currentCategoryId"
+-            :categories="categories"
+-            :class="$style.title"
 -        />
 +        <div class="row">
 +            <div :class="$style['top-bar']">
 +                <title-component
 +                    :current-category-id="currentCategoryId"
 +                    :categories="categories"
++                    :class="$style.title"
 +                />
-+
-+                <search-bar @search-products="onSearchProducts" />
+ 
+-        <search-bar />
++                <search-bar />
 +            </div>
-+
+ 
+-        <product-list
+-            :products="products"
+-            :loading="loading"
+-        />
 +            <product-list
 +                :products="products"
 +                :loading="loading"
@@ -27,3 +34,12 @@ index a915bc1..0650680 100644
  
          <div class="row">
              <legend-component :title="legend" />
+@@ -73,7 +77,5 @@ export default {
+ </script>
+ 
+ <style lang="scss" module>
+-.title {
+-    margin-left: 10px;
+-}
++@import '~styles/top-bar.scss';
+ </style>
