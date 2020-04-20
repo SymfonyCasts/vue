@@ -47,12 +47,14 @@ import cartService from '@/services/cart';
 import colorsService from '@/services/colors';
 import productsService from '@/services/products';
 import Loading from '@/components/loading';
+import ShoppingCartProduct from '@/components/shopping-cart/product';
 import TitleComponent from '@/components/title';
 
 export default {
     name: 'ShoppingCart',
     components: {
         Loading,
+        ShoppingCartProduct,
         TitleComponent,
     },
     data: () => ({
