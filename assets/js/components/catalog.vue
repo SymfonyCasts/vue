@@ -12,7 +12,7 @@
             </div>
 
             <product-list
-                :products="filteredProducts"
+                :products="products"
                 :loading="loading"
             />
         </div>
@@ -54,16 +54,6 @@ export default {
         loading: true,
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
-    computed: {
-        filteredProducts() {
-            if (!this.searchTerm) {
-                return this.products;
-            }
-
-            return this.products.filter((product) => (
-                product.name.toLowerCase().search(this.searchTerm.toLowerCase()) !== -1));
-        },
-    },
     async created() {
         const url = this.currentCategoryId
             ? `/api/products?category=${this.currentCategoryId}`
@@ -85,8 +75,27 @@ export default {
         }
     },
     methods: {
-        onSearchProducts(event) {
-            this.searchTerm = event.term;
+        /**
+         * Fetches products from the database according to current category and search term
+         *
+         * @param {string} searchTerm
+         */
+        async fetchProducts(searchTerm) {
+            this.products = [];
+            this.loading = true;
+
+            try {
+                const response = await axios({
+                    method: 'get',
+                    url: '/api/products',
+                    params: this.generateListingParams(searchTerm),
+                });
+
+                this.loading = false;
+                this.products = response.data['hydra:member'];
+            } catch (e) {
+                this.loading = false;
+            }
         },
 
         /**
