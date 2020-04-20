@@ -30,6 +30,10 @@ export default {
             type: Number,
             default: null,
         },
+        categories: {
+            type: Array,
+            default: () => ([]),
+        },
     },
     data: () => ({
         sidebarCollapsed: false,
