@@ -49,11 +49,13 @@
 
 <script>
 import productsService from '@/services/products';
+import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
 export default {
     name: 'Product',
     components: {
+        Loading,
         TitleComponent,
     },
     props: {
