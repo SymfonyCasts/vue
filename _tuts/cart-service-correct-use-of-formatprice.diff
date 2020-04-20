@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index e31c8ba..577714c 100644
+index 36c8639..6baf642 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -30,7 +30,7 @@
@@ -11,7 +11,7 @@ index e31c8ba..577714c 100644
                      </div>
  
                      <div :class="$style['actions-wrapper']">
-@@ -83,8 +83,7 @@ export default {
+@@ -79,8 +79,7 @@ export default {
           * @returns {string}
           */
          price() {
