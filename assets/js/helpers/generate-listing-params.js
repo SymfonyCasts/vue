@@ -9,8 +9,8 @@
 const generateListingParams = (category, searchTerm) => {
     const params = {};
 
-    if (this.currentCategoryId) {
-        params.category = this.currentCategoryId;
+    if (category) {
+        params.category = category;
     }
 
     if (searchTerm !== '') {
