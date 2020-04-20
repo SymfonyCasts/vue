@@ -1,0 +1,31 @@
+diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
+index 0b9c8c9..86005f4 100644
+--- a/assets/js/components/shopping-cart/product.vue
++++ b/assets/js/components/shopping-cart/product.vue
+@@ -27,6 +27,7 @@
+ 
+         <button
+             class="btn btn-info btn-sm"
++            @click="removeFromCart(product['@id'], product.colorId)"
+         >
+             Remove
+         </button>
+@@ -58,6 +59,18 @@ export default {
+ 
+             window.location.reload();
+         },
++
++        /**
++         * Removes a product from the cart, then refreshes the page
++         *
++         * @param {string} productId
++         * @param {string|null} colorId
++         */
++        removeFromCart(productId, colorId) {
++            cartService.removeItem(productId, colorId);
++
++            window.location.reload();
++        },
+     },
+ };
+ </script>
