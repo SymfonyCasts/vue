@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index f00aada..1d5744b 100644
+index 24cfd99..83d7bd4 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -1,12 +1,22 @@
@@ -25,9 +25,9 @@ index f00aada..1d5744b 100644
 +        TitleComponent,
 +    },
      props: {
-         currentCategoryId: {
+         currentProductId: {
              type: Number,
-@@ -21,5 +31,19 @@ export default {
+@@ -17,5 +27,19 @@ export default {
              default: () => ([]),
          },
      },
