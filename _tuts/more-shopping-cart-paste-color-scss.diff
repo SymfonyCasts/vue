@@ -1,0 +1,21 @@
+diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
+index 127190b..bdebd29 100644
+--- a/assets/js/components/shopping-cart/product.vue
++++ b/assets/js/components/shopping-cart/product.vue
+@@ -37,5 +37,16 @@ export default {
+     span, input, button {
+         margin-right: 20px;
+     }
++
++    span.color-square {
++        display: inline-block;
++        width: 25px;
++        height: 25px;
++        border-radius: 4px;
++    }
++
++    .product-name {
++        flex-grow: 1;
++    }
+ }
+ </style>
