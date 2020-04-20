@@ -15,6 +15,11 @@ export default {
     data: () => ({
         searchTerm: '',
     }),
+    watch: {
+        searchTerm(newTerm) {
+            this.$emit('search-products', { term: newTerm });
+        },
+    },
 };
 </script>
 
