@@ -36,6 +36,23 @@ export default {
         loading: true,
         products: [],
     }),
+    async created() {
+        let colorsResponse = null;
+
+        // Retrieve colors from the server
+        try {
+            colorsResponse = await colorsService.getColors();
+        } catch (e) {
+            this.loading = false;
+        }
+
+        // Map all colors to our object dictionary by @id
+        colorsResponse.data['hydra:member'].forEach((color) => {
+            this.colors[color['@id']] = color;
+        });
+
+        this.loading = false;
+    },
 };
 </script>
 
