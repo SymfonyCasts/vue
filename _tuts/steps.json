@@ -416,8 +416,38 @@
             "description": null
         },
         {
-            "id": "first-search-bar-create-component",
-            "name": "First Search Bar: Create Component",
+            "id": "first-search-bar-move-title-into-catalog",
+            "name": "First Search Bar: Move Title into Catalog",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-prop-to-catalog",
+            "name": "First Search Bar: Add Prop to catalog",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-create-skeleton-component",
+            "name": "First Search Bar: Create Skeleton component",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-include-from-catalog",
+            "name": "First Search Bar: Include from Catalog",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-scss-file",
+            "name": "First Search Bar: Add scss File",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-include-scss-from-catalog",
+            "name": "First Search Bar: Include scss from Catalog",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-add-v-model",
+            "name": "First Search Bar: Add v-model",
             "description": null
         },
         {
@@ -426,33 +456,33 @@
             "description": null
         },
         {
-            "id": "first-search-bar-remove-title-from-products",
-            "name": "First Search Bar: Remove Title from Products",
+            "id": "deleted-step-4",
+            "name": "deleted step 4",
             "description": null
         },
         {
-            "id": "first-search-bar-add-title-and-search-bar-to-catalog",
-            "name": "First Search Bar: Add title and search bar to catalog",
+            "id": "deleted-step-5",
+            "name": "deleted step 5",
             "description": null
         },
         {
-            "id": "first-search-bar-include-new-components",
-            "name": "First Search Bar: Include new components",
+            "id": "deleted-step-6",
+            "name": "deleted step 6",
             "description": null
         },
         {
-            "id": "first-search-bar-add-categories-prop",
-            "name": "First Search Bar: Add categories prop",
+            "id": "deleted-step-7",
+            "name": "deleted step 7",
             "description": null
         },
         {
-            "id": "first-search-bar-add-scss-file",
-            "name": "First Search Bar: Add scss file",
+            "id": "deleted-step-2",
+            "name": "deleted step 2",
             "description": null
         },
         {
-            "id": "first-search-bar-include-scss-file",
-            "name": "First Search Bar: Include scss file",
+            "id": "deleted-step-3",
+            "name": "deleted step 3",
             "description": null
         },
         {
@@ -621,8 +651,8 @@
             "description": null
         },
         {
-            "id": "linking-products-add-missing-prop-to-catalog",
-            "name": "Linking Products: Add missing prop to catalog",
+            "id": "deleted-step-8",
+            "name": "deleted step 8",
             "description": null
         },
         {
@@ -1011,5 +1041,5 @@
             "description": null
         }
     ],
-    "sha": "03be8cd5fe5437de63495adc54f77d3c8163721d"
+    "sha": "37c88959fe41d2975fd3bd21adc31df7b512314e"
 }
