@@ -1,16 +1,12 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 4009b48..f00aada 100644
+index 4009b48..24cfd99 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -7,5 +7,19 @@
+@@ -7,5 +7,15 @@
  <script>
  export default {
      name: 'Product',
 +    props: {
-+        currentCategoryId: {
-+            type: Number,
-+            default: null,
-+        },
 +        currentProductId: {
 +            type: Number,
 +            default: null,
