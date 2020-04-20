@@ -1,6 +1,6 @@
-@import './components/black-component';
-@import './components/light-component';
-@import './variables/colors';
+@import '~styles/components/black-component';
+@import '~styles/components/light-component';
+@import '~styles/variables/colors';
 @import '~bootstrap';
 
 .header {
