@@ -8,7 +8,7 @@
                     :class="$style.title"
                 />
 
-                <search-bar />
+                <search-bar @search-products="onSearchProducts" />
             </div>
 
             <product-list
@@ -73,6 +73,11 @@ export default {
         } catch (e) {
             this.loading = false;
         }
+    },
+    methods: {
+        onSearchProducts(event) {
+            this.searchTerm = event.term;
+        },
     },
 };
 </script>
