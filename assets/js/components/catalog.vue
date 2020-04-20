@@ -13,6 +13,7 @@
 </template>
 
 <script>
+import axios from 'axios';
 import LegendComponent from '@/components/legend';
 
 export default {
@@ -23,5 +24,13 @@ export default {
     data: () => ({
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
+    async mounted() {
+        const response = await axios({
+            method: 'get',
+            url: '/api/products',
+        });
+
+        console.log(response);
+    },
 };
 </script>
