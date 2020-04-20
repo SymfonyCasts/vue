@@ -1,9 +1,17 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index c46497a..dde0a0c 100644
+index c8d141c..8a59555 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -28,6 +28,14 @@ export default {
-             this.$emit('search-products', { term: newTerm });
+@@ -10,6 +10,7 @@
+         <span
+             v-show="searchTerm !== ''"
+             :class="$style.erase"
++            @click="eraseSearchTerm"
+         >
+             X
+         </span>
+@@ -35,6 +36,14 @@ export default {
+             }, 200);
          },
      },
 +    methods: {
