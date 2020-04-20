@@ -1039,7 +1039,52 @@
             "id": "shopping-cart-ui-paste-css",
             "name": "Shopping Cart UI: Paste CSS",
             "description": null
+        },
+        {
+            "id": "more-shopping-cart-add-color-swatch",
+            "name": "More Shopping Cart: Add color swatch",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-paste-color-scss",
+            "name": "More Shopping Cart: Paste Color Scss",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-add-product-color-data",
+            "name": "More Shopping Cart: Add product color data",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-add-quantity-and-buttons",
+            "name": "More Shopping Cart: Add Quantity and Buttons",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-wire-product-qty",
+            "name": "More Shopping Cart: Wire Product Qty",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-add-service-method",
+            "name": "more Shopping Cart: add service method",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-add-functionality-to-updateqty",
+            "name": "More Shopping Cart: Add functionality to updateQty",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-remove-from-cart",
+            "name": "More Shopping Cart: Remove From Cart",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-product-price",
+            "name": "More Shopping Cart: Product Price",
+            "description": null
         }
     ],
-    "sha": "37c88959fe41d2975fd3bd21adc31df7b512314e"
+    "sha": "8a0dee00b35b8061078bb19a1a4d77a65053e1f1"
 }
