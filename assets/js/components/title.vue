@@ -15,15 +15,6 @@ export default {
             required: true,
         },
     },
-    computed: {
-        categoryName() {
-            if (this.currentCategoryId === null) {
-                return 'All Products';
-            }
-
-            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
-        },
-    },
 };
 </script>
 
