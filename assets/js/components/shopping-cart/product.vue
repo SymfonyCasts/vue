@@ -1,5 +1,9 @@
 <template>
-    
+    <div
+        :class="$style.component"
+    >
+        <span :class="$style['product-name']">{{ product.name }}</span>
+    </div>
 </template>
 
 <script>
