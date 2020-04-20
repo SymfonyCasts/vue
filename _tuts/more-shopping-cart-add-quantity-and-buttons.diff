@@ -1,0 +1,40 @@
+diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
+index 48ccbd4..494f55f 100644
+--- a/assets/js/components/shopping-cart/product.vue
++++ b/assets/js/components/shopping-cart/product.vue
+@@ -10,6 +10,24 @@
+                 backgroundColor: `#${product.hexColor}`
+             }"
+         />
++
++        <input
++            class="form-control"
++            type="number"
++            min="1"
++        >
++
++        <button
++            class="btn btn-info btn-sm"
++        >
++            Update
++        </button>
++
++        <button
++            class="btn btn-info btn-sm"
++        >
++            Remove
++        </button>
+     </div>
+ </template>
+ 
+@@ -48,6 +66,10 @@ export default {
+         border-radius: 4px;
+     }
+ 
++    input {
++        width: 60px;
++    }
++
+     .product-name {
+         flex-grow: 1;
+     }
