@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
+index 494f55f..b711d14 100644
+--- a/assets/js/components/shopping-cart/product.vue
++++ b/assets/js/components/shopping-cart/product.vue
+@@ -12,6 +12,7 @@
+         />
+ 
+         <input
++            v-model.number="product.qty"
+             class="form-control"
+             type="number"
+             min="1"
