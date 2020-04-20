@@ -1,14 +1,15 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index ac6a3c6..a14ce81 100644
+index a3a2b2b..554f92c 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -2,10 +2,7 @@
+@@ -2,11 +2,7 @@
      <div>
          <div class="row">
              <div :class="$style['top-bar']">
 -                <title-component
 -                    :current-category-id="currentCategoryId"
 -                    :categories="categories"
+-                    :class="$style.title"
 -                />
 +                <title-component :text="category.name" />
  
