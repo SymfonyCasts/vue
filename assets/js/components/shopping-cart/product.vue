@@ -27,6 +27,7 @@
 
         <button
             class="btn btn-info btn-sm"
+            @click="removeFromCart(product['@id'], product.colorId)"
         >
             Remove
         </button>
@@ -55,6 +56,18 @@ export default {
          */
         updateQty(productId, colorId, qty) {
             cartService.updateQty(productId, colorId, qty);
+
+            window.location.reload();
+        },
+
+        /**
+         * Removes a product from the cart, then refreshes the page
+         *
+         * @param {string} productId
+         * @param {string|null} colorId
+         */
+        removeFromCart(productId, colorId) {
+            cartService.removeItem(productId, colorId);
 
             window.location.reload();
         },
