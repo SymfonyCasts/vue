@@ -4,7 +4,15 @@
             <aside class="col-xs-12 col-lg-3" />
 
             <div class="col-xs-12 col-lg-9">
-                // TODO: List the products in the cart here
+                <div class="row">
+                    <div :class="$style['top-bar']">
+                        <title-component text="Shopping Cart" />
+                    </div>
+
+                    <div :class="$style.content">
+                        <loading v-show="loading" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
