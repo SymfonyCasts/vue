@@ -1,11 +1,5 @@
 <template>
     <div>
-        <div class="row">
-            <h2 class="p-3">
-                Products
-            </h2>
-        </div>
-
         <product-list
             :products="products"
             :loading="loading"
