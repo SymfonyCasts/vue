@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index a597044..d6df22b 100644
+index dfb967d..112ebec 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -49,28 +49,11 @@ export default {
+@@ -48,27 +48,10 @@ export default {
              default: null,
          },
      },
@@ -17,7 +17,7 @@ index a597044..d6df22b 100644
 -            return this.sidebarCollapsed ? 'col-xs-12 col-lg-11' : 'col-xs-12 col-lg-9';
 -        },
          currentComponent() {
-             return this.currentProductId !== null ? 'ProductComponent' : 'CatalogComponent';
+             return this.currentProductId !== null ? ProductComponent : CatalogComponent;
          },
      },
 -    methods: {
@@ -30,4 +30,3 @@ index a597044..d6df22b 100644
 -    },
  };
  </script>
- 
