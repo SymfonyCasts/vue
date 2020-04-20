@@ -25,24 +25,26 @@ export default {
         searchTerm: '',
         searchTimeout: null,
     }),
-    watch: {
-        searchTerm(newTerm) {
-            if (this.searchTimeout !== null) {
-                window.clearTimeout(this.searchTimeout);
-                this.searchTimeout = null;
-            }
-
-            this.searchTimeout = window.setTimeout(() => {
-                this.$emit('search-products', { term: newTerm });
-            }, 200);
-        },
-    },
     methods: {
         /**
          * Resets the search term
          */
         eraseSearchTerm() {
             this.searchTerm = '';
+        },
+
+        /**
+         * Handles input changes
+         */
+        onInput() {
+            if (this.searchTimeout !== null) {
+                window.clearTimeout(this.searchTimeout);
+                this.searchTimeout = null;
+            }
+
+            this.searchTimeout = window.setTimeout(() => {
+                this.$emit('search-products', { term: this.searchTerm });
+            }, 200);
         },
     },
 };
