@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index cab50d0..c46497a 100644
+index d997e8a..c8d141c 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -6,6 +6,14 @@
+@@ -6,6 +6,13 @@
              placeholder="Search products..."
              type="text"
          >
@@ -10,7 +10,6 @@ index cab50d0..c46497a 100644
 +        <span
 +            v-show="searchTerm !== ''"
 +            :class="$style.erase"
-+            @click="eraseSearchTerm"
 +        >
 +            X
 +        </span>
