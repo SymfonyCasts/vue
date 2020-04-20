@@ -7,6 +7,17 @@
  * @return {object}
  */
 const generateListingParams = (category, searchTerm) => {
+    const params = {};
+
+    if (this.currentCategoryId) {
+        params.category = this.currentCategoryId;
+    }
+
+    if (searchTerm !== '') {
+        params.name = searchTerm;
+    }
+
+    return params;
 };
 
 export default generateListingParams;
