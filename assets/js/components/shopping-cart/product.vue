@@ -6,6 +6,9 @@
 
         <span
             :class="$style['color-square']"
+            :style="{
+                backgroundColor: `#${product.hexColor}`
+            }"
         />
     </div>
 </template>
