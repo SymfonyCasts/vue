@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index f0f8d9c..0ddf233 100644
+index 9219509..f8e13db 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -23,7 +23,7 @@
+@@ -24,7 +24,7 @@
  </template>
  
  <script>
@@ -20,16 +20,16 @@ index f0f8d9c..0ddf233 100644
      },
      methods: {
          /**
-@@ -70,7 +70,7 @@ export default {
-             }
- 
-             this.searchTimeout = window.setTimeout(() => {
--                this.fetchProducts(term);
-+                this.getProducts(term);
-             }, 200);
+@@ -64,7 +64,7 @@ export default {
+          * @param {string} term
+          */
+         onSearchProducts({ term }) {
+-            this.fetchProducts(term);
++            this.getProducts(term);
          },
  
-@@ -79,16 +79,13 @@ export default {
+         /**
+@@ -72,16 +72,13 @@ export default {
           *
           * @param {string} searchTerm
           */
