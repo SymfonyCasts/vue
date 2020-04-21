@@ -1084,7 +1084,32 @@
             "id": "more-shopping-cart-product-price",
             "name": "More Shopping Cart: Product Price",
             "description": null
+        },
+        {
+            "id": "clear-and-checkout-first-component",
+            "name": "Clear and Checkout: First component",
+            "description": null
+        },
+        {
+            "id": "clear-and-checkout-add-to-template",
+            "name": "Clear and Checkout: Add to Template",
+            "description": null
+        },
+        {
+            "id": "clear-and-checkout-implement-clear",
+            "name": "Clear and Checkout: Implement Clear",
+            "description": null
+        },
+        {
+            "id": "clear-and-checkout-disable-on-empty",
+            "name": "Clear and Checkout: Disable on Empty",
+            "description": null
+        },
+        {
+            "id": "clear-and-checkout-implement-checkout",
+            "name": "Clear and Checkout: Implement Checkout",
+            "description": null
         }
     ],
-    "sha": "fbed4f056ace5e39718c22e20599dcfe296fa1e9"
+    "sha": "c9f6c1449e43ef9fdb4bd700556a634aa566be2c"
 }
