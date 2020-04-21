@@ -1,0 +1,26 @@
+diff --git a/assets/js/components/shopping-cart/actions.vue b/assets/js/components/shopping-cart/actions.vue
+index b904431..32d5eb1 100644
+--- a/assets/js/components/shopping-cart/actions.vue
++++ b/assets/js/components/shopping-cart/actions.vue
+@@ -12,6 +12,7 @@
+         <button
+             class="btn btn-info btn-sm"
+             :disabled="!hasProducts"
++            @click="checkout"
+         >
+             Check Out!
+         </button>
+@@ -39,6 +40,13 @@ export default {
+ 
+             window.location = '/';
+         },
++
++        /**
++         * Proceeds to check-out
++         */
++        checkout() {
++            window.location = '/checkout';
++        },
+     },
+ };
+ </script>
