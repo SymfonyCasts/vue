@@ -10,6 +10,7 @@
 
         <button
             class="btn btn-info btn-sm"
+            :disabled="!hasProducts"
         >
             Check Out!
         </button>
@@ -19,6 +20,13 @@
 <script>
 export default {
     name: 'CheckoutActions',
+    props: {
+        hasProducts: {
+            type: Boolean,
+            required: true,
+            default: false,
+        },
+    },
 };
 </script>
 

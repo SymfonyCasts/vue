@@ -36,7 +36,10 @@
                             </div>
                         </div>
 
-                        <shopping-cart-actions v-show="!loading" />
+                        <shopping-cart-actions
+                            v-show="!loading"
+                            :has-products="products.length > 0"
+                        />
                     </div>
                 </div>
             </div>
