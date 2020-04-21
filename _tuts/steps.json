@@ -651,8 +651,8 @@
             "description": null
         },
         {
-            "id": "deleted-step-8",
-            "name": "deleted step 8",
+            "id": "linking-products-v-bind-directive",
+            "name": "Linking Products: v-bind directive",
             "description": null
         },
         {
@@ -1086,5 +1086,5 @@
             "description": null
         }
     ],
-    "sha": "8a0dee00b35b8061078bb19a1a4d77a65053e1f1"
+    "sha": "fbed4f056ace5e39718c22e20599dcfe296fa1e9"
 }
