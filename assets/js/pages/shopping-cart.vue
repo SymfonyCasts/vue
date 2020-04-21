@@ -35,6 +35,11 @@
                                 <span>Total: <strong>${{ totalPrice }}</strong></span>
                             </div>
                         </div>
+
+                        <shopping-cart-actions
+                            v-show="!loading"
+                            :has-products="products.length > 0"
+                        />
                     </div>
                 </div>
             </div>
@@ -48,6 +53,7 @@ import colorsService from '@/services/colors';
 import formatPrice from '@/helpers/format-price';
 import productsService from '@/services/products';
 import Loading from '@/components/loading';
+import ShoppingCartActions from '@/components/shopping-cart/actions';
 import ShoppingCartProduct from '@/components/shopping-cart/product';
 import TitleComponent from '@/components/title';
 
@@ -55,6 +61,7 @@ export default {
     name: 'ShoppingCart',
     components: {
         Loading,
+        ShoppingCartActions,
         ShoppingCartProduct,
         TitleComponent,
     },
