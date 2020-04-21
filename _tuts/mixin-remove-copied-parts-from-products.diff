@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index dfb967d..112ebec 100644
+index 0fcbc48..892bad6 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -48,27 +48,10 @@ export default {
+@@ -46,16 +46,7 @@ export default {
              default: null,
          },
      },
@@ -18,6 +18,9 @@ index dfb967d..112ebec 100644
 -        },
          currentComponent() {
              return this.currentProductId !== null ? ProductComponent : CatalogComponent;
+         },
+@@ -71,13 +62,5 @@ export default {
+                 };
          },
      },
 -    methods: {
