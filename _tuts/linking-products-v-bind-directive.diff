@@ -1,0 +1,33 @@
+diff --git a/assets/js/products.vue b/assets/js/products.vue
+index dfb967d..0fcbc48 100644
+--- a/assets/js/products.vue
++++ b/assets/js/products.vue
+@@ -13,9 +13,7 @@
+             <div :class="contentClass">
+                 <component
+                     :is="currentComponent"
+-                    :categories="categories"
+-                    :current-category-id="currentCategoryId"
+-                    :current-product-id="currentProductId"
++                    v-bind="currentProps"
+                 />
+             </div>
+         </div>
+@@ -61,6 +59,17 @@ export default {
+         currentComponent() {
+             return this.currentProductId !== null ? ProductComponent : CatalogComponent;
+         },
++        currentProps() {
++            return this.currentProductId !== null
++                ? {
++                    currentProductId: this.currentProductId,
++                    categories: this.categories,
++                }
++                : {
++                    currentCategoryId: this.currentCategoryId,
++                    categories: this.categories,
++                };
++        },
+     },
+     methods: {
+         /**
