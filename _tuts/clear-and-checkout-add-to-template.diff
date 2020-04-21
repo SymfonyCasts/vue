@@ -1,0 +1,29 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 789b932..4b19c04 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -35,6 +35,8 @@
+                                 <span>Total: <strong>${{ totalPrice }}</strong></span>
+                             </div>
+                         </div>
++
++                        <shopping-cart-actions v-show="!loading" />
+                     </div>
+                 </div>
+             </div>
+@@ -48,6 +50,7 @@ import colorsService from '@/services/colors';
+ import formatPrice from '@/helpers/format-price';
+ import productsService from '@/services/products';
+ import Loading from '@/components/loading';
++import ShoppingCartActions from '@/components/shopping-cart/actions';
+ import ShoppingCartProduct from '@/components/shopping-cart/product';
+ import TitleComponent from '@/components/title';
+ 
+@@ -55,6 +58,7 @@ export default {
+     name: 'ShoppingCart',
+     components: {
+         Loading,
++        ShoppingCartActions,
+         ShoppingCartProduct,
+         TitleComponent,
+     },
