@@ -1,8 +1,8 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 112ebec..ce08a4b 100644
+index 892bad6..91471eb 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
-@@ -26,6 +26,7 @@
+@@ -24,6 +24,7 @@
  import CatalogComponent from '@/components/catalog';
  import ProductComponent from '@/components/product';
  import SidebarComponent from '@/components/sidebar';
@@ -10,7 +10,7 @@ index 112ebec..ce08a4b 100644
  
  export default {
      name: 'Products',
-@@ -34,6 +35,7 @@ export default {
+@@ -32,6 +33,7 @@ export default {
          ProductComponent,
          SidebarComponent,
      },
