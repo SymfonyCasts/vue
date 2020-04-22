@@ -1,0 +1,49 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+new file mode 100644
+index 0000000..313ec73
+--- /dev/null
++++ b/assets/js/pages/checkout.vue
+@@ -0,0 +1,43 @@
++<template>
++    <div class="container-fluid">
++        <div class="row row-no-wrap">
++            <aside class="col-xs-12 col-lg-3" />
++
++            <div class="col-xs-12 col-lg-9">
++                <div class="row">
++                    <div :class="$style['top-bar']">
++                        <title-component text="Checkout" />
++                    </div>
++
++                    <div :class="$style.content">
++                    </div>
++                </div>
++            </div>
++        </div>
++    </div>
++</template>
++
++<script>
++import TitleComponent from '@/components/title';
++
++export default {
++    name: 'Checkout',
++    components: {
++        TitleComponent,
++    },
++};
++</script>
++
++<style lang="scss" module>
++@import '~styles/top-bar.scss';
++@import '~styles/components/light-component.scss';
++
++.content {
++    @include light-component;
++    margin-top: 25px;
++    padding: 20px;
++    display: flex;
++    flex-direction: column;
++    width: 900px;
++}
++</style>
