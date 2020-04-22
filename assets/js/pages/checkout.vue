@@ -17,6 +17,41 @@
                                 label="Name:"
                                 :error-message="validation.customerName"
                             />
+
+                            <form-input
+                                id="customerName"
+                                v-model="form.customerName"
+                                :label="'Name:'"
+                                :error-message="validation.customerName"
+                            />
+
+                            <form-input
+                                id="customerName"
+                                v-model="form.customerName"
+                                :label="'Name:'"
+                                :error-message="validation.customerName"
+                            />
+
+                            <form-input
+                                id="customerName"
+                                v-model="form.customerName"
+                                :label="'Name:'"
+                                :error-message="validation.customerName"
+                            />
+
+                            <form-input
+                                id="customerName"
+                                v-model="form.customerName"
+                                :label="'Name:'"
+                                :error-message="validation.customerName"
+                            />
+
+                            <form-input
+                                id="customerName"
+                                v-model="form.customerName"
+                                :label="'Name:'"
+                                :error-message="validation.customerName"
+                            />
                         </form>
                     </div>
                 </div>
