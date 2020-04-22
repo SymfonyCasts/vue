@@ -11,29 +11,7 @@
 
                     <div :class="$style.content">
                         <form>
-                            <div class="form-row">
-                                <label
-                                    for="customerName"
-                                    class="col-form-label"
-                                >
-                                    Name:
-                                </label>
-                                <input
-                                    id="customerName"
-                                    v-model.trim="form.customerName"
-                                    type="text"
-                                    :class="{
-                                        'is-invalid': !form.customerName,
-                                        'form-control': true,
-                                    }"
-                                >
-                                <span
-                                    v-show="isFieldValid('customerName')"
-                                    class="invalid-feedback"
-                                >
-                                    {{ validation.customerName }}
-                                </span>
-                            </div>
+
                         </form>
                     </div>
                 </div>
