@@ -1,0 +1,46 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index e658673..7bfb82f 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -17,6 +17,41 @@
+                                 label="Name:"
+                                 :error-message="validation.customerName"
+                             />
++
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                :label="'Name:'"
++                                :error-message="validation.customerName"
++                            />
++
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                :label="'Name:'"
++                                :error-message="validation.customerName"
++                            />
++
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                :label="'Name:'"
++                                :error-message="validation.customerName"
++                            />
++
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                :label="'Name:'"
++                                :error-message="validation.customerName"
++                            />
++
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                :label="'Name:'"
++                                :error-message="validation.customerName"
++                            />
+                         </form>
+                     </div>
+                 </div>
