@@ -79,6 +79,11 @@ export default {
             quantity: item.qty,
         }));
     },
+    methods: {
+        isFieldValid(fieldName) {
+            return (this.validation[fieldName] === null);
+        },
+    },
 };
 </script>
 
