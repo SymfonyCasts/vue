@@ -25,6 +25,17 @@ export default {
     components: {
         TitleComponent,
     },
+    data: () => ({
+        form: {
+            customerName: '',
+            customerEmail: '',
+            customerAddress: '',
+            customerZip: '',
+            customerCity: '',
+            customerPhone: '',
+            purchaseItems: [],
+        },
+    }),
 };
 </script>
 
