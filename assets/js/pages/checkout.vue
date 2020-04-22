@@ -45,8 +45,6 @@ export default {
             color: item.colorId,
             quantity: item.qty,
         }));
-
-        this.loading = false;
     },
 };
 </script>
