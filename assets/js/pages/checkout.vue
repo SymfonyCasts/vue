@@ -19,38 +19,38 @@
                             />
 
                             <form-input
-                                id="customerName"
-                                v-model="form.customerName"
-                                :label="'Name:'"
-                                :error-message="validation.customerName"
+                                id="customerEmail"
+                                v-model="form.customerEmail"
+                                label="Email:"
+                                :error-message="validation.customerEmail"
                             />
 
                             <form-input
-                                id="customerName"
-                                v-model="form.customerName"
-                                :label="'Name:'"
-                                :error-message="validation.customerName"
+                                id="customerAddress"
+                                v-model="form.customerAddress"
+                                label="Address:"
+                                :error-message="validation.customerAddress"
                             />
 
                             <form-input
-                                id="customerName"
-                                v-model="form.customerName"
-                                :label="'Name:'"
-                                :error-message="validation.customerName"
+                                id="customerZip"
+                                v-model="form.customerZip"
+                                label="Zip Code:"
+                                :error-message="validation.customerZip"
                             />
 
                             <form-input
-                                id="customerName"
-                                v-model="form.customerName"
-                                :label="'Name:'"
-                                :error-message="validation.customerName"
+                                id="customerCity"
+                                v-model="form.customerCity"
+                                label="City:"
+                                :error-message="validation.customerCity"
                             />
 
                             <form-input
-                                id="customerName"
-                                v-model="form.customerName"
-                                :label="'Name:'"
-                                :error-message="validation.customerName"
+                                id="customerPhone"
+                                v-model="form.customerPhone"
+                                label="Phone Number:"
+                                :error-message="validation.customerPhone"
                             />
                         </form>
                     </div>
