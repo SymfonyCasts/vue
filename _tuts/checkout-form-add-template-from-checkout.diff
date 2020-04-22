@@ -1,0 +1,32 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index bcdff86..e658673 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -11,7 +11,12 @@
+ 
+                     <div :class="$style.content">
+                         <form>
+-
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                label="Name:"
++                                :error-message="validation.customerName"
++                            />
+                         </form>
+                     </div>
+                 </div>
+@@ -22,11 +27,13 @@
+ 
+ <script>
+ import cartService from '@/services/cart';
++import FormInput from '@/components/checkout/form-input';
+ import TitleComponent from '@/components/title';
+ 
+ export default {
+     name: 'Checkout',
+     components: {
++        FormInput,
+         TitleComponent,
+     },
+     data: () => ({
