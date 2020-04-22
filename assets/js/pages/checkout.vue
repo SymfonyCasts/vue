@@ -10,7 +10,6 @@
                     </div>
 
                     <div :class="$style.content">
-                        <loading v-show="loading" />
                     </div>
                 </div>
             </div>
@@ -20,13 +19,11 @@
 
 <script>
 import cartService from '@/services/cart';
-import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
 export default {
     name: 'Checkout',
     components: {
-        Loading,
         TitleComponent,
     },
     data: () => ({
