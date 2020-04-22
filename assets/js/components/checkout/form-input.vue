@@ -27,5 +27,10 @@
 <script>
 export default {
     name: 'FormInput',
+    methods: {
+        isFieldValid(fieldName) {
+            return (this.validation[fieldName] === null);
+        },
+    },
 };
 </script>
