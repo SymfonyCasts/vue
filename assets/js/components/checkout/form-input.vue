@@ -13,6 +13,7 @@
                 'is-invalid': !valid,
                 'form-control': true,
             }"
+            @input="$emit('input', $event.target.value)"
         >
         <span
             v-show="!valid"
@@ -37,6 +38,11 @@ export default {
             default: '',
         },
         errorMessage: {
+            type: String,
+            required: false,
+            default: '',
+        },
+        value: {
             type: String,
             required: false,
             default: '',
