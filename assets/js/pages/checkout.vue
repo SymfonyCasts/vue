@@ -36,22 +36,6 @@ export default {
         FormInput,
         TitleComponent,
     },
-    props: {
-        id: {
-            type: String,
-            required: true,
-        },
-        label: {
-            type: String,
-            required: true,
-            default: '',
-        },
-        errorMessage: {
-            type: String,
-            required: false,
-            default: '',
-        },
-    },
     data: () => ({
         form: {
             customerName: '',
