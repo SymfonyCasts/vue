@@ -36,7 +36,6 @@ export default {
             customerPhone: '',
             purchaseItems: [],
         },
-        loading: true,
     }),
     async created() {
         const itemsInCart = cartService.getItems();
