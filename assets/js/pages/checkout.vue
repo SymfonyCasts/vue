@@ -35,6 +35,7 @@ export default {
             customerPhone: '',
             purchaseItems: [],
         },
+        loading: true,
     }),
 };
 </script>
