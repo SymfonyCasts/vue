@@ -18,7 +18,7 @@
             v-show="isFieldValid('customerName')"
             class="invalid-feedback"
         >
-            {{ validation.customerName }}
+            {{ '' }}
         </span>
     </div>
 </template>
