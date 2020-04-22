@@ -1109,7 +1109,97 @@
             "id": "clear-and-checkout-implement-checkout",
             "name": "Clear and Checkout: Implement Checkout",
             "description": null
+        },
+        {
+            "id": "checkout-first-page-template-entry",
+            "name": "Checkout First Page: Template Entry",
+            "description": null
+        },
+        {
+            "id": "checkout-first-page-correct-template",
+            "name": "Checkout First Page: Correct template",
+            "description": null
+        },
+        {
+            "id": "checkout-first-page-encore-entry",
+            "name": "Checkout First Page: Encore Entry",
+            "description": null
+        },
+        {
+            "id": "checkout-first-page-page-file",
+            "name": "Checkout First Page: Page File",
+            "description": null
+        },
+        {
+            "id": "checkout-first-page-checkout-page-component",
+            "name": "Checkout First Page: Checkout Page Component",
+            "description": null
+        },
+        {
+            "id": "checkout-first-page-basic-data",
+            "name": "Checkout First Page: Basic Data",
+            "description": null
+        },
+        {
+            "id": "checkout-first-page-created-function",
+            "name": "Checkout First Page: Created function",
+            "description": null
+        },
+        {
+            "id": "checkout-form-validation-object",
+            "name": "Checkout Form: Validation Object",
+            "description": null
+        },
+        {
+            "id": "checkout-form-paste-form-field-template",
+            "name": "Checkout Form: Paste Form Field Template",
+            "description": null
+        },
+        {
+            "id": "checkout-form-extract-into-form-field-component",
+            "name": "Checkout Form: Extract into Form Field Component",
+            "description": null
+        },
+        {
+            "id": "checkout-form-correct-template",
+            "name": "Checkout Form: Correct template",
+            "description": null
+        },
+        {
+            "id": "checkout-form-add-template-from-checkout",
+            "name": "Checkout Form: Add Template from Checkout",
+            "description": null
+        },
+        {
+            "id": "checkout-form-add-props-to-form-input",
+            "name": "Checkout Form: Add Props to Form-Input",
+            "description": null
+        },
+        {
+            "id": "checkout-form-add-computed-property",
+            "name": "Checkout Form: Add Computed Property",
+            "description": null
+        },
+        {
+            "id": "checkout-form-finalize-form-input-template",
+            "name": "Checkout Form: Finalize Form-Input Template",
+            "description": null
+        },
+        {
+            "id": "checkout-form-v-model-in-form-input",
+            "name": "Checkout Form: v-model in form-input",
+            "description": null
+        },
+        {
+            "id": "checkout-form-paste-the-fields-5-times",
+            "name": "Checkout Form: Paste the fields 5 times",
+            "description": null
+        },
+        {
+            "id": "checkout-form-correct-form-field-names",
+            "name": "Checkout Form: Correct form field names",
+            "description": null
         }
     ],
-    "sha": "c9f6c1449e43ef9fdb4bd700556a634aa566be2c"
+    "sha": "7c753886f3f9651b01c8d5d72469ba5c0fd02dd0"
 }
