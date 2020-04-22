@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import cartService from '@/services/cart';
 import TitleComponent from '@/components/title';
 
 export default {
@@ -37,6 +38,17 @@ export default {
         },
         loading: true,
     }),
+    async created() {
+        const itemsInCart = cartService.getItems();
+
+        this.form.purchaseItems = itemsInCart.map((item) => ({
+            product: item.productId,
+            color: item.colorId,
+            quantity: item.qty,
+        }));
+
+        this.loading = false;
+    },
 };
 </script>
 
