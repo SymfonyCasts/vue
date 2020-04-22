@@ -39,7 +39,6 @@ export default {
             customerPhone: '',
             purchaseItems: [],
         },
-        loading: true,
     }),
     async created() {
         const itemsInCart = cartService.getItems();
@@ -49,8 +48,6 @@ export default {
             color: item.colorId,
             quantity: item.qty,
         }));
-
-        this.loading = false;
     },
 };
 </script>
