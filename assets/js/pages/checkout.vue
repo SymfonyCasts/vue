@@ -162,6 +162,22 @@ export default {
                 customerPhone: null,
             };
         },
+
+        /**
+         * Validates our form fields and sets proper validation messages if any of them are empty.
+         *
+         * @param {Event} event
+         */
+        validateForm(event) {
+            const validationMessages = {
+                customerName: 'Please, enter your full name!',
+                customerEmail: 'Please, enter your email address!',
+                customerAddress: 'Please, enter your street address!',
+                customerZip: 'Please, enter your ZIP code!',
+                customerCity: 'Please, enter your City!',
+                customerPhone: 'Please, provide a phone number!',
+            };
+        },
     },
 };
 </script>
