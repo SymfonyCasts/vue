@@ -25,6 +25,12 @@ export default {
         CatalogComponent,
         SidebarComponent,
     },
+    props: {
+        currentCategoryId: {
+            type: Number,
+            default: null,
+        },
+    },
     data: () => ({
         sidebarCollapsed: false,
     }),
