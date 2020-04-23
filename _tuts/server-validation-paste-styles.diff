@@ -1,0 +1,21 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index e00e32c..2957ae2 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -126,5 +126,16 @@ export default {
+     display: flex;
+     flex-direction: column;
+     width: 900px;
++
++    .form-action {
++        margin-top: 20px;
++        display: flex;
++        flex-direction: row;
++        justify-content: flex-end;
++
++        input {
++            margin-left: 20px;
++        }
++    }
+ }
+ </style>
