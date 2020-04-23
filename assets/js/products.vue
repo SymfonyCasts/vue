@@ -24,6 +24,7 @@
 import CatalogComponent from '@/components/catalog';
 import ProductComponent from '@/components/product';
 import SidebarComponent from '@/components/sidebar';
+import collapsible from '@/mixins/collapsible';
 
 export default {
     name: 'Products',
@@ -32,6 +33,7 @@ export default {
         ProductComponent,
         SidebarComponent,
     },
+    mixins: [collapsible],
     props: {
         currentCategoryId: {
             type: Number,
