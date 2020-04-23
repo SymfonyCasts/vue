@@ -26,6 +26,22 @@
 <script>
 export default {
     name: 'FormInput',
+    props: {
+        id: {
+            type: String,
+            required: true,
+        },
+        label: {
+            type: String,
+            required: true,
+            default: '',
+        },
+        errorMessage: {
+            type: String,
+            required: false,
+            default: '',
+        },
+    },
     methods: {
         isFieldValid(fieldName) {
             return true;
