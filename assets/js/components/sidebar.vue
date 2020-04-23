@@ -54,14 +54,14 @@ export default {
         categories: [],
     }),
     async created() {
-        this.products = [];
+        this.categories = [];
 
         const response = await axios({
             method: 'get',
-            url: '/api/products',
+            url: '/api/categories',
         });
 
-        this.products = response.data['hydra:member'];
+        this.categories = response.data['hydra:member'];
     },
 };
 </script>
