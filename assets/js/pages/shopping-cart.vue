@@ -32,7 +32,9 @@ export default {
         TitleComponent,
     },
     data: () => ({
+        colors: {},
         loading: true,
+        products: [],
     }),
 };
 </script>
