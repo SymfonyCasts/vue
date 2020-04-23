@@ -92,27 +92,22 @@ export default {
         Loading,
         TitleComponent,
     },
-    data: () => ({
-        form: {
-            customerName: '',
-            customerEmail: '',
-            customerAddress: '',
-            customerZip: '',
-            customerCity: '',
-            customerPhone: '',
-            purchaseItems: [],
-        },
-        validation: {
-            customerName: null,
-            customerEmail: null,
-            customerAddress: null,
-            customerZip: null,
-            customerCity: null,
-            customerPhone: null,
-        },
-        loading: false,
-        formError: false,
-    }),
+    data() {
+        return {
+            form: {
+                customerName: '',
+                customerEmail: '',
+                customerAddress: '',
+                customerZip: '',
+                customerCity: '',
+                customerPhone: '',
+                purchaseItems: [],
+            },
+            validation: this.initializeValidationFields(),
+            loading: false,
+            formError: false,
+        };
+    },
     async created() {
         const itemsInCart = cartService.getItems();
 
@@ -132,7 +127,7 @@ export default {
             event.preventDefault();
             this.loading = true;
             this.formError = false;
-            this.resetValidationFields();
+            this.validation = this.initializeValidationFields();
 
             try {
                 const response = await checkoutService.createOrder(this.form);
@@ -153,10 +148,12 @@ export default {
         },
 
         /**
-         * Resets our validation fields back to null
+         * Returns the initial validation fields set to null
+         *
+         * @return {object}
          */
-        resetValidationFields() {
-            this.validation = {
+        initializeValidationFields() {
+            return {
                 customerName: null,
                 customerEmail: null,
                 customerAddress: null,
