@@ -8,7 +8,6 @@
         </label>
         <input
             id="customerName"
-            v-model.trim="form.customerName"
             type="text"
             :class="{
                 'is-invalid': !isFieldValid('customerName'),
@@ -19,7 +18,7 @@
             v-show="isFieldValid('customerName')"
             class="invalid-feedback"
         >
-            {{ validation.customerName }}
+            {{ '' }}
         </span>
     </div>
 </template>
@@ -29,7 +28,7 @@ export default {
     name: 'FormInput',
     methods: {
         isFieldValid(fieldName) {
-            return (this.validation[fieldName] === null);
+            return true;
         },
     },
 };
