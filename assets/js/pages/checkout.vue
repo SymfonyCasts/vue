@@ -36,6 +36,14 @@ export default {
             customerPhone: '',
             purchaseItems: [],
         },
+        validation: {
+            customerName: null,
+            customerEmail: null,
+            customerAddress: null,
+            customerZip: null,
+            customerCity: null,
+            customerPhone: null,
+        },
     }),
     async created() {
         const itemsInCart = cartService.getItems();
