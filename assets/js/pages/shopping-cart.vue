@@ -19,8 +19,18 @@
 </template>
 
 <script>
+import Loading from '@/components/loading';
+import TitleComponent from '@/components/title';
+
 export default {
     name: 'ShoppingCart',
+    components: {
+        Loading,
+        TitleComponent,
+    },
+    data: () => ({
+        loading: true,
+    }),
 };
 </script>
 
