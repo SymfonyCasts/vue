@@ -12,7 +12,7 @@
             </div>
 
             <product-list
-                :products="products"
+                :products="filteredProducts"
                 :loading="loading"
             />
         </div>
@@ -54,6 +54,16 @@ export default {
         loading: true,
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
+    computed: {
+        filteredProducts() {
+            if (!this.searchTerm) {
+                return this.products;
+            }
+
+            return this.products.filter((product) => (
+                product.name.toLowerCase().search(this.searchTerm.toLowerCase()) !== -1));
+        },
+    },
     async created() {
         const url = this.currentCategoryId
             ? `/api/products?category=${this.currentCategoryId}`
