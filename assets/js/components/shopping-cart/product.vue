@@ -10,6 +10,24 @@
                 backgroundColor: `#${product.hexColor}`
             }"
         />
+
+        <input
+            class="form-control"
+            type="number"
+            min="1"
+        >
+
+        <button
+            class="btn btn-info btn-sm"
+        >
+            Update
+        </button>
+
+        <button
+            class="btn btn-info btn-sm"
+        >
+            Remove
+        </button>
     </div>
 </template>
 
@@ -46,6 +64,10 @@ export default {
         width: 25px;
         height: 25px;
         border-radius: 4px;
+    }
+
+    input {
+        width: 60px;
     }
 
     .product-name {
