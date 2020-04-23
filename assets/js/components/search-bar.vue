@@ -1,6 +1,7 @@
 <template>
     <div :class="$style.component">
         <input
+            v-model="searchTerm"
             class="form-control"
             placeholder="Search products..."
             type="text"
@@ -11,6 +12,9 @@
 <script>
 export default {
     name: 'SearchBar',
+    data: () => ({
+        searchTerm: '',
+    }),
 };
 </script>
 
