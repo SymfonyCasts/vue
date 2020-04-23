@@ -1,5 +1,8 @@
 <template>
-    <div :class="[$style.component, 'p-3', 'mb-5']">
+    <div
+        :class="[$style.component, 'p-3', 'mb-5']"
+        :style="{ width: collapsed ? '70px' : 'auto' }"
+    >
         <h5 class="text-center">
             Categories
         </h5>
@@ -32,6 +35,7 @@
 export default {
     name: 'Sidebar',
     data: () => ({
+        collapsed: false,
         categories: [
             {
                 name: 'Category A',
