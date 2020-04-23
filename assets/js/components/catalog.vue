@@ -25,16 +25,26 @@ export default {
         LegendComponent,
         ProductList,
     },
+    props: {
+        currentCategoryId: {
+            type: Number,
+            default: null,
+        },
+    },
     data: () => ({
         products: [],
         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
     }),
     async created() {
+        const url = this.currentCategoryId
+            ? `/api/products?category=${this.currentCategoryId}`
+            : '/api/products';
+
         this.products = [];
 
         const response = await axios({
             method: 'get',
-            url: '/api/products',
+            url,
         });
 
         this.products = response.data['hydra:member'];
