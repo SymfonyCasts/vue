@@ -42,9 +42,9 @@ export default {
             default: '',
         },
     },
-    methods: {
-        isFieldValid(fieldName) {
-            return true;
+    computed: {
+        valid() {
+            return !this.errorMessage;
         },
     },
 };
