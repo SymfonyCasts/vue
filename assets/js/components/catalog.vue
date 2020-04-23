@@ -1,5 +1,11 @@
 <template>
     <div>
+        <title-component
+            :current-category-id="currentCategoryId"
+            :categories="categories"
+            :class="$style.title"
+        />
+
         <product-list
             :products="products"
             :loading="loading"
@@ -15,12 +21,14 @@
 import axios from 'axios';
 import LegendComponent from '@/components/legend';
 import ProductList from '@/components/product-list';
+import TitleComponent from '@/components/title';
 
 export default {
     name: 'Catalog',
     components: {
         LegendComponent,
         ProductList,
+        TitleComponent,
     },
     props: {
         currentCategoryId: {
@@ -55,3 +63,9 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+.title {
+    margin-left: 10px;
+}
+</style>
