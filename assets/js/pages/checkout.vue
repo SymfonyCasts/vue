@@ -124,8 +124,11 @@ export default {
     methods: {
         /**
          * Sends the form data and process the response!
+         *
+         * @param {Event} event
          */
-        async onSubmit() {
+        async onSubmit(event) {
+            event.preventDefault();
             this.loading = true;
 
             try {
@@ -133,7 +136,7 @@ export default {
 
                 console.log(response.data);
             } catch (e) {
-                // TODO Error handling
+                console.log('error', e);
             } finally {
                 this.loading = false;
             }
