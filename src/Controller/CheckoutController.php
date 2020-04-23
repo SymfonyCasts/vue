@@ -27,7 +27,7 @@ class CheckoutController extends AbstractController
         $purchaseItems = $purchase->getPurchaseItems();
 
         for ($i = 0; $i < count($purchaseItems); $i++) {
-            $totalPrice += $purchaseItems[$i]->getProduct()->getPrice();
+            $totalPrice += $purchaseItems[$i]->getProduct()->getPrice() * $purchaseItems[$i]->getQuantity();
         }
 
         return $this->render('checkout/confirmation.html.twig', [
