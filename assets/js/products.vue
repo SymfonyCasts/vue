@@ -13,9 +13,7 @@
             <div :class="contentClass">
                 <component
                     :is="currentComponent"
-                    :categories="categories"
-                    :current-category-id="currentCategoryId"
-                    :current-product-id="currentProductId"
+                    v-bind="currentProps"
                 />
             </div>
         </div>
@@ -60,6 +58,17 @@ export default {
         },
         currentComponent() {
             return this.currentProductId !== null ? ProductComponent : CatalogComponent;
+        },
+        currentProps() {
+            return this.currentProductId !== null
+                ? {
+                    currentProductId: this.currentProductId,
+                    categories: this.categories,
+                }
+                : {
+                    currentCategoryId: this.currentCategoryId,
+                    categories: this.categories,
+                };
         },
     },
     methods: {
