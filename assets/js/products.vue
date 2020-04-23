@@ -4,6 +4,8 @@
             <aside :class="asideClass">
                 <sidebar-component
                     :collapsed="sidebarCollapsed"
+                    :current-category-id="currentCategoryId"
+                    :categories="categories"
                     @sidebar-collapsed="toggleSidebarCollapsed"
                 />
             </aside>
