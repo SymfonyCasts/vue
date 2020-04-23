@@ -12,6 +12,7 @@
         <button
             class="btn btn-info btn-sm"
             :disabled="!hasProducts"
+            @click="checkout"
         >
             Check Out!
         </button>
@@ -38,6 +39,13 @@ export default {
             cartService.clear();
 
             window.location = '/';
+        },
+
+        /**
+         * Proceeds to check-out
+         */
+        checkout() {
+            window.location = '/checkout';
         },
     },
 };
