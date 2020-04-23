@@ -37,5 +37,16 @@ export default {
     span, input, button {
         margin-right: 20px;
     }
+
+    span.color-square {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+    }
+
+    .product-name {
+        flex-grow: 1;
+    }
 }
 </style>
