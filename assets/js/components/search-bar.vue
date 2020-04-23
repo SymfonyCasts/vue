@@ -6,6 +6,13 @@
             placeholder="Search products..."
             type="text"
         >
+
+        <span
+            v-show="searchTerm !== ''"
+            :class="$style.erase"
+        >
+            X
+        </span>
     </div>
 </template>
 
