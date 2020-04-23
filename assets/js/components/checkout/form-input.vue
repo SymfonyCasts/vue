@@ -1,24 +1,24 @@
 <template>
     <div class="form-row">
         <label
-            for="customerName"
+            :for="id"
             class="col-form-label"
         >
-            Name:
+            {{ label }}
         </label>
         <input
-            id="customerName"
+            :id="id"
             type="text"
             :class="{
-                'is-invalid': !isFieldValid('customerName'),
+                'is-invalid': !valid,
                 'form-control': true,
             }"
         >
         <span
-            v-show="isFieldValid('customerName')"
+            v-show="!valid"
             class="invalid-feedback"
         >
-            {{ '' }}
+            {{ errorMessage }}
         </span>
     </div>
 </template>
