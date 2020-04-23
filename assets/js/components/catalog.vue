@@ -6,12 +6,7 @@
             </h2>
         </div>
 
-        <div
-            v-for="product in products"
-            :key="product['@id']"
-        >
-            {{ product.name }}
-        </div>
+        <product-list :products="products" />
 
         <div class="row">
             <legend-component :title="legend" />
@@ -22,11 +17,13 @@
 <script>
 import axios from 'axios';
 import LegendComponent from '@/components/legend';
+import ProductList from '@/components/product-list';
 
 export default {
     name: 'Catalog',
     components: {
         LegendComponent,
+        ProductList,
     },
     data: () => ({
         products: [],
