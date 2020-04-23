@@ -1,5 +1,5 @@
 <template>
-    <div :class="[$style.sidebar, 'p-3', 'mb-5']">
+    <div :class="[$style.component, 'p-3', 'mb-5']">
         <h5 class="text-center">
             Categories
         </h5>
@@ -36,7 +36,7 @@ export default {
 <style lang="scss" module>
 @import '../../scss/components/light-component';
 
-.sidebar {
+.component {
     @include light-component;
     margin-top: 65px;
 
