@@ -45,6 +45,7 @@
 <script>
 import cartService from '@/services/cart';
 import colorsService from '@/services/colors';
+import formatPrice from '@/helpers/format-price';
 import productsService from '@/services/products';
 import Loading from '@/components/loading';
 import ShoppingCartProduct from '@/components/shopping-cart/product';
@@ -62,6 +63,22 @@ export default {
         loading: true,
         products: [],
     }),
+    computed: {
+        /**
+         * Returns the formatted total price of the list
+         *
+         * @return {string}
+         */
+        totalPrice() {
+            let total = 0;
+
+            this.products.forEach((product) => {
+                total += product.price * product.qty;
+            });
+
+            return formatPrice(total);
+        },
+    },
     async created() {
         const itemsInCart = cartService.getItems();
 
