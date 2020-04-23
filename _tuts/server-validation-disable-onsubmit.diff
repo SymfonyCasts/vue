@@ -1,0 +1,25 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index 332a785..3350985 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -67,6 +67,7 @@
+                                     type="submit"
+                                     class="btn btn-info btn-sm"
+                                     value="Checkout!"
++                                    :disabled="loading"
+                                 >
+                             </div>
+                         </form>
+diff --git a/assets/js/services/checkout.js b/assets/js/services/checkout.js
+index d34d8b5..5ba4c9a 100644
+--- a/assets/js/services/checkout.js
++++ b/assets/js/services/checkout.js
+@@ -10,7 +10,7 @@ const checkout = {
+     createOrder(data) {
+         return axios({
+             method: 'post',
+-            url: '/api/slfjasfd',
++            url: '/api/purchases',
+             data,
+         });
+     },
