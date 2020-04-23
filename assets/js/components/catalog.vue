@@ -6,6 +6,8 @@
             :class="$style.title"
         />
 
+        <search-bar />
+
         <product-list
             :products="products"
             :loading="loading"
@@ -21,6 +23,7 @@
 import axios from 'axios';
 import LegendComponent from '@/components/legend';
 import ProductList from '@/components/product-list';
+import SearchBar from '@/components/search-bar';
 import TitleComponent from '@/components/title';
 
 export default {
@@ -28,6 +31,7 @@ export default {
     components: {
         LegendComponent,
         ProductList,
+        SearchBar,
         TitleComponent,
     },
     props: {
