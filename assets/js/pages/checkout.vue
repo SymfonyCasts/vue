@@ -132,20 +132,38 @@ export default {
             event.preventDefault();
             this.loading = true;
             this.formError = false;
+            this.resetValidationFields();
 
             try {
                 const response = await checkoutService.createOrder(this.form);
+                cartService.clear();
             } catch (error) {
                 const { response } = error;
 
                 if (response.status !== 400) {
                     this.formError = true;
                 } else {
-                    console.log(response.data);
+                    response.data.violations.forEach((violation) => {
+                        this.validation[violation.propertyPath] = violation.message;
+                    });
                 }
             } finally {
                 this.loading = false;
             }
+        },
+
+        /**
+         * Resets our validation fields back to null
+         */
+        resetValidationFields() {
+            this.validation = {
+                customerName: null,
+                customerEmail: null,
+                customerAddress: null,
+                customerZip: null,
+                customerCity: null,
+                customerPhone: null,
+            };
         },
     },
 };
