@@ -20,6 +20,21 @@
                                 Sorry! You haven't bought anything yet!
                             </div>
                         </div>
+
+                        <div
+                            v-show="!loading && products.length"
+                            :class="$style['product-list']"
+                        >
+                            <shopping-cart-product
+                                v-for="product in products"
+                                :key="product['@id']"
+                                :product="product"
+                            />
+
+                            <div :class="$style['product-row']">
+                                <span>Total: <strong>${{ totalPrice }}</strong></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
