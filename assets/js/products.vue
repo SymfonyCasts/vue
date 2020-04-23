@@ -46,16 +46,7 @@ export default {
             default: null,
         },
     },
-    data: () => ({
-        sidebarCollapsed: false,
-    }),
     computed: {
-        asideClass() {
-            return this.sidebarCollapsed ? 'aside-collapsed' : 'col-xs-12 col-lg-3';
-        },
-        contentClass() {
-            return this.sidebarCollapsed ? 'col-xs-12 col-lg-11' : 'col-xs-12 col-lg-9';
-        },
         currentComponent() {
             return this.currentProductId !== null ? ProductComponent : CatalogComponent;
         },
@@ -69,14 +60,6 @@ export default {
                     currentCategoryId: this.currentCategoryId,
                     categories: this.categories,
                 };
-        },
-    },
-    methods: {
-        /**
-         * Toggles the sidebarCollapsed value
-         */
-        toggleSidebarCollapsed() {
-            this.sidebarCollapsed = !this.sidebarCollapsed;
         },
     },
 };
