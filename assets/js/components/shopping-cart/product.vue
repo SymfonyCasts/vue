@@ -3,6 +3,10 @@
         :class="$style.component"
     >
         <span :class="$style['product-name']">{{ product.name }}</span>
+
+        <span
+            :class="$style['color-square']"
+        />
     </div>
 </template>
 
