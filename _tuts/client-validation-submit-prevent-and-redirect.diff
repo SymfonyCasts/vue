@@ -1,0 +1,34 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index 6c2259c..afc3967 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -10,7 +10,7 @@
+                     </div>
+ 
+                     <div :class="$style.content">
+-                        <form @submit="onSubmit">
++                        <form @submit.prevent="onSubmit">
+                             <div
+                                 v-show="formError"
+                                 class="alert alert-danger"
+@@ -126,11 +126,8 @@ export default {
+     methods: {
+         /**
+          * Sends the form data and process the response!
+-         *
+-         * @param {Event} event
+          */
+-        async onSubmit(event) {
+-            event.preventDefault();
++        async onSubmit() {
+             this.loading = true;
+             this.formError = false;
+             this.validation = this.initializeValidationFields();
+@@ -138,6 +135,7 @@ export default {
+             try {
+                 const response = await checkoutService.createOrder(this.form);
+                 cartService.clear();
++                window.location = `/confirmation/${response.data.id}`;
+             } catch (error) {
+                 const { response } = error;
+ 
