@@ -1,7 +1,11 @@
 <template>
     <div
-        :class="[$style.component, 'p-3', 'mb-5']"
-        :style="{ width: collapsed ? '70px' : 'auto' }"
+        :class="{
+            [$style.component]: true,
+            [$style.collapsed]: collapsed,
+            'p-3': true,
+            'mb5': true
+        }"
     >
         <div  v-if="!collapsed">
             <h5 class="text-center">
@@ -71,6 +75,10 @@ export default {
 .component {
     @include light-component;
     margin-top: 65px;
+
+    &.collapsed {
+        width: 70px;
+    }
 
     ul {
         border-bottom: 1px solid $light-component-border;
