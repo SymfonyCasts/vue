@@ -4,6 +4,7 @@
     >
         <button
             class="btn btn-info btn-sm"
+            @click="clearCart"
         >
             Clear Shopping Cart
         </button>
@@ -17,8 +18,20 @@
 </template>
 
 <script>
+import cartService from '@/services/cart';
+
 export default {
     name: 'CheckoutActions',
+    methods: {
+        /**
+         * Clears the shopping cart and goes to the home page
+         */
+        clearCart() {
+            cartService.clear();
+
+            window.location = '/';
+        },
+    },
 };
 </script>
 
