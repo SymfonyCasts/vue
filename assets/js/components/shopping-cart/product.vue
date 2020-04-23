@@ -20,5 +20,18 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import '~styles/variables/colors.scss';
 
+.component {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid $light-component-border;
+
+    span, input, button {
+        margin-right: 20px;
+    }
+}
 </style>
