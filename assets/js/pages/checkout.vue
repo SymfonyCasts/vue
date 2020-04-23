@@ -52,6 +52,16 @@
                                 label="Phone Number:"
                                 :error-message="validation.customerPhone"
                             />
+
+                            <div :class="$style['form-action']">
+                                <loading v-show="loading" />
+
+                                <input
+                                    type="submit"
+                                    class="btn btn-info btn-sm"
+                                    value="Checkout!"
+                                >
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -63,12 +73,14 @@
 <script>
 import cartService from '@/services/cart';
 import FormInput from '@/components/checkout/form-input';
+import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
 export default {
     name: 'Checkout',
     components: {
         FormInput,
+        Loading,
         TitleComponent,
     },
     data: () => ({
@@ -89,6 +101,7 @@ export default {
             customerCity: null,
             customerPhone: null,
         },
+        loading: false,
     }),
     async created() {
         const itemsInCart = cartService.getItems();
