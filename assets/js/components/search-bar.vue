@@ -10,6 +10,7 @@
         <span
             v-show="searchTerm !== ''"
             :class="$style.erase"
+            @click="eraseSearchTerm"
         >
             X
         </span>
@@ -33,6 +34,14 @@ export default {
             this.searchTimeout = window.setTimeout(() => {
                 this.$emit('search-products', { term: newTerm });
             }, 200);
+        },
+    },
+    methods: {
+        /**
+         * Resets the search term
+         */
+        eraseSearchTerm() {
+            this.searchTerm = '';
         },
     },
 };
