@@ -12,6 +12,7 @@
         />
 
         <input
+            v-model.number="product.qty"
             class="form-control"
             type="number"
             min="1"
