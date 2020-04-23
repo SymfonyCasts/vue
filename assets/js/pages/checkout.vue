@@ -67,6 +67,7 @@
                                     type="submit"
                                     class="btn btn-info btn-sm"
                                     value="Checkout!"
+                                    :disabled="loading"
                                 >
                             </div>
                         </form>
