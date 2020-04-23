@@ -72,6 +72,7 @@
 
 <script>
 import cartService from '@/services/cart';
+import checkoutService from '@/services/checkout';
 import FormInput from '@/components/checkout/form-input';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
@@ -111,6 +112,24 @@ export default {
             color: item.colorId,
             quantity: item.qty,
         }));
+    },
+    methods: {
+        /**
+         * Sends the form data and process the response!
+         */
+        async onSubmit() {
+            this.loading = true;
+
+            try {
+                const response = await checkoutService.createOrder(this.form);
+
+                console.log(response.data);
+            } catch (e) {
+                // TODO Error handling
+            } finally {
+                this.loading = false;
+            }
+        },
     },
 };
 </script>
