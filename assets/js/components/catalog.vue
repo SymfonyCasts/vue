@@ -2,11 +2,7 @@
     <div>
         <div class="row">
             <div :class="$style['top-bar']">
-                <title-component
-                    :current-category-id="currentCategoryId"
-                    :categories="categories"
-                    :class="$style.title"
-                />
+                <title-component :text="category.name" />
 
                 <search-bar @search-products="onSearchProducts" />
             </div>
