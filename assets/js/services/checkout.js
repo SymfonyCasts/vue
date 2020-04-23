@@ -10,7 +10,7 @@ const checkout = {
     createOrder(data) {
         return axios({
             method: 'post',
-            url: '/api/purchases',
+            url: '/api/slfjasfd',
             data,
         });
     },
