@@ -60,6 +60,10 @@ export default {
     }),
     created() {
         this.getProducts('');
+
+        if (this.currentCategoryId !== null) {
+            this.category = this.categories.find((cat) => (cat.id === this.currentCategoryId));
+        }
     },
     methods: {
         /**
