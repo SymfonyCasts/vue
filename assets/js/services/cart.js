@@ -53,6 +53,27 @@ const cart = {
     },
 
     /**
+     * Upodates the qty property on a product in the cart
+     *
+     * @param {string} productId
+     * @param {string|null} colorId
+     * @param {number} qty
+     */
+    updateQty(productId, colorId, qty) {
+        const storage = cart.getStorage();
+
+        const cartItemIndex = storage.findIndex(
+            (item) => (item.productId === productId && item.colorId === colorId),
+        );
+
+        if (cartItemIndex > -1) {
+            storage[cartItemIndex].qty = qty;
+        }
+
+        cart.saveStorage(storage);
+    },
+
+    /**
      * Clears the shopping cart
      */
     clear() {
