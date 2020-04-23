@@ -39,7 +39,7 @@
 
                 <div class="row">
                     <span class="p-3">
-                        Shipping takes 10-12 weeks, and products probably won't work
+                        {{ legend }}
                     </span>
                 </div>
             </div>
@@ -50,6 +50,9 @@
 <script>
 export default {
     name: 'Products',
+    data: () => ({
+        legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
+    }),
 };
 </script>
 
