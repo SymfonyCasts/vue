@@ -126,5 +126,16 @@ export default {
     display: flex;
     flex-direction: column;
     width: 900px;
+
+    .form-action {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        input {
+            margin-left: 20px;
+        }
+    }
 }
 </style>
