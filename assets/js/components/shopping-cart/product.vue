@@ -20,6 +20,7 @@
 
         <button
             class="btn btn-info btn-sm"
+            @click="updateQty(product['@id'], product.colorId, product.qty)"
         >
             Update
         </button>
@@ -33,6 +34,8 @@
 </template>
 
 <script>
+import cartService from '@/services/cart';
+
 export default {
     name: 'ShoppingCartProduct',
     props: {
@@ -40,6 +43,20 @@ export default {
             type: Object,
             require: true,
             default: () => ({}),
+        },
+    },
+    methods: {
+        /**
+         * Updates the product quantity in the cart, then refreshes the page
+         *
+         * @param {string} productId
+         * @param {string} colorId
+         * @param {number} qty
+         */
+        updateQty(productId, colorId, qty) {
+            cartService.updateQty(productId, colorId, qty);
+
+            window.location.reload();
         },
     },
 };
