@@ -127,7 +127,7 @@ export default {
             event.preventDefault();
             this.loading = true;
             this.formError = false;
-            this.resetValidationFields();
+            this.validation = this.initializeValidationFields();
 
             try {
                 const response = await checkoutService.createOrder(this.form);
