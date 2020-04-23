@@ -23,6 +23,7 @@
                                 v-model="form.customerName"
                                 label="Name:"
                                 :error-message="validation.customerName"
+                                @blur="validateForm"
                             />
 
                             <form-input
@@ -30,6 +31,7 @@
                                 v-model="form.customerEmail"
                                 label="Email:"
                                 :error-message="validation.customerEmail"
+                                @blur="validateForm"
                             />
 
                             <form-input
@@ -37,6 +39,7 @@
                                 v-model="form.customerAddress"
                                 label="Address:"
                                 :error-message="validation.customerAddress"
+                                @blur="validateForm"
                             />
 
                             <form-input
@@ -44,6 +47,7 @@
                                 v-model="form.customerZip"
                                 label="Zip Code:"
                                 :error-message="validation.customerZip"
+                                @blur="validateForm"
                             />
 
                             <form-input
@@ -51,6 +55,7 @@
                                 v-model="form.customerCity"
                                 label="City:"
                                 :error-message="validation.customerCity"
+                                @blur="validateForm"
                             />
 
                             <form-input
@@ -58,6 +63,7 @@
                                 v-model="form.customerPhone"
                                 label="Phone Number:"
                                 :error-message="validation.customerPhone"
+                                @blur="validateForm"
                             />
 
                             <div :class="$style['form-action']">

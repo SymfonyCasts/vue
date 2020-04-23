@@ -14,6 +14,7 @@
                 'form-control': true,
             }"
             @input="$emit('input', $event.target.value)"
+            @blur="$emit('blur', $event)"
         >
         <span
             v-show="!valid"
