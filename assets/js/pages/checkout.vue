@@ -13,7 +13,7 @@
                         <form @submit="onSubmit">
                             <div
                                 v-show="formError"
-                                class="invalid-feedback"
+                                class="alert alert-danger"
                             >
                                 Oops, there's been an error sending your data! Please, try again!
                             </div>
