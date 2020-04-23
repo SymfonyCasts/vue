@@ -130,13 +130,18 @@ export default {
         async onSubmit(event) {
             event.preventDefault();
             this.loading = true;
+            this.formError = false;
 
             try {
                 const response = await checkoutService.createOrder(this.form);
+            } catch (error) {
+                const { response } = error;
 
-                console.log(response.data);
-            } catch (e) {
-                console.log('error', e);
+                if (response.status !== 400) {
+                    this.formError = true;
+                } else {
+                    console.log(response.data);
+                }
             } finally {
                 this.loading = false;
             }
