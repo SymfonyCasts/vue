@@ -1199,7 +1199,82 @@
             "id": "checkout-form-correct-form-field-names",
             "name": "Checkout Form: Correct form field names",
             "description": null
+        },
+        {
+            "id": "server-validation-checkout-service",
+            "name": "Server Validation: Checkout Service",
+            "description": null
+        },
+        {
+            "id": "server-validation-submit-and-loading",
+            "name": "Server Validation: Submit and Loading",
+            "description": null
+        },
+        {
+            "id": "server-validation-paste-styles",
+            "name": "Server Validation: Paste styles",
+            "description": null
+        },
+        {
+            "id": "server-validation-onsubmit",
+            "name": "Server Validation: onSubmit",
+            "description": null
+        },
+        {
+            "id": "server-validation-submit-and-form-error-template",
+            "name": "Server Validation: Submit and form error template",
+            "description": null
+        },
+        {
+            "id": "server-validation-onsubmit-with-preventdefault",
+            "name": "Server Validation: onSubmit with preventDefault",
+            "description": null
+        },
+        {
+            "id": "server-validation-better-onsubmit-checking-status-code",
+            "name": "Server Validation: Better onSubmit checking status code",
+            "description": null
+        },
+        {
+            "id": "server-validation-scramble-submit-url",
+            "name": "Server Validation: Scramble submit URL",
+            "description": null
+        },
+        {
+            "id": "server-validation-disable-onsubmit",
+            "name": "Server Validation: Disable onSubmit",
+            "description": null
+        },
+        {
+            "id": "server-validation-validation-fields",
+            "name": "Server Validation: Validation Fields",
+            "description": null
+        },
+        {
+            "id": "client-validation-initialize-data-fields",
+            "name": "Client Validation: Initialize data fields",
+            "description": null
+        },
+        {
+            "id": "client-validation-validation-messages",
+            "name": "Client Validation: Validation messages",
+            "description": null
+        },
+        {
+            "id": "client-validation-validation-function",
+            "name": "Client Validation: Validation function",
+            "description": null
+        },
+        {
+            "id": "client-validation-blur-event",
+            "name": "Client Validation: Blur event",
+            "description": null
+        },
+        {
+            "id": "client-validation-submit-prevent-and-redirect",
+            "name": "Client Validation: submit.prevent and redirect",
+            "description": null
         }
     ],
-    "sha": "7c753886f3f9651b01c8d5d72469ba5c0fd02dd0"
+    "sha": "44cfbbff2286dc1a5786da32b76c05cfbc059a89"
 }
