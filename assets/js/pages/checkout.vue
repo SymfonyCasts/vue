@@ -91,6 +91,15 @@ import FormInput from '@/components/checkout/form-input';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
+const initializeValidationFields = () => ({
+    customerName: null,
+    customerEmail: null,
+    customerAddress: null,
+    customerZip: null,
+    customerCity: null,
+    customerPhone: null,
+});
+
 export default {
     name: 'Checkout',
     components: {
@@ -99,6 +108,7 @@ export default {
         TitleComponent,
     },
     data() {
+        console.log(this.initializeValidationFields);
         return {
             form: {
                 customerName: '',
@@ -109,7 +119,7 @@ export default {
                 customerPhone: '',
                 purchaseItems: [],
             },
-            validation: this.initializeValidationFields(),
+            validation: initializeValidationFields(),
             loading: false,
             formError: false,
         };
@@ -130,7 +140,7 @@ export default {
         async onSubmit() {
             this.loading = true;
             this.formError = false;
-            this.validation = this.initializeValidationFields();
+            this.validation = initializeValidationFields();
 
             try {
                 const response = await checkoutService.createOrder(this.form);
@@ -149,22 +159,6 @@ export default {
             } finally {
                 this.loading = false;
             }
-        },
-
-        /**
-         * Returns the initial validation fields set to null
-         *
-         * @return {object}
-         */
-        initializeValidationFields() {
-            return {
-                customerName: null,
-                customerEmail: null,
-                customerAddress: null,
-                customerZip: null,
-                customerCity: null,
-                customerPhone: null,
-            };
         },
 
         /**
