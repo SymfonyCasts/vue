@@ -20,49 +20,55 @@
 
                             <form-input
                                 id="customerName"
-                                v-model="form.customerName"
+                                :value="form.customerName"
                                 label="Name:"
                                 :error-message="validation.customerName"
+                                @input="(event) => form.customerName = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerEmail"
-                                v-model="form.customerEmail"
+                                :value="form.customerEmail"
                                 label="Email:"
                                 :error-message="validation.customerEmail"
+                                @input="(event) => form.customerEmail = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerAddress"
-                                v-model="form.customerAddress"
+                                :value="form.customerAddress"
                                 label="Address:"
                                 :error-message="validation.customerAddress"
+                                @input="(event) => form.customerAddress = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerZip"
-                                v-model="form.customerZip"
+                                :value="form.customerZip"
                                 label="Zip Code:"
                                 :error-message="validation.customerZip"
+                                @input="(event) => form.customerZip = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerCity"
-                                v-model="form.customerCity"
+                                :value="form.customerCity"
                                 label="City:"
                                 :error-message="validation.customerCity"
+                                @input="(event) => form.customerCity = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerPhone"
-                                v-model="form.customerPhone"
+                                :value="form.customerPhone"
                                 label="Phone Number:"
                                 :error-message="validation.customerPhone"
+                                @input="(event) => form.customerPhone = event.target.value"
                                 @blur="validateForm"
                             />
 
