@@ -13,7 +13,7 @@
                 'is-invalid': !valid,
                 'form-control': true,
             }"
-            @input="$emit('input', $event.target.value)"
+            @input="$emit('update:modelValue', $event.target.value)"
             @blur="$emit('blur', $event)"
         >
         <span
@@ -43,7 +43,7 @@ export default {
             required: false,
             default: '',
         },
-        value: {
+        modelValue: {
             type: String,
             required: false,
             default: '',

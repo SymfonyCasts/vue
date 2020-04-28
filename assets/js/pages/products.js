@@ -1,12 +1,18 @@
-import Vue from 'vue';
+import { createApp, h } from 'vue';
 import App from '@/pages/products.vue';
 
-new Vue({
-    render: (h) => h(App, {
-        props: {
+createApp({
+    setup() {
+        return () => (h(App, {
             currentCategoryId: window.currentCategoryId,
             categories: window.categories,
             currentProductId: window.currentProductId,
-        },
-    }),
-}).$mount('#app');
+        }));
+    },
+}).mount('#app');
+
+/*
+createApp({
+    render: () => h(App),
+}).mount('#app');
+*/
