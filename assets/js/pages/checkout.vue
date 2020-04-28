@@ -190,10 +190,6 @@ export default {
                 this.validation[validationField] = null;
             }
         },
-
-        inputCustomerName($event) {
-            this.form.customerName = $event.target.value;
-        },
     },
 };
 </script>
