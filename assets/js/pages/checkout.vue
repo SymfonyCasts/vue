@@ -24,9 +24,7 @@
                                 label="Name:"
                                 :error-message="validation.customerName"
                                 @blur="validateForm"
-                                @input="inputCustomerName"
                             />
-                            {{ form.customerName }}
 
                             <form-input
                                 id="customerEmail"
@@ -154,6 +152,22 @@ export default {
         },
 
         /**
+         * Returns the initial validation fields set to null
+         *
+         * @return {object}
+         */
+        initializeValidationFields() {
+            return {
+                customerName: null,
+                customerEmail: null,
+                customerAddress: null,
+                customerZip: null,
+                customerCity: null,
+                customerPhone: null,
+            };
+        },
+
+        /**
          * Validates our form fields and sets proper validation messages if any of them are empty.
          *
          * @param {Event} event
@@ -175,20 +189,6 @@ export default {
             } else {
                 this.validation[validationField] = null;
             }
-        },
-
-        /**
-         * Initializes the validation fields
-         */
-        initializeValidationFields() {
-            return {
-                customerName: null,
-                customerEmail: null,
-                customerAddress: null,
-                customerZip: null,
-                customerCity: null,
-                customerPhone: null,
-            };
         },
 
         inputCustomerName($event) {
