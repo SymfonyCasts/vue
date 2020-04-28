@@ -15,7 +15,7 @@
         "node-sass": "^4.13.0",
         "regenerator-runtime": "^0.13.2",
         "sass-loader": "^7.0.1",
-        "vue": "^3.0.0-beta.3",
+        "vue": "^3.0.0-beta.4",
         "vue-loader": "^16.0.0-alpha.3",
         "webpack-notifier": "^1.6.0"
     },

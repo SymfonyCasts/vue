@@ -20,55 +20,51 @@
 
                             <form-input
                                 id="customerName"
-                                :value="form.customerName"
+                                v-model="form.customerName"
                                 label="Name:"
                                 :error-message="validation.customerName"
-                                @input="(event) => form.customerName = event.target.value"
                                 @blur="validateForm"
+                                @input="inputCustomerName"
                             />
+                            {{ form.customerName }}
 
                             <form-input
                                 id="customerEmail"
-                                :value="form.customerEmail"
+                                v-model="form.customerEmail"
                                 label="Email:"
                                 :error-message="validation.customerEmail"
-                                @input="(event) => form.customerEmail = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerAddress"
-                                :value="form.customerAddress"
+                                v-model="form.customerAddress"
                                 label="Address:"
                                 :error-message="validation.customerAddress"
-                                @input="(event) => form.customerAddress = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerZip"
-                                :value="form.customerZip"
+                                v-model="form.customerZip"
                                 label="Zip Code:"
                                 :error-message="validation.customerZip"
-                                @input="(event) => form.customerZip = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerCity"
-                                :value="form.customerCity"
+                                v-model="form.customerCity"
                                 label="City:"
                                 :error-message="validation.customerCity"
-                                @input="(event) => form.customerCity = event.target.value"
                                 @blur="validateForm"
                             />
 
                             <form-input
                                 id="customerPhone"
-                                :value="form.customerPhone"
+                                v-model="form.customerPhone"
                                 label="Phone Number:"
                                 :error-message="validation.customerPhone"
-                                @input="(event) => form.customerPhone = event.target.value"
                                 @blur="validateForm"
                             />
 
@@ -97,15 +93,6 @@ import FormInput from '@/components/checkout/form-input';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
-const initializeValidationFields = () => ({
-    customerName: null,
-    customerEmail: null,
-    customerAddress: null,
-    customerZip: null,
-    customerCity: null,
-    customerPhone: null,
-});
-
 export default {
     name: 'Checkout',
     components: {
@@ -114,7 +101,6 @@ export default {
         TitleComponent,
     },
     data() {
-        console.log(this.initializeValidationFields);
         return {
             form: {
                 customerName: '',
@@ -125,7 +111,7 @@ export default {
                 customerPhone: '',
                 purchaseItems: [],
             },
-            validation: initializeValidationFields(),
+            validation: this.initializeValidationFields(),
             loading: false,
             formError: false,
         };
@@ -146,7 +132,7 @@ export default {
         async onSubmit() {
             this.loading = true;
             this.formError = false;
-            this.validation = initializeValidationFields();
+            this.validation = this.initializeValidationFields();
 
             try {
                 const response = await checkoutService.createOrder(this.form);
@@ -189,6 +175,24 @@ export default {
             } else {
                 this.validation[validationField] = null;
             }
+        },
+
+        /**
+         * Initializes the validation fields
+         */
+        initializeValidationFields() {
+            return {
+                customerName: null,
+                customerEmail: null,
+                customerAddress: null,
+                customerZip: null,
+                customerCity: null,
+                customerPhone: null,
+            };
+        },
+
+        inputCustomerName($event) {
+            this.form.customerName = $event.target.value;
         },
     },
 };
