@@ -1,5 +1,5 @@
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 2920941..0f8cbf7 100644
+index 2920941a..0f8cbf7f 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -1,14 +1,14 @@
@@ -35,7 +35,7 @@ index 2920941..0f8cbf7 100644
          /**
           * Toggles the sidebarCollapsed value
 diff --git a/assets/scss/app.scss b/assets/scss/app.scss
-index 21e2e7a..7c847e7 100644
+index 21e2e7ae..7c847e74 100644
 --- a/assets/scss/app.scss
 +++ b/assets/scss/app.scss
 @@ -1,6 +1,7 @@
@@ -48,7 +48,7 @@ index 21e2e7a..7c847e7 100644
  .header {
 diff --git a/assets/scss/collapsible.scss b/assets/scss/collapsible.scss
 new file mode 100644
-index 0000000..0570e0d
+index 00000000..0570e0d7
 --- /dev/null
 +++ b/assets/scss/collapsible.scss
 @@ -0,0 +1,7 @@

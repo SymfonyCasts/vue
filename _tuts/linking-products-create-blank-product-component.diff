@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
 new file mode 100644
-index 0000000..4009b48
+index 00000000..4009b485
 --- /dev/null
 +++ b/assets/js/components/product.vue
 @@ -0,0 +1,11 @@

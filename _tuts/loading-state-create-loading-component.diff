@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/loading.vue b/assets/js/components/loading.vue
 new file mode 100644
-index 0000000..601dc66
+index 00000000..601dc665
 --- /dev/null
 +++ b/assets/js/components/loading.vue
 @@ -0,0 +1,18 @@

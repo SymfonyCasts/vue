@@ -1,5 +1,5 @@
 diff --git a/assets/js/app.js b/assets/js/app.js
-index 5a9d6ce..88da001 100644
+index 5a9d6cee..88da0017 100644
 --- a/assets/js/app.js
 +++ b/assets/js/app.js
 @@ -6,4 +6,4 @@
@@ -9,7 +9,7 @@ index 5a9d6ce..88da001 100644
 -import '../scss/app.scss';
 +import 'styles/app.scss';
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index c5ae437..8390a30 100644
+index c5ae437c..8390a30b 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -13,7 +13,7 @@
@@ -22,7 +22,7 @@ index c5ae437..8390a30 100644
  export default {
      name: 'Catalog',
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index abbdda3..1f50bb3 100644
+index abbdda36..1f50bb34 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -34,7 +34,7 @@ export default {
@@ -35,7 +35,7 @@ index abbdda3..1f50bb3 100644
  .component {
      @include light-component;
 diff --git a/assets/js/products.js b/assets/js/products.js
-index 290a2d1..8597d51 100644
+index 290a2d14..8597d51d 100644
 --- a/assets/js/products.js
 +++ b/assets/js/products.js
 @@ -1,5 +1,5 @@
@@ -46,7 +46,7 @@ index 290a2d1..8597d51 100644
  new Vue({
      render: (h) => h(App),
 diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 4861a96..7408b68 100644
+index 4861a96b..7408b684 100644
 --- a/assets/js/products.vue
 +++ b/assets/js/products.vue
 @@ -13,8 +13,8 @@
@@ -61,7 +61,7 @@ index 4861a96..7408b68 100644
  export default {
      name: 'Products',
 diff --git a/assets/scss/app.scss b/assets/scss/app.scss
-index 8197ff3..21e2e7a 100644
+index 8197ff31..21e2e7ae 100644
 --- a/assets/scss/app.scss
 +++ b/assets/scss/app.scss
 @@ -1,6 +1,6 @@
@@ -75,7 +75,7 @@ index 8197ff3..21e2e7a 100644
  
  .header {
 diff --git a/assets/scss/components/black-component.scss b/assets/scss/components/black-component.scss
-index dc43766..a658b27 100644
+index dc43766e..a658b270 100644
 --- a/assets/scss/components/black-component.scss
 +++ b/assets/scss/components/black-component.scss
 @@ -1,4 +1,4 @@
@@ -85,7 +85,7 @@ index dc43766..a658b27 100644
  @mixin black-component {
      background-color: $black-component-background;
 diff --git a/assets/scss/components/light-component.scss b/assets/scss/components/light-component.scss
-index 814d931..154982a 100644
+index 814d9312..154982ae 100644
 --- a/assets/scss/components/light-component.scss
 +++ b/assets/scss/components/light-component.scss
 @@ -1,4 +1,4 @@

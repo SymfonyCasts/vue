@@ -1,6 +1,6 @@
 diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
 new file mode 100644
-index 0000000..bf1dcbf
+index 00000000..bf1dcbf1
 --- /dev/null
 +++ b/assets/js/services/cart.js
 @@ -0,0 +1,69 @@

@@ -1,6 +1,6 @@
 diff --git a/assets/js/helpers/generate-listing-params.js b/assets/js/helpers/generate-listing-params.js
 new file mode 100644
-index 0000000..e6208b2
+index 00000000..e6208b20
 --- /dev/null
 +++ b/assets/js/helpers/generate-listing-params.js
 @@ -0,0 +1,12 @@

@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index c8d141c..8a59555 100644
+index c8d141c2..8a59555c 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
 @@ -10,6 +10,7 @@

@@ -1,5 +1,5 @@
 diff --git a/assets/js/services/products.js b/assets/js/services/products.js
-index 944dfca..2b936e1 100644
+index 944dfcaf..2b936e1f 100644
 --- a/assets/js/services/products.js
 +++ b/assets/js/services/products.js
 @@ -16,6 +16,19 @@ const products = {

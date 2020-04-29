@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
 new file mode 100644
-index 0000000..0c8bcbd
+index 00000000..0c8bcbd7
 --- /dev/null
 +++ b/assets/js/components/sidebar.vue
 @@ -0,0 +1,57 @@

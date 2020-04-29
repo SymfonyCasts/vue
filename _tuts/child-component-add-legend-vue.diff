@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/legend.vue b/assets/js/components/legend.vue
 new file mode 100644
-index 0000000..96696bc
+index 00000000..96696bc6
 --- /dev/null
 +++ b/assets/js/components/legend.vue
 @@ -0,0 +1,11 @@

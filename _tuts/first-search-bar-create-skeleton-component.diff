@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
 new file mode 100644
-index 0000000..0c9b816
+index 00000000..0c9b8164
 --- /dev/null
 +++ b/assets/js/components/search-bar.vue
 @@ -0,0 +1,21 @@

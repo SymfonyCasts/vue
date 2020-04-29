@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index e802671..7323a2e 100644
+index e802671c..7323a2eb 100644
 --- a/package.json
 +++ b/package.json
 @@ -4,6 +4,7 @@
@@ -11,7 +11,7 @@ index e802671..7323a2e 100644
          "core-js": "^3.0.0",
          "eslint": "^6.7.2",
 diff --git a/yarn.lock b/yarn.lock
-index 51957c9..93bc224 100644
+index 51957c99..93bc224a 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -1300,6 +1300,13 @@ aws4@^1.8.0:

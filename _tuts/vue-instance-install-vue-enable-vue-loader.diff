@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index 3088760..e802671 100644
+index 30887606..e802671c 100644
 --- a/package.json
 +++ b/package.json
 @@ -13,6 +13,9 @@
@@ -13,7 +13,7 @@ index 3088760..e802671 100644
      },
      "license": "UNLICENSED",
 diff --git a/webpack.config.js b/webpack.config.js
-index 7aed099..1dacec8 100644
+index 7aed0992..1dacec89 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
 @@ -60,6 +60,9 @@ Encore
@@ -27,7 +27,7 @@ index 7aed099..1dacec8 100644
      .enableSassLoader()
  
 diff --git a/yarn.lock b/yarn.lock
-index 2fd6388..51957c9 100644
+index 2fd6388e..51957c99 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -809,6 +809,21 @@

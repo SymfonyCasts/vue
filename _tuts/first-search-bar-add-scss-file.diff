@@ -1,6 +1,6 @@
 diff --git a/assets/scss/top-bar.scss b/assets/scss/top-bar.scss
 new file mode 100644
-index 0000000..5073f96
+index 00000000..5073f96b
 --- /dev/null
 +++ b/assets/scss/top-bar.scss
 @@ -0,0 +1,7 @@
