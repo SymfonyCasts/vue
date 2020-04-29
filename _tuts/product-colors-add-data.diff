@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index e347ec4..aed13ee 100644
+index 6df84ebe..658abfbd 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -73,6 +73,8 @@ export default {
-     },
-     data: () => ({
-         product: { name: '', price: 0, colors: [] },
+@@ -75,6 +75,8 @@ export default {
+         product: {
+             name: '', image: '', price: 0, colors: [],
+         },
 +        selectedColorId: null,
 +        qty: 1,
          loading: true,

@@ -1,0 +1,32 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 21c7f716..2513f201 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -9,6 +9,7 @@
+ </template>
+ 
+ <script>
++import productsService from '@/services/products';
+ import TitleComponent from '@/components/title';
+ 
+ export default {
+@@ -26,6 +27,19 @@ export default {
+             default: () => ([]),
+         },
+     },
++    data: () => ({
++        product: null,
++        loading: true,
++    }),
++    async created() {
++        try {
++            const response = await productsService.getProduct(this.currentProductId);
++            this.product = response.data;
++            this.loading = false;
++        } catch (e) {
++            this.loading = false;
++        }
++    },
+ };
+ </script>
+ 

@@ -1,5 +1,5 @@
 diff --git a/templates/checkout/index.html.twig b/templates/checkout/index.html.twig
-index 742c21c..ce9e814 100644
+index 742c21c2..ce9e814b 100644
 --- a/templates/checkout/index.html.twig
 +++ b/templates/checkout/index.html.twig
 @@ -6,10 +6,10 @@

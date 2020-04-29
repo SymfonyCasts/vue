@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.js b/assets/js/pages/products.js
-index 3b156c3..250d62a 100644
+index 3b156c37..250d62a8 100644
 --- a/assets/js/pages/products.js
 +++ b/assets/js/pages/products.js
 @@ -1,5 +1,5 @@
@@ -10,7 +10,7 @@ index 3b156c3..250d62a 100644
  new Vue({
      render: (h) => h(App, {
 diff --git a/assets/js/pages/shopping-cart.js b/assets/js/pages/shopping-cart.js
-index 82cfcce..c59a8fa 100644
+index 82cfcce9..c59a8fa7 100644
 --- a/assets/js/pages/shopping-cart.js
 +++ b/assets/js/pages/shopping-cart.js
 @@ -1,5 +1,5 @@
@@ -21,7 +21,7 @@ index 82cfcce..c59a8fa 100644
  new Vue({
      render: (h) => h(App),
 diff --git a/webpack.config.js b/webpack.config.js
-index 11f099e..edc2d63 100644
+index 11f099e9..edc2d631 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
 @@ -31,8 +31,8 @@ Encore

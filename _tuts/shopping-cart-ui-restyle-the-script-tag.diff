@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index b0273c3..0cd3d4e 100644
+index b0273c34..0cd3d4e5 100644
 --- a/assets/js/components/shopping-cart/product.vue
 +++ b/assets/js/components/shopping-cart/product.vue
 @@ -7,9 +7,9 @@

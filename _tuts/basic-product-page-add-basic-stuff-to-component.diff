@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 24cfd99..83d7bd4 100644
+index 24cfd99f..21c7f716 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -1,12 +1,22 @@
+@@ -1,12 +1,21 @@
  <template>
 -    <div>
 -        // Product goes here
@@ -16,7 +16,6 @@ index 24cfd99..83d7bd4 100644
  </template>
  
  <script>
-+import productsService from '@/services/products';
 +import TitleComponent from '@/components/title';
 +
  export default {
@@ -27,23 +26,11 @@ index 24cfd99..83d7bd4 100644
      props: {
          currentProductId: {
              type: Number,
-@@ -17,5 +27,19 @@ export default {
-             default: () => ([]),
-         },
+@@ -19,3 +28,7 @@ export default {
      },
-+    data: () => ({
-+        product: null,
-+        loading: true,
-+    }),
-+    async created() {
-+        try {
-+            const response = await productsService.getProduct(this.currentProductId);
-+
-+            this.product = response.data;
-+            this.loading = false;
-+        } catch (e) {
-+            this.loading = false;
-+        }
-+    },
  };
  </script>
++
++<style lang="scss" module>
++@import '~styles/top-bar.scss';
++</style>

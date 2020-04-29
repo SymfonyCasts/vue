@@ -1,6 +1,6 @@
 diff --git a/assets/js/shopping-cart.js b/assets/js/shopping-cart.js
 new file mode 100644
-index 0000000..82cfcce
+index 00000000..82cfcce9
 --- /dev/null
 +++ b/assets/js/shopping-cart.js
 @@ -0,0 +1,6 @@

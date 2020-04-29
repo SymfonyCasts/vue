@@ -1,15 +1,13 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 0472818..0270cfa 100644
+index 57d56f6a..ebc8456a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -4,7 +4,46 @@
+@@ -4,7 +4,43 @@
              <title-component :text="product.name" />
          </div>
  
 -        TODO: Show product here!
 +        <div :class="$style.content">
-+            <loading v-show="loading" />
-+
 +            <div
 +                v-show="!loading"
 +                :class="$style.product"
@@ -33,13 +31,12 @@ index 0472818..0270cfa 100644
 +                    <div :class="$style.description">
 +                        <p v-text="product.description" />
 +
-+                        <p>Price: <strong>$ {{ product.price }}</strong></p>
++                        <p>Price: <strong>${{ product.price }}</strong></p>
 +                    </div>
 +
 +                    <div :class="$style['actions-wrapper']">
 +                        <button
 +                            class="btn btn-info btn-sm"
-+                            @click="addToCart"
 +                        >
 +                            Add to Cart
 +                        </button>
@@ -50,7 +47,16 @@ index 0472818..0270cfa 100644
      </div>
  </template>
  
-@@ -46,4 +85,54 @@ export default {
+@@ -28,7 +64,7 @@ export default {
+         },
+     },
+     data: () => ({
+-        product: { name: '' },
++        product: { name: '', image: '', price: 0 },
+         loading: true,
+     }),
+     async created() {
+@@ -45,4 +81,53 @@ export default {
  
  <style lang="scss" module>
  @import '~styles/top-bar.scss';
@@ -69,7 +75,6 @@ index 0472818..0270cfa 100644
 +            margin: 0 20px 0 0;
 +
 +            img {
-+                width: 400px;
 +                padding-bottom: 20px;
 +                margin-bottom: 20px;
 +                border-bottom: 1px solid $light-component-border;
@@ -82,7 +87,7 @@ index 0472818..0270cfa 100644
 +            align-items: flex-end;
 +
 +            .description {
-+                height: 420px;
++                flex-grow: 1;
 +                width: 500px;
 +                margin-bottom: 20px;
 +                padding-bottom: 20px;

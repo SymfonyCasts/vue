@@ -1,9 +1,9 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 5901819..c38dd6f 100644
+index d9096f0a..ae444187 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -72,6 +72,16 @@ export default {
-         product: null,
+         product: { name: '', image: '', price: 0 },
          loading: true,
      }),
 +    computed: {

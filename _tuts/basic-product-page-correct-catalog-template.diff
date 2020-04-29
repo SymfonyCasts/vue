@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index a3a2b2b..554f92c 100644
+index ad69de0c..4748994a 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -2,11 +2,7 @@
@@ -11,7 +11,7 @@ index a3a2b2b..554f92c 100644
 -                    :categories="categories"
 -                    :class="$style.title"
 -                />
-+                <title-component :text="category.name" />
++                <title-component :text="categoryName" />
  
                  <search-bar @search-products="onSearchProducts" />
              </div>

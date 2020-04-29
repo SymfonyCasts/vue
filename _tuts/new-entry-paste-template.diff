@@ -1,6 +1,6 @@
 diff --git a/templates/cart/index.html.twig b/templates/cart/index.html.twig
 new file mode 100644
-index 0000000..d421398
+index 00000000..d421398e
 --- /dev/null
 +++ b/templates/cart/index.html.twig
 @@ -0,0 +1,22 @@

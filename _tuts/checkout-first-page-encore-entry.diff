@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.js b/assets/js/pages/checkout.js
 new file mode 100644
-index 0000000..e69de29
+index 00000000..e69de29b
 diff --git a/webpack.config.js b/webpack.config.js
-index edc2d63..92ca8d5 100644
+index edc2d631..92ca8d58 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
 @@ -33,6 +33,7 @@ Encore

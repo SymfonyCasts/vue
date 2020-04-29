@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 5d92ae3..79bb678 100644
+index ed470ea0..7a3f8953 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -112,6 +112,15 @@ export default {
+@@ -113,6 +113,15 @@ export default {
          addToCart() {
              // TODO
          },

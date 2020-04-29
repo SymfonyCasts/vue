@@ -1,6 +1,50 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 554f92c3..4748994a 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -2,7 +2,7 @@
+     <div>
+         <div class="row">
+             <div :class="$style['top-bar']">
+-                <title-component :text="category.name" />
++                <title-component :text="categoryName" />
+ 
+                 <search-bar @search-products="onSearchProducts" />
+             </div>
+@@ -45,21 +45,22 @@ export default {
+         },
+     },
+     data: () => ({
+-        category: {
+-            id: null,
+-            name: 'All Products',
+-        },
+         products: [],
+         searchTerm: '',
+         loading: true,
+         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
+     }),
++    computed: {
++        categoryName() {
++            if (this.currentCategoryId === null) {
++                return 'All Products';
++            }
++
++            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
++        },
++    },
+     created() {
+         this.getProducts('');
+-
+-        if (this.currentCategoryId !== null) {
+-            this.category = this.categories.find((cat) => (cat.id === this.currentCategoryId));
+-        }
+     },
+     methods: {
+         /**
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
 new file mode 100644
-index 0000000..5ce4115
+index 00000000..5ce41154
 --- /dev/null
 +++ b/assets/js/components/color-selector.vue
 @@ -0,0 +1,21 @@
@@ -25,3 +69,52 @@ index 0000000..5ce4115
 +    },
 +};
 +</script>
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 07c5608d..b04b8e82 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -30,7 +30,7 @@
+                     <div :class="$style.description">
+                         <p v-text="product.description" />
+ 
+-                        <p>Price: <strong>$ {{ price }}</strong></p>
++                        <p>Price: <strong>${{ price }}</strong></p>
+                     </div>
+ 
+                     <div :class="$style['actions-wrapper']">
+@@ -70,7 +70,9 @@ export default {
+         },
+     },
+     data: () => ({
+-        product: { name: '', price: 0, colors: [] },
++        product: {
++            name: '', image: '', price: 0, colors: [],
++        },
+         loading: true,
+     }),
+     computed: {
+@@ -85,7 +87,6 @@ export default {
+     async created() {
+         try {
+             const response = await productsService.getProduct(this.currentProductId);
+-
+             this.product = response.data;
+             this.loading = false;
+         } catch (e) {
+@@ -117,7 +118,6 @@ export default {
+             margin: 0 20px 0 0;
+ 
+             img {
+-                width: 400px;
+                 padding-bottom: 20px;
+                 margin-bottom: 20px;
+                 border-bottom: 1px solid $light-component-border;
+@@ -130,7 +130,7 @@ export default {
+             align-items: flex-end;
+ 
+             .description {
+-                height: 420px;
++                flex-grow: 1;
+                 width: 500px;
+                 margin-bottom: 20px;
+                 padding-bottom: 20px;

@@ -1,8 +1,16 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index ae16190..5901819 100644
+index cf998e2e..d9096f0a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -82,6 +82,11 @@ export default {
+@@ -36,6 +36,7 @@
+                     <div :class="$style['actions-wrapper']">
+                         <button
+                             class="btn btn-info btn-sm"
++                            @click="addToCart"
+                         >
+                             Add to Cart
+                         </button>
+@@ -80,6 +81,11 @@ export default {
              this.loading = false;
          }
      },

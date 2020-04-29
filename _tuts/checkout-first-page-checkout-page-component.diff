@@ -1,6 +1,6 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
 new file mode 100644
-index 0000000..313ec73
+index 00000000..313ec738
 --- /dev/null
 +++ b/assets/js/pages/checkout.vue
 @@ -0,0 +1,43 @@

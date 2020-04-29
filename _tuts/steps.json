@@ -686,8 +686,8 @@
             "description": null
         },
         {
-            "id": "basic-product-page-paste-styles",
-            "name": "Basic Product Page: Paste styles",
+            "id": "basic-product-page-created-function",
+            "name": "Basic Product Page: Created function",
             "description": null
         },
         {
@@ -696,13 +696,13 @@
             "description": null
         },
         {
-            "id": "basic-product-page-add-data-to-catalog",
-            "name": "Basic Product Page: add Data to catalog",
+            "id": "basic-product-page-add-computed-property-to-catalog",
+            "name": "Basic Product Page: Add Computed Property to Catalog",
             "description": null
         },
         {
-            "id": "basic-prudct-page-copy-paste-from-title-to-catalog",
-            "name": "Basic Prudct Page: Copy\/Paste from Title to Catalog",
+            "id": "deleted-step-9",
+            "name": "Deleted Step 9",
             "description": null
         },
         {
@@ -1276,5 +1276,5 @@
             "description": null
         }
     ],
-    "sha": "44cfbbff2286dc1a5786da32b76c05cfbc059a89"
+    "sha": "074f01adb6d7cb875a4f635e6a246000965d6cbd"
 }

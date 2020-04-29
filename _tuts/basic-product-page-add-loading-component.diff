@@ -1,8 +1,17 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 0270cfa..ae16190 100644
+index ebc8456a..cf998e2e 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -49,11 +49,13 @@
+@@ -5,6 +5,8 @@
+         </div>
+ 
+         <div :class="$style.content">
++            <loading v-show="loading" />
++
+             <div
+                 v-show="!loading"
+                 :class="$style.product"
+@@ -46,11 +48,13 @@
  
  <script>
  import productsService from '@/services/products';

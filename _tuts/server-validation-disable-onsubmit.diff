@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 332a785..3350985 100644
+index 332a7859..33509858 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -67,6 +67,7 @@
@@ -11,7 +11,7 @@ index 332a785..3350985 100644
                              </div>
                          </form>
 diff --git a/assets/js/services/checkout.js b/assets/js/services/checkout.js
-index d34d8b5..5ba4c9a 100644
+index d34d8b5d..5ba4c9a4 100644
 --- a/assets/js/services/checkout.js
 +++ b/assets/js/services/checkout.js
 @@ -10,7 +10,7 @@ const checkout = {

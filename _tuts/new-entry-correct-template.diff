@@ -1,5 +1,5 @@
 diff --git a/templates/cart/index.html.twig b/templates/cart/index.html.twig
-index d421398..742c21c 100644
+index d421398e..742c21c2 100644
 --- a/templates/cart/index.html.twig
 +++ b/templates/cart/index.html.twig
 @@ -6,17 +6,10 @@

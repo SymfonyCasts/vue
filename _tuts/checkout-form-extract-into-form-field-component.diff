@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
 new file mode 100644
-index 0000000..5063fdf
+index 00000000..5063fdf3
 --- /dev/null
 +++ b/assets/js/components/checkout/form-input.vue
 @@ -0,0 +1,36 @@
@@ -41,7 +41,7 @@ index 0000000..5063fdf
 +};
 +</script>
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 244837a..bcdff86 100644
+index 244837a1..bcdff867 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -11,29 +11,7 @@
