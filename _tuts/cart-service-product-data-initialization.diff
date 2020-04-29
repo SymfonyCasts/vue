@@ -6,8 +6,8 @@ index 6baf642..07c5608 100644
          },
      },
      data: () => ({
--        product: null,
-+        product: { name: '', price: 0, colors: [] },
+-        product: { name: '', image: '', price: 0 },
++        product: { name: '', image: '', price: 0, colors: [] },
          loading: true,
      }),
      computed: {
