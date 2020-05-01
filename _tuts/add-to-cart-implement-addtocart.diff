@@ -1,8 +1,17 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index dae86825..7e81067c 100644
+index 6bf0d27c..7e81067c 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -112,7 +112,14 @@ export default {
+@@ -67,8 +67,6 @@ import ColorSelector from '@/components/color-selector';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+ 
+-window.cartService = cartService;
+-
+ export default {
+     name: 'Product',
+     components: {
+@@ -114,7 +112,14 @@ export default {
      },
      methods: {
          addToCart() {

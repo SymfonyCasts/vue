@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 7a3f8953..dae86825 100644
+index 7a3f8953..6bf0d27c 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -60,6 +60,7 @@
+@@ -60,12 +60,15 @@
  </template>
  
  <script>
@@ -10,3 +10,11 @@ index 7a3f8953..dae86825 100644
  import formatPrice from '@/helpers/format-price';
  import productsService from '@/services/products';
  import ColorSelector from '@/components/color-selector';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+ 
++window.cartService = cartService;
++
+ export default {
+     name: 'Product',
+     components: {

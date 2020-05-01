@@ -751,73 +751,73 @@
             "description": null
         },
         {
-            "id": "cart-service-extract-formatprice-to-helper",
-            "name": "Cart Service: Extract formatPrice to helper",
+            "id": "basic-product-page-extract-formatprice-to-helper",
+            "name": "Basic Product Page: Extract formatPrice to helper",
             "description": null
         },
         {
-            "id": "cart-service-wrongful-import-to-component",
-            "name": "Cart Service: Wrongful import to component",
+            "id": "basic-product-page-wrongful-import-to-component",
+            "name": "Basic Product Page: Wrongful Import to Component",
             "description": null
         },
         {
-            "id": "cart-service-correct-use-of-formatprice",
-            "name": "Cart Service: Correct use of formatPrice",
+            "id": "basic-product-page-correct-use-of-formatprice",
+            "name": "Basic Product Page: Correct use of formatPrice",
             "description": null
         },
         {
-            "id": "cart-service-product-data-initialization",
-            "name": "Cart Service: Product data initialization",
+            "id": "basic-product-page-product-data-initialization",
+            "name": "Basic Product Page: Product data Initialization",
             "description": null
         },
         {
-            "id": "cart-service-formatprice-in-product-card",
-            "name": "Cart Service: formatPrice in product-card",
+            "id": "basic-product-page-formatprice-in-product-card",
+            "name": "Basic Product Page: formatPrice in product-card",
             "description": null
         },
         {
-            "id": "cart-service-skeleton-service",
-            "name": "Cart Service: Skeleton Service",
+            "id": "deleted-step-10",
+            "name": "deleted step 10",
             "description": null
         },
         {
-            "id": "cart-service-initializestorage",
-            "name": "Cart Service: InitializeStorage",
+            "id": "deleted-step-11",
+            "name": "deleted step 11",
             "description": null
         },
         {
-            "id": "cart-service-get-set-storage",
-            "name": "Cart Service: get\/set Storage",
+            "id": "deleted-step-12",
+            "name": "deleted step 12",
             "description": null
         },
         {
-            "id": "cart-service-getitems",
-            "name": "Cart Service: getItems",
+            "id": "deleted-step-13",
+            "name": "deleted step 13",
             "description": null
         },
         {
-            "id": "cart-service-add-items",
-            "name": "Cart Service: Add Items",
+            "id": "deleted-step-14",
+            "name": "deleted step 14",
             "description": null
         },
         {
-            "id": "cart-service-remove-item",
-            "name": "Cart Service: Remove Item",
+            "id": "deleted-step-15",
+            "name": "deleted step 15",
             "description": null
         },
         {
-            "id": "cart-service-clear",
-            "name": "Cart Service: Clear",
+            "id": "deleted-step-16",
+            "name": "deleted step 16",
             "description": null
         },
         {
-            "id": "cart-service-test-cart-in-console",
-            "name": "Cart Service: Test cart in console",
+            "id": "deleted-step-17",
+            "name": "deleted step 17",
             "description": null
         },
         {
-            "id": "cart-service-remove-test-cart",
-            "name": "Cart Service: Remove test cart",
+            "id": "deleted-step-18",
+            "name": "deleted step 18",
             "description": null
         },
         {
@@ -863,6 +863,11 @@
         {
             "id": "product-colors-updateselectedcolor-method",
             "name": "Product Colors: updateSelectedColor method",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-copy-cart-service",
+            "name": "Add To Cart: Copy Cart Service",
             "description": null
         },
         {
@@ -1276,5 +1281,5 @@
             "description": null
         }
     ],
-    "sha": "c7463d9e6ae7d8dcecbb7a5d978540a14c60c97b"
+    "sha": "ef1732e35a37fb32f0ea32cfde089ebcca4fcb91"
 }

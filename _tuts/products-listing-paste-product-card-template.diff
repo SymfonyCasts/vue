@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index b326dab7..faa93dd8 100644
+index b326dab7..87259ef9 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
 @@ -1,6 +1,35 @@
@@ -22,7 +22,7 @@ index b326dab7..faa93dd8 100644
 +
 +            <div class="pt-2 my-3 d-md-flex justify-content-between">
 +                <p class="p-0 d-inline">
-+                    <strong>$ {{ item.price }}</strong>
++                    <strong>${{ item.price }}</strong>
 +                </p>
 +
 +                <button
