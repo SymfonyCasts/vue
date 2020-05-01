@@ -1,0 +1,38 @@
+diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
+index 0b66297c..a13f7226 100644
+--- a/assets/js/components/color-selector.vue
++++ b/assets/js/components/color-selector.vue
+@@ -1,10 +1,11 @@
+ <template>
+     <div :class="$style.component">
+         <span
+-            v-for="(color) in colors"
++            v-for="(color, index) in colors"
+             :key="color['@id']"
+             :title="color.name"
+             :style="{ backgroundColor: `#${color.hexColor}` }"
++            @click="selectColor(index)"
+         />
+     </div>
+ </template>
+@@ -16,6 +17,7 @@ export default {
+     name: 'ColorSelector',
+     data: () => ({
+         colors: [],
++        selectedIndex: null,
+     }),
+     async created() {
+         try {
+@@ -26,6 +28,12 @@ export default {
+             this.colors = [];
+         }
+     },
++    methods: {
++        selectColor(index) {
++            this.selectedIndex = index;
++            this.$emit('color-selected', this.colors[index]['@id']);
++        },
++    },
+ };
+ </script>
+ 

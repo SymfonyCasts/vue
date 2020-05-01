@@ -1,5 +1,5 @@
 diff --git a/assets/js/app.js b/assets/js/app.js
-index 88da0017..25799a5c 100644
+index 88da0017..67bc300b 100644
 --- a/assets/js/app.js
 +++ b/assets/js/app.js
 @@ -7,3 +7,9 @@
@@ -11,4 +11,4 @@ index 88da0017..25799a5c 100644
 +
 +const totalItems = cartService.totalItems();
 +
-+document.getElementById('shopping-cart-items').innerHTML = totalItems.toString();
++document.getElementById('js-shopping-cart-items').innerHTML = totalItems.toString();

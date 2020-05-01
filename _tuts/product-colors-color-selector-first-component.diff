@@ -1,9 +1,9 @@
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
 new file mode 100644
-index 00000000..5ce41154
+index 00000000..1a36c220
 --- /dev/null
 +++ b/assets/js/components/color-selector.vue
-@@ -0,0 +1,21 @@
+@@ -0,0 +1,20 @@
 +
 +<script>
 +import colorsService from '@/services/colors';
@@ -12,7 +12,6 @@ index 00000000..5ce41154
 +    name: 'ColorSelector',
 +    data: () => ({
 +        colors: [],
-+        selectedIndex: null,
 +    }),
 +    async created() {
 +        try {

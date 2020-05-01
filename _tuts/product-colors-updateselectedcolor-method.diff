@@ -1,8 +1,24 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index ed470ea0..7a3f8953 100644
+index e11f8379..9dab43f6 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -113,6 +113,15 @@ export default {
+@@ -36,6 +36,7 @@
+                     <div :class="$style['actions-wrapper']">
+                         <color-selector
+                             v-show="product.colors.length !== 0"
++                            @color-selected="updateSelectedColor"
+                         />
+ 
+                         <button
+@@ -79,6 +80,7 @@ export default {
+         product: {
+             name: '', image: '', price: 0, colors: [],
+         },
++        selectedColorId: null,
+         loading: true,
+     }),
+     computed: {
+@@ -103,6 +105,15 @@ export default {
          addToCart() {
              // TODO
          },

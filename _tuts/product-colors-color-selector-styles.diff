@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
-index f98fa732..97ed789c 100644
+index 9efa63b8..0b66297c 100644
 --- a/assets/js/components/color-selector.vue
 +++ b/assets/js/components/color-selector.vue
-@@ -37,3 +37,25 @@ export default {
+@@ -28,3 +28,21 @@ export default {
      },
  };
  </script>
@@ -21,10 +21,6 @@ index f98fa732..97ed789c 100644
 +            width: 25px;
 +            height: 25px;
 +            margin-right: 10px;
-+
-+            &.selected {
-+                border: 2px solid black
-+            }
 +        }
 +    }
 +</style>

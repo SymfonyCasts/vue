@@ -1,22 +1,14 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 658abfbd..ed470ea0 100644
+index 6df84ebe..e11f8379 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -34,6 +34,18 @@
+@@ -34,6 +34,10 @@
                      </div>
  
                      <div :class="$style['actions-wrapper']">
 +                        <color-selector
 +                            v-show="product.colors.length !== 0"
-+                            @color-selected="updateSelectedColor"
 +                        />
-+
-+                        <input
-+                            v-model.number="qty"
-+                            class="form-control"
-+                            type="number"
-+                            min="1"
-+                        >
 +
                          <button
                              class="btn btn-info btn-sm"

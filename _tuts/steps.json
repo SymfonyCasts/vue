@@ -836,8 +836,8 @@
             "description": null
         },
         {
-            "id": "product-colors-color-selector-select-method",
-            "name": "Product Colors: Color Selector select method",
+            "id": "deleted-step-19",
+            "name": "deleted step 19",
             "description": null
         },
         {
@@ -861,8 +861,23 @@
             "description": null
         },
         {
+            "id": "product-colors-onclick-handler",
+            "name": "Product Colors: onClick handler",
+            "description": null
+        },
+        {
+            "id": "product-colors-selectedindex-class",
+            "name": "Product Colors: selectedIndex class",
+            "description": null
+        },
+        {
             "id": "product-colors-updateselectedcolor-method",
             "name": "Product Colors: updateSelectedColor method",
+            "description": null
+        },
+        {
+            "id": "product-colors-add-qty",
+            "name": "Product Colors: Add qty",
             "description": null
         },
         {
@@ -1281,5 +1296,5 @@
             "description": null
         }
     ],
-    "sha": "ef1732e35a37fb32f0ea32cfde089ebcca4fcb91"
+    "sha": "f7299852161eb0a14d7ef5cac8e8549c1c5b31dc"
 }
