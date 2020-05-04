@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.component">
+    <div class="d-flex row mt-4">
         <loading v-show="loading" />
 
         <h5
@@ -40,12 +40,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" module>
-.component {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    margin-top: 25px;
-}
-</style>

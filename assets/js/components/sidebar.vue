@@ -72,7 +72,7 @@ export default {
 
 .component {
     @include light-component;
-    margin-top: 65px;
+    margin-top: 64px;
 
     ul {
         li a:hover {
