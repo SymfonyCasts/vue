@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex row mt-4">
+    <div class="row mt-4">
         <loading v-show="loading" />
 
         <h5
