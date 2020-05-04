@@ -1,5 +1,5 @@
 <template>
-    <div :class="[$style.component, 'col-xs-12', 'mb-2', 'ml-2', 'pb-2']">
+    <div :class="[$style.component, 'col-xs-12', 'col-6', 'mb-2', 'ml-2', 'pb-2']">
         <div :class="$style.top">
             <div :class="$style.image">
                 <a :href="productUrl">
@@ -83,10 +83,7 @@ export default {
 .component {
     @include light-component;
     width: 355px;
-    padding: 0 15px;
-    display: flex;
-    flex-direction: column;
-
+    
     .top {
         border-bottom: 1px solid $light-component-border;
         display: flex;
