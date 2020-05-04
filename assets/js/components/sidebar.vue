@@ -11,6 +11,7 @@
                         :class="{
                             'nav-link': true,
                             [$style.selected]: currentCategoryId === null,
+                            
                         }"
                         href="/"
                     >All Products</a>
@@ -74,10 +75,6 @@ export default {
 
     ul {
         border-bottom: 1px solid $light-component-border;
-
-        li a {
-            color: #000;
-        }
 
         li a:hover {
             background: $blue-component-link-hover;
