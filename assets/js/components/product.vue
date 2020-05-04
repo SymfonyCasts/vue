@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-        <div :class="$style['top-bar']">
+        <div>
             <title-component :text="product.name" />
         </div>
 
@@ -134,7 +134,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import '~styles/top-bar.scss';
 @import '~styles/components/light-component';
 
 .content {
