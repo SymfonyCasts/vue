@@ -1,5 +1,5 @@
 <template>
-    <div :class="$style.component">
+    <div>
         <input
             v-model="searchTerm"
             class="form-control"
