@@ -1,7 +1,7 @@
 <template>
     <div class="col-xs-12 col-6 mb-2 pb-2">
         <div :class="$style['product-box']">
-            <div :class="$style.top">
+            <div>
                 <div :class="$style.image">
                     <a :href="productUrl">
                         <img
@@ -11,7 +11,7 @@
                         >
                     </a>
 
-                    <h3 class="mb-2 px-2">
+                    <h3 class="font-weight-bold mb-2 px-2">
                         <a
                             :href="productUrl"
                             v-text="item.name"
@@ -32,8 +32,8 @@
                     </button>
                 </div>
             </div>
-
-            <div class="p-2">
+            <hr>
+            <div class="px-2 pb-2">
                 <small>brought to you by {{ item.brand }}</small>
             </div>
         </div>
@@ -83,25 +83,21 @@ export default {
 @import '~styles/components/light-component';
 
 .product-box {
-    border: 1px solid #efefee;
+    border: 1px solid $light-component-border;
     box-shadow: 0px 0px 7px 4px #efefee;
     border-radius: 5px;
 
-    .top {
-        border-bottom: 1px solid $light-component-border;
-        }
     .image {
         img {
-        width: 100%;
-        height: auto;
-        border-top-left-radius: 5px;
-        border-top-right-radius: 5px;
+            width: 100%;
+            height: auto;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
         }
         
         h3 {
             font-size: 1.2rem;
-            font-weight: bold;
-        }
         }
     }
+}
 </style>
