@@ -5,7 +5,7 @@
                 Categories
             </h5>
 
-            <ul class="nav flex-column mb-4 pb-2">
+            <ul class="nav flex-column mb-4">
                 <li class="nav-item">
                     <a
                         :class="{
@@ -33,9 +33,10 @@
                     </a>
                 </li>
             </ul>
+            <hr>
         </div>
 
-        <div :class="$style.buttons">
+        <div class="d-flex justify-content-end">
             <button
                 class="btn btn-secondary btn-sm"
                 @click="$emit('sidebar-collapsed')"
@@ -74,8 +75,6 @@ export default {
     margin-top: 65px;
 
     ul {
-        border-bottom: 1px solid $light-component-border;
-
         li a:hover {
             background: $blue-component-link-hover;
         }
@@ -83,12 +82,6 @@ export default {
         li a.selected {
             background: $light-component-border;
         }
-    }
-
-    .buttons {
-        display: flex;
-        flex-direction: row;
-        justify-content: flex-end;
     }
 }
 </style>
