@@ -5,7 +5,7 @@
                 Categories
             </h5>
 
-            <ul class="nav flex-column">
+            <ul class="nav flex-column mb-4 pb-2">
                 <li class="nav-item">
                     <a
                         :class="{
@@ -74,8 +74,6 @@ export default {
 
     ul {
         border-bottom: 1px solid $light-component-border;
-        margin-bottom: 20px;
-        padding-bottom: 10px;
 
         li a {
             color: #000;
