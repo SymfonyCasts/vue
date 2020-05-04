@@ -5,7 +5,7 @@
 
             <div class="col-xs-12 col-lg-9">
                 <div class="row">
-                    <div :class="$style['top-bar']">
+                    <div>
                         <title-component text="Checkout" />
                     </div>
 
@@ -195,7 +195,6 @@ export default {
 </script>
 
 <style lang="scss" module>
-@import '~styles/top-bar.scss';
 @import '~styles/components/light-component.scss';
 
 .content {

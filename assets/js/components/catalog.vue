@@ -12,12 +12,12 @@
                 </div>
             </div>
         </div>
-        <div>
-            <product-list
-                :products="products"
-                :loading="loading"
-            />
-        </div>
+        
+        <product-list
+            :products="products"
+            :loading="loading"
+        />
+        
 
         <div class="row">
             <legend-component :title="legend" />

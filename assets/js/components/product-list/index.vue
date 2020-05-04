@@ -1,14 +1,17 @@
 <template>
-    <div class="row mt-4">
-        <loading v-show="loading" />
+    <div class="row">
+        <div class="col-12">
+            <div class="mt-4">
+                <loading v-show="loading" />
 
-        <h5
-            v-show="!loading && products.length === 0"
-            class="mt-4 ml-4"
-        >
-            Whoopsie Daisy, no products found!
-        </h5>
-
+                <h5
+                    v-show="!loading && products.length === 0"
+                    class="mt-4 ml-4"
+                >
+                    Whoopsie Daisy, no products found!
+                </h5>
+            </div>
+        </div>
         <product-card
             v-for="product in products"
             v-show="!loading"
