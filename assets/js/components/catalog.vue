@@ -1,12 +1,18 @@
 <template>
     <div>
         <div class="row">
-            <div :class="$style['top-bar']">
-                <title-component :text="category.name" />
-
-                <search-bar @search-products="onSearchProducts" />
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <title-component :text="category.name" />
+                    </div>
+                    <div class="col-9">
+                        <search-bar @search-products="onSearchProducts" />
+                    </div>
+                </div>
             </div>
-
+        </div>
+        <div>
             <product-list
                 :products="products"
                 :loading="loading"
@@ -93,7 +99,3 @@ export default {
     },
 };
 </script>
-
-<style lang="scss" module>
-@import '~styles/top-bar.scss';
-</style>
