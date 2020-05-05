@@ -1,10 +1,10 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 40789696..6cd3bb3d 100644
+index d9bc124d..4153bbb1 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -36,6 +36,23 @@ export default {
          loading: true,
-         products: [],
+         items: [],
      }),
 +    async created() {
 +        let colorsResponse = null;

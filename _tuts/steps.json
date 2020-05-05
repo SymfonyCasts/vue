@@ -956,13 +956,13 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-update-component-script",
-            "name": "Shopping Cart Listing: update component script",
+            "id": "shopping-cart-listing-add-loading-component",
+            "name": "Shopping Cart Listing: Add Loading Component",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-first-scss",
-            "name": "Shopping Cart Listing: First Scss",
+            "id": "deleted-step-20",
+            "name": "deleted step 20",
             "description": null
         },
         {
@@ -993,6 +993,11 @@
         {
             "id": "shopping-cart-listing-add-cart-data-to-product-list",
             "name": "Shopping Cart Listing: Add cart data to product list",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-list-product-names",
+            "name": "Shopping Cart Listing: List Product Names",
             "description": null
         },
         {
@@ -1296,5 +1301,5 @@
             "description": null
         }
     ],
-    "sha": "f7299852161eb0a14d7ef5cac8e8549c1c5b31dc"
+    "sha": "3de946ea31ffd8a9d433557c3e5621f4843d6375"
 }

@@ -1,20 +1,20 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 864eac2a..4bcabee3 100644
+index 645f441a..60025dbb 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -11,6 +11,15 @@
- 
-                     <div :class="$style.content">
+@@ -13,10 +13,12 @@
                          <loading v-show="loading" />
-+
-+                        <div
-+                            v-show="!loading && !products.length"
+ 
+                         <div
+-                            v-for="item in items"
+-                            :key="item['@id']"
++                            v-show="!loading && !items.length"
 +                            :class="$style['product-list']"
-+                        >
+                         >
+-                            {{ item.name }}
 +                            <div :class="$style['product-message']">
 +                                Sorry! You haven't bought anything yet!
 +                            </div>
-+                        </div>
+                         </div>
                      </div>
                  </div>
-             </div>

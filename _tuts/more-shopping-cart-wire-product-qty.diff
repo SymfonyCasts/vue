@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index 494f55fc..b711d14e 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index 4a1bb7a1..4086e0ad 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -12,6 +12,7 @@
          />
  

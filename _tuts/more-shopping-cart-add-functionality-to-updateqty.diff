@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index b711d14e..0b9c8c9c 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index 4086e0ad..a149d93d 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -20,6 +20,7 @@
  
          <button
@@ -19,8 +19,8 @@ index b711d14e..0b9c8c9c 100644
  export default {
      name: 'ShoppingCartProduct',
      props: {
-@@ -42,6 +45,20 @@ export default {
-             default: () => ({}),
+@@ -41,6 +44,20 @@ export default {
+             required: true,
          },
      },
 +    methods: {

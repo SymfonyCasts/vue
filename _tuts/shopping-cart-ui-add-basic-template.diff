@@ -1,15 +1,22 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index 2cec2ed3..b0273c34 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index 2cec2ed3..71a1e3ca 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -1,5 +1,9 @@
  <template>
 -    
 +    <div
 +        :class="$style.component"
 +    >
-+        <span :class="$style['product-name']">{{ product.name }}</span>
++        <span>{{ product.name }}</span>
 +    </div>
  </template>
  
  <script>
+@@ -10,4 +14,4 @@
+ 
+ <style scoped>
+ 
+-</style>
+\ No newline at end of file
++</style>

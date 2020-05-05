@@ -1,8 +1,8 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
 new file mode 100644
 index 00000000..2cec2ed3
 --- /dev/null
-+++ b/assets/js/components/shopping-cart/product.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -0,0 +1,13 @@
 +<template>
 +    

@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index 86005f4a..c243697d 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index 86841cb9..c0163a7a 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -31,11 +31,16 @@
          >
              Remove
@@ -19,7 +19,7 @@ index 86005f4a..c243697d 100644
  
  export default {
      name: 'ShoppingCartProduct',
-@@ -47,6 +52,17 @@ export default {
+@@ -46,6 +51,17 @@ export default {
          },
      },
      methods: {
@@ -37,7 +37,7 @@ index 86005f4a..c243697d 100644
          /**
           * Updates the product quantity in the cart, then refreshes the page
           *
-@@ -104,5 +120,11 @@ export default {
+@@ -103,5 +119,11 @@ export default {
      .product-name {
          flex-grow: 1;
      }

@@ -1,8 +1,17 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index 127190b7..bdebd291 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
-@@ -37,5 +37,16 @@ export default {
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index 104973b6..76d441d7 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
+@@ -2,7 +2,7 @@
+     <div
+         :class="$style.component"
+     >
+-        <span>{{ product.name }}</span>
++        <span :class="$style['product-name']">{{ product.name }}</span>
+ 
+         <span
+             :class="$style['color-square']"
+@@ -36,5 +36,16 @@ export default {
      span, input, button {
          margin-right: 20px;
      }

@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index 0b9c8c9c..86005f4a 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index a149d93d..86841cb9 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -27,6 +27,7 @@
  
          <button
@@ -10,7 +10,7 @@ index 0b9c8c9c..86005f4a 100644
          >
              Remove
          </button>
-@@ -58,6 +59,18 @@ export default {
+@@ -57,6 +58,18 @@ export default {
  
              window.location.reload();
          },

@@ -1,38 +1,27 @@
 diff --git a/assets/js/services/products.js b/assets/js/services/products.js
-index 2b936e1f..1a6b1267 100644
+index 2b936e1f..96a65781 100644
 --- a/assets/js/services/products.js
 +++ b/assets/js/services/products.js
-@@ -29,6 +29,35 @@ const products = {
+@@ -29,6 +29,24 @@ const products = {
              url: `/api/products/${id}`,
          });
      },
 +
 +    /**
-+     * Retrieves a set of products identified by an array of ids
++     * Retrieves a set of products identified by an array of IRIs
 +     *
-+     * @param {number[]} ids
++     * @param {string[]} ids
 +     * @return {Promise}
 +     */
 +    getProductsById(ids) {
-+        if (ids.length) {
-+            let idString = '';
-+
-+            ids.forEach((id) => {
-+                if (idString.length) {
-+                    idString += '&';
-+                }
-+
-+                idString += `id[]=${id}`;
-+            });
-+
-+            return axios({
-+                method: 'get',
-+                url: `/api/products?${idString}`,
-+            });
++        if (!ids.length) {
++            return Promise.resolve({ 'hydra:member': [] });
 +        }
 +
-+        return new Promise((resolve) => {
-+            resolve([]);
++        return axios({
++            method: 'get',
++            url: '/api/products',
++            params: { id: ids },
 +        });
 +    },
  };

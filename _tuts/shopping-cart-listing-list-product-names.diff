@@ -1,0 +1,18 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 724dbd22..03e010cf 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -11,6 +11,13 @@
+ 
+                     <div :class="$style.content">
+                         <loading v-show="loading" />
++
++                        <div
++                            v-for="item in items"
++                            :key="item['@id']"
++                        >
++                            {{ item.name }}
++                        </div>
+                     </div>
+                 </div>
+             </div>

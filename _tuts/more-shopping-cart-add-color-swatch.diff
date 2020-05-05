@@ -1,11 +1,11 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index 66a0d93b..127190b7 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index ca1ce3d2..104973b6 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -3,6 +3,10 @@
          :class="$style.component"
      >
-         <span :class="$style['product-name']">{{ product.name }}</span>
+         <span>{{ product.name }}</span>
 +
 +        <span
 +            :class="$style['color-square']"

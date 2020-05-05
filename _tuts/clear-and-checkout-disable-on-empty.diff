@@ -25,7 +25,7 @@ index 3106dbf8..b9044316 100644
          /**
           * Clears the shopping cart and goes to the home page
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 4b19c04b..42bab2f8 100644
+index cc325598..faaf7353 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -36,7 +36,10 @@
@@ -35,7 +35,7 @@ index 4b19c04b..42bab2f8 100644
 -                        <shopping-cart-actions v-show="!loading" />
 +                        <shopping-cart-actions
 +                            v-show="!loading"
-+                            :has-products="products.length > 0"
++                            :has-products="items.length > 0"
 +                        />
                      </div>
                  </div>

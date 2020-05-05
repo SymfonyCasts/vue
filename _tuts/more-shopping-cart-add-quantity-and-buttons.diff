@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/product.vue b/assets/js/components/shopping-cart/product.vue
-index 48ccbd4a..494f55fc 100644
---- a/assets/js/components/shopping-cart/product.vue
-+++ b/assets/js/components/shopping-cart/product.vue
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index 0c647534..4a1bb7a1 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -10,6 +10,24 @@
                  backgroundColor: `#${product.hexColor}`
              }"
@@ -27,7 +27,7 @@ index 48ccbd4a..494f55fc 100644
      </div>
  </template>
  
-@@ -48,6 +66,10 @@ export default {
+@@ -47,6 +65,10 @@ export default {
          border-radius: 4px;
      }
  
