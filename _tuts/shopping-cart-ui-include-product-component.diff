@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index a8e396df..4d360c8f 100644
+index f4584e75..dd937594 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -47,12 +47,14 @@ import cartService from '@/services/cart';

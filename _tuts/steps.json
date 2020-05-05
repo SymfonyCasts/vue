@@ -1046,6 +1046,11 @@
             "description": null
         },
         {
+            "id": "shopping-cart-ui-add-css-for-template-block",
+            "name": "Shopping Cart UI: Add CSS for template block",
+            "description": null
+        },
+        {
             "id": "shopping-cart-ui-products-list",
             "name": "Shopping Cart UI: Products list",
             "description": null
@@ -1301,5 +1306,5 @@
             "description": null
         }
     ],
-    "sha": "3de946ea31ffd8a9d433557c3e5621f4843d6375"
+    "sha": "51d223c2259f8aceadf0c5bbbb24ab0bd5ec5ad9"
 }

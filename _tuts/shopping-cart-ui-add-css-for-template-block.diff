@@ -1,25 +1,25 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 4074c831..0bd80537 100644
+index 60025dbb..c8d2531f 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -152,6 +152,20 @@ export default {
-             margin-bottom: 5px;
-             border-bottom: 1px solid $light-component-border;
-         }
+@@ -104,5 +104,20 @@ export default {
+     display: flex;
+     flex-direction: column;
+     width: 900px;
 +
-+        .product-row {
++    .product-list {
++        margin-bottom: 25px;
++        display: flex;
++        flex-direction: column;
++
++        .product-message {
 +            display: flex;
 +            flex-direction: row;
 +            align-items: center;
 +            padding-bottom: 5px;
 +            margin-bottom: 5px;
 +            border-bottom: 1px solid $light-component-border;
-+            justify-content: flex-end;
-+
-+            span {
-+                margin-right: 20px;
-+            }
 +        }
-     }
++    }
  }
  </style>

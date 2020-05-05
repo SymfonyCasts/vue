@@ -1,9 +1,24 @@
 diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
 new file mode 100644
-index 00000000..d628bae5
+index 00000000..09aa629e
 --- /dev/null
 +++ b/assets/js/services/cart.js
-@@ -0,0 +1,121 @@
+@@ -0,0 +1,131 @@
++/**
++ * Finds an item by product and color id in the storage
++ *
++ * @param {object} storage
++ * @param {string} productId
++ * @param {string|null} colorId
++ * @return {number}
++ */
++const findItemIndex = (storage, productId, colorId) => (
++    storage.findIndex(
++        (item) => (
++            item.productId === productId && item.colorId === colorId
++        ),
++    ));
++
 +const cart = {
 +    /**
 +     * Gets the list of all shopping cart items in an array of objects containing:
@@ -26,11 +41,7 @@ index 00000000..d628bae5
 +     */
 +    addItem(productId, colorId, qty) {
 +        const storage = cart.getStorage();
-+        const itemIndex = storage.findIndex(
-+            (item) => (
-+                item.productId === productId && item.colorId === colorId
-+            ),
-+        );
++        const itemIndex = findItemIndex(storage, productId, colorId);
 +
 +        if (itemIndex !== -1) {
 +            storage[itemIndex].qty += qty;
@@ -68,14 +79,13 @@ index 00000000..d628bae5
 +    updateQty(productId, colorId, qty) {
 +        const storage = cart.getStorage();
 +
-+        const cartItemIndex = storage.findIndex(
-+            (item) => (item.productId === productId && item.colorId === colorId),
-+        );
++        const cartItemIndex = findItemIndex(storage, productId, colorId);
 +
-+        if (cartItemIndex > -1) {
-+            storage[cartItemIndex].qty = qty;
++        if (cartItemIndex === -1) {
++            throw new Error(`Invalid product+color combination: ${productId}, ${colorId}`);
 +        }
 +
++        storage[cartItemIndex].qty = qty;
 +        cart.saveStorage(storage);
 +    },
 +
