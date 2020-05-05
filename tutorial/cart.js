@@ -1,3 +1,18 @@
+/**
+ * Finds an item by product and color id in the storage
+ *
+ * @param {object} storage
+ * @param {string} productId
+ * @param {string|null} colorId
+ * @return {number}
+ */
+const findItemIndex = (storage, productId, colorId) => (
+    storage.findIndex(
+        (item) => (
+            item.productId === productId && item.colorId === colorId
+        ),
+    ));
+
 const cart = {
     /**
      * Gets the list of all shopping cart items in an array of objects containing:
@@ -20,11 +35,7 @@ const cart = {
      */
     addItem(productId, colorId, qty) {
         const storage = cart.getStorage();
-        const itemIndex = storage.findIndex(
-            (item) => (
-                item.productId === productId && item.colorId === colorId
-            ),
-        );
+        const itemIndex = findItemIndex(storage, productId, colorId);
 
         if (itemIndex !== -1) {
             storage[itemIndex].qty += qty;
@@ -62,14 +73,13 @@ const cart = {
     updateQty(productId, colorId, qty) {
         const storage = cart.getStorage();
 
-        const cartItemIndex = storage.findIndex(
-            (item) => (item.productId === productId && item.colorId === colorId),
-        );
+        const cartItemIndex = findItemIndex(storage, productId, colorId);
 
-        if (cartItemIndex > -1) {
-            storage[cartItemIndex].qty = qty;
+        if (cartItemIndex === -1) {
+            throw new Error(`Invalid product+color combination: ${productId}, ${colorId}`);
         }
 
+        storage[cartItemIndex].qty = qty;
         cart.saveStorage(storage);
     },
 
