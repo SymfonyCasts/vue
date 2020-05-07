@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index dd937594..4074c831 100644
+index c6e43b65..f6e5bbe8 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -45,6 +45,7 @@
+@@ -51,6 +51,7 @@
  <script>
  import cartService from '@/services/cart';
  import colorsService from '@/services/colors';
@@ -10,7 +10,7 @@ index dd937594..4074c831 100644
  import productsService from '@/services/products';
  import Loading from '@/components/loading';
  import ShoppingCartItem from '@/components/shopping-cart/cart-item';
-@@ -62,6 +63,22 @@ export default {
+@@ -68,6 +69,22 @@ export default {
          loading: true,
          items: [],
      }),

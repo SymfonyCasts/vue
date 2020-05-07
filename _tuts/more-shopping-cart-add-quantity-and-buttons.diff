@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 0c647534..4a1bb7a1 100644
+index 0c647534..ad5ed92a 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -10,6 +10,24 @@
+@@ -10,10 +10,26 @@
                  backgroundColor: `#${product.hexColor}`
              }"
          />
@@ -13,11 +13,7 @@ index 0c647534..4a1bb7a1 100644
 +            min="1"
 +        >
 +
-+        <button
-+            class="btn btn-info btn-sm"
-+        >
-+            Update
-+        </button>
++        <span>{{ totalPrice }}</span>
 +
 +        <button
 +            class="btn btn-info btn-sm"
@@ -27,7 +23,25 @@ index 0c647534..4a1bb7a1 100644
      </div>
  </template>
  
-@@ -47,6 +65,10 @@ export default {
+ <script>
++import formatPrice from '@/helpers/format-price';
++
+ export default {
+     name: 'ShoppingCartProduct',
+     props: {
+@@ -22,6 +38,11 @@ export default {
+             required: true,
+         },
+     },
++    computed: {
++        totalPrice() {
++            return formatPrice(this.product.price * this.product.qty);
++        },
++    },
+ };
+ </script>
+ 
+@@ -47,6 +68,10 @@ export default {
          border-radius: 4px;
      }
  

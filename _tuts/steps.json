@@ -1096,8 +1096,8 @@
             "description": null
         },
         {
-            "id": "more-shopping-cart-add-service-method",
-            "name": "more Shopping Cart: add service method",
+            "id": "deleted-step-21",
+            "name": "deleted step 21",
             "description": null
         },
         {
@@ -1111,8 +1111,8 @@
             "description": null
         },
         {
-            "id": "more-shopping-cart-product-price",
-            "name": "More Shopping Cart: Product Price",
+            "id": "more-shopping-cart-fix-css",
+            "name": "More Shopping Cart: Fix CSS",
             "description": null
         },
         {
@@ -1306,5 +1306,5 @@
             "description": null
         }
     ],
-    "sha": "51d223c2259f8aceadf0c5bbbb24ab0bd5ec5ad9"
+    "sha": "bef92f24f1091bd6c04272909e2126b62f02421b"
 }

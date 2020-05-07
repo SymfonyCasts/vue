@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index a149d93d..86841cb9 100644
+index 05db3f8f..e1492be1 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -27,6 +27,7 @@
+@@ -23,6 +23,7 @@
  
          <button
              class="btn btn-info btn-sm"
@@ -11,8 +11,8 @@ index a149d93d..86841cb9 100644
              Remove
          </button>
 @@ -57,6 +58,18 @@ export default {
- 
-             window.location.reload();
+         updateQty(productId, colorId, qty) {
+             cartService.updateQty(productId, colorId, qty);
          },
 +
 +        /**
