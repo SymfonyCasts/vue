@@ -1,0 +1,25 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index c278ba73..ec460445 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -41,6 +41,20 @@
+                                 <span>Total: <strong>${{ totalPrice }}</strong></span>
+                             </div>
+                         </div>
++
++                        <div v-show="!loading">
++                            <button
++                                class="btn btn-info btn-sm"
++                            >
++                                Clear Shopping Cart
++                            </button>
++
++                            <button
++                                class="btn btn-info btn-sm"
++                            >
++                                Checkout!
++                            </button>
++                        </div>
+                     </div>
+                 </div>
+             </div>

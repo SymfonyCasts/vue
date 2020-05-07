@@ -1116,13 +1116,13 @@
             "description": null
         },
         {
-            "id": "clear-and-checkout-first-component",
-            "name": "Clear and Checkout: First component",
+            "id": "clear-and-checkout-buttons-template",
+            "name": "Clear and Checkout: Buttons Template",
             "description": null
         },
         {
-            "id": "clear-and-checkout-add-to-template",
-            "name": "Clear and Checkout: Add to Template",
+            "id": "deleted-step-22",
+            "name": "deleted step 22",
             "description": null
         },
         {
@@ -1306,5 +1306,5 @@
             "description": null
         }
     ],
-    "sha": "bef92f24f1091bd6c04272909e2126b62f02421b"
+    "sha": "66530b5a01f5a30cdad36315f4513a2eb4f92e41"
 }
