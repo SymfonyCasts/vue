@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 08830d74..332a7859 100644
+index 100dcbf9..5881a229 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -130,13 +130,18 @@ export default {
+@@ -132,13 +132,18 @@ export default {
          async onSubmit(event) {
              event.preventDefault();
              this.loading = true;

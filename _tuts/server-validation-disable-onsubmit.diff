@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 332a7859..33509858 100644
+index 5881a229..7627b7db 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -67,6 +67,7 @@
+@@ -69,6 +69,7 @@
                                      type="submit"
                                      class="btn btn-info btn-sm"
                                      value="Checkout!"

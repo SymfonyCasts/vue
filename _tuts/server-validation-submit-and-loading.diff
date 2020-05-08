@@ -1,10 +1,10 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 79afa5d9..e00e32cd 100644
+index a3b1f45a..634a35ee 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -52,6 +52,16 @@
-                                 label="Phone Number:"
-                                 :error-message="validation.customerPhone"
+@@ -54,6 +54,16 @@
+                                 type="tel"
+                                 :error-message="validationErrors.customerPhone"
                              />
 +
 +                            <div :class="$style['form-action']">
@@ -19,7 +19,7 @@ index 79afa5d9..e00e32cd 100644
                          </form>
                      </div>
                  </div>
-@@ -63,12 +73,14 @@
+@@ -65,12 +75,14 @@
  <script>
  import cartService from '@/services/cart';
  import FormInput from '@/components/checkout/form-input';
@@ -34,7 +34,7 @@ index 79afa5d9..e00e32cd 100644
          TitleComponent,
      },
      data: () => ({
-@@ -89,6 +101,7 @@ export default {
+@@ -91,6 +103,7 @@ export default {
              customerCity: null,
              customerPhone: null,
          },

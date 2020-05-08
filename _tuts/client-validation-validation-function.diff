@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index ccec2418..2c5d4212 100644
+index 44590fa3..4c1aa54e 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -177,6 +177,14 @@ export default {
+@@ -179,6 +179,14 @@ export default {
                  customerCity: 'Please, enter your City!',
                  customerPhone: 'Please, provide a phone number!',
              };
@@ -10,9 +10,9 @@ index ccec2418..2c5d4212 100644
 +            const validationField = event.target.id;
 +
 +            if (!this.form[validationField]) {
-+                this.validation[validationField] = validationMessages[validationField];
++                this.validationErrors[validationField] = validationMessages[validationField];
 +            } else {
-+                this.validation[validationField] = null;
++                this.validationErrors[validationField] = null;
 +            }
          },
      },

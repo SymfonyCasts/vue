@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
 new file mode 100644
-index 00000000..5063fdf3
+index 00000000..9169fa55
 --- /dev/null
 +++ b/assets/js/components/checkout/form-input.vue
 @@ -0,0 +1,36 @@
@@ -22,10 +22,10 @@ index 00000000..5063fdf3
 +            }"
 +        >
 +        <span
-+            v-show="isFieldValid('customerName')"
++            v-show="!isFieldValid('customerName')"
 +            class="invalid-feedback"
 +        >
-+            {{ validation.customerName }}
++            {{ validationErrors.customerName }}
 +        </span>
 +    </div>
 +</template>
@@ -41,7 +41,7 @@ index 00000000..5063fdf3
 +};
 +</script>
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 244837a1..bcdff867 100644
+index 930244fb..400567e4 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -11,29 +11,7 @@
@@ -60,7 +60,7 @@ index 244837a1..bcdff867 100644
 -                                    v-model.trim="form.customerName"
 -                                    type="text"
 -                                    :class="{
--                                        'is-invalid': !form.customerName,
+-                                        'is-invalid': !isFieldValid('customerName'),
 -                                        'form-control': true,
 -                                    }"
 -                                >
@@ -68,7 +68,7 @@ index 244837a1..bcdff867 100644
 -                                    v-show="isFieldValid('customerName')"
 -                                    class="invalid-feedback"
 -                                >
--                                    {{ validation.customerName }}
+-                                    {{ validationErrors.customerName }}
 -                                </span>
 -                            </div>
 +
@@ -81,7 +81,7 @@ index 244837a1..bcdff867 100644
      },
 -    methods: {
 -        isFieldValid(fieldName) {
--            return (this.validation[fieldName] === null);
+-            return (this.validationErrors[fieldName] === null);
 -        },
 -    },
  };

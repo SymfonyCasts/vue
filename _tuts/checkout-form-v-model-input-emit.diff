@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
+index 7c38f907..d0074844 100644
+--- a/assets/js/components/checkout/form-input.vue
++++ b/assets/js/components/checkout/form-input.vue
+@@ -14,6 +14,7 @@
+                 'form-control': true,
+             }"
+             :value="value"
++            @input="$emit('input', $event.target.value)"
+         >
+         <span
+             v-show="!isValid"

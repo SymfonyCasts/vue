@@ -1186,8 +1186,23 @@
             "description": null
         },
         {
+            "id": "checkout-form-add-v-model-trim",
+            "name": "Checkout Form: Add v-model.trim",
+            "description": null
+        },
+        {
+            "id": "checkout-form-add-validation-to-field",
+            "name": "Checkout Form: Add validation to Field",
+            "description": null
+        },
+        {
             "id": "checkout-form-extract-into-form-field-component",
             "name": "Checkout Form: Extract into Form Field Component",
+            "description": null
+        },
+        {
+            "id": "checkout-form-add-form-input-from-checkout",
+            "name": "Checkout Form: Add Form-Input from Checkout",
             "description": null
         },
         {
@@ -1196,8 +1211,8 @@
             "description": null
         },
         {
-            "id": "checkout-form-add-template-from-checkout",
-            "name": "Checkout Form: Add Template from Checkout",
+            "id": "deleted-step-23",
+            "name": "deleted step 23",
             "description": null
         },
         {
@@ -1221,6 +1236,11 @@
             "description": null
         },
         {
+            "id": "checkout-form-v-model-input-emit",
+            "name": "Checkout Form: v-model input emit",
+            "description": null
+        },
+        {
             "id": "checkout-form-paste-the-fields-5-times",
             "name": "Checkout Form: Paste the fields 5 times",
             "description": null
@@ -1228,6 +1248,16 @@
         {
             "id": "checkout-form-correct-form-field-names",
             "name": "Checkout Form: Correct form field names",
+            "description": null
+        },
+        {
+            "id": "checkout-form-add-type-prop",
+            "name": "Checkout Form: Add Type Prop",
+            "description": null
+        },
+        {
+            "id": "checkout-form-specify-field-types",
+            "name": "Checkout Form: Specify Field Types",
             "description": null
         },
         {
@@ -1306,5 +1336,5 @@
             "description": null
         }
     ],
-    "sha": "66530b5a01f5a30cdad36315f4513a2eb4f92e41"
+    "sha": "f827c44ccb646cff00145488732d6d5b31388c97"
 }

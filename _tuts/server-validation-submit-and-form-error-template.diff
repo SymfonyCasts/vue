@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index ed9a1539..74635413 100644
+index 8a4a5fbe..e28fc84c 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -10,7 +10,14 @@
@@ -18,7 +18,7 @@ index ed9a1539..74635413 100644
                              <form-input
                                  id="customerName"
                                  v-model="form.customerName"
-@@ -103,6 +110,7 @@ export default {
+@@ -105,6 +112,7 @@ export default {
              customerPhone: null,
          },
          loading: false,

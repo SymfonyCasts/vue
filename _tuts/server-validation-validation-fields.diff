@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 33509858..1ce3d094 100644
+index 7627b7db..01576192 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -132,21 +132,39 @@ export default {
+@@ -134,21 +134,39 @@ export default {
              event.preventDefault();
              this.loading = true;
              this.formError = false;
@@ -19,7 +19,7 @@ index 33509858..1ce3d094 100644
                  } else {
 -                    console.log(response.data);
 +                    response.data.violations.forEach((violation) => {
-+                        this.validation[violation.propertyPath] = violation.message;
++                        this.validationErrors[violation.propertyPath] = violation.message;
 +                    });
                  }
              } finally {

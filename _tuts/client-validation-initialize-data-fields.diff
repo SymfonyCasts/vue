@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 1ce3d094..f0ed4214 100644
+index 01576192..30e8638a 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -92,27 +92,22 @@ export default {
+@@ -94,27 +94,22 @@ export default {
          Loading,
          TitleComponent,
      },
@@ -16,7 +16,7 @@ index 1ce3d094..f0ed4214 100644
 -            customerPhone: '',
 -            purchaseItems: [],
 -        },
--        validation: {
+-        validationErrors: {
 -            customerName: null,
 -            customerEmail: null,
 -            customerAddress: null,
@@ -38,7 +38,7 @@ index 1ce3d094..f0ed4214 100644
 +                customerPhone: '',
 +                purchaseItems: [],
 +            },
-+            validation: this.initializeValidationFields(),
++            validationErrors: this.initializeValidationFields(),
 +            loading: false,
 +            formError: false,
 +        };
@@ -46,7 +46,7 @@ index 1ce3d094..f0ed4214 100644
      async created() {
          const itemsInCart = cartService.getItems();
  
-@@ -132,7 +127,7 @@ export default {
+@@ -134,7 +129,7 @@ export default {
              event.preventDefault();
              this.loading = true;
              this.formError = false;
@@ -55,7 +55,7 @@ index 1ce3d094..f0ed4214 100644
  
              try {
                  const response = await checkoutService.createOrder(this.form);
-@@ -153,10 +148,12 @@ export default {
+@@ -155,10 +150,12 @@ export default {
          },
  
          /**

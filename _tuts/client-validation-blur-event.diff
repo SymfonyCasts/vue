@@ -1,63 +1,63 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 30a17f64..cf729da3 100644
+index b35c2cdc..46fe3a4f 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
-@@ -14,6 +14,7 @@
-                 'form-control': true,
+@@ -15,6 +15,7 @@
              }"
+             :value="value"
              @input="$emit('input', $event.target.value)"
 +            @blur="$emit('blur', $event)"
          >
          <span
-             v-show="!valid"
+             v-show="!isValid"
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 2c5d4212..6c2259c8 100644
+index 4c1aa54e..60127d39 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -23,6 +23,7 @@
                                  v-model="form.customerName"
                                  label="Name:"
-                                 :error-message="validation.customerName"
+                                 :error-message="validationErrors.customerName"
 +                                @blur="validateForm"
                              />
  
                              <form-input
-@@ -30,6 +31,7 @@
-                                 v-model="form.customerEmail"
+@@ -31,6 +32,7 @@
                                  label="Email:"
-                                 :error-message="validation.customerEmail"
+                                 type="email"
+                                 :error-message="validationErrors.customerEmail"
 +                                @blur="validateForm"
                              />
  
                              <form-input
-@@ -37,6 +39,7 @@
+@@ -38,6 +40,7 @@
                                  v-model="form.customerAddress"
                                  label="Address:"
-                                 :error-message="validation.customerAddress"
+                                 :error-message="validationErrors.customerAddress"
 +                                @blur="validateForm"
                              />
  
                              <form-input
-@@ -44,6 +47,7 @@
+@@ -45,6 +48,7 @@
                                  v-model="form.customerZip"
                                  label="Zip Code:"
-                                 :error-message="validation.customerZip"
+                                 :error-message="validationErrors.customerZip"
 +                                @blur="validateForm"
                              />
  
                              <form-input
-@@ -51,6 +55,7 @@
+@@ -52,6 +56,7 @@
                                  v-model="form.customerCity"
                                  label="City:"
-                                 :error-message="validation.customerCity"
+                                 :error-message="validationErrors.customerCity"
 +                                @blur="validateForm"
                              />
  
                              <form-input
-@@ -58,6 +63,7 @@
-                                 v-model="form.customerPhone"
+@@ -60,6 +65,7 @@
                                  label="Phone Number:"
-                                 :error-message="validation.customerPhone"
+                                 type="tel"
+                                 :error-message="validationErrors.customerPhone"
 +                                @blur="validateForm"
                              />
  

@@ -1,24 +1,25 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index fd5f42ea..7c38f907 100644
+index d0074844..b35c2cdc 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
-@@ -13,6 +13,7 @@
+@@ -8,7 +8,7 @@
+         </label>
+         <input
+             :id="id"
+-            type="text"
++            :type="type"
+             :class="{
                  'is-invalid': !isValid,
                  'form-control': true,
-             }"
-+            :value="value"
-         >
-         <span
-             v-show="!isValid"
-@@ -40,6 +41,11 @@ export default {
+@@ -42,6 +42,11 @@ export default {
              required: false,
              default: '',
          },
-+        value: {
++        type: {
 +            type: String,
 +            required: false,
-+            default: '',
++            default: 'text',
 +        },
-     },
-     computed: {
-         isValid() {
+         value: {
+             type: String,
+             required: false,

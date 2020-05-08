@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 48d9e099..244837a1 100644
+index 1ca7aec8..9146616e 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -10,6 +10,31 @@
+@@ -10,6 +10,22 @@
                      </div>
  
                      <div :class="$style.content">
@@ -16,33 +16,12 @@ index 48d9e099..244837a1 100644
 +                                </label>
 +                                <input
 +                                    id="customerName"
-+                                    v-model.trim="form.customerName"
++                                    v-model="form.customerName"
 +                                    type="text"
-+                                    :class="{
-+                                        'is-invalid': !form.customerName,
-+                                        'form-control': true,
-+                                    }"
++                                    class="form-control"
 +                                >
-+                                <span
-+                                    v-show="isFieldValid('customerName')"
-+                                    class="invalid-feedback"
-+                                >
-+                                    {{ validation.customerName }}
-+                                </span>
 +                            </div>
 +                        </form>
                      </div>
                  </div>
              </div>
-@@ -54,6 +79,11 @@ export default {
-             quantity: item.qty,
-         }));
-     },
-+    methods: {
-+        isFieldValid(fieldName) {
-+            return (this.validation[fieldName] === null);
-+        },
-+    },
- };
- </script>
- 

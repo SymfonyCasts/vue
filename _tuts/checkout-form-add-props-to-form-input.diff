@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 2efe4060..8c01efbc 100644
+index c2d9b67b..e4c77dd4 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
-@@ -26,6 +26,22 @@
+@@ -26,6 +26,21 @@
  <script>
  export default {
      name: 'FormInput',
@@ -14,7 +14,6 @@ index 2efe4060..8c01efbc 100644
 +        label: {
 +            type: String,
 +            required: true,
-+            default: '',
 +        },
 +        errorMessage: {
 +            type: String,

@@ -1,45 +1,45 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index e658673f..7bfb82ff 100644
+index 11542ac1..1cb874af 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -17,6 +17,41 @@
                                  label="Name:"
-                                 :error-message="validation.customerName"
+                                 :error-message="validationErrors.customerName"
                              />
 +
 +                            <form-input
 +                                id="customerName"
 +                                v-model="form.customerName"
-+                                :label="'Name:'"
++                                label="Name:"
++                                :error-message="validationErrors.customerName"
++                            />
++
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                label="Name:"
++                                :error-message="validationErrors.customerName"
++                            />
++
++                            <form-input
++                                id="customerName"
++                                v-model="form.customerName"
++                                label="Name:"
 +                                :error-message="validation.customerName"
 +                            />
 +
 +                            <form-input
 +                                id="customerName"
 +                                v-model="form.customerName"
-+                                :label="'Name:'"
-+                                :error-message="validation.customerName"
++                                label="Name:"
++                                :error-message="validationErrors.customerName"
 +                            />
 +
 +                            <form-input
 +                                id="customerName"
 +                                v-model="form.customerName"
-+                                :label="'Name:'"
-+                                :error-message="validation.customerName"
-+                            />
-+
-+                            <form-input
-+                                id="customerName"
-+                                v-model="form.customerName"
-+                                :label="'Name:'"
-+                                :error-message="validation.customerName"
-+                            />
-+
-+                            <form-input
-+                                id="customerName"
-+                                v-model="form.customerName"
-+                                :label="'Name:'"
-+                                :error-message="validation.customerName"
++                                label="Name:"
++                                :error-message="validationErrors.customerName"
 +                            />
                          </form>
                      </div>

@@ -1,12 +1,12 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 43ea7baa..48d9e099 100644
+index 43ea7baa..1ca7aec8 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -36,6 +36,14 @@ export default {
              customerPhone: '',
              purchaseItems: [],
          },
-+        validation: {
++        validationErrors: {
 +            customerName: null,
 +            customerEmail: null,
 +            customerAddress: null,

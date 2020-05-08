@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 8c01efbc..7024a79e 100644
+index e4c77dd4..de719927 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
-@@ -42,9 +42,9 @@ export default {
+@@ -41,9 +41,9 @@ export default {
              default: '',
          },
      },
@@ -10,7 +10,7 @@ index 8c01efbc..7024a79e 100644
 -        isFieldValid(fieldName) {
 -            return true;
 +    computed: {
-+        valid() {
++        isValid() {
 +            return !this.errorMessage;
          },
      },

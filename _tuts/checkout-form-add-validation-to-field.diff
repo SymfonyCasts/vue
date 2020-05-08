@@ -1,0 +1,35 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index f968e1a5..930244fb 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -22,8 +22,17 @@
+                                     id="customerName"
+                                     v-model.trim="form.customerName"
+                                     type="text"
+-                                    class="form-control"
++                                    :class="{
++                                        'is-invalid': !isFieldValid('customerName'),
++                                        'form-control': true,
++                                    }"
+                                 >
++                                <span
++                                    v-show="isFieldValid('customerName')"
++                                    class="invalid-feedback"
++                                >
++                                    {{ validationErrors.customerName }}
++                                </span>
+                             </div>
+                         </form>
+                     </div>
+@@ -70,6 +79,11 @@ export default {
+             quantity: item.qty,
+         }));
+     },
++    methods: {
++        isFieldValid(fieldName) {
++            return (this.validationErrors[fieldName] === null);
++        },
++    },
+ };
+ </script>
+ 
