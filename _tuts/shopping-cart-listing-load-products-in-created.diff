@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 4153bbb1..a5318723 100644
+index 4153bbb1..74055e01 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -37,11 +37,15 @@ export default {
+@@ -37,13 +37,18 @@ export default {
          items: [],
      }),
      async created() {
@@ -18,8 +18,11 @@ index 4153bbb1..a5318723 100644
 +            productsResponse = await productsService.getProductsById(productIds);
          } catch (e) {
              this.loading = false;
++            return;
          }
-@@ -51,6 +55,8 @@ export default {
+ 
+         // Map all colors to our object dictionary by @id
+@@ -51,6 +56,8 @@ export default {
              this.colors[color['@id']] = color;
          });
  

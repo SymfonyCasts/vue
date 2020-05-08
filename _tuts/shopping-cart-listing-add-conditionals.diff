@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 88858e13..a7245d09 100644
+index f8f67c2c..12cf08c4 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -45,7 +45,13 @@ export default {
@@ -17,15 +17,3 @@ index 88858e13..a7245d09 100644
          let colorsResponse = null;
          let productsResponse = null;
  
-@@ -59,6 +65,11 @@ export default {
-             this.loading = false;
-         }
- 
-+        if (colorsResponse === null || productsResponse === null) {
-+            this.loading = false;
-+            return;
-+        }
-+
-         // Map all colors to our object dictionary by @id
-         colorsResponse.data['hydra:member'].forEach((color) => {
-             this.colors[color['@id']] = color;

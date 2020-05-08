@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 0da833ff..f9943a80 100644
+index bbf231eb..f25e653a 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -160,6 +160,32 @@ export default {
+@@ -156,6 +156,32 @@ export default {
              margin-bottom: 5px;
              border-bottom: 1px solid $light-component-border;
          }
