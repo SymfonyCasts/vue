@@ -1,0 +1,12 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index fb7e285a..61fc4a4c 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -138,6 +138,7 @@ export default {
+             try {
+                 const response = await checkoutService.createOrder(this.form);
+                 cartService.clear();
++                window.location = `/confirmation/${response.data.id}`;
+             } catch (error) {
+                 const { response } = error;
+ 

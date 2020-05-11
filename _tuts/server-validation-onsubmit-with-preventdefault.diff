@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index e28fc84c..100dcbf9 100644
+index e226d78e..6d9b7a3b 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -126,8 +126,11 @@ export default {
+@@ -119,8 +119,11 @@ export default {
      methods: {
          /**
           * Sends the form data and process the response!
@@ -15,12 +15,3 @@ index e28fc84c..100dcbf9 100644
              this.loading = true;
  
              try {
-@@ -135,7 +138,7 @@ export default {
- 
-                 console.log(response.data);
-             } catch (e) {
--                // TODO Error handling
-+                console.log('error', e);
-             } finally {
-                 this.loading = false;
-             }

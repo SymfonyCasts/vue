@@ -1,0 +1,13 @@
+diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
+index 9ca3df2c..e226d78e 100644
+--- a/assets/js/pages/checkout.vue
++++ b/assets/js/pages/checkout.vue
+@@ -10,7 +10,7 @@
+                     </div>
+ 
+                     <div :class="$style.content">
+-                        <form>
++                        <form @submit="onSubmit">
+                             <form-input
+                                 id="customerName"
+                                 v-model="form.customerName"

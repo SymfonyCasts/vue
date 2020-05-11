@@ -1,15 +1,15 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 5881a229..7627b7db 100644
+index ce32a800..590561ea 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -69,6 +69,7 @@
+@@ -68,6 +68,7 @@
+                                 <button
                                      type="submit"
                                      class="btn btn-info btn-sm"
-                                     value="Checkout!"
 +                                    :disabled="loading"
                                  >
-                             </div>
-                         </form>
+                                     Checkout!
+                                 </button>
 diff --git a/assets/js/services/checkout.js b/assets/js/services/checkout.js
 index d34d8b5d..5ba4c9a4 100644
 --- a/assets/js/services/checkout.js

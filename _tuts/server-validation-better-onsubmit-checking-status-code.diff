@@ -1,12 +1,20 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 100dcbf9..5881a229 100644
+index 6d9b7a3b..247012af 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -132,13 +132,18 @@ export default {
+@@ -106,6 +106,7 @@ export default {
+             customerPhone: null,
+         },
+         loading: false,
++        serverError: false,
+     }),
+     async created() {
+         const itemsInCart = cartService.getItems();
+@@ -125,13 +126,18 @@ export default {
          async onSubmit(event) {
              event.preventDefault();
              this.loading = true;
-+            this.formError = false;
++            this.serverError = false;
  
              try {
                  const response = await checkoutService.createOrder(this.form);
@@ -18,7 +26,7 @@ index 100dcbf9..5881a229 100644
 +                const { response } = error;
 +
 +                if (response.status !== 400) {
-+                    this.formError = true;
++                    this.serverError = true;
 +                } else {
 +                    console.log(response.data);
 +                }

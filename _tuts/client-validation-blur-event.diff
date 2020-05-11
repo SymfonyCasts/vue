@@ -11,7 +11,7 @@ index b35c2cdc..46fe3a4f 100644
          <span
              v-show="!isValid"
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 4c1aa54e..60127d39 100644
+index f8def629..a95836f0 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -23,6 +23,7 @@

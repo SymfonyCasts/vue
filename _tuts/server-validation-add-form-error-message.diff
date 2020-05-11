@@ -1,15 +1,13 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 8a4a5fbe..e28fc84c 100644
+index 247012af..ce32a800 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -10,7 +10,14 @@
-                     </div>
+@@ -11,6 +11,13 @@
  
                      <div :class="$style.content">
--                        <form>
-+                        <form @submit="onSubmit">
+                         <form @submit="onSubmit">
 +                            <div
-+                                v-show="formError"
++                                v-show="serverError"
 +                                class="alert alert-danger"
 +                            >
 +                                Oops, there's been an error sending your data! Please, try again!
@@ -18,11 +16,3 @@ index 8a4a5fbe..e28fc84c 100644
                              <form-input
                                  id="customerName"
                                  v-model="form.customerName"
-@@ -105,6 +112,7 @@ export default {
-             customerPhone: null,
-         },
-         loading: false,
-+        formError: false,
-     }),
-     async created() {
-         const itemsInCart = cartService.getItems();
