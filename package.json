@@ -3,7 +3,7 @@
         "defaults"
     ],
     "devDependencies": {
-        "@symfony/webpack-encore": "^0.28.0",
+        "@symfony/webpack-encore": "^0.30.0",
         "bootstrap": "^4.4.1",
         "core-js": "^3.0.0",
         "eslint": "^6.7.2",
