@@ -17,6 +17,8 @@
     "vue/html-indent": ["error", 4],
     "indent": ["error", 4],
     "no-alert": 0,
+    "no-unused-vars": "warn",
+    "spaced-comment": "off",
     "no-param-reassign": 0,
     "import/extensions": 0,
     "import/no-unresolved": 0,
