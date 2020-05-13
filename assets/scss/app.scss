@@ -1,7 +1,16 @@
-@import './components/black-component';
-@import './components/light-component';
-@import './variables/colors';
+@import '~styles/components/black-component';
+@import '~styles/components/light-component';
+@import '~styles/variables/colors';
+@import '~styles/collapsible';
 @import '~bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    a, a:hover  {
+        color: #000;
+    }
+}
 
 .header {
     @include black-component;
