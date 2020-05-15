@@ -744,9 +744,9 @@
     to-fast-properties "^2.0.0"
 
 "@symfony/webpack-encore@^0.30.0":
-  version "0.30.1"
-  resolved "https://registry.yarnpkg.com/@symfony/webpack-encore/-/webpack-encore-0.30.1.tgz#7bb9e6295d7f8d3323dae3253eb489ead2344ebc"
-  integrity sha512-92AZ1tJ4a53xk7x2tIhwyTuk4YzDVGKED+XAD2p3IV6PvSg++3U0YytyTWPMx5vUHjHdnyw1DUcirtLscmcOlg==
+  version "0.30.2"
+  resolved "https://registry.yarnpkg.com/@symfony/webpack-encore/-/webpack-encore-0.30.2.tgz#8f9e871f2ec9ac43bad93e835d447670b6650de3"
+  integrity sha512-fJGPnNJ69/FrRcIRluqk5grO4R0ZmXU1n3TyplOjjXv9nuLTA8ljvhk/sMAs/WMri4vb1ZdWwcT5sPw1pmYZdA==
   dependencies:
     "@babel/core" "^7.7.0"
     "@babel/plugin-syntax-dynamic-import" "^7.0.0"
