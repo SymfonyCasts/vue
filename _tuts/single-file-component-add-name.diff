@@ -1,0 +1,12 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index a605b55e..0d16c591 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -4,6 +4,7 @@
+ 
+ <script>
+ export default {
++    name: 'Products',
+     data() {
+         return {
+             firstName: 'Ryan',

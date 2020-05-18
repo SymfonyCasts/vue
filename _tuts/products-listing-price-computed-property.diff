@@ -1,28 +1,28 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index 87259ef9..902885aa 100644
+index 370204db..6f69530e 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
-@@ -16,7 +16,7 @@
+@@ -15,7 +15,7 @@
  
-             <div class="pt-2 my-3 d-md-flex justify-content-between">
+             <div class="p-2 my-3 d-md-flex justify-content-between">
                  <p class="p-0 d-inline">
--                    <strong>${{ item.price }}</strong>
+-                    <strong>${{ product.price }}</strong>
 +                    <strong>${{ price }}</strong>
                  </p>
  
                  <button
-@@ -42,6 +42,16 @@ export default {
+@@ -41,6 +41,16 @@ export default {
              required: true,
          },
      },
 +    computed: {
 +        /**
 +         * Returns a formatted price for the product
-+         * @returns {string}
++         * @return {string}
 +         */
 +        price() {
-+            const strPrice = this.item.price.toString();
-+            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
++            return (this.product.price / 100)
++                .toLocaleString('en-US', { minimumFractionDigits: 2 });
 +        },
 +    },
  };

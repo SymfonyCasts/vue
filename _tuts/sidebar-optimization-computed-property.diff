@@ -1,24 +1,22 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 82bd6b44..0b6cc44e 100644
+index c6b9fc7a..134b882a 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -1,13 +1,6 @@
+@@ -1,12 +1,5 @@
  <template>
 -    <div
 -        :class="{
 -            [$style.component]: true,
 -            [$style.collapsed]: collapsed,
 -            'p-3': true,
--            'mb5': true
+-            'mb-5': true
 -        }"
 -    >
--        <div  v-if="!collapsed">
 +    <div :class="componentClass">
-+        <div v-if="!collapsed">
+         <div v-show="!collapsed">
              <h5 class="text-center">
                  Categories
-             </h5>
-@@ -61,6 +54,22 @@ export default {
+@@ -63,6 +56,22 @@ export default {
              },
          ],
      }),
@@ -29,13 +27,13 @@ index 82bd6b44..0b6cc44e 100644
 +         * @return string[]
 +         */
 +        componentClass() {
-+            const classArray = [this.$style.component, 'p-3', 'mb-5'];
++            const classes = [this.$style.component, 'p-3', 'mb-5'];
 +
 +            if (this.collapsed) {
-+                classArray.push(this.$style.collapsed);
++                classes.push(this.$style.collapsed);
 +            }
 +
-+            return classArray;
++            return classes;
 +        },
 +    },
      methods: {

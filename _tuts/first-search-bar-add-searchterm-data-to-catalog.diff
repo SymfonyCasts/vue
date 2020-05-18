@@ -1,10 +1,10 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index da9d6b18..5ea4f776 100644
+index ad4143b6..21026c9a 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -50,6 +50,7 @@ export default {
-     },
+@@ -51,6 +51,7 @@ export default {
      data: () => ({
+         /** @type {Product[]} */
          products: [],
 +        searchTerm: '',
          loading: true,

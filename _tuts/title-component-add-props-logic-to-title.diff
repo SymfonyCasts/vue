@@ -1,0 +1,21 @@
+diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
+index 2cdcab40..aba2b2a8 100644
+--- a/assets/js/components/title.vue
++++ b/assets/js/components/title.vue
+@@ -9,6 +9,16 @@
+ <script>
+ export default {
+     name: 'Title',
++    props: {
++        currentCategoryId: {
++            type: Number,
++            default: null,
++        },
++        categories: {
++            type: Array,
++            required: true,
++        },
++    },
+ };
+ </script>
+ 

@@ -1,13 +1,13 @@
 diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
 new file mode 100644
-index 00000000..4e82b59e
+index 00000000..2cdcab40
 --- /dev/null
 +++ b/assets/js/components/title.vue
-@@ -0,0 +1,40 @@
+@@ -0,0 +1,21 @@
 +<template>
 +    <div :class="$style.component">
 +        <h1>
-+            {{ categoryName }}
++            Products
 +        </h1>
 +    </div>
 +</template>
@@ -15,25 +15,6 @@ index 00000000..4e82b59e
 +<script>
 +export default {
 +    name: 'Title',
-+    props: {
-+        currentCategoryId: {
-+            type: Number,
-+            default: null,
-+        },
-+        categories: {
-+            type: Array,
-+            default: () => ([]),
-+        },
-+    },
-+    computed: {
-+        categoryName() {
-+            if (this.currentCategoryId === null) {
-+                return 'All Products';
-+            }
-+
-+            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
-+        },
-+    },
 +};
 +</script>
 +

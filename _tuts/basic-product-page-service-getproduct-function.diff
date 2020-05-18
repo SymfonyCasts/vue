@@ -1,24 +1,21 @@
-diff --git a/assets/js/services/products.js b/assets/js/services/products.js
-index 944dfcaf..2b936e1f 100644
---- a/assets/js/services/products.js
-+++ b/assets/js/services/products.js
-@@ -16,6 +16,19 @@ const products = {
-             params: generateListingParams(category, searchTerm),
-         });
-     },
+diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
+index bc918d42..fa91e343 100644
+--- a/assets/js/services/products-service.js
++++ b/assets/js/services/products-service.js
+@@ -13,3 +13,16 @@ export function fetchProducts(category, searchTerm) {
+         params: generateListingParams(category, searchTerm),
+     });
+ }
 +
-+    /**
-+     * Gets a product from the database according to the product id
-+     *
-+     * @param {number} id
-+     * @return {Promise}
-+     */
-+    getProduct(id) {
-+        return axios({
-+            method: 'get',
-+            url: `/api/products/${id}`,
-+        });
-+    },
- };
- 
- export default products;
++/**
++ * Gets a product from the database according to the product id
++ *
++ * @param {number} id
++ * @return {Promise}
++ */
++export function getProduct(id) {
++    return axios({
++        method: 'get',
++        url: `/api/products/${id}`,
++    });
++}

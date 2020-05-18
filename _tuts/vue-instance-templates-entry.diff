@@ -1,18 +1,20 @@
 diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
-index 219a9863..a4ea49af 100644
+index 219a9863..32a165ce 100644
 --- a/templates/product/index.html.twig
 +++ b/templates/product/index.html.twig
-@@ -3,3 +3,13 @@
+@@ -3,3 +3,15 @@
  {% block body %}
      <div id="app"></div>
  {% endblock %}
 +
 +{% block stylesheets %}
 +    {{ parent() }}
++
 +    {{ encore_entry_link_tags('products') }}
 +{% endblock %}
 +
 +{% block javascripts %}
 +    {{ parent() }}
++
 +    {{ encore_entry_script_tags('products') }}
 +{% endblock %}

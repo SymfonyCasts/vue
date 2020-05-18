@@ -1,0 +1,14 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index 5aa253b7..761e54c9 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -13,7 +13,8 @@
+             </li>
+ 
+             <li
+-                v-for="category in categories"
++                v-for="(category, index) in categories"
++                :key="index"
+                 class="nav-item"
+             >
+                 <a

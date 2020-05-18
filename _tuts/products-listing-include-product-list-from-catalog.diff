@@ -1,22 +1,25 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 12fe80d8..7a9d0ff0 100644
+index 6a23f11d..92414ae5 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -6,12 +6,7 @@
-             </h2>
+@@ -8,15 +8,7 @@
+             </div>
          </div>
  
--        <div
--            v-for="product in products"
--            :key="product['@id']"
--        >
--            {{ product.name }}
+-        <div class="row">
+-            <div
+-                v-for="product in products"
+-                :key="product['@id']"
+-                class="col-xs-12 col-6 mb-2 pb-2"
+-            >
+-                {{ product.name }}
+-            </div>
 -        </div>
 +        <product-list :products="products" />
  
          <div class="row">
              <legend-component :title="legend" />
-@@ -22,11 +17,13 @@
+@@ -27,11 +19,13 @@
  <script>
  import axios from 'axios';
  import LegendComponent from '@/components/legend';
@@ -29,4 +32,4 @@ index 12fe80d8..7a9d0ff0 100644
 +        ProductList,
      },
      data: () => ({
-         products: [],
+         /** @type {Product[]} */

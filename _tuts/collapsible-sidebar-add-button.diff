@@ -1,13 +1,15 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 935fe3e6..b101b79f 100644
+index eb822b6c..117c5225 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -28,6 +28,13 @@
+@@ -28,6 +28,15 @@
                  </a>
              </li>
          </ul>
 +
-+        <div :class="$style.buttons">
++        <hr>
++
++        <div class="d-flex justify-content-end">
 +            <button
 +                class="btn btn-secondary btn-sm"
 +                v-text="collapsed ? '>>' : '<< Collapse'"
@@ -16,15 +18,3 @@ index 935fe3e6..b101b79f 100644
      </div>
  </template>
  
-@@ -70,5 +77,11 @@ export default {
-             background: $blue-component-link-hover;
-         }
-     }
-+
-+    .buttons {
-+        display: flex;
-+        flex-direction: row;
-+        justify-content: flex-end;
-+    }
- }
- </style>

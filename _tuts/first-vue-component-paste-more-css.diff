@@ -1,0 +1,16 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index b875335c..b133e7e0 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -71,5 +71,11 @@ export default {
+ 
+ .sidebar {
+     @include light-component;
++
++    ul {
++        li a:hover {
++            background: $blue-component-link-hover;
++        }
++    }
+ }
+ </style>

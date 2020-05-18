@@ -1,15 +1,23 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
 new file mode 100644
-index 00000000..c5ae437c
+index 00000000..1c1f9e4e
 --- /dev/null
 +++ b/assets/js/components/catalog.vue
-@@ -0,0 +1,27 @@
+@@ -0,0 +1,35 @@
 +<template>
 +    <div>
 +        <div class="row">
-+            <h2 class="p-3">
-+                Products
-+            </h2>
++            <div class="col-12">
++                <h1>
++                    Products
++                </h1>
++            </div>
++        </div>
++
++        <div class="row">
++            <div class="col-xs-12 col-6 mb-2 pb-2">
++                TODO - load some products!
++            </div>
 +        </div>
 +
 +        <div class="row">

@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index f0cf8ec7..a564e89d 100644
+index 8c5209cc..0e93141f 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
 @@ -39,6 +39,8 @@
@@ -12,11 +12,11 @@ index f0cf8ec7..a564e89d 100644
      name: 'ProductCard',
      props: {
 @@ -53,8 +55,7 @@ export default {
-          * @returns {string}
+          * @return {string}
           */
          price() {
--            const strPrice = this.item.price.toString();
--            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
+-            return (this.product.price / 100)
+-                .toLocaleString('en-US', { minimumFractionDigits: 2 });
 +            return formatPrice(this.item.price);
          },
  

@@ -16,16 +16,16 @@ index 96696bc6..9bdd07ba 100644
 +    props: ['title'],
  };
  </script>
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 8186697f..c463c24f 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
-@@ -38,7 +38,7 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 82b90502..6f1736fb 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -46,7 +46,7 @@
                  </div>
  
                  <div class="row">
 -                    <legend-component />
-+                    <legend-component :title="legend" />
++                    <legend-component title="TODO PUT LEGEND HERE" />
                  </div>
              </div>
          </div>

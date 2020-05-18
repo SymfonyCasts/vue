@@ -1,15 +1,15 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 15c49095..e23370d1 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index b8919556..89f0d468 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -39,6 +39,10 @@ export default {
              type: Array,
-             default: () => ([]),
+             required: true,
          },
 +        currentProductId: {
 +            type: Number,
 +            default: null,
 +        },
      },
-     data: () => ({
-         sidebarCollapsed: false,
+     data() {
+         return {

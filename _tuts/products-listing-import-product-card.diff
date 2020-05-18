@@ -1,18 +1,19 @@
 diff --git a/assets/js/components/product-list/index.vue b/assets/js/components/product-list/index.vue
-index 2727cce9..91b5e795 100644
+index 20c64fba..62fc0f28 100644
 --- a/assets/js/components/product-list/index.vue
 +++ b/assets/js/components/product-list/index.vue
-@@ -1,17 +1,21 @@
+@@ -1,18 +1,21 @@
  <template>
-     <div :class="$style.component">
+     <div class="row">
 -        <div
 +        <product-card
              v-for="product in products"
              :key="product['@id']"
+-            class="col-xs-12 col-6 mb-2 pb-2"
 -        >
 -            {{ product.name }}
 -        </div>
-+            :item="product"
++            :product="product"
 +        />
      </div>
  </template>

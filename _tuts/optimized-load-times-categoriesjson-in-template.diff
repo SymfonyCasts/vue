@@ -1,8 +1,8 @@
 diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
-index b437c50b..0db96c1a 100644
+index d66a8d5a..878c9bcb 100644
 --- a/templates/product/index.html.twig
 +++ b/templates/product/index.html.twig
-@@ -14,6 +14,7 @@
+@@ -15,6 +15,7 @@
  
      <script>
          window.currentCategoryId = {{ currentCategoryId|default('null') }};

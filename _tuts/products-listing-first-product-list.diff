@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/product-list/index.vue b/assets/js/components/product-list/index.vue
 new file mode 100644
-index 00000000..2b8e1a3d
+index 00000000..cab856ba
 --- /dev/null
 +++ b/assets/js/components/product-list/index.vue
-@@ -0,0 +1,26 @@
+@@ -0,0 +1,17 @@
 +<template>
-+    <div :class="$style.component">
++    <div class="row">
 +
 +    </div>
 +</template>
@@ -21,12 +21,3 @@ index 00000000..2b8e1a3d
 +    },
 +};
 +</script>
-+
-+<style lang="scss" module>
-+.component {
-+    display: flex;
-+    flex-direction: row;
-+    flex-wrap: wrap;
-+    margin-top: 25px;
-+}
-+</style>

@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index d9096f0a..ae444187 100644
+index de6a3b04..ea1dbf8b 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -72,6 +72,16 @@ export default {
@@ -9,13 +9,13 @@ index d9096f0a..ae444187 100644
 +    computed: {
 +        /**
 +         * Returns a formatted price for the product
-+         * @returns {string}
++         * @return {string}
 +         */
 +        price() {
-+            const strPrice = this.item.price.toString();
-+            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
++            return (this.product.price / 100)
++                .toLocaleString('en-US', { minimumFractionDigits: 2 });
 +        },
 +    },
      async created() {
          try {
-             const response = await productsService.getProduct(this.currentProductId);
+             const response = await getProduct(this.currentProductId);

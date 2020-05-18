@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 7a9d0ff0..f8455535 100644
+index 92414ae5..2108d218 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -29,7 +29,7 @@ export default {
+@@ -32,7 +32,7 @@ export default {
          products: [],
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
@@ -10,4 +10,4 @@ index 7a9d0ff0..f8455535 100644
 +    async created() {
          this.products = [];
  
-         const response = await axios({
+         const response = await axios.get('/api/products');

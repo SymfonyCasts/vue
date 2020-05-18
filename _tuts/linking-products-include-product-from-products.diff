@@ -1,19 +1,19 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index e23370d1..36c6562f 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 89f0d468..a631be92 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -22,12 +22,14 @@
  
  <script>
- import CatalogComponent from '@/components/catalog';
-+import ProductComponent from '@/components/product';
- import SidebarComponent from '@/components/sidebar';
+ import Catalog from '@/components/catalog';
++import Product from '@/components/product';
+ import Sidebar from '@/components/sidebar';
  
  export default {
      name: 'Products',
      components: {
-         CatalogComponent,
-+        ProductComponent,
-         SidebarComponent,
+         Catalog,
++        Product,
+         Sidebar,
      },
      props: {

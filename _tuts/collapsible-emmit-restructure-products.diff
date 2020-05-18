@@ -1,22 +1,24 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 7408b684..ae646b7f 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 419509f4..d3dbea5e 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -2,7 +2,7 @@
      <div class="container-fluid">
-         <div class="row row-no-wrap">
-             <aside class="col-xs-12 col-lg-3">
--                <sidebar-component />
-+                <sidebar-component :collapsed="sidebarCollapsed" />
+         <div class="row">
+             <aside class="col-xs-12 col-3">
+-                <sidebar />
++                <sidebar :collapsed="sidebarCollapsed" />
              </aside>
  
-             <div class="col-xs-12 col-lg-9">
-@@ -22,5 +22,8 @@ export default {
-         CatalogComponent,
-         SidebarComponent,
+             <div class="col-xs-12 col-9">
+@@ -22,5 +22,10 @@ export default {
+         Catalog,
+         Sidebar,
      },
-+    data: () => ({
-+        sidebarCollapsed: false,
-+    }),
++    data() {
++        return {
++            sidebarCollapsed: false,
++        };
++    },
  };
  </script>

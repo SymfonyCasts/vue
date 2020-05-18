@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product-list/index.vue b/assets/js/components/product-list/index.vue
-index 9d4abea7..bdf964a6 100644
+index 57b69d60..3b703409 100644
 --- a/assets/js/components/product-list/index.vue
 +++ b/assets/js/components/product-list/index.vue
-@@ -22,6 +22,10 @@ export default {
+@@ -26,6 +26,10 @@ export default {
          ProductCard,
      },
      props: {

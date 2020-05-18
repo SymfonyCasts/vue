@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index 752fb21b..0cfccea7 100644
+index 4c7d2e24..1e29847c 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -15,6 +15,11 @@ export default {
-     data: () => ({
-         searchTerm: '',
-     }),
+@@ -17,5 +17,10 @@ export default {
+             searchTerm: '',
+         };
+     },
 +    watch: {
 +        searchTerm(newTerm) {
 +            this.$emit('search-products', { term: newTerm });
@@ -13,4 +13,3 @@ index 752fb21b..0cfccea7 100644
 +    },
  };
  </script>
- 

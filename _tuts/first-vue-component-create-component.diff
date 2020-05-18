@@ -1,19 +1,19 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-new file mode 100644
-index 00000000..517e4206
---- /dev/null
-+++ b/assets/js/products.vue
-@@ -0,0 +1,54 @@
-+<template>
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 0d16c591..607dc438 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -1,5 +1,58 @@
+ <template>
+-    <h1>Hello {{ firstName }}!</h1>
 +    <div class="container-fluid">
-+        <div class="row row-no-wrap">
-+            <aside class="col-xs-12 col-lg-3">
++        <div class="row">
++            <aside class="col-xs-12 col-3">
 +                <div class="p-3 mb-5">
 +                    <h5 class="text-center">
 +                        Categories
 +                    </h5>
 +
-+                    <ul class="nav flex-column">
++                    <ul class="nav flex-column mb4">
 +                        <li class="nav-item">
 +                            <a
 +                                class="nav-link"
@@ -36,11 +36,19 @@ index 00000000..517e4206
 +                </div>
 +            </aside>
 +
-+            <div class="col-xs-12 col-lg-9">
++            <div class="col-xs-12 col-9">
 +                <div class="row">
-+                    <h2 class="p-3">
-+                        Products
-+                    </h2>
++                    <div class="col-12">
++                        <h1>
++                            Products
++                        </h1>
++                    </div>
++                </div>
++
++                <div class="row">
++                    <div class="col-xs-12 col-6 mb-2 pb-2">
++                        TODO - load some products!
++                    </div>
 +                </div>
 +
 +                <div class="row">
@@ -51,10 +59,6 @@ index 00000000..517e4206
 +            </div>
 +        </div>
 +    </div>
-+</template>
-+
-+<script>
-+export default {
-+    name: 'Products',
-+};
-+</script>
+ </template>
+ 
+ <script>

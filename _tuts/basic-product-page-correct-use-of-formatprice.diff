@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 658af816..ea04afc3 100644
+index e5faa1b4..3d1b422a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -30,7 +30,7 @@
@@ -12,11 +12,11 @@ index 658af816..ea04afc3 100644
  
                      <div :class="$style['actions-wrapper']">
 @@ -79,8 +79,7 @@ export default {
-          * @returns {string}
+          * @return {string}
           */
          price() {
--            const strPrice = this.product.price.toString();
--            return `${strPrice.substr(0, strPrice.length - 2)}.${strPrice.substr(-2)}`;
+-            return (this.product.price / 100)
+-                .toLocaleString('en-US', { minimumFractionDigits: 2 });
 +            return formatPrice(this.product.price);
          },
      },

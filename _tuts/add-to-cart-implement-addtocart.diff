@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 6bf0d27c..7e81067c 100644
+index 71282872..775e32de 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -67,8 +67,6 @@ import ColorSelector from '@/components/color-selector';
+@@ -67,8 +67,6 @@ import { getProduct } from '@/services/products-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
  

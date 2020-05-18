@@ -1,15 +1,15 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
 new file mode 100644
-index 00000000..0c9b8164
+index 00000000..af10e4b0
 --- /dev/null
 +++ b/assets/js/components/search-bar.vue
-@@ -0,0 +1,21 @@
+@@ -0,0 +1,15 @@
 +<template>
-+    <div :class="$style.component">
++    <div>
 +        <input
 +            class="form-control"
 +            placeholder="Search products..."
-+            type="text"
++            type="search"
 +        >
 +    </div>
 +</template>
@@ -19,9 +19,3 @@ index 00000000..0c9b8164
 +    name: 'SearchBar',
 +};
 +</script>
-+
-+<style lang="scss" module>
-+.component {
-+    width: 400px;
-+}
-+</style>

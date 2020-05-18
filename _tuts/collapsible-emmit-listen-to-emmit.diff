@@ -1,23 +1,23 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index ae646b7f..2920941a 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index d3dbea5e..586c4ffb 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -2,7 +2,10 @@
      <div class="container-fluid">
-         <div class="row row-no-wrap">
-             <aside class="col-xs-12 col-lg-3">
--                <sidebar-component :collapsed="sidebarCollapsed" />
-+                <sidebar-component
+         <div class="row">
+             <aside class="col-xs-12 col-3">
+-                <sidebar :collapsed="sidebarCollapsed" />
++                <sidebar
 +                    :collapsed="sidebarCollapsed"
-+                    @sidebar-collapsed="toggleSidebarCollapsed"
++                    @toggle-collapsed="toggleSidebarCollapsed"
 +                />
              </aside>
  
-             <div class="col-xs-12 col-lg-9">
-@@ -25,5 +28,13 @@ export default {
-     data: () => ({
-         sidebarCollapsed: false,
-     }),
+             <div class="col-xs-12 col-9">
+@@ -27,5 +30,13 @@ export default {
+             sidebarCollapsed: false,
+         };
+     },
 +    methods: {
 +        /**
 +         * Toggles the sidebarCollapsed value

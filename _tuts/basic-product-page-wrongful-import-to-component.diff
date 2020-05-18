@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 6051af3f..658af816 100644
+index 94cfd1e8..e5faa1b4 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -30,7 +30,7 @@
@@ -16,6 +16,6 @@ index 6051af3f..658af816 100644
  
  <script>
 +import formatPrice from '@/helpers/format-price';
- import productsService from '@/services/products';
+ import { getProduct } from '@/services/products-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';

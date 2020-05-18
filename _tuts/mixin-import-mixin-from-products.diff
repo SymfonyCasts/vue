@@ -1,18 +1,18 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 892bad66..91471ebb 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 7fbc07ff..986e5613 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -24,6 +24,7 @@
- import CatalogComponent from '@/components/catalog';
- import ProductComponent from '@/components/product';
- import SidebarComponent from '@/components/sidebar';
+ import Catalog from '@/components/catalog';
+ import Product from '@/components/product';
+ import Sidebar from '@/components/sidebar';
 +import collapsible from '@/mixins/collapsible';
  
  export default {
      name: 'Products',
 @@ -32,6 +33,7 @@ export default {
-         ProductComponent,
-         SidebarComponent,
+         Product,
+         Sidebar,
      },
 +    mixins: [collapsible],
      props: {

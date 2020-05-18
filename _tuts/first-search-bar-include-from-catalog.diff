@@ -1,17 +1,25 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index c3a8af8d..08376a01 100644
+index 621d72fe..ad4143b6 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -6,6 +6,8 @@
-             :class="$style.title"
-         />
+@@ -1,12 +1,15 @@
+ <template>
+     <div>
+         <div class="row">
+-            <div class="col-12">
++            <div class="col-3">
+                 <title-component
+                     :current-category-id="currentCategoryId"
+                     :categories="categories"
+                 />
+             </div>
++            <div class="col-9">
++                <search-bar />
++            </div>
+         </div>
  
-+        <search-bar />
-+
          <product-list
-             :products="products"
-             :loading="loading"
-@@ -21,6 +23,7 @@
+@@ -24,6 +27,7 @@
  import axios from 'axios';
  import LegendComponent from '@/components/legend';
  import ProductList from '@/components/product-list';
@@ -19,7 +27,7 @@ index c3a8af8d..08376a01 100644
  import TitleComponent from '@/components/title';
  
  export default {
-@@ -28,6 +31,7 @@ export default {
+@@ -31,6 +35,7 @@ export default {
      components: {
          LegendComponent,
          ProductList,

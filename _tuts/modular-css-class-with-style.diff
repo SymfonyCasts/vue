@@ -1,0 +1,13 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 0d8a2878..b09c76fd 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -2,7 +2,7 @@
+     <div class="container-fluid">
+         <div class="row">
+             <aside class="col-xs-12 col-3">
+-                <div class="sidebar p-3 mb-5">
++                <div :class="$style.sidebar">
+                     <h5 class="text-center">
+                         Categories
+                     </h5>

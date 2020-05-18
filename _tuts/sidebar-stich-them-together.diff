@@ -1,17 +1,17 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index c463c24f..4861a96b 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
-@@ -2,82 +2,25 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index a268ccd9..f7d873f8 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -2,83 +2,26 @@
      <div class="container-fluid">
-         <div class="row row-no-wrap">
-             <aside class="col-xs-12 col-lg-3">
+         <div class="row">
+             <aside class="col-xs-12 col-3">
 -                <div :class="[$style.sidebar, 'p-3', 'mb-5']">
 -                    <h5 class="text-center">
 -                        Categories
 -                    </h5>
 -
--                    <ul class="nav flex-column">
+-                    <ul class="nav flex-column mb4">
 -                        <li class="nav-item">
 -                            <a
 -                                class="nav-link"
@@ -32,59 +32,60 @@ index c463c24f..4861a96b 100644
 -                        </li>
 -                    </ul>
 -                </div>
-+                <sidebar-component />
++                <sidebar />
              </aside>
  
-             <div class="col-xs-12 col-lg-9">
+             <div class="col-xs-12 col-9">
 -                <div class="row">
--                    <h2 class="p-3">
--                        Products
--                    </h2>
+-                    <div class="col-12">
+-                        <h1>
+-                            Products
+-                        </h1>
+-                    </div>
+-                </div>
+-
+-                <div class="row">
+-                    <div class="col-xs-12 col-6 mb-2 pb-2">
+-                        TODO - load some products!
+-                    </div>
 -                </div>
 -
 -                <div class="row">
 -                    <legend-component :title="legend" />
 -                </div>
-+                <catalog-component />
++                <catalog />
              </div>
          </div>
      </div>
  </template>
  
  <script>
--import LegendComponent from './components/legend';
-+import CatalogComponent from './components/catalog';
-+import SidebarComponent from './components/sidebar';
+-import LegendComponent from '../components/legend';
++import Catalog from '../components/catalog';
++import Sidebar from '../components/sidebar';
  
  export default {
      name: 'Products',
      components: {
 -        LegendComponent,
-+        CatalogComponent,
-+        SidebarComponent,
+-    },
+-    data() {
+-        return {
+-            legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
+-        };
++        Catalog,
++        Sidebar,
      },
--    data: () => ({
--        legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
--    }),
  };
  </script>
--
+ 
 -<style lang="scss" module>
--@import '../scss/components/light-component';
+-@import '../../scss/components/light-component';
 -
 -.sidebar {
 -    @include light-component;
--    margin-top: 65px;
 -
 -    ul {
--        border-bottom: 1px solid $light-component-border;
--        margin-bottom: 20px;
--        padding-bottom: 10px;
--
--        li a {
--            color: #000;
--        }
--
 -        li a:hover {
 -            background: $blue-component-link-hover;
 -        }

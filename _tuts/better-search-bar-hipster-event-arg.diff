@@ -1,0 +1,20 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index b8192b9e..7770e6fc 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -58,8 +58,13 @@ export default {
+         this.fetchProducts('');
+     },
+     methods: {
+-        onSearchProducts(event) {
+-            this.fetchProducts(event.term);
++        /**
++         * Handles a change in the searchTerm provided by the search bar and fetches new products
++         *
++         * @param {string} term
++         */
++        onSearchProducts({ term }) {
++            this.fetchProducts(term);
+         },
+ 
+         /**

@@ -1,0 +1,85 @@
+diff --git a/assets/js/interfaces/category.ts b/assets/js/interfaces/category.ts
+new file mode 100644
+index 00000000..bb3cab54
+--- /dev/null
++++ b/assets/js/interfaces/category.ts
+@@ -0,0 +1,5 @@
++export interface Category {
++  '@id'?: string;
++  name?: string;
++  id?: string;
++}
+diff --git a/assets/js/interfaces/color.ts b/assets/js/interfaces/color.ts
+new file mode 100644
+index 00000000..f47a20fd
+--- /dev/null
++++ b/assets/js/interfaces/color.ts
+@@ -0,0 +1,6 @@
++export interface Color {
++  '@id'?: string;
++  name?: string;
++  hexColor?: string;
++  id?: string;
++}
+diff --git a/assets/js/interfaces/product.ts b/assets/js/interfaces/product.ts
+new file mode 100644
+index 00000000..95b0128b
+--- /dev/null
++++ b/assets/js/interfaces/product.ts
+@@ -0,0 +1,12 @@
++export interface Product {
++  '@id'?: string;
++  name?: string;
++  description?: string;
++  brand?: string;
++  weight?: number;
++  price?: number;
++  stockQuantity?: number;
++  category?: string;
++  colors?: string[];
++  id?: string;
++}
+diff --git a/assets/js/interfaces/purchase.ts b/assets/js/interfaces/purchase.ts
+new file mode 100644
+index 00000000..6f94986a
+--- /dev/null
++++ b/assets/js/interfaces/purchase.ts
+@@ -0,0 +1,13 @@
++export interface Purchase {
++  '@id'?: string;
++  customerName: string;
++  customerEmail: string;
++  customerAddress: string;
++  customerZip: string;
++  customerCity: string;
++  customerPhone: string;
++  purchaseItems?: string[];
++  readonly isShipped?: boolean;
++  readonly createdAt?: Date;
++  id?: string;
++}
+diff --git a/assets/js/interfaces/purchaseitem.ts b/assets/js/interfaces/purchaseitem.ts
+new file mode 100644
+index 00000000..4057692e
+--- /dev/null
++++ b/assets/js/interfaces/purchaseitem.ts
+@@ -0,0 +1,8 @@
++export interface PurchaseItem {
++  '@id'?: string;
++  purchase?: string;
++  product?: string;
++  color?: string;
++  quantity?: number;
++  id?: string;
++}
+diff --git a/assets/js/interfaces/user.ts b/assets/js/interfaces/user.ts
+new file mode 100644
+index 00000000..0fb28e72
+--- /dev/null
++++ b/assets/js/interfaces/user.ts
+@@ -0,0 +1,5 @@
++export interface User {
++  '@id'?: string;
++  email?: string;
++  id?: string;
++}

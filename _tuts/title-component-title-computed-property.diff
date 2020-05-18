@@ -1,0 +1,29 @@
+diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
+index aba2b2a8..ee04bdc0 100644
+--- a/assets/js/components/title.vue
++++ b/assets/js/components/title.vue
+@@ -1,7 +1,7 @@
+ <template>
+     <div :class="$style.component">
+         <h1>
+-            Products
++            {{ categoryName }}
+         </h1>
+     </div>
+ </template>
+@@ -19,6 +19,15 @@ export default {
+             required: true,
+         },
+     },
++    computed: {
++        categoryName() {
++            if (this.currentCategoryId === null) {
++                return 'All Products';
++            }
++
++            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
++        },
++    },
+ };
+ </script>
+ 

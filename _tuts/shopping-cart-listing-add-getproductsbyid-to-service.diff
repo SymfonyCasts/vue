@@ -1,29 +1,26 @@
-diff --git a/assets/js/services/products.js b/assets/js/services/products.js
-index 2b936e1f..96a65781 100644
---- a/assets/js/services/products.js
-+++ b/assets/js/services/products.js
-@@ -29,6 +29,24 @@ const products = {
-             url: `/api/products/${id}`,
-         });
-     },
+diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
+index fa91e343..fb7af14f 100644
+--- a/assets/js/services/products-service.js
++++ b/assets/js/services/products-service.js
+@@ -26,3 +26,21 @@ export function getProduct(id) {
+         url: `/api/products/${id}`,
+     });
+ }
 +
-+    /**
-+     * Retrieves a set of products identified by an array of IRIs
-+     *
-+     * @param {string[]} ids
-+     * @return {Promise}
-+     */
-+    getProductsById(ids) {
-+        if (!ids.length) {
-+            return Promise.resolve({ 'hydra:member': [] });
-+        }
++/**
++ * Retrieves a set of products identified by an array of IRIs
++ *
++ * @param {string[]} ids
++ * @return {Promise}
++ */
++export function getProductsById(ids) {
++    if (!ids.length) {
++        return Promise.resolve({ 'hydra:member': [] });
++    }
 +
-+        return axios({
-+            method: 'get',
-+            url: '/api/products',
-+            params: { id: ids },
-+        });
-+    },
- };
- 
- export default products;
++    return axios({
++        method: 'get',
++        url: '/api/products',
++        params: { id: ids },
++    });
++}

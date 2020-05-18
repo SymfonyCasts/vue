@@ -1,0 +1,33 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index e15483b0..61eb2190 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -10,7 +10,7 @@
+                     <a
+                         :class="{
+                             'nav-link': true,
+-                            [$style.selected]: currentCategoryId === null,
++                            'selected': currentCategoryId === null,
+                         }"
+                         href="/"
+                     >All Products</a>
+@@ -25,7 +25,7 @@
+                         :href="`/category/${category.id}`"
+                         :class="{
+                             'nav-link': true,
+-                            [$style.selected]: category.id === currentCategoryId,
++                            'selected': category.id === currentCategoryId,
+                         }"
+                     >
+                         {{ category.name }}
+@@ -76,6 +76,10 @@ export default {
+         li a:hover {
+             background: $blue-component-link-hover;
+         }
++
++        :global li a.selected {
++            background: $light-component-border;
++        }
+     }
+ }
+ </style>

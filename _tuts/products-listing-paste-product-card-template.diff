@@ -1,28 +1,27 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index b326dab7..87259ef9 100644
+index 89928521..48b9affd 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
-@@ -1,6 +1,35 @@
+@@ -1,6 +1,34 @@
  <template>
-     <div :class="[$style.component, 'col-xs-12', 'mb-2', 'ml-2', 'pb-2']">
--        {{ item.name }}
-+        <div :class="$style.top">
+     <div class="col-xs-12 col-6 mb-2 pb-2">
+-        {{ product.name }}
++        <div :class="$style['product-box']">
 +            <div :class="$style.image">
 +                <img
-+                    :alt="item.name"
-+                    :src="item.image"
-+                    class="mx-auto d-block my-2"
++                    :alt="product.name"
++                    :src="product.image"
++                    class="d-block mb-2"
 +                >
 +
-+                <h3
-+                    class="mb-2"
-+                    v-text="item.name"
-+                />
++                <h3 class="font-weight-bold mb-2 px-2">
++                    {{ product.name }}
++                </h3>
 +            </div>
 +
-+            <div class="pt-2 my-3 d-md-flex justify-content-between">
++            <div class="p-2 my-3 d-md-flex justify-content-between">
 +                <p class="p-0 d-inline">
-+                    <strong>${{ item.price }}</strong>
++                    <strong>${{ product.price }}</strong>
 +                </p>
 +
 +                <button
@@ -32,9 +31,9 @@ index b326dab7..87259ef9 100644
 +                </button>
 +            </div>
 +        </div>
-+
-+        <div>
-+            <small>brought to you by {{ item.brand }}</small>
++        <hr>
++        <div class="px-2 pb-2">
++            <small>brought to you by {{ product.brand }}</small>
 +        </div>
      </div>
  </template>

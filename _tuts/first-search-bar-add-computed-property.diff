@@ -1,17 +1,17 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index d2f6e5b2..1c616d19 100644
+index 0a4c7fc7..9a975cac 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -12,7 +12,7 @@
-             </div>
- 
-             <product-list
--                :products="products"
-+                :products="filteredProducts"
-                 :loading="loading"
-             />
+@@ -13,7 +13,7 @@
          </div>
-@@ -54,6 +54,16 @@ export default {
+ 
+         <product-list
+-            :products="products"
++            :products="filteredProducts"
+             :loading="loading"
+         />
+ 
+@@ -55,6 +55,17 @@ export default {
          loading: true,
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
@@ -22,7 +22,8 @@ index d2f6e5b2..1c616d19 100644
 +            }
 +
 +            return this.products.filter((product) => (
-+                product.name.toLowerCase().search(this.searchTerm.toLowerCase()) !== -1));
++                product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
++            ));
 +        },
 +    },
      async created() {

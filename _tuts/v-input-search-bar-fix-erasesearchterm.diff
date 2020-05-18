@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index cd915278..1dd60502 100644
+index 69279864..cc36e2fa 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -31,6 +31,7 @@ export default {
+@@ -36,6 +36,7 @@ export default {
           */
          eraseSearchTerm() {
              this.searchTerm = '';

@@ -1,0 +1,19 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 6ca015c8..ea2a2e63 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -58,11 +58,9 @@
+ <script>
+ export default {
+     name: 'Products',
+-    data() {
+-        return {
+-            legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
+-        };
+-    },
++    data: () => ({
++        legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
++    }),
+ };
+ </script>
+ 

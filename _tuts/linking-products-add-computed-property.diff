@@ -1,13 +1,13 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 36c6562f..3e30c3d8 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
-@@ -56,6 +56,9 @@ export default {
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index a631be92..f0f8ceb0 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -58,6 +58,9 @@ export default {
          contentClass() {
-             return this.sidebarCollapsed ? 'col-xs-12 col-lg-11' : 'col-xs-12 col-lg-9';
+             return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
          },
 +        currentComponent() {
-+            return this.currentProductId !== null ? ProductComponent : CatalogComponent;
++            return this.currentProductId !== null ? Product : Catalog;
 +        },
      },
      methods: {

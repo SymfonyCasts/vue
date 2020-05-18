@@ -1,10 +1,10 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 62c5a472..4ff791cf 100644
+index 2cd17055..8939c02b 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -55,6 +55,14 @@ export default {
+@@ -56,6 +56,14 @@ export default {
+             type: Boolean,
              required: true,
-             default: false,
          },
 +        currentCategoryId: {
 +            type: Number,
@@ -12,23 +12,23 @@ index 62c5a472..4ff791cf 100644
 +        },
 +        categories: {
 +            type: Array,
-+            default: () => ([]),
++            required: true,
 +        },
      },
      data: () => ({
          loading: true,
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index d7250a68..656227c8 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 799e24c2..e24dfa6e 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -30,6 +30,10 @@ export default {
              type: Number,
              default: null,
          },
 +        categories: {
 +            type: Array,
-+            default: () => ([]),
++            required: true,
 +        },
      },
-     data: () => ({
-         sidebarCollapsed: false,
+     data() {
+         return {

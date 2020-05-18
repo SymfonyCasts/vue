@@ -1,0 +1,43 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 7f8d70af..621d72fe 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -2,7 +2,10 @@
+     <div>
+         <div class="row">
+             <div class="col-12">
+-                <title-component />
++                <title-component
++                    :current-category-id="currentCategoryId"
++                    :categories="categories"
++                />
+             </div>
+         </div>
+ 
+@@ -35,6 +38,10 @@ export default {
+             type: Number,
+             default: null,
+         },
++        categories: {
++            type: Array,
++            required: true,
++        },
+     },
+     data: () => ({
+         /** @type {Product[]} */
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 3994ef15..b8919556 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -11,7 +11,10 @@
+             </aside>
+ 
+             <div :class="contentClass">
+-                <catalog :current-category-id="currentCategoryId" />
++                <catalog
++                    :current-category-id="currentCategoryId"
++                    :categories="categories"
++                />
+             </div>
+         </div>
+     </div>

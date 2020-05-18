@@ -1,15 +1,16 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index b04b8e82..6df84ebe 100644
+index f93a28a9..f437a160 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -50,12 +50,14 @@
+@@ -49,6 +49,7 @@
+ 
  <script>
  import formatPrice from '@/helpers/format-price';
- import productsService from '@/services/products';
 +import ColorSelector from '@/components/color-selector';
+ import { getProduct } from '@/services/products-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
- 
+@@ -56,6 +57,7 @@ import TitleComponent from '@/components/title';
  export default {
      name: 'Product',
      components: {

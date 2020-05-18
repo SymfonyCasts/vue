@@ -9,10 +9,10 @@ index 5a9d6cee..88da0017 100644
 -import '../scss/app.scss';
 +import 'styles/app.scss';
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index c5ae437c..8390a30b 100644
+index 1c1f9e4e..8f0ab77d 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -13,7 +13,7 @@
+@@ -21,7 +21,7 @@
  </template>
  
  <script>
@@ -22,7 +22,7 @@ index c5ae437c..8390a30b 100644
  export default {
      name: 'Catalog',
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index abbdda36..1f50bb34 100644
+index 3ef3f137..6ec47113 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -34,7 +34,7 @@ export default {
@@ -34,34 +34,39 @@ index abbdda36..1f50bb34 100644
  
  .component {
      @include light-component;
-diff --git a/assets/js/products.js b/assets/js/products.js
-index 290a2d14..8597d51d 100644
---- a/assets/js/products.js
-+++ b/assets/js/products.js
-@@ -1,5 +1,5 @@
- import Vue from 'vue';
--import App from './products.vue';
-+import App from '@/products.vue';
- 
- new Vue({
-     render: (h) => h(App),
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 4861a96b..7408b684 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index f7d873f8..419509f4 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -13,8 +13,8 @@
  </template>
  
  <script>
--import CatalogComponent from './components/catalog';
--import SidebarComponent from './components/sidebar';
-+import CatalogComponent from '@/components/catalog';
-+import SidebarComponent from '@/components/sidebar';
+-import Catalog from '../components/catalog';
+-import Sidebar from '../components/sidebar';
++import Catalog from '@/components/catalog';
++import Sidebar from '@/components/sidebar';
  
  export default {
      name: 'Products',
+@@ -24,4 +24,3 @@ export default {
+     },
+ };
+ </script>
+-
+diff --git a/assets/js/products.js b/assets/js/products.js
+index e82a9bda..790dbc03 100644
+--- a/assets/js/products.js
++++ b/assets/js/products.js
+@@ -1,5 +1,5 @@
+ import Vue from 'vue';
+-import App from './pages/products';
++import App from '@/pages/products';
+ 
+ new Vue({
+     render: (h) => h(App),
 diff --git a/assets/scss/app.scss b/assets/scss/app.scss
-index 8197ff31..21e2e7ae 100644
+index 819a5524..b2f35fee 100644
 --- a/assets/scss/app.scss
 +++ b/assets/scss/app.scss
 @@ -1,6 +1,6 @@
@@ -72,8 +77,8 @@ index 8197ff31..21e2e7ae 100644
 +@import '~styles/components/light-component';
 +@import '~styles/variables/colors';
  @import '~bootstrap';
+ @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
  
- .header {
 diff --git a/assets/scss/components/black-component.scss b/assets/scss/components/black-component.scss
 index dc43766e..a658b270 100644
 --- a/assets/scss/components/black-component.scss

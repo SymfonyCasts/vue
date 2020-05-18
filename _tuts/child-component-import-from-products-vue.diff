@@ -1,8 +1,8 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 2fadbb96..8186697f 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
-@@ -38,9 +38,7 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 57b8a114..82b90502 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -46,9 +46,7 @@
                  </div>
  
                  <div class="row">
@@ -13,17 +13,17 @@ index 2fadbb96..8186697f 100644
                  </div>
              </div>
          </div>
-@@ -48,8 +46,13 @@
+@@ -56,8 +54,13 @@
  </template>
  
  <script>
-+import LegendComponent from './components/legend';
++import LegendComponent from '../components/legend';
 +
  export default {
      name: 'Products',
 +    components: {
 +        LegendComponent,
 +    },
-     data: () => ({
-         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
-     }),
+     data() {
+         return {
+             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',

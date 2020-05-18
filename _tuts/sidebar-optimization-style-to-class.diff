@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 5c71ba08..82bd6b44 100644
+index 6fda540f..c6b9fc7a 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -1,7 +1,11 @@
@@ -11,19 +11,19 @@ index 5c71ba08..82bd6b44 100644
 +            [$style.component]: true,
 +            [$style.collapsed]: collapsed,
 +            'p-3': true,
-+            'mb5': true
++            'mb-5': true
 +        }"
      >
-         <div  v-if="!collapsed">
+         <div v-show="!collapsed">
              <h5 class="text-center">
-@@ -72,6 +76,10 @@ export default {
+@@ -73,6 +77,10 @@ export default {
+ .component {
      @include light-component;
-     margin-top: 65px;
  
 +    &.collapsed {
 +        width: 70px;
 +    }
 +
      ul {
-         border-bottom: 1px solid $light-component-border;
-         margin-bottom: 20px;
+         li a:hover {
+             background: $blue-component-link-hover;

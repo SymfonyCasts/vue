@@ -1,10 +1,10 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index 0f8cbf7f..fa6df167 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 3090872e..7fbab7fd 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -25,6 +25,12 @@ export default {
-         CatalogComponent,
-         SidebarComponent,
+         Catalog,
+         Sidebar,
      },
 +    props: {
 +        currentCategoryId: {
@@ -12,6 +12,6 @@ index 0f8cbf7f..fa6df167 100644
 +            default: null,
 +        },
 +    },
-     data: () => ({
-         sidebarCollapsed: false,
-     }),
+     data() {
+         return {
+             sidebarCollapsed: false,

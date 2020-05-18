@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 03dc8914..ff1d54cf 100644
+index d9926dfb..fb7c786e 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -54,25 +54,8 @@ export default {
+@@ -55,22 +55,8 @@ export default {
          loading: true,
          legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
      }),
@@ -15,10 +15,7 @@ index 03dc8914..ff1d54cf 100644
 -        this.loading = true;
 -
 -        try {
--            const response = await axios({
--                method: 'get',
--                url,
--            });
+-            const response = await axios.get(url);
 -
 -            this.loading = false;
 -            this.products = response.data['hydra:member'];
@@ -29,4 +26,4 @@ index 03dc8914..ff1d54cf 100644
 +        this.fetchProducts('');
      },
      methods: {
-         /**
+         onSearchProducts(event) {

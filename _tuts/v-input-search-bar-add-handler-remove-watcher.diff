@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index 4c59a53c..cd915278 100644
+index 45a1d99a..69279864 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -25,26 +25,28 @@ export default {
-         searchTerm: '',
-         searchTimeout: null,
-     }),
+@@ -30,25 +30,27 @@ export default {
+             searchTimeout: null,
+         };
+     },
 -    watch: {
 -        searchTerm(newTerm) {
 +    methods: {
@@ -41,4 +41,3 @@ index 4c59a53c..cd915278 100644
 -    },
  };
  </script>
- 

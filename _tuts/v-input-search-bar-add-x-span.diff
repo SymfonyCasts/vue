@@ -1,18 +1,27 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index d997e8ac..c8d141c2 100644
+index 210b898a..e07e7352 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -6,6 +6,13 @@
+@@ -1,11 +1,21 @@
+ <template>
+-    <div>
++    <div class="input-group">
++
+         <input
+             v-model="searchTerm"
+             class="form-control"
              placeholder="Search products..."
-             type="text"
+             type="search"
          >
 +
-+        <span
++        <div
++            class="input-group-append"
 +            v-show="searchTerm !== ''"
-+            :class="$style.erase"
 +        >
-+            X
-+        </span>
++            <button class="btn btn-outline-secondary">
++                X
++            </button>
++        </div>
      </div>
  </template>
  

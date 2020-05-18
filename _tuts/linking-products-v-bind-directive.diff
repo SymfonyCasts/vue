@@ -1,7 +1,7 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index dfb967d5..0fcbc48c 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 1f4db4c9..8a38c833 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -13,9 +13,7 @@
              <div :class="contentClass">
                  <component
@@ -13,9 +13,9 @@ index dfb967d5..0fcbc48c 100644
                  />
              </div>
          </div>
-@@ -61,6 +59,17 @@ export default {
+@@ -63,6 +61,17 @@ export default {
          currentComponent() {
-             return this.currentProductId !== null ? ProductComponent : CatalogComponent;
+             return this.currentProductId !== null ? Product : Catalog;
          },
 +        currentProps() {
 +            return this.currentProductId !== null

@@ -1,13 +1,13 @@
-diff --git a/assets/js/products.vue b/assets/js/products.vue
-index fa6df167..d7250a68 100644
---- a/assets/js/products.vue
-+++ b/assets/js/products.vue
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 7fbab7fd..799e24c2 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
 @@ -9,7 +9,7 @@
              </aside>
  
              <div :class="contentClass">
--                <catalog-component />
-+                <catalog-component :current-category-id="currentCategoryId" />
+-                <catalog />
++                <catalog :current-category-id="currentCategoryId" />
              </div>
          </div>
      </div>

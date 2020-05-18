@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
-index 4e82b59e..8537f6ff 100644
+index ee04bdc0..8537f6ff 100644
 --- a/assets/js/components/title.vue
 +++ b/assets/js/components/title.vue
 @@ -1,7 +1,7 @@
@@ -11,7 +11,7 @@ index 4e82b59e..8537f6ff 100644
          </h1>
      </div>
  </template>
-@@ -10,13 +10,9 @@
+@@ -10,12 +10,8 @@
  export default {
      name: 'Title',
      props: {
@@ -21,10 +21,8 @@ index 4e82b59e..8537f6ff 100644
 -        },
 -        categories: {
 -            type: Array,
--            default: () => ([]),
 +        text: {
 +            type: String,
-+            required: true,
+             required: true,
          },
      },
-     computed: {

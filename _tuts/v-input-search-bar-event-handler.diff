@@ -1,16 +1,16 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index c8d141c2..8a59555c 100644
+index e07e7352..b7376565 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -10,6 +10,7 @@
-         <span
+@@ -11,6 +11,7 @@
+         <div
+             class="input-group-append"
              v-show="searchTerm !== ''"
-             :class="$style.erase"
 +            @click="eraseSearchTerm"
          >
-             X
-         </span>
-@@ -35,6 +36,14 @@ export default {
+             <button class="btn btn-outline-secondary">
+                 X
+@@ -40,5 +41,13 @@ export default {
              }, 200);
          },
      },
@@ -24,4 +24,3 @@ index c8d141c2..8a59555c 100644
 +    },
  };
  </script>
- 

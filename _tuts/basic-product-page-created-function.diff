@@ -1,12 +1,12 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 21c7f716..2513f201 100644
+index 21c7f716..13111a31 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -9,6 +9,7 @@
  </template>
  
  <script>
-+import productsService from '@/services/products';
++import { getProduct } from '@/services/products-service';
  import TitleComponent from '@/components/title';
  
  export default {
@@ -20,7 +20,7 @@ index 21c7f716..2513f201 100644
 +    }),
 +    async created() {
 +        try {
-+            const response = await productsService.getProduct(this.currentProductId);
++            const response = await getProduct(this.currentProductId);
 +            this.product = response.data;
 +            this.loading = false;
 +        } catch (e) {

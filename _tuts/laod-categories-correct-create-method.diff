@@ -1,19 +1,16 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 437a6fc2..428216f1 100644
+index ca8e221c..cf4e4943 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -54,14 +54,14 @@ export default {
+@@ -55,11 +55,11 @@ export default {
          categories: [],
      }),
      async created() {
 -        this.products = [];
 +        this.categories = [];
  
-         const response = await axios({
-             method: 'get',
--            url: '/api/products',
-+            url: '/api/categories',
-         });
+-        const response = await axios.get('/api/products');
++        const response = await axios.get('/api/categories');
  
 -        this.products = response.data['hydra:member'];
 +        this.categories = response.data['hydra:member'];

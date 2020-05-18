@@ -1,69 +1,16 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index b101b79f..34ec9b73 100644
+index 117c5225..03dbbbb9 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -3,35 +3,38 @@
-         :class="[$style.component, 'p-3', 'mb-5']"
-         :style="{ width: collapsed ? '70px' : 'auto' }"
-     >
--        <h5 class="text-center">
--            Categories
--        </h5>
-+        <div>
-+            <h5 class="text-center">
-+                Categories
-+            </h5>
- 
--        <ul class="nav flex-column">
--            <li class="nav-item">
--                <a
--                    class="nav-link"
--                    href="/"
--                >All Products</a>
--            </li>
-+            <ul class="nav flex-column">
-+                <li class="nav-item">
-+                    <a
-+                        class="nav-link"
-+                        href="/"
-+                    >All Products</a>
-+                </li>
- 
--            <li
--                v-for="(category, index) in categories"
--                :key="index"
--                class="nav-item"
--            >
--                <a
--                    :href="category.link"
--                    class="nav-link"
-+                <li
-+                    v-for="(category, index) in categories"
-+                    :key="index"
-+                    class="nav-item"
-                 >
--                    {{ category.name }}
--                </a>
--            </li>
--        </ul>
-+                    <a
-+                        :href="category.link"
-+                        class="nav-link"
-+                    >
-+                        {{ category.name }}
-+                    </a>
-+                </li>
-+            </ul>
-+        </div>
- 
-         <div :class="$style.buttons">
+@@ -34,6 +34,7 @@
+         <div class="d-flex justify-content-end">
              <button
                  class="btn btn-secondary btn-sm"
-+                @click="toggleCollapsed"
++                v-on:click="toggleCollapsed"
                  v-text="collapsed ? '>>' : '<< Collapse'"
              />
          </div>
-@@ -54,6 +57,11 @@ export default {
+@@ -56,6 +57,11 @@ export default {
              },
          ],
      }),

@@ -11,6 +11,11 @@
             "description": null
         },
         {
+            "id": "vue-instance-delete-me1",
+            "name": "Vue Instance: delete me1",
+            "description": null
+        },
+        {
             "id": "vue-instance-create-instance",
             "name": "Vue Instance: Create Instance",
             "description": null
@@ -26,8 +31,53 @@
             "description": null
         },
         {
-            "id": "first-vue-component-load-from-products-vue",
-            "name": "First Vue Component: Load from products.vue",
+            "id": "vue-instance-add-data",
+            "name": "Vue Instance: add data",
+            "description": null
+        },
+        {
+            "id": "vue-instance-object-shorthand",
+            "name": "Vue Instance: object shorthand",
+            "description": null
+        },
+        {
+            "id": "vue-instance-remove-window-app",
+            "name": "Vue Instance: remove window.app",
+            "description": null
+        },
+        {
+            "id": "vue-instance-show-default-render",
+            "name": "Vue Instance: show default render()",
+            "description": null
+        },
+        {
+            "id": "vue-instance-use-template-variable",
+            "name": "Vue Instance: use template variable",
+            "description": null
+        },
+        {
+            "id": "single-file-component-create-it",
+            "name": "Single File Component: create it",
+            "description": null
+        },
+        {
+            "id": "single-file-component-add-name",
+            "name": "Single File Component: add name",
+            "description": null
+        },
+        {
+            "id": "single-file-component-use-mount",
+            "name": "Single File Component: use .$mount",
+            "description": null
+        },
+        {
+            "id": "single-file-component-shorthand-render",
+            "name": "Single File Component: shorthand render",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-delete-me-1",
+            "name": "First Vue Component: delete me 1",
             "description": null
         },
         {
@@ -41,13 +91,33 @@
             "description": null
         },
         {
-            "id": "first-vue-component-configure-webpack",
-            "name": "First Vue Component: Configure Webpack",
+            "id": "first-vue-component-sass",
+            "name": "First Vue Component: sass",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-paste-more-css",
+            "name": "First Vue Component: paste more css",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-delete-me-2",
+            "name": "First Vue Component: delete me 2",
             "description": null
         },
         {
             "id": "first-vue-component-introduce-data-object",
             "name": "First Vue Component: Introduce Data object",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-shorthand-data",
+            "name": "First Vue Component: shorthand data",
+            "description": null
+        },
+        {
+            "id": "first-vue-component-back-to-standard-syntax",
+            "name": "First Vue Component: back to standard syntax",
             "description": null
         },
         {
@@ -66,6 +136,31 @@
             "description": null
         },
         {
+            "id": "child-component-try-legend",
+            "name": "Child Component: try {{ legend }}",
+            "description": null
+        },
+        {
+            "id": "child-component-use-v-bind-title",
+            "name": "Child Component: use v-bind:title",
+            "description": null
+        },
+        {
+            "id": "child-component-show-off-js-inside-v-bind",
+            "name": "Child Component: show off JS inside v-bind",
+            "description": null
+        },
+        {
+            "id": "child-component-remove-extra-js-logic",
+            "name": "Child Component: remove extra JS logic",
+            "description": null
+        },
+        {
+            "id": "child-component-short-hand-v-bind",
+            "name": "Child Component: short-hand v-bind",
+            "description": null
+        },
+        {
             "id": "child-component-better-props",
             "name": "Child Component: Better Props",
             "description": null
@@ -73,6 +168,26 @@
         {
             "id": "child-component-v-text",
             "name": "Child Component: v-text",
+            "description": null
+        },
+        {
+            "id": "modular-css-add-module-attribute",
+            "name": "Modular CSS: add module attribute",
+            "description": null
+        },
+        {
+            "id": "modular-css-class-with-style",
+            "name": "Modular CSS: :class with $style",
+            "description": null
+        },
+        {
+            "id": "modular-css-better-localidentname",
+            "name": "Modular CSS: better localIdentName",
+            "description": null
+        },
+        {
+            "id": "modular-css-add-2-static-classes",
+            "name": "Modular CSS: add 2 static classes",
             "description": null
         },
         {
@@ -111,6 +226,11 @@
             "description": null
         },
         {
+            "id": "collapsible-sidebar-add-key",
+            "name": "Collapsible Sidebar: add :key",
+            "description": null
+        },
+        {
             "id": "collapsible-sidebar-collapsible-handle",
             "name": "Collapsible Sidebar: Collapsible Handle",
             "description": null
@@ -123,6 +243,11 @@
         {
             "id": "collapsible-sidebar-onclick-toggle",
             "name": "Collapsible Sidebar: OnClick Toggle",
+            "description": null
+        },
+        {
+            "id": "collapsible-sidebar-click-shorthand",
+            "name": "Collapsible Sidebar: @click shorthand",
             "description": null
         },
         {
@@ -151,8 +276,23 @@
             "description": null
         },
         {
+            "id": "collapsible-emmit-emit-toggle",
+            "name": "Collapsible Emmit: emit toggle",
+            "description": null
+        },
+        {
+            "id": "collapsible-emmit-emit-in-click",
+            "name": "Collapsible Emmit: $emit in @click",
+            "description": null
+        },
+        {
             "id": "collapsible-emmit-listen-to-emmit",
             "name": "Collapsible Emmit: Listen to emmit",
+            "description": null
+        },
+        {
+            "id": "collapsible-emmit-remove-styles-from-sidebar",
+            "name": "Collapsible Emmit: remove styles from sidebar",
             "description": null
         },
         {
@@ -171,6 +311,16 @@
             "description": null
         },
         {
+            "id": "products-listing-await-axios",
+            "name": "Products Listing: await axios",
+            "description": null
+        },
+        {
+            "id": "products-listing-add-async-to-mounted",
+            "name": "Products Listing: add async to mounted",
+            "description": null
+        },
+        {
             "id": "products-listing-add-products-to-data-member",
             "name": "Products Listing: Add products to data member",
             "description": null
@@ -181,8 +331,23 @@
             "description": null
         },
         {
+            "id": "products-listing-generate-ts-interfaces",
+            "name": "Products Listing: generate ts interfaces",
+            "description": null
+        },
+        {
+            "id": "products-listing-use-product-type-jsdoc",
+            "name": "Products Listing: use Product[] type jsdoc",
+            "description": null
+        },
+        {
             "id": "products-listing-first-product-list",
             "name": "Products Listing: First Product List",
+            "description": null
+        },
+        {
+            "id": "products-listing-delete-me-1",
+            "name": "Products Listing: delete me 1",
             "description": null
         },
         {
@@ -211,6 +376,11 @@
             "description": null
         },
         {
+            "id": "products-listing-add-style",
+            "name": "Products Listing: add <style>",
+            "description": null
+        },
+        {
             "id": "products-listing-price-computed-property",
             "name": "Products Listing: Price computed property",
             "description": null
@@ -226,8 +396,8 @@
             "description": null
         },
         {
-            "id": "loading-state-removed-step",
-            "name": "Loading State: Removed step",
+            "id": "loading-state-delete-me-1",
+            "name": "Loading State: delete me 1",
             "description": null
         },
         {
@@ -256,8 +426,18 @@
             "description": null
         },
         {
+            "id": "laod-categories-add-type",
+            "name": "Laod Categories: add @type",
+            "description": null
+        },
+        {
             "id": "load-categories-correct-template",
             "name": "Load Categories: Correct Template",
+            "description": null
+        },
+        {
+            "id": "load-categories-delete-me",
+            "name": "Load Categories: delete me",
             "description": null
         },
         {
@@ -311,8 +491,8 @@
             "description": null
         },
         {
-            "id": "better-loading-remove-data-property",
-            "name": "Better Loading: Remove data property",
+            "id": "better-loading-delete-me1",
+            "name": "Better Loading: delete me1",
             "description": null
         },
         {
@@ -323,6 +503,11 @@
         {
             "id": "better-loading-product-list-template",
             "name": "Better Loading: Product List Template",
+            "description": null
+        },
+        {
+            "id": "better-loading-no-products-message",
+            "name": "Better Loading: no products message",
             "description": null
         },
         {
@@ -346,8 +531,8 @@
             "description": null
         },
         {
-            "id": "blank-step",
-            "name": "blank step",
+            "id": "delete-me-10",
+            "name": "Delete me 10",
             "description": null
         },
         {
@@ -391,8 +576,18 @@
             "description": null
         },
         {
-            "id": "optimized-load-times-add-selected-class-in-scss",
-            "name": "Optimized Load Times: Add selected class in scss",
+            "id": "optimized-load-times-global-class",
+            "name": "Optimized Load Times: :global class",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-use-global-on-component",
+            "name": "Optimized Load Times: use :global on .component",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-delete-me-1",
+            "name": "Optimized Load Times: delete me 1",
             "description": null
         },
         {
@@ -406,23 +601,28 @@
             "description": null
         },
         {
-            "id": "title-component-add-component-to-products",
-            "name": "Title Component: Add component to Products",
+            "id": "title-component-add-props-logic-to-title",
+            "name": "Title Component: add props+logic to title",
             "description": null
         },
         {
-            "id": "title-component-add-styles",
-            "name": "Title Component: Add styles",
+            "id": "title-component-title-computed-property",
+            "name": "Title Component: title computed property",
             "description": null
         },
         {
-            "id": "first-search-bar-move-title-into-catalog",
-            "name": "First Search Bar: Move Title into Catalog",
+            "id": "title-component-pass-props-down",
+            "name": "Title Component: pass props down",
             "description": null
         },
         {
-            "id": "first-search-bar-add-prop-to-catalog",
-            "name": "First Search Bar: Add Prop to catalog",
+            "id": "first-search-bar-delete-me-1",
+            "name": "First Search Bar: delete me 1",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-delete-me2",
+            "name": "First Search Bar: delete me2",
             "description": null
         },
         {
@@ -436,13 +636,13 @@
             "description": null
         },
         {
-            "id": "first-search-bar-add-scss-file",
-            "name": "First Search Bar: Add scss File",
+            "id": "first-search-bar-delete-me-2",
+            "name": "First Search Bar: delete me 2",
             "description": null
         },
         {
-            "id": "first-search-bar-include-scss-from-catalog",
-            "name": "First Search Bar: Include scss from Catalog",
+            "id": "first-search-bar-delete-me-4",
+            "name": "First Search Bar: delete me 4",
             "description": null
         },
         {
@@ -521,6 +721,11 @@
             "description": null
         },
         {
+            "id": "better-search-bar-hipster-event-arg",
+            "name": "Better Search Bar: hipster event arg",
+            "description": null
+        },
+        {
             "id": "deleted-step",
             "name": "deleted step",
             "description": null
@@ -556,6 +761,11 @@
             "description": null
         },
         {
+            "id": "final-search-bar-tweak-fetchproducts-method",
+            "name": "Final Search Bar: tweak fetchProducts method",
+            "description": null
+        },
+        {
             "id": "final-search-bar-remove-unused-function",
             "name": "Final Search Bar: Remove unused function",
             "description": null
@@ -571,8 +781,8 @@
             "description": null
         },
         {
-            "id": "v-input-search-bar-add-styles",
-            "name": "V-Input Search Bar: Add styles",
+            "id": "v-input-search-bar-delete-me-1",
+            "name": "V-Input Search Bar: delete me 1",
             "description": null
         },
         {
@@ -741,8 +951,8 @@
             "description": null
         },
         {
-            "id": "basic-product-page-correct-price-computed-property",
-            "name": "Basic Product Page: Correct price computed property",
+            "id": "basic-product-page-delete-me1",
+            "name": "Basic Product Page: delete me1",
             "description": null
         },
         {
@@ -1351,5 +1561,5 @@
             "description": null
         }
     ],
-    "sha": "92ea9ffd514edfa7c61d7a6a1a8598a4b7454286"
+    "sha": "1f94be764c9a0e7e074ac3374475b85475235f98"
 }

@@ -1,0 +1,22 @@
+diff --git a/assets/js/products.js b/assets/js/products.js
+index 4bc56897..5cb9b4eb 100644
+--- a/assets/js/products.js
++++ b/assets/js/products.js
+@@ -1,5 +1,7 @@
+ import Vue from 'vue';
+ 
++const template = '<h1>Hello {{ firstName }}!</h1>';
++
+ new Vue({
+     el: '#app',
+     data() {
+@@ -7,8 +9,7 @@ new Vue({
+             firstName: 'Ryan',
+         };
+     },
+-    template: '<h1>Hello {{ firstName }}!</h1>',
+     render(h) {
+-        return Vue.compile(this.$options.template).render.call(this, h);
++        return Vue.compile(template).render.call(this, h);
+     },
+ });

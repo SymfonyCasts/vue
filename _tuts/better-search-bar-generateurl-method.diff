@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 1c616d19..57098f46 100644
+index 9a975cac..4ffd01f5 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -88,6 +88,27 @@ export default {
+@@ -87,6 +87,27 @@ export default {
          onSearchProducts(event) {
              this.searchTerm = event.term;
          },
