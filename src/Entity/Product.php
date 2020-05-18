@@ -23,7 +23,6 @@ class Product
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups("product:read")
      */
     private $id;
 

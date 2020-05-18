@@ -19,7 +19,6 @@ class PurchaseItem
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"purchase_item:read"})
      */
     private $id;
 

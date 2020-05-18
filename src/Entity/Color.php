@@ -4,10 +4,13 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ColorRepository")
- * @ApiResource()
+ * @ApiResource(
+ *     normalizationContext={"groups"={"color:read"}}
+ * )
  */
 class Color
 {
@@ -20,11 +23,13 @@ class Color
 
     /**
      * @ORM\Column(type="string", length=100)
+     * @Groups("color:read")
      */
     private $name;
 
     /**
      * @ORM\Column(type="string", length=6)
+     * @Groups("color:read")
      */
     private $hexColor;
 
