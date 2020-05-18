@@ -111,7 +111,7 @@ const cart = {
     /**
      * Gets the local storage as an object
      *
-     * @returns {array}
+     * @return {array}
      */
     getStorage() {
         cart.initializeStorage();
