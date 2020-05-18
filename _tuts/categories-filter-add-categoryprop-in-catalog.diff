@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 2108d218..67f240c5 100644
+index 2108d218..68eb7558 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -27,15 +27,25 @@ export default {
@@ -8,7 +8,7 @@ index 2108d218..67f240c5 100644
      },
 +    props: {
 +        currentCategoryId: {
-+            type: Number,
++            type: String,
 +            default: null,
 +        },
 +    },

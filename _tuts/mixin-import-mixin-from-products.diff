@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 7fbc07ff..986e5613 100644
+index f074bc1f..9195edca 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -24,6 +24,7 @@
@@ -17,4 +17,4 @@ index 7fbc07ff..986e5613 100644
 +    mixins: [collapsible],
      props: {
          currentCategoryId: {
-             type: Number,
+             type: String,

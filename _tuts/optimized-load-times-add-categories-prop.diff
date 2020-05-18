@@ -18,11 +18,11 @@ index 2cd17055..8939c02b 100644
      data: () => ({
          loading: true,
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 799e24c2..e24dfa6e 100644
+index 5ba95709..2e82faf7 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -30,6 +30,10 @@ export default {
-             type: Number,
+             type: String,
              default: null,
          },
 +        categories: {

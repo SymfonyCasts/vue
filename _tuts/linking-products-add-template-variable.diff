@@ -1,10 +1,10 @@
 diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
-index 878c9bcb..7d5d5997 100644
+index 9fd746b6..ed1c098e 100644
 --- a/templates/product/index.html.twig
 +++ b/templates/product/index.html.twig
-@@ -16,6 +16,7 @@
-     <script>
-         window.currentCategoryId = {{ currentCategoryId|default('null') }};
+@@ -20,6 +20,7 @@
+             window.currentCategoryId = null;
+         {% endif %}
          window.categories = {{ categories|jsonld }};
 +        window.currentProductId = {{ currentProductId|default('null') }};
      </script>

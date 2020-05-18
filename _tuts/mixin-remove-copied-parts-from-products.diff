@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 8a38c833..7fbc07ff 100644
+index a4f1d6b8..f074bc1f 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -46,18 +46,7 @@ export default {

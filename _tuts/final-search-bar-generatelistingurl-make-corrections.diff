@@ -1,5 +1,5 @@
 diff --git a/assets/js/helpers/generate-listing-params.js b/assets/js/helpers/generate-listing-params.js
-index 61d83fbe..d0e14951 100644
+index f920760d..83afb2c5 100644
 --- a/assets/js/helpers/generate-listing-params.js
 +++ b/assets/js/helpers/generate-listing-params.js
 @@ -9,8 +9,8 @@

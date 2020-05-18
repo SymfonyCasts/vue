@@ -1,13 +1,13 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index 7cfa8ce5..4ddf35ba 100644
+index a86ca51e..465ad7c7 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
-@@ -34,8 +34,11 @@ class ProductController extends AbstractController
+@@ -36,8 +36,11 @@ class ProductController extends AbstractController
      /**
       * @Route("/product/{id}", name="app_product")
       */
--    public function showProduct(int $id): Response
-+    public function showProduct(int $id, CategoryRepository $categoryRepository): Response
+-    public function showProduct(Product $product): Response
++    public function showProduct(Product $product, CategoryRepository $categoryRepository): Response
      {
 -        return $this->render('product/index.html.twig');
 +        return $this->render('product/index.html.twig', [

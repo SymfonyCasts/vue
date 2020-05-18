@@ -1,16 +1,20 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index 1c4b4534..7cfa8ce5 100644
+index e1f8cafe..a86ca51e 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
-@@ -3,6 +3,7 @@
+@@ -2,10 +2,10 @@
+ 
  namespace App\Controller;
  
- 
+-
+ use ApiPlatform\Core\Api\IriConverterInterface;
+ use App\Entity\Category;
+ use App\Entity\Product;
 +use App\Repository\CategoryRepository;
  use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  use Symfony\Component\Routing\Annotation\Route;
  use Symfony\Component\HttpFoundation\Response;
-@@ -12,18 +13,21 @@ class ProductController extends AbstractController
+@@ -15,18 +15,21 @@ class ProductController extends AbstractController
      /**
       * @Route("/", name="app_homepage")
       */
@@ -26,11 +30,11 @@ index 1c4b4534..7cfa8ce5 100644
      /**
       * @Route("/category/{id}", name="app_category")
       */
--    public function showCategory(int $id): Response
-+    public function showCategory(int $id, CategoryRepository $categoryRepository): Response
+-    public function showCategory(Category $category, IriConverterInterface $iriConverter): Response
++    public function showCategory(Category $category, IriConverterInterface $iriConverter, CategoryRepository $categoryRepository): Response
      {
          return $this->render('product/index.html.twig', [
-             'currentCategoryId' => $id,
+             'currentCategoryId' => $iriConverter->getIriFromItem($category),
 +            'categories' => $categoryRepository->findAll(),
          ]);
      }

@@ -1,13 +1,17 @@
 diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
-index 32a165ce..d66a8d5a 100644
+index 32a165ce..3906b779 100644
 --- a/templates/product/index.html.twig
 +++ b/templates/product/index.html.twig
-@@ -13,5 +13,9 @@
+@@ -13,5 +13,13 @@
  {% block javascripts %}
      {{ parent() }}
  
 +    <script>
-+        window.currentCategoryId = {{ currentCategoryId|default('null') }};
++        {% if currentCategoryId is defined %}
++            window.currentCategoryId = '{{ currentCategoryId|e('js') }}';
++        {% else %}
++            window.currentCategoryId = null;
++        {% endif %}
 +    </script>
 +
      {{ encore_entry_script_tags('products') }}

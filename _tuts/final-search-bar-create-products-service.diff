@@ -1,6 +1,6 @@
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
 new file mode 100644
-index 00000000..bc918d42
+index 00000000..bae82994
 --- /dev/null
 +++ b/assets/js/services/products-service.js
 @@ -0,0 +1,15 @@
@@ -10,7 +10,7 @@ index 00000000..bc918d42
 +/**
 + * Fetches products from the API according to current category and search term
 + *
-+ * @param {number|null} category
++ * @param {string|null} category
 + * @param {string} searchTerm
 + * @return {Promise}
 + */
