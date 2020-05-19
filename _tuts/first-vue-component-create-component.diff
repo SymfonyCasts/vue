@@ -1,10 +1,10 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 0d16c591..607dc438 100644
+index aa28bbdd..607dc438 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -1,5 +1,58 @@
  <template>
--    <h1>Hello {{ firstName }}!</h1>
+-    <h1>Hello {{ firstName }}! Is this cooler?</h1>
 +    <div class="container-fluid">
 +        <div class="row">
 +            <aside class="col-xs-12 col-3">

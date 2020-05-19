@@ -1,5 +1,5 @@
 diff --git a/assets/js/products.js b/assets/js/products.js
-index 53045f71..359a084e 100644
+index 026e638a..13d2f1a2 100644
 --- a/assets/js/products.js
 +++ b/assets/js/products.js
 @@ -1,6 +1,6 @@
@@ -12,7 +12,7 @@ index 53045f71..359a084e 100644
          return {
 @@ -9,5 +9,3 @@ const app = new Vue({
      },
-     template: '<h1>Hello {{ firstName }}!</h1>',
+     template: '<h1>Hello {{ firstName }}! Is this cooler?</h1>',
  });
 -
 -window.app = app;

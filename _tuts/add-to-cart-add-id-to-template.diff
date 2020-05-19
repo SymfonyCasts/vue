@@ -1,9 +1,9 @@
 diff --git a/templates/base.html.twig b/templates/base.html.twig
-index 4c09c434..47dcd878 100644
+index 53b0297d..62c38d12 100644
 --- a/templates/base.html.twig
 +++ b/templates/base.html.twig
-@@ -34,7 +34,7 @@
-                     </li>
+@@ -41,7 +41,7 @@
+                     {% endif %}
                      <li class="nav-item">
                          <a class="nav-link" href="#">
 -                            Shopping Cart (<span>0</span>)

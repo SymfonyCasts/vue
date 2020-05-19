@@ -1,3 +1,10 @@
+diff --git a/assets/js/products.js b/assets/js/products.js
+new file mode 100644
+index 00000000..7da47566
+--- /dev/null
++++ b/assets/js/products.js
+@@ -0,0 +1 @@
++console.log('Boring JavaScript file: make me cooler!');
 diff --git a/webpack.config.js b/webpack.config.js
 index 1dacec89..6a91c700 100644
 --- a/webpack.config.js

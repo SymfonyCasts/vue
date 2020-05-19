@@ -1,18 +1,18 @@
 diff --git a/assets/js/products.js b/assets/js/products.js
-index 5ee4e03f..309c4601 100644
+index 6921e878..66a06b65 100644
 --- a/assets/js/products.js
 +++ b/assets/js/products.js
 @@ -2,5 +2,12 @@ import Vue from 'vue';
  
  const app = new Vue({
      el: '#app',
--    template: '<h1>Hello Vue!</h1>',
+-    template: '<h1>Hello Vue! Is this cooler?</h1>',
 +    data: function() {
 +        return {
 +            firstName: 'Ryan',
 +        };
 +    },
-+    template: '<h1>Hello {{ firstName }}!</h1>',
++    template: '<h1>Hello {{ firstName }}! Is this cooler?</h1>',
  });
 +
 +window.app = app;

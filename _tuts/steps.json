@@ -16,8 +16,8 @@
             "description": null
         },
         {
-            "id": "vue-instance-create-instance",
-            "name": "Vue Instance: Create Instance",
+            "id": "vue-instance-create-dom-target-in-template",
+            "name": "Vue Instance: create DOM target in template",
             "description": null
         },
         {
@@ -28,6 +28,11 @@
         {
             "id": "vue-instance-templates-entry",
             "name": "Vue Instance: Templates Entry",
+            "description": null
+        },
+        {
+            "id": "vue-instance-bootstrap-instance",
+            "name": "Vue Instance: bootstrap instance",
             "description": null
         },
         {
@@ -1541,5 +1546,5 @@
             "description": null
         }
     ],
-    "sha": "a8c8626406b449cf55c483ffad952cab6f12aa24"
+    "sha": "eeb761f1e8b8ee705224dc9c20de9889ba6429b1"
 }

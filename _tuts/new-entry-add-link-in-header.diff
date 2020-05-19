@@ -1,10 +1,10 @@
 diff --git a/templates/base.html.twig b/templates/base.html.twig
-index 47dcd878..5bcf2135 100644
+index 62c38d12..b89ff4b4 100644
 --- a/templates/base.html.twig
 +++ b/templates/base.html.twig
-@@ -33,7 +33,7 @@
-                         {% endif %}
-                     </li>
+@@ -40,7 +40,7 @@
+                         </li>
+                     {% endif %}
                      <li class="nav-item">
 -                        <a class="nav-link" href="#">
 +                        <a class="nav-link" href="{{ path('app_cart') }}">
