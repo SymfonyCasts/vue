@@ -491,11 +491,6 @@
             "description": null
         },
         {
-            "id": "better-loading-delete-me1",
-            "name": "Better Loading: delete me1",
-            "description": null
-        },
-        {
             "id": "better-loading-add-prop-to-product-list",
             "name": "Better Loading: Add prop to Product List",
             "description": null
@@ -528,11 +523,6 @@
         {
             "id": "better-loading-sidebar-loading-in-template",
             "name": "Better Loading: Sidebar Loading in Template",
-            "description": null
-        },
-        {
-            "id": "delete-me-10",
-            "name": "Delete me 10",
             "description": null
         },
         {
@@ -951,11 +941,6 @@
             "description": null
         },
         {
-            "id": "basic-product-page-delete-me1",
-            "name": "Basic Product Page: delete me1",
-            "description": null
-        },
-        {
             "id": "basic-product-page-correct-price-in-template",
             "name": "Basic Product Page: Correct price in template",
             "description": null
@@ -1103,11 +1088,6 @@
         {
             "id": "add-to-cart-implement-addtocart",
             "name": "Add To Cart: Implement addToCart",
-            "description": null
-        },
-        {
-            "id": "add-to-cart-implement-totalitems",
-            "name": "Add To Cart: Implement totalItems",
             "description": null
         },
         {
