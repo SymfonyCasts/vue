@@ -31,6 +31,11 @@ yarn install
 yarn watch
 ```
 
+Alternatively, you can run `yarn dev-server --hot` to enable HMR
+(hot module reloading) where changes show up before you run refresh!
+For this to work, you will need to visit your site via `http` instead
+of `https`.
+
 **Configure the .env (or .env.local) File**
 
 Open the `.env` file and make any adjustments you need - specifically
@@ -67,7 +72,7 @@ Then, to start the web server, open a terminal, move into the
 project, and run:
 
 ```
-symfony serve
+symfony serve --allow-http
 ```
 
 (If this is your first time using this command, you may see an
