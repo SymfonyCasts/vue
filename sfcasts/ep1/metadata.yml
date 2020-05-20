@@ -1,6 +1,7 @@
 chapters:
     - setup
     - vue-install
+    - vue-instance
     - single-file-component
     - styles
     - child-component
