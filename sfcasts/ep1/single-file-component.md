@@ -2,6 +2,10 @@
 
 Coming soon...
 
+you to organize all of your markup like this into little components. So I'm going to
+create, because I'm going to go into my JS directory here and create a new directory
+called pages. Inside of there, I'm gonna create a new file called products dot view.
+
 Okay,
 
 now that's not new extension. These are very special files that have a very special
