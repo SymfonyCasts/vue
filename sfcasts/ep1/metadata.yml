@@ -1,1 +1,6 @@
-chapters: []
+chapters:
+    - setup
+    - vue-install
+    - single-file-component
+    - styles
+    - child-component
