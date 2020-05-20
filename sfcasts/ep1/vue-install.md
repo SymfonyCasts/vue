@@ -1,125 +1,152 @@
-# Vue Install
+# Installing Vue, Webpack & Eslint
 
-Coming soon...
+To use Vue, we, of course, need to install it in our app. And, because we're
+using modern JavaScript practices, we're not going to include a `script` tag
+to a CDN or manually download Vue. We're going to install it with yarn.
 
-To use view, we need to get it installed in our application. And we also need to
-teach Webpack how to parse the view files. We're going to do that inside of Webpack
-dot config dot. JS. It doesn't matter where in here, but let's go down to the bottom.
-I'm going to add a new function on here called that enable view loader. That's all
-you need to tell. Encore to process view files. If you want to force view three,
-there's an extra option you can pass here to do that. Eventually view three will
-become the default option inside of Encore. Now whenever you make a change to Webpack
-config file, you need to move over and actually stop and restart Webpack. So I'll hit
-control C and then rerun yarn watch. And when we do this really cool, it's Encore is
-going to yell at us and say, yes you can use view, but you need to install a couple
-more packages. So we'll copy this long yarn add line here to install these three
-packages and I'll paste those.
+But first, in addition to downloading yarn into our project, we *also* need to
+*teach* Webpack how to parse `.vue` files. Like React, Vue uses some special,
+not-actually-JavaScript syntaxes, which Webpack needs to transform for us.
 
-And then one this has done, we will restart Encore with yarn watch. Perfect. So
-nothing's really changed except that it is now ready to parse a view files. So in the
-simplest sense, what view is is it's a front end templating language that's that
-oversimplifies it, but it's really pretty true. And Symfony, if you go to open your
-product controller, we're used to using twig. It's very simple. We basically, we tell
-it what template to render and then we can pass an array of variables over here if we
-want to. And so that we can use those variables inside of our twig template. We open
-up that template.
+To tell Webpack to parse vue files, open `webpack.config.js`. Near the bottom,
+though it doesn't matter where, add `.enableVueLoader()`.
 
-Okay.
+Yep! That's all you need. If you want to use Vue 3, you can pass an extra argument
+with a `version` key set to 3. Eventually, 3 will be the *default* version that
+Encore uses.
 
-It's just HTML. And then we usually can print variable names inside of your using a
-curly curly it's index. So with view basically instead of rendering this H T instead
-of rendering H instead of rendering, instead of twig rendering the templates in
-variables, we're just going to have view render templates and variables. The end
-result is going to be pretty much the same thing. Of course, the one extra super of
-view is that when those variables change, the template is going to rerender. So
-instead of rendering all this stuff on the inside twig instead, I'm just gonna say
-div ID = app. This could be anything. But what I'm basically doing is creating an
-empty element and we're going to tell you to render into this.
+And, even though Encore is watching for changes, whenever you update
+`webpack.config.js`, you need to stop and restart Encore. I'll hit Control+C and
+then re-run:
 
-Now real quick, what we're building here is not a single page application and that's
-on purpose. It turns out using Vue or react of a traditional web application is
-actually even trickier. So for example, um, home page, we have this homepage which is
-eventually going to have a view app. We also have a log in page. This is a completely
-traditional HTML page. We have a registered page, a completely traditional HTML page.
-And I want you to pretend like there are other parts of this site that have
-traditional twig based, uh, that has traditional twig based rendering. It's only the
-product section, which is what we're going to have right here. The only place that we
-want to run your view app is in a product section. So we're going to embed a view app
-inside of our traditional web app.
+```terminal
+yarn watch
+```
 
-So if you go back and open the productivity Webpack that can think that JS file right
-now, if you scroll up a little bit, we have one entry called app. The purpose of the
-app entry in my application is to be JavaScript and CSS that is specific, that is
-specific to the entire layout of the site. I actually don't have any JavaScript right
-now, but this app, that CSS file that is loading contains for example, bootstrap and
-whole bunch of other things that deal with the header, so anything an app that JS or
-app that SCSS is meant to be for the layout of my site, our view application isn't
-going to live on every single page, so I don't want to put my view application into
-app dot JS instead, I'm going to create a second entry that we're going a second
-entry in Webpack and then I'm only going to include on pages that need to boot our,
-our view application, which is going to be a product listing section. I should
-probably describe that. So I'm going to copy the app, the app add entry. We'll call
-this one products because there'll be kind of a product section and they'll pointed
-to a new products dot JS file.
+When we do this... *awesome*! Encore is yelling at us! To use Vue, we need to
+install a few packages. Copy the `yarn add` line, paste and run it:
 
-Now you may notice if you kind of look down on this file here,
+```terminal-silent
+yarn add vue@^2.5 vue-loader@^15 vue-template-compiler --dev
+```
 
-I know
+Once these are done being downloaded, restart Encore again with:
 
-now let's go create that file. So assets, JS, I'll create a new file called the
-products that JS and just to see if things are working while console.log( boring
-JavaScript vile make me cooler.
+```terminal
+yarn watch
+```
 
-Perfect. Hmm,
+It works! Nothing has really *changed* yet, but Encore is ready for Vue.
 
-why don't you go into your settings. Um, this is the part where I think that I say,
-uh, that this should be enabled and shouldn't be disabled. It shouldn't have to do
-this, but I'm going to do it because our project came with a dot. ESGR lamp, our C
-file. And this is a something that's going to enforce some Cody standards, features,
-terms that automatically read this. Then you can see we have a couple of base
-recommendations and we're also using views. This is going to, you'll notice that
-Peachtree storm is going to have lots of different recommendations for us along the
-way. Thanks to this file, you don't have to use this exact file, but I highly
-recommend having one of these. Now back in our products at JS, you can see that it's
-highlighted console and it says unexpected console statement, no console.
+## What is Vue?
 
-Because I have a rule that says I shouldn't be running console in my code because
-console is a debugging statement. Of course we're debugging right now, so it's no big
-deal. Alright, so we have a new entry. We have a new file. The last thing we need to
-do is actually include the JavaScript file on that page. So I'm gonna go to
-templates, products index to HTML twig, and I'm going to override the block called
-JavaScripts and block call parents. And then use the Encore industries script tags to
-load any script tags I need for my products entry. If you look in the base that each
-little twig, this is a pretty traditional application where I have a block style,
-she's on top and down here I have a blocked JavaScripts and then right now I'm
-loading the app, uh, entry files. So I'll do the same thing for the block style
-sheets. We're not having any style sheets right now, but eventually our intro
-bringing some style sheets. So overriding the block style sheets, and then we'll go
-say on Encore, Encore entry link tags.
+In the simplest sense, Vue is basically a templating engine written in JavaScript.
+Yea, that over-simplifies it a bit... but it's more or less true. In Symfony,
+if you go back to `ProductController`, we're used to using Twig. It's simple: we
+tell it what template to render and we can pass variables into that template.
 
-Okay,
+The Twig file itself is just HTML where we have access to a few Twig syntaxes,
+like `{{ variableName }}` to print something.
 
-perfect. Now we move over. Now before try this. Remember, because we just modified
-our Webpack config file again, we do need to go over and restart Encore so that it
-sees it. We're not going to do this too many more times, usually on the need to touch
-your Webpack file when you're first setting up. Now if I go over and refresh, let's
-go down to inspect, open up our console. And yes we've got a boring JavaScript file.
-Make me cooler, let's make this cooler. So as I mentioned, I want you to kind of
-think of his view as a front end templating engine templating engine in JavaScript.
-So instead of having a twin tablet, we're just gonna have a template inside of
-JavaScript. So first I'm going to say import view from view. That's going to give us
-the main view object. And this is going to be one of the very few steps that looks a
-little bit in different in view three, but it's, but the differences are minor and
-I'll show them then I want to say constant app = new view. And I'm gonna pass this
-some options. First option is going to be in L option pass too. Pass the pound sign
-app. This is actually telling it that it that it should render inside of our app
-element. And then we're gonna pass another thing called template. And here we can put
-any, anything. This is an HTML template. Let's put each one
+Vue works in much the same way: instead of Twig rendering a template with some
+variables, *Vue* will render a template with some variables. And the end-result
+will be the same: HTML. Of course, the one extra super power of Vue is that you
+can *change* the variables in JavaScript, and the template will automatically
+re-render.
 
-hello, have you? Okay. Is this cooler? And we'll close that up and that's it. So now
-I move over and refresh. It's alive. Okay. If you can get much cooler than this, but
-we have a working as a company engine. Next, let's add some dynamic data, see how our
-re renders, and then refactor this into what's called a single file components.
+## Creating a Target Element for Vue
 
-Okay.
+So instead of rendering all this stuff in Twig, delete it all and just add
+`<div id="app">`. That `id` could be anything: we're creating an empty element
+That Vue will render *into*.
 
+## Our Non-Single Page Application
+
+Now, what we're building will *not* be a single page application, and that's
+on purpose. Using Vue or React inside of a *traditional* web app is actually
+*trickier* than building a single page application. On our site, the homepage
+will soon contain a Vue app.. but the layout - as you can see - is still rendered
+in Twig. We also have a login page which is rendered completely with Twig and
+a registration page that's the same. We'll purposely use Vue for part of our
+site, but not for everything.
+
+## Creating a Second Webpack Entry
+
+Go back and open up `webpack.config.js` again. This has one entry called `app`.
+The purpose of `app` is to hold any JavaScript or CSS that's used across our entire
+site, like to power the layout. We actually don't have any JavaScript,
+but the `app.scss` contains the CSS for the body, header and other things. The
+`app` script and link tags are included on *every* page.
+
+But, our Vue app isn't going to be used one every page. So instead of adding our
+code to `app.js`, let's create a *second* entry and include it *only* on the pages
+that need our Vue app.
+
+Copy the first `addEntry()` line, paste, and rename it to `products` - because
+eventually the Vue app will render an entire product browser, viewing and purchasing
+section.
+
+Next, in `assets/js`, create that file: `products.js`. Let's start with something
+*exciting*: a `console.log()`:
+
+> Boring JavaScript file: make me cooler!
+
+## eslint
+
+Oh, we will. Before we keep move on, I'm going to open my PhpStorm settings and
+search for `ESLint`. Make sure "Automatic ESLint configuration" is selected.
+Because... I've already added a `.eslintrc` config file to the app. ESLint enforcing
+JavaScript coding standards and PhpStorm can automatically read this and highlight
+if we mess something else. I *love* it! We're using a few basic rule sets including
+one specifically for Vue. You definitely don't need to use this exact setup, but
+I *do* recommend having this file.
+
+Back in `products.js`, ha! *Now* PhpStorm is highlighting `console`:
+
+> Unexpected console statement (`no-console`)
+
+One of our rules says that we should use `console` because that's debugging code.
+Of course, we *are* debugging right now, so we can ignore that.
+
+Ok: we added a new entry and we created the new file. The last step is to include
+the `script` tag on our page. Open up `templates/products/index.html.twig`. Here,
+override a block called `javascripts`, call `parent()` and then I'll use an
+Encore shortcut - `encore_entry_script_tags()` - to render all the script tags
+needed for the `products` entry.
+
+If you look in the base template - `base.html.twig` - it's quite traditional:
+we have a `block stylesheets` on top and a block `javascripts` at the bottom.
+
+Back in our template, also override the `stylesheets` block and call
+`encore_entry_link_tags`. Eventually, we'll start using CSS in our `products`
+entry. When we do, this will render the link tags to the CSS files.
+
+Before we try this - because we just updated the `webpack.config.js` file - we
+need to restart Encore *one* more time:
+
+```terminal-silent
+yarn watch
+```
+
+When that finishes, move back over, refresh... then open your browser's debug
+tools. Got it! Our boring JavaScript file is alive!
+
+## Our First Vue Instance
+
+Yea, let's make it cooler! Back in `products.js`, start by importing Vue:
+`import vue from 'vue'`. This is one of the *few* parts that looks slightly
+different in Vue 3 - but the ideas are really the same.
+
+If you imagine that Vue is a templating engine - like Twig - then all we need
+to do is pass it some template code to render. And... that's *exactly* what we're
+going to do. Add `const vue = new Vue()` and pass this some options. The first
+is `el` set to `#app`. That tells Vue to render inside of the `id="app"` element.
+Then, pass one more option: `template`. This is the HTML template - just like a
+Twig template - except that, for now, we're going to literally add the HTML right
+here, instead of in a separate file:
+
+> `<h1>Hello Vue! Is this cooler?</h1>`
+
+That's... all we need! Moment of truth: find your browser and refresh. There it
+is! It's... kinda that simple! Next, let's make it more interesting by passing
+some *variables* to that template.
