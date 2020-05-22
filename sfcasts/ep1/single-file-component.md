@@ -1,60 +1,71 @@
 # Single File Component
 
-Coming soon...
+As we've seen, it's *totally* possible to configure the Vue instance and put the
+template in the same file. But... this is going to get *crazy* as our app grows:
+can you imagine writing 100 lines of HTML inside this string... or more? Fortunately,
+Vue solves in a unique, and gorgeous way: with single file components.
 
-you to organize all of your markup like this into little components. So I'm going to
-create, because I'm going to go into my `js/` directory here and create a new directory
-called `pages/`. Inside of there, I'm gonna create a new file called `products.vue`. 
+Inside the `js/` directory create a new folder called `pages/`, and then a file
+called `products.vue`. We'll talk more about the directory structure we're creating
+as we go along.
 
-now that's `.vue` extension. These are very special files that have a very special
-format to them. On top, I'm actually going to create a `<template>` tag. It's a very
-special thing inside of view. And then we'll go over here and copy my `<h1>` and
-delete my template variable.
+Notice the `.vue` extension: these are files aren't really JavaScript, they're a
+completely custom format that Vue invented.
 
-And then paste it here. And then down here I'm actually going to have a `<script>` tag.
-And inside the script tag I can write JavaScript. I'm gonna say `export default`. And
-we're going to export, `export default`, and we're going to export the options array
-that we have here. What a specifically I'm going to do is I'm gonna take this `data()`
-function and it's deleted out of our main components and move it over here. Now a
-high level, the syntax is a bit strange because it's specific to view, but it's
-really cool because we actually have a nice area up here where we can create our
-template in a nice area here where we can create our data and there's gonna be other
-things that we're gonna add there as well.
+## Creating the Single File Component
 
-And this is a file that I could actually work with instead of our `products.js` to
-use this, we can import it. `import App`, we'll say `App`. That's a pretty, it doesn't
-matter what that's called `from './pages/products`. And I don't need the `.vue`
-on the end of it because that's going to find that instantly. And then instead of
-view dot compile template that render we actually, to simplify this with `render()`
-`return h()` and then it's `App`.
+On top, add a `<template>` tag. Then, copy the `h1` HTML from the original file,
+delete the `template` variable, and paste it here.
 
-So this `h()` functions hypermedia has the ability where you can just pass it one of
-these single file components and it's just going to render it. So let's try that move
-over. Refresh ad we see absolutely no difference. So now things are starting to get
-organized,
+Next, add a `<script>` tag. Anything in here *is* JavaScript and we'll
+`export default` an object that will hold our Vue options. Copy the `data()` function,
+delete it, and move it here.
 
-which means we can start to focus on doing real work instead of this products that
-you file. Before we do, one thing I'm always going to put on these files is another
-option called `name` and it doesn't matter what it's called, I'm going to say `Products`
-here, something that helps you represent the file. The biggest reason you have his
-name, he here is that when you have an error, it's going to be easier to read because
-you're going to see that the error is coming from the products components. So always
-make sure you put a `name` key here to help you debug.
+That's it! I know, the format is a bit strange, but it's *super* nice to work with.
+On top, the `<template>` section allows us to write HTML just like if we were in
+a Twig template. And below, the `<scripts>` tag allows us to set up our data, as
+well as a bunch of other options we'll learn. This is a fully-functional Vue
+component.
 
-The other thing I'm gonna do is that you say this `el` option here, this tells VUE that
-it should attach itself to the `id="app"`, uh, element on a page. This, oops, this `el`
-option is totally legal, but a more common thing to see is instead of having an `el`
-option is to initialize, is to initialize the `Vue` object and then call a `.$mount()`
-method on it and then say Mount that to `#app` and it kind of makes more
-sense to me. So it's kind of create this, this, uh, this Vue object and now actually
-mounted into my DOM and when we refresh that make that works as well. And the last
-thing I'm going to do, and this is going to take us to fully the place where the way
-that you actually see Vue applications rendered is that because this `render()` function
-just returns a value, we can actually change, shorten the syntax here we can say
-`render:`  and that `h => h(App)`. So this is a short syntax for arrow function
-that's going to take an age argument and is going to return `h(App)`. So if we see
-that at first it might seem like that looks like a crazy function, but now we
-understand what that means and this time we move over, refresh. It works. All right,
-so next, let's get to work inside of our `products.vue` and really start to bring
-this thing to life.
+## Using the Single File Component
 
+Back in `products.js`, to use this, first, import it: `import App` - we could call
+that variable anything - `from './pages/products`. Thanks to Encore, we don't need
+to include the `.vue` extension.
+
+Now, inside of render, instead worrying about compiling the template, this `App`
+variable already has everything we need. Render it with `return h(App)`.
+
+That feels good! Let's try it: move over, refresh and... it looks *exactly* the
+same!
+
+## Adding a Component Name
+
+From here on out, we're going to do pretty much *all* our work inside of these
+`.vue` files - called single file components. One option that we're going to add
+to *every* component is `name`: set it to `Products`. We could use *any* name here:
+the purpose of this option is to help debugging: if we have an error, Vue will
+tell us that it came from the `Products` component. So, always include it, but it
+doesn't change how our app works.
+
+## $mount() the Component
+
+Before we keep working, there are two small changes I want to make to `products.js`.
+Firs, the `el` option tells Vue that it should render into the `id="app"` element
+on the page. This works, but you *usually* see this done in a different ways. Remove
+`el` and, after the `Vue` object is created, call `.$mount()` and pass it `#app`.
+
+I also like this better: we first create this `Vue` object - which is a template
+and set of data that's ready to go - and *then* choose where to mount it on the page.
+
+## Shorthand render() Method
+
+And second, because the `render()` method only contains a `return` line, we can
+shorten it: `render` set to `h => h(App)`.
+
+That's effectively the same: it uses the arrow function to say that render is
+a function that accepts an `h` argument and will return `h(App)`. I'm *mostly*
+making this change because this is how you'll see Vue apps instantiated on the web.
+
+Next, let's get to work inside our single file component: we'll add the HTML markup
+needed for our product list page and then learn how we can add styles.

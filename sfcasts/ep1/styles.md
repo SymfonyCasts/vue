@@ -1,117 +1,74 @@
-# Styles
+# CSS: Styling a Component
 
-Coming soon...
+Our main goal in this tutorial will be to build a rich product listing page inside
+of `products.vue`. To get that started, I'm going to replace the `h1` with some new
+markup - you can copy this from the code block on this page.
 
-In other words, inside of our single file component, we can really get to work. I'm
-going to start by pasting in some real, some more realistic markups. So I'm gonna
-replace the HTML completely with a whole bunch of new markup. You can copy this from
-the code block on this page, but I want you to see is that there's nothing special
-here. I'm not rendering any variables. This is 100% static HTML, but this is the HTML
-that's going to start to build out this product page. So if I refresh over here,
-there we go. So you have a cyber over here, products over here and to do low in some
-products. So it's a decent start.
+Notice that there is nothing special yet. We're not rendering any variables: this
+is 100% static HTML. If you refresh the page, ok! We have a sidebar on the left,
+and an area on the right where we will *eventually* list some products. Good start!
 
-Of course it's not very pretty. I mean there's some structure here. If you look back
-over in the HTML, I am using bootstrap classes and this works because in my `app.scss`
-this is a CSS file that's included in the layout. I'm including bootstrap. So I
-do have access to the global bootstrap classes. Um, so I've had some basic bootcamp
-classes and that is giving me some styling, but I want to put a little extra styling
-here on this sidebar that's specific to the sidebar. The question is how can I do
-that? We could of course go into `app.scss` and add some extra code here and that
-would be used some class here and that would be usable, um, inside of my Vue
-component. But since I'm adding, since I need to style things specifically in this
-component, we can actually embed the styles right here, check it out. I'm gonna add a
-`sidebar` class on this `<div>` right here
+## Global CSS and Vue Components
 
-and then it
+And, though it's not pretty, it *does* already have some styling. If you look back
+over the HTML I just pasted, the basic styling is thanks to some Bootstrap classes
+that are on the elements. This works because, in the `assets/scss/app.scss` file,
+we're importing Bootstrap and I've decided to include the built `app.css` file on
+every page. So, of course, when we use those classes in Vue, our HTML gets styled.
 
-technically matter where. But down on the bottom, there's a third special thing you
-can have in, in, uh, in these view files. You can have a `<template>` tag, a `<script>` tag,
-and you can also have a `<style` tag. Sauna. Put a `.sidebar` right there.
+## Custom Component style Section
 
-what's that? A sidebar. I'll give it a little `border: 1px solid...`. You can delete
-this. And then I'll put in a couple other things like a `box-shadow`. I'll put it in a
-couple of other things like a `box-shadow` and a `border-radius` without doing anything
-else. And I do want you to remember we are winning a yarn watch in the background, so
-it's constantly recompiling things. Suddenly when we go over to refresh that works
-and the reason it works is that when Webpack sees this, uh, file and sees the stock
-opponent it, it grabs the CSS and exports it into the `product.css`. So if I go to
-view page source, you can see we have a `/build/product.css` and whenever we add more
-styles to our components, it's going to pick them up and put them in that file for
-us. So it's not something that we even need to think about or worry about. It's
-awesome.
+But I also want to add some extra styling that's specific to the sidebar. The question
+is: where should that CSS live? We could, of course, add some classes to `app.scss`
+and then use those inside our Vue component.
 
-Okay, so this is awesome, but I do like using Sass. Have you noticed, and I already
-have Sass configured my project, if you look at `webpack.config.js` I already
-have, let's see down here, there we go `.enableSassLoader()` but should be able to use
-Sass on my project. And the reason I really, really don't want to use acid is
-honestly a little lazy. If you look at my `scss/components/` directory, I have a 
-`light-component.scss`, which is a mixin which actually contains this same code already. So I can
-just use this, mix it, then I wouldn't have to repeat it down here in the sidebar.
-I've already created something for this. All right, so to do that, surprise, it is
-going to be `lang="scss"` and it's that simple. Now I can do a normal `@include`,
-let's `../../scss/components`
+But Vue gives us a better option: because we want to style an element that's
+created in this component, Vue allows us to *also* put the styles right here.
 
- Oh my bad. `@import '../../scss/components/light-component'`. And
-then down here I can just say
+First, inside the `aside` element, give this `<div>` a new class called `sidebar`.
+Next, at the bottom - though it doesn't matter where - there is  *third* special
+section you can add to any `.vue` file: you can have a `<template>` tag, a
+`<script>` tag also a `<style>` tag. Inside, we're writing CSS: add `.sidebar`
+and let's give it a border, a `box-shadow` and a `border-radius`.
 
+And... that's it! Remember: we're still running `yarn watch` in the background,
+so Webpack is constantly re-dumping the built JavaScript and CSS files as we're
+working. Thanks to that, without doing *anything* else, we can refresh and...
+it works! The sidebar is styled!
+
+This works thanks to some team work between Vue and Webpack. When Webpack sees
+the `style` tag, it grabs that CSS and puts it into the entry file's CSS file,
+so `products.css`.
+
+View the page source: here's the `link` tag to `/build/product.css`. Whenever
+we add any styles to any component that this entry uses, Webpack will find those
+and put them in here. Like a lot of things with Webpack, it's not something you
+really even need to think about: it just works.
+
+## Using Sass Styles
+
+So this is awesome... but I *do* like using Sass. If you look at
+`webpack.config.js`, down here... yep! I've already added Sass support to Encore
+by adding `.enableSassLoader()`.
+
+Open up `assets/scss/components/light-component.scss`. This is a Sass mixin that
+already contains the exact CSS I just added manually. If we could use Sass code
+inside the `style` tag, we could import that and save us some duplication!
+
+And that's *totally* possible: add `lang="scss"`. It's that simple.
+
+Now that we're writing Sass we can
+`@import '../../scss/components/light-component'` and inside `.sidebar`,
 `@include light-component;`.
 
-Now move over to refresh. Hey, welcome. We have Sass. I'm going to use that.
+Let's try it! Back over on your browser, refresh and... we have Sass!
 
-and now that I have this, I'm actually going to use the nested syntax and Sass and
-paste in a little extra little hover status on those links. Go back and refresh and
-there it is. So being able to kind of put your styles right in here, where the
-component is. One of my favorite features and a little while we're gonna make this
-even fancy or something called modular CSS. But this works great.
+To finish off the styling, I'll use Sass's nesting syntax to add a hover state
+on the links. Now after we refresh... got it!
 
-Now back up to our template. As I mentioned, it's 100% hard coded. So let's make it a
-little bit more realistic. Let's pretend that this little shipping message down here
-is something that sometimes changes to a different message. So I'm going to copy that
-shipping message here. And then for `data()`, we'll get rid of our `firstname` data. We're
-not using that anymore. And we'll call this `legend` and then I'll paste it inside of
-there. It's not, I have one, a data called legend. And up here we already know how to
-use this. We can say `{{ legend }}`
+Being able to put your styles *right* inside the component file is one of my
+*favorite* features of Vue. And in a bit, we're going to do something even *fancier*
+with modular CSS.
 
-Beautiful. So when I go over and refresh, now you can see the exact same messages
-there on the bottom. It's working. Now, unlike last time when we first played with
-data, I set my entire view application onto a global variable so that we could play
-with it down here. Well that's not going to work now because this is, we're not
-setting any global variables anymore. Um, so at first it doesn't seem like there's a
-really easy way for me to play with this legend data to see if this is working. But
-actually
-
-there is, there's something called the Vue developer tools. It's a Chrome extension
-that I already have installed
-
-and as soon as you have a view application running you actually, because we just got
-to start, you need to close this and reopen it. Boom. This time whenever reopen it,
-it notices a view application that adds this view tab. And this is beautiful because
-they can see my `<Root>`, kind of the root of application. I can see my `<Products>`. When
-I click on this, you can see the `data`. This is an awesome way cause I can see all the
-data and we're going to see other parts of our application and we can even mess with
-it. Sexy. We have little plus icon. Put this in double quotes, put a little message
-there, hit the save icon and boom. This will be a powerful way to see our new
-application play with the data inside of it. Now before we move on to creating child
-components, there's one more thing I want to show you quickly related to data.
-
-Now notice that inside of our view options here, some of the keys are some of the
-properties here are just values and some of them like `data()` or functions. Now for data
-in particular because data returns a value, you're commonly gonna see a different
-syntax. I just want you to see it and you can choose whichever one you want and it
-looks like this `data: () => ` and `({` and then we're going to get rid of the `return`.
-Let's go with block. Funny until I finished and then `})`
-
-Well this is it. This is just a shortcut syntax. This says that the data property is
-set to arrow function and because I've used this parentheses here, it means that it
-returns this value. The value is implied. So because is a function, but data always
-just returns data. A lot of times you're going to see this shorter syntax. You can
-use whichever you want. There are some edge cases where you can't use the shorter
-syntax. Um, it's a little bit longer, but I actually prefer to use the consistent
-data, open parentheses, syntax. So I'm going to put that back, get rid of a couple of
-things. And of course now I need to add the extra return curly brace around legend.
-So we use it every nuance. And that's one of the tricky thing sometimes with modern
-JavaScript is you see a lot of fancy syntaxes just stop and think about what is this
-actually doing? It's probably not anything that impressive. All right, so we'll move
-on. Now things are still good. Let's next create a child component.
-
+Next, let's add some dynamic data back to our app and play with one of the *coolest*
+things in Vue: the developer tools.
