@@ -1,53 +1,65 @@
 # data() and Vue Dev Tools
 
-Coming soon...
+The template I pasted in is 100% hardcoded. Boring!
 
-Now back up to our template. As I mentioned, it's 100% hard coded. So let's make it a
-little bit more realistic. Let's pretend that this little shipping message down here
-is something that sometimes changes to a different message. So I'm going to copy that
-shipping message here. And then for `data()`, we'll get rid of our `firstname` data. We're
-not using that anymore. And we'll call this `legend` and then I'll paste it inside of
-there. It's not, I have one, a data called legend. And up here we already know how to
-use this. We can say `{{ legend }}`
+See this little "shipping" message down here? Let's pretend that sometimes we need
+this message to change - like maybe if the user is on the page for longer than 60
+seconds, we want our app to get desperate and change the shipping time to be faster.
 
-Beautiful. So when I go over and refresh, now you can see the exact same messages
-there on the bottom. It's working. Now, unlike last time when we first played with
-data, I set my entire view application onto a global variable so that we could play
-with it down here. Well that's not going to work now because this is, we're not
-setting any global variables anymore. Um, so at first it doesn't seem like there's a
-really easy way for me to play with this legend data to see if this is working. But
-actually
+The point is: we want this message to be dynamic, which means that it needs to
+to be a `data`. Copy the message. Then, in `dat()`, remove the `firstName` data:
+we're not using that anymore. Call the new data `legend` and set it to the string
+message.
 
-there is, there's something called the Vue developer tools. It's a Chrome extension
-that I already have installed
+And now that we have a `data` called legend, back up on the template, we can say
+`{{ legend }}`.
 
-and as soon as you have a view application running you actually, because we just got
-to start, you need to close this and reopen it. Boom. This time whenever reopen it,
-it notices a view application that adds this view tab. And this is beautiful because
-they can see my `<Root>`, kind of the root of application. I can see my `<Products>`. When
-I click on this, you can see the `data`. This is an awesome way cause I can see all the
-data and we're going to see other parts of our application and we can even mess with
-it. Sexy. We have little plus icon. Put this in double quotes, put a little message
-there, hit the save icon and boom. This will be a powerful way to see our new
-application play with the data inside of it. Now before we move on to creating child
-components, there's one more thing I want to show you quickly related to data.
+Beautiful! And if we move over to our browser and refresh... it even works!
 
-Now notice that inside of our view options here, some of the keys are some of the
-properties here are just values and some of them like `data()` or functions. Now for data
-in particular because data returns a value, you're commonly gonna see a different
-syntax. I just want you to see it and you can choose whichever one you want and it
-looks like this `data: () => ` and `({` and then we're going to get rid of the `return`.
-Let's go with block. Funny until I finished and then `})`
+## Vue Dev Tools
 
-Well this is it. This is just a shortcut syntax. This says that the data property is
-set to arrow function and because I've used this parentheses here, it means that it
-returns this value. The value is implied. So because is a function, but data always
-just returns data. A lot of times you're going to see this shorter syntax. You can
-use whichever you want. There are some edge cases where you can't use the shorter
-syntax. Um, it's a little bit longer, but I actually prefer to use the consistent
-data, open parentheses, syntax. So I'm going to put that back, get rid of a couple of
-things. And of course now I need to add the extra return curly brace around legend.
-So we use it every nuance. And that's one of the tricky thing sometimes with modern
-JavaScript is you see a lot of fancy syntaxes just stop and think about what is this
-actually doing? It's probably not anything that impressive. All right, so we'll move
-on. Now things are still good. Let's next create a child component.
+The *first* time we played with data, we set our entire Vue application onto a
+global variable do we could change the `firstName` data and watch our app update.
+It turns out, being able to see and play with the data on your components is a
+*pretty* handy way to debug. And fortunately, there's a much easier way to do this
+than to set a global variable.
+
+It's called the "Vue.js dev tools": it's a browser extension for Chrome or
+Firefox. If you don't already have it, install it - it's amazing.
+
+Once you have the dev tools... and once you're on a page that contains a Vue app
+running in dev mode, you can open your browser's debugging tools - I actually need
+to close and re-open mine so that it sees my Vue app - and... boom! See that new
+tab? Click it.
+
+I *love* this. On the left, it shows the component "hierarchy" of my app. In a few
+minutes, we're going to create *more* components and start nest them inside of each
+other, just like HTML. If you click on `<Products>`, ah: on the right, you can see
+the `data` for this component. *And* we can change its value: add quotes and replace
+this with whatever message is in your heart. When I hit the save icon... it updates!
+
+This will be a *powerful* way to visualize our app, see its data and even *change*
+data to see how things update.
+
+## The `data()` Function versus `data: () => {` Function
+
+Before we create our *second* component, I need to point out a small detail. We
+configure Vue by passing it options. Some of these options are set directly to
+values, while others - like `data()` are functions.
+
+And because the `data()` function is always just a `return` statement, you'll
+commonly see it using the shortcut, arrow syntax: `data: ()`, arrow, `({`, remove
+the `return` and fix the ending.
+
+Just like with the `render` shortcut we used in `products.js`, this is *effectively*
+the same: it says that the `data` property is set to a function that returns this
+object: the return is implied.
+
+You can use this if you want, but I'm going to revert to he original way. It's
+a bit longer, but I'll use this consistent syntax for *all* Vue options that are
+set to functions. The shorter syntax also has a limitation where you can't use
+the `this` variable - something that we *will* need later.
+
+Next: let's extract part of our product listing markup into a *second* component
+and include it from `Products`. This will start to show off one of Vue's key
+concepts: having multiple components that communicate to each other.
