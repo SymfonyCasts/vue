@@ -6,3 +6,4 @@ chapters:
     - styles
     - data-dev-tools
     - child-component
+    - props
