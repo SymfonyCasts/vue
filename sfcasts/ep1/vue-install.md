@@ -141,7 +141,7 @@ in Vue 3 - but the ideas are the same.
 
 If you imagine that Vue is a templating engine - like Twig - then all we should need
 to do is pass Vue some template code to render. And... that's *exactly* what we're
-going to do. Add `const vue = new Vue()` and pass this some options. The first
+going to do. Add `const app = new Vue()` and pass this some options. The first
 is `el` set to `#app`. That tells Vue to render inside of the `id="app"` element.
 Then, pass one more option: `template`. This is the HTML template - just like a
 Twig template - except that, for now, we're going to literally add the HTML right
