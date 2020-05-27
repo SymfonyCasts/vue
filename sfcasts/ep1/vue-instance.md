@@ -18,9 +18,13 @@ to ignore it until you finish: it's a bit overeager. Let's create one new "data"
 one new "variable" - to pass into the template: `firstName` set to `Ryan`. That's
 me!
 
+[[[ code('b3df2605bc') ]]]
+
 And now that we're passing a `firstName` variable into the template, we can say
 "Hello" and `{{ firstName }}`. Yes, by *complete* coincidence, Vue uses the same
 syntax as Twig to render things.
+
+[[[ code('82e6a3a417') ]]]
 
 Before we try this, ESLint is *still* mad at me. Sheesh! It says:
 
@@ -31,8 +35,12 @@ As I mentioned, some of the options you pass to Vue are set to values - like
 object like this, you can use a shorthand: `data() {`... which is just a lot more
 attractive.
 
+[[[ code('2888a73c6b') ]]]
+
 Oh, and at the bottom, temporarily add `window.app = app`. That will set our Vue
 `app` as a global variable, which will let us play with it in our console. Ready?
+
+[[[ code('85efcf92bc') ]]]
 
 Refresh! It rendered! But it gets better! In your browser's console, type
 `app.firstName`. You can *already* see that this equals Ryan! Any `data` key
@@ -52,6 +60,8 @@ and the `app =` code - we don't need that. ESLint will temporarily get mad becau
 it thinks it's weird that we're instantiating an object and not setting to a
 variable, but that's fine... and it'll go away in a little while.
 
+[[[ code('c484b06625') ]]]
+
 Behind the scenes, when Vue renders, it actually calls a `render()` method on
 the object, which you don't normally need to worry or care about. But to help
 this all make more sense, I want you to *see* what this method *looks* like one
@@ -62,6 +72,8 @@ it will call *our* function instead of rendering it internally for us. But insid
 I'm going to put the *exact* code that Vue normally runs:
 `return Vue.compile(this.$options.template)` - that's a special way to reference
 the `template` option here - `.render.call(this, h)`.
+
+[[[ code('40f1bb6f07') ]]]
 
 I know, that's *totally* crazy, and you will *never* need to type this in a real
 project. What this shows us is that Vue has a `compile()` function where you can
@@ -75,6 +87,8 @@ does exactly what Vue normally does. If you look at this, you might start to won
 why do we need a `template` option at all? We're just *reading* it in `render()`...
 so it could live anywhere. Let's try that! Remove the option, and, at the top,
 add `const template = ` the template string. In render, reference that local variable.
+
+[[[ code('df6ad1cf19') ]]]
 
 That should work, right? Let's find out. It totally does!
 
