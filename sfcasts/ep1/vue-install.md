@@ -12,6 +12,8 @@ JavaScript.
 To tell Webpack to parse vue files, open `webpack.config.js`. Near the bottom,
 though it doesn't matter where, add `.enableVueLoader()`.
 
+[[[ code('1fe51194a3') ]]]
+
 Yep! That's all you need. If you want to use Vue 3, you can pass an extra argument
 with a `version` key set to 3. Eventually, 3 will be the *default* version that
 Encore uses.
@@ -61,6 +63,8 @@ So instead of rendering this markup in Twig, delete all of it and just add
 `<div id="app">`. That `id` could be anything: we're creating an empty element
 that Vue will render *into*.
 
+[[[ code('568f21616e') ]]]
+
 ## Our Non-Single Page Application
 
 Now, what *we're* building will *not* be a single page application, and that's
@@ -87,10 +91,14 @@ Copy the first `addEntry()` line, paste, and rename it to `products` - because
 the Vue app will eventually render an entire product section: listing products,
 viewing one product and even a cart and checkout in the next tutorial.
 
+[[[ code('b758c51200') ]]]
+
 Now, in `assets/js`, create that file: `products.js`. Let's start with something
 *exciting*: a `console.log()`:
 
 > Boring JavaScript file: make me cooler!
+
+[[[ code('38f2e532ee') ]]]
 
 ## eslint
 
@@ -115,6 +123,8 @@ override a block called `javascripts`, call `parent()` and then I'll use an
 Encore function - `encore_entry_script_tags()` - to render all the script tags
 needed for the `products` entry.
 
+[[[ code('466433c8dc') ]]]
+
 If you look in the base template - `base.html.twig` - it's quite traditional:
 we have a `block stylesheets` on top and a block `javascripts` at the bottom.
 
@@ -122,6 +132,8 @@ Back in our template, also override the `stylesheets` block and call
 `encore_entry_link_tags`. Eventually, we'll start using CSS in our `products`
 entry. When we do, this will render the link tags to the CSS files that Encore
 outputs.
+
+[[[ code('acff8929d2') ]]]
 
 Before we try this - because we just updated the `webpack.config.js` file - we
 need to restart Encore *one* more time:
@@ -139,6 +151,8 @@ Let's... make it cooler with Vue! Back in `products.js`, start by importing Vue:
 `import vue from 'vue'`. This is one of the *few* parts that will look different
 in Vue 3 - but the ideas are the same.
 
+[[[ code('fc9c4c4bf4') ]]]
+
 If you imagine that Vue is a templating engine - like Twig - then all we should need
 to do is pass Vue some template code to render. And... that's *exactly* what we're
 going to do. Add `const app = new Vue()` and pass this some options. The first
@@ -148,6 +162,8 @@ Twig template - except that, for now, we're going to literally add the HTML righ
 here, instead of in a separate file:
 
 > `<h1>Hello Vue! Is this cooler?</h1>`
+
+[[[ code('1c2e0e6c58') ]]]
 
 That's... all we need! Moment of truth: find your browser and refresh. There it
 is! We just built our first Vue app in about 5 lines of code.
