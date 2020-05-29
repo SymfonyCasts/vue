@@ -7,3 +7,11 @@ chapters:
     - data-dev-tools
     - child-component
     - props
+    - v-bind
+    - modular-css
+    - hmr
+    - aliases
+    - v-for
+    - v-on
+    - instance-properties
+    - reactivity
