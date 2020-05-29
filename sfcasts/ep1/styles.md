@@ -4,6 +4,8 @@ Our main focus in this tutorial will be to build a rich product listing page ins
 of `products.vue`. To get that started, I'm going to replace the `h1` with some new
 markup - you can copy this from the code block on this page.
 
+[[[ code('1db999d1af') ]]]
+
 Notice that there is nothing special yet. We're not rendering any variables: this
 is 100% static HTML. If you refresh the page, ok! We have a sidebar on the left,
 and an area on the right where we will *eventually* list some products. Good start!
@@ -27,10 +29,15 @@ But Vue gives us a better option: because we want to style an element that's
 created in this *component*, Vue allows us to also put the *styles* in the component.
 
 First, inside the `aside` element, give this `<div>` a new class called `sidebar`.
+
+[[[ code('b670ae57de') ]]]
+
 Next, at the bottom - though it doesn't matter where - there is *third* special
 section that any `.vue` file can have: you can have a `<template>` tag, a
 `<script>` tag and also a `<style>` tag. Inside, we're writing CSS: add `.sidebar`
 and let's give it a border, a `box-shadow` and a `border-radius`.
+
+[[[ code('cec529c732') ]]]
 
 Styling done! Remember: we're still running `yarn watch` in the background,
 so Webpack is constantly re-dumping the built JavaScript and CSS files as we're
@@ -58,14 +65,20 @@ inside the `style` tag, we could *import* this and save ourselves some duplicati
 
 And that's *totally* possible: just add `lang="scss"`.
 
+[[[ code('e20c08dd34') ]]]
+
 Now that we're writing Sass we can
 `@import '../../scss/components/light-component'` and inside `.sidebar`,
 `@include light-component;`.
+
+[[[ code('64f77b9f86') ]]]
 
 Let's try it! Back over on your browser, refresh and... we have Sass!
 
 To finish off the styling, I'll use Sass's nesting syntax to add a hover state
 on the links. Now after we refresh... got it!
+
+[[[ code('fa4a28f713') ]]]
 
 Being able to put your styles *right* inside the component is one of my
 *favorite* features of Vue. And in a bit, we're going to do something even *fancier*
