@@ -3,6 +3,57 @@
 Our main focus in this tutorial will be to build a rich product listing page inside
 of `products.vue`. To get that started, I'm going to replace the `h1` with some new
 markup - you can copy this from the code block on this page.
+```
+<div class="container-fluid">
+        <div class="row">
+            <aside class="col-xs-12 col-3">
+                <div class="p-3 mb-5">
+                    <h5 class="text-center">
+                        Categories
+                    </h5>
+                    <ul class="nav flex-column mb4">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">All Products</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Category A</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Category B</a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+            </aside>
+            <div class="col-xs-12 col-9">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>
+                            Products
+                        </h1>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xs-12 col-6 mb-2 pb-2">
+                    TODO - load some products!
+                </div>
+            </div>
+
+            <div class="row">
+                <span class="p-3">
+                    Shipping takes 10-12 weeks, and products probably won't work
+                </span>
+            </div>
+
+        </div>
+    </div>
+```
 
 Notice that there is nothing special yet. We're not rendering any variables: this
 is 100% static HTML. If you refresh the page, ok! We have a sidebar on the left,
