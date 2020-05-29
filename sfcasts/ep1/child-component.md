@@ -1,4 +1,4 @@
-# Cretaing a Child Component
+# Creating a Child Component
 
 The `products.vue` file is known as a component. And, as we can see, a component
 represents a set of HTML, complete with CSS for that HTML and even *behavior*
