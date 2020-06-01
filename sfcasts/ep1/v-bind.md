@@ -1,87 +1,114 @@
-# V Bind
+# v-bind: Dynamic Attributes
 
-Coming soon...
+We added a `title` prop to legend to make it dynamic: whenever we use this component,
+we can pass it different text. But in this situation, I want to go one step further:
+I want to pretend that the legend text on this page needs to *change* while our
+app is running - like the shipping time magically starts to go down if the user is
+on the site for awhile.
 
-We added a `title` prop to legend so that we could pass this property into the legend
-component that allows us to reuse the legend opponent in multiple places and pass
-different texts each time that we use it by passing this `title` prop here. But in this
-situation, I want to go a little bit further. I want to pretend that this text here
-is actually something that we want to change while our app is running. What this is
-ultimately gonna be set to is our shipping message down here. Shipping takes 10 to 12
-weeks and we'll pretend that if the user maybe uses the site for longer than a
-minute, that we're actually going to change that shipping tax dynamically. The point
-is, we want this text here to change while our app is running and values that need to
-change why your app are running need to be data. Now we of course already have a
-legend at data down here. We're just temporarily not using it. So what we really want
-to do is we want to take this `data` that we already have on our products components
-and we want to pass that `data` as the `title` prop instead of having this hard coded
-text here.
+Whenever we need a value to change while our app is running, that value needs to
+be stored as `data`. In `products.vue`, we already have a `legend` data from earlier,
+but we're temporarily not using it. So what we really want to do is this: pass the
+`legend` data as the `title` prop, instead of having this hardcoded text.
 
-Okay? Easy enough. We know that anything that is set as `data` or `props` is available
-in our template. So let's go up here for title and we'll say `{{ legend }}`
-And it says to do that, you can see Webpack Encore up here is freaking out. If I go
-over and look, you can see it does not like that at all. It says interpolation inside
-attributes has been removed. Use V bind or the colon, uh, syntax and so forth and
-even gives you an example instead of `{{ val }}` use. `:id="val"`. Okay,
-so here's what's going on here. Basically the `{{ }}` syntax that we can
-absolutely use outside of the components can't, can't be used inside of an attribute.
-If you want to print something inside of an attribute, you need to do something
-slightly different for the attribute. You need to say `v-bind:`. And then
-inside the attribute, just the variable name.
+Okay: easy enough! We know that anything that in `data` or `props` is available
+in our template. So, for `title` attribute, or technically `prop`, say
+`title="{{ legend }}"`
 
-Let me do that.
+As *soon* as we do that, Webpack is *mad*! Go check out the terminal. Yikes, it
+doesn't like this syntax at all - it can't even *build* our assets. It says:
 
-It builds successfully before we talk about that lesson, move over, refresh and yes
-it works so you can see that our data here is set to the string. That data's passed
-into our `legend` prop so you can see that that matches there. Now the cool thing is we
-can actually modify that data
+> interpolation inside attributes has been removed. Use v-bind or the colon
+shorthand instead. For example, instead of `id="{{ val }}"`, use `:id="val"`.
 
-it updates, updates the prop value. The new prop was passed and it renders, so that
-is wonderful. All right, so let's go back and talk about this `v-bind` thing. There's
-was actually going to be several of these `v-` things that are special to view that
-we're going to talk about. `v-bind` is actually probably the most important one. Very
-simply. If you want an attribute to be set to a dynamic value, then you need to
-prefix it with `v-bind`. As soon as you do that, the attribute is no longer
-just HTML, like PB dash two up here. This is now JavaScript inside of here.
+That's an *awesome* error message.
 
-[inaudible]
+## Using v-bind for Dynamic Attributes
 
-in fact, check this out. We can say plus open quote and say, this is really
-JavaScript. We'll go over and refresh now. Yeah, so you can see you have, this is
-really a JavaScript is on the bottom. It's got our data and then it's got that
-dynamic part. So basically `v-bind` is what you're supposed to use when you need to
-set a dynamic, usually dynamic data or dynamic prop to a `title` attribute. For me, I
-honestly think of it like this. If I want to, if I want to use JavaScript inside of
-an attribute, it needs, I need to use `v-bind`. That's what transforms this year into
-allowing JavaScript. Now we're going to be doing this all the time. We're going to be
-constantly setting attributes to dynamic values. For that reason, view has a
-shortcut. Instead of `v-bind`, you can just say `:title`. That means the exact
-same thing that is still `v-bind`. So the way I think about it is basically if I
-have title it goes legend. That means that this is just going to be a legend string.
-As soon as I need this to be JavaScript, then I prefix it with `:`. The `:`
-basically allows my attributes to hold JavaScript from mover now and try it. It works
-perfectly.
+Basically, the `{{ }}` syntax that we've grown to know and love... can't be used
+inside of an attribute. If you need something dynamic in an attribute, you need to
+prefix the attribute with `v-bind:`. And then, inside the attribute, just use
+the variable name.
 
-Now speaking of props, there's one little tweak that I want to do inside of my legend
-component here. So remember in order for a `title` prop to be, in order for it to be
-allowed to pass to us, we had to add this props option here and basically say we have
-a `title` prop that we want to allow to be passed to us. Now if you'll hover over this,
-you can see the eslint says prop title should define at least its type. So in reality,
-in addition to saying we have a protocol type title, we can actually say this prop
-title is a string or a number and we can all say if it's required or not. So instead
-of using the erase index here, I'm going to use the objects in tax and set a `title`
-key and I'll set that to an object. And I'm going to put two keys here. I'm going to
-put `type` set to string. And then the other thing I can have here is `required` set to
-true. Oh he is Linda's mad cause I messed up my indentation. Thank you. Excellent.
+*Now* it builds successfully. Before we talk more about this, let's try it! Refresh
+and... it works! Over on the Vue dev tools, the `Products` component has a `legend`
+data... and it looks like the `Legend` component is *receiving* that as its `title`
+prop.
 
-Yeah.
+The *cool* thing is that if we modify the `legend` data - "Will ship slowly!" - the
+text updates! The modified data is passed as the `title` component and Vue re-renders.
+So while we never change a prop directly, if we change a data... and that data is
+passed to a prop, the prop *will* update to reflect that.
 
-Now part of this is this does not change how my app works in any way. It's just to
-help with my documentation. If we passed a number for the title, we would get an air
-thanks to the type. If we forgot to pass anything at all, which we can try over here
-temporarily, then we're going to get a better air. Cause it says missing required
-prop title. Remember these prompts are basically arguments, but since they're so
-dynamic, this is the actually the way that we allows us to serve type the arguments
-and say what type they are and whether they're required. All right, next, let's talk
-about something else. I'm not sure what it is.
+## v-bind is Full JavaScript
 
+Back at your editor, let's talk about this `v-bind` thing. There will actually
+be *several* of these `v-` things in Vue: they're used whenever Vue needs to do
+something special, including if statements and for loops. `v-bind` is probably the
+most important one. Very simply: if you want an attribute to be set to a dynamic
+value, you must prefix the attribute with `v-bind`.
+
+As *soon* as you do that, the attribute is no longer just text, like `pb-2` up
+here. We're now wriring *JavaScript* inside the attribute.
+
+I'll prove it: add `+` open quote and say
+
+> this is really JavaScript.
+
+And... when we try this... yea! That text shows up! It's a mixture of our data
+and that string.
+
+So... that's really it! `v-bind` is meant to "bind" an attribute to some dynamic
+value, often a data or prop. But honestly, I don't even think of it like that.
+I just think: if I want to use JavaScript inside of an attribute, I need to use
+`v-bind`.
+
+## The v-bind Colon Shorthand
+
+We're going to use this *all* the time: we're constantly going to be setting
+attributes to dynamic values. Vue understand this. And so, they've provided us
+with a nice shortcut. Instead of `v-bind:title`, just say `:title`.
+
+That means the exact same thing: it's still *really* `v-bind` behind the scenes.
+
+I like this a lot better. In my mind, an attribute without a `colon` is literally
+set to that string. Prefixing the attribute with `:` transforms it into JavaScript.
+
+Anyways, when we try it now it... of course, works brilliantly.
+
+## Specifying the *type* of a Prop
+
+While we're talking about the `legend` component, I want to make one small tweak
+to the `props` option. Remember: to *allow* a `title` prop to be passed to us,
+we needed to first define the prop here.
+
+If you hover over this, ESLint is mad:
+
+> prop `title` should define at least its type.
+
+In addition to just saying "please allow a prop called `title`", we can *also*
+tell Vue whether this prop should be a string, number, object, or something else
+*and* whether or not it's required.
+
+Change `props` to an object where `title` is a key. Set this to another object
+with two keys: `type` set to String and also `required` set to `true`. Valid types
+are things like String, Number, Boolean, Array, Object and a few others - all
+with upper case names.
+
+Oh, and ESLint is still mad because I messed up my indentation! Thanks!
+
+This won't change how our app *works*: it just helps to document our code *and*
+Vue will give us some nice validation. Back in `products.vue`, temporarily
+"forget" to pass the `title` prop.
+
+When we reload... error!
+
+> Missing required props: "title".
+
+Remember: props are basically arguments you pass to a component. But since they're
+*so* dynamic, *this* is the way that we, sort of, type-hint each prop and mark it
+as required or not. There's also a `default` option you can pass for optional
+props.
+
+Next: let's make our styles more hipster - *and* less likely to cause accidental
+side - effects - by using *modular* CSS.
