@@ -5,7 +5,7 @@ we can pass it different text. It's like an *argument* to the `legend` component
 
 But in this situation, I want to go one step further: I want to pretend that the
 legend text on this page needs to *change* while our app is running - like the
-shipping time magically starts decrease if the user is on the site for awhile...
+shipping time magically starts to decrease if the user is on the site for awhile...
 and we *really* want them to buy.
 
 Whenever we need a value to change while the app is running, that value needs to
@@ -14,7 +14,7 @@ but we're temporarily not using it. So what we really want to do is this: pass t
 `legend` data as the `title` prop, instead of the hardcoded text.
 
 Easy enough! We know that anything in `data` and `props` is available in our
-template. So, for `title` attribute, or technically `prop`, say
+template. So, for the `title` attribute, or technically `prop`, say
 `title="{{ legend }}"`
 
 As *soon* as we do that, Webpack is *mad*! Go check out the terminal. Yikes, it
@@ -43,7 +43,7 @@ re-renders it. So while *we* will *never* change a prop directly, if we change a
 
 ## v-bind is Full JavaScript
 
-Back at our editor, let's talk more about this `v-bind` thingy. There will actually
+Back at our editor, let's talk more about this `v-bind` thing. There will actually
 be *several* of these `v-` things in Vue: they're used whenever Vue needs to do
 something special, including if statements and for loops. `v-bind` is probably the
 most important one. Very simply: if you want an attribute to be set to a dynamic

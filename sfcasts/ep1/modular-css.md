@@ -39,7 +39,7 @@ Back on the main tab, if we inspect element... the `div` *still* has the normal
 Here's what's going on. When you add `module` to the `style` tag, Vue generates
 a random string that's specific to this *component* and adds that to the end of
 all class names. The *great* thing is that we can use generic class names like
-`sidebar` *without* worrying about affecting other parts of the page. Because...
+`sidebar` *without* worrying about affecting other parts of our page. Because...
 in the final CSS, the class name is *really* `sidebar_` then that random string.
 
 Of course, now that this is happening, we can't just say `class="sidebar"` in
@@ -56,7 +56,7 @@ I'm going to delete the `p-3 mb-5` classes temporarily... just to simplify.
 
 Ok: we no longer want to set the `class` attribute to a simple string: it needs to
 be dynamic. And whenever an attribute needs to contain a dynamic value, we prefix
-it with `:`, which is `v-bind` dressed up in its superhero costume.
+it with `:`, which is *really* `v-bind` dressed up in its superhero costume.
 
 *Now*, we're writing JavaScript. Use that new `$style` variable to say
 `$style.sidebar`.
