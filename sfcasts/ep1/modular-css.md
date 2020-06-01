@@ -1,85 +1,118 @@
-# Modular Css
+# Modular CSS
 
-Coming soon...
+I love that I can put my styles right inside the component. In `products.vue`,
+we render an element with a `sidebar` class... and then immediately - without going
+anywhere else - we're able to add the CSS for that. We *can* still have external
+CSS files with *shared* CSS, but for any styling that's *specific* to a component,
+it can live right there.
 
-I love that I can put my styles right inside my component. I love that. In this
-component here we have created a `sidebar` class and then immediately without going
-anywhere else down here, we are able to put the CSS for that. I love that, but
-there's something that you need to be careful with. The `sidebar` class is a pretty
-generic class name, so if I happen to put a sidebar, you have a `sidebar` class and a
-different component. This CSS might affect it. He's bent over and refresh your page.
-I'm going to view the page source and on top of you can see that here's our style
-sheet for `/build/products.css` and when you open it up it looks exactly like we
-expect. You can see the `sidebar` class. It's exactly the CSS that we have down here
-inside of our component. So yeah, if anything else has a `sidebar` class, this is going
-to conflict with it to solve this problem view or really the CSS world, because this
-is kind of a CSS problem, has two main solutions, scoped CSS or modular CSS. They're
-kind of two slightly different ways to solve the same problem. We are going to use
-modular CSS. What does that mean? It means that whenever we have a style type like
-this, we're going to add a little attribute here called `module`, and that's it.
+## CSS Name Conflicts
 
-If you go back over, now I'm going to leave this CSS file open. I'll close the source
-growing out and refresh. You can see that I actually lost the styling on my sidebar.
-And the reason is if I go back over to the CSS file and refresh that, check this out.
-Those class names are now weird at `.sidebar_` and then kind of this like random
-little string. But if we look, if we inspect element on our kind of like here, we
-still have a normal `sidebar` class here. So here's what happens when you add a modular
-to the CSS file here, it generates a random string that's specific to this module and
-then it adds it to the end of all the classes. So the great thing now is you can have
-this `sidebar` class, which is super generic, but in reality in the CSS file it's going
-to have this very specific thing. If we had a `sidebar` class in some other element CSS,
-it would have a different random string.
+But... we need to be careful. The class `sidebar` is a pretty generic name. If we
+accidentally add a `sidebar` class to *any* other component - or even to an element
+in our Twig layout - this CSS will affect it!
 
-The only trick is that now that this is happening, we can't just use the class
-sidebar up here. We need to find out what the actual dynamic name is of a sidebar.
+Find your browser, refresh, and open the HTML source. On top, here's our stylesheet:
+`/build/products.css`. Open that up. Yep! That's what I expected: a `.sidebar` class
+with the exact CSS from the component. It's easy to see that this CSS file would
+affect *any* element on the page with a `sidebar` class... whether we want it to
+or not.
 
-So as soon as you use modular CSS view makes a `style` variable available in your
-template, which is a map from the original class name like `sidebar` to the new dynamic
-class name. So temporarily I'm going to delete this `p-3 mb-5`. I'll put those back
-in a second and we basically want to do is we don't want to set the class now to just
-a string. We want to make it a dynamic value. And remember when we need an attribute
-to be dynamic value, we prefix it with `:`, which, which is actually a `v-bind`. Now
-inside of here we can use any variables that we have available. And as I mentioned,
-we have a new one called a `$style` and that here, because I `$style.sidebar`, so
-quite literally, and you'll notice that PHPStorm is, doesn't actually understand
-this, the modular CSS style variable, but this will work.
+## Hello Modular CSS
 
-So because we have a sidebar class down here, we are able to say style, that sidebar
-here, that doesn't affect how the CSS generates. But now when we refresh, our styling
-is back, because check this out, our DM gets that dynamic sidebar class. Of course,
-the other problem is that we remember we had two other classes here at `p-3 mb-5`.
-So it's kind of like how do I add those inside of here? You could do something like
-plus and then some space here, but you can see that's going to get pretty ugly. So
-instead the class syntax, it gives us another way class in addition to a string, you
-can actually pass it and array. So now we'll say `$style.sidebar` And then here we
-can just say `p-3` and `mb-5`.
+To solve this problem, Vue, well really, the CSS world - because this is a generic
+CSS problem - has created two solutions: scoped CSS and modular CSS. They're...
+two *slightly* different ways to solve the same problem and you can use either
+inside of Vue. We're going to use modular CSS.
 
-So now we use all those three classes. One of them is dynamic. I go over and refresh
-now. Perfect. It looks better so that's it. That's modular CSS. It's something that
-we're going to be using throughout the project and we'll learn a couple other tricks
-with it along the way. Now, one thing is you'll notice as you look at your Dom, it's
-not really clear like what element this is coming from cause it. Since that just has
-this random string in development mode like we are now, we can actually change this
-to include the component name just helps make it a little more obvious what elements
-are coming from what components to do that. Just totally optional. I'm going to go
-into `webpack.config.js` and it doesn't matter where down here after 
-`enableVueLoader()`, I'm going to paste in some code. You can get this code from this page.
-This is a little bit of a low level thing. Instead of Webpack, we configure something
-called the cssLoader, which is responsible for this CSS and this local identity name
-that has to do with modular CSS. This actually tells it to use basically the
-component name. Uh, and then there's the actual local sidebar value, and then still a
-random hash to give this to work when you did to spin over, hit control C, restart
-Encore.
+What does that mean? It means that whenever we have a `style` tag in a Vue component,
+we're going to include a special attribute called `module`.
+
+That's it. Back at your browser, leave the CSS file open, but close the HTML source
+and refresh the homepage. Woh! We *lost* our sidebar styling! It's a modular CSS
+feature, I promise!
+
+To see what's going on, go back to the tab with the CSS file and refresh. Woh.
+The class names *changed*: they're now `.sidebar_` and then a short random string.
+Back on the main tab, if we inspect element... the `div` *still* just has the normal
+`sidebar` class.
+
+Ok, here's what's going on. When you add `module` to the `style` tag, Vue generates
+a random string that's specific to this *component* and then adds that to the end
+of all class names. The *great* thing is that we can use generic class names like
+`sidebar` *without* worrying about affecting any other parts of the page. Because...
+in the final CSS, the class name is *really* `sidebar_` that random string.
+
+Of course, now that this is happening, we can't just say `class="sidebar"` up
+here anymore. We need to somehow use the *dynamic* name - the one that includes
+the random string.
+
+## Rendering the Dynamic CSS Class
+
+As soon as you add `module` to a `style` tag, Vue makes a *new* variable available
+in your template called `$style`, which is a map from the original class name -
+like `sidebar` - to the new dynamic class name - like `sidebar_abc123`.
+
+I'm going to delete the `p-3 mb-5` class temporarily to simplify. Ok: we no longer
+want to set the `class` attribute to a simple string: it needs to be dynamic. And
+whenever an attribute needs to contain a dynamic value, we prefix it with `:`,
+which is `v-bind` in disguisde.
+
+*Now*, we're writing JavaScript. Use that new `$style` variable to say
+`$style.sidebar`.
+
+Unfortunately, at this time, the Vue plugin in PhpStorm doesn't understand the
+`$style` variable, so it won't be much help here. But because we have a class
+called `sidebar` inside the `style` tag, we *can* say `$style.sidebar`.
+
+Let's try it! Move over, refresh and... we're back! Our class renders with the
+dynamic name.
+
+## The Powerful class Attribute Syntaxes
+
+Of course, it looks a *little* weird because our element is missing those two
+classes we remove. How can we add them here? We could do some ugly JavaScript,
+a plus, quote, space... but... come on! Vue almost *always* has a nicer way.
+
+In fact, Vue treats the `class` attribute special: instead of setting it to a string,
+you can *also* pass it an array. Now we can include `$style.sidebar` and the two
+static classes inside quotes: `p-3` and `mb-5`.
+
+That should do it! Back at the browser... much better.
+
+So that's modular CSS! We're going to use it throughout the project and we'll learn
+a *couple* more tricks along the way.
+
+## Controlling the "ident" (modular CSS Class Name)
+
+You may have noticed that, when you look at the DOM, it's not super clear which
+components the `sidebar` class is coming from - that random string doesn't tell
+us much. That's not a *huge* deal, but with a little config, we can make this
+friendlier in dev mode.
+
+Open up `webpack.config.js`. It doesn't matter where, but down here after
+`enableVueLoader()`, I'm going to paste in some code - you can get this from the
+code block on this page.
+
+I admit, this *is* a bit low-level. Inside of Webpack, the `css-loader` is what's
+responsible for understanding and processing styles. This `localIdentName` is
+how the random string is generated when using modular CSS. This tell it to use
+the component name, then the class name - like `sidebar` - and *then* a random
+hash. And we're only doing this in `dev` mode because when we build for production,
+we don't care what our class names look like.
+
+To make this take affect, at your terminal, hit Ctrl+C to stop Encore and restart
+it:
 
 ```terminal-silent
 yarn watch
 ```
 
-And once that finishes, I'll move back over to my browser. And first I'm gonna
-refresh the CSS on here so you can see what it looks like. There we go. That
-`product_sidebar_`. Then under this horse, something random. And of course if we
-refresh, refresh over here, it still uses that new class name. So in production it's
-going to use something shorter because we don't really care. But in development we
-nice have this nice new value. Next, let's start creating some more components and
-maybe also talk about the dev server.
+Once that finishes, I'll move back to my browser. First refresh the CSS file. Nice!
+The class name is `products_sidebar_` random string. And when we try the real page,
+it works too.
 
+Next, oh, we're going to try something that I'm *so* excited about. It's called
+"hot module replacement"... which is a pretty cool-sounding name that for something
+even cooler: the ability to make a change to our Vue code and see it in our browser,
+*instantly*, without even reloading. Woh.
