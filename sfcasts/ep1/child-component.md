@@ -40,8 +40,12 @@ way as before: add `<template>` and, inside, copy the `<span>` from `products.vu
 and paste. To keep things simple, I'm going to temporarily copy the old shipping
 message and hardcode it: the component will *start off* completely static.
 
+[[[ code('57030051fe') ]]]
+
 The other tag we need is `<script>` with `export default {}`. The *only* option
 that we should *always* have is `name`. Set it to `Legend`.
+
+[[[ code('f8e95836bb') ]]]
 
 ## Rendering a Component inside a Template
 
@@ -50,11 +54,15 @@ First: inside the `<script>` tag - just like we normally do in JavaScript - impo
 it: `import LegendComponent...` - we could call that anything -
 `from '../components/legend'`.
 
+[[[ code('e738a7bd6c') ]]]
+
 Second, to make this *available* inside the template, add a new option called
 `components`. As I've mentioned, there are a number of options that you can add
 here to configure Vue, like  `name`, `data()` and `components`. There aren't a
 *tons* of them - so don't worry - and we'll learn the most important ones
 little-by-little.
+
+[[[ code('b66e381d49') ]]]
 
 If we stopped now, *nothing* would change: this makes `LegendComponent` *available*
 to our template, but we're not using it. In fact, that's why ESLint is so mad at
@@ -66,6 +74,8 @@ The last step is to go to our template, remove the old code, and *use* the
 `LegendComponent` as if it were an HTML tag. Type `<`. You might be expecting me
 to say `<LegendComponent/>`... after all, PhpStorm *is* recommending that.
 Instead, use the kebab-case option: `<legend-component />`.
+
+[[[ code('49fc9fa2f4') ]]]
 
 Using `LegendComponent` *would* have worked, but when we add a key to `components`,
 like `LegendComponent`, Vue *also* makes it available in its kebab-case version:
