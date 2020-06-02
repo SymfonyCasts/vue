@@ -14,11 +14,15 @@ that component needs a `props` option. Set this to an array with one key for eac
 prop that an outside component should be able to pass. Call the one prop we need,
 how about, `title`.
 
+[[[ code('740c8be971') ]]]
+
 Thanks to this, any component that includes this component is now *allowed* to
 pass a `title` prop to it. We'll see what that looks like in a minute.
 
 To use these, Vue makes all `props` available as variables in the template. Replace
 the hardcoded text with `{{ title }}`.
+
+[[[ code('976af7f3ad') ]]]
 
 This component is now perfect: it says that it accepts a prop called `title` and
 then we use its value in the template. Lovely!
@@ -26,6 +30,8 @@ then we use its value in the template. Lovely!
 Back in `products.vue`, how can we *pass* that prop to `legend-component`? By
 adding an *attribute*: `title=""` and then whatever value you want, like
 `TODO PUT LEGEND HERE`.
+
+[[[ code('685e0f2a2c') ]]]
 
 ## props are Read-Only
 
