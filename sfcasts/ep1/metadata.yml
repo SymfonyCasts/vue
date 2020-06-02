@@ -9,6 +9,7 @@ chapters:
     - props
     - v-bind
     - modular-css
+    - dev-server
     - hmr
     - aliases
     - v-for
