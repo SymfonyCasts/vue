@@ -11,8 +11,12 @@ to be a `data`. Copy the message. Then, in `data()`, remove `firstName`: we're
 not using that anymore. Call the new data key `legend` and set it to the shipping
 message.
 
+[[[ code('d5999abf0f') ]]]
+
 Now that we have a `data` called legend, back up on the template, we're allowed
 to say `{{ legend }}`.
+
+[[[ code('d90e540993') ]]]
 
 Beautiful! And if we move over to our browser and refresh... it even works!
 
@@ -53,6 +57,8 @@ values, while others - like `data()` - are functions.
 And because the `data()` function is always just a `return` statement, you'll
 often see it written with the shortcut, arrow syntax: `data: ()`, arrow, `({`,
 remove the `return` and fix the ending.
+
+[[[ code('f64dcf1f66') ]]]
 
 Just like with the `render` shortcut we used in `products.js`, this is *effectively*
 the same: it says that the `data` property is set to a function that returns this
