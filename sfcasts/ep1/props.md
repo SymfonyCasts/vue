@@ -62,7 +62,7 @@ argument. The same is true in Vue: in a few minutes, we're going to pass the
 
 ## Props and Data are Available in Templates
 
-Oh, and one other things about `props` and `data`. In a template, all props are
+Oh, and one other thing about `props` and `data`. In a template, all props are
 available as variables, which means we can say `{{ title }}`.
 
 But you might remember that earlier, when we used the `legend` *data* in a template,
