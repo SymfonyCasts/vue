@@ -11,6 +11,7 @@ chapters:
     - modular-css
     - dev-server
     - hmr
+    - component-organization
     - aliases
     - v-for
     - v-on
