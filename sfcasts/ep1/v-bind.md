@@ -17,6 +17,8 @@ Easy enough! We know that anything in `data` and `props` is available in our
 template. So, for the `title` attribute, or technically `prop`, say
 `title="{{ legend }}"`
 
+[[[ code('b1531a2e19') ]]]
+
 As *soon* as we do that, Webpack is *mad*! Go check out the terminal. Yikes, it
 doesn't like this syntax at all - it can't even *build* our assets:
 
@@ -31,6 +33,8 @@ Basically, the `{{ }}` syntax that we've grown to know and love... can't be used
 inside an attribute. If you need a dynamic value in an attribute, you need to
 prefix the attribute with `v-bind:`. And then, inside the attribute, just use
 the variable name.
+
+[[[ code('5d567fb69f') ]]]
 
 *Now* it builds successfully. Before we talk more about this, let's try it! Refresh
 and... it works! Over on the Vue dev tools, the `Products` component has a `legend`
@@ -56,6 +60,8 @@ I'll prove it: add `+` open quote and say
 
 > this is really JavaScript.
 
+[[[ code('49f39bfa78') ]]]
+
 And... when we try this... yea! That text shows up! It's a mixture of our data
 and that string.
 
@@ -69,6 +75,8 @@ I just think: if I want to use JavaScript inside of an attribute, I need to use
 We're going to use this *all* the time: we're *constantly* going to be setting
 attributes to dynamic values. Vue understand this. And so, they've provided us
 with a nice shortcut. Instead of `v-bind:title`, just say `:title`.
+
+[[[ code('8147ec6520') ]]]
 
 That means the *exact* same thing: it's still *really* `v-bind` behind the scenes.
 
@@ -100,11 +108,15 @@ with two items: `type` set to String and `required` set to `true`. Valid types
 are things like String, Number, Boolean, Array, Object and a few others - all
 with upper case names.
 
+[[[ code('8f7fdc158b') ]]]
+
 Oh, and ESLint is still mad because I messed up my indentation! Thanks!
 
 This won't change how our app *works*: it just helps to document our code *and*
 Vue will give us some nice validation. Back in `products.vue`, temporarily
 "forget" to pass the `title` prop.
+
+[[[ code('641238ffa8') ]]]
 
 When we reload... error!
 
