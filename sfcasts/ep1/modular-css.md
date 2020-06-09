@@ -27,6 +27,8 @@ inside of Vue. We're going to use modular CSS.
 What does that mean? It means that whenever we have a `style` tag in a Vue component,
 we're going to include a special attribute called `module`.
 
+[[[ code('56634cd88a') ]]]
+
 That's it. Back at your browser, leave the CSS file open, but close the HTML source
 and refresh the homepage. Ah! We *lost* our sidebar styling! It's a modular CSS
 "feature", I promise!
@@ -61,6 +63,8 @@ it with `:`, which is *really* `v-bind` dressed up in its superhero costume.
 *Now*, we're writing JavaScript. Use that new `$style` variable to say
 `$style.sidebar`.
 
+[[[ code('7967540215') ]]]
+
 Unfortunately, at this time, the Vue plugin in PhpStorm doesn't understand the
 `$style` variable, so it won't be much help here. But because we have a class
 called `sidebar` inside the `style` tag, we *can* say `$style.sidebar`.
@@ -78,6 +82,8 @@ In fact, Vue has special treatment for the `class` attribute: instead of setting
 it to a string, you can *also* pass it an array. Now we can include `$style.sidebar`
 and the two static classes inside quotes: `p-3` and `mb-5`.
 
+[[[ code('e917d34769') ]]]
+
 That should do it! Back at the browser... much better.
 
 So... that's modular CSS! We're going to use it throughout the project and we'll
@@ -94,6 +100,8 @@ Open up `webpack.config.js`. It doesn't matter where, but down here after
 `enableVueLoader()`, I'm going to paste in some code. You can get this from the
 code block on this page.
 
+[[[ code('f5ec0c45e5') ]]]
+
 I admit, this *is* a bit low-level. Inside of Webpack, the `css-loader` is what's
 responsible for understanding and processing styles. This `localIdentName` is
 how the random string is generated when using modular CSS. This tell it to use
@@ -101,7 +109,7 @@ the component name, then the class name - like `sidebar` - and *then* a random
 hash. And we're only doing this in `dev` mode because when we build for production,
 we don't care what our class names look like.
 
-To make this take affect, at your terminal, hit Ctrl+C to stop Encore and then
+To make this take effect, at your terminal, hit Ctrl+C to stop Encore and then
 restart it:
 
 ```terminal-silent
