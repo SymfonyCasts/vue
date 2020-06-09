@@ -1,0 +1,13 @@
+diff --git a/webpack.config.js b/webpack.config.js
+index 2e3db046..c15b1c21 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -89,4 +89,8 @@ Encore
+     //.addEntry('admin', './assets/js/admin.js')
+ ;
+ 
++if (!Encore.isProduction()) {
++    Encore.disableCssExtraction();
++}
++
+ module.exports = Encore.getWebpackConfig();
