@@ -83,7 +83,7 @@ to allow https. If you're using the Symfony web server like we are, this is
 actually pretty easy - the `yarn dev-server` command just gets longer:
 
 ```terminal-silent
-yarn dev-server --hot --https --pfx=$HOME/.symfony/certs/default.p12
+yarn dev-server --https --pfx=$HOME/.symfony/certs/default.p12
 ```
 
 That tells the dev-server to allow https and to use the same SSL certificate
