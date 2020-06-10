@@ -1,102 +1,114 @@
-# Instance Properties
+# Magic "this" & its Properties
 
-Coming soon...
+The best and worst part of Vue is its magic. We already know that if you update
+a data key, Vue *somehow* knows that it needs to re-render. That's why we
+can play with data in the Vue dev tools, and the HTML automatically updates.
 
-The best and worst part of vue is that it is magic. We already know that if you have
-some data and you update that data, the template is going to rerender. That's why we
-can play with things in us, our vue console and they will automatically update.
+We even know that if we pass that data as a prop to a child component, Vue knows
+to re-render that too! We can see this on the `Catalog` component: it has a
+`legend` data... there it is... which we pass to the `legend-component` has the
+`title` prop. When we update the `legend` data inside `Catalog`, it updates
+the `title` prop *and* re-renders that component.
 
-We even know that if we update a data and one component that's passed to a prop as
-the other, look at this in catalog we have this `legend` data. We pass that as the
-title prop into our legend components. If we update that,
+*This* is what we love about Vue: once we get our data & props setup, it handles
+all the other details.
 
-it's going to update the catalog component and also update the legend component since
-we passed that into it so it handles all of this passing around the data and updating
-the templates for us, but actually the real magic of vue is not this re rendering
-stuff. I love that. That's great. The real magic of view is on the view instance, the
-`this` variable. When you're inside of a object, I want to take a few minutes to
-demystify and show you how have you worked behind the scenes. It's going to make
-everything else. We do make a lot more sense to start in sidebar, I'm going to add a
-new function here called `created()`. Now we're gonna talk more about this created
-function. This created function later, but basically if you have a function in your
-object called created, then view, we'll call this as soon as there. Your component is
-created so it's a way for you to run some code right when your instance is being
-created by vue. Inside here, I'm actually going to say `console.log(this)`.
+## console.log(this)
 
-We're doing this purely so that we can see what it looks like, what the this object
-looks like. All right, so we go over a lot of my console and there it is right there.
-You can actually see the `VueComponent`. All this refresh just to, oops, I'm going to
-refresh anyways just to kind of clear things out. There we go. It's a `VueComponent`
-with, it's an object with odd ton of properties on it. Now in view, if you're using
-Vue 3 instead of a `VueComponent` here, you're going to see something called a
-proxy. I want to talk about what a proxy is in a few minutes, but if you see that,
-click on the `target` sub property to see the real object. Now, as you can see, this
-object is just a bunch of properties,
+But... the *real* magic of Vue is no this re-rendering stuff. I *love* that part!
+The *real* magic of Vue is the Vue instance, the `this` variable. I want to take
+a few minutes to dive into the `this` variable. I promise, it will go a *long*
+way to helping you *truly* master Vue.
 
-Because going to go goes full of properties and methods and the vast majority of this
-stuff, you're never going to need to worry about view prefixes, things with dollar
-sign that you can technically use, but you probably won't need to. And it prefixes,
-things with_that are internal and that you shouldn't use in view three. Those are all
-under a single property called underscore. But if you look here, check this out.
-There is actually a property called `categories` in a property called `collapsed` that
-corresponds to our data. So that has, that explains why we can call while we can
-reference `this.collapsed` because the, `this` variable really does have a `collapsed`
-property on it. And actually if you look back here, there's also a method called
-`toggleCollapsed`. This is on the instance because under our methods here, we created
-a method called `toggleCollapsed`. Before I talk, I'm gonna. I'm gonna explain a
-little bit about how that happens. Before we do, I'm going to add one more thing
-here. Right now the sidebar doesn't have any `props`. I'm going to temporarily invent
-one. So I'm going to say `props:` and I'm going to create a new prop called `testProp`.
-And I'll set it's `type: String`. This is a matter and one of the things you can do
-with the profits and give it a `default` value. So I'm gonna say defaults. Let's say I
-am the default value
+Let's play around in the `Sidebar` component: Add a new option called `created`,
+which is a function. We're going to talk more about this `created()` function
+later. But basically, if you add an option called `created` to any component,
+Vue will automatically call that function when your instance is being created.
+We're going to use this as an easy way to dig into the `this` variable:
+`console.log(this)`.
 
-Perfect. Now if we go over here and look, now I'm going to scroll down all the way
-down here. There's my new `VueComponent` right there. And look down here, there. Now
-our `testProp` is also a property. So here's the big picture. We configure view by
-passing it to options. So you have an option here with a `name` key and `data()`. He
-created props and methods. So all we do is tell you what options we want. Behind the
-scenes view takes these options and creates a Vue object. If `VueComponent` object
-when it does that, it takes all of your keys and data, all of your keys and all of
-your props and all of your methods, and it adds those to the instance. So that when
-we're actually using the instance the `this` variable, we can say `this.collapsed`
-because that's the data. Or we can say `this.testProp`. That would work
-because we, and that would be referencing this property here. Or we could even say
-`this.toggleCollapse()`. We could call one of those methods directly because this is
-actually a method that was added to the instance.
+Let's go check it out! On my console... there it is! But I'll refresh anyways just
+to clear things out. Cool! It's a `VueComponent`: an object with... a *ton* of
+properties on it. If you're using Vue 3, instead of `VueComponent`, you'll see
+something called a Proxy. I'll about what a "Proxy" is in a few minutes, but for
+now, if you're using Vue 3, click the "Target" property to see the real object.
 
-so the first thing I understand is that vue does, this takes, there's options and
-sort of crease this final object for you with those with `data` `props` and `methods` set
-onto the actual object. And actually later, this will be one other thing that's added
-to the object called `computed` properties and they're added in the same way. Now that
-we understand this, we can demystify how the template works a little bit. So I'll put
-our tempo. We know that we can just magically reference `categories` because categories
-is a data or we can just magically referenced `toggleCollapse` because that is a
-method because we added that some methods in reality, whenever you reference a
-variable up inside your template, ultimately vue actually calls actually renders
-this, uh, executes as, as `this.` So this is really `this.toggleCollapse` and it's down
-here. It's really `this.collapsed`. Now you can't actually use the, `this` key word
-there, I'm just kind of showing you what happens behind the scenes. So let me show
-you this.
+## The Properties of this
 
-Did you go back and look at our vue object here? If you scroll down to the
-underscores, there's an internal property called `_uid`. This is internal. You shouldn't
-use it. It's just a little unique identifier for the component. But technically this
-means there's a, there's a property on this call `_uid`, which means that
-technically where we could go up in the center of template and say `{{ _uid }}`
-That should call `this._uid` in our object. And in fact it does
-categories seven. It was already six here. But if you look at the updated module down
-here, UID seven, and if you put a pro, I think property here, definitely not a real
-property.
+Ok, so `this` is an object with a bunch of properties... and the *vast* majority
+of these are things that you will never need to worry about. If a property starts
+with a `$`, you are technically allowed to use it, but you probably won't need
+to, except in more advanced situations. If a property starts with `_`, then it's
+meant to be internal and should *not* be used. In Vue 3, all of those keys live
+below a property called `_`.
 
-the error you get is really instructive. So I'll scroll down here. You can see view
-warning, property or method, definitely not a real property is not defined on the
-instance but was referenced during render. So it's telling you, Hey, this is not a
-property on the instance. The way you get a, the way you have a property on instance
-is by defining it either as `data` `props` `methods` or the `computed` properties that we'll
-talk about later. So now it makes sense. Those are all added to an instance and the
-template, we're actually effectively calling properties on that instance. That was
-one of the piece of magic that that this vue object gives us and it's called
-reactivity. And it's all about how view is smart enough to know that when we change
-data that it should automatically update. I want to talk about that next.
+Oh! But check this out: this *also* has a property called `categories` and another
+called `collapsed`! Those are the keys we have in `data`! That explains why we can
+reference `this.collapsed`: the `this` variable really *does* have a `collapsed`
+property! And if you look back at the log, the instance *also* has a method called
+`toggleCollapsed`. This is here because, under the `methods` option, we have
+one called `toggleCollapsed`.
 
+Before we talk more about this, let's try one more thing. Right now, sidebar
+doesn't have any `props`. Let's temporarily add one. Say `props:` and create one
+called `testProp` with `type: String`. One of the *other* things you can do here
+is give a prop a *default* value, in case it wasn't passed. Set this to a misspelled
+version of "I am the default value".
+
+Perfecto! Back on the browser, our code was already updated and... if we scroll
+down on the console... here's the latest log. Inside... yes! It now has a property
+called `testProp`.
+
+## How the "this" Object is Created
+
+Here's the big picture. We configure Vue by passing it a set of options, like
+`name`, `data`, `created`, `props` and `methods`. Behind the scenes, Vue takes
+these options and creates a Vue object - the object that's in the console.
+When it does that, it takes all of your keys from `data`, all of the keys from
+`props` *and* all of our `methods` and *adds* those to the instance! This is why
+we can say `this.collapsed` to reference the `collapsed` data or `this.testProp`
+to reference that prop. Heck, we can even say `this.toggleCollapsed()`! Our
+`methods` become *real* methods on the object.
+
+So the first thing I want you to understand is exactly this: Vue reads our options
+and uses them to create a Vue object where `data`, `props` and `methods` become
+*real* parts of that object. Later, we'll see one *more* option - called `computed`
+properties - that are included in the object in the same way.
+
+## Variables in the Template are called on this
+
+Now that we understand this, we can demystify how the template works. In the
+template, we know that we can magically reference `categories` because `categories`
+is in data. Or we can magically reference `toggleCollapsed` because that's a key
+under `methods`.
+
+But in reality, whenever you reference a variable or call a method in a template,
+Vue, sort of, prefixes that with `this.`. So the `@click` is really
+`this.toggleCollapse` and when we're referencing `collapsed`, it's really
+`this.collapsed`.
+
+Now you can't *actually* use the, `this` keyword in a template, but it *is*
+what's happening behind the scenes. And I can prove it!
+
+Back at our browser... if you scroll down, there's a property called `_uid`,
+or in Vue 3, it's `_.uid`. This is an internal, unique identifier for the component
+that we normally don't care about. But *technically*, because the instance has
+a property called `_uid`, we should, in theory, be able to say `{{ _uid }}`.
+If I'm telling the truth about Vue, this should call `this._uid` on the object.
+
+And... it does! Categories then "7"! Well, that value was 6 before, but when
+it re-rendered, `_uid` was 7.
+
+Let's try something else: print `definitelyNotARealProperty`. Back on the browser...
+the error is *wonderful*:
+
+> Property or method `definitelyNotARealProperty` is not defined on the *instance*
+> but was referenced during render.
+
+Vue is literally saying: this is not a property on the instance! And the way you
+*add* something to the instance is by defining it under `data`, `props`, `methods`
+or the `computed` option that we'll talk about later. Love it!
+
+Next, Vue has *one* other piece of magic I want to talk about called reactivity.
+It's all about how Vue is smart enough to re-render a template at the *instance*
+that we change a piece of data.
