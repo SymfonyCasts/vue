@@ -109,6 +109,11 @@ the component name, then the class name - like `sidebar` - and *then* a random
 hash. And we're only doing this in `dev` mode because when we build for production,
 we don't care what our class names look like.
 
+***TIP
+Actually, the `[name]` part will be the filename of the Vue component, not
+its name.
+***
+
 To make this take effect, at your terminal, hit Ctrl+C to stop Encore and then
 restart it:
 
