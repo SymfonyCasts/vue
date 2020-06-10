@@ -201,6 +201,11 @@
             "description": null
         },
         {
+            "id": "webpack-hrm",
+            "name": "webpack-hrm",
+            "description": null
+        },
+        {
             "id": "sidebar-create-the-sidebar-component",
             "name": "Sidebar: Create the Sidebar Component",
             "description": null
@@ -1546,5 +1551,5 @@
             "description": null
         }
     ],
-    "sha": "eeb761f1e8b8ee705224dc9c20de9889ba6429b1"
+    "sha": "d3a2fcae3d2ea1ce62c6206c02fea8a68596be28"
 }

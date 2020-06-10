@@ -34,6 +34,8 @@ This is easy to fix by disabling a feature in Encore. Let me show you. Open up
 Here, say if not `Encore.isProduction()` - a nice flag to see if we're building
 our assets for production or not - then `Encore.disableCssExtraction()`.
 
+[[[ code('02b0181969') ]]]
+
 CSS extraction means that any CSS that Webpack finds should be *extracted* into
 an external CSS file. That's why a `products.css` file is being output. When you
 *disable* CSS extraction, it tells Webpack *not* to do this anymore. Instead, it
