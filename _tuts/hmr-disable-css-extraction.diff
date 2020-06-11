@@ -1,0 +1,26 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 8b57c3de..42f3c9d1 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -78,7 +78,7 @@ export default {
+     ul {
+         li a:hover {
+             background: $blue-component-link-hover;
+-            background: pink;
++            background: green;
+         }
+     }
+ }
+diff --git a/webpack.config.js b/webpack.config.js
+index 2e3db046..c15b1c21 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -89,4 +89,8 @@ Encore
+     //.addEntry('admin', './assets/js/admin.js')
+ ;
+ 
++if (!Encore.isProduction()) {
++    Encore.disableCssExtraction();
++}
++
+ module.exports = Encore.getWebpackConfig();

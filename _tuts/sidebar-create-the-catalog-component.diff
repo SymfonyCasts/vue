@@ -1,9 +1,9 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
 new file mode 100644
-index 00000000..1c1f9e4e
+index 00000000..81be3cf1
 --- /dev/null
 +++ b/assets/js/components/catalog.vue
-@@ -0,0 +1,35 @@
+@@ -0,0 +1,37 @@
 +<template>
 +    <div>
 +        <div class="row">
@@ -34,8 +34,10 @@ index 00000000..1c1f9e4e
 +    components: {
 +        LegendComponent,
 +    },
-+    data: () => ({
-+        legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
-+    }),
++    data() {
++        return {
++            legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
++        };
++    },
 +};
 +</script>

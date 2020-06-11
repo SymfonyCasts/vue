@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index d8176caf..3761984d 100644
+index 307f84f4..3f3a1a41 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -32,7 +32,7 @@ export default {
-     data: () => ({
-         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
-     }),
+@@ -34,7 +34,7 @@ export default {
+             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
+         };
+     },
 -    mounted() {
 +    async mounted() {
          const response = await axios.get('/api/products');

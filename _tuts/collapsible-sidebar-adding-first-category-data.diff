@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 6ec47113..5aa253b7 100644
+index 6ec47113..c55882e4 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -11,17 +11,17 @@
@@ -29,22 +29,24 @@ index 6ec47113..5aa253b7 100644
              </li>
          </ul>
      </div>
-@@ -30,6 +30,18 @@
+@@ -30,6 +30,20 @@
  <script>
  export default {
      name: 'Sidebar',
-+    data: () => ({
-+        categories: [
-+            {
-+                name: 'Category A',
-+                link: '#',
-+            },
-+            {
-+                name: 'Category B',
-+                link: '#',
-+            },
-+        ],
-+    }),
++    data() {
++        return {
++            categories: [
++                {
++                    name: 'Dot Matrix Printers',
++                    link: '#',
++                },
++                {
++                    name: 'Iomega Zip Drives',
++                    link: '#',
++                },
++            ],
++        };
++    },
  };
  </script>
  

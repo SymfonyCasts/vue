@@ -1,10 +1,10 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 88f4cece..1568e012 100644
+index 63d5f1f5..43bfc700 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -57,11 +57,17 @@ export default {
-         categories: [],
-     }),
+@@ -59,11 +59,17 @@ export default {
+         };
+     },
      async created() {
 +        this.loading = true;
          this.categories = [];

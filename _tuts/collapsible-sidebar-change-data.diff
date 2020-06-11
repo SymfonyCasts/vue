@@ -1,13 +1,13 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index b1beafb6..a4233878 100644
+index 79e9c1bd..a4a70a1c 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -81,7 +81,7 @@ export default {
+@@ -61,7 +61,7 @@ export default {
      },
      methods: {
          toggleCollapsed() {
--            this.collapsed = !this.collapsed;
-+            this.$emit('toggle-collapsed');
+-            console.log('CLICKED!');
++            this.collapsed = !this.collapsed;
          },
      },
  };

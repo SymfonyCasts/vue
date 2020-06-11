@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 134b882a..1e1c38d4 100644
+index 6540d589..b1beafb6 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -43,8 +43,13 @@
+@@ -43,9 +43,14 @@
  <script>
  export default {
      name: 'Sidebar',
@@ -12,8 +12,9 @@ index 134b882a..1e1c38d4 100644
 +            required: true,
 +        },
 +    },
-     data: () => ({
--        collapsed: false,
-         categories: [
-             {
-                 name: 'Category A',
+     data() {
+         return {
+-            collapsed: false,
+             categories: [
+                 {
+                     name: 'Dot Matrix Printers',

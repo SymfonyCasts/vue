@@ -2,10 +2,10 @@ diff --git a/assets/js/checkout.js b/assets/js/checkout.js
 new file mode 100644
 index 00000000..e69de29b
 diff --git a/webpack.config.js b/webpack.config.js
-index 8fcea274..1568e839 100644
+index 50ff08ee..54531868 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
-@@ -33,6 +33,7 @@ Encore
+@@ -27,6 +27,7 @@ Encore
      .addEntry('app', './assets/js/app.js')
      .addEntry('products', './assets/js/products.js')
      .addEntry('shopping-cart', './assets/js/shopping-cart.js')

@@ -1,5 +1,5 @@
 diff --git a/webpack.config.js b/webpack.config.js
-index c15b1c21..ab3c27cc 100644
+index c15b1c21..5b7629b1 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
 @@ -1,4 +1,5 @@
@@ -8,16 +8,16 @@ index c15b1c21..ab3c27cc 100644
  
  // Manually configure the runtime environment if not already configured yet by the "encore" command.
  // It's useful when you use tools that rely on webpack.config.js file.
-@@ -14,6 +15,12 @@ Encore
-     // only needed for CDN's or sub-directory deploy
-     //.setManifestKeyPrefix('build/')
+@@ -35,6 +36,12 @@ Encore
+     // but, you probably want this, unless you're building a single-page app
+     .enableSingleRuntimeChunk()
  
 +    // This is our alias to the root vue components dir
 +    .addAliases({
-+        '@': path.resolve(__dirname, 'assets/js'),
-+        styles: path.resolve(__dirname, 'assets/scss'),
++        '@': path.resolve(__dirname, 'assets', 'js'),
++        styles: path.resolve(__dirname, 'assets', 'scss'),
 +    })
 +
      /*
-      * ENTRY CONFIG
+      * FEATURE CONFIG
       *

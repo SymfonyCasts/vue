@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index a268ccd9..f7d873f8 100644
+index a268ccd9..f7c41932 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -2,83 +2,26 @@
+@@ -2,83 +2,25 @@
      <div class="container-fluid">
          <div class="row">
              <aside class="col-xs-12 col-3">
@@ -78,7 +78,7 @@ index a268ccd9..f7d873f8 100644
      },
  };
  </script>
- 
+-
 -<style lang="scss" module>
 -@import '../../scss/components/light-component';
 -

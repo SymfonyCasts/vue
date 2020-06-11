@@ -1,12 +1,12 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index d96973a8..6a23f11d 100644
+index 5f667550..de90c1a1 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -34,6 +34,7 @@ export default {
-         LegendComponent,
+@@ -35,6 +35,7 @@ export default {
      },
-     data: () => ({
-+        /** @type {Product[]} */
-         products: [],
-         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
-     }),
+     data() {
+         return {
++            /** @type {Product[]} */
+             products: [],
+             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
+         };

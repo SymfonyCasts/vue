@@ -1,14 +1,15 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 3761984d..af0aba68 100644
+index 3f3a1a41..78ceb75a 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -30,12 +30,15 @@ export default {
-         LegendComponent,
+@@ -31,13 +31,16 @@ export default {
      },
-     data: () => ({
-+        products: [],
-         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
-     }),
+     data() {
+         return {
++            products: [],
+             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
+         };
+     },
      async mounted() {
 +        this.products = [];
 +

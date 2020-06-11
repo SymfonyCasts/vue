@@ -171,8 +171,8 @@
             "description": null
         },
         {
-            "id": "child-component-v-text",
-            "name": "Child Component: v-text",
+            "id": "child-component-delete-me-1",
+            "name": "Child component: delete me 1",
             "description": null
         },
         {
@@ -196,13 +196,23 @@
             "description": null
         },
         {
-            "id": "sidebar-create-the-catalog-component",
-            "name": "SideBar: Create The Catalog Component",
+            "id": "hmr-small-style-tweak",
+            "name": "HMR: small style tweak",
             "description": null
         },
         {
-            "id": "webpack-hrm",
-            "name": "webpack-hrm",
+            "id": "hmr-disable-css-extraction",
+            "name": "HMR: disable css extraction",
+            "description": null
+        },
+        {
+            "id": "hmr-remove-background",
+            "name": "HMR: remove background",
+            "description": null
+        },
+        {
+            "id": "sidebar-create-the-catalog-component",
+            "name": "SideBar: Create The Catalog Component",
             "description": null
         },
         {
@@ -251,6 +261,11 @@
             "description": null
         },
         {
+            "id": "collapsible-sidebar-button-with-v-text",
+            "name": "Collapsible Sidebar: button with v-text",
+            "description": null
+        },
+        {
             "id": "collapsible-sidebar-onclick-toggle",
             "name": "Collapsible Sidebar: OnClick Toggle",
             "description": null
@@ -258,6 +273,46 @@
         {
             "id": "collapsible-sidebar-click-shorthand",
             "name": "Collapsible Sidebar: @click shorthand",
+            "description": null
+        },
+        {
+            "id": "collapsible-sidebar-change-data",
+            "name": "Collapsible Sidebar: change data",
+            "description": null
+        },
+        {
+            "id": "vue-instance-add-created-to-log-this",
+            "name": "Vue instance: add created to log this",
+            "description": null
+        },
+        {
+            "id": "vue-instance-add-temporary-prop",
+            "name": "Vue instance: add temporary prop",
+            "description": null
+        },
+        {
+            "id": "vue-instance-print-uid",
+            "name": "Vue instance: print _uid",
+            "description": null
+        },
+        {
+            "id": "vue-instance-print-fake-prop",
+            "name": "Vue instance: print fake prop",
+            "description": null
+        },
+        {
+            "id": "vue-instance-remove-printing",
+            "name": "Vue instance: remove printing",
+            "description": null
+        },
+        {
+            "id": "vue-instance-log-categories",
+            "name": "Vue instance: log categories",
+            "description": null
+        },
+        {
+            "id": "vue-instance-remove-extra-stuff",
+            "name": "Vue instance: remove extra stuff",
             "description": null
         },
         {
@@ -1551,5 +1606,5 @@
             "description": null
         }
     ],
-    "sha": "d3a2fcae3d2ea1ce62c6206c02fea8a68596be28"
+    "sha": "2acbd4c888a69a5969995ee9bd2412e096e61dea"
 }

@@ -9,7 +9,7 @@ index 5a9d6cee..88da0017 100644
 -import '../scss/app.scss';
 +import 'styles/app.scss';
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 1c1f9e4e..8f0ab77d 100644
+index 81be3cf1..43d764ef 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -21,7 +21,7 @@
@@ -35,7 +35,7 @@ index 3ef3f137..6ec47113 100644
  .component {
      @include light-component;
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index f7d873f8..419509f4 100644
+index f7c41932..419509f4 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -13,8 +13,8 @@
@@ -49,11 +49,6 @@ index f7d873f8..419509f4 100644
  
  export default {
      name: 'Products',
-@@ -24,4 +24,3 @@ export default {
-     },
- };
- </script>
--
 diff --git a/assets/js/products.js b/assets/js/products.js
 index e82a9bda..790dbc03 100644
 --- a/assets/js/products.js
@@ -65,37 +60,3 @@ index e82a9bda..790dbc03 100644
  
  new Vue({
      render: (h) => h(App),
-diff --git a/assets/scss/app.scss b/assets/scss/app.scss
-index 819a5524..b2f35fee 100644
---- a/assets/scss/app.scss
-+++ b/assets/scss/app.scss
-@@ -1,6 +1,6 @@
--@import './components/black-component';
--@import './components/light-component';
--@import './variables/colors';
-+@import '~styles/components/black-component';
-+@import '~styles/components/light-component';
-+@import '~styles/variables/colors';
- @import '~bootstrap';
- @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
- 
-diff --git a/assets/scss/components/black-component.scss b/assets/scss/components/black-component.scss
-index dc43766e..a658b270 100644
---- a/assets/scss/components/black-component.scss
-+++ b/assets/scss/components/black-component.scss
-@@ -1,4 +1,4 @@
--@import '../variables/colors';
-+@import '~styles/variables/colors';
- 
- @mixin black-component {
-     background-color: $black-component-background;
-diff --git a/assets/scss/components/light-component.scss b/assets/scss/components/light-component.scss
-index 814d9312..154982ae 100644
---- a/assets/scss/components/light-component.scss
-+++ b/assets/scss/components/light-component.scss
-@@ -1,4 +1,4 @@
--@import '../variables/colors';
-+@import '~styles/variables/colors';
- 
- @mixin light-component {
-     border: 1px solid $light-component-border;

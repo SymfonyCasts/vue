@@ -1,22 +1,22 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 7db80dd8..b286db6d 100644
+index 4fba123a..1b11d93f 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -50,16 +50,7 @@ export default {
-         },
+@@ -51,16 +51,7 @@ export default {
      },
-     data: () => ({
--        categories: [
--            {
--                name: 'Category A',
--                link: '#',
--            },
--            {
--                name: 'Category B',
--                link: '#',
--            },
--        ],
-+        categories: [],
-     }),
+     data() {
+         return {
+-            categories: [
+-                {
+-                    name: 'Dot Matrix Printers',
+-                    link: '#',
+-                },
+-                {
+-                    name: 'Iomega Zip Drives',
+-                    link: '#',
+-                },
+-            ],
++            categories: [],
+         };
+     },
  };
- </script>

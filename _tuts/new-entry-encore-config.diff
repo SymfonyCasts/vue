@@ -1,8 +1,8 @@
 diff --git a/webpack.config.js b/webpack.config.js
-index ab3c27cc..8fcea274 100644
+index 5b7629b1..50ff08ee 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
-@@ -32,6 +32,7 @@ Encore
+@@ -26,6 +26,7 @@ Encore
       */
      .addEntry('app', './assets/js/app.js')
      .addEntry('products', './assets/js/products.js')

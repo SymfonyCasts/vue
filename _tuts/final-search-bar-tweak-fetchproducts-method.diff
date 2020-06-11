@@ -1,17 +1,17 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index a6cec1a7..cf2a6313 100644
+index 4c6f6fbc..4c83b3dd 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -55,7 +55,7 @@ export default {
-         legend: 'Shipping takes 10-12 weeks, and products probably won\'t work',
-     }),
+@@ -57,7 +57,7 @@ export default {
+         };
+     },
      created() {
 -        this.fetchProducts('');
 +        this.getProducts('');
      },
      methods: {
          /**
-@@ -64,15 +64,15 @@ export default {
+@@ -66,15 +66,15 @@ export default {
           * @param {string} term
           */
          onSearchProducts({ term }) {

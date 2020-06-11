@@ -35,13 +35,16 @@ index 586c4ffb..3090872e 100644
          /**
           * Toggles the sidebarCollapsed value
 diff --git a/assets/scss/app.scss b/assets/scss/app.scss
-index b2f35fee..4f5eb52d 100644
+index 819a5524..4f5eb52d 100644
 --- a/assets/scss/app.scss
 +++ b/assets/scss/app.scss
 @@ -1,6 +1,7 @@
- @import '~styles/components/black-component';
- @import '~styles/components/light-component';
- @import '~styles/variables/colors';
+-@import './components/black-component';
+-@import './components/light-component';
+-@import './variables/colors';
++@import '~styles/components/black-component';
++@import '~styles/components/light-component';
++@import '~styles/variables/colors';
 +@import '~styles/collapsible';
  @import '~bootstrap';
  @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');

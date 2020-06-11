@@ -1,0 +1,12 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index a268ccd9..8b57c3de 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -78,6 +78,7 @@ export default {
+     ul {
+         li a:hover {
+             background: $blue-component-link-hover;
++            background: pink;
+         }
+     }
+ }

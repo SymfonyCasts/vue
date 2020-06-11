@@ -1,0 +1,20 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index a5073e2a..a4a70a1c 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -59,15 +59,6 @@ export default {
+             ],
+         };
+     },
+-    props: {
+-        testProp: {
+-            type: String,
+-            default: 'I am the default value',
+-        },
+-    },
+-    created() {
+-        console.log(this, this.categories);
+-    },
+     methods: {
+         toggleCollapsed() {
+             this.collapsed = !this.collapsed;
