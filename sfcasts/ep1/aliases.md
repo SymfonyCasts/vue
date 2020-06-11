@@ -12,7 +12,7 @@ Open up your `webpack.config.js` file. It doesn't matter where... but I'll go af
 key called `@` set to `path.resolve()`.
 
 Oh, but stop right there: PhpStorm is mad! This `path` thing is a core Node module
-and we need to require it first. At the top: `const path = require('path')`.
+and we need to require it first. At the top: `var path = require('path')`.
 
 The `path.resolve()` function is the *least* important part of this whole process:
 it's a fancy way in Node to create a path. Pass it `__dirname` - that's a Node
