@@ -20,6 +20,8 @@ Then we *always* start the same - I *love* when things are boring! Add a
 The *minimum* we need here is `export default` an object. To help debugging, we
 always include at least a `name` key that identifies this component.
 
+[[[ code('5b57285b79') ]]]
+
 Nice start team! Let's go grab the parts that we want to move here. Let's see: I want
 the Products title, the area where that will list products and the legend.
 Basically, I want to move this entire `col-xs-12` div. But... I won't *exactly*
@@ -35,9 +37,13 @@ have *three* outer elements and... you won't be friends with Vue anymore! There
 a fragments plugin for Vue 2 if you really want to avoid this. But we'll keep the
 extra div.
 
+[[[ code('86430c0420') ]]]
+
 In the template, we're using `<legend-component />` so we need to import that just
 like we did before - `import LegendComponent from ./legend` - and add a `components`
 option with that inside.
+
+[[[ code('ac7a705c3a') ]]]
 
 Perfect: `LegendComponent` down here, allows us to use `legend-component` in the
 template.
@@ -45,6 +51,8 @@ template.
 The last thing we need is our data: this is the text that we pass to
 `LegendComponent`. Copy the `data()` function from `products.vue` and paste it
 here.
+
+[[[ code('97ddc7b4ec') ]]]
 
 Now we *could* have kept this `data` key in `products` and passed it into
 `catalog` as a prop. We're going to talk more later about *where* a piece of
@@ -58,11 +66,17 @@ let's immediately grab the elements we need. Like last time, I'm going to
 leave the `col-xs-12` here so that the parent component can determine the layout.
 Copy the `<div>` inside and paste it into `sidebar.vue`.
 
+[[[ code('c46c0ab3bc') ]]]
+
 Perfect! Next, the `<script>` tag with `export default`, `name: 'Sidebar'`
 and... that's all the config this component needs!
 
+[[[ code('5a1a18d0e7') ]]]
+
 But the sidebar *does* need one more thing: some styles. In `products.vue`, all
 the way at the bottom, copy the *entire* `style` tag and put it into `sidebar.vue`.
+
+[[[ code('f3ce2d2500') ]]]
 
 ## Cleaning up the Parent Component
 
@@ -72,8 +86,12 @@ be *so* satisfying. Remove the old import and replace it with
 also import `Sidebar` from `sidebar`. Add both of these to the
 `components` option to make them available in the template.
 
+[[[ code('df3e698837') ]]]
+
 Ready to delete some code? Remove *all* the sidebar markup and instead say:
 `<sidebar />`. Do the same for the 3 catalog divs: just `<catalog />`.
+
+[[[ code('a0f96fd6e6') ]]]
 
 In the component itself, if you look at `data()`, the `legend` key is no longer
 used directly in this component... so we can delete the whole function. Also remove
