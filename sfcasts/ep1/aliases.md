@@ -18,6 +18,8 @@ The `path.resolve()` function is the *least* important part of this whole proces
 it's a fancy way in Node to create a path. Pass it `__dirname` - that's a Node
 variable that means "the directory of this file" - then `assets` and finally `js`.
 
+[[[ code('866139d48f') ]]]
+
 Before I explain this, duplicate the line and create one more alias called `styles`
 that points at the `scss` directory. And... I don't need those quotes around `styles`.
 
@@ -42,18 +44,26 @@ Start in `products.vue`. Instead of `../`, which gets us up to the `js/`
 directory, we can say `@/components/catalog`... because `@` is an *alias* to the
 same directory.
 
+[[[ code('1837ea34f6') ]]]
+
 The nice thing is that if we move our code to a different directory, this path
 will keep working: `@` *always* points to the `js/` folder.
 
 We don't have to use this *everywhere*, but let's update a few other spots, like
 `catalog.vue`. Same thing: `@/components/legend`.
 
+[[[ code('c20a3fcfc1') ]]]
+
 And then in `sidebar.vue`, it's a bit different. Down in the `style` tag, we can
 use the `styles` alias. But when you're inside CSS code and want to use an alias,
 you need *one* extra thing: a `~` prefix. So in this case, `~styles/components`.
 
+[[[ code('1d7fc1ebee') ]]]
+
 Oh, and I totally messed up! You can see a build error from Webpack. When I set
 up the `styles` alias, the path *should* be `scss`, not `css`.
+
+[[[ code('0fbb8dff0f') ]]]
 
 Over at the terminal, here's the fully angry error: file to import not found or
 unreadable... because we gave it a bad path. I'll stop and restart Encore one more
@@ -66,8 +76,12 @@ yarn dev-server --hot
 Now... it's happy! Let's update two more files to get a feel for this. Open
 `products.js`. Instead of `./pages`, we can say `@/pages`.
 
+[[[ code('8b39b74e97') ]]]
+
 And one more in `app.js`. To load the CSS file, we can say `styles/` and then we
 don't the `scss` directory.
+
+[[[ code('0c939d6e91') ]]]
 
 But... maybe you were expecting me to say `~styles` like we did earlier?
 Here's the deal: when you're inside of a JavaScript file, you can just use the
