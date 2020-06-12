@@ -24,6 +24,8 @@ Copy this and create a second category. Oh! But I can't misspell the cool
 as modern: "Iomega Zip Drives". If you don't know what that is... you're
 definitely younger than I am.
 
+[[[ code('c3cc87a08f') ]]]
+
 ## Using v-for
 
 Now that our component has a data called `categories`, we have a variable called
@@ -40,6 +42,8 @@ a standalone tag, we put it right *on* the element that we want to loop.
 Check it out: I'll split the `<li>` onto multiple lines for readability, and then
 say `v-for="category in categories"`.
 
+[[[ code('5cb2fa2085') ]]]
+
 That *totally* custom syntax will loop over the `categories` data and make a new
 variable called `category` available inside the `li`.
 
@@ -50,10 +54,14 @@ I mean, `category.link`! I'll catch that mistake in a minute!
 But... this won't work yet because it would *literally* print that string.
 To make it *dynamic*, use `:href`.
 
+[[[ code('689244c236') ]]]
+
 Now the contents of the attribute are JavaScript, and `category.link` is perfectly
 *valid* JavaScript.
 
 Below, we can print the name with `{{ category.name }}`.
+
+[[[ code('14fac58bc1') ]]]
 
 That's it! I'll remove the other hardcoded `li`.
 
@@ -84,6 +92,8 @@ because we're looping over an array we invented, we can use the Array *index*.
 To get access to the array index, change the `v-for` to `category, index`. Now say `key="index"`. But... *once* again... this isn't *quite* what we want: this would
 set the `key` attribute to the *string* `index`. To make it dynamic, change it
 to `:key="index"`.
+
+[[[ code('517f182a67') ]]]
 
 Hey! Now we even get autocomplete!
 
