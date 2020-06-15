@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index 370204db..6f69530e 100644
+index 370204db..4af48029 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
 @@ -15,7 +15,7 @@
@@ -18,7 +18,7 @@ index 370204db..6f69530e 100644
 +    computed: {
 +        /**
 +         * Returns a formatted price for the product
-+         * @return {string}
++         * @returns {string}
 +         */
 +        price() {
 +            return (this.product.price / 100)

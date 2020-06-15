@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 852b9f60..2736d6dc 100644
+index 6c425631..950e1628 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -11,9 +11,11 @@
+@@ -10,9 +10,11 @@
              </aside>
  
              <div :class="contentClass">

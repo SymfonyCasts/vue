@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index da19061d..f6fca218 100644
+index 684e634e..66c74d00 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -13,7 +13,7 @@
@@ -27,9 +27,9 @@ index da19061d..f6fca218 100644
 -        },
 -    },
      async created() {
-         const url = this.currentCategoryId
-             ? `/api/products?category=${this.currentCategoryId}`
-@@ -88,6 +77,26 @@ export default {
+         this.loading = true;
+ 
+@@ -88,6 +77,28 @@ export default {
              this.searchTerm = event.term;
          },
  
@@ -41,16 +41,18 @@ index da19061d..f6fca218 100644
 +        async fetchProducts(searchTerm) {
 +            this.loading = true;
 +
++            let response;
 +            try {
-+                const response = await axios.get('/api/products', {
-+                    params: this.generateListingParams(searchTerm),
-+                });
++                response = await fetchProducts(this.generateListingParams(searchTerm));
 +
 +                this.loading = false;
-+                this.products = response.data['hydra:member'];
 +            } catch (e) {
 +                this.loading = false;
++
++                return;
 +            }
++
++            this.products = response.data['hydra:member'];
 +        },
 +
          /**

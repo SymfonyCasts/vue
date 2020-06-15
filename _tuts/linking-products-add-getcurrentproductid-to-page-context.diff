@@ -1,10 +1,10 @@
 diff --git a/assets/js/services/page-context.js b/assets/js/services/page-context.js
-index cc3592b3..6c2fd71e 100644
+index bc18cdc3..0f57ae96 100644
 --- a/assets/js/services/page-context.js
 +++ b/assets/js/services/page-context.js
-@@ -15,3 +15,12 @@ export function getCurrentCategoryId() {
- export function getCategories() {
-     return window.categories;
+@@ -6,3 +6,12 @@
+ export function getCurrentCategoryId() {
+     return window.currentCategoryId;
  }
 +
 +/**

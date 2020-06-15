@@ -1,0 +1,36 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index d826b162..81bfcf4d 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -76,10 +76,10 @@ export default {
+     async created() {
+         this.loading = true;
+ 
+-        this.categories = await fetchCategories();
++        const response = await fetchCategories();
+ 
+         this.loading = false;
+-        //this.categories = response.data['hydra:member'];
++        this.categories = response.data['hydra:member'];
+     },
+ };
+ </script>
+diff --git a/assets/js/services/categories-service.js b/assets/js/services/categories-service.js
+index b060f43d..bc9e7477 100644
+--- a/assets/js/services/categories-service.js
++++ b/assets/js/services/categories-service.js
+@@ -1,6 +1,12 @@
+ /**
+- * @return Array
++ * @return Promise
+  */
+ export function fetchCategories() {
+-    return window.categories;
++    return new Promise((resolve, reject) => {
++        resolve({
++            data: {
++                'hydra:member': window.categories,
++            },
++        });
++    });
+ }

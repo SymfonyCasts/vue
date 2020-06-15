@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 9af8db08..3ea72d5e 100644
+index 05616a92..7a3c7a1d 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -2,7 +2,10 @@
@@ -26,10 +26,10 @@ index 9af8db08..3ea72d5e 100644
      data() {
          return {
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 60213693..448c2639 100644
+index 5a37f1b0..b3875620 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -11,7 +11,10 @@
+@@ -10,7 +10,10 @@
              </aside>
  
              <div :class="contentClass">

@@ -1,16 +1,16 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 0db27565..3ffe62d7 100644
+index dbcc9ee6..7e4f1cd1 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -25,6 +25,7 @@ import Catalog from '@/components/catalog';
+@@ -24,6 +24,7 @@ import Catalog from '@/components/catalog';
  import Product from '@/components/product';
  import Sidebar from '@/components/sidebar';
- import { getCurrentCategoryId, getCategories, getCurrentProductId } from '@/services/page-context';
+ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 +import collapsible from '@/mixins/collapsible';
  
  export default {
      name: 'Products',
-@@ -33,6 +34,7 @@ export default {
+@@ -32,6 +33,7 @@ export default {
          Product,
          Sidebar,
      },

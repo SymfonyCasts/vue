@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index 8c5209cc..0e93141f 100644
+index 8b7d77f7..a673c56c 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
 @@ -39,6 +39,8 @@
@@ -12,7 +12,7 @@ index 8c5209cc..0e93141f 100644
      name: 'ProductCard',
      props: {
 @@ -53,8 +55,7 @@ export default {
-          * @return {string}
+          * @returns {string}
           */
          price() {
 -            return (this.product.price / 100)

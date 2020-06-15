@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index a1c5f761..7de71a3c 100644
+index eacd1f3e..de1d75f4 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -8,7 +8,7 @@
@@ -12,8 +12,8 @@ index a1c5f761..7de71a3c 100644
          </div>
  
 @@ -72,5 +72,10 @@ export default {
-             this.loading = false;
-         }
+ 
+         this.products = response.data['hydra:member'];
      },
 +    methods: {
 +        onSearchProducts(event) {

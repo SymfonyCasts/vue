@@ -586,6 +586,11 @@
             "description": null
         },
         {
+            "id": "categories-filter-don-t-repeat-key",
+            "name": "Categories Filter: don't repeat key",
+            "description": null
+        },
+        {
             "id": "better-loading-add-loading-data-property",
             "name": "Better Loading: Add loading data property",
             "description": null
@@ -598,6 +603,11 @@
         {
             "id": "better-loading-try-catch",
             "name": "Better Loading: Try catch",
+            "description": null
+        },
+        {
+            "id": "better-loading-safer-try-catch",
+            "name": "Better Loading: safer try\/catch",
             "description": null
         },
         {
@@ -641,6 +651,21 @@
             "description": null
         },
         {
+            "id": "categories-service-add-fetchcategories",
+            "name": "Categories Service: add fetchCategories()",
+            "description": null
+        },
+        {
+            "id": "categories-service-use-service",
+            "name": "Categories Service: use service",
+            "description": null
+        },
+        {
+            "id": "categories-service-add-products-service",
+            "name": "Categories Service: add products-service",
+            "description": null
+        },
+        {
             "id": "optimized-load-times-add-categoriesjson-to-controller",
             "name": "Optimized Load Times: Add categoriesJson to Controller",
             "description": null
@@ -651,28 +676,33 @@
             "description": null
         },
         {
-            "id": "optimized-load-times-getcurrentcategories-in-page-context",
-            "name": "Optimized Load Times: getCurrentCategories() in page-context",
+            "id": "optimized-load-times-use-global-var-in-categories-service",
+            "name": "Optimized Load Times: use global var in categories-service",
             "description": null
         },
         {
-            "id": "optimized-load-times-add-categories-prop",
-            "name": "optimized Load Times: Add categories prop",
+            "id": "optimized-load-times-update-code-for-fetchcategories",
+            "name": "Optimized Load Times: Update code for fetchCategories",
             "description": null
         },
         {
-            "id": "optimized-load-times-pass-props-in-templates",
-            "name": "Optimized Load Times: Pass Props in Templates",
+            "id": "optimized-load-times-return-tricky-promise",
+            "name": "Optimized Load Times: return tricky Promise",
             "description": null
         },
         {
-            "id": "optimized-load-times-remove-loading-from-sidebar",
-            "name": "Optimized Load Times: Remove Loading from Sidebar",
+            "id": "optimized-load-times-delete-me-5",
+            "name": "Optimized Load Times: delete me 5",
             "description": null
         },
         {
-            "id": "optimized-load-times-remove-created-from-sidebar",
-            "name": "Optimized Load Times: Remove created from Sidebar",
+            "id": "optimized-load-times-delete-me-6",
+            "name": "Optimized Load Times: delete me 6",
+            "description": null
+        },
+        {
+            "id": "optimized-load-times-delete-me-7",
+            "name": "Optimized Load Times: delete me 7",
             "description": null
         },
         {
@@ -1656,5 +1686,5 @@
             "description": null
         }
     ],
-    "sha": "a2cab39b1c85084d5ac7622da32b20f29a79a106"
+    "sha": "77ad6ec04e0b69002bd0fcf714e69d064f8f0aa5"
 }

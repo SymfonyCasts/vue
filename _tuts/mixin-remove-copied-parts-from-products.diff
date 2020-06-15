@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index b0ce4858..0db27565 100644
+index f817db42..dbcc9ee6 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -33,18 +33,7 @@ export default {
+@@ -32,18 +32,7 @@ export default {
          Product,
          Sidebar,
      },
@@ -21,7 +21,7 @@ index b0ce4858..0db27565 100644
          currentCategoryId() {
              return getCurrentCategoryId();
          },
-@@ -69,10 +58,5 @@ export default {
+@@ -65,10 +54,5 @@ export default {
                  };
          },
      },

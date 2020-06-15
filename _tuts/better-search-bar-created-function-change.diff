@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index f6fca218..829e0a1f 100644
+index 66c74d00..997cc1a5 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -56,21 +56,8 @@ export default {
@@ -7,20 +7,20 @@ index f6fca218..829e0a1f 100644
          };
      },
 -    async created() {
--        const url = this.currentCategoryId
--            ? `/api/products?category=${this.currentCategoryId}`
--            : '/api/products';
--
 -        this.loading = true;
 -
+-        let response;
 -        try {
--            const response = await axios.get(url);
+-            response = await fetchProducts(this.currentCategoryId);
 -
 -            this.loading = false;
--            this.products = response.data['hydra:member'];
 -        } catch (e) {
 -            this.loading = false;
+-
+-            return;
 -        }
+-
+-        this.products = response.data['hydra:member'];
 +    created() {
 +        this.fetchProducts('');
      },

@@ -1,16 +1,16 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 67813da0..0fb305df 100644
+index 7fe04d66..c4c0fb34 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -22,6 +22,7 @@
+@@ -21,6 +21,7 @@
  
  <script>
  import Catalog from '@/components/catalog';
 +import Product from '@/components/product';
  import Sidebar from '@/components/sidebar';
- import { getCurrentCategoryId, getCategories, getCurrentProductId } from '@/services/page-context';
+ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  
-@@ -29,6 +30,7 @@ export default {
+@@ -28,6 +29,7 @@ export default {
      name: 'Products',
      components: {
          Catalog,

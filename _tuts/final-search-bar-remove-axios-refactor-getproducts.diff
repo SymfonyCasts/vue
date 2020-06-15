@@ -1,24 +1,13 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 1ea14165..d45f48ef 100644
+index 5fc8c9e3..d7601ba3 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -24,7 +24,7 @@
- </template>
+@@ -78,7 +78,7 @@ export default {
  
- <script>
--import axios from 'axios';
-+import { fetchProducts } from '@/services/products-service';
- import LegendComponent from '@/components/legend';
- import ProductList from '@/components/product-list';
- import SearchBar from '@/components/search-bar';
-@@ -77,9 +77,7 @@ export default {
-             this.loading = true;
- 
+             let response;
              try {
--                const response = await axios.get('/api/products', {
--                    params: this.generateListingParams(searchTerm),
--                });
-+                const response = await fetchProducts(this.currentCategoryId, searchTerm);
+-                response = await fetchProducts(this.generateListingParams(searchTerm));
++                response = await fetchProducts(this.currentCategoryId, searchTerm);
  
                  this.loading = false;
-                 this.products = response.data['hydra:member'];
+             } catch (e) {
