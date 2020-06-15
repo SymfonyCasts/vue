@@ -11,11 +11,6 @@
             "description": null
         },
         {
-            "id": "vue-instance-delete-me1",
-            "name": "Vue Instance: delete me1",
-            "description": null
-        },
-        {
             "id": "vue-instance-create-dom-target-in-template",
             "name": "Vue Instance: create DOM target in template",
             "description": null
@@ -81,11 +76,6 @@
             "description": null
         },
         {
-            "id": "first-vue-component-delete-me-1",
-            "name": "First Vue Component: delete me 1",
-            "description": null
-        },
-        {
             "id": "first-vue-component-create-component",
             "name": "First Vue Component: Create Component",
             "description": null
@@ -103,11 +93,6 @@
         {
             "id": "first-vue-component-paste-more-css",
             "name": "First Vue Component: paste more css",
-            "description": null
-        },
-        {
-            "id": "first-vue-component-delete-me-2",
-            "name": "First Vue Component: delete me 2",
             "description": null
         },
         {
@@ -171,11 +156,6 @@
             "description": null
         },
         {
-            "id": "child-component-delete-me-1",
-            "name": "Child component: delete me 1",
-            "description": null
-        },
-        {
             "id": "modular-css-add-module-attribute",
             "name": "Modular CSS: add module attribute",
             "description": null
@@ -218,11 +198,6 @@
         {
             "id": "sidebar-create-the-sidebar-component",
             "name": "Sidebar: Create the Sidebar Component",
-            "description": null
-        },
-        {
-            "id": "sidebar-delete-me-2",
-            "name": "Sidebar: delete me 2",
             "description": null
         },
         {
@@ -426,18 +401,8 @@
             "description": null
         },
         {
-            "id": "products-listing-use-product-type-jsdoc",
-            "name": "Products Listing: use Product[] type jsdoc",
-            "description": null
-        },
-        {
             "id": "products-listing-first-product-list",
             "name": "Products Listing: First Product List",
-            "description": null
-        },
-        {
-            "id": "products-listing-delete-me-1",
-            "name": "Products Listing: delete me 1",
             "description": null
         },
         {
@@ -486,11 +451,6 @@
             "description": null
         },
         {
-            "id": "loading-state-delete-me-1",
-            "name": "Loading State: delete me 1",
-            "description": null
-        },
-        {
             "id": "loading-state-import-loading-component",
             "name": "Loading State: Import Loading Component",
             "description": null
@@ -516,18 +476,8 @@
             "description": null
         },
         {
-            "id": "laod-categories-add-type",
-            "name": "Laod Categories: add @type",
-            "description": null
-        },
-        {
             "id": "load-categories-correct-template",
             "name": "Load Categories: Correct Template",
-            "description": null
-        },
-        {
-            "id": "load-categories-delete-me",
-            "name": "Load Categories: delete me",
             "description": null
         },
         {
@@ -631,11 +581,6 @@
             "description": null
         },
         {
-            "id": "better-loading-delete-me-1",
-            "name": "Better Loading: delete me 1",
-            "description": null
-        },
-        {
             "id": "better-loading-sidebar-computed-prop",
             "name": "Better Loading: sidebar computed prop",
             "description": null
@@ -691,41 +636,6 @@
             "description": null
         },
         {
-            "id": "optimized-load-times-delete-me-5",
-            "name": "Optimized Load Times: delete me 5",
-            "description": null
-        },
-        {
-            "id": "optimized-load-times-delete-me-6",
-            "name": "Optimized Load Times: delete me 6",
-            "description": null
-        },
-        {
-            "id": "optimized-load-times-delete-me-7",
-            "name": "Optimized Load Times: delete me 7",
-            "description": null
-        },
-        {
-            "id": "optimized-load-times-delete-me-2",
-            "name": "Optimized Load Times: delete me 2",
-            "description": null
-        },
-        {
-            "id": "optimized-load-times-delete-me-3",
-            "name": "Optimized Load Times: delete me 3",
-            "description": null
-        },
-        {
-            "id": "optimized-load-times-delete-me-4",
-            "name": "Optimized Load Times: delete me 4",
-            "description": null
-        },
-        {
-            "id": "optimized-load-times-delete-me-1",
-            "name": "Optimized Load Times: delete me 1",
-            "description": null
-        },
-        {
             "id": "title-component-create-component",
             "name": "Title Component: Create Component",
             "description": null
@@ -751,16 +661,6 @@
             "description": null
         },
         {
-            "id": "first-search-bar-delete-me-1",
-            "name": "First Search Bar: delete me 1",
-            "description": null
-        },
-        {
-            "id": "first-search-bar-delete-me2",
-            "name": "First Search Bar: delete me2",
-            "description": null
-        },
-        {
             "id": "first-search-bar-create-skeleton-component",
             "name": "First Search Bar: Create Skeleton component",
             "description": null
@@ -771,16 +671,6 @@
             "description": null
         },
         {
-            "id": "first-search-bar-delete-me-2",
-            "name": "First Search Bar: delete me 2",
-            "description": null
-        },
-        {
-            "id": "first-search-bar-delete-me-4",
-            "name": "First Search Bar: delete me 4",
-            "description": null
-        },
-        {
             "id": "first-search-bar-add-v-model",
             "name": "First Search Bar: Add v-model",
             "description": null
@@ -788,36 +678,6 @@
         {
             "id": "first-search-bar-add-watcher",
             "name": "First Search Bar: Add Watcher",
-            "description": null
-        },
-        {
-            "id": "deleted-step-4",
-            "name": "deleted step 4",
-            "description": null
-        },
-        {
-            "id": "deleted-step-5",
-            "name": "deleted step 5",
-            "description": null
-        },
-        {
-            "id": "deleted-step-6",
-            "name": "deleted step 6",
-            "description": null
-        },
-        {
-            "id": "deleted-step-7",
-            "name": "deleted step 7",
-            "description": null
-        },
-        {
-            "id": "deleted-step-2",
-            "name": "deleted step 2",
-            "description": null
-        },
-        {
-            "id": "deleted-step-3",
-            "name": "deleted step 3",
             "description": null
         },
         {
@@ -858,11 +718,6 @@
         {
             "id": "better-search-bar-hipster-event-arg",
             "name": "Better Search Bar: hipster event arg",
-            "description": null
-        },
-        {
-            "id": "deleted-step",
-            "name": "deleted step",
             "description": null
         },
         {
@@ -913,11 +768,6 @@
         {
             "id": "v-input-search-bar-event-handler",
             "name": "V-Input Search Bar: event handler",
-            "description": null
-        },
-        {
-            "id": "v-input-search-bar-delete-me-1",
-            "name": "V-Input Search Bar: delete me 1",
             "description": null
         },
         {
@@ -1046,11 +896,6 @@
             "description": null
         },
         {
-            "id": "deleted-step-9",
-            "name": "Deleted Step 9",
-            "description": null
-        },
-        {
             "id": "basic-product-page-remove-computed-property-from-title",
             "name": "Basic Product Page: Remove computed property from Title",
             "description": null
@@ -1116,51 +961,6 @@
             "description": null
         },
         {
-            "id": "deleted-step-10",
-            "name": "deleted step 10",
-            "description": null
-        },
-        {
-            "id": "deleted-step-11",
-            "name": "deleted step 11",
-            "description": null
-        },
-        {
-            "id": "deleted-step-12",
-            "name": "deleted step 12",
-            "description": null
-        },
-        {
-            "id": "deleted-step-13",
-            "name": "deleted step 13",
-            "description": null
-        },
-        {
-            "id": "deleted-step-14",
-            "name": "deleted step 14",
-            "description": null
-        },
-        {
-            "id": "deleted-step-15",
-            "name": "deleted step 15",
-            "description": null
-        },
-        {
-            "id": "deleted-step-16",
-            "name": "deleted step 16",
-            "description": null
-        },
-        {
-            "id": "deleted-step-17",
-            "name": "deleted step 17",
-            "description": null
-        },
-        {
-            "id": "deleted-step-18",
-            "name": "deleted step 18",
-            "description": null
-        },
-        {
             "id": "product-colors-color-service",
             "name": "Product Colors: Color service",
             "description": null
@@ -1176,11 +976,6 @@
             "description": null
         },
         {
-            "id": "deleted-step-19",
-            "name": "deleted step 19",
-            "description": null
-        },
-        {
             "id": "product-colors-color-selector-styles",
             "name": "Product Colors: Color Selector styles",
             "description": null
@@ -1188,11 +983,6 @@
         {
             "id": "product-colors-import-color-selector",
             "name": "Product Colors: Import Color Selector",
-            "description": null
-        },
-        {
-            "id": "product-colors-add-data",
-            "name": "Product Colors: Add data",
             "description": null
         },
         {
@@ -1281,11 +1071,6 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-correct-references",
-            "name": "Shopping Cart Listing: Correct References",
-            "description": null
-        },
-        {
             "id": "shopping-cart-listing-shopping-cart-template",
             "name": "Shopping Cart Listing: Shopping Cart template",
             "description": null
@@ -1293,11 +1078,6 @@
         {
             "id": "shopping-cart-listing-add-loading-component",
             "name": "Shopping Cart Listing: Add Loading Component",
-            "description": null
-        },
-        {
-            "id": "deleted-step-20",
-            "name": "deleted step 20",
             "description": null
         },
         {
@@ -1431,11 +1211,6 @@
             "description": null
         },
         {
-            "id": "deleted-step-21",
-            "name": "deleted step 21",
-            "description": null
-        },
-        {
             "id": "more-shopping-cart-add-functionality-to-updateqty",
             "name": "More Shopping Cart: Add functionality to updateQty",
             "description": null
@@ -1453,11 +1228,6 @@
         {
             "id": "clear-and-checkout-buttons-template",
             "name": "Clear and Checkout: Buttons Template",
-            "description": null
-        },
-        {
-            "id": "deleted-step-22",
-            "name": "deleted step 22",
             "description": null
         },
         {
@@ -1543,11 +1313,6 @@
         {
             "id": "checkout-form-correct-template",
             "name": "Checkout Form: Correct template",
-            "description": null
-        },
-        {
-            "id": "deleted-step-23",
-            "name": "deleted step 23",
             "description": null
         },
         {
