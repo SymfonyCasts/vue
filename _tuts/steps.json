@@ -631,13 +631,13 @@
             "description": null
         },
         {
-            "id": "better-loading-sidebar-loading-data",
-            "name": "Better Loading: Sidebar loading data",
+            "id": "better-loading-delete-me-1",
+            "name": "Better Loading: delete me 1",
             "description": null
         },
         {
-            "id": "better-loading-sidebar-created-method",
-            "name": "Better Loading: Sidebar Created Method",
+            "id": "better-loading-sidebar-computed-prop",
+            "name": "Better Loading: sidebar computed prop",
             "description": null
         },
         {
@@ -1686,5 +1686,5 @@
             "description": null
         }
     ],
-    "sha": "77ad6ec04e0b69002bd0fcf714e69d064f8f0aa5"
+    "sha": "405e23f6119dd401afb4efb8b56c4ac80a3d40d2"
 }

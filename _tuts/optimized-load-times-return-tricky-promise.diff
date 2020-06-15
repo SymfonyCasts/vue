@@ -1,15 +1,14 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index d826b162..81bfcf4d 100644
+index cf53a895..fd9a3b23 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -76,10 +76,10 @@ export default {
+@@ -78,9 +78,9 @@ export default {
+         },
+     },
      async created() {
-         this.loading = true;
- 
 -        this.categories = await fetchCategories();
 +        const response = await fetchCategories();
  
-         this.loading = false;
 -        //this.categories = response.data['hydra:member'];
 +        this.categories = response.data['hydra:member'];
      },
