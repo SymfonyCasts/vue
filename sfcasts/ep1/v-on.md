@@ -23,12 +23,12 @@ Let's update the template to use this. Add a `style` attribute. Basically, if
 referencing the `collapsed` variable right now because we need to add the `:` in
 front of `:style` to make it dynamic.
 
-To set the width, we *could* put `width:` in quotes - I'm missing the quotes actually,
-then end quote, plus, and some dynamic logic that uses the `collapsed` variable.
-But... yuck! Because the `style` attribute can get complex, instead of creating
-a long string of styles, Vue allows us to set this to an object with a key for
-each style, like `width: '500px'` and `margin: '10px'`. In our case, I'll use the
-ternary syntax: if `collapsed` is true, set the width to `70px`, else use `auto`.
+To set the width, we *could* put `width:` in quotes then end quote, plus, and 
+some dynamic logic that uses the `collapsed` variable. But... yuck! Because the 
+`style` attribute can get complex, instead of creating a long string of styles, 
+Vue allows us to set this to an object with a key for each style, like `width: '500px'` 
+and `margin: '10px'`. In our case, I'll use the ternary syntax: if `collapsed` is true, 
+set the width to `70px`, else use `auto`.
 
 Ok! We have a `collapsed` data and we're using it in the template. Testing time!
 In the Vue dev tools, click on Sidebar, change `collapsed` to `true` and...
