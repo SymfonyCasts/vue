@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 43bfc700..102e1324 100644
+index d7340e53..1923a44d 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -42,9 +42,13 @@
+@@ -48,9 +48,13 @@
  
  <script>
  import axios from 'axios';

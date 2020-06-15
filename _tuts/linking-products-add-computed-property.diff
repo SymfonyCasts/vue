@@ -1,14 +1,14 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index f2684b73..b2c21378 100644
+index 0fb305df..852b9f60 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -58,6 +58,9 @@ export default {
-         contentClass() {
-             return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
+@@ -54,6 +54,9 @@ export default {
+         currentProductId() {
+             return getCurrentProductId();
          },
 +        currentComponent() {
 +            return this.currentProductId !== null ? Product : Catalog;
 +        },
      },
      methods: {
-         /**
+         toggleSidebarCollapsed() {

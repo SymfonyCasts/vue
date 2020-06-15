@@ -221,8 +221,8 @@
             "description": null
         },
         {
-            "id": "sidebar-rename-class",
-            "name": "Sidebar: Rename class",
+            "id": "sidebar-delete-me-2",
+            "name": "Sidebar: delete me 2",
             "description": null
         },
         {
@@ -321,6 +321,16 @@
             "description": null
         },
         {
+            "id": "collapsible-sidebar-use-v-show",
+            "name": "Collapsible Sidebar: use v-show",
+            "description": null
+        },
+        {
+            "id": "collapsible-sidebar-rename-class",
+            "name": "Collapsible Sidebar: rename class",
+            "description": null
+        },
+        {
             "id": "sidebar-optimization-style-to-class",
             "name": "Sidebar Optimization: Style to Class",
             "description": null
@@ -328,6 +338,16 @@
         {
             "id": "sidebar-optimization-computed-property",
             "name": "Sidebar optimization: Computed Property",
+            "description": null
+        },
+        {
+            "id": "sidebar-optimization-log-computed-method",
+            "name": "Sidebar optimization: log computed method",
+            "description": null
+        },
+        {
+            "id": "sidebar-optimization-remove-log",
+            "name": "Sidebar optimization: remove log",
             "description": null
         },
         {
@@ -353,6 +373,11 @@
         {
             "id": "collapsible-emmit-listen-to-emmit",
             "name": "Collapsible Emmit: Listen to emmit",
+            "description": null
+        },
+        {
+            "id": "collapsible-emmit-use-shortcut",
+            "name": "Collapsible Emmit: use @shortcut",
             "description": null
         },
         {
@@ -516,13 +541,38 @@
             "description": null
         },
         {
-            "id": "categories-filter-add-variable-to-app",
-            "name": "Categories Filter: Add variable to App",
+            "id": "categories-filter-use-computed",
+            "name": "Categories Filter: use computed",
             "description": null
         },
         {
-            "id": "categories-filter-define-prop-in-product-app",
-            "name": "Categories Filter: Define prop in Product App",
+            "id": "categories-filter-add-selected-category-style",
+            "name": "Categories Filter: add selected category style",
+            "description": null
+        },
+        {
+            "id": "categories-filter-use-global-class",
+            "name": "Categories Filter: use :global class",
+            "description": null
+        },
+        {
+            "id": "categories-filter-use-global-on-component",
+            "name": "Categories Filter: use :global on component",
+            "description": null
+        },
+        {
+            "id": "categories-filter-add-page-context-service",
+            "name": "Categories Filter: add page-context service",
+            "description": null
+        },
+        {
+            "id": "categories-filter-add-computed-to-products-vue",
+            "name": "Categories Filter: add computed to products.vue",
+            "description": null
+        },
+        {
+            "id": "categories-filter-pass-prop-to-sidebar-remove-computed",
+            "name": "Categories Filter: pass prop to sidebar, remove computed",
             "description": null
         },
         {
@@ -601,8 +651,8 @@
             "description": null
         },
         {
-            "id": "optimized-load-times-categories-in-products-js",
-            "name": "Optimized Load Times: Categories in products.js",
+            "id": "optimized-load-times-getcurrentcategories-in-page-context",
+            "name": "Optimized Load Times: getCurrentCategories() in page-context",
             "description": null
         },
         {
@@ -626,18 +676,18 @@
             "description": null
         },
         {
-            "id": "optimized-load-times-add-selected-class-in-template",
-            "name": "Optimized Load Times: Add selected class in template",
+            "id": "optimized-load-times-delete-me-2",
+            "name": "Optimized Load Times: delete me 2",
             "description": null
         },
         {
-            "id": "optimized-load-times-global-class",
-            "name": "Optimized Load Times: :global class",
+            "id": "optimized-load-times-delete-me-3",
+            "name": "Optimized Load Times: delete me 3",
             "description": null
         },
         {
-            "id": "optimized-load-times-use-global-on-component",
-            "name": "Optimized Load Times: use :global on .component",
+            "id": "optimized-load-times-delete-me-4",
+            "name": "Optimized Load Times: delete me 4",
             "description": null
         },
         {
@@ -886,8 +936,8 @@
             "description": null
         },
         {
-            "id": "linking-products-add-template-variable-to-main-component",
-            "name": "Linking Products: Add template variable to main component",
+            "id": "linking-products-add-getcurrentproductid-to-page-context",
+            "name": "Linking Products: add getCurrentProductId() to page-context",
             "description": null
         },
         {
@@ -1606,5 +1656,5 @@
             "description": null
         }
     ],
-    "sha": "2acbd4c888a69a5969995ee9bd2412e096e61dea"
+    "sha": "a2cab39b1c85084d5ac7622da32b20f29a79a106"
 }

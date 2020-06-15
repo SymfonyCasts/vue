@@ -22,7 +22,7 @@ index 81be3cf1..43d764ef 100644
  export default {
      name: 'Catalog',
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 3ef3f137..6ec47113 100644
+index d70b17b6..ce33715b 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -34,7 +34,7 @@ export default {
@@ -32,7 +32,7 @@ index 3ef3f137..6ec47113 100644
 -@import '../../scss/components/light-component';
 +@import '~styles/components/light-component';
  
- .component {
+ .sidebar {
      @include light-component;
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
 index f7c41932..419509f4 100644

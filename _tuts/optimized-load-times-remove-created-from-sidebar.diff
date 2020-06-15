@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 6d6b56f6..6b8cc4ea 100644
+index 491873f1..bd754dc3 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -41,8 +41,6 @@
+@@ -47,8 +47,6 @@
  </template>
  
  <script>
@@ -11,13 +11,12 @@ index 6d6b56f6..6b8cc4ea 100644
  export default {
      name: 'Sidebar',
      props: {
-@@ -59,19 +57,6 @@ export default {
+@@ -65,18 +63,6 @@ export default {
              required: true,
          },
      },
 -    async created() {
 -        this.loading = true;
--        this.categories = [];
 -
 -        try {
 -            const response = await axios.get('/api/categories');

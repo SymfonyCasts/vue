@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 39056e2d..c0b17b81 100644
+index f6fca218..829e0a1f 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -57,22 +57,8 @@ export default {
+@@ -56,21 +56,8 @@ export default {
              legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
          };
      },
@@ -11,7 +11,6 @@ index 39056e2d..c0b17b81 100644
 -            ? `/api/products?category=${this.currentCategoryId}`
 -            : '/api/products';
 -
--        this.products = [];
 -        this.loading = true;
 -
 -        try {

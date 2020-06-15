@@ -1,12 +1,13 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 6fdf72b5..60213693 100644
+index dcab241b..60ac57ff 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -5,6 +5,7 @@
+@@ -4,7 +4,7 @@
+             <aside class="col-xs-12 col-3">
                  <sidebar
                      :collapsed="sidebarCollapsed"
-                     :current-category-id="currentCategoryId"
-+                    :categories="categories"
-                     @toggle-collapsed="toggleSidebarCollapsed"
+-                    v-on:toggle-collapsed="toggleSidebarCollapsed"
++                    @toggle-collapsed="toggleSidebarCollapsed"
                  />
              </aside>
+ 

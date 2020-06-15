@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index c55882e4..a8c6851b 100644
+index 9ce01c79..72d961a8 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -13,7 +13,8 @@

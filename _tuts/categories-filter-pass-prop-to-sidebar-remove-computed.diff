@@ -1,0 +1,46 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index 0f95feed..ac955f76 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -48,7 +48,6 @@
+ 
+ <script>
+ import axios from 'axios';
+-import { getCurrentCategoryId } from '@/services/page-context';
+ 
+ export default {
+     name: 'Sidebar',
+@@ -57,17 +56,16 @@ export default {
+             type: Boolean,
+             required: true,
+         },
++        currentCategoryId: {
++            type: String,
++            default: null,
++        },
+     },
+     data() {
+         return {
+             categories: [],
+         };
+     },
+-    computed: {
+-        currentCategoryId() {
+-            return getCurrentCategoryId();
+-        },
+-    },
+     async created() {
+         const response = await axios.get('/api/categories');
+ 
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 400d6024..b1d899e9 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -4,6 +4,7 @@
+             <aside :class="asideClass">
+                 <sidebar
+                     :collapsed="sidebarCollapsed"
++                    :current-category-id="currentCategoryId"
+                     @toggle-collapsed="toggleSidebarCollapsed"
+                 />
+             </aside>

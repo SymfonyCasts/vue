@@ -1,10 +1,10 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index a4f1d6b8..f074bc1f 100644
+index b0ce4858..0db27565 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -46,18 +46,7 @@ export default {
-             default: null,
-         },
+@@ -33,18 +33,7 @@ export default {
+         Product,
+         Sidebar,
      },
 -    data() {
 -        return {
@@ -18,17 +18,14 @@ index a4f1d6b8..f074bc1f 100644
 -        contentClass() {
 -            return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
 -        },
-         currentComponent() {
-             return this.currentProductId !== null ? Product : Catalog;
+         currentCategoryId() {
+             return getCurrentCategoryId();
          },
-@@ -73,13 +62,5 @@ export default {
+@@ -69,10 +58,5 @@ export default {
                  };
          },
      },
 -    methods: {
--        /**
--         * Toggles the sidebarCollapsed value
--         */
 -        toggleSidebarCollapsed() {
 -            this.sidebarCollapsed = !this.sidebarCollapsed;
 -        },

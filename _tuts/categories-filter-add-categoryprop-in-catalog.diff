@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index afa924d5..b88e3eba 100644
+index 2b159564..811af4f0 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -27,6 +27,12 @@ export default {
@@ -14,18 +14,16 @@ index afa924d5..b88e3eba 100644
 +    },
      data() {
          return {
-             /** @type {Product[]} */
-@@ -35,9 +41,13 @@ export default {
+             products: [],
+@@ -34,7 +40,11 @@ export default {
          };
      },
      async created() {
+-        const response = await axios.get('/api/products');
 +        const url = this.currentCategoryId
 +            ? `/api/products?category=${this.currentCategoryId}`
 +            : '/api/products';
 +
-         this.products = [];
- 
--        const response = await axios.get('/api/products');
 +        const response = await axios.get(url);
  
          this.products = response.data['hydra:member'];

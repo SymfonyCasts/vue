@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 4c83b3dd..c712d7aa 100644
+index a54e8c60..8904943b 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -87,27 +87,6 @@ export default {
+@@ -85,27 +85,6 @@ export default {
                  this.loading = false;
              }
          },

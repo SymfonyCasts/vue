@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index c712d7aa..a4d96bb3 100644
+index 8904943b..cb1d5eae 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -56,6 +56,15 @@ export default {
+@@ -55,6 +55,15 @@ export default {
              legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
          };
      },

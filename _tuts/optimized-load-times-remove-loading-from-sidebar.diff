@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index c4f3dcbe..6d6b56f6 100644
+index 73500abb..491873f1 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -5,8 +5,6 @@
@@ -11,7 +11,7 @@ index c4f3dcbe..6d6b56f6 100644
              <ul class="nav flex-column mb4">
                  <li class="nav-item">
                      <a
-@@ -44,13 +42,9 @@
+@@ -50,13 +48,9 @@
  
  <script>
  import axios from 'axios';
@@ -25,17 +25,16 @@ index c4f3dcbe..6d6b56f6 100644
      props: {
          collapsed: {
              type: Boolean,
-@@ -65,13 +59,6 @@ export default {
+@@ -71,12 +65,6 @@ export default {
              required: true,
          },
      },
 -    data() {
 -        return {
 -            loading: true,
--            /** @type Category[] */
 -            categories: [],
 -        };
 -    },
      async created() {
          this.loading = true;
-         this.categories = [];
+ 

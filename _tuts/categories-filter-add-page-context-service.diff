@@ -1,0 +1,35 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index 7c665d41..0f95feed 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -48,6 +48,7 @@
+ 
+ <script>
+ import axios from 'axios';
++import { getCurrentCategoryId } from '@/services/page-context';
+ 
+ export default {
+     name: 'Sidebar',
+@@ -64,7 +65,7 @@ export default {
+     },
+     computed: {
+         currentCategoryId() {
+-            return window.currentCategoryId;
++            return getCurrentCategoryId();
+         },
+     },
+     async created() {
+diff --git a/assets/js/services/page-context.js b/assets/js/services/page-context.js
+new file mode 100644
+index 00000000..bc18cdc3
+--- /dev/null
++++ b/assets/js/services/page-context.js
+@@ -0,0 +1,8 @@
++/**
++ * Returns the current category id that's set by the server.
++ *
++ * @returns {string|null}
++ */
++export function getCurrentCategoryId() {
++    return window.currentCategoryId;
++}

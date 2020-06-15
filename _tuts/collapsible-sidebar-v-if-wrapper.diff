@@ -1,15 +1,15 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index a4a70a1c..ae8d113b 100644
+index bacf8fc4..964e7a2d 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -3,33 +3,35 @@
-         :class="[$style.component, 'p-3', 'mb-5']"
+         :class="[$style.sidebar, 'p-3', 'mb-5']"
          :style="{ width: collapsed ? '70px' : 'auto' }"
      >
 -        <h5 class="text-center">
 -            Categories
 -        </h5>
-+        <div v-show="!collapsed">
++        <div v-if="!collapsed">
 +            <h5 class="text-center">
 +                Categories
 +            </h5>

@@ -1,13 +1,13 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index fd843bda..afa924d5 100644
+index e4efef30..2b159564 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -34,7 +34,7 @@ export default {
+@@ -33,7 +33,7 @@ export default {
              legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
          };
      },
 -    async mounted() {
 +    async created() {
-         this.products = [];
- 
          const response = await axios.get('/api/products');
+ 
+         this.products = response.data['hydra:member'];

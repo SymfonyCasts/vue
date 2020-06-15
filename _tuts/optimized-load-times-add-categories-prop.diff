@@ -1,27 +1,8 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index 8fcb9cb0..c4f3dcbe 100644
+index 419e7a02..73500abb 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
-@@ -56,6 +56,14 @@ export default {
-             type: Boolean,
-             required: true,
-         },
-+        currentCategoryId: {
-+            type: Number,
-+            default: null,
-+        },
-+        categories: {
-+            type: Array,
-+            required: true,
-+        },
-     },
-     data() {
-         return {
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 5ba95709..2e82faf7 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
-@@ -30,6 +30,10 @@ export default {
+@@ -66,6 +66,10 @@ export default {
              type: String,
              default: null,
          },
@@ -32,3 +13,26 @@ index 5ba95709..2e82faf7 100644
      },
      data() {
          return {
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 5a37f1b0..6fdf72b5 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -19,7 +19,7 @@
+ <script>
+ import Catalog from '@/components/catalog';
+ import Sidebar from '@/components/sidebar';
+-import { getCurrentCategoryId } from '@/services/page-context';
++import { getCurrentCategoryId, getCategories } from '@/services/page-context';
+ 
+ export default {
+     name: 'Products',
+@@ -42,6 +42,9 @@ export default {
+         currentCategoryId() {
+             return getCurrentCategoryId();
+         },
++        categories() {
++            return getCategories();
++        },
+     },
+     methods: {
+         toggleSidebarCollapsed() {

@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 4c6f6fbc..4c83b3dd 100644
+index d45f48ef..a54e8c60 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -57,7 +57,7 @@ export default {
+@@ -56,7 +56,7 @@ export default {
          };
      },
      created() {
@@ -11,7 +11,7 @@ index 4c6f6fbc..4c83b3dd 100644
      },
      methods: {
          /**
-@@ -66,15 +66,15 @@ export default {
+@@ -65,15 +65,15 @@ export default {
           * @param {string} term
           */
          onSearchProducts({ term }) {
@@ -27,6 +27,6 @@ index 4c6f6fbc..4c83b3dd 100644
           */
 -        async fetchProducts(searchTerm) {
 +        async getProducts(searchTerm) {
-             this.products = [];
              this.loading = true;
  
+             try {

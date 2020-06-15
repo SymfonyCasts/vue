@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index e15483b0..61eb2190 100644
+index 70b1a4cc..fced93bd 100644
 --- a/assets/js/components/sidebar.vue
 +++ b/assets/js/components/sidebar.vue
 @@ -10,7 +10,7 @@
@@ -15,19 +15,17 @@ index e15483b0..61eb2190 100644
                          :href="`/category/${category.id}`"
                          :class="{
                              'nav-link': true,
--                            [$style.selected]: category.id === currentCategoryId,
-+                            'selected': category.id === currentCategoryId,
+-                            [$style.selected]: category['@id'] === currentCategoryId,
++                            'selected': category['@id'] === currentCategoryId,
                          }"
                      >
                          {{ category.name }}
-@@ -76,6 +76,10 @@ export default {
-         li a:hover {
+@@ -86,7 +86,7 @@ export default {
              background: $blue-component-link-hover;
          }
-+
+ 
+-        li a.selected {
 +        :global li a.selected {
-+            background: $light-component-border;
-+        }
+             background: $light-component-border;
+         }
      }
- }
- </style>

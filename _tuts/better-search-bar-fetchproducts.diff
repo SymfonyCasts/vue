@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 1bcf9d90..39056e2d 100644
+index da19061d..f6fca218 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -13,7 +13,7 @@
@@ -11,7 +11,7 @@ index 1bcf9d90..39056e2d 100644
              :loading="loading"
          />
  
-@@ -57,17 +57,6 @@ export default {
+@@ -56,17 +56,6 @@ export default {
              legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
          };
      },
@@ -29,7 +29,7 @@ index 1bcf9d90..39056e2d 100644
      async created() {
          const url = this.currentCategoryId
              ? `/api/products?category=${this.currentCategoryId}`
-@@ -90,6 +79,27 @@ export default {
+@@ -88,6 +77,26 @@ export default {
              this.searchTerm = event.term;
          },
  
@@ -39,7 +39,6 @@ index 1bcf9d90..39056e2d 100644
 +         * @param {string} searchTerm
 +         */
 +        async fetchProducts(searchTerm) {
-+            this.products = [];
 +            this.loading = true;
 +
 +            try {
