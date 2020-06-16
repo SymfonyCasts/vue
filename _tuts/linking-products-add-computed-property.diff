@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index c4c0fb34..6c425631 100644
+index a273ee77..62acd86a 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -50,6 +50,9 @@ export default {
+@@ -53,6 +53,9 @@ export default {
          currentProductId() {
              return getCurrentProductId();
          },
@@ -10,5 +10,5 @@ index c4c0fb34..6c425631 100644
 +            return this.currentProductId !== null ? Product : Catalog;
 +        },
      },
-     methods: {
-         toggleSidebarCollapsed() {
+     async created() {
+         const response = await fetchCategories();

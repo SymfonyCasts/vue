@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
-index ee04bdc0..8537f6ff 100644
+index 559b3a01..bf266bc9 100644
 --- a/assets/js/components/title.vue
 +++ b/assets/js/components/title.vue
 @@ -1,7 +1,7 @@
@@ -16,13 +16,12 @@ index ee04bdc0..8537f6ff 100644
      name: 'Title',
      props: {
 -        currentCategoryId: {
--            type: Number,
++        text: {
+             type: String,
 -            default: null,
 -        },
 -        categories: {
 -            type: Array,
-+        text: {
-+            type: String,
              required: true,
          },
      },

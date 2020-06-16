@@ -1,17 +1,17 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index b3875620..7fe04d66 100644
+index 2b323bd1..c7f1cdd6 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -22,7 +22,7 @@
+@@ -23,7 +23,7 @@
  <script>
  import Catalog from '@/components/catalog';
  import Sidebar from '@/components/sidebar';
 -import { getCurrentCategoryId } from '@/services/page-context';
 +import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
+ import { fetchCategories } from '@/services/categories-service';
  
  export default {
-     name: 'Products',
-@@ -45,6 +45,9 @@ export default {
+@@ -48,6 +48,9 @@ export default {
          currentCategoryId() {
              return getCurrentCategoryId();
          },
@@ -19,5 +19,5 @@ index b3875620..7fe04d66 100644
 +            return getCurrentProductId();
 +        },
      },
-     methods: {
-         toggleSidebarCollapsed() {
+     async created() {
+         const response = await fetchCategories();

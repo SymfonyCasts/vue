@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 950e1628..f817db42 100644
+index 23ffeef5..61b3057f 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -12,9 +12,7 @@
+@@ -13,9 +13,7 @@
              <div :class="contentClass">
                  <component
                      :is="currentComponent"
@@ -13,7 +13,7 @@ index 950e1628..f817db42 100644
                  />
              </div>
          </div>
-@@ -55,6 +53,17 @@ export default {
+@@ -58,6 +56,17 @@ export default {
          currentComponent() {
              return this.currentProductId !== null ? Product : Catalog;
          },
@@ -29,5 +29,5 @@ index 950e1628..f817db42 100644
 +                };
 +        },
      },
-     methods: {
-         toggleSidebarCollapsed() {
+     async created() {
+         const response = await fetchCategories();

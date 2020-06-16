@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
-index 8537f6ff..6787140e 100644
+index bf266bc9..6787140e 100644
 --- a/assets/js/components/title.vue
 +++ b/assets/js/components/title.vue
-@@ -15,15 +15,6 @@ export default {
+@@ -15,17 +15,6 @@ export default {
              required: true,
          },
      },
@@ -12,7 +12,9 @@ index 8537f6ff..6787140e 100644
 -                return 'All Products';
 -            }
 -
--            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
+-            const category = this.categories.find((cat) => (cat['@id'] === this.currentCategoryId));
+-
+-            return category ? category.name : '';
 -        },
 -    },
  };

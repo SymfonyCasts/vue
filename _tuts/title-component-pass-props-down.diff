@@ -26,10 +26,10 @@ index 05616a92..7a3c7a1d 100644
      data() {
          return {
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 5a37f1b0..b3875620 100644
+index 2294a4ad..2b323bd1 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -10,7 +10,10 @@
+@@ -11,7 +11,10 @@
              </aside>
  
              <div :class="contentClass">

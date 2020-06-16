@@ -1,13 +1,13 @@
 diff --git a/assets/js/services/categories-service.js b/assets/js/services/categories-service.js
 new file mode 100644
-index 00000000..87ec7767
+index 00000000..697774b1
 --- /dev/null
 +++ b/assets/js/services/categories-service.js
 @@ -0,0 +1,8 @@
 +import axios from 'axios';
 +
 +/**
-+ * @return {Promise}
++ * @returns {Promise}
 + */
 +export function fetchCategories() {
 +    return axios.get('/api/categories');

@@ -1,13 +1,13 @@
 diff --git a/assets/js/services/categories-service.js b/assets/js/services/categories-service.js
-index 87ec7767..b060f43d 100644
+index 697774b1..d10d548c 100644
 --- a/assets/js/services/categories-service.js
 +++ b/assets/js/services/categories-service.js
 @@ -1,8 +1,6 @@
 -import axios from 'axios';
 -
  /**
-- * @return {Promise}
-+ * @return Array
+- * @returns {Promise}
++ * @returns Array
   */
  export function fetchCategories() {
 -    return axios.get('/api/categories');

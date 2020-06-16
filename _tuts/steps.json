@@ -646,6 +646,11 @@
             "description": null
         },
         {
+            "id": "title-component-move-categories-data-up",
+            "name": "Title Component: move categories data up",
+            "description": null
+        },
+        {
             "id": "title-component-add-props-logic-to-title",
             "name": "Title Component: add props+logic to title",
             "description": null
@@ -1451,5 +1456,5 @@
             "description": null
         }
     ],
-    "sha": "a1edfc3f7e8025411c16241cdd06edeb76130c87"
+    "sha": "45610f6f39b8156835efb07df01f4528efe84687"
 }

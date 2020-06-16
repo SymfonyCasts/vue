@@ -1,5 +1,5 @@
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
-index 60940db4..9dc548e2 100644
+index 72e78fd5..ea2e1a9e 100644
 --- a/assets/js/services/products-service.js
 +++ b/assets/js/services/products-service.js
 @@ -1,16 +1,15 @@
@@ -11,7 +11,7 @@ index 60940db4..9dc548e2 100644
 + *
   * @param {string|null} categoryIri
 + * @param {string} searchTerm
-  * @return {Promise}
+  * @returns {Promise}
   */
 -export function fetchProducts(categoryIri) {
 -    const params = {};

@@ -33,7 +33,7 @@ index 21ddf231..6e16c248 100644
          } catch (e) {
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
 new file mode 100644
-index 00000000..60940db4
+index 00000000..72e78fd5
 --- /dev/null
 +++ b/assets/js/services/products-service.js
 @@ -0,0 +1,16 @@
@@ -41,7 +41,7 @@ index 00000000..60940db4
 +
 +/**
 + * @param {string|null} categoryIri
-+ * @return {Promise}
++ * @returns {Promise}
 + */
 +export function fetchProducts(categoryIri) {
 +    const params = {};

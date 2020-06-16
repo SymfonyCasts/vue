@@ -15,13 +15,13 @@ index cf53a895..fd9a3b23 100644
  };
  </script>
 diff --git a/assets/js/services/categories-service.js b/assets/js/services/categories-service.js
-index b060f43d..bc9e7477 100644
+index d10d548c..c3bd36b2 100644
 --- a/assets/js/services/categories-service.js
 +++ b/assets/js/services/categories-service.js
 @@ -1,6 +1,12 @@
  /**
-- * @return Array
-+ * @return Promise
+- * @returns Array
++ * @returns Promise
   */
  export function fetchCategories() {
 -    return window.categories;
