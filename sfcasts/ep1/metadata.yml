@@ -17,3 +17,17 @@ chapters:
     - v-on
     - instance-properties
     - reactivity
+    - computed
+    - data-location
+    - emit
+    - ajax
+    - products
+    - product-card
+    - loading
+    - categories-ajax
+    - server-var
+    - page-service
+    - filter-products
+    - better-loading
+    - ajax-services
+    - server-data
