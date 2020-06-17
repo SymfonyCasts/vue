@@ -716,6 +716,11 @@
             "description": null
         },
         {
+            "id": "better-search-bar-try-await-computed",
+            "name": "Better Search Bar: try await computed",
+            "description": null
+        },
+        {
             "id": "better-search-bar-fetchproducts",
             "name": "Better Search Bar: fetchProducts",
             "description": null
@@ -736,18 +741,33 @@
             "description": null
         },
         {
+            "id": "better-search-bar-settimeout",
+            "name": "Better Search Bar: setTimeout",
+            "description": null
+        },
+        {
             "id": "better-search-bar-search-timeout",
             "name": "Better Search Bar: Search Timeout",
             "description": null
         },
         {
-            "id": "final-search-bar-generatelistingurl-helper-skeleton",
-            "name": "Final Search Bar: generateListingUrl helper skeleton",
+            "id": "helper-add-format-price",
+            "name": "Helper: add format-price",
             "description": null
         },
         {
-            "id": "final-search-bar-generatelistingurl-paste-function-over",
-            "name": "Final Search Bar: generateListingUrl paste function over",
+            "id": "helper-use-short-function",
+            "name": "Helper: use short function",
+            "description": null
+        },
+        {
+            "id": "helper-add-jsdoc",
+            "name": "Helper: add jsdoc",
+            "description": null
+        },
+        {
+            "id": "delete-me-7",
+            "name": "delete me 7",
             "description": null
         },
         {
@@ -756,13 +776,13 @@
             "description": null
         },
         {
-            "id": "final-search-bar-use-generatelistingparams",
-            "name": "Final Search Bar: use generateListingParams",
+            "id": "helper-use-format-price-incorrectly",
+            "name": "Helper: use format-price incorrectly",
             "description": null
         },
         {
-            "id": "delete-me-2",
-            "name": "delete me 2",
+            "id": "helper-use-correctly-in-computed",
+            "name": "Helper: use correctly in computed",
             "description": null
         },
         {
@@ -971,13 +991,13 @@
             "description": null
         },
         {
-            "id": "basic-product-page-extract-formatprice-to-helper",
-            "name": "Basic Product Page: Extract formatPrice to helper",
+            "id": "delete-me-8",
+            "name": "delete me 8",
             "description": null
         },
         {
-            "id": "basic-product-page-wrongful-import-to-component",
-            "name": "Basic Product Page: Wrongful Import to Component",
+            "id": "basic-product-page-import-helper",
+            "name": "Basic Product Page: import helper",
             "description": null
         },
         {
@@ -991,8 +1011,8 @@
             "description": null
         },
         {
-            "id": "basic-product-page-formatprice-in-product-card",
-            "name": "Basic Product Page: formatPrice in product-card",
+            "id": "delete-me-9",
+            "name": "delete me 9",
             "description": null
         },
         {
@@ -1486,5 +1506,5 @@
             "description": null
         }
     ],
-    "sha": "9a9417f94b103ba964fe3c9a6d33104f1fce0b8f"
+    "sha": "cf42e57834358103b6c16af86a26235b7e08a660"
 }

@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 767b8c1f..1e145a45 100644
+index 1e273aa4..dcce0964 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -56,6 +56,15 @@ export default {

@@ -1,8 +1,17 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index 8b7d77f7..a673c56c 100644
+index 4af48029..138118ae 100644
 --- a/assets/js/components/product-list/product-card.vue
 +++ b/assets/js/components/product-list/product-card.vue
-@@ -39,6 +39,8 @@
+@@ -15,7 +15,7 @@
+ 
+             <div class="p-2 my-3 d-md-flex justify-content-between">
+                 <p class="p-0 d-inline">
+-                    <strong>${{ price }}</strong>
++                    <strong>${{ formatPrice(product.price) }}</strong>
+                 </p>
+ 
+                 <button
+@@ -33,6 +33,8 @@
  </template>
  
  <script>
@@ -11,13 +20,3 @@ index 8b7d77f7..a673c56c 100644
  export default {
      name: 'ProductCard',
      props: {
-@@ -53,8 +55,7 @@ export default {
-          * @returns {string}
-          */
-         price() {
--            return (this.product.price / 100)
--                .toLocaleString('en-US', { minimumFractionDigits: 2 });
-+            return formatPrice(this.item.price);
-         },
- 
-         /**

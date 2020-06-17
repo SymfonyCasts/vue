@@ -1,16 +1,7 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index e5faa1b4..3d1b422a 100644
+index 1a1f8e89..3d1b422a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -30,7 +30,7 @@
-                     <div :class="$style.description">
-                         <p v-text="product.description" />
- 
--                        <p>Price: <strong>${{ formatPrice(product.price) }}</strong></p>
-+                        <p>Price: <strong>${{ price }}</strong></p>
-                     </div>
- 
-                     <div :class="$style['actions-wrapper']">
 @@ -79,8 +79,7 @@ export default {
           * @return {string}
           */

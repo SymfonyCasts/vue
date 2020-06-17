@@ -1,15 +1,9 @@
 diff --git a/assets/js/helpers/format-price.js b/assets/js/helpers/format-price.js
 new file mode 100644
-index 00000000..ec4254c0
+index 00000000..bbad1368
 --- /dev/null
 +++ b/assets/js/helpers/format-price.js
-@@ -0,0 +1,10 @@
-+/**
-+ * Formats the product price adding a dot in the correct decimal places
-+ *
-+ * @param {number} price
-+ * @returns {string}
-+ */
+@@ -0,0 +1,4 @@
 +export default (price) => {
 +    return (price / 100)
 +        .toLocaleString('en-US', { minimumFractionDigits: 2 });

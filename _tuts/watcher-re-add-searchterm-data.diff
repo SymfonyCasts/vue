@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 51656543..767b8c1f 100644
+index 51656543..1e273aa4 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -53,15 +53,16 @@ export default {
@@ -25,8 +25,9 @@ index 51656543..767b8c1f 100644
           * @param {string} term
           */
          onSearchProducts({ term }) {
+-            this.loadProducts(term);
 +            this.searchTerm = term;
-             this.loadProducts(term);
++            this.loadProducts();
          },
  
 -        async loadProducts(searchTerm) {

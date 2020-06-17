@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 94cfd1e8..1a1f8e89 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -48,6 +48,7 @@
+ </template>
+ 
+ <script>
++import formatPrice from '@/helpers/format-price';
+ import { getProduct } from '@/services/products-service';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';

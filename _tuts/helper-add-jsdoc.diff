@@ -1,0 +1,14 @@
+diff --git a/assets/js/helpers/format-price.js b/assets/js/helpers/format-price.js
+index f574b17d..de4ff2d0 100644
+--- a/assets/js/helpers/format-price.js
++++ b/assets/js/helpers/format-price.js
+@@ -1,3 +1,9 @@
++/**
++ * Formats a price buy adding a dot and normalizing decimals
++ *
++ * @param {number} price
++ * @returns {string}
++ */
+ export default (price) => (
+     (price / 100)
+         .toLocaleString('en-US', { minimumFractionDigits: 2 })

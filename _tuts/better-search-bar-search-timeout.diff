@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index 99ae2f6f..70c478fe 100644
+index 67e1a07c..59e0534b 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -16,11 +16,19 @@ export default {
+@@ -16,12 +16,18 @@ export default {
      data() {
          return {
              searchTerm: '',
@@ -11,15 +11,14 @@ index 99ae2f6f..70c478fe 100644
      },
      methods: {
          onInput() {
--            this.$emit('search-products', { term: this.searchTerm });
+-            setTimeout(() => {
 +            if (this.searchTimeout) {
-+                window.clearTimeout(this.searchTimeout);
-+                this.searchTimeout = null;
++                clearTimeout(this.searchTimeout);
 +            }
 +
 +            this.searchTimeout = setTimeout(() => {
-+                this.$emit('search-products', { term: this.searchTerm });
-+            }, 200);
+                 this.$emit('search-products', { term: this.searchTerm });
++                this.searchTimeout = null;
+             }, 200);
          },
      },
- };
