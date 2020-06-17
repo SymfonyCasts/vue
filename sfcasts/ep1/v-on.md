@@ -16,6 +16,8 @@ while our Vue app is running, it needs to live in `data`.
 Ok! Inside `data()`, add a new property called, how about, `collapsed`. Set it
 `false` so that the component starts *not* collapsed.
 
+[[[ code('0c92aa5838') ]]]
+
 Back on the browser, it doesn't do anything yet, but we *can* see the new data.
 
 Let's update the template to use this. Add a `style` attribute. Basically, if
@@ -30,6 +32,8 @@ Vue allows us to set this to an object with a key for each style, like `width: '
 and `margin: '10px'`. In our case, I'll use the ternary syntax: if `collapsed` is true, 
 set the width to `70px`, else use `auto`.
 
+[[[ code('f11d3564d8') ]]]
+
 Ok! We have a `collapsed` data and we're using it in the template. Testing time!
 In the Vue dev tools, click on Sidebar, change `collapsed` to `true` and...
 oh that looks awful! We'll clean that up soon. But it *is* working: the
@@ -43,8 +47,12 @@ their Vue dev tools. Nope: they'll need a *button* that will change this state.
 Back on the template, let's see... after the `<ul>`, I'll add an `<hr>`, a div
 with some positioning classes and a button with `class="btn btn-secondary"`.
 
+[[[ code('f95db4ab0f') ]]]
+
 Nothing interesting yet! For the button text, if we're currently collapsed, use
 `>>`, else, use `<< Collapse`.
+
+[[[ code('36554a6016') ]]]
 
 Oh ESLint is mad! Hmm, it thinks that the `<` sign is me trying to open an HTML
 tag! I could escape this and use `&lt;` - that's probably a great solution! But
@@ -66,6 +74,8 @@ Now Vue is happy. `v-text` is the *third* Vue directive that we've seen, after
 alternative way to set the "text" of an element and... it's a *tiny* bit faster.
 I mostly just wanted you to see it.
 
+[[[ code('5f1947b634') ]]]
+
 ## Adding a new Method
 
 Let's get back to the *real* goal: when the user clicks this button, we need to do
@@ -80,6 +90,8 @@ Check it out: it doesn't matter where... but I'll do it after `data()`, add a
 `methods:` option set to an object. Create a function called
 `toggleCollapsed()` and, to start, just say `console.log('CLICKED!')`.
 
+[[[ code('870cb26d28') ]]]
+
 The idea is that, "on click" of this button, we will tell Vue to call this method.
 
 ## OnClick with v-on
@@ -88,6 +100,8 @@ How... do we do that? By using our *fourth* directive - and a very, very importa
 one. It's called `v-on`. Inside the `button` element, add `v-on:` and then the name
 of the normal DOM event that you want to listen to, so: `click`. Set this to the
 name of the *method* that should be called on click: `toggleCollapsed`.
+
+[[[ code('1c3c978bef') ]]]
 
 Yep, the `toggleCollapsed` function is *now* available in the template because
 we added it to the `methods` options. PhpStorm even lets you Ctrl or Cmd click
@@ -107,11 +121,15 @@ gives us this special shortcut.
 Vue *also* has a shortcut for `v-on`: the `@` symbol. Want to run some code "on
 click", use `@click` or `@mouseover` or `@` *whatever* event you want.
 
+[[[ code('cca3f3a4d1') ]]]
+
 ## Updating the State
 
 Ok: we have a button and when we click it, it calls the `toggleCollapsed` method.
 The *final* step is to *change* the `collapsed` state so that the template updates.
 How? `this.collapsed = !this.collapsed`.
+
+[[[ code('2ed974c73b') ]]]
 
 If you were eagerly waiting for some complex & impressive code to change the data,
 I'm sorry to disappoint you.
