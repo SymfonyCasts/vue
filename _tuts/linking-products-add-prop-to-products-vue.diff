@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 2b323bd1..c7f1cdd6 100644
+index 930a6394..c11efb45 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -23,7 +23,7 @@
@@ -11,9 +11,9 @@ index 2b323bd1..c7f1cdd6 100644
  import { fetchCategories } from '@/services/categories-service';
  
  export default {
-@@ -48,6 +48,9 @@ export default {
-         currentCategoryId() {
-             return getCurrentCategoryId();
+@@ -46,6 +46,9 @@ export default {
+         contentClass() {
+             return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
          },
 +        currentProductId() {
 +            return getCurrentProductId();

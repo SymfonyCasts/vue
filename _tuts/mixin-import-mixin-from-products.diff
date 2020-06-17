@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 917a123d..f57a8a2b 100644
+index c7266c6e..c1e5f1ac 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -26,6 +26,7 @@ import Product from '@/components/product';

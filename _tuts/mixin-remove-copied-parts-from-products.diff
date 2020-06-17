@@ -1,13 +1,14 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 61b3057f..917a123d 100644
+index 836385a6..c7266c6e 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -36,17 +36,10 @@ export default {
+@@ -36,18 +36,11 @@ export default {
      },
      data() {
          return {
 -            sidebarCollapsed: false,
              categories: [],
+             currentCategoryId: getCurrentCategoryId(),
          };
      },
      computed: {
@@ -17,10 +18,10 @@ index 61b3057f..917a123d 100644
 -        contentClass() {
 -            return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
 -        },
-         currentCategoryId() {
-             return getCurrentCategoryId();
+         currentProductId() {
+             return getCurrentProductId();
          },
-@@ -73,10 +66,5 @@ export default {
+@@ -71,10 +64,5 @@ export default {
  
          this.categories = response.data['hydra:member'];
      },

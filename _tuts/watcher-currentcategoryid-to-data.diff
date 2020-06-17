@@ -1,0 +1,22 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 2b323bd1..930a6394 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -36,6 +36,7 @@ export default {
+         return {
+             sidebarCollapsed: false,
+             categories: [],
++            currentCategoryId: getCurrentCategoryId(),
+         };
+     },
+     computed: {
+@@ -45,9 +46,6 @@ export default {
+         contentClass() {
+             return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
+         },
+-        currentCategoryId() {
+-            return getCurrentCategoryId();
+-        },
+     },
+     async created() {
+         const response = await fetchCategories();

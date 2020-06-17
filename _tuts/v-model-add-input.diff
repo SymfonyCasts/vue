@@ -1,23 +1,12 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index af10e4b0..4c7d2e24 100644
+index bcb046b9..96bbc8fc 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -1,6 +1,7 @@
- <template>
+@@ -2,6 +2,7 @@
      <div>
          <input
-+            v-model="searchTerm"
+             :value="searchTerm"
++            @input="searchTerm = $event.target.value"
              class="form-control"
              placeholder="Search products..."
              type="search"
-@@ -11,5 +12,10 @@
- <script>
- export default {
-     name: 'SearchBar',
-+    data() {
-+        return {
-+            searchTerm: '',
-+        };
-+    },
- };
- </script>

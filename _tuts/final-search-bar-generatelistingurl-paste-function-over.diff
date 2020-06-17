@@ -1,18 +1,17 @@
 diff --git a/assets/js/helpers/generate-listing-params.js b/assets/js/helpers/generate-listing-params.js
-index fecf89be..f920760d 100644
+index cb3c39f0..cfa8ca14 100644
 --- a/assets/js/helpers/generate-listing-params.js
 +++ b/assets/js/helpers/generate-listing-params.js
-@@ -7,4 +7,15 @@
+@@ -7,4 +7,14 @@
   * @return {object}
   */
- export default (category, searchTerm) => {
+ export default (categoryIri, searchTerm) => {
 +    const params = {};
-+
-+    if (this.currentCategoryId) {
-+        params.category = this.currentCategoryId;
++    if (categoryIri) {
++        params.category = categoryIri;
 +    }
 +
-+    if (searchTerm !== '') {
++    if (searchTerm) {
 +        params.name = searchTerm;
 +    }
 +

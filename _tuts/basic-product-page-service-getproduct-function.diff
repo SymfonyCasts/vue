@@ -1,8 +1,8 @@
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
-index ea2e1a9e..5173144e 100644
+index 84b32c49..ce5cbcf4 100644
 --- a/assets/js/services/products-service.js
 +++ b/assets/js/services/products-service.js
-@@ -13,3 +13,16 @@ export function fetchProducts(categoryIri, searchTerm) {
+@@ -11,3 +11,16 @@ export function fetchProducts(categoryIri, searchTerm) {
          params: generateListingParams(categoryIri, searchTerm),
      });
  }

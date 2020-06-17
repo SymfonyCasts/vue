@@ -1,0 +1,23 @@
+diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
+index 4c7d2e24..99ae2f6f 100644
+--- a/assets/js/components/search-bar.vue
++++ b/assets/js/components/search-bar.vue
+@@ -2,6 +2,7 @@
+     <div>
+         <input
+             v-model="searchTerm"
++            @input="onInput"
+             class="form-control"
+             placeholder="Search products..."
+             type="search"
+@@ -17,5 +18,10 @@ export default {
+             searchTerm: '',
+         };
+     },
++    methods: {
++        onInput() {
++            this.$emit('search-products', { term: this.searchTerm });
++        },
++    },
+ };
+ </script>

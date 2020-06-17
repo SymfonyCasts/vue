@@ -1,0 +1,42 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 51656543..767b8c1f 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -53,15 +53,16 @@ export default {
+             products: [],
+             loading: false,
+             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
++            searchTerm: null,
+         };
+     },
+     watch: {
+         currentCategoryId() {
+-            this.loadProducts(null);
++            this.loadProducts();
+         },
+     },
+     created() {
+-        this.loadProducts(null);
++        this.loadProducts();
+     },
+     methods: {
+         /**
+@@ -70,15 +71,16 @@ export default {
+          * @param {string} term
+          */
+         onSearchProducts({ term }) {
++            this.searchTerm = term;
+             this.loadProducts(term);
+         },
+ 
+-        async loadProducts(searchTerm) {
++        async loadProducts() {
+             this.loading = true;
+ 
+             let response;
+             try {
+-                response = await fetchProducts(this.currentCategoryId, searchTerm);
++                response = await fetchProducts(this.currentCategoryId, this.searchTerm);
+ 
+                 this.loading = false;
+             } catch (e) {

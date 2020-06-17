@@ -1,15 +1,16 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index 210b898a..e07e7352 100644
+index 70c478fe..97398e37 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -1,11 +1,21 @@
+@@ -1,5 +1,6 @@
  <template>
 -    <div>
 +    <div class="input-group">
 +
          <input
              v-model="searchTerm"
-             class="form-control"
+             @input="onInput"
+@@ -7,6 +8,15 @@
              placeholder="Search products..."
              type="search"
          >

@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index a273ee77..62acd86a 100644
+index 9b1ab3fa..dd9d84ad 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
-@@ -53,6 +53,9 @@ export default {
+@@ -51,6 +51,9 @@ export default {
          currentProductId() {
              return getCurrentProductId();
          },

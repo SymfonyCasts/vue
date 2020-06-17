@@ -1,25 +1,26 @@
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
-index 72e78fd5..ea2e1a9e 100644
+index 62681e63..84b32c49 100644
 --- a/assets/js/services/products-service.js
 +++ b/assets/js/services/products-service.js
-@@ -1,16 +1,15 @@
+@@ -1,4 +1,5 @@
  import axios from 'axios';
 +import generateListingParams from '@/helpers/generate-listing-params';
  
  /**
-+ * Fetches products from the API according to current category and search term
-+ *
   * @param {string|null} categoryIri
-+ * @param {string} searchTerm
+@@ -6,16 +7,7 @@ import axios from 'axios';
   * @returns {Promise}
   */
--export function fetchProducts(categoryIri) {
+ export function fetchProducts(categoryIri, searchTerm) {
 -    const params = {};
 -    if (categoryIri) {
 -        params.category = categoryIri;
 -    }
 -
-+export function fetchProducts(categoryIri, searchTerm) {
+-    if (searchTerm) {
+-        params.name = searchTerm;
+-    }
+-
      return axios.get('/api/products', {
 -        params,
 +        params: generateListingParams(categoryIri, searchTerm),

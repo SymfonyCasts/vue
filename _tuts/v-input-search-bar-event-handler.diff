@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index e07e7352..b7376565 100644
+index 97398e37..a3a4d264 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -11,6 +11,7 @@
+@@ -12,6 +12,7 @@
          <div
              class="input-group-append"
              v-show="searchTerm !== ''"
@@ -10,17 +10,16 @@ index e07e7352..b7376565 100644
          >
              <button class="btn btn-outline-secondary">
                  X
-@@ -40,5 +41,13 @@ export default {
+@@ -40,6 +41,12 @@ export default {
+                 this.$emit('search-products', { term: this.searchTerm });
              }, 200);
          },
-     },
-+    methods: {
 +        /**
 +         * Resets the search term
 +         */
 +        eraseSearchTerm() {
 +            this.searchTerm = '';
 +        },
-+    },
+     },
  };
  </script>

@@ -1,24 +1,24 @@
 diff --git a/assets/js/components/search-bar.vue b/assets/js/components/search-bar.vue
-index 1e29847c..210b898a 100644
+index 99ae2f6f..70c478fe 100644
 --- a/assets/js/components/search-bar.vue
 +++ b/assets/js/components/search-bar.vue
-@@ -15,11 +15,19 @@ export default {
+@@ -16,11 +16,19 @@ export default {
      data() {
          return {
              searchTerm: '',
 +            searchTimeout: null,
          };
      },
-     watch: {
-         searchTerm(newTerm) {
--            this.$emit('search-products', { term: newTerm });
-+            if (this.searchTimeout !== null) {
+     methods: {
+         onInput() {
+-            this.$emit('search-products', { term: this.searchTerm });
++            if (this.searchTimeout) {
 +                window.clearTimeout(this.searchTimeout);
 +                this.searchTimeout = null;
 +            }
 +
-+            this.searchTimeout = window.setTimeout(() => {
-+                this.$emit('search-products', { term: newTerm });
++            this.searchTimeout = setTimeout(() => {
++                this.$emit('search-products', { term: this.searchTerm });
 +            }, 200);
          },
      },

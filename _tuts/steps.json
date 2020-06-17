@@ -666,23 +666,33 @@
             "description": null
         },
         {
-            "id": "first-search-bar-create-skeleton-component",
-            "name": "First Search Bar: Create Skeleton component",
+            "id": "v-model-create-search-component",
+            "name": "v-model: create search component",
             "description": null
         },
         {
-            "id": "first-search-bar-include-from-catalog",
-            "name": "First Search Bar: Include from Catalog",
+            "id": "v-model-include-from-catalog",
+            "name": "v-model: Include from Catalog",
             "description": null
         },
         {
-            "id": "first-search-bar-add-v-model",
-            "name": "First Search Bar: Add v-model",
+            "id": "v-model-add-searchterm-data",
+            "name": "v-model: add searchTerm data",
             "description": null
         },
         {
-            "id": "first-search-bar-add-watcher",
-            "name": "First Search Bar: Add Watcher",
+            "id": "v-model-add-input",
+            "name": "v-model: add @input",
+            "description": null
+        },
+        {
+            "id": "v-model-add-v-model",
+            "name": "v-model: Add v-model",
+            "description": null
+        },
+        {
+            "id": "first-search-bar-extra-input",
+            "name": "First Search Bar: extra @input",
             "description": null
         },
         {
@@ -701,8 +711,8 @@
             "description": null
         },
         {
-            "id": "better-search-bar-generateurl-method",
-            "name": "Better Search Bar: generateUrl method",
+            "id": "better-search-bar-adding-search-to-fetchproducts",
+            "name": "Better Search Bar: adding search to fetchProducts()",
             "description": null
         },
         {
@@ -711,8 +721,8 @@
             "description": null
         },
         {
-            "id": "better-search-bar-created-function-change",
-            "name": "Better Search Bar: created function change",
+            "id": "better-search-bar-remove-async-from-created",
+            "name": "Better Search Bar: remove async from created",
             "description": null
         },
         {
@@ -741,28 +751,28 @@
             "description": null
         },
         {
-            "id": "final-search-bar-generatelistingurl-make-corrections",
-            "name": "Final Search Bar: generateListingUrl make corrections",
+            "id": "delete-me-1",
+            "name": "Delete me 1",
             "description": null
         },
         {
-            "id": "final-search-bar-create-products-service",
-            "name": "Final Search Bar: create products service",
+            "id": "final-search-bar-use-generatelistingparams",
+            "name": "Final Search Bar: use generateListingParams",
             "description": null
         },
         {
-            "id": "final-search-bar-remove-axios-refactor-getproducts",
-            "name": "Final Search Bar: Remove axios, refactor getProducts",
+            "id": "delete-me-2",
+            "name": "delete me 2",
             "description": null
         },
         {
-            "id": "final-search-bar-tweak-fetchproducts-method",
-            "name": "Final Search Bar: tweak fetchProducts method",
+            "id": "delete-me-3",
+            "name": "delete me 3",
             "description": null
         },
         {
-            "id": "final-search-bar-remove-unused-function",
-            "name": "Final Search Bar: Remove unused function",
+            "id": "delete-me-4",
+            "name": "delete me 4",
             "description": null
         },
         {
@@ -776,18 +786,38 @@
             "description": null
         },
         {
-            "id": "v-input-search-bar-add-input",
-            "name": "V-input Search Bar: Add @input",
+            "id": "delete-me-5",
+            "name": "delete me 5",
             "description": null
         },
         {
-            "id": "v-input-search-bar-add-handler-remove-watcher",
-            "name": "V-input Search Bar: Add handler, remove watcher",
+            "id": "delete-me-6",
+            "name": "delete me 6",
             "description": null
         },
         {
             "id": "v-input-search-bar-fix-erasesearchterm",
             "name": "V-Input Search Bar: Fix eraseSearchTerm",
+            "description": null
+        },
+        {
+            "id": "watcher-currentcategoryid-to-data",
+            "name": "Watcher: currentCategoryId to data",
+            "description": null
+        },
+        {
+            "id": "watcher-watch-currentcategoryid",
+            "name": "Watcher: watch currentCategoryId",
+            "description": null
+        },
+        {
+            "id": "watcher-call-loadproducts",
+            "name": "Watcher: call loadProducts",
+            "description": null
+        },
+        {
+            "id": "watcher-re-add-searchterm-data",
+            "name": "Watcher: re-add searchTerm data",
             "description": null
         },
         {
@@ -1456,5 +1486,5 @@
             "description": null
         }
     ],
-    "sha": "45610f6f39b8156835efb07df01f4528efe84687"
+    "sha": "9a9417f94b103ba964fe3c9a6d33104f1fce0b8f"
 }

@@ -1,0 +1,13 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index 52d7ef44..3bae57ea 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -56,7 +56,7 @@ export default {
+             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
+         };
+     },
+-    async created() {
++    created() {
+         this.loadProducts(null);
+     },
+     methods: {

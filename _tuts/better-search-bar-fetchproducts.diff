@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 684e634e..66c74d00 100644
+index 51388c4d..52d7ef44 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
 @@ -13,7 +13,7 @@
@@ -11,7 +11,7 @@ index 684e634e..66c74d00 100644
              :loading="loading"
          />
  
-@@ -56,17 +56,6 @@ export default {
+@@ -56,37 +56,30 @@ export default {
              legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
          };
      },
@@ -27,23 +27,33 @@ index 684e634e..66c74d00 100644
 -        },
 -    },
      async created() {
-         this.loading = true;
- 
-@@ -88,6 +77,28 @@ export default {
+-        this.loading = true;
+-
+-        let response;
+-        try {
+-            response = await fetchProducts(this.currentCategoryId);
+-
+-            this.loading = false;
+-        } catch (e) {
+-            this.loading = false;
+-
+-            return;
+-        }
+-
+-        this.products = response.data['hydra:member'];
++        this.loadProducts(null);
+     },
+     methods: {
+         onSearchProducts(event) {
              this.searchTerm = event.term;
          },
- 
-+        /**
-+         * Fetches products from the API according to current category and search term
-+         *
-+         * @param {string} searchTerm
-+         */
-+        async fetchProducts(searchTerm) {
++
++        async loadProducts(searchTerm) {
 +            this.loading = true;
 +
 +            let response;
 +            try {
-+                response = await fetchProducts(this.generateListingParams(searchTerm));
++                response = await fetchProducts(this.currentCategoryId, searchTerm);
 +
 +                this.loading = false;
 +            } catch (e) {
@@ -54,7 +64,6 @@ index 684e634e..66c74d00 100644
 +
 +            this.products = response.data['hydra:member'];
 +        },
-+
-         /**
-          * Generates the params for the URL to call for a list of products
-          * by category or search term
+     },
+ };
+ </script>

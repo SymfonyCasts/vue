@@ -1,0 +1,25 @@
+diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
+index 72e78fd5..62681e63 100644
+--- a/assets/js/services/products-service.js
++++ b/assets/js/services/products-service.js
+@@ -2,14 +2,19 @@ import axios from 'axios';
+ 
+ /**
+  * @param {string|null} categoryIri
++ * @param {string|null} searchTerm
+  * @returns {Promise}
+  */
+-export function fetchProducts(categoryIri) {
++export function fetchProducts(categoryIri, searchTerm) {
+     const params = {};
+     if (categoryIri) {
+         params.category = categoryIri;
+     }
+ 
++    if (searchTerm) {
++        params.name = searchTerm;
++    }
++
+     return axios.get('/api/products', {
+         params,
+     });
