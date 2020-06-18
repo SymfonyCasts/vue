@@ -83,9 +83,6 @@ Vue, sort of, prefixes it with `this.`. So the `@click` is really
 `this.toggleCollapsed` and when we're referencing `collapsed`, it's really
 `this.collapsed`.
 
-Now you can't *actually* use the, `this` keyword in a template, but it *is*
-what's happening behind the scenes. And I can prove it!
-
 Back on our browser... if you scroll down on the log, the object has a property
 called `_uid`. On Vue 3, it's `_.uid`. This is an internal, unique identifier for
 the component that we normally don't care about. But *technically*, because the
