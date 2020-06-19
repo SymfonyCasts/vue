@@ -48,6 +48,21 @@ a bit of a cleaner way to get the job done. By the way, this *whole* idea of
 hooking into us changing data and then automatically re-rendering any affected
 templates has a cool name: reactivity. Oooo.
 
+## Tracking Changes with the Observer
+
+You see, when Vue renders a component, it keeps track of *every* data or prop
+that you *access* during that process, whether you access it directly
+in the template or reference it in a method. It's able to do that because when
+we access a property, it actually calls that `reactiveGetter` thing.
+
+The point is: by the time Vue finishes rendering a component, it has a nice list
+of all of the data and props that this component *depends* on. Each component
+has an "observer" object internally that keeps track of this. Then, when any of
+those *change*, the observer is notified and it re-renders the component.
+All *we* need to do is focus on rendering our component. But behind-the-scenes,
+Vue is observing which properties we're using so that it knows *exactly* when
+it needs to re-render.
+
 ## Reactivity in Arrays
 
 Reactivity gets even *more* amazing when you look at the `categories` data. Back
