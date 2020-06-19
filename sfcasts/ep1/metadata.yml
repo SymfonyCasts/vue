@@ -17,6 +17,7 @@ chapters:
     - v-on
     - instance-properties
     - reactivity
+    - hiding-showing
     - computed
     - data-location
     - emit
