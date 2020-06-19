@@ -23,6 +23,8 @@ if you add an option called `created` to any component, Vue will automatically
 call that function when your instance is being created. We're going to use this
 as an easy way to dig into the `this` variable: `console.log(this)`.
 
+[[[ code('37ed7448af') ]]]
+
 Let's go check it out! On my console... there it is! But I'll refresh anyways just
 to clear things out. Cool! It's a `VueComponent`: an object with... a *ton* of
 properties. If you're using Vue 3, instead of `VueComponent`, you'll see
@@ -50,6 +52,8 @@ doesn't have any `props`. Let's temporarily add one. Say `props:` and create one
 called `testProp` with `type: String`. One of the *other* things you can do here
 is give a prop a *default* value in case it's not passed to the component. Set this
 to a misspelled version of "I am the default value".
+
+[[[ code('0022b0b51a') ]]]
 
 Perfecto-ish. Back on the browser, our code was already updated and... if we scroll
 down on the console... here's the latest log. Inside... yes! It now has a property
@@ -90,11 +94,15 @@ instance has a property called `_uid`, we should, in theory, be able to say
 `{{ _uid }}` to print it. If I'm telling the truth about Vue, this should call
 `this._uid` on the object.
 
+[[[ code('3b1602a43d') ]]]
+
 And... it does! It prints "7"! Well, the value was 6 before, but when
 it re-rendered, `_uid` was 7.
 
 Let's try something else: print `definitelyNotARealProperty`. Back on the browser...
 the error is *wonderful*:
+
+[[[ code('7184734ebf') ]]]
 
 > Property or method `definitelyNotARealProperty` is not defined on the *instance*
 > but was referenced during render.
