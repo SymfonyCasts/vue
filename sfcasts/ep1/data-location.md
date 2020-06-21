@@ -1,97 +1,119 @@
-# Data Location
+# Where should a Piece of Data Live?
 
-Coming soon...
+This collapsing sidebar looks better... except that the layout doesn't change.
+It would be better if the main content moved over to take up more space.
 
-All right. This collapsed thing looks good. Except you'll notice that the layout
-doesn't change, probably collapse the sidebar. I'd probably want the main part of my
-page to move over and take up a bit more space. The problem is if I inspect element
-on this, when we collapse the sidebar, we really want to have happen.
-
-Is we want this? We need to actually change the classes on this `<aside>`. And this `<div>`
+Right click and inspect element on this area. When we collapse the sidebar, what
+we need to do is change the classes on the `<aside>` to take up less space and
+and change the classes on the main `<div>` to take up *more* space.
 probably needed to change.
 
-We need to make this `<aside>` smaller, and then we need to allow this `<div>` to expand and
-bigger. Okay. So no problem. That's just dynamic classes on those two elements.
-Right? Well, the issue is that the collapsed data lives inside of sidebar, but those
-classes, those elements we need to change. Don't live inside sidebar. They actually
-live inside `products.vue` some `products.vue`, this is the `<aside>`, and this
-is the `<div>` that whose classes need to change based on that collapsed state. So very
-important thing I want to say right now, a piece of data, like the `collapsed` data
+Ok! No problem. We just need to make a few classes dynamic.
 
-should never be duplicated. It must always live in exactly one spot. So what we're
-not going to do is create another `collapsed` data inside of products so that we can
-use it. And then somehow try to keep the `collapsed`, that data and products in sync
-with the `collapsed` data in sidebar, never duplicate data. It must always live in exactly
-one spot. Now, if you use something like vuex, then there's actually a central data
-store outside of your components where all of your data live inside of, but if you're
-not using `vuex`, like we're not using `vuex`, then your data lives directly in the
-components. And so one natural question, whenever you have a piece of data, is which
-components should this piece of data live in? Like, why did we put cleft instead of
-sidebar instead of, instead of maybe instead of products that view the answer to that
-question is that you should always put a piece of data on the deepest component that
-needs it.
+Yes... but... it's not so simple. The `collapsed` data lives inside of `sidebar`.
+But the elements that need to use that information to make their classes dynamic
+do *not*. They live inside `products.vue`: here's the `<aside>` and this
+is the `<div>`. Somehow we need access to the collapsed data right here.
 
-And by deepest, I'm referring to the component hierarchy over here. So sidebar is
-actually a deep component. Products would be a higher component. Now until this
-moment, the only component that needed access to the collapsed data was the sidebar
-component. So it made perfect sense to put it inside the sidebar component. But now
-that we realize that we, but now we realize that we need to be collapsed. We need to
-know what the `collapsed` data is inside of the products components. And so what we're
-going to need to do is actually move the collapsed data from sidebar up into the
-products components, because it will now be the, and then we'll pass that data down
-into the sidebar component as a prop. And you'll see that. So inside of `products.vue` of
-you first I'm going to do is add that new data. So I'll make the `data()` function and
-here I'll return and let's call it `sidebarCollapsed`. So we know what works what's
-glassed, and we'll initialize it to `false`. And then I'll put lots of ending
-characters.
+## Never Duplicate Data
 
-All right, simple enough. We now have access to a `sidebarCollapsed` data inside of
-`products.vue`, of course, our sidebars also going to need to know what this
-value is. So we're now going to pass this as a prop. So I'll just invent a new prop
-called collapsed. So I'll say `:collapsed` because we want to set this to a
-dynamic value `="sidebarCollapsed"`. Perfect. So now, now that we're passing a
-`collapsed` prop and a sidebar to actually make it possible to receive that we need to
-add it as a prop down here. So I will say `props: {}` set to an object and then we'll have
-one called `collapsed` and we'll put our normal,
+Let me *first* say one important thing: a piece of data - like `collapsed` -
+should *never* be duplicated. It must always live in exactly *one* spot. So what
+we're *not* going to do is create another `collapsed` data inside of `products`
+so that we can use it. And then... somehow try to keep the new `collapsed` data
+in sync with the `collapsed` data in sidebar.
 
-it's our normal type Boolean. And I'll say required to always make sure that that's
-passed into us. And I know temporarily I have a collapsed prop and a collapsed data,
-and you can see that PHP storm is trying to tell me that's not going to work. And
-it's right when we don't want a collapsed date anymore. We just want to have the
-collapsed prop. Now, the cool thing about this, because I called the new prop,
-collapsed most of our codes, just going to work up here instead of our template,
-referencing collapsed a second ago. That was data. Now it's just going to be a prop
-that's passed from our products component, but it should work just fine. So in fact,
-if we go over and I don't need to refresh, I'll click on the product component here,
-you can see my new `sidebarCollapsed` and I'm going to change that to true.
+Nope, a piece of data should always live in exactly one spot.
 
-Oh, okay.
+Now, if you use something like Vuex - or some strategies in Vue 3 that we'll talk
+about in a future tutorial - then it's possible to store your data in a central
+location, *outside* of your components. But in our case, there's only one place
+that data can live: inside a component.
 
-So I'm going to move over and refresh just to be safe. And if we click on the
-products thing, you can see my `sidebarCollapsed` here, and I want to change that to
-true. And the sidebar collapses. If you go up on sidebar, you can see that the prop
-true. Uh, whenever we change the `sidebarCollapsed`,
+## In which Component should Data Live?
 
-Data. It changes the prop on the sidebar, the class data prop on the sidebar of
-course, and everything still works fine. In fact, if you click this button that still
-works too, but with a caveat, check out your console, ah, giant horrible error. It
-says avoid mutating a prop directly since the value will be overwritten whenever the
-parent component re renders. So here's, what's happening here. We are able to
-reference the `collapsed` prop inside of our sidebar components, but down on our
-button, when we click it, this call's toggle collapsed. I'll jump to that. And here
-we are actually changing the value of a prop. And I told you, changing the value prop
-is something you should never ever, ever do. Props are something that you should only
-read.
+And so, each time you need to introduce a new piece of data into the app, there's
+a natural question: which component should this data live in? Like, why did we
+put `collapsed` in `sidebar` instead of, maybe inside `products.vue`?
 
-Now you might be thinking, yeah, but it works. I changed this prop and it totally
-changed everything. Totally rerender and you're right. Except you can actually see
-the problem. If you look at the vue dev tools. So when we change the sidebar prop
-directly, so you can see the collapsed false right there as I hit this, that changes
-perfectly false. True. But if you look at the products, data, sidebar, collapse is
-false. When I hit that, that is not changing. So we've basically taken our two
-collateral. We're our collapsed States. And we're actually, uh, we can't set a
-profit. It's not the source of truth. What we really need to do is somehow have the
-sidebar, tell the product's component, Hey, this collapsed state should change. And
-then have the products component change its own data. Once I got how to do that next
-to the answer is emit.
+Here's the rule: you should add data to the deepest component that needs it. By
+deepest, I'm referring to the component hierarchy that you can see in the Vue
+Dev tools: `Sidebar` is a deep component and `Product` is higher.
 
+Now, until this moment, the *only* component that needed access to the `collapsed`
+data was `Sidebar` component. So it made *perfect* sense to put it inside the
+`Sidebar`. But *now* we realize that we *also* need access to the `collapsed` data
+inside of the `Products`.
+
+To make this work, we actually need to *move* the `collapsed` data from `sidebar`
+up into the `products` components. That will allow us to *pass* it down
+into `sidebar` as a prop.
+
+## Moving the collapsed Data
+
+Let's get to work! Inside of `products.vue`, let's add the new data. Create the
+`data()` function. Call the data `sidebarCollapsed` - so we know *what* is
+collapsed - and initialize it to `false`.
+
+Now that the data lives here, we need to pass it to `sidebar`. No problem! Say
+`:collapsed` - because we need this to be set to a dynamic value
+`="sidebarCollapsed"`.
+
+Perfect! To be able to *receive* this `collapsed` prop, in `sidebar`, we need
+to define it. Add `props:` set to an object with a `collapsed` set to *another*
+object with `type: Boolean` and `required: true` to make sure it's passed.
+
+We now temporarily have a `collapsed` prop *and* a `collapsed` data and PhpStorm
+is trying to tell me that's this isn't going to work. Delete the `collapsed`
+data.
+
+The *cool* thing is that, because we named the `collapsed` prop the same as the
+data we had before, most of our code is just going to work! Vue doesn't care
+if the `collapsed` variable is a data or prop.
+
+Let's try it! Find your browser and I'll refresh just to be safe. Click on the
+`Products` component in the dev tools and change the new `sidebarCollapsed` data
+to true.
+
+Yes! The sidebar collapsed! If you click on `Sidebar`, you can see that the prop
+is true. Each time we change the `sidebarCollapsed` data, the prop in `Sidebar`
+*also* changes.
+
+## What Happens when you Modify a Prop
+
+Even clicking the collapse button works! Well... *sort of*. Click on the console
+to find... ah! AA horrible error!
+
+> Avoid mutating a prop directly since the value will be overwritten whenever the
+> parent component re-renders.
+
+So here's what's happening. We *are* able to reference the `collapsed` prop inside
+`sidebar`. But down on the button, when we click it, this calls `toggleCollapsed()`.
+Jump down to that method. Ah... then this method *changes* the `collapsed` *prop*.
+
+Earlier, I said that you should *never*, *ever* change the value of a prop. Props
+are meant to be *read* but not *modified*. Now you might be thinking:
+
+> Yeah... but it worked! When we changed the prop, the sidebar *totally*
+> re-rendered correctly!
+
+And that's true! But not everything is correct. Look back at the Vue Dev tools
+and the `Sidebar` component. The `collapsed` prop is false. When we click the
+button, that *correctly* changes to `true`.
+
+But now look at the `Products` component. Under data, `sidebarCollapse` is false!
+When we click the button it doesn't change! By modifying the prop, we've made
+our `sidebarCollapsed` data and `collapsed` prop get out of sync. If we were
+using the `sidebarCollapsed` data in the `Products` component, the sidebar would
+probably look half collapsed and half *not* collapsed.
+
+The point is, each piece of data must live in exactly *one* location and *that*
+location is the "source of truth". *That* is where the value needs to change.
+
+What we *really* need to do is somehow have the `Sidebar` *tell* the `Products`
+component:
+
+> Hey! The button was clicked so... the collapsed data should change.
+
+*Then* the `Products` component could change its own data. The *way* to do this
+is with `$emit()`. Let's talk about it next.
