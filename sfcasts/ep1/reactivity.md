@@ -69,6 +69,8 @@ Reactivity gets even *more* amazing when you look at the `categories` data. Back
 in `created`, let's also log `this.categories` for simplicity. Back on the console...
 find that log - it's on the right - and expand it.
 
+[[[ code('4555d0237d') ]]]
+
 Check it out: it's a normal Array with 0 and 1 keys. So... if we dynamically
 added a *third* item to this array, would Vue know to re-render? Yep!
 
