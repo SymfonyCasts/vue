@@ -33,3 +33,11 @@ chapters:
     - better-loading
     - ajax-services
     - server-data
+    - hoist-data
+    - v-model
+    - event-payload
+    - async-computed
+    - debounce
+    - helpers
+    - clear-search
+    - watcher
