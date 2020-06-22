@@ -4,7 +4,7 @@ So let's *finally* use the new `sidebarCollapsed` data inside `products`. Right
 now, when we collapse, we add a `collapsed` class... which makes the element
 really small - just 70px.
 
-Let's remove the `.collapsed` class entirely: we're going to simplify.
+Remove the `.collapsed` class entirely: we're going to simplify.
 
 Inside the `componentClass` computed property, copy the three methods that
 the sidebar *always* has. Then delete that completely. We're going to move
@@ -12,8 +12,8 @@ the sidebar *always* has. Then delete that completely. We're going to move
 the outer div.
 
 Over in `products.vue`, the classes on the `<aside>` and this `<div>` now need
-to be dynamic based on the `sidebarCollapsed` data. Hey! This is a *perfect*
-situation for some computed properties!
+to be dynamic based on the `sidebarCollapsed` data. Hey! That's a *perfect*
+use-case for computed properties!
 
 Down in our code, add a `computed` option with *two* computed properties. Call
 the first `asideClass`: it will determine the classes for the `<aside>` element.
@@ -24,12 +24,12 @@ are *not* collapsed, use the normal `col-xs-12` and `col-3`.
 Oh, and Webpack is mad because, of course, this needs to be a *function*. That's
 better.
 
-Now, copy `asideClass`, paste and call it `contentClass()`.  For this one, when
+Copy `asideClass()`, paste and call it `contentClass()`. For this one, when
 we're collapsed, use `col-xs-12 col-11` so that it takes up *almost* all of the
-space. And then when it's not collapsed, use the normal  `col-xs-12`, `col-9` so
+space. And then when it's not collapsed, use the normal `col-xs-12 col-9` so
 that it shares the space.
 
-Perfect! Except, ESLint isn't super happy about this `computed` option. It says:
+Perfect! Well... no, not perfect: ESLint isn't happy about this `computed` option:
 
 > The `computed` property should be above the `methods` property.
 
@@ -43,36 +43,36 @@ template. Scroll up to the top. For the `<aside>` element, we can say
 
 Do the same for the div below: `class="contentClass"` and then make it `:class`.
 
-Phew! Let's try this! I'll refresh just to be safe. And... ah! It works! It might
-feel even smoother with some CSS transitions, but on a Vue level, this is working
-perfectly!
+Sweet! Let's give it a try! I'll refresh just to be safe. And... ah! It works! It
+might feel smoother with some CSS transitions, but on a Vue level, this is working
+brilliantly!
 
 ## Adding a Global Class
 
-Though, I *could* use a little bit more padding on the sidebar when it's collapsed...
+Though, I *could* use a little more padding on the sidebar when it's collapsed...
 I don't want it *all* the way against the edge.
 
-Go back to the computed property. When the sidebar is collapsed, it has a special
+Go back to the computed property. When the sidebar is collapsed, it has a
 `aside-collapsed` class... which I *totally* made up: that does *not* exist yet.
 To fix our padding issue, we *could* have said `this.$style['aside-collapsed']`
-and then added a new `.aside-collapsed` class to the `styles` tag of this element.
+and then added a new `.aside-collapsed` class to the `styles` tag of this component.
 
 But... to make this more interesting, let's pretend that we're going to have
 multiple components across our app that will need to use this class. And so, I
-don't want to add it as a modular style to this component because it's something
-I want to share.
+don't want to add it as a modular style to this component: I'd rather put this
+CSS in a *central* spot and *share* it.
 
-*That's* why I used `.aside-collapsed` instead of using the `$style` variable.
-Now, inside of `scss/app.scss`, at the bottom, add the style: `aside-collapsed`
+*That* is why I used `.aside-collapsed` instead of using the `$style` variable.
+Open up `scss/app.scss` and, at the bottom, add the style: `aside-collapsed`
 with `padding: 0 15px`.
 
-Cool! When we move over to our browser... yes! It already looks better. So this
+Cool! When we move over to our browser... yes! It looks better already. So this
 is just a reminder that while modular styles are *cool*, if you want to re-use
 something, you *can* continue to use normal CSS files.
 
 ## Importing Shared, Non-Modular CSS Files
 
-By the way, you *can* almost use `@import` to import CSS files from inside the
+By the way, you *could* almost use `@import` to import CSS files from inside the
 `style` tag of your component... you can even do it in a way that *prevents*
 the styles from getting the module prefix. To do that, add a second `style` tag,
 leave off the `module` and make the language `css`. You can still *import* SASS
