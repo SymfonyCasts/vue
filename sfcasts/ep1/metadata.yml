@@ -21,6 +21,7 @@ chapters:
     - computed
     - data-location
     - emit
+    - shared-css
     - ajax
     - products
     - product-card
