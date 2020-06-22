@@ -23,6 +23,7 @@ chapters:
     - emit
     - shared-css
     - ajax
+    - await
     - products
     - product-card
     - loading
