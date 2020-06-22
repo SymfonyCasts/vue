@@ -59,7 +59,7 @@ Ah, *this* is the component that needs the products data.
 
 Here's the goal: as *soon* as Vue loads this component, we'll start the AJAX call
 so that we can load the products as quickly as possible. Fortunately, Vue allows
-us to run code during its startup process, and there are two man "hook" points:
+us to run code during its startup process, and there are two main "hook" points:
 `mounted` and `created`. We'll talk more about these later but Vue considers your
 component `mounted` when it's actually added to the page - like, in `products.js`
 when we call `.$mount()`.
@@ -78,15 +78,15 @@ here on SymfonyCasts.
 To use the Promise, add `.then()`, and pass an arrow function with `response`
 as the argument. Let's `console.log(response)` to see what it looks like.
 
-Let's try it! Back over on the browser, click to view the console. Thanks to hot
+Testing time! Back over on the browser, click to view the console. Thanks to hot
 module replacement... that already ran! But to make the flow more realistic,
 let's refresh the page.
 
-Now... boom! the log shows up almost instantly. The `response` is an object
+Now... boom! The log shows up almost instantly. The `response` is an object
 with `headers`, `status` and other things. What *we* want is `data`. One of the
 nice features of Axios is that it decodes the JSON automatically.
 
-When you're working with a JSON-LD Hydra like this, the the collection of items
+When you're working with JSON-LD Hydra like this, the collection of items
 is stored on a `hydra:member` property. Yep, it's an array with 12 products. We
 have product data!
 

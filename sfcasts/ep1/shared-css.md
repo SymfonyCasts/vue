@@ -6,7 +6,7 @@ really small - just 70px.
 
 Remove the `.collapsed` class entirely: we're going to simplify.
 
-Inside the `componentClass` computed property, copy the three methods that
+Inside the `componentClass` computed property, copy the three classes that
 the sidebar *always* has. Then delete that completely. We're going to move
 *all* of the size logic to the parent component. Paste the three classes onto
 the outer div.
@@ -52,10 +52,10 @@ brilliantly!
 Though, I *could* use a little more padding on the sidebar when it's collapsed...
 I don't want it *all* the way against the edge.
 
-Go back to the computed property. When the sidebar is collapsed, it has a
+Go back to the computed property. When the sidebar is collapsed, it has an
 `aside-collapsed` class... which I *totally* made up: that does *not* exist yet.
 To fix our padding issue, we *could* have said `this.$style['aside-collapsed']`
-and then added a new `.aside-collapsed` class to the `styles` tag of this component.
+and then added a new `.aside-collapsed` class to the `style` tag of this component.
 
 But... to make this more interesting, let's pretend that we're going to have
 multiple components across our app that will need to use this class. And so, I
@@ -72,7 +72,7 @@ something, you *can* continue to use normal CSS files.
 
 ## Importing Shared, Non-Modular CSS Files
 
-By the way, you *could* almost use `@import` to import CSS files from inside the
+By the way, you *could* also use `@import` to import CSS files from inside the
 `style` tag of your component... you can even do it in a way that *prevents*
 the styles from getting the module prefix. To do that, add a second `style` tag,
 leave off the `module` and make the language `css`. You can still *import* SASS

@@ -102,7 +102,7 @@ And that's true! But not everything is right with the world. Look back at the Vu
 Dev tools and the `Sidebar` component. The `collapsed` prop is false. When we click
 the button, that *correctly* changes to `true`.
 
-But now look at the `Products` component. Under data, `sidebarCollapse` is false!
+But now look at the `Products` component. Under data, `sidebarCollapsed` is false!
 When we click the button it does *not* change! By modifying the prop, we've cause
 our `sidebarCollapsed` data and `collapsed` prop to get out of sync. If we were
 using the `sidebarCollapsed` data in the `Products` component, the sidebar would

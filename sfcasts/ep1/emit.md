@@ -1,6 +1,6 @@
 # Communication UP with $emit
 
-The `SidebarCollapsed` data now lives inside of `Products` because, in a minute,
+The `sidebarCollapsed` data now lives inside of `Products` because, in a minute,
 we're going to use it to dynamically change the classes on the sidebar and content
 elements. We're also already passing this data as a `collapsed` prop into `Sidebar`
 so we can happily reference it inside the template.
@@ -58,7 +58,7 @@ to that event. I'll move the `<sidebar` onto multiple lines.
 
 To listen to the `toggle-collapsed` event, we're going to use `v-on`. Because,
 really, listening to a custom event is *no* different than what we're doing
-in `sidebaar`. To listen to the `click` event of a button, we use `v-on:click`,
+in `sidebar`. To listen to the `click` event of a button, we use `v-on:click`,
 or `@click` for short. Then, on click, we run some code!
 
 `click` is a native DOM event, but things work *exactly* the same for an event
@@ -76,7 +76,7 @@ I *love* that. Back on the browser, I'll refresh to be safe... and then click
 Collapse. It works! You can see the events and, back on the `Products` component,
 we can watch the `sidebarCollapsed` data change. *That* is a nice setup.
 
-## Using Shortcut v-on Everywher
+## Using Shortcut v-on Everywhere
 
 Now that we have this working, go back and find the `v-on:` attribute. What I
 *love* about this directive is how clear it is:

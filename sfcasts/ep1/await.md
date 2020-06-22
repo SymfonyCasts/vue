@@ -12,7 +12,7 @@ If we stopped right now, response would actually be a *Promise* - not a response
 But if we put `await` in front of it, it *will* be a response! The `await`
 keyword causes your code to *wait* for that Promise to resolve. And whatever data
 is *normally* passed to your callback as an argument is instead *returned*. There
-is *still* an asynchronous AJAX call happening, but our code *reads* a more like
+is *still* an asynchronous AJAX call happening, but our code *reads* a bit more like
 synchronous code. The `await` keyword is syntactic sugar.
 
 ## Why do we need async?
@@ -83,7 +83,7 @@ safe... then on the Vue dev tools, find the `Catalog` component. Yes! Our
 `products` data has 12 items in it!
 
 So... let's celebrate and *use* this data! Up in the template, remove that pesky
-TODO. In our design, this `div` is meant to hold each product. Break it into
+TODO. In our design, we need to have one of these divs for each product. Break it into
 multiple lines and then loop with `v-for="product in products"`. And every time
 we use `v-for`, we need to add a `key` attribute set to some unique, non-changing
 key for each item.
