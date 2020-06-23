@@ -1,81 +1,100 @@
 # Categories Ajax
 
-Coming soon...
+I've gotta say, now that we have all of these dynamic products, these hard coded
+categories over here are starting to *stress me out*! So let's make these dynamic as
+well!
 
-I got to say, now that we have all of these dynamic products, these hard coded
-categories over here are starting to stress me out. So let's make these dynamic as
-well.
+If you look at our `/api`, just like how we have a `/api/products` end point for the
+collection of products, we have one for `/api/categories`. Perfect! We can use that!
+And now that we know the correct way to make the Ajax calls and load data, this is
+going to be super simple!
+ 
+## Add an Ajax call to Sidebar  
+ 
+Open `sidebar.vue`. We did create earlier a data property called `categories`, but
+it's just hard coded! Now we need to load this with real data. I'll set this to an
+empty array to start, and then we'll get *really* sneaky! We can actually go over to
+`catalog.vue` and steal a bit of code that will *almost* work for our sidebar!
+Copying and pasting is always good!
 
-As a reminder, if you look at our `/api`, just like how we have a `/api/products`, end
-point for the collection of products, we have one for `/api/categories`. So perfect.
-We can use that. And actually now that we know how to make the correct word and the
-Ajax calls and load data, this is going to be super simple back products. That view
-is our top level component. We're going to be working inside of sidebar. So I'll open
-`sidebar.vue` and let's see here we did earlier create a `categories` data, but it's
-just hard coded. So now let's actually load that with real data. So I'll set this to
-an empty array to start, and then we'll cheat. I'm gonna go over to `catalog.vue`
-copying and pasting is always good.
+Copy that entire function and paste it over here under `data`. Almost nothing needs to
+change! We're changing the URL to `/api/categories` and the data down here from
+`products` to `this.categories`. Awesome!
 
-Copy that
+Let's just see what happens! Refresh... Whoa! It looks like it works! Look in the
+console here... Yeah, everything looks happy! So if you look at the sidebar here in
+the DevTools, we can see our categories. The category data actually is pretty simple.
+It has the normal `@id` and `@type` that comes from the JSON-LD and then it has `id`
+and `name`.
 
-tire function and paste it over here. And almost nothing needs to change. We're going
-to change the URL `/api/categories` and the data down here from, to `this.categories`.
-And yeah, let's just see what happens,
+Oh, and actually one thing I forgot to mention is that, when we pasted this code 
+down here, `PHPStorm` saw that and *automatically* added the Axios import for us.
+It only did it in a boring double quotes way and ESLink does *not* like that!
+Let's fix this... Much better!
 
-refresh it. Whoa. And actually most looks like it works. Look in the console here.
-Yeah, everything looks happy. So instantly loaded. You have a sidebar here. We can
-see our categories. Then the category data actually is pretty simple. It has the
-normal `@id` `@type` that comes from the JSON-LD, then it has `id` and `name`. Now
-we're not quite done yet here. Cause if you Oh, which we're going to we're in, we're
-gonna use those and we're not quite done yet. Oh. And actually one thing I forgot to
-mention, which is really cool is when we pasted this code in down here, uh, Peter
-from saw that and automatically added the import Axios for us. You know, the trick is
-that with double quotes of single quote saw update that now. All right. Anyways, if
-you go back up to our `v-for` up here, you remember earlier, we learned that every `v-for`
-has to have a key while before, since we just created the categories data, uh, we
-just use the index to update that now that we have, now we can be smarter because we
-know that,
+## v-for index and :key
 
-now I can even be smarter because we can actually instead use the `@id` from each of
-those categories. So I'll simplify our before, which is really nice. And then we'll
-say `:key=""` and we'll say `category['@id']`
+Anyways, if you go back up to our `v-for`, we learned earlier that every `v-for`
+element has to have a key. Up until now, since our categories data was hard coded,
+we just used the `index` to pass on to our `:key`. But now we can be *smarter* because
+we know that we can actually use the `@id` property instead from each of these
+categories.
 
-And then the last thing doesn't work is I kind of, before we had a `category.link`
-there is no link property on here. Um, what we're eventually going to have is
-we're gonna eventually have an actual page that you can go to that will display all
-of the products for a specific category. And it's going to look like this. It's going
-to look like `/categories/` and then like the `id` of the category. So we don't actually
-have that page functional exactly yet, but I'm going to go ahead and change and
-update the URL here to do that. Now what's the best way to do that now because we're
-Symfony users, we're used to generating URLs to routes, but instead I'm going to keep
-things simple here. I think it's actually okay to hardcode you, where else to
-different pages inside of your JavaScript, have you ever changed those URLs in your
-site?
+So we'll simplify our `v-for` and then we'll say `:key="category['@id']"`. Now we have
+real ids as keys for our items!
 
-You just seem to know that you might be breaking some, um, breaking those pages. So
-you might need to update your JavaScript. So in fact, we want to do here is we want
-to say `/category/`and then we want the dynamic `category.id`. And of course,
-since I have the colon in front of the HF to make this dynamic, I would need to have
-a single quotes around here. And then we can do the plus sign and say `category.id`
-be like that, that actually would work. If you look over here, you can see when I
-hover over that, that kind of gives the right basic idea. But instead we're make us
-to clean this up a little bit more. We're going to use a JavaScript feature, which is
-that instead of the quotes, I can actually use the tick symbol and I'll get rid of
-the quarter over here.
+## Linking properly
 
-As soon as you use the tick symbol and I'll do a closing tick on the end, then you
-are, you are writing just a normal string, but as soon as you need somebody dynamic,
-you can just do dollar sign, less than sign. And then another lesson, sign, dollar
-sign, curly brace, and then whatever thing you want to be dynamic. So this is just a
-nicer way, because remember, as soon as we make this `:href`, it means that
-what's inside the attribute is JavaScript and this is valid JavaScript. Right? So to
-look over now, yes, all of those links look perfect. So next let's, so this is
-actually looking really good. We have dynamic products, we have dynamic categories.
-Now the only thing that bothers me is all the loading, the loading of
+The last thing that doesn't work is our links! In our data before, we had a hardcoded
+`category.link`, but now there is no `link` property in here! Our category pages are
+*nowhere* to be found!
 
-When we only loaded the products that was okay because the products sold pretty fast,
-but even the categories waiting to load now is starting to look a little bit jarring.
-So next let's load our categories in a different way, a way where we can actually get
-them to render on the screen immediately so that we're not waiting for them. So the
-users aren't waiting for them to load.
+But let's not panic! Eventually, we will have a real page that will display all of the
+products for a specific category and the URL to that page is going to look something
+like `/categories/` and then the `id` of the category. We don't actually have that
+page exactly working yet, but I'm going to get *a bit* ahead of myself and update the
+URL here to do that.
 
+Because we're Symfony users, we're used to generating URLs to routes, but this time,
+I'm going to keep things simple! I think it's actually okay to hardcode your URLs to
+different pages inside of your JavaScript. You just have to make the concession that
+if you ever change those URLs in your site, you know that you might be breaking
+those pages, so you might need to update your code.
+
+What we want to do here is to say `/category/` and then we want the dynamic
+`category.id`. But of course, since I have the colon in front of the `href` to make
+this dynamic, I would need to have a single quotes around here. Then we can add a
+plus sign and say `category.id`, like that. That *would* actually work.
+If you look over here, you can see when I hover over categories, I see the right
+kind of URL showing at the bottom of my browser!
+
+## Javascript dynamic strings
+
+But my eyes are *hurting* from looking at this ugly code! Can we make this look a 
+little bit nicer? Thanks to modern JavaScript, we can! Let's replace the quotes with
+`ticks` instead! Let's remove the quotes and add a tick in the end...
+
+As soon as you use the tick symbol you can add dynamic expressions as part of the
+string, just like with `PHP`'s double quoted strings! We can just do `${category.id}`
+and JavaScript will interpret this dynamically.
+
+This now looks so much nicer! Becuase, remember, as soon as we make this `:href`,
+it means that what's inside the attribute is JavaScript and *this* is valid
+JavaScript. 
+
+Look over now, yes, all of those links look *perfect*!
+
+## Too much dynamic data!
+
+This is actually looking really good. We have dynamic products and dynamic categories.
+The *only* thing that bothers me is all the loading! Notice that when I load the page
+each time, I see the products loading *and* the categories loading as well!
+
+When we only loaded the products, that was okay because the products loaded pretty
+fast. Having the categories waiting to load on the other hand is now starting to look
+a little bit jarring. Think of the amount of time users will have to wait until they
+can click on another category! This *ought* to be stalling our sales!
+
+So next, let's load our categories in a *different* way, a way where we can actually
+get them to render on the screen *immediately* so that we're not waiting for them to
+load over an Ajax call!
