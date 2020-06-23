@@ -70,7 +70,7 @@ create a sub-directory for the component with an `index.vue` file and add
 other sub-components inside that directory. We'll do that in a minute.
 
 Anyways, add `ProductList` to components so that we can reference it in the template.
-Here, our job is pretty simple: delete the entire `<div>` and say a
+Here, our job is pretty simple: delete the entire `<div>` and say
 `<product-list />`. PhpStorm is already suggesting the one `prop` that we need
 to pass: `products="products"`. But we know that's wrong: we don't want to pass
 the *string* products, we want to pass the variable.

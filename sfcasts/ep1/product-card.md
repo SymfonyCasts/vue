@@ -1,6 +1,6 @@
-# Adding all the Product Details
+# Product Details & Smart vs Dumb Components
 
-Let's *really* make these product come to life! Now that we have a component whose
+Let's *really* make these products come to life! Now that we have a component whose
 *only* job is to render a *single* product, this is going to be fun & clean.
 
 ## The Product Card Template
@@ -20,7 +20,7 @@ dev tools and click on Catalog, each product has several fields on it, like
 So, for the image, we're using `src="product.image"` - with the `:` that makes this
 attribute dynamic - and we're rendering more data for the `alt` attribute, the
 product name and the `product.price`. We also have a button to *view* the product
-page... which isn't actually working yet... then we print `product.brand`.
+page... which isn't doing anything yet... then we print `product.brand`.
 
 *Hopefully* this all feels pretty simple.
 
@@ -73,10 +73,10 @@ Pretty cool, right? I'll even add some docs to our function. I'm over-achieving!
 Now that we have a computed property called `price`, we can use it with
 `{{ price }}`, as *if* `price` were a prop or data.
 
-We know that computed properties - like `props` and `data` - are added as *properties*
-to the Vue instance, which is why we can say things like `this.price`. But behind
-the scenes, when we access this property, it will call our method. As a bonus,
-it even *caches* that property in case we refer to it multiple times.
+We know that computed properties - similar to `props` and `data` - are added as
+*properties* to the Vue instance, which is why we can say things like `this.price`.
+But behind the scenes, when we access this property, it will call our method. As
+a bonus, it even *caches* that property in case we refer to it multiple times.
 
 ## Computed Properties with Arguments?
 
@@ -84,10 +84,10 @@ Oh, and by the way: this is *one* of the reasons why I created a specific compon
 for rendering each product. If we did *not* have this component... and we were
 rendering this data inside the `ProductList` component, we wouldn't be able to
 use a computed property... because we would need to pass an *argument*: the product
-price. Instead, we would have needed to create a *method*... which isn't the end
-of the world, but is less efficient. Any time that you're creating a method to
-*return* data, it's a signal that you should considering refactoring into a smaller
-component that could use a computed property.
+whose price we need to calculate. Instead, we would have needed to create a
+*method*... which isn't the end of the world, but is less efficient. Any time that
+you're creating a method to *return* data, it's a signal that you should considering
+refactoring into a smaller component that could use a computed property.
 
 Anyways, now when we move over... we don't even need to refresh: there is our
 *beautiful* 30.00 price. What a bargain!
@@ -112,16 +112,16 @@ that's often followed in Vue and React. It's called smart versus dumb components
 or container versus presentational components.
 
 This pattern says that you should try to organize some components to be smart -
-components that make AJAX calls and changing state - and other components to be
+components that make AJAX calls and change state - and other components to be
 dumb - that receive props, render HTML and maybe emit an event when the user does
 something.
 
 `product-card` is another example of a dumb, or "presentational" component. Sure,
 it has a computed property to do some basic data manipulation, but this is just
-a component that receives a prop and renders them, maybe with some minor data
+a component that receives a prop and renders, maybe with some minor data
 formatting.
 
-To compare to the Symfony world, one way to think about this is that a smart
+To compare this to the Symfony world, one way to think about this is that a smart
 component is like a controller: it does *all* the work of getting the data ready.
 That might involve calling other services, but that's not important. Once it has
 all the data, it passes it into a template, which is like a dumb component. The
@@ -132,6 +132,6 @@ obsess over it. We're doing a good job of making this separation in some places,
 but we're not perfect either, and I think that's great. However, if you can
 *generally* follow this, you'll be happier with your components.
 
-Next, now that we're loading data via AJAX, we're need a way to tell the *user*
+Next, now that we're loading data via AJAX, we need a way to tell the *user*
 that things are loading... not that our server is on fire and they're waiting for
 nothing. Let's create a Loading component that we can re-use anywhere.

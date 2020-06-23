@@ -20,7 +20,7 @@ your component is completely removed.
 
 ## mounted vs created
 
-We use `mounted` earlier to start our AJAX call. That means that our Vue instance
+We used `mounted` earlier to start our AJAX call. That means that our Vue instance
 was created, mounted into the DOM, and *then* the function was called. It turns
 out that a better place to load data is actually `created`.
 
@@ -28,7 +28,7 @@ Let's try this: change `mounted` to `created` and then I'll refresh to be safe.
 That works *just* fine.
 
 The `created()` function is called as *soon* as the Vue instance for our component
-is instantiated. That let's us start our AJAX call as *early* as possible. By the
+is instantiated. That lets us start our AJAX call as *early* as possible. By the
 time it's mounted onto the page, the `products` data may or may *not* yet be available,
 probably they aren't. But it doesn't really matter. And we can see this when we
 refresh: the products are *missing* for a moment.
@@ -80,9 +80,9 @@ We're not *conditionally* hiding and showing that yet but... there it is! Not ba
 
 Ok: we only want to show the `Loading` component when the products AJAX
 call hasn't finished. The two different ways to conditionally hide or show something
-is `v-show` and `v-if`. In this case, especially because we're *eventually* going
+are `v-show` and `v-if`. In this case, especially because we're *eventually* going
 to be loading the product list multiple times when we have a search bar, let's use
-`v-show` so we can hide & show it quickly. Add `v=show=""`. And, let's see: the
+`v-show` so we can hide & show it quickly. Add `v-show=""`. And, let's see: the
 easiest way to know if the products are still loading is to check if
 `products.length === 0`.
 
@@ -95,5 +95,5 @@ are no products, but it balances things.
 
 We now have dynamic products *and* a loading animation while the AJAX call is
 finishing. I'm super happy about that! But our categories are *not* dynamic yet.
-Wah, wah. Let's fix that next. But after we do, we'll explore a *faster* way of
-loading them.
+Wah, wah. Let's fix that next. But after we do, we'll explore a *faster* way to
+load them.
