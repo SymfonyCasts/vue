@@ -1,186 +1,216 @@
-# Server Var
+# Server Vars
 
-Coming soon...
+When we dynamically loaded the categories in our sidebar, we looped over them
+and created a link to `/category/` and the `id` of each item. I said back then
+that those were going to be in a future page that we would create. Well...
+Guess what: if you click on `office supplies`, that actually *works*! We can see
+the URL changed up here and it looks like it just completely reloaded the same page.
 
-Let me be dynamically loaded the categories in our sidebar. We looped over the
-categories and we're actually creating a link to /category /the idea of a category.
-And I said that that was going to be a future page that we would create. Well, guess
-what, if you click office supplies that actually works. It's not four Oh four. You
-can see the URL changed up here and it looks like it just completely reloaded the
-same page. So let me show you, what's going on here. I've done a little bit of work
-behind the scenes,
+So let me show you what's going on here. I've done a little bit of work behind the
+scenes. In `src/controller/ProductController.php`, remember we have this 
+`app_homepage` route in here that just references this twig template that is in
+`product/index.html.twig`. This is what we've been using. I'm gonna open `templates`,
+`products` `index.html.twig` so you can see it. Nothing special here, we have our
+target `div` for the `vue` app, and the `JavaScript` and `css` tags for our products
+page.
 
-any source controller, product controller. You remember that we have this homepage
-here. This is what we've been using. And just references this in re renders this
-index dot .html.twig template. I'm an open templates, product index that HTML tags.
-You can see that. So nothing special here. We have our target and we're reference
-rendering are our JavaScript and CSS tags, um, for our products. But to all of us in
-be below this, we have another one called show category. That's why that page works.
-I already created a route and controller that re that for /category /uh, ID. And
-you'll notice that it actually does the same thing. It renders the same template. So
-here's the idea. We're purposely not building a single-pay page application.
-Multipage applications are in a lot of ways trickier to think at working with view.
-But our, my reality, our view applications going to run on several pages. We're going
-to have the homepage, which is going to render all, which is basically the all
-products category. And then you can click into any in any of the individual
-categories. And even later, we're going to allow you to click, to view a product. And
-that's also going to be rendered by our same one view applications. Our same one view
-application is going to behave differently based on what page you're on.
+Going back to the controller, below this, we have another route called `app_category`.
+That's why that page works! I've already created a route and controller for
+`/category/{id}` that loads just the *same* twig template as our previous route!
 
-So here's the trick right now, when we're on an actual category page, we need to do
-two things. First. We're probably going to want to highlight which category we're on
-over here in some ways. So that user actually knows that we're on the office supplies
-category. The second thing we're going to do is we're going to need to filter the
-product list because right now, no matter what category I click on, I am always
-getting the same list of products. So we need to see how intelligently realize they
-were on a category page and then read that information and then filter make a
-different API request for a different set of categories. So basically we want to use
-our same view app, but sort of pass it different configuration. So it does slightly
-different things. So here's what we're gonna do. The one piece of information we need
-to know right now in our view application is what category ID we are currently on.
+## About Multiple Page Applications
 
-Are we on no category ID, meaning show all products, or are we, or are we on category
-ID 23? So to do that effective, what we need to do is we need to communicate
-information from server because the server knows what category we're currently
-working with into our view application. And there are multiple ways to do this the
-way we're going to do it. It's very simply by setting a global JavaScript variable.
-And then we're going to read that inside of our application. So first I'm actually
-going to add a second argument to my category. Now don't worry. We're not going to go
-too much into Symfony. I'll explain what I'm doing along the way. I'm going to type
-on a wire and I, our eye converter interface argument called IRI converter. You'll
-remember from, remember if you click on the catalog and look at our products data,
-um, every single thing we get back from the, every single item we get back from our
-API has an ad ID.
+So here's the idea. We're purposely not building a single page application in part
+because multiple page applications are in a lot of ways trickier to work with
+in `Vue`. We're also in a Symfony App, which leverages the use of multiple routes
+to different pages. In this context our `Vue` application is going to run on
+several URLs.
 
-That's known as the I R I. So when I communicate and I always like to use this IRI
-string instead of like the integer ID, uh, just because it's more useful than an
-integer ID. So what we're actually going to do inside of on the categories pages
-instead of setting a JavaScript variable that says we're on category 23, I'm actually
-gonna use the I R I have a category. And this IRI converter thing helps me get that.
-It's a lot of second argument to our template here, and I'm going to pass in a new
-variable called current category ID. It's really current category IRI = IRI,
-converter arrow, get IRI from item, and then we can pass it, the category entity
-object. Now, next we're going to use inside the template to do when we do that, we
-need to be careful because you can see there's two pages that are rendering the same
-template. So there's only going to be a current category ID in one case, not in both
-cases. So an index HTML, twig above where I'm rendering my products, JavaScript, I'll
-add a script tag. I'll say
+We're going to have a homepage, which is basically the `All Products` category and
+then you can click on any of the individual categories to get to that particular
+list of products. Even later, we're going to allow you to click here to visit a 
+specific product and that is *also* going to be handled by our same `Vue`
+application. Our *same one* `Vue` application is going to behave differently based
+on what page we're on.
 
-[inaudible].
+In order to achieve that, when we're on an actual category page, we need to do
+two things:
+ 
+1) We're probably going to want to highlight which category we're on over here
+in the sidebar menu so that the user actually knows that we're on the
+`office supplies` category and not in teh `All Products` for example.
 
-If current category D is defined, I'm not going to put it. I'll put an else. And
-then, and if, or about a second, then we're going to set a global variable. So window
-dot current category ID equals, and then I'm going to use my, uh, I'm actually just
-going to print that out inside of JavaScript. So curly quotes, then curly, curly,
-current category ID now to make sure, like, you know, it's not really going to be a
-problem here, but technically if this current category ID were a string with a quote
-in it, it would actually break cause we're inside quotes. So to fix that, we're going
-to pipe it to escape. J S what that basically says is tell us to wait to escape this
-variable as for JavaScript so that no matter what it will work inside the string.
-Now, if we are, if the current category is set, that means we're on the homepage. I'm
-going to say window dot current category ID equals
+2) We are going to need to filter the product list because right now, no matter what
+category I click on, I am *always* getting the same list of products. So we need to
+realize that we are on a category page and then read that information to make a
+proper API request for the correct set of products.
 
-no.
+Basically we want to use the *same* view app and have it show something different
+depending on some configuration that we pass to it.
 
-So a long way of showing. So basically the end result of this is when we refresh the
-page and I'll just view the source. If you scroll down where JavaScript is, you can
-see, we now have window dot current category D = /API /categories. And these city
-slashes are just, uh, uh, escaping the, uh, the other slashes. Alright, so how can we
-use this inside of our view application? There are a couple of different ways we're
-going to kind of build up and complexity. The first thing I want to accomplish is I
-want to highlight which one of these categories is currently selected. So that means
-that in sidebar dot view, we need to know, uh, what are, what the current, uh,
-category ideas. Now, the simplest way to do this is just to reference the global
-variable. We created a global variable in the template. Let's just reference that
-global variable inside of here, but we can't just reference global variables inside
-of our template. Like, what I really want to do is probably add like an extra class
-to the link. If the global current category ID is equal to this categories ID, and of
-course we can't do that. Anytime we reference a variable inside of here, view tries
-to call that on the inside the view instance. So this is actually a perfect situation
-for a computed property. So I'm gonna go down below data, I'll add computed,
+## Server Variables
 
-and I'm going to create a new computer property called current category ID.
+Here's what we're gonna do: The one piece of information we need to know right now
+in our `Vue` application is what category ID we are currently on. Are we on *no*
+category ID, meaning show all products, or are we on category ID 23?
 
-And we're going to return
+To do that effectively, we need to communicate this information from the server,
+since the server knows what category we're currently working with.
 
-window that current category ID, just that simple. Now, before I go up and actually
-use that on inside of my template, let's create an, add a new style down here that we
-can use. So inside of the UL, I'm going to create a new style called L I a that's
-selected. So the selected classes, what we're going to need to dynamically add up
-there, and I'll say background, it's that $2 sign light dash component dash of
-boarder. I'm just reusing, I'm an hold command or control and click this. Um, you can
-see I'm just reusing things from this mix in here.
+While there are multiple ways to do this, we're going for a very simple but
+optimized approach. We're simply going to be setting a global JavaScript variable
+right in the template and then read that inside of our application.
 
-Oh my bad to have this mix in here. And it's actually loads colors where we actually
-have some of those things defined as variable. So basically just using a variable, if
-you follow that, all right, so now let's use this selected thing. Let's go up here.
-Let's start with the all categories here. This is based. This should have that
-selected thing. If the current category ID is no. So now we need basically, uh, our,
-we need our class to be dynamic. So remember when we, when we need to have a class,
-sometimes show up and sometimes not show up. The best thing to do is to
+## Adding the Category @id to our controller
+ 
+First, I'm going to add a second argument to my `showCategory` action. Now, don't
+worry, we're not going to go *too much* into `Symfony`, I'll explain what I'm doing
+along the way. Let's add an auto-wired service of the type
+`IriConverterInterface` and call it `$iriConverter`.
 
-at our call and of course, to make a dynamic and then pass an object to the class.
-And here we can have a key one key called nav link. We'll set that to true. True
-means, always show up. And the other one, it's a little bit ugly, but we'll say
-dollar sign style that selected to reference our new select the property. And that
-should show up if current category ID = = equals. No remember we had to do this kind
-of less square bracket, right? Square back a thing here. That's the only way we can
-have a dynamic, a value here with a dot. So kind of unfortunate, but we're actually
-going to fix that in a second. I'm gonna copy that class down here and then go down
-to the actual inside my loop. And in this case, it's going to be slightly different.
+Remember when you clicked on the catalog and look at our products data, every
+single item we get back from our API had an `@id` property. That is known as the
+`IRI`. I always like to use this `IRI` string instead of just the integer `ID`
+from the database because it's more useful. So inside of the category pages,
+instead of setting a JavaScript variable that says we're on category `23`, I'm
+actually gonna use the `IRI` of that category. It's this `IRI` converter
+that helps me get that.
 
-Or we're going to compare here is we're going to compare the category. Lesker bracket
-at ID is equal, equal to current category ID to leveraging that computed property in
-both cases. All right. So if I didn't mess anything up, that should work and yes, you
-can to share, to see I'm on the office supplies. Basically this little light blue
-border here, let's click the all products. It works beautifully. So you have to
-remember, even though we don't have access to, we can't just use the global variables
-inside of our template. It's very simple just to create a computer property that does
-that for you and boom, it is available. Now there's one thing I want to change here
-before we talk about a better, maybe a better way to do that is, um, it does bother
-me a little bit that I have to use this dollar sign style that selected here. Not
-because I don't want to use the dollar sign style exactly. But if you look down here
-at my CSS, I'm already inside of it of a modular component. So if where you go all
-the way up here, we're using dollar sign.style dot components on the outside element.
-And then in SAS, because I've put this inside of that.
+Next, I'm going to add a second argument to our template and I'm going to
+pass in a new variable called `currentCategoryId`. In reality, this is "current
+category `IRI`" `=$iriConverter->getIriFromItem()` and then we can pass it the
+`$category` entity object. We're going to use this inside of the template!
 
-Yeah.
+## Printing JavaScript values directly in our template
 
-The style is only going to be applied to things that are inside of that component.
-That component style. Let me just show you what I mean, if you view source on the
-page and then no, that's not gonna work. If you inspect element
+We need to be careful here because there are two pages that are rendering the same
+template and there's only going to be a `currentCategoryId` in *one* case, not in both
+cases. In `index.html.twig` above where I'm rendering my products' JavaScript, I'll
+add a `script` tag and say `{% if currentCategoryId is defined %}`. I'll add an
+`{% else %}` and `{% endif %}` that we'll worry about in a second.
 
-on the selected link, you can see here that it's of course, sidebar_selected_the
-dynamic thing. But if you look the way that that CSS actually looks, it's actually
-dot sidebar_component, and then the hash space, UL space, L I space aide that
-sidebar_that dynamic thing. We don't actually need that. The modular CSS and the
-second spot we already we're already sandbox because of the first spot. So what I
-would like to do is basically be able to write CSS like this, but not have to, but
-not have it a render with the extra modular CSS. Because up here, what I want to do
-is I want to just be able to say very simply selected here and selected there.
+In here we're going to set a global variable: `window.currentCategoryId=` and then
+just print `currentCategoryId` inside of JavaScript. So `{{ currentCategoryId }}`.
+This isn't going to be a problem here, but technically if this `currentCategoryId`
+were a string with a quote in it, it would actually break because we're inside quotes.
+So to fix that, we're going to pipe it to `e('js')` which will escape that string
+*within* the JavaScript context so that no matter what it says, it will work inside
+the string.
 
-I need to explain this a little better. Of course, that's not going to work because
-the real class that's going to CSS has that module, uh, the extra modular stuff on
-it. So the way you can get this to work. And I actually really like this is that down
-here, you can basically tell modular CSS, look, I'm using a selected class here, but
-I don't need you to add the modular to convert this to a modular CSS class for me,
-the way you do that is you add this kind of pseudo selector called colon global in
-front of it.
+In our `else` block, if no current category is set, that means we're on the homepage
+so I'm going to say `window.currentCategoryId=null;`
 
-As soon as you do that, can you go over and refresh? Actually, I don't even need to
-refresh. You can see it's already back in this time. If I inspect elements on that
-and look over here, you can see how it renders. It has the modular class on the
-sidebar, but then it just has a dot selected, which is totally safe because that's
-only gonna apply when you're inside of this component. And actually we can go step
-further if you think about it, because this is a modular class right here, we don't
-need anything inside of here to use, to have an extra modular class. So I can
-actually move that global up here after the component. Now, everything inside of here
-is not going to get extra classes. And the only time I should have to actually use
-the dollar sign style is on the outside components. So dollar on style dot components
-than any other classes inside, I can just let those be normal classes. So I like that
-a lot better. Next, we have successfully via a computer property referenced this
-global window variable, but this is a global very one. I don't love having global
-variables just hidden inside of my code. We can actually do, uh, organize this a
-little bit better by refactoring it into a service that we use to fetch that global
-variable. Let's do that next.
+The end result of this long journey is that when we refresh the page and we view
+the source, if you scroll down where JavaScript is, you can see 
+`window.currentCategoryId='/API/categories/23'`. The back slashes are just escaping
+these forward slashes in here.
 
+## Use it inside Vue
+
+So how will we use this inside of our `Vue` application? The first thing I want to
+accomplish is I want to highlight which one of these categories is currently selected.
+
+Go to `sidebar.vue`. We need to know what the current category Id is. The simplest
+way to do this is just to reference the global variable. We created a global variable
+in twig so we can just reference that global variable inside of here,
+but we can't just reference global variables inside of our template because `Vue`
+will treat those as members of its instance.
+
+What I *really* want to do is add an extra class to the link if the global
+`currentCategoryId` is equal to this category's ID. This is actually a *perfect*
+situation for a computed property. So below `data`, we're going to add `computed`
+and I'm going to create a new computed property called `currentCategoryId`. We'll
+return `window.currentCategoryId`. Just that simple!
+
+***TIP
+Another way to do this would be from within our `data` property
+***
+
+## Adding the .selected style
+
+Before we go up and use that inside of our template, let's add a new style down here
+that we can use. Inside of the `ul`, create a new style called `li a.selected`. This
+is what we need to dynamically update in the template. Let's say
+`background: $light-dash-component-border;`. We have this mixin here that we already
+imported which in turn loads `colors.scss`. We're actually using a variable that is
+defined in here.
+
+Alright, so let's use this `selected` class up here in the template... Let's see...
+Let's start with the `all categories` here. This *should* have that `selected` class 
+*if* the `currentCategoryId` is `null`. For that, we need our class to be dynamic.
+How can we have a class here to some times show and some times *not* show? I
+remember! The best thing to do is, of course, make it dynamic, and then pass an
+*object* to the class.
+
+Here we can have a key called `nav-link` and set that to true so it *always* shows up.
+The next one is a *little bit* ugly, but we'll say `[$style.selected]` to reference our
+new select property. That should show up if `currentCategoryId===null`. Remember that
+we have to do this less square bracket syntax here so that JavaScript could interpret
+our complex `.` syntax as a string. Kind of unfortunate, but we're actually
+going to fix that in a second!
+
+We'll copy this `:class` in here and then go down inside our loop and in this case,
+it's going to be slightly different. Here we need to compare 
+`category['@id'] === currentCategoryId` leveraging that computed property in
+both cases.
+
+## Let's see it in the browser
+
+All right, so if I didn't mess anything up, that should work... And yes! You
+can actually already see I'm on the Office Supplies page and the correct category
+is highlighted! Let's click on "All Products"... It works *beautifully*!
+
+So to summarize, even though we don't have access to `window` or global variables
+inside of our template, it is very simple just to create a computed property or
+data that grabs that for you and make it available!
+
+## SCSS Globals
+ 
+There's one thing I want to change here before we talk about an even *better* way
+to manage global variables!
+
+It does bother me a *little bit* that I have to use this `$style.selected` here
+because, in this particular context, I'm forced to use this ugly `[]` syntax! If you
+look down here at my CSS, I'm already inside of a modular `.component` class.
+Go all the way up here in the template and you'll see we're using `$style.component`
+on the root element. Then in SAS, because I've put this inside of that `.component`,
+the style is only going to be applied to things that are inside of the root element.
+If you inspect the element on the selected link, you can see here that it's of
+course `sidebar_selected_` and then a dynamic hash. But if you look to the
+way that CSS selector is actually constructed it shows `.sidebar_component` and then
+the hash string, ` ul li.sidebar_selected` and another dynamic hash! We don't actually
+need that. The modular CSS that we need in order to single out our component is
+*already* at the root element called `sidebar_component`. What I *would* like to do
+is basically be able to write CSS like this, but not have it rendered with the extra
+modular hash string because, up in the template, I want to just be able to type
+`.selected` and have it just work...
+
+Of course, that's not gonna work out of the box because the real class that's
+going to be compiled has that extra modular stuff on it. Bummer! But there's a way
+you can get this to work! I actually really like this! Let me show you:
+
+## Make our child style classes into globals
+
+Down in the style section, you can basically tell SCSS "look, I'm using a selected
+class here, but I *don't* need you to add the modular stuff to convert this to 
+a hashed CSS class for me". The way you do that is you add this kind of pseudo
+selector called `:global` in front of it.
+
+As soon as you do that, if I inspect element on that `li` and look over its classes,
+you can see how it renders. It has the modular class on the sidebar, but then it
+just has a `.selected` class, which is totally safe because that's only going to apply
+when you're inside of this component.
+
+Actually we can go one step further if you think about it, because this is a modular
+class right here, we don't need anything inside of here to have the extra modular
+hashes. I can actually move that `:global` up here after the `.component` class.
+
+Now, everything inside of the main modular class is not going to get extra hashes.
+The *only* time I should have to actually use the `$style` is on the root elements!
+Now I can just let the rest be normal classes. This already looks much better!
+
+## Next...
+
+Next, we have successfully referenced a global variable via a computer property,
+we don't *really* like having global variables just hidden inside of our code.
+We can do this in a better, more organized way by refactoring it into a service..!
