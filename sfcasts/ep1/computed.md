@@ -22,6 +22,8 @@ talk about that in a second), `p-3`, and `mb-5`. Perfect!
 At the bottom, return `classes`. We'll worry about the conditional class
 in a minute.
 
+[[[ code('ccb906fc13') ]]]
+
 ## .this magic
 
 But let's talk about `this.$style.component` real quick:
@@ -41,11 +43,15 @@ JavaScript. That's why this works in our computed property method.
 For the conditional class logic, let's say if `this.collapsed`, to reference our
 collapsed state, then `classes.push(this.$style.collapsed)`.
 
+[[[ code('28708f05c6') ]]]
+
 That's it! And of course, with *any* methods, adding some documentation is always
 nice.
 
 Here, PhpStorm *tries* to guess the return type... but gets a little confused
 since Vue is so dynamic. Let's help it: this returns an array of strings.
+
+[[[ code('b9d0e55407') ]]]
 
 Excellent!
 
@@ -56,6 +62,8 @@ becomes available in the template as a *variable*.
 
 Copy `componentClass` and, up in the template, very simply, we'll say
 `:class="componentClass"`.
+
+[[[ code('d8a035ecc3') ]]]
 
 Up until now, we know that Vue adds all keys under `data`, `props` and `methods`
 to the Vue instance, which means that we can reference those inside our template.
@@ -77,6 +85,8 @@ Anyways, because computed keys are added to the Vue instance, just like `methods
 `data` or `props`, it means that we can reference them with the `this` variable.
 To prove it, inside of our `toggleCollapsed` method, let's say
 `console.log(this.componentClass)`.
+
+[[[ code('25a0cb64cd') ]]]
 
 Notice that PhpStorm tries to autocomplete that with parentheses, but that's not
 right! We need to reference it like a property, even though we know that Vue will

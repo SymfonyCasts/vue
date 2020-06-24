@@ -55,18 +55,26 @@ Let's get to work! Inside of `products.vue`, let's add the new data. Create the
 `data()` function. Call the data `sidebarCollapsed` - so we know *what* is
 collapsed - and initialize it to `false`.
 
+[[[ code('d5bd78d040') ]]]
+
 Now that the data lives here, we need to pass it to `sidebar`. No problem! Say
 `:collapsed` - because we need this to be set to a dynamic value -
 `="sidebarCollapsed"`.
+
+[[[ code('1b1a78aaeb') ]]]
 
 Perfect! To be able to *receive* this `collapsed` prop, in `sidebar`, we need
 to define it. Add `props:` set to an object with a `collapsed` key set to *another*
 object. We need `type: Boolean` and I like adding `required: true` to make sure
 it's passed.
 
+[[[ code('b15ad0626b') ]]]
+
 We now temporarily have a `collapsed` prop *and* a `collapsed` data and PhpStorm
 is *mad*! And... it's right: we can't do that and we don't want to. Delete
 the `collapsed` data.
+
+[[[ code('c5ec303022') ]]]
 
 The *cool* thing is that, because we named the `collapsed` prop the same as the
 data we had before, most of our code is just going to work! Vue doesn't care

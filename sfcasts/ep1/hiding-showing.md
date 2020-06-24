@@ -17,6 +17,8 @@ expression. We'll say `!collapsed`. So: show this if we are *not* collapsed. If 
 go over to our browser, we don't even need to refresh because we're using hot
 module replacement. And... it works! Much better!
 
+[[[ code('c4652de07d') ]]]
+
 ## inspecting v-if and the v-show directive
 
 The key thing here, if you inspect the HTML, is that with `v-if`, the elements
@@ -27,6 +29,8 @@ The other way to hide things is by using `v-show`. With `v-show` things will
 *look* the same. The difference is that, when we click `collapse`, the HTML
 is still there. `v-show` just adds `display: none` to the element when it needs to.
 *Sneaky*!
+
+[[[ code('53c6ddf493') ]]]
 
 So `v-show` and `v-if` accomplish the same thing. Which you should use just depends
 on the situation. `v-show` is usually better if you're hiding and showing a lot,
@@ -46,13 +50,19 @@ applying that to the *root* element of our template. This is great! But sometime
 as a convention, when you have a class that is applied to the root element of a
 component, you'll use the generic name `.component`
 
+[[[ code('4ffdb20e21') ]]]
+
 Down in `style`, update the class name to match.
+
+[[[ code('1750957da9') ]]]
 
 This won't make any difference, it's just a nice standard when you need a class
 on your outer element.
 
 To remove this `width` style, go back down to the style block and, inside
 `.component` add a new class called `&.collapsed` with `width: 70px`.
+
+[[[ code('15bada6ea8') ]]]
 
 If you're not familiar with this syntax, it means that if an element has both the
 `component` *and* the `collapsed` classes, then it will get this width.
@@ -82,6 +92,8 @@ To add the `collapsed` class conditionally. I'll use that funny syntax again
 to say `$style.collapsed`, because every time we reference a class within modular CSS,
 we need to use `$style.`. And since we want the `collapsed` class to show if the
 collapsed state is `true`, we'll just set it to `collapsed`.
+
+[[[ code('31ddeafa03') ]]]
 
 Back in the browser, click on `>> Collapse` and... perfect! You can see our class
 hiding and showing in the DOM.
