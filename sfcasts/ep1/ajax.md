@@ -67,16 +67,19 @@ when we call `.$mount()`.
 To run code right *after* our component is mounted, all we need to do is create
 a function called `mounted()`. Inside, we'll make the AJAX call.
 
-How? First, at the top of the `script` section `import axios from 'axios'`. Then,
-*using* Axios is beautifully simple: `axios.get('/api/products')`.
+How? First, at the top of the `script` section `import axios from 'axios'`.
 
-And like every AJAX library, this will return a *Promise*, which you can learn
-*all* about in a
-[JavaScript Tutorial](https://symfonycasts.com/screencast/javascript/all-about-promises)
+[[[ code('ce714dd447') ]]]
+
+Then, *using* Axios is beautifully simple: `axios.get('/api/products')`. And like 
+every AJAX library, this will return a *Promise*, which you can learn *all* about
+in a [JavaScript Tutorial](https://symfonycasts.com/screencast/javascript/all-about-promises)
 here on SymfonyCasts.
 
 To use the Promise, add `.then()`, and pass an arrow function with `response`
 as the argument. Let's `console.log(response)` to see what it looks like.
+
+[[[ code('0b3f6576f4') ]]]
 
 Testing time! Back over on the browser, click to view the console. Thanks to hot
 module replacement... that already ran! But to make the flow more realistic,
