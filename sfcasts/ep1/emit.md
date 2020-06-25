@@ -31,6 +31,8 @@ and it's one of the *most* important.
 Inside of `$emit()`, let's emit a custom event called `toggle-collapsed`, which
 I totally just made up.
 
+[[[ code('9cdb55e3a8') ]]]
+
 This won't work yet, but we can *already* see it in action. Back on your browser,
 over in the Vue dev tools, select the `Sidebar` component. So far, we've been
 paying a lot of attention to the `props`, `data` and `computed` info. But there
@@ -45,6 +47,8 @@ Before we do that, calling `this.$emit()` is *totally* fine from inside a method
 But we can simplify. Copy the `$emit()` code then delete the method entirely.
 Up in the template, find the `@click`, which we know is really `v-on:click`.
 Set it to `$emit('toggle-collapsed')`.
+
+[[[ code('717f0fe7d5') ]]]
 
 Because... remember! Whenever you reference a variable or function inside a template,
 Vue will really call `this.$emit()` behind the scenes... which is *exactly* what
@@ -67,10 +71,14 @@ that we're emitting manually.
 Let's do this the long way first: say `v-on:toggle-collapsed=` and set this to
 call a new `toggleSidebarCollapsed` method when that event happens.
 
+[[[ code('0a6f8354fe') ]]]
+
 Copy that name and go down to the `script` section. We don't have any methods yet
 so first add `methods`, then create the `toggleSidebarCollapsed()` function inside.
 Very simply - just like we did before in `sidebar` - set `this.sidebarCollapsed`
 to `!this.sidebarCollapsed`.
+
+[[[ code('19538bc749') ]]]
 
 I *love* that. Back on the browser, I'll refresh to be safe... and then click
 Collapse. It works! You can see the events and, back on the `Products` component,
@@ -85,6 +93,8 @@ Now that we have this working, go back and find the `v-on:` attribute. What I
 
 But in practice, we're going to use the shortcut syntax everywhere. So:
 `@toggle-collapsed`.
+
+[[[ code('40d9647974') ]]]
 
 Just remember that the `@` symbol means "on" - so "on toggle collapsed".
 
