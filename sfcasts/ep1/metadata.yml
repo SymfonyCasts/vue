@@ -29,6 +29,7 @@ chapters:
     - loading
     - categories-ajax
     - server-var
+    - reading-server-vars
     - page-service
     - filter-products
     - better-loading

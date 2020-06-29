@@ -1,100 +1,88 @@
-# Categories Ajax
+# Dynamic Categories via AJAX
 
-I've gotta say, now that we have all of these dynamic products, these hard coded
-categories over here are starting to *stress me out*! So let's make these dynamic as
-well!
+I've gotta say, now that we have dynamic products, these hardcoded categories
+are starting to *stress me out*! So let's make those dynamic as well!
 
-If you look at our `/api`, just like how we have a `/api/products` end point for the
-collection of products, we have one for `/api/categories`. Perfect! We can use that!
-And now that we know the correct way to make the Ajax calls and load data, this is
-going to be super simple!
- 
-## Add an Ajax call to Sidebar  
- 
-Open `sidebar.vue`. We did create earlier a data property called `categories`, but
-it's just hard coded! Now we need to load this with real data. I'll set this to an
-empty array to start, and then we'll get *really* sneaky! We can actually go over to
-`catalog.vue` and steal a bit of code that will *almost* work for our sidebar!
-Copying and pasting is always good!
+If you look at `/api`, just like how we have a `/api/products` endpoint for the
+collection of products, we also have one for `/api/categories`. We can use that!
+And now that we know the correct way to make Ajax calls to load data, this is
+"should" be simple! Famous last words!
 
-Copy that entire function and paste it over here under `data`. Almost nothing needs to
-change! We're changing the URL to `/api/categories` and the data down here from
-`products` to `this.categories`. Awesome!
+## Add an Ajax Call to Sidebar  
 
-Let's just see what happens! Refresh... Whoa! It looks like it works! Look in the
-console here... Yeah, everything looks happy! So if you look at the sidebar here in
-the DevTools, we can see our categories. The category data actually is pretty simple.
-It has the normal `@id` and `@type` that comes from the JSON-LD and then it has `id`
-and `name`.
+Open `sidebar.vue`. We created a `data` property earlier called `categories`, but...
+it's just hardcoded. Set this to an empty array to start. To make the AJAX call,
+head over to `catalog.vue` to celebrate one of programming's oldest arts: stealing
+code. Copy the entire `created()` function and paste it in `sidebar.vue` under
+`data`. We just need to change the URL to `/api/categories` and the data from
+`this.products` to `this.categories`.
 
-Oh, and actually one thing I forgot to mention is that, when we pasted this code 
-down here, `PHPStorm` saw that and *automatically* added the Axios import for us.
-It only did it in a boring double quotes way and ESLink does *not* like that!
-Let's fix this... Much better!
+Awesome! Let's... just see what happens! Refresh... whoa! I think it worked!
+No errors in the console... and in the dev tools, if you click on `Sidebar`, we
+have real categories data!
+
+The data for each category is pretty simple: it has the normal `@id` and `@type`
+that comes from JSON-LD and it also has an `id` and `name`.
+
+Oh, and one thing I forgot to mention: when we pasted the `created()` function,
+PhpStorm saw that and *automatically* added the `axios` import for us. Oh, but it
+*did* use double quotes... which ESLint does *not* like. Let's fix this. Much better!
+You can also tweak your PhpStorm settings to use single quotes automatically.
 
 ## v-for index and :key
 
-Anyways, if you go back up to our `v-for`, we learned earlier that every `v-for`
-element has to have a key. Up until now, since our categories data was hard coded,
-we just used the `index` to pass on to our `:key`. But now we can be *smarter* because
-we know that we can actually use the `@id` property instead from each of these
-categories.
+Anyways, head up to the `v-for` directive. We learned earlier that every `v-for`
+element must have a `key` attribute. Until now, since our categories data were
+hardcoded, we used the array `index` for the `:key`. But now we can be *smarter*
+because we know that each category has a unique `@id` property.
 
-So we'll simplify our `v-for` and then we'll say `:key="category['@id']"`. Now we have
-real ids as keys for our items!
+Let's simplify the `v-for` - we don't need `index` anymore - and then say
+`:key="category['@id']"`.
 
-## Linking properly
+## Linking Properly
 
-The last thing that doesn't work is our links! In our data before, we had a hardcoded
-`category.link`, but now there is no `link` property in here! Our category pages are
-*nowhere* to be found!
+The last thing that doesn't work is our links! We originally set the `href` to
+`category.link`... but there is *no* `link` property on the real category data.
 
-But let's not panic! Eventually, we will have a real page that will display all of the
-products for a specific category and the URL to that page is going to look something
-like `/categories/` and then the `id` of the category. We don't actually have that
-page exactly working yet, but I'm going to get *a bit* ahead of myself and update the
-URL here to do that.
+Here's the plan: we will eventually create a separate page that will display
+all of the products for a specific category - the URL will be `/categories/` and
+then the `id` of the category. We'll worry about making sure that page exists later,
+but let's get the links working now.
 
-Because we're Symfony users, we're used to generating URLs to routes, but this time,
-I'm going to keep things simple! I think it's actually okay to hardcode your URLs to
-different pages inside of your JavaScript. You just have to make the concession that
-if you ever change those URLs in your site, you know that you might be breaking
-those pages, so you might need to update your code.
+If you're a Symfony user, then you're used to *generating* a URL to a route. But
+from JavaScript, I'm going to keep it simple and hardcode the URL to this new page.
+I think it's actually *totally* ok to do this: it keeps your JavaScript simpler,
+but of course, if you ever change a URL for some reason, you would need to update
+your JavaScript.
 
-What we want to do here is to say `/category/` and then we want the dynamic
-`category.id`. But of course, since I have the colon in front of the `href` to make
-this dynamic, I would need to have a single quotes around here. Then we can add a
-plus sign and say `category.id`, like that. That *would* actually work.
-If you look over here, you can see when I hover over categories, I see the right
-kind of URL showing at the bottom of my browser!
+Let's see: what we want to do here is to say `/category/` and then print
+`category.id`. But since we have the colon in front of `href` to make this dynamic,
+we would need to have single quotes around the string, then a plus sign and then
+`category.id`.
 
-## Javascript dynamic strings
+That *would* work - in the browser, when I hover over categories, the right URL
+*is* display at the bottom of my browser.
 
-But my eyes are *hurting* from looking at this ugly code! Can we make this look a 
-little bit nicer? Thanks to modern JavaScript, we can! Let's replace the quotes with
-`ticks` instead! Let's remove the quotes and add a tick in the end...
+## JavaScript Dynamic Strings
 
-As soon as you use the tick symbol you can add dynamic expressions as part of the
-string, just like with `PHP`'s double quoted strings! We can just do `${category.id}`
-and JavaScript will interpret this dynamically.
+But yikes! This code *hurts* to look at! Can we make this nicer? Of course!
+Replace the quotes with `ticks` instead. *Now*, if we need dynamic code, write
+`${}` - so `${category.id}`.
 
-This now looks so much nicer! Becuase, remember, as soon as we make this `:href`,
-it means that what's inside the attribute is JavaScript and *this* is valid
-JavaScript. 
+This is a superpower of modern JavaScript, not Vue. Look over now and... yes! All
+of the links look *perfect*!
 
-Look over now, yes, all of those links look *perfect*!
+## Too much Dynamic Data!
 
-## Too much dynamic data!
+This is looking really good! We have dynamic products and dynamic categories.
+The *only* thing that bothers me is all the loading! Notice that each time we
+refresh, I see the products *and* categories loading!
 
-This is actually looking really good. We have dynamic products and dynamic categories.
-The *only* thing that bothers me is all the loading! Notice that when I load the page
-each time, I see the products loading *and* the categories loading as well!
+When we only loaded the products, that was probably okay: it was just one spot that
+loaded pretty fast. But *also* having the categories waiting to load is starting to
+look a bit jarring. Plus, we're eventually going to have multiple pages that use
+same categories sidebar. This means that on *every* page, the user will wait for
+the *same* list of categories to be fetched via AJAX. We can do better!
 
-When we only loaded the products, that was okay because the products loaded pretty
-fast. Having the categories waiting to load on the other hand is now starting to look
-a little bit jarring. Think of the amount of time users will have to wait until they
-can click on another category! This *ought* to be stalling our sales!
-
-So next, let's load our categories in a *different* way, a way where we can actually
-get them to render on the screen *immediately* so that we're not waiting for them to
-load over an Ajax call!
+So next, let's investigate how we can get data from the server in a way that
+*avoids* an AJAX call.
