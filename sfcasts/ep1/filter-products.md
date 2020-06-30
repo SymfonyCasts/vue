@@ -1,58 +1,71 @@
-# Filter Products
+# Filtering the Products
 
-All right! So we've got the `currentCategoryId` and we're using it on the sidebar to
+Ok team! We have the `currentCategoryId` and we're using it on the sidebar to
 highlight which page we're on. That is *awesome*! But our products on the right
-don't filter it all yet, yikes! Fortunately, in our API platform set up -I'll go to
-`/api`- I've already done a little bit of work behind the scenes with API platform
-itself that allows me to fetch the products from a specific category. For example,
-if we look at this URL, I can search for the `products` API endpoint and add
-`/api/categories/24` here (Remember, that's the IRI of the category) and when I
-execute, it's only going to return to me those items that are actually in there.
-So you can see this returns 5 items this time. Our life is going to be *pretty* easy!
+aren't filtering at all yet! Yikes!
 
-## Pass on currentCategoryId to Catalog
+Go to `/api` to check out our API docs and scroll down to the `GET /api/products`
+endpoint. I've already done a bit of work behind the scenes in API platform to
+allow us to fetch the products for a specific category.
 
-Let's look at our application here. From our top level `products.vue` I'll 
-command+click in `<catalog />` to jump into the component `/catalog`, this is
-actually what's responsible for loading our products on `created` by making the
-request to `/api/products`. I *whish* we had access to the `currentCategoryId`
-right here! We could just use it to change the URL! So let's do that!
+For example, to find the products for a specific category, we can enter that
+category's IRI into this box: so, `/api/categories/` - and then 24 to get the
+Furniture category. When we hit Execute... yes! It only returned 5 items!
+And if I scroll up, you can see the URL that returned this result: if you
+ignore the url-encoded parts, this is `/api/products?category=/api/categories/24`.
 
-In `products.vue`, type `:current-categoryId="currentCategoryId"` to pass it as a
-prop, just like we did with the Sidebar.
+All *we* need to do is make that same request from inside of Vue!
 
-Then, in `catalog.vue` we'll add that as a prop. I'm actually going to go steal
-that prop from sidebar because we already had it set up perfectly as a string and
-default to `null`, which makes it `nullable`.
+## Passing currentCategoryId as a Prop
 
-## Using currentCategoryId
+Head back to our app. From the top level `products.vue`, hold Cmd or Ctrl and
+click `<catalog />` to jump into that component. This component is responsible
+for loading our products on `created` by making a request to `/api/products`. Hmm...
+I *wish* we had access to the `currentCategoryId` right here...  we could use
+it to change the AJAX call. Let's go pass it in!
 
-Okay, Perfect! So we are now receiving that `currentCategoryId`. Now, down here in
-`created` I *could* actually add the question mark and `category=` here in the
-url string, but with Axios, there is a *better* way. We can actually set up a
-`params` object, which is going to hold all the query parameters that we want, and
-we say, `if (this.currentCategoryId) {`, then
+Back in `products.vue`, add `:current-category-id="currentCategoryId"` to pass it
+as a prop,... *just* like we did with the sidebar.
+
+Now, in `catalog.vue`, add that as a prop. Actually, let's go steal that prop from
+sidebar - it's perfect there - and paste it here.
+
+## Using currentCategoryId to Filter on the AJAX call
+
+Perfecto! We are *now* receiving `currentCategoryId`. To use this, down in
+`created` we *could* add `?category=` and then the currentCategoryId. But with
+Axios, there's a *better* way. Create a new `params` variable set to an object:
+this will all the query parameters that we need to send. Now,
+`if (this.currentCategoryId) {`, then
 `params.currentCategoryId = this.currentCategoryId`.
 
-To pass that into axios, add a second parameter, which is an options object. One of
-the options you can pass is called `params`. Type `params: params,`. That should be
-*all* we need! Yay! But wait! ESLint is *angry* at us again! It says expected
-property shorthand. This is something we've actually done already many times,
-I *just* wanted to point it out here. In JavaScript, if you have a key that's the
-same name as the variable used for its value, you can use a shorthand syntax and
-omit it! This is equivalent to say that `params` here is equal to the `params`
-object defined earlier!
+To pass that to axios, add a second parameter, which is an options object. One of
+the options you can pass is called `params`. So: `params: params,`.
+
+## Object Shorthand: Keys without the Key
+
+That *should* work... but yikes! ESLint is *angry*! It says:
+
+> expected property shorthand.
+
+This is talking about something that we've actually already done many times, but
+I wanted to highlight it in case you haven't noticed. In JavaScript, if you are
+trying to add a property to an object and that property's name is the same as the
+variable being used for its value, you can use a shorthand syntax: just `params`.
+This sets a property named `params` to the `params` variable.
 
 ## Check it out!
 
-If we go over now, you can already see it! It reloaded! Yes! Breakroom, Furniture,
-office supplies. Perfect! And if we go to Snacks, Oh! We see a *problem*.
-What's going on here? It turns out our snacks category is currently empty! And
-instead of actually telling us it's empty, we just get the loading screen forever.
+If we go over now, you can already see it! It reloaded! Yes! Furniture show furniture!
+Breakroom shows breakroom products! Office supplies shows office supplies! And
+Snacks shows... uh... did this just break? What's going on here?
 
-That's because when our catalog renders our `productlist` -I'll hold `command` to
-open that up- the loading is showing based on whether the products' length is zero
-or not. We *need* to improve this! We should actually *know* whether or not the Ajax
-call has finished!
- 
-Let's make a *smarter* loading mechanism next..!
+It turns out that our snacks category is currently empty! Gasp! If that's not
+bad enough, instead of saying "No snacks!", we see the loading screen forever.
+
+That's my fault. When `catalog` renders `product-list` - hold Command or Ctrl and
+click to jump to that - the loading is showing based on whether the `products`
+length is zero or not. An empty category looks like it's still loading!
+
+We *need* to improve this: we need to *truly* know whether or not the AJAX call
+has finished! Let's make a *smarter* loading mechanism next!
