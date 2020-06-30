@@ -150,5 +150,5 @@ on click, called a `toggleCollapsed` method that we created... which changed the
 We'll see this basic flow over and over again.
 
 But before we do, I want to talk more about how the `this` variable works in
-Vue. It's at the *heart* of Vue's magic. And if we an understand it, we'll be
+Vue. It's at the *heart* of Vue's magic. And if we understand it, we'll be
 just a *little* bit closer to being unstoppable. That's next.
