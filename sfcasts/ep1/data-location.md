@@ -74,6 +74,11 @@ We now temporarily have a `collapsed` prop *and* a `collapsed` data and PhpStorm
 is *mad*! And... it's right: we can't do that and we don't want to. Delete
 the `collapsed` data.
 
+***TIP
+Technically, we CAN have a data and a prop by the same name, but at runtime,
+only the prop will be present!
+***
+
 [[[ code('c5ec303022') ]]]
 
 The *cool* thing is that, because we named the `collapsed` prop the same as the
