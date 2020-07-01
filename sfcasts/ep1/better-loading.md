@@ -1,136 +1,137 @@
-# Better Loading
+# Smarter Loading: AJAX status as State
 
-*We* have a problem, people... The snacks are *empty*! Yeah, there are no snacks in
-our store right now, apparently. That's a *huge* problem on its own! To make it
-worse, you can't even tell! It just looks like it's loading *forever*! The reason
-is, in our product list, we're just basically looking at the products length, and
-if zero, we show the loading.
+We have a problem people! The snacks category is *empty*! That's a *huge* problem
+on its own! To make things worse, you can't even tell! It just looks like it's
+loading *forever*! I'm sitting here getting hungrier and hungrier.
 
-Using the length of something to figure out whether it's loaded or not, doesn't
-really work if it's *possible* that the thing to be empty. And in our case,
-sometimes we might have categories with no products, so using the length of the
-products *isn't* going to work here.
+The reason is that, in the `product-list` component, we're showing the loading
+animation by checking if the products length is zero.
 
-What we need instead is a special specific flag that tracks whether or not the
-products are being loaded.
+Using the length of an array to figure out if something is done loading doesn't
+really work if it's *possible* that the thing really *is* empty! And that's
+*totally* the situation we have: sometimes a category *has* no products. And later
+when we add a search, sometimes nothing will match.
+
+So... the easy solution didn't work. What we need *instead* is a flag that
+*specifically* tracks whether or not the products are loading.
 
 ## Add `loading` to Catalog
 
-We know that Catalog is the smart component that actually takes care of making the
-Ajax request. This is the component that knows whether or not we are loading our
-products! To take advantage of this, we're going to add a new data property to this
-element. Let's call it `loading` and set it to `false`.
+We know that Catalog is the smart component that takes care of making the
+AJAX request. This is means that it is *also* aware of whether or not we are
+*currently* making an AJAX call for the products. To track this, let's add a new
+data: call it `loading` and set it to `false` by default.
 
-Now, very simply down here, we can say `this.loading = true`, right before the Ajax
-call and then, right after the call, `this.loading = false`. Just like that, we have
-a flag we can use to render things differently based on loading!
+Now, very simply, in `created()`, we can say `this.loading = true` right before
+the AJAX call and, right after, `this.loading = false`.
+
+And *just* like that, we have a flag that we can use to render things differently
+based on the *true* loading status!
 
 ## Try...catch
 
-While we're here, we can *also* add some very simple error catching mechanism
-*just* in case this Ajax call fails for some reason. To do that, we can wrap all of
-this in a `try...catch` block, and then on the `catch` we will set
-`this.loading = false`. If we wanted to go even further, we could add some data
-called `error` and change the `error` value down here to something else, but at
-least now we are gracefully failing if there is an error. Our loader now doesn't
-spin forever!
+While we're here, we can *also* add some very simple error handling *just* in
+case this AJAX call fails. To do that, wrap all of this in a `try...catch` block.
+Then inside `catch` set `this.loading = false`.
 
-As easy as that was, this also could be a little dangerous. If I do decide to do
-my try catch, I may do things slightly differently. The problem with this is that
-if any of these lines fail -for example, if our response doesn't even have a `data`
-key on it- any of these things will trigger the catch and could *actually* be
-hiding a bug in your code. I *hate* bugs! I think pizza is much better...
+If we *really* didn't trust our API... we could add a data called `error` and
+change that value down here to some message. But with this, we will *at least*
+fail somewhat gracefully, and avoid the loader from spinning forever.
 
-So instead, above the try, I'm going to add a `let response`. That is me just
-creating a new variable outside of the `try...catch` scope so that it's available
-in the entire `created` function. We remove the `const` from the `response` and then
-I'm going to actually `return` from the catch, so if we hit the catch, we just
-exit. Finally, I can move the `this.products = response.data` code outside of the
-catch, so if *that* line has a problem, it's not actually going to be ignored by us.
-We will have to deal with it!
+As easy as that was, this could also be a bit dangerous. If I *did* decide to add
+a try catch, I would do things *slightly* differently. The problem right now is
+that if *any* of these lines fail - for example, if our response doesn't have
+a `data` key on it - then they will trigger the catch and we might be
+hiding a bug in our code. I *hate* bugs! I think pizza is much better...
 
-Whether or not you use the `try...catch`, it's just depends on your situation. I
-probably wouldn't do this because if my API end point is failing, I have bigger
-problems than just giving the user a gracefull fallback. But if you *do* have
-some valid situations where something might fail, then you actually can use a
-`try...catch` like this to deal with the issue.
- 
+So instead, above the try, add a `let response`. This simply *declares* the
+variable outside of the `try...catch` scope so that it's available in the
+entire `created` function. Now, remove the `const` from `response` and then
+I'm going `return` from the catch: so if we hit the catch, just exit.
+Finally, move the `this.products = response.data` code outside of the
+catch. Now if *that* line has a problem, it won't be silenced: we'll have to deal
+with it!
+
+Whether or not you should use the `try...catch` just depends on your situation. I
+probably wouldn't do this because, if my API endpoint is failing, I have bigger
+problems: my site is broken and giving the user a graceful error is actually nice,
+but I have bigger problems. But if you *do* have a valid situation where something
+might fail - like if you're *sending* data to the server that might fail validation -
+then *this* is how you can catch that error and deal with it. We'll talk about
+sending data in the next tutorial.
+
 ## Pass `loading` down to `product-list`
- 
-Okay, so we now have the `loading` data on our smart catalog component. We *need*
-to pass that into our `product-list` component so that it can use it to hide or
-show the loading spinner. That's simple enough! I'll split the `product-list`
-onto multiple lines and here it will say `:loading="loading"`.
 
-We're now passing a loading prop into `index`, so in here let's go update our
-props so we can receive that. Add a new `loading` prop, `type: Boolean` and
+Okay, we now have the `loading` data on our smart catalog component. Now, we need
+to pass that into the `product-list` component so that it can use it to hide or
+show the loading spinner. Simple enough! I'll split the `product-list` onto
+multiple lines and thne add `:loading="loading"`.
+
+And now that we're passing the `loading` prop, in `index.vue`, update the
+`props` so we can receive it: add a new `loading` prop with `type: Boolean` and
 `required: true`.
- 
-Our template has just become *much* simpler! We want to show the loading animation
-*if* we are `loading`. We also wanna show these product cards down here, if
-we are `!loading`. That's not *super* important, but it doesn't hurt to have it!
 
-## Try it in the browser
+Our template can *now* simplify: we want to show the loading animation
+*if* `loading` is true. And we also want to show these product cards down here, if
+we are `!loading`. This second spot isn't *super* important, but it doesn't hurt
+to have!
 
-All right, so let's check it out! Yep! You can *already* see that the snacks page no
-longer has the loading spinner. My other pages work *just* fine and this next page
-doesn't load forever!
+## Adding a "No Products" Message after Loading
 
-Now that we're a *little* more organized, we can actually give this a "no products
-found" type of message! So after our loading, I'll put an `h5` with another
-`v-show` directive. Basically we want this to show if we are *not* `loading`, but
-`products.length` is equal to zero.
+Let's check this out! Yep! You can *already* see that the snacks page no
+longer has the loading spinner. My other pages work *just* fine and snacks no
+longer looks broken.
 
-If we have that situation, then we know that we have no products, so we can put a
-very nice message here to help out the user. There it is! You can see that showing
-up on our snacks page. Perfect!
+Well... except it would be even *better* with a "no products found" message!
+And now we can add that easily.
 
-## Adding loading to sidebar
+After the `<loading />` component, add an `h5` with a `v-show` directive. This
+will hold that "no products found" message... which means that we want it to
+show if we are *not* `loading` but `products.length` is equal to zero.
 
-This is something new you're always going to want to think about anytime you have
-dynamic data being loaded. What's the other place we we're loading stuff? That's
-right! It's our categories! You *can* see that, when it first loads, our categories
-aren't actually there yet.
+If that's our situation, print a helpful message. And.... there it is! Our
+snacks page - except for the fact that there are *no* snacks - looks great.
 
-We're *actually* going to fix that in a second to make the categories load instantly,
-but right now, since they are still loading, let's add a little loading animation
-there as well. This is going to be over in our `sidebar.view`. This is the component
-that makes the Ajax request for the categories and then renders them up here.
+## Adding Loading to the Sidebar
 
-By the way, if you see this is getting a little bit complicated, we could choose to
-actually isolate these into a different component if we wanted to now. So should we
-add another loading data like we just did for catalog? We *totally* could! And
-that's probably a great option, but I'm going to cheat in this case, because I know
-in my application that I will never have no categories. If I had no categories, that
-means something is *totally* broken on my database. So in this case, I actually *am* 
-going to allow myself to use the `categories.length` to figure out whether or not
-we are in the loading state.
+The products loading part now works perfectly. But there is one other spot that
+we're loading via AJAX that does *not* show any loading info: the categories
+sidebar!
 
-To keep things organized, let's add a computed property for it. Add a computed key
-here called `loading`. The nice thing about this is that `loading` isn't actually
-data, but it's going to look the same inside of my template: I'm *just* going to be
-able to reference a loading variable. Then, I can use my logic down here and say
-`return this.categories.length === 0`.
- 
-If there are no categories, then we are loading! And if we *did* need to change this
-today, later, or the next year, it's *super* easy, we just remove this computed
-property and add a `data`! We wouldn't have to update *anything* in our template.
+We're actually going to fix this soon to make the categories load instantly,
+But since they *are* still loading via AJAX, let's add the loading component
+there as well. Open up `sidebar.vue`: this is the component that makes the
+AJAX request for the categories and renders them in its template.
 
-All right! So to use this in our template, we need to use our loading component here.
-Let's import it. I'll say `import Loading from @/components/loading` and then
-down here under `name`, let's add the `components` key with the `Loading` component
-in it. That makes it available to my template.
+To do this right, should we add another `loading` data like we just did in
+catalog? We *totally* could! And that's probably a great option. But... I'm going
+to cheat because I know that my app will *never* have zero categories. If that
+ever happened, it would mean that something was *totally* broken.
 
-Finally, up here, right after the `h5`, we'll say `<loading`, and we'll do our
-normal `v-show` for it! I love it!
+Instead, I *am*  going to use the `categories.length` to figure if we're in a
+loading state.
 
-## Check it out!
+But to be extra organized, let's add a computed property called `loading`.
+Inside `return this.categories.length === 0`.
 
-Let's give it a try! So we move over... What we're looking for over here is for
-that loading animation right before those categories load. That was super quick!
-Now we have proper loading on both sides!
+If there are no categories, then we are loading! The nice thing about using a
+computed property is that it will let us use a simple `loading` variable in the
+template. And later, if we *did* want to change this to `data`, that would be
+*super* easy.
 
-Next, I want to start organizing our Ajax calls a little bit better. We make Ajax
-calls inside of `sidebar.vue` and `catalog.view` and there's *definitely* a better
-way that we can start organizing those calls so that we can keep our application
-a *little bit* more sane. Let's talk about that next!
+Ok: to use this in our template, first import the loading component:
+`import Loading from @/components/loading`. Then add the `components` key with
+`Loading` inside.
+
+Finally, up in the template, right after the `h5`, we'll say `<loading` with
+`v-show="loading"`.
+
+I love it!
+
+And when we move over to the browser... I'm *hoping* to see the loading animation
+right before the categories load. That was super quick, but it *was* there.
+We have proper loading on both sides!
+
+Next, I want to start organizing our AJAX calls. We make Ajax calls inside of
+`sidebar.vue` and `catalog.vue`. That's maybe ok, but I'd like to find a
+*better* way to organize these.
