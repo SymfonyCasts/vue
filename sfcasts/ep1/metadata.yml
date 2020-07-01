@@ -35,6 +35,7 @@ chapters:
     - better-loading
     - ajax-services
     - server-data
+    - sync-data-promise
     - hoist-data
     - v-model
     - event-payload

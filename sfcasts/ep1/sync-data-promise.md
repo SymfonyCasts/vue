@@ -1,0 +1,1 @@
+# Faking AJAX calls: Reading Synchrnously
