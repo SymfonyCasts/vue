@@ -1,113 +1,128 @@
 # Ajax Services
 
-Coming soon...
+Head over to `sidebar.view`, where we're making our Ajax call. In Symfony, we
+often isolate complex logic, or logic that we need to reuse, into services. One
+of the *most* common places that we do that are in database queries. In Symfony,
+we almost *always* have a repository class which holds all the database queries
+for a specific table. I'd like to do the same thing with my front end code!
+In this case, I'd like to isolate all of my Ajax requests for a specific resource
+like `categories` or `products` into its own reusable JavaScript module, so
+instead of making an Ajax call here, I'm going to move this into a central spot.
 
-Head over to sidebar dot view where we're making our Ajax call. Now in Symfony, we
-often isolate complex logic or logic that we need to reuse into services. And one of
-the most common places that we do that are for database queries in Symfony, we almost
-always have a repository class which holds all the database queries for a specific,
-uh, database table. I like to do the same thing with my friend and code, uh, and of
-course in this, which means that I like to isolate all of my Ajax requests for a
-specific resource like categories or products into its own reusable, JavaScript
-module just helps keep things organized. So instead of making the AGS call here, I'm
-going to move this into a central spot
+## Adding a Service!
 
-[inaudible]
+"Services" in Symfony is really just a generic word for any class that does some
+work for us, but in this context, I'm using it to mean something slightly
+different. These services are typically API services, or anything that needs to
+connect to some end point to get data. Anytime we have a new kind of API resource,
+we want to create a new file inside of `/js/services`. Let's do this!
 
-inside of the JS services, directory services, and Symfony is just a generic word for
-any class that does work services. In this context I'm using to mean something
-slightly different. It is typically API services or anytime that we need to get data.
-That's what I mean by service here. So anytime that I have a new kind of API
-resource, I want to, um, talk to, I'm going to create a new file inside of here. So
-I'm gonna create one call categories, service dot JS. Now the dash service on the end
-is totally redundant. I could just call it categories digest. I just get a little bit
-drives me a little bit crazy. If I have lots of files called categories that JSR
-products dot JS. Now there was in the services directory. We already had one file
-called page context. This has nothing to do with, uh, Ajax calls or APIs, but is a
-wave. It is a spot for our, but it is something that returns data. So that's why I
-put this there. So you use that. I'm going to have Ajax stuff inside of here, but
-occasionally I have other things that also return data. All right, inside of here,
-let's export a function called how about fetch categories and inside of here,
+Create one called `categories-service.js`. The `-service` on the end is totally
+redundant. I could just call it `categories.js`, it can be either way. In the
+`services` directory we already had one file called `page-context`. This has
+nothing to do with Ajax calls or APIs but it is something that returns data, so
+that's why I put this there. In this case, this service just relays a global
+variable that was printed in the template, but imagine if it were to collect this
+data, say, from the database. Suddenly, it would become a proper Ajax service. So
+even if there is no Ajax there, it is *still* a service.
 
-I'm going to go grab my Cyberdyne view code. Very simply. I'll copy that Axios line
-paste that and you see it, uh, put the access in there for me. I'm just going to
-change that to single quotes. And actually I'm just going to return Axios dot Goetz.
-This is a really, really simple one, but at least it's kind of centralizing that URL.
-So we don't have that all over the place. I mean, I had a little documentation above
-this. This does return a promise, clean that up.
+In `categories-service.js` export a function called `fetchCategories()`. Inside
+that function, simply copy that Axios line over at `sidebar` and paste it there
+-notice that PHPStorm imported `axios` for me, I'm just going to change that to
+single quotes. Here, I'm just going to return `axios.get()`.
 
-[inaudible]
+This is a really, *really* simple one, but at least it's centralizing that URL so
+we don't have it all over the place. I'm going to add a little documentation
+above this, this does return a Promise, but I won't put any description in there
+because it's already pretty obvious. There we go!
 
-and I won't put any description on there because it's already pretty obvious. So
-there we go. Categories service.
+***TIP
+Actually this bit of info is not necessary since PHPStorm can already tell that
+we are returning a Promise
+***
 
-Now in cyber, I view we can use this. So first we need to import that like normal. So
-I'll import, I'll do my curly braces from at /add /services /categories of service.
-And then inside of here, I'm going to grab fresh categories. Okay. It's not on here.
-Life gets a little bit easier. It's not just constant response = I'll keep that await
-there. Cause I'm just gonna wait for wait for this finished best categories. That's
-it. And up here just to clean up, we're not using Axios directly in this component at
-all anymore. Sweet. So the other place that we're making AGS call right now is in
-catalog. That view where we're making our API requests for products. This one's a
-little bit more complicated because if we have a category, we pass a quick category
-query parameter. So since this is a different API resource products, I'm gonna go
-over here and create a new file called products, dash service that JS, and I'll start
-the same way export function, fetch products. Now, in this case, I'm not, we can't
-just, um, we already have another requirement, which is that sometimes we have a
-category and sometimes we don't. So I'm actually going to add a category. I R I here,
-I've been calling it category ID, but really it's the, I R I it's that URL. So I'll
-call it category IRI here,
+## Use it from `sidebar.vue`
 
-and then I'm going to go to catalog that view and let's copy the program's code. And
-then I'll also copy the response line and we'll paste those into here, and let's see,
-we're going to return Axios dot get, and then for the prams, it's not this, that
-current category D but it's category IRI. If category IRI, then prams, that category
-= category IRI. And I will fix my important use, double single quotes on Axios. And
-finally do a little bit of documentation on this. So the category IRI is going to be
-a string or no. And then I'll just say that this is returning a promise. You see this
-funny syntax here, it's actually telling you, you can tell it, you can tell it that
-you're returning a promise of a specific object. Uh,
+Now in `sidebar.vue` we can use this! First, we need to import that service. 
+`import {} from '@/services/categories-service'`. Then inside of the curly braces
+we can grab `fetchCategories`. Okay! Now in `created`, life gets *much*
+easier! It's `const response =`, I'll keep that `await` there because I just
+want to wait for this to finish, `getCategories()`. That's it!
 
-right.
+Up here, just to clean up, we're not using axios directly in this component at
+all anymore. Sweet!
 
-So you can say this is returning as maybe April. I promise. No, I'm not gonna say
-that. So let's delete that. Okay. This is looking good. And we've isolated some nice
-logic in here. So if I can catalog that view, just like before, we're going to do the
-same dance I'm going to import from at /services slash
+## Create the Products Service
 
-product services, import the fetch products function, and then down here, I don't
-need any of this Paramus stuff at all anymore. And up here, we can simply say
-response = await fetch products, and they'll pass it, this.current category ID. Now
-that is really nice, cause that's exactly how I want my component logic to look on
-created. I set the loading state, I call fetch products, passing it, any options I
-have, that's it. I don't have to talk about anything more complicated than that. And
-to clean this up, I will go and clean up the async. Phew. Okay. Let's just make sure
-that all works. Let me do a full page refresh to make sure yep. Everything loads over
-here and everything Lowe's over here. So that is very nice. Now, just as a comment,
-some people inside of there, things like product services, when we returned this
-promise here or returning a promise that resolves to the response, what that means is
-that when we use it, when you use with a weight or with a normal dot then hook,
-ultimately what we get back is the full response, which means down here we had today,
-say things like response that data, and then get the hydro member key off that if you
-want to, you can actually go a little bit further here.
+The *other* place where we're making Ajax calls right now is in `catalog.vue`.
+In there, where we're making our API requests for products. This one is a
+*little bit* more complicated because if we have a category, we need to pass a
+category query parameter. Since this is a different API resource, let's go
+over here to `services` and create a new file called `products-service.js`.
 
-You could say response dot, then a response equal->response.data. That's index might
-look a little funny to you, but what happened here is now this still returns a
-response, but instead of, um, it actually re terms, I promise, but instead of
-returning your promise, it's actually returning data. So for example, that would
-actually work. Of course, I need to change this data up here. Okay. Now I'm actually
-going to completely undo all of that. My point is simply that right now, we are
-returning a promise that resolves to the actual full response. You can make your
-resolve to something smaller. It makes it a little bit easier to use, but the problem
-is that if we ever needed to call this function and we needed to read like a header
-off the response, then we can't do that. So I typically keep it very simple.
+Start the same way: `export function fetchProducts()`. Some times we *will* have
+a category requirement, so we'll add a `categoryIri` parameter here. I've been
+calling it `categoryId`, but in reality, this *is* the IRI, so I'll call it
+`categoryIri` in the service to keep it real.
 
-I return a promise that actually resolves the whole response, which means I have to
-do a little bit more data over a little bit more work after I use it. But I'm cool
-with that. Let me refresh one more time. Make sure it didn't break anything. It looks
-good next. Um, you know, I don't mind some of the loading on this page, but
-especially the categories over here are bothering me. It really makes the page look
-incomplete. The fact that the categories, which were kind of part of the page
-structure are not there first let's fix that. We're actually gonna start passing the
-categories from the server directly into view.
+Go to `catalog.vue`, copy the params code and paste it in the service function.
+Let's also copy the response line and paste these into here... let's see... we're
+going to return `axios.get()`. Finally, for the prams, it's not
+`this.currentCategoryId` but `categoryIri`. `if (categoryIri)` then
+`prams.category = categoryIri`, and I need to fix my import code to use single
+quotes on axios.
 
+We can also do a little bit of documentation in here. So the `categoryIri` is
+going to be a string or `null`. Then I'll just say that this is returning a
+promise. This is looking *good* and we've isolated some nice logic in here!
+
+## Use the Service in `catalog.vue`
+
+Go back to `catalog.vue`, just like in `sidebar`, we're going to use service! 
+`import {} from '@/services/product-service'`, and we'll import the
+`fetchProducts` function. Down here in `created`, we don't need *any* of this
+params stuff anymore, and in the axios call we can simply say
+`response = await fetchProducts()`, and then pass `this.currentCategoryId` to
+the service. That is *really* nice, cause that's exactly how I want my component
+logic to look on `created()`! I set the `loading` state, I call `fetchProducts()`,
+passing it any options I have and that's it! I *don't* have to talk about
+anything more complicated than that.
+ 
+To clean this up again, let's go and remove that `axios` import. Phew!
+
+## Try it out!
+
+Okay, let's just make sure that *everything* works! Do a full page refresh to
+make sure... Yay! Everything loads over here at products, the sidebar, and the
+different category pages also work! That is *very* nice.
+
+## Return Types for Services
+
+Just as a side note: in services like `product-services`, when we returned this
+Promise here, we are returning a Promise that resolves to the full response of the
+Ajax call. When we use it an `await` or with a normal `.then()` hook, what that
+ultimately means is that down here we have to say things like `response.data`,
+and then get the `hydro:member` key off that.
+
+But if you want to, you can actually go a little bit further here in the service
+and add `.then((response) => response.data)`. That *might* look a little funny
+to you, but what happened here is that this *still* returns a Promise, but instead
+of returning the full Ajax response it's actually returning `data`. For example,
+*this* would actually work now -of course, I would need to change this `data`
+up here.
+
+I'm actually going to completely undo all of that. My point is simply that right
+now, we are returning a promise that resolves to the actual full response, but you
+can make yours resolve to something smaller. It makes it a *little bit* easier to
+use, but the problem is that if we ever needed to call this function and read
+like a header off of the response, then we can't do that! That's why I typically
+keep it very simple. By returning a promise that actually resolves to the whole
+response, I have more work to do before I can use it, but I also have more options.
+
+Let's refresh one more time, make sure it didn't break anything! It looks good!
+
+Next, hmm... I don't mind some of the loading on this page, but the categories
+over here in the sidebar are starting to *get on my nerves*! It really makes the
+page look incomplete while it loads because the categories *should* be part of
+the *initial* page structure. We can fix that! We're actually going to start
+passing the categories from the server *directly* into Vue!

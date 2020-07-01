@@ -15,6 +15,8 @@ is *normally* passed to your callback as an argument is instead *returned*. Ther
 is *still* an asynchronous AJAX call happening, but our code *reads* a bit more like
 synchronous code. The `await` keyword is syntactic sugar.
 
+[[[ code('463cdb202c') ]]]
+
 ## Why do we need async?
 
 Hmm... PhpStorm looks mad... but... let's ignore it and try this anyways! Move
@@ -31,6 +33,8 @@ have something that is asynchronous, you put `await` in front of it and that say
 That's great. But this comes with one rule: whenever you use the `await` keyword,
 whatever function you're *inside* of needs to have an `async` keyword in front of
 it. Let me put back the `console.log(response)`.
+
+[[[ code('41cbdf1f83') ]]]
 
 When you make a function `async`, it means that your function will *now*
 automatically and *always* return a `Promise`. If your function has a `return` value,
@@ -78,6 +82,8 @@ In `mounted()`, instead of logging the response, now we can say
 the `hydra:member` property. Cool! Add `.hydra:member`. Oh but that `:` mucks
 things up. We need to use square brackets here with that in quotes.
 
+[[[ code('3ab6f076b5') ]]]
+
 Ok, let's check out the `products` data. Move over... I'll refresh just to be
 safe... then on the Vue dev tools, find the `Catalog` component. Yes! Our
 `products` data has 12 items in it!
@@ -87,6 +93,8 @@ TODO. In our design, we need to have one of these divs for each product. Break i
 multiple lines and then loop with `v-for="product in products"`. And every time
 we use `v-for`, we need to add a `key` attribute set to some unique, non-changing
 key for each item.
+
+[[[ code('2f19f62009') ]]]
 
 ## The Useful @id IRI
 
@@ -106,6 +114,8 @@ wrap this in quotes.
 Inside the div, start by printing the name: `{{ product.name }}`... because
 name is one of the keys in the data. And... yea! You can already see it being
 used! There is our list of *real*, high-quality, products.
+
+[[[ code('38ec368749') ]]]
 
 Next, if we added all of the markup and data we need for each product directly
 into the `catalog` component... things could get big and ugly fast. Let's split
