@@ -5,7 +5,7 @@ Coming soon...
 No, we have access to what category we're on and all the categories information. I
 think we can do a little better with this title here. We actually change this to be
 the category title. So if we look over here, Oh boy, I have this in the wrong spot.
-This can be deleted. If we look over here, this in `catalog.view`, this is where
+This can be deleted. If we look over here, this in `catalog.vue`, this is where
 the H one actually comes from. So we could, what we basically need to do is we need
 to take the, um, current category id, find the, find that in the categories data,
 
@@ -102,7 +102,7 @@ happened when I'm coding defensively as if it would alright. Now up here, we can
 
 Alright, so now here's where we get to kind of the interesting part. This component
 looks good to me. Now we need to do is pass the category ID and categories into this
-component. So if you look at `catalog.vue`, let me scroll down here. It has 
+component. So if you look at `catalog.vue`, let me scroll down here. It has
 `currentCategoryId` already. Yay, but it doesn't have `categories`. So let's kind of look up
 our componentry here. I'll look at my view. Developer tools and Z catalog is included
 by products. But if you look down here, `Products` also doesn't have access to
