@@ -37,7 +37,7 @@ Wonderful! We are *now* receiving `currentCategoryId`. To use this, down in
 Axios, there's a *better* way. Create a new `params` variable set to an object:
 this will hold all the query parameters that we want to send. Now,
 `if (this.currentCategoryId) {`, then
-`params.currentCategoryId = this.currentCategoryId`.
+`params.category = this.currentCategoryId`.
 
 To pass that to axios, add a second parameter, which is an options object. One of
 the options you can pass is called `params`. So: `params: params,`.
