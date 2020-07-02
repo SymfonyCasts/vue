@@ -1,66 +1,64 @@
 # Filtering Products
 
-Coming soon...
-
-All right. So we have `products` and we have `searchTerm`. Let's update the
-`searchTerm` when we get an event from `search-bar`.
+Ok: we have `products` and `searchTerm` data. Let's *update* that
+`searchTerm` when the `search-bar` component tells us it's changed.
 
 ## Listen to `search-products` Event in Catalog
 
-Remember we're dispatching
-an event called `search-products`. Go up to your `search-bar` up in `Catalog`'s
-template and say `@search-products=""`. Set it to `onSearchProducts`, which
+Remember, in that component, we're dispatching
+an event called `search-products`. In `Catalog`, up in the template, find the
+`<search-bar` element and add `@search-products="onSearchProducts"`, which
 is a method that we now need to create.
 
-Down here at the bottom, I'll add `methods: {}` and then `onSearchProducts()`.
-Since this method is going to be called when an event is dispatched, it is going
-to get an `event` argument *kind of* like normal JavaScript, and because when we
-dispatch the event, we added a `term` key, we can use that here! So we can say
-`this.searchTerm = event.term`, and that should be enough to do it.
+Down in the code, do it: add `methods: {}` and then `onSearchProducts()`.
+Since this method is going to be called when an event is dispatched, it will
+receive an `event` argument. And because, when we
+dispatched the event, we added a `term` key, we can use that here! We can say
+`this.searchTerm = event.term`.
 
 ## Check it in Vue Dev Tools
 
-Let's just check our work over here. If I type in `disc` there, of course the
-`search-bar` search term updates. But if we look on `catalog`, the search term
-has *also* updated there! Perfect!
+Let's go check it out! Back on the dev tools... if I type `disc` there, of course
+`SearchBar` `searchTerm` updates. But if we look in `Catalog`, the search term
+*also* updated here! Yes!
 
 ## Finally Filter our Products
 
-The *last* thing we need to do is actually filter the products list. If you
-scroll up little bit, to render the products, we actually pass them into the
-`<product-lis>` component. Right now we're always passing in *all* of the
-products. What we really want this to be now is just a subset of those products.
+Now we can *finally* filter the product list. Scroll up to the template. To render
+the products, we pass them into the
+`<product-list>` component. Right now we're passing in *all* of the
+products. But when there is a `searchTerm` we *now* want this to be a *subset*.
 
-This is a *perfect* situation for using a computed property. Let's change this
-to `filteredProducts`. I'll copy that name. Go down and above `created`, say,
-`computed: {}`, `filteredProducts()`. Inside that function, say
-`if (!this.searchTerm)`, then we're going to return `this.products`. Just the
+This is, yet again, a situation where we need to run some code and make a new
+variable available in the template In other words, it's computed property time!
+In preparation, pass `filteredProducts` to `product-list`.
+
+Copy that name. Go down and, above `created`, add
+`computed` with `filteredProducts()`. Inside that function,
+`if (!this.searchTerm)`, then we can just return `this.products`: the
 normal array of products.
 
-If there *is* a search term, what we can do is return `this.products.filter()`
-and pass that a call back. We'll use an arrow function that will take the
-individual product as we're looping over it and I'm going to introduce a kind
-of *shortcut* syntax here. Because I didn't do a curly brace -I just did
-parentheses here- this means we're just returning whatever is inside. So here,
-I'm going to say
+But if there *is* a search term, return `this.products.filter()`
+and pass that an arrow function with a `product` argument. I'm going to use
+the *super* hipster shortcut syntax: because I don't have any curly braces - just
+parentheses here - this has an implied `return` statement. So, return
 `product.name.toLowerCase().includes(this.searchTerm.toLowerCase())`.
-There we go. Basically it's going to loop over all the products and for each
-product, if `product.name.toLowerCase()` includes `this.searchTerm.toLowerCase()`
-then it's going to be included in the new array that gets returned from here.
-Just some JavaScript magic!
+
+Basically, loop over all the products and if product name includes the search term,
+add that product to a new array and return it.
 
 ## Try it in the browser!
 
-If we go over now... You can see that right now we have the full list of office
-supplies. If I type in `disk`... Yes! It just gives one! Try `dis`...
-"Disappearing ink pens"... It works perfectly!
+Let's try it! Over in the browser, this is the *full* list of office
+supplies. If I type in `disk`... yes! It shows just one! Try `dis`... and
+I love it!
 
-The only problem with this, as fast and cool as this is, is that this won't work
-well with sites where our list is paginated! We would just be filtering through
-a single page of products! Or what if we wanted the search to *also* be
-performed in database fields that are *not* shown in this list? While we don't
-*have* this problem now, it would be really cool if we could just get results
-form the server!
+But... as cool and fast as this is... our JavaScript filtering has some serious
+downsides. First, if our products were paginated, this would *not* work: the user
+would only be searching through a single page of products! And second, what if
+we wanted the search to *also* match on fields that are *not* shown in this
+list? Or maybe we have a super-cool Elasticsearch system that we want to use.
 
-Next, let's make this more powerful by performing this search server-side via
-an Ajax call, instead of doing it right inside JavaScript.
+The point is: filtering on the client-side *might* work on some cases... but
+most of the time, you'll probably want to perform this search on the server via
+an Ajax call. Let's do that next!
