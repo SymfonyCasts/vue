@@ -27,6 +27,8 @@ out that a better place to load data is actually `created`.
 Let's try this: change `mounted` to `created` and then I'll refresh to be safe.
 That works *just* fine.
 
+[[[ code('63e5042dc0') ]]]
+
 The `created()` function is called as *soon* as the Vue instance for our component
 is instantiated. That lets us start our AJAX call as *early* as possible. By the
 time it's mounted onto the page, the `products` data may or may *not* yet be available,
@@ -49,11 +51,17 @@ file. Give this a `<template>` with an `<h4>` that says: - wait for it -
 
 Let's also give this a class: `:class="$style.component"`.
 
+[[[ code('4ac76cf7e2') ]]]
+
 Before we *add* that style, create the `<script>` tag with `export default` and
 the options object. This only needs a `name` key set to `Loading`.
 
+[[[ code('f131a9b0a7') ]]]
+
 *Now* let's add the `<style>` tag with `lang="scss"` and `module`. Add just
 one class: `.component`.
+
+[[[ code('19c0f5285f') ]]]
 
 ## Referencing an Image in CSS
 
@@ -64,15 +72,25 @@ file from here: `../../images/loading.gif`. We could also add a Webpack alias fo
 `images/` if we want. Finish this with `no-repeat left center` and add a little
 padding to get the positioning just right.
 
+[[[ code('a96d08f1d0') ]]]
+
 Say hello to our *super* fancy loading component!
 
 ## Using the Component
 
 Over in `index.vue`, time to put it to work! Start by adding some markup to hold
-the loading message. Next, import it with `import Loading from '@/components/loading'`
-and add `Loading` to `components`: the order doesn't matter.
+the loading message. 
+
+[[[ code('868ca15e85') ]]]
+
+Next, import it with `import Loading from '@/components/loading'` and add `Loading` 
+to `components`: the order doesn't matter.
+
+[[[ code('0be1ac2c10') ]]]
 
 Finally, celebrate in the template with: `<Loading />`.
+
+[[[ code('2f51af1bec') ]]]
 
 We're not *conditionally* hiding and showing that yet but... there it is! Not bad!
 
@@ -85,6 +103,8 @@ to be loading the product list multiple times when we have a search bar, let's u
 `v-show` so we can hide & show it quickly. Add `v-show=""`. And, let's see: the
 easiest way to know if the products are still loading is to check if
 `products.length === 0`.
+
+[[[ code('d80f786f93') ]]]
 
 That's not a *perfect* solution - we'll see why later - but it's good enough
 for now. And when we reload... that's nice!
