@@ -40,6 +40,7 @@ chapters:
     - hoist-data
     - v-model
     - event-payload
+    - filtering-products
     - async-computed
     - debounce
     - helpers
