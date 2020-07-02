@@ -32,7 +32,7 @@ If we move over now and check the console, ooooo:
 
 > Cannot read property `product-box` of undefined
 
-Coming from `product-card`. Vue is telling us that the `$style` variable is
+Coming from `product-card` Vue is telling us that the `$style` variable is
 undefined... which makes sense: we don't have a `style` tag yet! No problem:
 add the `<style>` with `lang="scss"`. In fact, `$style` will be undefined until
 you have a `style` tag *and* that tag has the `module` attribute.
