@@ -11,11 +11,16 @@ And now that we know the correct way to make Ajax calls to load data, this
 ## Add an Ajax Call to Sidebar  
 
 Open `sidebar.vue`. We created a `data` property earlier called `categories`, but...
-it's just hardcoded. Set this to an empty array to start. To make the AJAX call,
-head over to `catalog.vue` to celebrate one of programming's oldest arts: stealing
-code. Copy the entire `created()` function and paste it in `sidebar.vue` under
-`data`. We just need to change the URL to `/api/categories` and the data from
-`this.products` to `this.categories`.
+it's just hardcoded. Set this to an empty array to start. 
+
+[[[ code('2dd59a3202') ]]]
+
+To make the AJAX call, head over to `catalog.vue` to celebrate one of programming's 
+oldest arts: stealing code. Copy the entire `created()` function and paste it in 
+`sidebar.vue` under `data`. We just need to change the URL to `/api/categories` and 
+the data from `this.products` to `this.categories`.
+
+[[[ code('6536938ca6') ]]]
 
 Awesome! Let's... just see what happens! Refresh... whoa! I think it worked!
 No errors in the console... and in the dev tools, if you click on `Sidebar`, we
@@ -38,6 +43,8 @@ because we know that each category has a unique `@id` property.
 
 Let's simplify the `v-for` - we don't need `index` anymore - and then say
 `:key="category['@id']"`.
+
+[[[ code('02d04b0a22') ]]]
 
 ## Linking Properly
 
@@ -67,6 +74,8 @@ That *would* work: in the browser, when I hover over categories, the right URL
 But yikes! This code *hurts* to look at! Can we make it nicer? Of course!
 Replace the quotes with `ticks`. *Now*, if we need dynamic code, write
 `${}` - so `${category.id}`.
+
+[[[ code('cd6fedcd2a') ]]]
 
 This is a superpower of modern JavaScript, not Vue. Look over now and... yes! All
 of the links look *perfect*!
