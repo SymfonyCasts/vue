@@ -36,6 +36,7 @@ chapters:
     - ajax-services
     - server-data
     - sync-data-promise
+    - props-vs-service
     - hoist-data
     - v-model
     - event-payload
