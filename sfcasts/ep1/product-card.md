@@ -12,6 +12,8 @@ add a `style` tag soon for those. If you're wondering why I'm using the square
 bracket syntax, that's because JavaScript doesn't like dashes with the object
 property syntax: you can't say `$style.product-box`... which, yes, is annoying.
 
+[[[ code('2cbf3102bd') ]]]
+
 A little below this, we *are* using some product data. If you go back to the Vue
 dev tools and click on Catalog, each product has several fields on it, like
 `brand`, `image` - which is the URL to an image - `name`, `price`, and even
@@ -35,14 +37,20 @@ undefined... which makes sense: we don't have a `style` tag yet! No problem:
 add the `<style>` with `lang="scss"`. In fact, `$style` will be undefined until
 you have a `style` tag *and* that tag has the `module` attribute.
 
+[[[ code('e41bbb793f') ]]]
+
 For the styles itself, I'm going to import this `scss/components/light-component.scss`
 file, which is a Sass mixin. Add `@import`, then, to use the Webpack alias we
 created earlier, say `~` and the name of the alias. So `~styles/` to point to
 the `scss` directory - then `components/light-component`.
 
+[[[ code('1d55bfaaf2') ]]]
+
 Excellent! Now that we've done the hard work, I'll paste in a few more styles.
 This adds the `.product-box` and `.image` classes that correspond with the `$style`
 code in the template.
+
+[[[ code('ca50f02fc1') ]]]
 
 Ok, I think we're ready! When we move over... hmm... I don't see any products.
 Let's refresh to be sure. And... yes! There they are! Each has an image, title,
@@ -68,10 +76,16 @@ string that always has two decimal points, we can use a fun JavaScript function
 that exists on any Number: `.toLocaleString()`. Pass this the locale - `en-US` or
 anything else - and then an options array with `minimumFractionDigits: 2`.
 
+[[[ code('97cff3269b') ]]]
+
 Pretty cool, right? I'll even add some docs to our function. I'm over-achieving!
+
+[[[ code('7a3f4cfe6a') ]]]
 
 Now that we have a computed property called `price`, we can use it with
 `{{ price }}`, as *if* `price` were a prop or data.
+
+[[[ code('ae9cc11811') ]]]
 
 We know that computed properties - similar to `props` and `data` - are added as
 *properties* to the Vue instance, which is why we can say things like `this.price`.
