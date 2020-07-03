@@ -1,97 +1,105 @@
-# Helpers
+# Business Logic Helpers
 
 We've already been organizing our code in several ways. Obviously, the biggest way
 is that we can break our components down into smaller pieces, which is *awesome*!
-But we've also been creating these services which are for fetching data, most of
-the time by making Ajax calls, and in some cases by grabbing global variables.
+But we've also been created services for fetching data, whether that's via
+AJAX calls or by grabbing a global variable.
 
-These aren't the only ways in which we can organize our code. Remember that in
-JavaScript, like with *many* other languages, if you have a chunk of code that
-does some logic, you can *totally* isolate that into its own file, the same way
-that we isolate logic into services inside of Symfony.
+But these aren't the only ways we can organize our code. In
+JavaScript, like with most other languages, if you have a chunk of code that's
+complex or that you want to reuse, you can *totally* isolate that into its own
+file. This is *exactly* what we frequently do with services in of Symfony.
+
+## Why Isolate Logic?
 
 For example, look at `product-card.vue`. We created a computed property that
-takes the product's price, divides it by a hundred and then converts it to
-decimal digits for display in the template. Suppose that we want to isolate
-this into its own file. We might do that for a number of different reasons.
- 
-One, we might need to reuse this in another component. Having logic inside of
-your components is a bit like having logic inside of controllers in Symfony.
-It's not the *worst* thing ever, but it makes your controllers harder to read.
-It also means that you can't reuse it from other controllers, so if we needed to
-reuse this logic, this needs to live in its own file. On the other hand, we might
-be *just* extracting it just to keep things organized... or we might do it
-because we want to *unit test* this stuff. The point is, we're going to isolate
-this logic of formatting prices into its own file.
+takes the product's price, divides it by a hundred and then converts it into
+decimal digits to display in the template.
 
-I'm not going to put it in services because, as I mentioned, at least in my
-project, services is meant for things that are fetching data in some way. Also, in
-functional programming, a `helper` is a term often used for functions that
-process some input information and returns something else with it. And *this* is
-the concept we're going for now.
+Having logic inside of your components is a bit like having logic inside of controllers
+in Symfony. It's not the *worst* thing ever, but it makes your controllers harder
+to read. It also means that you can't reuse it from *other* parts of your code
+*or* unit test it.
+
+The same is true in JavaScript. By isolating logic like this into a separate
+file, we can keep our components readable, re-use logic and, if you want, unit
+test it.
+
+But... I'm not going to put this logic into the `services/` directory because,
+at least in this project, I'm using `services/` to mean "things that fetch data".
+In functional programming, a `helper` is a term that's often used for functions that
+process take input, process it and returns something else. And *this* is *exactly*
+what our new function will do.
 
 ## Create a Helper Function
 
-It's up to you to decide your ultimate application structure. In my case, I'm
-going to create a new directory called `helpers` inside of `js`. Create a new
-file called `format-price.js`. In here, I'm going to `export default` and actually
-use the more *hipster* `->` syntax to say that I `export default` a function.
+So, inside of `js/`, create a new directory called `helpers/` and then a new
+file called `format-price.js`. In here, `export default` and, actually, let's
+use the more *hipster* arrow syntax to say that I `export default` a function.
 
-For the body of that function, I'll go to my `product-card` and copy this line
-here and paste it. Then we'll change it to use the `price` argument.
+For the body of that function, go to `product-card`, copy the formatting code
+and paste it. But change it to use the `price` argument.
 
-Brilliant! Now, you might notice ESLint is *angry* here. Does it NOT like
-hipster code? How *dare* you, ESLint? Oh, no! Phew...! It says "unexpected
-block statement surrounding arrow body. Move the return value immediately after
-the arrow." You don't have to do this, but the way I have my ESLint rule set up,
-is that if I have an arrow function that literally only has one a return
-statement, we can use parentheses around that statement. Then inside, we can
-remove the return and the semi-colon there in the end. That's now an *implied*
-return.
+Brilliant! Now, you might notice that ESLint is *angry*. Does it NOT like
+hipster code? How *dare* you, ESLint? Oh, no! Phew...! It says
 
-If you don't like that, you can just use a normal function as well, and like all
-good programmers, now we can actually add some JS doc to this. We'll say that
-the price is a number, and we'll even add a little bit of a description to this.
+> Unexpected block statement surrounding arrow body. Move the return value
+> immediately after the arrow.
 
-Now we have a *nice* little reusable file! Uh, by the way, there are two ways to
-organize your helpers. You can either have a file, like format price, which
-exports `default` a single function, or if you had like a *number* of different
-price utilities, you could create a file called something like `number.js` and
-then you can export named functions. That's a little bit more similar to what
-we're doing inside of our services. It's up to you to decide which method you
-like better.
+My ESLint rules are set up so that if I have an arrow function that only has
+*one* line, which is a return statement, we should add parentheses around that
+statement then remove the `return` and the semi-colon at the end.
 
-## Using the Helper Function
+That's now an *implied* return.
 
-All right, so let's go and use this inside of `product-card.vue`. Obviously,
-the first thing we're gonna need to do is, actually import that into this
-component. So I'm going to say `import formatPrice from '@/helpers/format-price'`
+If you don't like that, just use a normal function syntax. And, to earn the
+admiration of our teammates, let's add some JSDoc: the price is a number and
+let's even describe what this function does.
 
-When I first started using Vue, the way I wanted to use this was to take this
-`formatPice` and say: "Hey, I have a local variable inside of here! So let's go
-right up to our template and say `formatPrice`, and then we'll pass it,
-`product.price`!". Because you have a `product` object here and it has a `price`
-variable in it.
+And... woo! We now have a *nice* reusable function! Oh, and there are two ways to
+organize your helpers... or JavaScript modules in general.
+First, you can have a file, like `format-price`, which
+exports `default` a *single* function. *Or*, if you have *several* different
+helper functions related to pricing or number manipulations, you could create a
+file called, maybe, `number.js` and then you export *named* functions. That second
+idea is what we're doing inside of `services/`. It's up to you to decide which
+you like better.
 
-I really wish it were *that* simple! But if you go over here in the console...
-our dreams are crushed! It says `property or method, formatPrice is not
-defined on the instance, but referenced during render`. In reality, whenever you
-reference something like a variable or function inside of a template, behind the
-scenes, what it *really* does is call `this.format price` on the Vue instance.
+## Using the Helper Function the Wrong Way
 
-But we *do not* have a `formatPrice` method on our object. All we have is this
-one computed property called `price` and there are no methods down here. So the
-point is, we can't just import `formatPrice` and expect it to magically be
-available in our template. Instead, I'm going to go back to my computed
-property, change this back to just `price`. *Now* in the computed method we can
-use our new helper. We'll say `return formatPrice`, and we'll pass the same
+Ok! Let's go use this inside of `product-card.vue`.
+The first thing we need to do is import this into the
+component. Do that with `import formatPrice from '@/helpers/format-price'`
+
+Now, when I *first* started using Vue, I thought:
+
+> Hey! I now have a local variable called `formatPrice` in this file! So
+> let's go right up to the template and use it! `formatPrice()` with
+> product.price to reference the `product` object and its `price` property.
+
+But... it was not to be! If you move over to the browser's console...
+our dreams are crushed! It says:
+
+> Property or method `formatPrice` is not defined on the instance, but referenced
+> during render.
+
+Of course! When you reference a variable or function in of a template, behind the
+scenes, we know that what it *really* does is call `this.formatPrice()` on the
+Vue instance. It does *not* try to find some local `formatPrice` variable.
+
+## Using the Helper in our Component code
+
+So... it explodes! On our instance, we *do* have a computed property called
+`price` but not methods. So, we *can't* just import `formatPrice` and expect it
+to magically be available in our template. But we *can* use it in our JavaScript
+code, like in our computed property.
+
+Change the template code back to `price`. *Now*, in the computed method,
+use the new helper: `return formatPrice`, and pass the same
 thing we did before, which was `this.product.price`.
 
-## Try it in the Browser
+*This* time, when we move over... yes! It works perfectly! Let me get rid of my
+search term here and... nice! No errors in the console.
 
-When we go over. Yep! It works perfectly! Let me get rid of my search term here.
-Nice! There are no errors in the console.
- 
-Next: Let's make a search bar a *little bit* fancier by adding a little X icon
-over here to clear the search!
-
+Next: Let's make our search bar a *little bit* fancier by adding an X icon
+on the right to clear the search!
