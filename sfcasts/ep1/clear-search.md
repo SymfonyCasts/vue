@@ -1,71 +1,74 @@
 # Adding an [x] to our Search Bar
 
-When we type inside of our search bar, I actually already have a little X icon
-over here. That's because we're using an `<input type="search"/>` for our search
-bar, and in my browser, it adds that little X icon by default. I want to ignore
-that for a second and see if we can add our *own* little X icon over here and
-set it up so that when we click it, it clears the search term. It's gonna be a
-nice little exercise while we practice some dangerous skills! Plus, this is going
-to work *super* well.
+When we type inside the search bar, it actually already has a little X icon on
+the right. That's because we're using an `<input type="search"/>` for the search
+bar. And in *my* browser adds X icon to search inputs by default. But I want to
+ignore that for a second because I want to see if we can add our *own* little X icon
+that, on click, will clear the search term. This will be a *grea* opportunity
+to practice our new dangerous skills!
 
 ## Add the [x] Button to our Search Bar
 
 Inside of `search-bar.vue`, add a class to the outer div called `input-group`.
-That's going to allow me to add a new `<div>` element down here, set
-`class="input-group-append"` and add a `v-show` to it. The idea is that this is
-going to be a little X icon and we only want this to show if there is at least
-something being typed. So we can do `v-show="searchTerm"`, we have that as the
-data, `!=""`. Inside, add a `<button>`, -I'll go over that ESLint error soon-
-with an X as the text and set the class to `class="btn btn-outline-secondary"`.
-All right, perfect. Let's see what ESlint telling me: `v-show should go before
-class`. It's basically telling us to arrange our attributes by type. Let's swap
-these two attributes here. There we go!
+That will allow us to add a new `<div>` element at the bottom with
+`class="input-group-append"` and add a `v-show`. This will hold the "X" button
+and the idea is hat we only want to show it if the search term is *not* empty.
+Do that with `v-show="searchTerm"` - to reference that `data` - `!=""`.
+
+Inside the div, add a `<button>`, - I'll talk about that ESLint error soon -
+with an X as the text and `class="btn btn-outline-secondary"`.
+
+Ok ESLint: what's up? Hmm: `v-show should go before class`. Ah, we've seen this
+a few times before: attributes can go in *any* order, but there are some best-practices.
+Let's swap these two attributes and... ESLint is happy.
 
 ## Check that it Works in the Browser
 
-If we check in the browser, there we go! It looks *a little* silly because of the
-double X, but let's ignore that! It does show up correctly. Now we actually want
-to add some behavior to this. When I click this, I want it to clear whatever I
-type in the search bar.
+Over in the browser... there we go! It looks *a little* silly because of the
+double X, but let's ignore that - I just want to see if we can get this working.
+Specifically, when we click this, we want to clear the search bar.
 
 ## Add Behavior to the [x]
 
-I know how to do this! I'll ask siri to do it for me! Oh no, wait... I think we
-need to add a click event instead! So we want to `v-on` -of course we'll use a
-shortcut- and say `@click=""`. Let's add a new method called `eraseSearchTerm`.
-I'll copy that method name and down here. We *already* have a methods section.
-Let's just add a second method. This is going to be so great!
+And... I know how to do this! I'll just ask Siri to do it for me! *Or*, we can
+listen to the click event! So we want to `v-on`, but of course we'll use the
+shortcut. Say: `@click=""` set to a new method we'll create called `eraseSearchTerm`.
+Vopy that method name and, below, we *already* have a `methods` section.
+Add this as a second method. Woo!
 
-On this method, we'll just set `this.searchTerm = ''`. That looks good!
+Inside, just `this.searchTerm = ''`.
+
+We're crushing it!
 
 ## Back to Testing in the Browser
 
-So let's try it over here. Refresh... I'll do a quick search... Click on my X
-button over here and... it clears! Oh, but the *products* didn't update! Of
-course!
+Time to test! Let's refresh... do a quick search... and click the X button.
+Boom! The search cleared. Oh, but the *products* did *not* update! Siri, can you
+update those for me?
 
 ## Emmit on Clear Search
 
-When we think about the search bar component, the `searchTerm` data is *entirely*
-internal. The only reason we have a `searchTerm` data inside of here is just
-so that we can use it inside of our component. For example, it helps us up here
-to know whether or not we should hide or show the X button. As far as the
-people that *use* our components, all they know about it is that it dispatches
-or "*emits*" a `search-products` event. So what we're missing down here, after 
-setting this internal data correctly, is to emit that event. 
+When we think about the `search-bar` component, the `searchTerm` data is *entirely*
+internal. The only reason we have a `searchTerm` data at *all* is just to make
+our life easier... *inside* the component. For example, it helps us up here
+to know whether or not we should hide or show the X button.
 
-Copy that exact statement down here. Of course, `searchTerm` now is an empty
-string, so this exact same line just works for us.
+But for people that *use* this component, all *they* know and care about is that
+`search-bar` *emits* a `search-products` event. And *that* is what we're missing
+down in `eraseSearchTerm`: we correctly updated internal data, but we *forgot*
+the most important part: emitting the event.
+
+Copy the `$emit()` statement and use it here. Of course we know `searchTerm` will
+always be empty in this case, but this will work fine.
 
 ## Check that it all Works!
 
-Now we go over... add some search... clear it... it works perfectly! That's
-a nice little exercise for thinking about the organization of our search bar
-component, making sure that you emit the right events at the right time.
+Now when we go over... search for something cool... and clear it... yea! We got it!
+Making this work was nothing new, but it *was* a good opportunity to think about
+the internal and external parts of our `search-input` component.
 
 Next let's do something I'm *really* excited about right now! The
-`currentCategoryId` is something that we set on page load and never change,
-but we've organized our app in such a good way that with a little bit of
+`currentCategoryId` is something that we set on page load and then never change.
+But we've organized our app in *such* a good way that with a little bit of
 logic and a new concept called a watcher, we're going to be able to
-dynamically change the category and have the whole page reload. Let's do that
-next!
+dynamically change the category and have the whole page reload. Woh. Let's do this!
