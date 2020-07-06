@@ -127,7 +127,7 @@ class AppFixtures extends Fixture
         yield [
             'name' => 'Art (Velvis)',
             'description' => 'Art with texture - there isn\'t a room (or a team) that Elvis can\'t pull together.',
-            'image' => 'Velvis.png',
+            'image' => 'velvis.png',
             'category' => 'furniture',
         ];
         yield [
