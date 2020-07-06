@@ -36,7 +36,7 @@ This comes indirectly from the `light-component` mixin we're using - it's actual
 a variable set in `colors.scss`.
 
 Ok! Let's use this `selected` class up in the template. Start with the
-"all categories" item: this should have the `selected` class *if* the
+"all products" item: this should have the `selected` class *if* the
 `currentCategoryId` is `null`. And it should *always* have the `nav-link` class.
 
 To do that, change this to `:class` and set it to an *object*. Inside, add a key
