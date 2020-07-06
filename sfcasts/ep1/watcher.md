@@ -16,7 +16,7 @@ because the `currentCategoryId` is *not* something that changes: it's not
 one of those things where, when it changes, we need our component to
 re-render. We don't need it to be *reactive*.
 
-But now, I *do* want to do this. Here's our new missing: make it possible to change
+But now, I *do* want to do this. Here's our new mission: make it possible to change
 `currentCategoryId` while our app is running and for the sidebar and products to
 instantly update. This *now* means that we *do* need `currentCategoryId` to be
 "reactive". And *that* means it needs to live as `data` in a component.
@@ -63,7 +63,7 @@ Put on your debugging hat and dive into `catalog.vue`, the component that
 holds the `products`
 data. The `products` data depends on two things. If we
 go down to `loadProducts()` - the method that actually makes the AJAX call -
-we can see that `products` depend on the `searchTerm` and *also* on
+we can see that `products` depends on the `searchTerm` and *also* on
 `currentCategoryId`. This means that when *either* of these change,
 we need to *re-call* `loadProducts()` so that it will make the new AJAX request.
 
@@ -97,7 +97,7 @@ was called, we would emit the custom event.
 
 The reason I *didn't* do that is, as I just said, watchers are kind of your
 last resort. They're not as performant as other parts of your system. In this
-case, we *did* have another option: listening to via `@input`.
+case, we *did* have another option: listening via `@input`.
 
 But looking back in `catalog`, there's simply *no* other solution. We need to run
 code when the `currentCategoryId` prop changes. And we can't create a computed

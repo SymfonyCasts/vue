@@ -36,7 +36,7 @@ Ah! It returns everything! It did *not* apply the `searchTerm` on the products.
 The reason, of course, is that, in our watcher, we're passing
 `this.loadProducts(null)`. Yep, we're saying:
 
-> Hey Vue!, load the products with no `searchTerm`".
+> Hey Vue! Load the products with no `searchTerm`".
 
 And darn it, Vue is following our directions perfectly!
 
@@ -44,8 +44,8 @@ And darn it, Vue is following our directions perfectly!
 
 If you look at data, we do *not* have `searchTerm` as a data key. Why? Because,
 until now, we didn't need it! All we needed to do - when `onSearchProducts()`
-was called - was use the `term` to immediately load the products. There was...
-no need to store search the term anywhere for later. But now we *do* have a need!
+was called - was use the `term` to immediately load the products. There was
+no need to store the search term anywhere for later. But now we *do* have a need!
 We *do* need to store the `searchTerm` so that when the `currentCategoryId` changes,
 we *know* what the `searchTerm` is.
 
@@ -56,7 +56,7 @@ and just say `this.searchTerm` instead.
 That looks good! Now... let's see: up in `created()`, we don't need any arguments...
 and same in the `currentCategoryId()` watcher.
 
-Each will now automatically use the current search term is. Let's try it!
+Each will now automatically use the current search term. Let's try it!
 
 ## Try it one more time!
 
@@ -80,4 +80,4 @@ much as I have! Vue is a *very* powerful, *very* fun tool to work with. So go bu
 something *awesome*... then tell us about it!
 
 And, as always, if you have any questions, comments or kitten videos, let us know
-down in the comments. All right, friends, see you next time!
+down in the comments. All right, friends, seeya next time!
