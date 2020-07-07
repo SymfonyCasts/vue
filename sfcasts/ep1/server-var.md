@@ -63,6 +63,8 @@ worry, we're not going to go *too much* into Symfony and I'll explain what I'm d
 along the way. Add `IriConverterInterface $iriConverter` to get a service from
 API Platform.
 
+[[[ code('231dbc839c') ]]]
+
 Remember: when you click on the `Catalog` component in the Vue Dev tools and look
 at the `products` data, each item that we get back from our API - whether it's a
 product, category or something else - has an `@id` property. That is known as the
@@ -76,6 +78,8 @@ will help me get that.
 Add a second argument to the template called `currentCategoryId` - in reality,
 this is the "current category IRI" - set to `$iriConverter->getIriFromItem()` and
 then pass the `$category` object.
+
+[[[ code('3b2580407f') ]]]
 
 ## Printing JavaScript Values Directly in our Template
 
@@ -93,9 +97,13 @@ JavaScript variable: `window.currentCategoryId =`, a set of quotes, and then
 That's it! Oh, but in theory, if `currentCategoryId` contained a single quote, this
 would break. To be *extra* safe, pipe this to `e('js')`.
 
+[[[ code('ae1d462309') ]]]
+
 That will escape the string so that it's always safe for JavaScript. In the `else`,
 if no current category is set, that means we're on the homepage. Let's say
 `window.currentCategoryId = null;`
+
+[[[ code('b6f7029f95') ]]]
 
 The end result of this *long* journey is that when we refresh the page, view
 the source and scroll down to where the JavaScript is... yes! We have
