@@ -39,6 +39,8 @@ functions to this file, you'll see how we can use whichever one or two functions
 we need. Say `export function`, call it `getCurrentCategoryId` and, inside,
 *very* simply, `return window.currentCategoryId`!
 
+[[[ code('4e607e0a0b') ]]]
+
 *Just* like that! We have a central place to read our global variable! I'll celebrate
 by adding some JSDoc above this.
 
@@ -51,7 +53,11 @@ But I'm going to type this import a little backwards:
 blank, which is totally *not* valid JavaScript. But now, I can add `{}` and
 autocomplete the `getCurrentCategoryId` function.
 
+[[[ code('752cbbe29d') ]]]
+
 Nice! Down in the computed property, use this: `return getCurrentCategoryId()`.
+
+[[[ code('59162436d7') ]]]
 
 That is lovely! When we move over and refresh... it works!
 
@@ -93,6 +99,8 @@ because... I don't *need* to. But I *do* want to structure my app with this in
 mind. To start, copy the computed property from `sidebar.vue`, and, in
 `products.vue` add it there.
 
+[[[ code('d5d0b5b4e1') ]]]
+
 Oh, and this is cool! When I pasted, check it out! It added the import for
 me automagically! It *did* mess up the code style, but you can fix that in
 PhpStorm if you want. That's better.
@@ -102,9 +110,14 @@ property... but *inside* the component where it *would*, in theory, need to live
 as data. That will make it *super* easy to *change* to data later if we need to.
 
 Now, pass this to sidebar with `:current-category-id="currentCategoryId"`.
+
+[[[ code('2acc97bf3c') ]]]
+
 And in `sidebar.vue`, instead of a computed property, we'll set this as a prop.
 Add `currentCategoryId` with type `String` - this is the IRI string - and
 also `default: null`.
+
+[[[ code('25ed0f08da') ]]]
 
 The reason I'm using default `null` is that this will allow the prop to be a
 String *or* `null`, which is what it will be on the homepage. You can add more
