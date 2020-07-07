@@ -23,6 +23,8 @@ any extra variables you need in a template.
 Below `data`, add `computed` and create a new computed property called
 `currentCategoryId`. Inside, `return window.currentCategoryId`.
 
+[[[ code('39973b4114') ]]]
+
 It's just that simple!
 
 ## Adding the .selected Style
@@ -31,6 +33,8 @@ Before we use this in the template, let's add a new class that we can use for th
 "selected" category. Inside the `ul`, create a new style called `li a.selected`.
 This is the class that we will need to dynamically add in the template. Inside,
 say `background: $light-dash-component-border;`.
+
+[[[ code('c7ede81829') ]]]
 
 This comes indirectly from the `light-component` mixin we're using - it's actually
 a variable set in `colors.scss`.
@@ -44,6 +48,8 @@ called `nav-link` set true so that it *always* shows up. For the dynamic class,
 add `[$style.selected]` - to reference our new `selected` class - and make that
 render if `currentCategoryId === null`.
 
+[[[ code('bdd6028cd5') ]]]
+
 Remember: the ugly square bracket syntax is needed so that JavaScript knows that
 our key is a dynamic expression. That's... unfortunate, but we're  going to fix
 that in a minute anyways!
@@ -51,6 +57,8 @@ that in a minute anyways!
 Now copy the `:class` attribute and, down inside the loop, paste over the existing
 `class`. In this case, we want to show the class if
 `category['@id'] === currentCategoryId`.
+
+[[[ code('613eeba4bc') ]]]
 
 Testing time! Back on the browser... yes! It already works! I'm on the
 "Office Supplies" page and that category *is* highlighted! Let's click on
@@ -86,6 +94,8 @@ like we're doing now - but *not* have any classes inside `.component` render
 in a modular way. Up in the template, I want to be able to just type `selected`
 and have it work.
 
+[[[ code('8702bcc183') ]]]
+
 ## Make our child style classes into globals
 
 And here's how: down in the style tag, you can tell SCSS:
@@ -95,6 +105,8 @@ And here's how: down in the style tag, you can tell SCSS:
 
 The way you do that is by adding `:global` in front of it.
 
+[[[ code('8090eae817') ]]]
+
 As *soon* as we do that, if I inspect element on the selected link and look at
 the generated CSS selector on the right... yes! It has the modular `sidebar` class
 but *then* it only says `.selected`. We're not worried about that affecting any
@@ -103,6 +115,8 @@ but *then* it only says `.selected`. We're not worried about that affecting any
 And... we can go one step further! If you think about it, because `.component` will
 be converted into a modular class, we don't need *any* classes inside of it to be
 modular. We can move the `:global` up and after the `.component` class.
+
+[[[ code('28634ed450') ]]]
 
 Now *everything* inside will *not* be modular. This means that the *only* time
 I should have to use the `$style` variable is on the root element! The rest can
