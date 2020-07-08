@@ -32,7 +32,7 @@ This means that `response.data` is undefined!
 
 The simplest way to fix this is right here: comment out the old `this.categories`
 line and directly say `this.categories = fetchCategories()`. We don't need
-the `await` anymore.
+the `await` anymore, but it doesn't hurt anything.
 
 Simple enough! Back on the browser, it's *already* showing the categories on the
 left. And if we reload... yes! The categories are *instantly* there! Woo!
