@@ -27,8 +27,12 @@ that to change the URL in the AJAX call! Well then... let's go get it!
 Back in `products.vue`, add `:current-category-id="currentCategoryId"` to pass it
 as a prop... *just* like we did with the sidebar.
 
+[[[ code('acdcc2d58c') ]]]
+
 Now, in `catalog.vue`, *add* that as a prop. Actually, let's go steal the prop
 definition from sidebar - it's perfect there - and paste it here.
+
+[[[ code('a54515f596') ]]]
 
 ## Using currentCategoryId to Filter on the AJAX call
 
@@ -39,8 +43,12 @@ this will hold all the query parameters that we want to send. Now,
 `if (this.currentCategoryId) {`, then
 `params.category = this.currentCategoryId`.
 
+[[[ code('8d293cfca1') ]]]
+
 To pass that to axios, add a second parameter, which is an options object. One of
 the options you can pass is called `params`. So: `params: params,`.
+
+[[[ code('f551d09578') ]]]
 
 ## Object Shorthand: Keys without the Key
 
