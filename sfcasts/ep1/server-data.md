@@ -50,11 +50,15 @@ Start in `index()`: autowire a service called `CategoryRepository $categoryRepos
 Now, add a second argument to Twig so that we can pass in a new variable called
 `categories` set to `$categoryRepository->findAll()`.
 
+[[[ code('a7ed01bb3c') ]]]
+
 That will query for *all* the categories.
 
 Do the same thing down in `showCategory()`: add the
 `CategoryRepository $categoryRepository` argument, go steal the `categories`
 variable... and paste it here.
+
+[[[ code('37d3d70951') ]]]
 
 Woo! We now have a `categories` variable available in the Twig template.
 
@@ -77,8 +81,12 @@ Open the `src/Twig/` directory to find a shiny class called `SerializerExtension
 I created this file, which adds a filter to Twig called `jsonld`. By using it,
 we can serialize *anything* into that format.
 
+[[[ code('3b86db141a') ]]]
+
 Awesome! Back in the template, add `window.categories` set to
 `{{ categories|jsonld }}`.
+
+[[[ code('073e762c57') ]]]
 
 Let's go see what that look like! Find your browser, refresh and view the page
 source. Near the bottom... there it is! It's has the *same* JSON-LD format as the
