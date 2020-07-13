@@ -33,6 +33,8 @@ For the logic, copy the `axios` line from `sidebar`... and paste it here. PhpSto
 helpfully imported `axios` *for* me... but I'll tweak the quotes. Back in the
 function, return `axios.get()`.
 
+[[[ code('99cdef390d') ]]]
+
 This is a really, *really* simple AJAX call, but at *least* we're centralizing the
 URL so that we don't have it all over the place. Let's also be good programmers and
 add some documentation above this: it returns a `Promise`... which, actually,
@@ -41,14 +43,20 @@ PhpStorm already knew without us saying anything.
 But I won't add a description because the function name already describes this
 pretty well.
 
+[[[ code('6dee877aca') ]]]
+
 ## Use it from `sidebar.vue`
 
 Ok: in `sidebar.vue`, let's use this! First, import the service:
 `import {} from '@/services/categories-service'`. Inside the curly braces,
 grab `fetchCategories`.
 
+[[[ code('a4d90032c2') ]]]
+
 Now down in `created`, life gets *much* simpler: `const response =` - keep the `await`
 because we *still* want to wait for the function to finish - then `fetchCategories()`.
+
+[[[ code('9d2316006e') ]]]
 
 I *love* this! And to clean up, since we're not using `axios` directly in this
 component, we can remove the import.
@@ -66,6 +74,8 @@ Start the same way: `export function fetchProducts()` with a `categoryIri` argum
 I've been calling this `categoryId` so far, but in reality, this *is* the IRI, so
 I'll give it the proper name here.
 
+[[[ code('da9048697d') ]]]
+
 For the logic, go back to `catalog.vue`, copy the `params` code... and paste it
 here. Let's also copy the response line, paste that here too and return
 `axios.get()`.
@@ -73,10 +83,14 @@ here. Let's also copy the response line, paste that here too and return
 Finally, for the `params`, it's not `this.currentCategoryId` but `categoryIri`.
 So `if (categoryIri)` then `params.category = categoryIri`.
 
+[[[ code('7b9aca964a') ]]]
+
 And... I need to fix my import code to use single quotes on `axios`.
 
 Before we use this, let's add some docs: the `categoryIri` will be a `string` or
 `null` and this will return a Promise.
+
+[[[ code('192823b67c') ]]]
 
 That's looking great!
 
@@ -86,9 +100,13 @@ Let's put it to use in `catalog.vue`. Like before, start by importing it:
 `import {} from '@/services/product-service'` and then bring in the
 `fetchProducts` function.
 
+[[[ code('d1023c3bf8') ]]]
+
 Now, down in `created()`, we don't need *any* of the `params` stuff anymore.
 And the `response` line can now just be
 `response = await fetchProducts(this.currentCategoryId)`.
+
+[[[ code('c5463286d4') ]]]
 
 This is *lovely*: the `created()` function reads like a story: set the
 `loading` to true, call `fetchProducts()`, then set `loading` to false.
