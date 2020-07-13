@@ -6,7 +6,10 @@ In `sidebar.vue`, we're calling `fetchCategories()`, which lives in our fancy
 new `categories-service` module. You can find this at
 `assets/js/services/categories-service.js`.
 
-To switch this from an AJAX call to the global variable, just `return window.categories`. Celebrate by removing the `axios` import on top.
+To switch this from an AJAX call to the global variable, just `return window.categories`. 
+Celebrate by removing the `axios` import on top.
+
+[[[ code('cf391754d1') ]]]
 
 *This* is what I like about centralizing the `fetchCategories()` method: we don't
 need to run around and change our code in a bunch of places: just here. Well...
@@ -33,6 +36,8 @@ This means that `response.data` is undefined!
 The simplest way to fix this is right here: comment out the old `this.categories`
 line and directly say `this.categories = fetchCategories()`. We don't need
 the `await` anymore, but it doesn't hurt anything.
+
+[[[ code('ea9c97e2f6') ]]]
 
 Simple enough! Back on the browser, it's *already* showing the categories on the
 left. And if we reload... yes! The categories are *instantly* there! Woo!
@@ -66,6 +71,8 @@ Let's try that: `return new Promise()`. This needs one argument: a callback with
 `resolve` and `reject`. If you've never seen a `Promise` like this, check out our
 [ES6 tutorial](https://bit.ly/sfcasts-promises) all about them. They're *fascinating*.
 
+[[[ code('85aeae5467') ]]]
+
 Anyways, once our work is done - which will be *instantly* since we don't need
 to make any AJAX calls, call `resolve()` and pass it the *data* that we want the
 promise to return. Now, we're not *really* making an AJAX request... so we can't
@@ -75,6 +82,8 @@ a `data` key and a `hydra:member` key below it. Let's at least fake that here: a
 `data` set to an object and `hydra:member` set to `window.categories`. I'll
 remove the extra return at the bottom and, above the function, once again, advertise
 that we return a `Promise`!
+
+[[[ code('cd3cc884a1') ]]]
 
 Now, back in `sidebar.vue`, we can revert all of our changes and use the
 *exact* code we had before: `const response = await fetchCategories()`.
