@@ -22,17 +22,23 @@ AJAX request. This is means that it is *also* aware of whether or not we are
 *currently* making an AJAX call for the products. To track this, let's add a new
 data: call it `loading` and set it to `false` by default.
 
+[[[ code('f857b6f274') ]]]
+
 Now, very simply, in `created()`, say `this.loading = true` right before
 the AJAX call and, right after, `this.loading = false`.
 
 And *just* like that, we have a flag that we can use to render things based on
 the *true* loading status!
 
+[[[ code('91cc26faf9') ]]]
+
 ## Try...catch
 
 While we're here, we can *also* add some simple error handling *just* in
 case the AJAX call fails. To do that, wrap all of this in a `try...catch` block.
 Then, inside `catch`, set `this.loading = false`.
+
+[[[ code('c92c01ff9d') ]]]
 
 If we *really* didn't trust our API... we could add a data called `error`,
 change that in catch to a message and render it. But with this, we will *at least*
@@ -51,6 +57,8 @@ Finally, move the `this.products = response.data` code outside of the
 catch. Now if *that* line has a problem, it won't be silenced: we'll have to deal
 with it!
 
+[[[ code('9c23dd64a5') ]]]
+
 Whether or not you should use the `try...catch` just depends on your situation. I
 probably *wouldn't* do this because, if my API endpoint is failing, I have bigger
 problems: my site is broken! Giving the user a graceful error is nice, but maybe
@@ -68,14 +76,20 @@ pass that into the `product-list` component so that we can use it to hide or
 show the loading spinner. Split the `product-list` onto multiple lines and
 then add `:loading="loading"`.
 
+[[[ code('9548713176') ]]]
+
 And now that we're passing the `loading` prop, in `index.vue`, update the
 `props` so we can receive it: add a new `loading` prop with `type: Boolean` and
 `required: true`.
+
+[[[ code('894bd5b9fc') ]]]
 
 We can *now* simplify the template: we want to show the loading animation
 *if* `loading` is true. And we also want to show these product cards down here, if
 we are `!loading`. This second spot isn't *super* important, but it doesn't hurt
 to have it!
+
+[[[ code('6ceee4b607') ]]]
 
 ## Adding a "No Products" Message after Loading
 
@@ -88,6 +102,8 @@ And now, we can easily add that.
 After the `<loading />` component, add an `h5` with a `v-show` directive. This
 will hold that "no products found" message... which means that we want it to
 show if we are *not* `loading` but `products.length === 0`.
+
+[[[ code('41ae137a33') ]]]
 
 If that's our situation, print a helpful message. And... there it is! Our
 snacks page - except for the fact that there are *no* snacks - works great.
@@ -112,6 +128,8 @@ Instead, I *am* going to use the `categories.length` to figure out if we're load
 But to be extra organized, let's do this via a computed property called `loading`.
 Inside `return this.categories.length === 0`.
 
+[[[ code('077724819a') ]]]
+
 If there are no categories, then we are loading! The nice thing about using a
 computed property is that it will let us use a simple `loading` variable in the
 template. And later, if we *did* want to change this to `data`, that would be
@@ -121,8 +139,12 @@ Ok: to use this in the template, first import the loading component:
 `import Loading from '@/components/loading'`. Then add the `components` key with
 `Loading` inside.
 
+[[[ code('2b83cc6f5f') ]]]
+
 Finally, up in the template, right after the `h5`, we'll say `<loading` with
 `v-show="loading"`.
+
+[[[ code('9a4b506d91') ]]]
 
 I love it!
 
