@@ -17,15 +17,21 @@ title area in the next tutorial.
 ## Creating the Title Component
 
 In the `components/` directory, create a new `title.vue` file and start the same
-way as always: with the template. Set this to a `<div>` and immediately add `:class="$style.component"`. Inside, put the `h1` with, for now, a hardcoded
-"Products".
+way as always: with the template. Set this to a `<div>` and immediately add `:class="$style.component"`. 
+Inside, put the `h1` with, for now, a hardcoded "Products".
+
+[[[ code('df59a0fbd0') ]]]
 
 Next, add the `<script>` tag with the minimum needed: `export default` and
 `name: 'Title'`.
 
+[[[ code('eb2f96fd2e') ]]]
+
 Finally, at the bottom, because we're already referencing `$style`, add
 `<style lang="scss" module>`. We only need one thing: `.component {}`,
 an `h1 {}` inside, and `font-size: 1.7rem`.
+
+[[[ code('37c7442726') ]]]
 
 Perfecto! A nice, simple component to render the title.
 
@@ -35,6 +41,8 @@ In `catalog.vue`, let's use this! But when I import it, I'm going to call it
 `TitleComponent` from `@/components/title`. The reason is that, when we add
 `TitleComponent` to `components`, it *really* means
 `TitleComponent: TitleComponent`.
+
+[[[ code('d1fdddb2fa') ]]]
 
 Anyways, the *key* - `TitleComponent` in this case - determines the HTML element
 that we can use in the template. `TitleComponent` means that we can say
@@ -52,12 +60,16 @@ There's a W3C spec that recommends that custom component always have a dash.
 Anyways, when we use `<title-component>`... I think it's working! I still see
 "Products".
 
+[[[ code('1437089601') ]]]
+
 To make that print the actual *category* name, *something* needs to use the
 `currentCategoryId` and `categories` info to find the current category's name.
 For now, I'm going to put that logic directly into `title`. That means that
 `title` will need to receive both of these pieces of data as props. Add `props:`
 with `currentCategoryId`, `type: String` and `default: null` so that null is allowed.
 Then add `categories` with `type: Array` and `required: true`.
+
+[[[ code('b68f476c7f') ]]]
 
 This is everything we need.
 
