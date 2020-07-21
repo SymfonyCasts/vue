@@ -14,19 +14,27 @@ In `components/`, create a new file called `search-bar.vue`. Add the `<template>
 with `<div>` and an `<input>` with `class="form-control"`, a `placeholder` and
 `type="search"`.
 
+[[[ code('f98141f60c') ]]]
+
 So nothing special. If you're wondering why I added the `div`, it's just because
 we're going to have *more* than just the input later.
 
 At the bottom add the `<script>` section with the basic
 `export default` and `name: 'SearchBar'`.
 
+[[[ code('941acdff6a') ]]]
+
 *Love* it! Over in `catalog.vue`, let's see... change the `div` around the title
 to `col-3`, and then, below, add a new `<div class="col-9">`. Inside, we haven't
 imported the `search-bar` component yet... but ah! Let's try to use it anyway!
 Type `<sea` and hit tab to auto-complete that.
 
+[[[ code('345c0dee30') ]]]
+
 When we did that, because PhpStorm is *awesome*, it added the import *and* put this
 down in the `components` section. PhpStorm, did we just become best friends?
+
+[[[ code('0b06cbb76f') ]]]
 
 Let's check the browser. Boom! That's a *sweet* search bar. *Now* let's bring
 it to life
@@ -38,8 +46,12 @@ a few ways to get this, but the simplest is to add a piece of `data` to the comp
 that we keep "in sync" with the text of the input. Add `data` and return an object
 with one item: `searchTerm` set to an empty string to start.
 
+[[[ code('4568551097') ]]]
+
 To "bind" this data to the input, we need to do two things. First, set the input
 value to the data: `:value="searchTerm"`.
+
+[[[ code('13c16e17d4') ]]]
 
 Now with *just* that, if move over to the browser and look at the Vue dev tools,
 we can click on `SearchBar`, change the `searchTerm` data and... voilà! The
@@ -74,6 +86,8 @@ changes, we only need to set the `searchTerm` data to the new string.
 To do that, say `searchTerm` - which we know *really* means `this.searchTerm` -
 equals `$event.target.value`.
 
+[[[ code('[[[ code('a2fd8dc644') ]]]') ]]]
+
 That... deserves an explanation. If we set this to a method name, then the method
 will receive an `event` argument. Then we can say `event.target.value` to get
 this input's value.
@@ -99,6 +113,8 @@ created a special directive *just* for it.
 
 Check this out: we can delete the `@input` and `:value` lines and replace them with
 *one* line that will do the *exact* same thing. It's `v-model="searchTerm"`.
+
+[[[ code('f7cec55c97') ]]]
 
 This is one of the *last* important directives that we haven't already talked
 about. `v-model="searchTerm"` *literally* means: set the value attribute to
