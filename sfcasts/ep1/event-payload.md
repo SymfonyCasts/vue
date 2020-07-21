@@ -24,6 +24,8 @@ In `search-bar`, this *specifically* means that on the `input` event of the
 search box, we need to emit a custom event. To do that, add `@input=""` and this time,
 set it to a method name: `onInput`.
 
+[[[ code('e9cfc42bf3') ]]]
+
 As we talked about earlier, when you have `v-model`, one of the things it does
 behind the scenes is add its *own* `@input` which sets the `searchTerm` data
 to the input's value. In this situation, because we need to do something *else*
@@ -40,6 +42,8 @@ And it turns out that `$emit` has an optional *second* argument, which can hold
 in addition to just saying that the `search-products` event has
 happened, we *also* need to pass what the `searchTerm` *is*. Do that with
 `term: this.searchTerm`.
+
+[[[ code('54e92509d9') ]]]
 
 ## Check the Event in Vue DevTools
 
@@ -66,6 +70,8 @@ filtered products.
 ## Duplicating the searchTerm Data???
 
 Add a new `searchTerm` data set to empty quotes.
+
+[[[ code('fa1ae37c8d') ]]]
 
 Now you might be yelling:
 
