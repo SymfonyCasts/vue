@@ -10,11 +10,15 @@ an event called `search-products`. In `Catalog`, up in the template, find the
 `<search-bar` element and add `@search-products="onSearchProducts"`, which
 is a method that we now need to create.
 
+[[[ code('f2c109d672') ]]]
+
 Down in the code, do it: add `methods: {}` and then `onSearchProducts()`.
 Since this method is going to be called when an event is emitted, it will
 receive an `event` argument. And because, when we
 emitted the event, we added a `term` key, we can use that here! We can say
 `this.searchTerm = event.term`.
+
+[[[ code('cafbade99b') ]]]
 
 ## Check it in Vue Dev Tools
 
@@ -33,16 +37,22 @@ This is, yet again, a situation where we need to reference a value in the templa
 that requires some custom logic. In other words, it's computed property time!
 In preparation, pass `filteredProducts` to `product-list`.
 
+[[[ code('58eb3f29e8') ]]]
+
 Copy that name, go down and, above `created`, add
 `computed` with `filteredProducts()`. Inside the function,
 `if (!this.searchTerm)`, then we can just return `this.products`: the
 normal array of products.
+
+[[[ code('0b90225896') ]]]
 
 But if there *is* a search term, return `this.products.filter()`
 and pass an arrow function with a `product` argument. I'm going to use
 the *super* hipster shortcut syntax: because I don't have any curly braces - just
 parentheses - this has an implied `return` statement. So, return
 `product.name.toLowerCase().includes(this.searchTerm.toLowerCase())`.
+
+[[[ code('51dc6a3e94') ]]]
 
 Basically, loop over all the products and return a new array containing *only*
 the products whose name includes the search term.
