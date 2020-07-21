@@ -20,10 +20,14 @@ Add `computed` with one key inside, how about, `categoryName()`.
 For the logic, if `this.currentCategoryId` - to reference that prop - `=== null`,
 then return "All Products".
 
+[[[ code('980f3195d6') ]]]
+
 If we *are* on a category page, find the correct one with
 `const category = this.categories.find()`. Pass this an arrow function with
 a `cat` argument. We want to find the category whose `@id` property - which is
 the IRI string - matches `this.currentCategoryId`.
+
+[[[ code('0aa48da778') ]]]
 
 The `find()` function *effectively* loops over all the categories, calls this
 function for each one, and returns the first that makes this expression true.
@@ -33,7 +37,11 @@ which... it should be unless the `categories` data is loading via AJAX and is
 empty at first - then return `category.name`. Else, use an empty string...
 or you could say "Loading...".
 
+[[[ code('f78c0d8d06') ]]]
+
 Perfect! Up in the template, use this: `{{ categoryName }}`.
+
+[[[ code('79d2167bd5') ]]]
 
 ## Hoisting the categories Data
 
@@ -62,16 +70,28 @@ So let's get to work! Open up `products.vue` and then `sidebar.vue`. Copy the
 `categories` data and then remove the `data` option entirely. In `products`,
 find `data` and paste `categories`.
 
+[[[ code('c6557e323d') ]]]
+
 The other thing we need move is the `created()` function. Copy that full function
 and delete it. In `products`.... it looks like we don't have a `created()` function
-yet, so we can paste this one. When we did that, PhpStorm automatically added the
-import... but I *do* need to fix how that code looks.
+yet, so we can paste this one.
+
+[[[ code('6325a7851e') ]]]
+
+When we did that, PhpStorm automatically added the import... but I *do* need to 
+fix how that code looks.
+
+[[[ code('cad4edb94c') ]]]
 
 So far so good. Now in `sidebar`, because we don't have `categories` as data
 anymore, we will need it as a prop. Inside `props`, add `categories`, `type: Array`
 and `required: true`.
 
+[[[ code('c2a5a32fff') ]]]
+
 Finally, back over in `products`, pass this to sidebar: `:categories="categories"`.
+
+[[[ code('fab6237b84') ]]]
 
 Unless I tripped over my keyboard somewhere, that *should* make the sidebar happy
 again! Back at the browser... I'll refresh just to be sure and... it works! We have
@@ -83,10 +103,18 @@ working on passing that!
 Now that we have access to `categories` inside `products`, we can *also* pass
 that to `catalog`: `:categories="categories"`.
 
+[[[ code('e2781a175f') ]]]
+
 To add that prop, let's steal the prop code from `sidebar`... and paste it into
-`catalog`. Use this shiny new prop to pass the `categories` *again* to their final
-location. The `TitleComponent` needs *two* things actually:
-`:currentCategoryId="currentCategoryId"` and `:categories="categories"`.
+`catalog`. 
+
+[[[ code('33fd8adb38') ]]]
+
+Use this shiny new prop to pass the `categories` *again* to their final location. 
+The `TitleComponent` needs *two* things actually: `:currentCategoryId="currentCategoryId"` 
+and `:categories="categories"`.
+
+[[[ code('df6e5dfeab') ]]]
 
 Phew! I think we've got all the wires connected. When we move over... yes! It's
 working... and there are *no* errors. We can go to "all products" and that title
