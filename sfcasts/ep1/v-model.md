@@ -86,7 +86,7 @@ changes, we only need to set the `searchTerm` data to the new string.
 To do that, say `searchTerm` - which we know *really* means `this.searchTerm` -
 equals `$event.target.value`.
 
-[[[ code('[[[ code('a2fd8dc644') ]]]') ]]]
+[[[ code('a2fd8dc644') ]]]
 
 That... deserves an explanation. If we set this to a method name, then the method
 will receive an `event` argument. Then we can say `event.target.value` to get
