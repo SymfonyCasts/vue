@@ -25,6 +25,8 @@ if we have a `searchTerm`, say `params.name = searchTerm` to add the query param
 I'll even document the new param: it  will be a `string` or `null` and it's
 called `searchTerm`.
 
+[[[ code('e7ca6a8ee1') ]]]
+
 Very nice!
 
 ## AJAX inside a Computed Property?
@@ -40,8 +42,12 @@ I'll copy the `fetchProducts()` line from below and say
 `const response = await fetchProducts()`. And, of course, Webpack is *mad*
 because this method now needs to be `async`.
 
+[[[ code('2beccf0170') ]]]
+
 Much better! To finish the function, I'll go steal some more code and say
 `return response.data['hydra:member']`.
+
+[[[ code('72cfdccf60') ]]]
 
 So... this makes sense, right? When we reference `filteredProducts` in the template,
 that will call our function, we make the AJAX call, wait for it to finish
@@ -87,6 +93,8 @@ So instead of adding a *new* piece of data - we'll just change products.
 Sweet! This means that, up in the template, we should change `filteredProducts`
 back to `products`. And back down, we can remove the computed section entirely.
 
+[[[ code('49c0d936db') ]]]
+
 ## Updating products on searchTerm Change
 
 Here's the plan then: whenever the `searchTerm` changes, we basically want to
@@ -96,13 +104,19 @@ but with a minor addition to *also* include the search query.
 To help re-use this, create a new method called `loadProducts()` with a
 `searchTerm` argument.
 
+[[[ code('db98074fd9') ]]]
+
 Now, copy the entire `created()` function... and paste. To include the
 `searchTerm`, pass that as a second arg to `fetchProducts()`. Oh and, of course,
 make this method `async`.
 
+[[[ code('53e25071ae') ]]]
+
 Up in created, we only need `this.loadProducts(null)`. I'm using `null` because when
 we first load, there will be *no* search term. We *could* pass `this.searchTerm`...
 but I'm going to delete that data in a minute.
+
+[[[ code('7af27cf48a') ]]]
 
 *This* was just a simple refactoring. And... if we reload the page! Yay,
 our refactoring did *not* make the site catch on fire. A win!
@@ -110,6 +124,8 @@ our refactoring did *not* make the site catch on fire. A win!
 Back in the editor, the *last* step is to call `this.loadProducts()` whenever
 the search changes... which is *exactly* when `onSearchProducts()` is called!
 Add `this.loadProducts()` and pass `event.term`.
+
+[[[ code('fe215217d1') ]]]
 
 Thanks to this, when `onSearchProducts()` is called, this will *start* the AJAX
 call. Later, when it finishes, the `products` data will get updated and the component
@@ -137,6 +153,8 @@ This is object destructuring: it grabs the `term` property from the `event`
 argument that's being passed and sets it as a `term` variable. It allows
 us to just say `term` below. We can even document this: the `term` param is a
 string. Extra credit if you describe the function above.
+
+[[[ code('011fe3787c') ]]]
 
 After this change... the search still works. But... wow! This is making a *lot*
 of AJAX calls! Even if we type *really* fast, it makes one AJAX call per letter!
