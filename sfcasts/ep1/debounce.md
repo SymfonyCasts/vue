@@ -22,12 +22,14 @@ Start by adding `setTimeout()`, passing it an arrow function, then moving the
 `$emit` call inside. Set the timeout to 200 milliseconds. Now, instead of emitting
 the event immediately, it will be *slightly* delayed.
 
+[[[ code('0301108f34') ]]]
+
 Easy peasy! Oh, and the arrow function is important: if we used a traditional
 function, the `this` variable wouldn't be our Vue instance. Silly JavaScript!
 
 Now, some of you probably realize that this isn't going to *quite* work yet.
 If we refresh... and then type really fast. Ah! It *still* sent four AJAX
-requests... it just waited 200 milliseconds before making each them. Whoops!
+requests... it just waited 200 milliseconds before making each of them. Whoops!
 
 ## Storing and Clearing the Timeout
 
@@ -45,12 +47,18 @@ to do is to store it as data.
 
 Add a new data called `searchTimeout` set to `null`.
 
+[[[ code('dd4595d0a0') ]]]
+
 Then, in the function, say `this.searchTimeout = setTimeout()`. Now that this is
 stored, at the top of the function, *check* if it has a value: if
 `this.searchTimeout`, then `clearTimeout(this.searchTimeout)`.
 
+[[[ code('bec8d1d1af') ]]]
+
 Oh, and to round this all out nicely, once the callback *is* finally called, we
 can reset the `searchTimeout` back to null.
+
+[[[ code('c41a496c46') ]]]
 
 Now, if we type really fast, the second time `onInput()` is called, it will
 *clear* the timeout, and then, below, start a *new* one.
