@@ -7,6 +7,8 @@ that will be called. When Vue executes this, it will pass us two arguments: the
 new value of `currentCategoryId` and the old value. For now, just
 `console.log(newVal, oldVal)`.
 
+[[[ code('e2b2a828cc') ]]]
+
 Let's see if this works! Move over to the browser: the console looks clear.
 Since we haven't *actually* added a way to change the `currentCategoryId` from
 within our app, head over to the Vue Dev Tools and change it there.
@@ -19,6 +21,9 @@ Back to `catalog.vue`! I'm actually going to delete these two arguments because
 I don't need them. Instead, our code can reference the new value directly via the
 `currentCategoryId` prop. Ok: when the `currentCategoryId` changes, we want to
 call `this.loadProducts()`. For the search term pass `null` for now.
+
+[[[ code('14c2840f01') ]]]
+
 This will trigger `loadProducts()`... which in turn will *read* the new
 `currentCategoryId`, get our products back from the server and update the
 `products` data. It's a fool-proof plan!
@@ -53,8 +58,12 @@ Ok! Re-add `searchTerm` to data. And, down in `onSearchProducts`, say
 `this.searchTerm = term`. We can now *remove* the `term` argument from `loadProducts`
 and just say `this.searchTerm` instead.
 
+[[[ code('dfeb071a43') ]]]
+
 That looks good! Now... let's see: up in `created()`, we don't need any arguments...
 and same in the `currentCategoryId()` watcher.
+
+[[[ code('a1707e786c') ]]]
 
 Each will now automatically use the current search term. Let's try it!
 
