@@ -16,12 +16,16 @@ That will let us add a new `<div>` element at the bottom, which will hold the
 we only want to show the "X" button if the search term is *not* empty.
 Do that with `v-show="searchTerm"` - to reference that `data` - `!= ""`.
 
+[[[ code('f09b7f8c9d') ]]]
+
 Now, inside the div, add a `<button>` - I'll talk about that ESLint error soon -
 with an X as the text and `class="btn btn-outline-secondary"`.
 
 Ok ESLint: what's up? Hmm: `v-show should go before class`. Ah, we've seen this
 a few times before: attributes can go in *any* order, but there *are* some
 best-practices. Swap these two attributes and... ESLint is happy. I'm happy!
+
+[[[ code('b87b743f72') ]]]
 
 Over in the browser... there we go! It looks *a little* silly because of the
 double X, but remember! We're ignoring that! I want to see if we can get *our*
@@ -35,7 +39,11 @@ shortcut. Say: `@click=""` set to a new method called `eraseSearchTerm`.
 Copy that method name and, below - we already have a `methods` section - so paste
 this as a second key.
 
+[[[ code('8ee09047c9') ]]]
+
 Inside, we just need `this.searchTerm = ''`.
+
+[[[ code('a4e17de0b1') ]]]
 
 We're *crushing* it!
 
@@ -59,6 +67,8 @@ the most important part: emitting the event.
 
 Copy the `$emit()` statement and use it here. Of course we know `searchTerm` will
 always be empty, but this will work fine.
+
+[[[ code('71cefe2641') ]]]
 
 ## Check that it all Works!
 
