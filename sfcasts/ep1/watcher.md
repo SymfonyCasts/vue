@@ -45,6 +45,8 @@ up in `data`, add up a new variable called `currentCategoryId`. I'll set its
 initial value to `getCurrentCategoryId()`. We *can* still use the service to
 get the initial value.
 
+[[[ code('190cc2fcbd') ]]]
+
 If we go to the browser, everything still works wonderfully! It's
 *still* passing down `currentCategoryId` in *exactly* the same way. The cool
 thing now is, I can go the Vue Dev tools, click on `<Products>`,  scroll down
