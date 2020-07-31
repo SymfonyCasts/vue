@@ -841,6 +841,11 @@
             "description": null
         },
         {
+            "id": "pre-part2-upgrade-dependencies",
+            "name": "Pre-Part2: Upgrade dependencies",
+            "description": null
+        },
+        {
             "id": "linking-products-add-a-tags",
             "name": "Linking Products: Add A tags",
             "description": null
@@ -1506,5 +1511,5 @@
             "description": null
         }
     ],
-    "sha": "cf42e57834358103b6c16af86a26235b7e08a660"
+    "sha": "d4c9bdac252a3011fa8fe7baaaaa63a2a601400d"
 }
