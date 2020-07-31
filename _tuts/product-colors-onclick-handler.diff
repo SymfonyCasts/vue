@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
-index 0b66297c..a13f7226 100644
+index 4337bfac..99291ae9 100644
 --- a/assets/js/components/color-selector.vue
 +++ b/assets/js/components/color-selector.vue
 @@ -1,10 +1,11 @@
@@ -22,10 +22,10 @@ index 0b66297c..a13f7226 100644
 +        selectedIndex: null,
      }),
      async created() {
-         try {
-@@ -26,6 +28,12 @@ export default {
-             this.colors = [];
-         }
+         let response;
+@@ -28,6 +30,12 @@ export default {
+ 
+         this.colors = response.data['hydra:member'];
      },
 +    methods: {
 +        selectColor(index) {

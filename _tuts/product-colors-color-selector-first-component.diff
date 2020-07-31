@@ -1,12 +1,12 @@
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
 new file mode 100644
-index 00000000..1a36c220
+index 00000000..c9e452f1
 --- /dev/null
 +++ b/assets/js/components/color-selector.vue
-@@ -0,0 +1,20 @@
+@@ -0,0 +1,22 @@
 +
 +<script>
-+import colorsService from '@/services/colors';
++import { getColors } from '@/services/colors';
 +
 +export default {
 +    name: 'ColorSelector',
@@ -14,13 +14,15 @@ index 00000000..1a36c220
 +        colors: [],
 +    }),
 +    async created() {
-+        try {
-+            const response = await colorsService.getColors();
++        let response;
 +
-+            this.colors = response.data['hydra:member'];
++        try {
++            response = await getColors();
 +        } catch (e) {
-+            this.colors = [];
++            return;
 +        }
++
++        this.colors = response.data['hydra:member'];
 +    },
 +};
 +</script>

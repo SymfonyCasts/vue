@@ -1,9 +1,9 @@
 diff --git a/assets/js/mixins/collapsible.js b/assets/js/mixins/collapsible.js
 new file mode 100644
-index 00000000..7d8aa37b
+index 00000000..0d25b0c3
 --- /dev/null
 +++ b/assets/js/mixins/collapsible.js
-@@ -0,0 +1,25 @@
+@@ -0,0 +1,22 @@
 +const collapsible = {
 +    data() {
 +        return {
@@ -19,9 +19,6 @@ index 00000000..7d8aa37b
 +        },
 +    },
 +    methods: {
-+        /**
-+         * Toggles the sidebarCollapsed value
-+         */
 +        toggleSidebarCollapsed() {
 +            this.sidebarCollapsed = !this.sidebarCollapsed;
 +        },

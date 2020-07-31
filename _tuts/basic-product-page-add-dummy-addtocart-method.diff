@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index ecfa3460..de6a3b04 100644
+index cd3a1ff1..d7e7f762 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -36,6 +36,7 @@
@@ -10,9 +10,9 @@ index ecfa3460..de6a3b04 100644
                          >
                              Add to Cart
                          </button>
-@@ -80,6 +81,11 @@ export default {
-             this.loading = false;
-         }
+@@ -86,6 +87,11 @@ export default {
+ 
+         this.product = response.data;
      },
 +    methods: {
 +        addToCart() {

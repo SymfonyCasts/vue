@@ -1,23 +1,19 @@
 diff --git a/assets/js/services/colors.js b/assets/js/services/colors.js
 new file mode 100644
-index 00000000..735ca92c
+index 00000000..d7bb4d00
 --- /dev/null
 +++ b/assets/js/services/colors.js
-@@ -0,0 +1,17 @@
+@@ -0,0 +1,13 @@
 +import axios from 'axios';
 +
-+const colors = {
-+    /**
-+     * Gets color information from database
-+     *
-+     * @return {Promise}
-+     */
-+    getColors() {
-+        return axios({
-+            method: 'get',
-+            url: '/api/colors',
-+        });
-+    },
-+};
-+
-+export default colors;
++/**
++ * Gets the color information from our database
++ *
++ * @return {Promise}
++ */
++export function getColors() {
++    return axios({
++        method: 'get',
++        url: '/api/colors',
++    });
++}

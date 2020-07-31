@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
-index 1a36c220..9efa63b8 100644
+index c9e452f1..cc3af708 100644
 --- a/assets/js/components/color-selector.vue
 +++ b/assets/js/components/color-selector.vue
 @@ -1,3 +1,13 @@
@@ -15,4 +15,4 @@ index 1a36c220..9efa63b8 100644
 +</template>
  
  <script>
- import colorsService from '@/services/colors';
+ import { getColors } from '@/services/colors';

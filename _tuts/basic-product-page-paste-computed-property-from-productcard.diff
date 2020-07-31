@@ -1,21 +1,28 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index de6a3b04..ea1dbf8b 100644
+index d7e7f762..4f9971b3 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -72,6 +72,16 @@ export default {
+@@ -51,6 +51,7 @@
+ import { getProduct } from '@/services/products-service';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
++import formatPrice from '@/helpers/format-price';
+ 
+ export default {
+     name: 'Product',
+@@ -72,6 +73,15 @@ export default {
          product: { name: '', image: '', price: 0 },
          loading: true,
      }),
 +    computed: {
 +        /**
 +         * Returns a formatted price for the product
-+         * @return {string}
++         * @returns {string}
 +         */
 +        price() {
-+            return (this.product.price / 100)
-+                .toLocaleString('en-US', { minimumFractionDigits: 2 });
++            return formatPrice(this.product.price);
 +        },
 +    },
      async created() {
-         try {
-             const response = await getProduct(this.currentProductId);
+         let response;
+ 

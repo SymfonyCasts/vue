@@ -1,12 +1,18 @@
 diff --git a/templates/product/index.html.twig b/templates/product/index.html.twig
-index 9fd746b6..ed1c098e 100644
+index 9fd746b6..47b78ad0 100644
 --- a/templates/product/index.html.twig
 +++ b/templates/product/index.html.twig
-@@ -20,6 +20,7 @@
+@@ -19,6 +19,13 @@
+         {% else %}
              window.currentCategoryId = null;
          {% endif %}
++
++        {% if currentProductId is defined %}
++            window.currentProductId = '{{ currentProductId|e('js') }}';
++        {% else %}
++            window.currentProductId = null;
++        {% endif %}
++
          window.categories = {{ categories|jsonld }};
-+        window.currentProductId = {{ currentProductId|default('null') }};
      </script>
  
-     {{ encore_entry_script_tags('products') }}

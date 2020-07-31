@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 687cab2e..4e116ebe 100644
+index 191148bb..5239cccc 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -36,6 +36,7 @@
@@ -18,7 +18,7 @@ index 687cab2e..4e116ebe 100644
          loading: true,
      }),
      computed: {
-@@ -103,6 +105,15 @@ export default {
+@@ -109,6 +111,15 @@ export default {
          addToCart() {
              // TODO
          },

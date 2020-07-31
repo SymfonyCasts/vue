@@ -1,9 +1,9 @@
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
-index 0a12a0dc..c534a572 100644
+index a4544239..cdabbaea 100644
 --- a/assets/js/services/products-service.js
 +++ b/assets/js/services/products-service.js
-@@ -32,3 +32,21 @@ export function getProduct(id) {
-         url: `/api/products/${id}`,
+@@ -32,3 +32,21 @@ export function getProduct(productIri) {
+         url: productIri,
      });
  }
 +

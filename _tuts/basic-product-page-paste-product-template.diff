@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 9e161c2a..bf2f4ff5 100644
+index bd4c88f0..d5e67f3a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -4,7 +4,43 @@
@@ -56,10 +56,12 @@ index 9e161c2a..bf2f4ff5 100644
          loading: true,
      }),
      async created() {
-@@ -45,4 +81,53 @@ export default {
- 
- <style lang="scss" module>
- @import '~styles/top-bar.scss';
+@@ -48,3 +84,55 @@ export default {
+     },
+ };
+ </script>
++
++<style lang="scss" module>
 +@import '~styles/components/light-component';
 +
 +.content {
@@ -109,4 +111,4 @@ index 9e161c2a..bf2f4ff5 100644
 +        }
 +    }
 +}
- </style>
++</style>

@@ -1001,13 +1001,13 @@
             "description": null
         },
         {
-            "id": "basic-product-page-import-helper",
-            "name": "Basic Product Page: import helper",
+            "id": "delete-me-10",
+            "name": "delete-me-10",
             "description": null
         },
         {
-            "id": "basic-product-page-correct-use-of-formatprice",
-            "name": "Basic Product Page: Correct use of formatPrice",
+            "id": "delete-me-11",
+            "name": "delete-me-11",
             "description": null
         },
         {
@@ -1511,5 +1511,5 @@
             "description": null
         }
     ],
-    "sha": "d4c9bdac252a3011fa8fe7baaaaa63a2a601400d"
+    "sha": "cb4187d71f57588e10e1b351e5e02b62f582f3fe"
 }

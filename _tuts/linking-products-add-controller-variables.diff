@@ -1,5 +1,5 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index a86ca51e..465ad7c7 100644
+index a86ca51e..31d17f69 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
 @@ -36,8 +36,11 @@ class ProductController extends AbstractController
@@ -7,11 +7,11 @@ index a86ca51e..465ad7c7 100644
       * @Route("/product/{id}", name="app_product")
       */
 -    public function showProduct(Product $product): Response
-+    public function showProduct(Product $product, CategoryRepository $categoryRepository): Response
++    public function showProduct(Product $product, IriConverterInterface $iriConverter, CategoryRepository $categoryRepository): Response
      {
 -        return $this->render('product/index.html.twig');
 +        return $this->render('product/index.html.twig', [
-+            'currentProductId' => $id,
++            'currentProductId' => $iriConverter->getIriFromItem($product),
 +            'categories' => $categoryRepository->findAll(),
 +        ]);
      }

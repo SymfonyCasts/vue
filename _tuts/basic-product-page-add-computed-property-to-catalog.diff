@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index 1e273aa4..dcce0964 100644
+index 1e273aa4..ad5a96e9 100644
 --- a/assets/js/components/catalog.vue
 +++ b/assets/js/components/catalog.vue
-@@ -56,6 +56,15 @@ export default {
+@@ -56,6 +56,17 @@ export default {
              searchTerm: null,
          };
      },
@@ -12,7 +12,9 @@ index 1e273aa4..dcce0964 100644
 +                return 'All Products';
 +            }
 +
-+            return this.categories.find((cat) => (cat.id === this.currentCategoryId)).name;
++            const category = this.categories.find((cat) => (cat['@id'] === this.currentCategoryId));
++
++            return category ? category.name : '';
 +        },
 +    },
      watch: {

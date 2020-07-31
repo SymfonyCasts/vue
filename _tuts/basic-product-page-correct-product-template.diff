@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 13111a31..9e161c2a 100644
+index ce1bc374..bd4c88f0 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -1,7 +1,7 @@
  <template>
      <div class="row">
-         <div :class="$style['top-bar']">
+         <div class="col-3">
 -            <title-component />
 +            <title-component :text="product.name" />
          </div>
