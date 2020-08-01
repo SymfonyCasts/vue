@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
-index 99291ae9..25934235 100644
+index d44c0ac5..281930d4 100644
 --- a/assets/js/components/color-selector.vue
 +++ b/assets/js/components/color-selector.vue
 @@ -3,6 +3,7 @@
@@ -10,7 +10,7 @@ index 99291ae9..25934235 100644
              :title="color.name"
              :style="{ backgroundColor: `#${color.hexColor}` }"
              @click="selectColor(index)"
-@@ -53,6 +54,10 @@ export default {
+@@ -55,6 +56,10 @@ export default {
          width: 25px;
          height: 25px;
          margin-right: 10px;

@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
-index cc3af708..4337bfac 100644
+index 1d551090..81923345 100644
 --- a/assets/js/components/color-selector.vue
 +++ b/assets/js/components/color-selector.vue
-@@ -30,3 +30,21 @@ export default {
+@@ -32,3 +32,21 @@ export default {
      },
  };
  </script>

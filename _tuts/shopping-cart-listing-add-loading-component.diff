@@ -1,19 +1,20 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 402108de..16b572db 100644
+index 99431202..20b167f9 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -8,6 +8,10 @@
-                     <div :class="$style['top-bar']">
+@@ -9,21 +9,44 @@
                          <title-component text="Shopping Cart" />
                      </div>
+                 </div>
 +
++                <div class="row">
 +                    <div :class="$style.content">
 +                        <loading v-show="loading" />
 +                    </div>
-                 </div>
++                </div>
              </div>
          </div>
-@@ -15,16 +19,31 @@
+     </div>
  </template>
  
  <script>
@@ -25,16 +26,16 @@ index 402108de..16b572db 100644
      components: {
 +        Loading,
          TitleComponent,
--    }
+     },
++    data() {
++        return {
++            loading: true,
++        };
 +    },
-+    data: () => ({
-+        loading: true,
-+    }),
  };
  </script>
  
  <style lang="scss" module>
- @import '~styles/top-bar.scss';
 +@import '~styles/components/light-component.scss';
 +
 +.content {

@@ -1,8 +1,8 @@
-diff --git a/assets/js/shopping-cart.vue b/assets/js/shopping-cart.vue
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
 new file mode 100644
 index 00000000..6b37980e
 --- /dev/null
-+++ b/assets/js/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
 @@ -0,0 +1,20 @@
 +<template>
 +    <div class="container-fluid">

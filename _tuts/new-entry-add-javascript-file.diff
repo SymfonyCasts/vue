@@ -1,11 +1,11 @@
 diff --git a/assets/js/shopping-cart.js b/assets/js/shopping-cart.js
 new file mode 100644
-index 00000000..82cfcce9
+index 00000000..c59a8fa7
 --- /dev/null
 +++ b/assets/js/shopping-cart.js
 @@ -0,0 +1,6 @@
 +import Vue from 'vue';
-+import App from '@/shopping-cart.vue';
++import App from '@/pages/shopping-cart.vue';
 +
 +new Vue({
 +    render: (h) => h(App),

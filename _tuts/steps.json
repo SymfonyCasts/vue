@@ -1126,8 +1126,8 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-move-files",
-            "name": "Shopping Cart Listing: Move files",
+            "id": "delete-me-12",
+            "name": "delete-me-12",
             "description": null
         },
         {
@@ -1506,10 +1506,10 @@
             "description": null
         },
         {
-            "id": "client-validation-redirect",
-            "name": "Client Validation: Redirect",
+            "id": "delete-me-13",
+            "name": "delete-me-13",
             "description": null
         }
     ],
-    "sha": "cb4187d71f57588e10e1b351e5e02b62f582f3fe"
+    "sha": "83dc1706c38761c00735aae9dda3dfba5146d6f2"
 }

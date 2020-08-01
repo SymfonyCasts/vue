@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 191148bb..5239cccc 100644
+index 35c5bc73..64fa9dd0 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -36,6 +36,7 @@
@@ -10,15 +10,15 @@ index 191148bb..5239cccc 100644
                          />
  
                          <button
-@@ -79,6 +80,7 @@ export default {
-         product: {
-             name: '', image: '', price: 0, colors: [],
-         },
-+        selectedColorId: null,
-         loading: true,
-     }),
-     computed: {
-@@ -109,6 +111,15 @@ export default {
+@@ -80,6 +81,7 @@ export default {
+             product: {
+                 name: '', image: '', price: 0, colors: [],
+             },
++            selectedColorId: null,
+             loading: true,
+         };
+     },
+@@ -111,6 +113,15 @@ export default {
          addToCart() {
              // TODO
          },

@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index f0a7953a..ce1bc374 100644
+index f0a7953a..9329a0db 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -9,6 +9,7 @@
@@ -10,14 +10,16 @@ index f0a7953a..ce1bc374 100644
  import TitleComponent from '@/components/title';
  
  export default {
-@@ -26,5 +27,24 @@ export default {
+@@ -26,5 +27,26 @@ export default {
              default: () => ([]),
          },
      },
-+    data: () => ({
-+        product: null,
-+        loading: true,
-+    }),
++    data() {
++        return {
++            product: null,
++            loading: true,
++        };
++    },
 +    async created() {
 +        let response;
 +

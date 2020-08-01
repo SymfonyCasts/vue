@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index aa033a02..986ecb7c 100644
+index 593e600f..4aa9d9ba 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -20,6 +20,27 @@
+@@ -22,6 +22,27 @@
                                  Sorry! You haven't bought anything yet!
                              </div>
                          </div>

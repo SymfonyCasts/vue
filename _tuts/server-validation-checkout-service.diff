@@ -1,25 +1,21 @@
-diff --git a/assets/js/services/checkout.js b/assets/js/services/checkout.js
+diff --git a/assets/js/services/checkout-service.js b/assets/js/services/checkout-service.js
 new file mode 100644
-index 00000000..5ba4c9a4
+index 00000000..bca8d23a
 --- /dev/null
-+++ b/assets/js/services/checkout.js
-@@ -0,0 +1,19 @@
++++ b/assets/js/services/checkout-service.js
+@@ -0,0 +1,15 @@
 +import axios from 'axios';
 +
-+const checkout = {
-+    /**
-+     * Makes a POST call to create a purchase object after checkout
-+     *
-+     * @param {Object} data
-+     * @return {Promise}
-+     */
-+    createOrder(data) {
-+        return axios({
-+            method: 'post',
-+            url: '/api/purchases',
-+            data,
-+        });
-+    },
-+};
-+
-+export default checkout;
++/**
++ * Makes a POST call to create a purchase object after checkout
++ *
++ * @param {Object} data
++ * @return {Promise}
++ */
++export function createOrder(data) {
++    return axios({
++        method: 'post',
++        url: '/api/purchases',
++        data,
++    });
++}

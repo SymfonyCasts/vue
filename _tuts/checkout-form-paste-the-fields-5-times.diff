@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 11542ac1..1cb874af 100644
+index fa4f168a..9b3fec62 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -17,6 +17,41 @@
+@@ -19,6 +19,41 @@
                                  label="Name:"
                                  :error-message="validationErrors.customerName"
                              />
@@ -25,7 +25,7 @@ index 11542ac1..1cb874af 100644
 +                                id="customerName"
 +                                v-model="form.customerName"
 +                                label="Name:"
-+                                :error-message="validation.customerName"
++                                :error-message="validationErrors.customerName"
 +                            />
 +
 +                            <form-input

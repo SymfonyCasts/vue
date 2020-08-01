@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 9146616e..f968e1a5 100644
+index 393f9c24..22146fd9 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -20,7 +20,7 @@
+@@ -22,7 +22,7 @@
                                  </label>
                                  <input
                                      id="customerName"

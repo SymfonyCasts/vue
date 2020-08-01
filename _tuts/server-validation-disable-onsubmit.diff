@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index ce32a800..590561ea 100644
+index b1e66261..f6307916 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -68,6 +68,7 @@
+@@ -70,6 +70,7 @@
                                  <button
                                      type="submit"
                                      class="btn btn-info btn-sm"
@@ -10,16 +10,16 @@ index ce32a800..590561ea 100644
                                  >
                                      Checkout!
                                  </button>
-diff --git a/assets/js/services/checkout.js b/assets/js/services/checkout.js
-index d34d8b5d..5ba4c9a4 100644
---- a/assets/js/services/checkout.js
-+++ b/assets/js/services/checkout.js
-@@ -10,7 +10,7 @@ const checkout = {
-     createOrder(data) {
-         return axios({
-             method: 'post',
--            url: '/api/slfjasfd',
-+            url: '/api/purchases',
-             data,
-         });
-     },
+diff --git a/assets/js/services/checkout-service.js b/assets/js/services/checkout-service.js
+index decb83e8..bca8d23a 100644
+--- a/assets/js/services/checkout-service.js
++++ b/assets/js/services/checkout-service.js
+@@ -9,7 +9,7 @@ import axios from 'axios';
+ export function createOrder(data) {
+     return axios({
+         method: 'post',
+-        url: '/api/slfjasfd',
++        url: '/api/purchases',
+         data,
+     });
+ }

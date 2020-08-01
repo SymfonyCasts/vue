@@ -1,8 +1,8 @@
-diff --git a/assets/js/services/colors.js b/assets/js/services/colors.js
+diff --git a/assets/js/services/colors-service.js b/assets/js/services/colors-service.js
 new file mode 100644
 index 00000000..d7bb4d00
 --- /dev/null
-+++ b/assets/js/services/colors.js
++++ b/assets/js/services/colors-service.js
 @@ -0,0 +1,13 @@
 +import axios from 'axios';
 +

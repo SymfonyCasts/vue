@@ -1,10 +1,10 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 9ca3df2c..e226d78e 100644
+index 214459c3..fbf4b752 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -10,7 +10,7 @@
-                     </div>
+@@ -12,7 +12,7 @@
  
+                 <div class="row">
                      <div :class="$style.content">
 -                        <form>
 +                        <form @submit="onSubmit">

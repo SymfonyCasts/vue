@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index bd4c88f0..d5e67f3a 100644
+index 4bab0e2f..93537900 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -4,7 +4,43 @@
@@ -47,16 +47,16 @@ index bd4c88f0..d5e67f3a 100644
      </div>
  </template>
  
-@@ -28,7 +64,7 @@ export default {
-         },
+@@ -29,7 +65,7 @@ export default {
      },
-     data: () => ({
--        product: { name: '' },
-+        product: { name: '', image: '', price: 0 },
-         loading: true,
-     }),
-     async created() {
-@@ -48,3 +84,55 @@ export default {
+     data() {
+         return {
+-            product: { name: '' },
++            product: { name: '', image: '', price: 0 },
+             loading: true,
+         };
+     },
+@@ -50,3 +86,55 @@ export default {
      },
  };
  </script>

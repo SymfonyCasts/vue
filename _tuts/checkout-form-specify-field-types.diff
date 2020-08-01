@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 7ce6216e..a3b1f45a 100644
+index 73da6e32..6bccaeb9 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -22,6 +22,7 @@
+@@ -24,6 +24,7 @@
                                  id="customerEmail"
                                  v-model="form.customerEmail"
                                  label="Email:"
@@ -10,7 +10,7 @@ index 7ce6216e..a3b1f45a 100644
                                  :error-message="validationErrors.customerEmail"
                              />
  
-@@ -50,6 +51,7 @@
+@@ -52,6 +53,7 @@
                                  id="customerPhone"
                                  v-model="form.customerPhone"
                                  label="Phone Number:"

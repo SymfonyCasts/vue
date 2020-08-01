@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 7ea69ae6..a5077969 100644
+index 463c50d3..4b2b0965 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -129,5 +129,16 @@ export default {
+@@ -132,5 +132,16 @@ export default {
      display: flex;
      flex-direction: column;
      width: 900px;

@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index e226d78e..6d9b7a3b 100644
+index fbf4b752..0ff2af0a 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -119,8 +119,11 @@ export default {
+@@ -123,8 +123,11 @@ export default {
      methods: {
          /**
           * Sends the form data and process the response!

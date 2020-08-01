@@ -1,14 +1,14 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 6b37980e..402108de 100644
+index 6b37980e..99431202 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -4,17 +4,27 @@
+@@ -4,15 +4,24 @@
              <aside class="col-xs-12 col-lg-3" />
  
              <div class="col-xs-12 col-lg-9">
 -                // TODO: List the products in the cart here
 +                <div class="row">
-+                    <div :class="$style['top-bar']">
++                    <div class="col-12">
 +                        <title-component text="Shopping Cart" />
 +                    </div>
 +                </div>
@@ -24,10 +24,7 @@ index 6b37980e..402108de 100644
      name: 'ShoppingCart',
 +    components: {
 +        TitleComponent,
-+    }
++    },
  };
  </script>
  
- <style lang="scss" module>
-+@import '~styles/top-bar.scss';
- </style>

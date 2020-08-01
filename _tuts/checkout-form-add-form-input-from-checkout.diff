@@ -1,9 +1,9 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 400567e4..11542ac1 100644
+index 1716f066..fa4f168a 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -11,7 +11,12 @@
- 
+@@ -13,7 +13,12 @@
+                 <div class="row">
                      <div :class="$style.content">
                          <form>
 -
@@ -16,7 +16,7 @@ index 400567e4..11542ac1 100644
                          </form>
                      </div>
                  </div>
-@@ -22,11 +27,13 @@
+@@ -24,11 +29,13 @@
  
  <script>
  import cartService from '@/services/cart';
@@ -29,4 +29,4 @@ index 400567e4..11542ac1 100644
 +        FormInput,
          TitleComponent,
      },
-     data: () => ({
+     data() {

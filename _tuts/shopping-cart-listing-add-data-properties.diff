@@ -1,14 +1,14 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index c07f010f..d9bc124d 100644
+index 144117de..e4c0ff80 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -32,7 +32,9 @@ export default {
-         TitleComponent,
+@@ -34,7 +34,9 @@ export default {
      },
-     data: () => ({
-+        colors: {},
-         loading: true,
-+        items: [],
-     }),
+     data() {
+         return {
++            colors: {},
+             loading: true,
++            items: [],
+         };
+     },
  };
- </script>

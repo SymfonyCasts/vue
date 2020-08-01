@@ -1,22 +1,24 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 313ec738..6e009c2c 100644
+index 3a95786f..5fed7a23 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -25,6 +25,17 @@ export default {
+@@ -27,6 +27,19 @@ export default {
      components: {
          TitleComponent,
      },
-+    data: () => ({
-+        form: {
-+            customerName: '',
-+            customerEmail: '',
-+            customerAddress: '',
-+            customerZip: '',
-+            customerCity: '',
-+            customerPhone: '',
-+            purchaseItems: [],
-+        },
-+    }),
++    data() {
++        return {
++            form: {
++                customerName: '',
++                customerEmail: '',
++                customerAddress: '',
++                customerZip: '',
++                customerCity: '',
++                customerPhone: '',
++                purchaseItems: [],
++            },
++        };
++    },
  };
  </script>
  

@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 98be7037..ea3072c5 100644
+index 361b0b93..6cc8f8b1 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -53,6 +53,7 @@
+@@ -55,6 +55,7 @@
                              <button
                                  class="btn btn-info btn-sm"
                                  :disabled="items.length === 0"
@@ -10,7 +10,7 @@ index 98be7037..ea3072c5 100644
                              >
                                  Checkout!
                              </button>
-@@ -153,6 +154,13 @@ export default {
+@@ -158,6 +159,13 @@ export default {
  
              window.location = '/';
          },

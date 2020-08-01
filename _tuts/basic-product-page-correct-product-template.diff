@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index ce1bc374..bd4c88f0 100644
+index 9329a0db..4bab0e2f 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -1,7 +1,7 @@
@@ -11,12 +11,12 @@ index ce1bc374..bd4c88f0 100644
          </div>
  
          TODO: Show product here!
-@@ -28,7 +28,7 @@ export default {
-         },
+@@ -29,7 +29,7 @@ export default {
      },
-     data: () => ({
--        product: null,
-+        product: { name: '' },
-         loading: true,
-     }),
-     async created() {
+     data() {
+         return {
+-            product: null,
++            product: { name: '' },
+             loading: true,
+         };
+     },

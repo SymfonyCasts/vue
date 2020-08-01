@@ -1,13 +1,13 @@
-diff --git a/assets/js/services/checkout.js b/assets/js/services/checkout.js
-index 5ba4c9a4..d34d8b5d 100644
---- a/assets/js/services/checkout.js
-+++ b/assets/js/services/checkout.js
-@@ -10,7 +10,7 @@ const checkout = {
-     createOrder(data) {
-         return axios({
-             method: 'post',
--            url: '/api/purchases',
-+            url: '/api/slfjasfd',
-             data,
-         });
-     },
+diff --git a/assets/js/services/checkout-service.js b/assets/js/services/checkout-service.js
+index bca8d23a..decb83e8 100644
+--- a/assets/js/services/checkout-service.js
++++ b/assets/js/services/checkout-service.js
+@@ -9,7 +9,7 @@ import axios from 'axios';
+ export function createOrder(data) {
+     return axios({
+         method: 'post',
+-        url: '/api/purchases',
++        url: '/api/slfjasfd',
+         data,
+     });
+ }

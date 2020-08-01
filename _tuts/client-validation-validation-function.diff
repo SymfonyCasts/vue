@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 102d9485..f8def629 100644
+index 1b247d53..6b170d8e 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -180,6 +180,14 @@ export default {
+@@ -182,6 +182,14 @@ export default {
                  customerCity: 'Please, enter your City!',
                  customerPhone: 'Please, provide a phone number!',
              };

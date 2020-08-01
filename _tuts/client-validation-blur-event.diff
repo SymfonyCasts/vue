@@ -11,10 +11,10 @@ index b35c2cdc..46fe3a4f 100644
          <span
              v-show="!isValid"
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index f8def629..a95836f0 100644
+index 6b170d8e..73d00e9b 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -23,6 +23,7 @@
+@@ -25,6 +25,7 @@
                                  v-model="form.customerName"
                                  label="Name:"
                                  :error-message="validationErrors.customerName"
@@ -22,7 +22,7 @@ index f8def629..a95836f0 100644
                              />
  
                              <form-input
-@@ -31,6 +32,7 @@
+@@ -33,6 +34,7 @@
                                  label="Email:"
                                  type="email"
                                  :error-message="validationErrors.customerEmail"
@@ -30,7 +30,7 @@ index f8def629..a95836f0 100644
                              />
  
                              <form-input
-@@ -38,6 +40,7 @@
+@@ -40,6 +42,7 @@
                                  v-model="form.customerAddress"
                                  label="Address:"
                                  :error-message="validationErrors.customerAddress"
@@ -38,7 +38,7 @@ index f8def629..a95836f0 100644
                              />
  
                              <form-input
-@@ -45,6 +48,7 @@
+@@ -47,6 +50,7 @@
                                  v-model="form.customerZip"
                                  label="Zip Code:"
                                  :error-message="validationErrors.customerZip"
@@ -46,7 +46,7 @@ index f8def629..a95836f0 100644
                              />
  
                              <form-input
-@@ -52,6 +56,7 @@
+@@ -54,6 +58,7 @@
                                  v-model="form.customerCity"
                                  label="City:"
                                  :error-message="validationErrors.customerCity"
@@ -54,7 +54,7 @@ index f8def629..a95836f0 100644
                              />
  
                              <form-input
-@@ -60,6 +65,7 @@
+@@ -62,6 +67,7 @@
                                  label="Phone Number:"
                                  type="tel"
                                  :error-message="validationErrors.customerPhone"

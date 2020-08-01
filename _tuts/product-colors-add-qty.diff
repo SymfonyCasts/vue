@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 5239cccc..fd00ca9a 100644
+index 64fa9dd0..2d893498 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -39,6 +39,13 @@
@@ -16,11 +16,11 @@ index 5239cccc..fd00ca9a 100644
                          <button
                              class="btn btn-info btn-sm"
                              @click="addToCart"
-@@ -81,6 +88,7 @@ export default {
-             name: '', image: '', price: 0, colors: [],
-         },
-         selectedColorId: null,
-+        qty: 1,
-         loading: true,
-     }),
-     computed: {
+@@ -82,6 +89,7 @@ export default {
+                 name: '', image: '', price: 0, colors: [],
+             },
+             selectedColorId: null,
++            qty: 1,
+             loading: true,
+         };
+     },

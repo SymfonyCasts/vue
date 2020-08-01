@@ -1,19 +1,21 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index d9bc124d..4153bbb1 100644
+index e4c0ff80..d642545e 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -36,6 +36,23 @@ export default {
-         loading: true,
-         items: [],
-     }),
+@@ -39,6 +39,25 @@ export default {
+             items: [],
+         };
+     },
 +    async created() {
 +        let colorsResponse = null;
 +
 +        // Retrieve colors from the server
 +        try {
-+            colorsResponse = await colorsService.getColors();
++            colorsResponse = await getColors();
 +        } catch (e) {
 +            this.loading = false;
++
++            return;
 +        }
 +
 +        // Map all colors to our object dictionary by @id

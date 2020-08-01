@@ -1,9 +1,9 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 75e754db..6b9d1314 100644
+index ba3b5ba4..99f7b99b 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -11,6 +11,13 @@
- 
+@@ -13,6 +13,13 @@
+                 <div class="row">
                      <div :class="$style.content">
                          <loading v-show="loading" />
 +

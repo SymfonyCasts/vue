@@ -1,19 +1,19 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 43ea7baa..1ca7aec8 100644
+index 49ddeded..6c5e86b7 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -36,6 +36,14 @@ export default {
-             customerPhone: '',
-             purchaseItems: [],
-         },
-+        validationErrors: {
-+            customerName: null,
-+            customerEmail: null,
-+            customerAddress: null,
-+            customerZip: null,
-+            customerCity: null,
-+            customerPhone: null,
-+        },
-     }),
+@@ -39,6 +39,14 @@ export default {
+                 customerPhone: '',
+                 purchaseItems: [],
+             },
++            validationErrors: {
++                customerName: null,
++                customerEmail: null,
++                customerAddress: null,
++                customerZip: null,
++                customerCity: null,
++                customerPhone: null,
++            },
+         };
+     },
      async created() {
-         const itemsInCart = cartService.getItems();

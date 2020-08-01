@@ -1,52 +1,24 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index f05057b5..213e91c7 100644
+index d2c0572e..fdf1144e 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -95,27 +95,22 @@ export default {
-         Loading,
-         TitleComponent,
-     },
--    data: () => ({
--        form: {
--            customerName: '',
--            customerEmail: '',
--            customerAddress: '',
--            customerZip: '',
--            customerCity: '',
--            customerPhone: '',
--            purchaseItems: [],
--        },
--        validationErrors: {
--            customerName: null,
--            customerEmail: null,
--            customerAddress: null,
--            customerZip: null,
--            customerCity: null,
--            customerPhone: null,
--        },
--        loading: false,
--        serverError: false,
--    }),
-+    data() {
-+        return {
-+            form: {
-+                customerName: '',
-+                customerEmail: '',
-+                customerAddress: '',
-+                customerZip: '',
-+                customerCity: '',
-+                customerPhone: '',
-+                purchaseItems: [],
-+            },
+@@ -108,14 +108,7 @@ export default {
+                 customerPhone: '',
+                 purchaseItems: [],
+             },
+-            validationErrors: {
+-                customerName: null,
+-                customerEmail: null,
+-                customerAddress: null,
+-                customerZip: null,
+-                customerCity: null,
+-                customerPhone: null,
+-            },
 +            validationErrors: this.initializeValidationFields(),
-+            loading: false,
-+            serverError: false,
-+        };
-+    },
-     async created() {
-         const itemsInCart = cartService.getItems();
- 
-@@ -135,7 +130,7 @@ export default {
+             loading: false,
+             serverError: false,
+         };
+@@ -139,7 +132,7 @@ export default {
              event.preventDefault();
              this.loading = true;
              this.serverError = false;
@@ -54,8 +26,8 @@ index f05057b5..213e91c7 100644
 +            this.validation = this.initializeValidationFields();
  
              try {
-                 const response = await checkoutService.createOrder(this.form);
-@@ -156,10 +151,12 @@ export default {
+                 const response = await createOrder(this.form);
+@@ -160,10 +153,12 @@ export default {
          },
  
          /**

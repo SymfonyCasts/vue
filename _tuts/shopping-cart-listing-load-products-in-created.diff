@@ -1,37 +1,33 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 4153bbb1..9191102b 100644
+index d642545e..9ccc5b2d 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -21,7 +21,7 @@
+@@ -22,6 +22,7 @@
+ 
  <script>
  import cartService from '@/services/cart';
- import colorsService from '@/services/colors';
--import productsService from '@/services/products';
 +import { getProductsById } from '@/services/products-service';
+ import { getColors } from '@/services/colors-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
- 
-@@ -37,13 +37,18 @@ export default {
-         items: [],
-     }),
+@@ -40,11 +41,15 @@ export default {
+         };
+     },
      async created() {
 +        const itemsInCart = cartService.getItems();
-+        const productIds = itemsInCart.map((item) => (Number(item.productId.split('/').pop())));
++        const productIds = itemsInCart.map((item) => item.productId);
          let colorsResponse = null;
 +        let productsResponse = null;
  
 -        // Retrieve colors from the server
 +        // Retrieve both colors and products from the server
          try {
-             colorsResponse = await colorsService.getColors();
+             colorsResponse = await getColors();
 +            productsResponse = await getProductsById(productIds);
          } catch (e) {
              this.loading = false;
-+            return;
-         }
  
-         // Map all colors to our object dictionary by @id
-@@ -51,6 +56,8 @@ export default {
+@@ -56,6 +61,8 @@ export default {
              this.colors[color['@id']] = color;
          });
  

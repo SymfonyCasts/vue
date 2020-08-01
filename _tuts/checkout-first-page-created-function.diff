@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 6e009c2c..43ea7baa 100644
+index 5fed7a23..49ddeded 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -18,6 +18,7 @@
+@@ -20,6 +20,7 @@
  </template>
  
  <script>
@@ -10,10 +10,10 @@ index 6e009c2c..43ea7baa 100644
  import TitleComponent from '@/components/title';
  
  export default {
-@@ -36,6 +37,15 @@ export default {
-             purchaseItems: [],
-         },
-     }),
+@@ -40,6 +41,15 @@ export default {
+             },
+         };
+     },
 +    async created() {
 +        const itemsInCart = cartService.getItems();
 +

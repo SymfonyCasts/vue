@@ -1,15 +1,15 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 91c18c44..f05057b5 100644
+index 0390ae5a..d2c0572e 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -135,16 +135,20 @@ export default {
+@@ -139,16 +139,20 @@ export default {
              event.preventDefault();
              this.loading = true;
              this.serverError = false;
 +            this.resetValidationFields();
  
              try {
-                 const response = await checkoutService.createOrder(this.form);
+                 const response = await createOrder(this.form);
 +                cartService.clear();
              } catch (error) {
                  const { response } = error;
@@ -19,7 +19,7 @@ index 91c18c44..f05057b5 100644
                  } else {
 -                    console.log(response.data);
 +                    response.data.violations.forEach((violation) => {
-+                        this.validation[violation.propertyPath] = violation.message;
++                        this.validationErrors[violation.propertyPath] = violation.message;
 +                    });
                  }
              } finally {

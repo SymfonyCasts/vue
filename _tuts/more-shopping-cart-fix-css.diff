@@ -15,10 +15,10 @@ index e1492be1..6e58fa20 100644
  }
  </style>
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index a0c61117..7a3af5d7 100644
+index 06342595..13236568 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -162,6 +162,7 @@ export default {
+@@ -166,6 +166,7 @@ export default {
              flex-direction: row;
              align-items: center;
              padding-bottom: 5px;

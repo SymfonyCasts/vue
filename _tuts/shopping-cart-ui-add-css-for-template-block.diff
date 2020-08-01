@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 60540b30..aa033a02 100644
+index cdfc1376..593e600f 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -102,5 +102,20 @@ export default {
+@@ -106,5 +106,20 @@ export default {
      display: flex;
      flex-direction: column;
      width: 900px;
