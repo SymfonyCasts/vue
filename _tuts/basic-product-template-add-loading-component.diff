@@ -1,0 +1,44 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index eff7f63b..56a8b80c 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -10,7 +10,12 @@
+             <div
+                 :class="[$style.product, 'col-11', 'row']"
+             >
+-                <div class="col-8">
++                <loading v-show="loading" />
++
++                <div
++                    v-show="!loading"
++                    class="col-8"
++                >
+                     <img
+                         class="d-block"
+                         :src="product.image"
+@@ -27,7 +32,10 @@
+                     </div>
+                 </div>
+ 
+-                <div class="col-3">
++                <div
++                    v-show="!loading"
++                    class="col-3"
++                >
+                     <div class="p-3">
+                         <p v-text="product.description" />
+ 
+@@ -49,11 +57,13 @@
+ 
+ <script>
+ import { getProduct } from '@/services/products-service';
++import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+ 
+ export default {
+     name: 'Product',
+     components: {
++        Loading,
+         TitleComponent,
+     },
+     props: {

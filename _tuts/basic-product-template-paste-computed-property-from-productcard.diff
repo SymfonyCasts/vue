@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 3dcfa2de..fca33c56 100644
+index a2832fb9..22c6b200 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -51,6 +51,7 @@
+@@ -60,6 +60,7 @@
  import { getProduct } from '@/services/products-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
@@ -10,7 +10,7 @@ index 3dcfa2de..fca33c56 100644
  
  export default {
      name: 'Product',
-@@ -74,6 +75,15 @@ export default {
+@@ -83,6 +84,15 @@ export default {
              loading: true,
          };
      },

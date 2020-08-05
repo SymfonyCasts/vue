@@ -1,22 +1,16 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 9329a0db..4bab0e2f 100644
+index 8b8e326c..ecb9558a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -1,7 +1,7 @@
+@@ -1,10 +1,8 @@
  <template>
      <div class="row">
-         <div class="col-3">
+         <div class="col-12">
 -            <title-component />
 +            <title-component :text="product.name" />
          </div>
+-
+-        I'd <3 to see a Product here!
+     </div>
+ </template>
  
-         TODO: Show product here!
-@@ -29,7 +29,7 @@ export default {
-     },
-     data() {
-         return {
--            product: null,
-+            product: { name: '' },
-             loading: true,
-         };
-     },

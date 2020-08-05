@@ -1,0 +1,83 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index d1313932..eff7f63b 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -1,44 +1,46 @@
+ <template>
+-    <div class="row">
+-        <div class="col-12">
+-            <title-component :text="product.name" />
++    <div class="col-12">
++        <div class="row">
++            <div class="col-12">
++                <title-component :text="product.name" />
++            </div>
+         </div>
+-    </div>
+ 
+-    <div class="row">
+-        <div
+-            :class="[$style.product, 'col-11', 'row']"
+-        >
+-            <div class="col-8">
+-                <img
+-                    class="d-block"
+-                    :src="product.image"
+-                    :alt="product.name"
+-                >
++        <div class="row">
++            <div
++                :class="[$style.product, 'col-11', 'row']"
++            >
++                <div class="col-8">
++                    <img
++                        class="d-block"
++                        :src="product.image"
++                        :alt="product.name"
++                    >
+ 
+-                <div class="p-2">
+-                    <small>brought to you by </small>
++                    <div class="p-2">
++                        <small>brought to you by </small>
+ 
+-                    <small
+-                        class="d-inline"
+-                        v-text="product.brand"
+-                    />
++                        <small
++                            class="d-inline"
++                            v-text="product.brand"
++                        />
++                    </div>
+                 </div>
+-            </div>
+ 
+-            <div class="col-3">
+-                <div class="p-3">
+-                    <p v-text="product.description" />
++                <div class="col-3">
++                    <div class="p-3">
++                        <p v-text="product.description" />
+ 
+-                    <p>Price: <strong>${{ product.price }}</strong></p>
+-                </div>
++                        <p>Price: <strong>${{ product.price }}</strong></p>
++                    </div>
+ 
+-                <div class="p-3">
+-                    <button
+-                        class="btn btn-info btn-sm"
+-                    >
+-                        Add to Cart
+-                    </button>
++                    <div class="p-3">
++                        <button
++                            class="btn btn-info btn-sm"
++                        >
++                            Add to Cart
++                        </button>
++                    </div>
+                 </div>
+             </div>
+         </div>

@@ -1,23 +1,23 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index dbfd65af..f0a7953a 100644
+index f479d07b..8b8e326c 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -1,12 +1,21 @@
+@@ -1,14 +1,22 @@
  <template>
 -    <div>
--        // Product goes here
 +    <div class="row">
-+        <div class="col-3">
++        <div class="col-12">
 +            <title-component />
 +        </div>
 +
-+        TODO: Show product here!
+         I'd <3 to see a Product here!
      </div>
  </template>
  
  <script>
+ import { getProduct } from '@/services/products-service';
 +import TitleComponent from '@/components/title';
-+
+ 
  export default {
      name: 'Product',
 +    components: {

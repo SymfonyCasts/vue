@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 7ea148f6..35c5bc73 100644
+index 2a3166dc..94f1694f 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -34,6 +34,10 @@
+@@ -43,6 +43,10 @@
                      </div>
  
-                     <div :class="$style['actions-wrapper']">
+                     <div class="p-3">
 +                        <color-selector
 +                            v-show="product.colors.length !== 0"
 +                        />

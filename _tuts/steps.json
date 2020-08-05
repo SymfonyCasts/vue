@@ -936,13 +936,18 @@
             "description": null
         },
         {
-            "id": "basic-product-page-add-basic-stuff-to-component",
-            "name": "Basic Product Page: Add basic stuff to component",
+            "id": "delete-me-14",
+            "name": "delete-me-14",
             "description": null
         },
         {
             "id": "basic-product-page-created-function",
             "name": "Basic Product Page: Created function",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-add-title-to-product",
+            "name": "Basic Product Page: Add Title to Product",
             "description": null
         },
         {
@@ -971,28 +976,38 @@
             "description": null
         },
         {
-            "id": "basic-product-page-paste-product-template",
-            "name": "Basic Product Page: Paste product template",
+            "id": "basic-product-page-initialize-product-data",
+            "name": "Basic Product Page: Initialize Product data",
             "description": null
         },
         {
-            "id": "basic-product-page-add-loading-component",
-            "name": "Basic Product Page: Add Loading component",
+            "id": "basic-product-template-paste-product-template",
+            "name": "Basic Product Template: Paste product template\"",
             "description": null
         },
         {
-            "id": "basic-product-page-add-dummy-addtocart-method",
-            "name": "Basic Product Page: Add dummy addToCart method",
+            "id": "basic-product-template-fix-template-after-paste",
+            "name": "Basic Product Template: Fix Template after Paste",
             "description": null
         },
         {
-            "id": "basic-product-page-paste-computed-property-from-productcard",
-            "name": "Basic Product Page: Paste computed property from ProductCard",
+            "id": "basic-product-template-add-loading-component",
+            "name": "Basic Product Template: Add Loading Component",
             "description": null
         },
         {
-            "id": "basic-product-page-correct-price-in-template",
-            "name": "Basic Product Page: Correct price in template",
+            "id": "basic-product-template-add-dummy-addtocart-method",
+            "name": "Basic Product Template: Add Dummy addToCart Method",
+            "description": null
+        },
+        {
+            "id": "basic-product-template-paste-computed-property-from-productcard",
+            "name": "Basic Product Template: Paste Computed Property from ProductCard",
+            "description": null
+        },
+        {
+            "id": "basic-product-template-correct-price-in-template",
+            "name": "Basic Product Template: Correct price in Template",
             "description": null
         },
         {
@@ -1511,5 +1526,5 @@
             "description": null
         }
     ],
-    "sha": "83dc1706c38761c00735aae9dda3dfba5146d6f2"
+    "sha": "30cfcaba72933d34c663bfa70cad8ec0e1760518"
 }
