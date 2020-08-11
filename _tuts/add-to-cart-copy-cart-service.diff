@@ -1,8 +1,8 @@
-diff --git a/assets/js/services/cart.js b/assets/js/services/cart.js
+diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
 new file mode 100644
 index 00000000..09aa629e
 --- /dev/null
-+++ b/assets/js/services/cart.js
++++ b/assets/js/services/cart-service.js
 @@ -0,0 +1,131 @@
 +/**
 + * Finds an item by product and color id in the storage
