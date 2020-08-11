@@ -1026,8 +1026,8 @@
             "description": null
         },
         {
-            "id": "basic-product-page-product-data-initialization",
-            "name": "Basic Product Page: Product data Initialization",
+            "id": "delete-me-15",
+            "name": "delete-me-15",
             "description": null
         },
         {
@@ -1066,23 +1066,28 @@
             "description": null
         },
         {
-            "id": "product-colors-onclick-handler",
-            "name": "Product Colors: onClick handler",
+            "id": "product-colors-fix-template-error",
+            "name": "Product Colors: Fix Template Error",
             "description": null
         },
         {
-            "id": "product-colors-selectedindex-class",
-            "name": "Product Colors: selectedIndex class",
+            "id": "select-color-and-quantity-onclick-handler",
+            "name": "Select Color and Quantity: onClick Handler",
             "description": null
         },
         {
-            "id": "product-colors-updateselectedcolor-method",
-            "name": "Product Colors: updateSelectedColor method",
+            "id": "select-color-and-quantity-selectedindex-class",
+            "name": "Select Color and Quantity: selectedIndex Class",
             "description": null
         },
         {
-            "id": "product-colors-add-qty",
-            "name": "Product Colors: Add qty",
+            "id": "select-color-and-quantity-updateselectedcolor-method",
+            "name": "Select Color and Quantity: updateSelectedColor method",
+            "description": null
+        },
+        {
+            "id": "select-color-and-quantity-add-quantity",
+            "name": "Select Color and Quantity: Add Quantity",
             "description": null
         },
         {
@@ -1526,5 +1531,5 @@
             "description": null
         }
     ],
-    "sha": "30cfcaba72933d34c663bfa70cad8ec0e1760518"
+    "sha": "216915f95628578e62c2be425a9b0761ff10ba5f"
 }

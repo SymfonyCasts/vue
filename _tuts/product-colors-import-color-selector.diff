@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 33e7d343..2a3166dc 100644
+index d37db66a..74f43fff 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -57,6 +57,7 @@
+@@ -59,6 +59,7 @@
  </template>
  
  <script>
@@ -10,7 +10,7 @@ index 33e7d343..2a3166dc 100644
  import { getProduct } from '@/services/products-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
-@@ -65,6 +66,7 @@ import formatPrice from '@/helpers/format-price';
+@@ -67,6 +68,7 @@ import formatPrice from '@/helpers/format-price';
  export default {
      name: 'Product',
      components: {

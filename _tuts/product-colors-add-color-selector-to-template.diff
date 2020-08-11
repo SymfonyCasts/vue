@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 2a3166dc..94f1694f 100644
+index 74f43fff..16a2bea7 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -43,6 +43,10 @@
+@@ -45,6 +45,10 @@
                      </div>
  
-                     <div class="p-3">
+                     <div class="p-3 row align-items-center">
 +                        <color-selector
 +                            v-show="product.colors.length !== 0"
 +                        />

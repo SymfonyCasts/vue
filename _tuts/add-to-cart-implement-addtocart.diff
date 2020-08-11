@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 63f4786b..729876d1 100644
+index 7404fdf8..6587c602 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -76,8 +76,6 @@ import Loading from '@/components/loading';
+@@ -80,8 +80,6 @@ import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
  import formatPrice from '@/helpers/format-price';
  
@@ -11,7 +11,7 @@ index 63f4786b..729876d1 100644
  export default {
      name: 'Product',
      components: {
-@@ -131,7 +129,14 @@ export default {
+@@ -135,7 +133,14 @@ export default {
      },
      methods: {
          addToCart() {

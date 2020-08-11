@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index bcdc4c13..d1313932 100644
+index bcdc4c13..312c0d2c 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -4,6 +4,45 @@
@@ -28,14 +28,14 @@ index bcdc4c13..d1313932 100644
 +                </div>
 +            </div>
 +
-+            <div class="col-3">
-+                <div class="p-3">
++            <div class="col-4">
++                <div class="p-3 row">
 +                    <p v-text="product.description" />
 +
 +                    <p>Price: <strong>${{ product.price }}</strong></p>
 +                </div>
 +
-+                <div class="p-3">
++                <div class="p-3 row align-items-center">
 +                    <button
 +                        class="btn btn-info btn-sm"
 +                    >
