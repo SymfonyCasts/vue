@@ -1,21 +1,28 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index d642545e..9ccc5b2d 100644
+index 7e7f8c33..2ee684d5 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -22,6 +22,7 @@
+@@ -23,6 +23,8 @@
+ </template>
  
  <script>
- import cartService from '@/services/cart';
++import cartService from '@/services/cart-service';
 +import { getProductsById } from '@/services/products-service';
  import { getColors } from '@/services/colors-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
-@@ -40,11 +41,15 @@ export default {
+@@ -36,15 +38,21 @@ export default {
+     data() {
+         return {
+             colors: {},
++            items: [],
+             loading: true,
          };
      },
      async created() {
 +        const itemsInCart = cartService.getItems();
 +        const productIds = itemsInCart.map((item) => item.productId);
++
          let colorsResponse = null;
 +        let productsResponse = null;
  
@@ -27,7 +34,7 @@ index d642545e..9ccc5b2d 100644
          } catch (e) {
              this.loading = false;
  
-@@ -56,6 +61,8 @@ export default {
+@@ -56,6 +64,8 @@ export default {
              this.colors[color['@id']] = color;
          });
  

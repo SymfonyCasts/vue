@@ -1,12 +1,11 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 20b167f9..144117de 100644
+index eb6700ac..a2187df3 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -21,6 +21,8 @@
+@@ -23,6 +23,7 @@
  </template>
  
  <script>
-+import cartService from '@/services/cart';
 +import { getColors } from '@/services/colors-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';

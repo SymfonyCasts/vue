@@ -1,15 +1,17 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 99431202..20b167f9 100644
+index db9fd966..eb6700ac 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -9,21 +9,44 @@
+@@ -9,21 +9,41 @@
                          <title-component text="Shopping Cart" />
                      </div>
                  </div>
 +
 +                <div class="row">
-+                    <div :class="$style.content">
-+                        <loading v-show="loading" />
++                    <div :class="[$style.content, 'col-11']">
++                        <div class="col-12 p-3">
++                            <loading v-show="loading" />
++                        </div>
 +                    </div>
 +                </div>
              </div>
@@ -40,10 +42,5 @@ index 99431202..20b167f9 100644
 +
 +.content {
 +    @include light-component;
-+    margin-top: 25px;
-+    padding: 20px;
-+    display: flex;
-+    flex-direction: column;
-+    width: 900px;
 +}
  </style>
