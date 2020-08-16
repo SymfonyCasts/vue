@@ -1,14 +1,15 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index b2f13d09..a8f92662 100644
+index f0b341ba..283f0694 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -12,16 +12,17 @@
- 
-                 <div class="row">
+@@ -14,17 +14,18 @@
                      <div :class="[$style.content, 'col-11']">
--                        <div class="col-12 p-3">
-+                        <div class="row col-12 p-3">
-                             <loading v-show="loading" />
+                         <div
+                             v-show="loading"
+-                            class="col-12 p-3"
++                            class="row col-12 p-3"
+                         >
+                             <loading />
                          </div>
  
                          <div

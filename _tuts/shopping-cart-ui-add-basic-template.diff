@@ -1,19 +1,17 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 2cec2ed3..71a1e3ca 100644
+index 2cec2ed3..adb43503 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -1,5 +1,9 @@
+@@ -1,5 +1,7 @@
  <template>
 -    
-+    <div
-+        :class="$style.component"
-+    >
-+        <span>{{ product.name }}</span>
++    <div :class="[$style.component, 'row', 'p-3']">
++        <span class="col-12">{{ product.name }}</span>
 +    </div>
  </template>
  
  <script>
-@@ -10,4 +14,4 @@
+@@ -10,4 +12,4 @@
  
  <style scoped>
  

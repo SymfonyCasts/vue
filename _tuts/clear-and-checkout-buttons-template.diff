@@ -1,9 +1,9 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 732cc745..d42a02e7 100644
+index fafa7f11..334de6df 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -46,6 +46,20 @@
-                                 <span>Total: <strong>${{ totalPrice }}</strong></span>
+@@ -48,6 +48,20 @@
+                                 </span>
                              </div>
                          </div>
 +

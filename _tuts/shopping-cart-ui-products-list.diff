@@ -1,32 +1,45 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index a8f92662..8fd0c320 100644
+index 283f0694..cf719efd 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -24,6 +24,27 @@
+@@ -27,6 +27,27 @@
                                  Sorry! You haven't bought anything yet!
                              </div>
                          </div>
 +
-+                        <div
-+                            v-show="!loading && items.length"
-+                            :class="$style['product-list']"
-+                        >
-+                            <div :class="[$style['product-row'], $style['product-head']]">
-+                                <span>Item Name</span>
-+                                <span>Quantity</span>
-+                                <span>Price</span>
++                        <div v-show="!loading && items.length">
++                            <div class="row p-3">
++                                <span class="col-3">Item Name</span>
++                                <span class="col-3">Quantity</span>
++                                <span class="col-3">Price</span>
++                                <span class="col-3" />
 +                            </div>
 +
-+                            <shopping-cart-item
++                            <shopping-cart-product
 +                                v-for="item in items"
 +                                :key="item['@id']"
 +                                :product="item"
 +                            />
 +
-+                            <div :class="$style['product-row']">
-+                                <span>Total: <strong>${{ totalPrice }}</strong></span>
++                            <div class="row p-3">
++                                <span class="col-12">
++                                    Total: <strong>${{ totalPrice }}</strong>
++                                </span>
 +                            </div>
 +                        </div>
                      </div>
                  </div>
              </div>
+@@ -40,10 +61,12 @@ import { getProductsById } from '@/services/products-service';
+ import { getColors } from '@/services/colors-service';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
++import ShoppingCartProduct from "@/components/shopping-cart/cart-item";
+ 
+ export default {
+     name: 'ShoppingCart',
+     components: {
++        ShoppingCartProduct,
+         Loading,
+         TitleComponent,
+     },

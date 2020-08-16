@@ -1,19 +1,13 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 8fd0c320..4b03f123 100644
+index cf719efd..41d85be3 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -57,12 +57,14 @@ import cartService from '@/services/cart-service';
- import { getProductsById } from '@/services/products-service';
+@@ -61,7 +61,7 @@ import { getProductsById } from '@/services/products-service';
  import { getColors } from '@/services/colors-service';
  import Loading from '@/components/loading';
-+import ShoppingCartItem from '@/components/shopping-cart/cart-item';
  import TitleComponent from '@/components/title';
+-import ShoppingCartProduct from "@/components/shopping-cart/cart-item";
++import ShoppingCartProduct from '@/components/shopping-cart/cart-item';
  
  export default {
      name: 'ShoppingCart',
-     components: {
-         Loading,
-+        ShoppingCartItem,
-         TitleComponent,
-     },
-     data() {

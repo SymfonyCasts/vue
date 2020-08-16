@@ -1241,8 +1241,8 @@
             "description": null
         },
         {
-            "id": "shopping-cart-ui-add-css-for-template-block",
-            "name": "Shopping Cart UI: Add CSS for template block",
+            "id": "delete-me-16",
+            "name": "delete-me-16",
             "description": null
         },
         {
@@ -1261,8 +1261,8 @@
             "description": null
         },
         {
-            "id": "shopping-cart-ui-paste-css",
-            "name": "Shopping Cart UI: Paste CSS",
+            "id": "delete-me-17",
+            "name": "delete-me-17",
             "description": null
         },
         {
@@ -1531,5 +1531,5 @@
             "description": null
         }
     ],
-    "sha": "dd777225aafd183f64ade1f5aadd29ffe12308d1"
+    "sha": "a7ca76e89bd11f517cf1de70076d73000f2e7e07"
 }

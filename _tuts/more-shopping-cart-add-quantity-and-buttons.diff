@@ -1,25 +1,38 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 0c647534..ad5ed92a 100644
+index d195b86b..14c16636 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -10,10 +10,26 @@
-                 backgroundColor: `#${product.hexColor}`
-             }"
-         />
+@@ -1,6 +1,6 @@
+ <template>
+-    <div :class="[$style.component, 'row', 'p-3']">
+-        <span class="col-3 row">
++    <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
++        <span class="col-3 row align-items-center">
+             <span class="col">
+                 {{ product.name }}
+             </span>
+@@ -14,10 +14,30 @@
+                 />
+             </span>
+         </span>
 +
-+        <input
-+            class="form-control"
-+            type="number"
-+            min="1"
-+        >
++        <span class="col-3">
++            <input
++                class="form-control"
++                type="number"
++                min="1"
++            >
++        </span>
 +
-+        <span>{{ totalPrice }}</span>
++        <span class="col-3">
++            {{ totalPrice }}
++        </span>
 +
-+        <button
-+            class="btn btn-info btn-sm"
-+        >
-+            Remove
-+        </button>
++        <span class="col-3">
++            <button class="btn btn-info btn-sm">
++                Remove
++            </button>
++        </span>
      </div>
  </template>
  
@@ -29,7 +42,7 @@ index 0c647534..ad5ed92a 100644
  export default {
      name: 'ShoppingCartProduct',
      props: {
-@@ -22,6 +38,11 @@ export default {
+@@ -26,6 +46,11 @@ export default {
              required: true,
          },
      },
@@ -41,14 +54,13 @@ index 0c647534..ad5ed92a 100644
  };
  </script>
  
-@@ -47,6 +68,10 @@ export default {
+@@ -41,5 +66,9 @@ export default {
+         height: 25px;
          border-radius: 4px;
      }
- 
++
 +    input {
 +        width: 60px;
 +    }
-+
-     .product-name {
-         flex-grow: 1;
-     }
+ }
+ </style>

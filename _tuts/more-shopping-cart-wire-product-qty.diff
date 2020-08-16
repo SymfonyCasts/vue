@@ -1,12 +1,12 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index ad5ed92a..8fcacd7e 100644
+index 14c16636..a0fcead0 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -12,6 +12,7 @@
-         />
+@@ -17,6 +17,7 @@
  
-         <input
-+            v-model.number="product.qty"
-             class="form-control"
-             type="number"
-             min="1"
+         <span class="col-3">
+             <input
++                v-model.number="product.qty"
+                 class="form-control"
+                 type="number"
+                 min="1"

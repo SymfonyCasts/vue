@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 74637337..0fbd41f7 100644
+index 3153b30f..3379768b 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -59,8 +59,10 @@ export default {
+@@ -62,8 +62,10 @@ export default {
  
          // Retrieve both colors and products from the server
          try {

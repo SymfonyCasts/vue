@@ -1,24 +1,24 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 8fcacd7e..05db3f8f 100644
+index a0fcead0..f3e91f09 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -16,6 +16,7 @@
-             class="form-control"
-             type="number"
-             min="1"
-+            @input="updateQty(product['@id'], product.colorId, product.qty)"
-         >
+@@ -21,6 +21,7 @@
+                 class="form-control"
+                 type="number"
+                 min="1"
++                @input="updateQty(product['@id'], product.colorId, product.qty)"
+             >
+         </span>
  
-         <span>{{ totalPrice }}</span>
-@@ -29,6 +30,7 @@
+@@ -37,6 +38,7 @@
  </template>
  
  <script>
-+import cartService from '@/services/cart';
++import cartService from '@/services/cart-service';
  import formatPrice from '@/helpers/format-price';
  
  export default {
-@@ -44,6 +46,18 @@ export default {
+@@ -52,6 +54,18 @@ export default {
              return formatPrice(this.product.price * this.product.qty);
          },
      },
