@@ -1,16 +1,16 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 334de6df..3b39c9a6 100644
+index 41d5c2fb..a5bd2f27 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -52,6 +52,7 @@
-                         <div v-show="!loading">
-                             <button
-                                 class="btn btn-info btn-sm"
-+                                @click="clearCart"
-                             >
-                                 Clear Shopping Cart
-                             </button>
-@@ -157,6 +158,16 @@ export default {
+                                     class="col">
+                                     <button
+                                         class="btn btn-info btn-sm"
++                                        @click="clearCart"
+                                     >
+                                         Clear Shopping Cart
+                                     </button>
+@@ -159,6 +160,16 @@ export default {
  
          this.loading = false;
      },

@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index d195b86b..14c16636 100644
+index d195b86b..c1381717 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -1,6 +1,6 @@
@@ -25,7 +25,7 @@ index d195b86b..14c16636 100644
 +        </span>
 +
 +        <span class="col-3">
-+            {{ totalPrice }}
++            ${{ totalPrice }}
 +        </span>
 +
 +        <span class="col-3">
