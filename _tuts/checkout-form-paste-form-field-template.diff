@@ -1,13 +1,13 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 6c5e86b7..393f9c24 100644
+index 17f09d9a..51bb7a7b 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -12,6 +12,22 @@
  
                  <div class="row">
-                     <div :class="$style.content">
+                     <div :class="[$style.content, 'col-11']">
 +                        <form>
-+                            <div class="form-row">
++                            <div class="form-row p-3">
 +                                <label
 +                                    for="customerName"
 +                                    class="col-form-label"

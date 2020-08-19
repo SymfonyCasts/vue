@@ -1,12 +1,12 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 5fed7a23..49ddeded 100644
+index cec03e30..15ddc900 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -20,6 +20,7 @@
  </template>
  
  <script>
-+import cartService from '@/services/cart';
++import cartService from '@/services/cart-service';
  import TitleComponent from '@/components/title';
  
  export default {

@@ -1,11 +1,11 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 73d00e9b..a6bf64f6 100644
+index 36d7e9b3..fa6d4f93 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -12,7 +12,7 @@
  
                  <div class="row">
-                     <div :class="$style.content">
+                     <div :class="[$style.content, 'col-11']">
 -                        <form @submit="onSubmit">
 +                        <form @submit.prevent="onSubmit">
                              <div

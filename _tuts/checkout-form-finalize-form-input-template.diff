@@ -1,10 +1,10 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index de719927..fd5f42ea 100644
+index f92accab..74481717 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
 @@ -1,24 +1,24 @@
  <template>
-     <div class="form-row">
+     <div class="form-row p-3">
          <label
 -            for="customerName"
 +            :for="id"

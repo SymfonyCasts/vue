@@ -1,9 +1,9 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
 new file mode 100644
-index 00000000..3a95786f
+index 00000000..d30b7b4d
 --- /dev/null
 +++ b/assets/js/pages/checkout.vue
-@@ -0,0 +1,44 @@
+@@ -0,0 +1,39 @@
 +<template>
 +    <div class="container-fluid">
 +        <div class="row row-no-wrap">
@@ -17,7 +17,7 @@ index 00000000..3a95786f
 +                </div>
 +
 +                <div class="row">
-+                    <div :class="$style.content">
++                    <div :class="[$style.content, 'col-11']">
 +                    </div>
 +                </div>
 +            </div>
@@ -41,10 +41,5 @@ index 00000000..3a95786f
 +
 +.content {
 +    @include light-component;
-+    margin-top: 25px;
-+    padding: 20px;
-+    display: flex;
-+    flex-direction: column;
-+    width: 900px;
 +}
 +</style>

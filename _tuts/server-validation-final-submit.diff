@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 0390ae5a..d2c0572e 100644
+index 6105383d..b048a7b8 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -139,16 +139,20 @@ export default {

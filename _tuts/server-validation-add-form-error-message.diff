@@ -1,10 +1,10 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 23c44e4c..b1e66261 100644
+index d824102b..ae44fcbd 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -13,6 +13,13 @@
                  <div class="row">
-                     <div :class="$style.content">
+                     <div :class="[$style.content, 'col-11']">
                          <form @submit="onSubmit">
 +                            <div
 +                                v-show="serverError"

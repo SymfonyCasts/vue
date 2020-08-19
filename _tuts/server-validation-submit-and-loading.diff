@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 6bccaeb9..463c50d3 100644
+index 56827de0..c46459f7 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -56,6 +56,17 @@
@@ -22,7 +22,7 @@ index 6bccaeb9..463c50d3 100644
                  </div>
 @@ -67,12 +78,14 @@
  <script>
- import cartService from '@/services/cart';
+ import cartService from '@/services/cart-service';
  import FormInput from '@/components/checkout/form-input';
 +import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
