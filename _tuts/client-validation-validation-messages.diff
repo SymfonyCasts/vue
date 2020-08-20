@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 5a355ef3..e392bc64 100644
+index 9c3f333f..52201344 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -167,6 +167,22 @@ export default {
+@@ -172,6 +172,22 @@ export default {
                  customerPhone: null,
              };
          },

@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index cf6747dd..6105383d 100644
+index 7fd68246..be721d24 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -154,6 +154,20 @@ export default {
+@@ -159,6 +159,20 @@ export default {
                  this.loading = false;
              }
          },
@@ -11,7 +11,7 @@ index cf6747dd..6105383d 100644
 +         * Resets our validation fields back to null
 +         */
 +        resetValidationFields() {
-+            this.validation = {
++            this.validationErrors = {
 +                customerName: null,
 +                customerEmail: null,
 +                customerAddress: null,

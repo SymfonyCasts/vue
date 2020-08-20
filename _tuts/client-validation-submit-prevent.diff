@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 36d7e9b3..fa6d4f93 100644
+index 381a4590..9f4cd8e0 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -12,7 +12,7 @@
@@ -10,8 +10,8 @@ index 36d7e9b3..fa6d4f93 100644
 +                        <form @submit.prevent="onSubmit">
                              <div
                                  v-show="serverError"
-                                 class="alert alert-danger"
-@@ -131,11 +131,8 @@ export default {
+                                 class="alert alert-danger m-3"
+@@ -136,11 +136,8 @@ export default {
      methods: {
          /**
           * Sends the form data and process the response!
@@ -23,8 +23,8 @@ index 36d7e9b3..fa6d4f93 100644
 +        async onSubmit() {
              this.loading = true;
              this.serverError = false;
-             this.validation = this.initializeValidationFields();
-@@ -143,6 +140,8 @@ export default {
+             this.validationErrors = this.initializeValidationFields();
+@@ -148,6 +145,8 @@ export default {
              try {
                  const response = await createOrder(this.form);
                  cartService.clear();

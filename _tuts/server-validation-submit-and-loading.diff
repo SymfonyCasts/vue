@@ -1,26 +1,31 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 56827de0..c46459f7 100644
+index 56827de0..8ea66afd 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -56,6 +56,17 @@
+@@ -56,6 +56,22 @@
                                  type="tel"
                                  :error-message="validationErrors.customerPhone"
                              />
 +
-+                            <div :class="$style['form-action']">
-+                                <loading v-show="loading" />
++                            <div class="row p-3 justify-content-end align-items-center">
++                                <loading
++                                    v-show="loading"
++                                    class="col-auto"
++                                />
 +
-+                                <button
-+                                    type="submit"
-+                                    class="btn btn-info btn-sm"
-+                                >
-+                                    Checkout!
-+                                </button>
++                                <div class="col-auto">
++                                    <button
++                                        type="submit"
++                                        class="btn btn-info btn-sm"
++                                    >
++                                        Checkout!
++                                    </button>
++                                </div>
 +                            </div>
                          </form>
                      </div>
                  </div>
-@@ -67,12 +78,14 @@
+@@ -67,12 +83,14 @@
  <script>
  import cartService from '@/services/cart-service';
  import FormInput from '@/components/checkout/form-input';
@@ -35,7 +40,7 @@ index 56827de0..c46459f7 100644
          TitleComponent,
      },
      data() {
-@@ -94,6 +107,7 @@ export default {
+@@ -94,6 +112,7 @@ export default {
                  customerCity: null,
                  customerPhone: null,
              },

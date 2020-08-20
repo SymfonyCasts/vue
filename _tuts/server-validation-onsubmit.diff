@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index c46459f7..d7bcd9bb 100644
+index 8ea66afd..22798a25 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
-@@ -76,6 +76,7 @@
+@@ -81,6 +81,7 @@
  </template>
  
  <script>
@@ -10,7 +10,7 @@ index c46459f7..d7bcd9bb 100644
  import cartService from '@/services/cart-service';
  import FormInput from '@/components/checkout/form-input';
  import Loading from '@/components/loading';
-@@ -119,6 +120,24 @@ export default {
+@@ -124,6 +125,24 @@ export default {
              quantity: item.qty,
          }));
      },

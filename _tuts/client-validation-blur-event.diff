@@ -11,7 +11,7 @@ index ae4e6b03..ea816655 100644
          <span
              v-show="!isValid"
 diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 7b48e81d..36d7e9b3 100644
+index 12f81a1e..381a4590 100644
 --- a/assets/js/pages/checkout.vue
 +++ b/assets/js/pages/checkout.vue
 @@ -25,6 +25,7 @@
@@ -61,4 +61,4 @@ index 7b48e81d..36d7e9b3 100644
 +                                @blur="validateForm"
                              />
  
-                             <div :class="$style['form-action']">
+                             <div class="row p-3 justify-content-end align-items-center">
