@@ -247,10 +247,10 @@ index 5f492496..156d500e 100644
              "version": "v5.5.6",
 diff --git a/src/ApiPlatform/CartDataPersister.php b/src/ApiPlatform/CartDataPersister.php
 new file mode 100644
-index 00000000..d4887e77
+index 00000000..f249b337
 --- /dev/null
 +++ b/src/ApiPlatform/CartDataPersister.php
-@@ -0,0 +1,43 @@
+@@ -0,0 +1,45 @@
 +<?php
 +
 +namespace App\ApiPlatform;
@@ -279,6 +279,7 @@ index 00000000..d4887e77
 +    public function persist($cart)
 +    {
 +        $this->session->set(self::getKey($cart->getId()), $cart);
++        $this->session->set('_cart_id', $cart->getId());
 +    }
 +
 +    /**
@@ -287,6 +288,7 @@ index 00000000..d4887e77
 +    public function remove($cart)
 +    {
 +        $this->session->remove(self::getKey($cart->getId()));
++        $this->session->remove('_cart_id');
 +    }
 +
 +    public static function getKey(string $uuid)
@@ -296,7 +298,7 @@ index 00000000..d4887e77
 +}
 diff --git a/src/ApiPlatform/CartDataProvider.php b/src/ApiPlatform/CartDataProvider.php
 new file mode 100644
-index 00000000..34e532b4
+index 00000000..ee259b7f
 --- /dev/null
 +++ b/src/ApiPlatform/CartDataProvider.php
 @@ -0,0 +1,34 @@
@@ -328,7 +330,7 @@ index 00000000..34e532b4
 +    {
 +        $key = CartDataPersister::getKey($id);
 +        if (!$this->session->has($key)) {
-+            throw new NotFoundHttpException('User not found');
++            throw new NotFoundHttpException('Cart not found');
 +        }
 +
 +        return clone $this->session->get($key);
@@ -577,3 +579,21 @@ index bdab20ce..5ae32a6d 100644
      "sensio/framework-extra-bundle": {
          "version": "5.2",
          "recipe": {
+diff --git a/templates/base.html.twig b/templates/base.html.twig
+index 53b0297d..2b29dd7c 100644
+--- a/templates/base.html.twig
++++ b/templates/base.html.twig
+@@ -58,6 +58,13 @@
+         </p>
+ 
+         {% block javascripts %}
++            <script>
++                {% if app.session.has('_cart_id') %}
++                    window.cartId = '{{ app.session.get('_cart_id') }}';
++                {% else %}
++                    window.cartId = null;
++                {% endif %}
++            </script>
+             {{ encore_entry_script_tags('app') }}
+         {% endblock %}
+     </body>
