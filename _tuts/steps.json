@@ -876,58 +876,58 @@
             "description": null
         },
         {
-            "id": "linking-products-add-getcurrentproductid-to-page-context",
-            "name": "Linking Products: add getCurrentProductId() to page-context",
+            "id": "generic-component-add-getcurrentproductid-to-page-context",
+            "name": "Generic Component: add getCurrentProductId() to page-context",
             "description": null
         },
         {
-            "id": "linking-products-add-prop-to-products-vue",
-            "name": "Linking Products: Add prop to Products.vue",
+            "id": "generic-component-add-computed-to-products-vue",
+            "name": "Generic Component: Add computed to Products.vue",
             "description": null
         },
         {
-            "id": "linking-products-create-blank-product-component",
-            "name": "Linking Products: Create Blank Product Component",
+            "id": "generic-component-create-blank-product-component",
+            "name": "Generic Component: Create Blank Product Component",
             "description": null
         },
         {
-            "id": "linking-products-include-product-from-products",
-            "name": "Linking Products: Include Product from Products",
+            "id": "generic-component-include-product-from-products",
+            "name": "Generic Component: Include PRoduct from Products",
             "description": null
         },
         {
-            "id": "linking-products-add-computed-property",
-            "name": "Linking Products: Add computed property",
+            "id": "generic-component-add-computed-property-to-match-component",
+            "name": "Generic Component: Add computed property to match component",
             "description": null
         },
         {
-            "id": "linking-products-modify-products-template",
-            "name": "Linking Products: Modify products template",
+            "id": "generic-component-modify-products-template",
+            "name": "Generic Component: Modify Products template",
             "description": null
         },
         {
-            "id": "linking-products-v-bind-directive",
-            "name": "Linking Products: v-bind directive",
+            "id": "generic-component-v-bind-directive",
+            "name": "Generic Component: v-bind directive",
             "description": null
         },
         {
-            "id": "linking-products-copy-props-to-product-component",
-            "name": "Linking Products: Copy props to Product component",
+            "id": "delete-me-19",
+            "name": "delete-me-19",
             "description": null
         },
         {
-            "id": "mixin-create-mixin-file",
-            "name": "Mixin: Create Mixin File",
+            "id": "delete-me-20",
+            "name": "delete-me-20",
             "description": null
         },
         {
-            "id": "mixin-remove-copied-parts-from-products",
-            "name": "Mixin: Remove copied parts from products",
+            "id": "delete-me-21",
+            "name": "delete-me-21",
             "description": null
         },
         {
-            "id": "mixin-import-mixin-from-products",
-            "name": "Mixin: Import mixin from products",
+            "id": "delete-me-22",
+            "name": "delete-me-22",
             "description": null
         },
         {
@@ -1531,5 +1531,5 @@
             "description": null
         }
     ],
-    "sha": "145b15f2cc1959ed09aca14c7e64e9aa3e8c9383"
+    "sha": "14fc8fdabba9260e028dbcba1d4bd6dbb5d87260"
 }
