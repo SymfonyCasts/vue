@@ -1,0 +1,579 @@
+diff --git a/composer.json b/composer.json
+index 48a614c4..84c5360d 100644
+--- a/composer.json
++++ b/composer.json
+@@ -8,6 +8,7 @@
+         "api-platform/api-pack": "^1.2",
+         "doctrine/doctrine-fixtures-bundle": "^3.3",
+         "doctrine/inflector": "1.3.*",
++        "ramsey/uuid": "^4.1",
+         "sensio/framework-extra-bundle": "^5.5",
+         "symfony/console": "5.0.*",
+         "symfony/debug-pack": "^1.0",
+diff --git a/composer.lock b/composer.lock
+index 5f492496..156d500e 100644
+--- a/composer.lock
++++ b/composer.lock
+@@ -4,7 +4,7 @@
+         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+         "This file is @generated automatically"
+     ],
+-    "content-hash": "f17f646dfc5cbdfd0d068b78ee93cc40",
++    "content-hash": "a83e8eb69091a2d20d81bda362279d6b",
+     "packages": [
+         {
+             "name": "api-platform/api-pack",
+@@ -262,6 +262,58 @@
+             ],
+             "time": "2020-07-15T08:39:18+00:00"
+         },
++        {
++            "name": "brick/math",
++            "version": "0.9.1",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/brick/math.git",
++                "reference": "283a40c901101e66de7061bd359252c013dcc43c"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/brick/math/zipball/283a40c901101e66de7061bd359252c013dcc43c",
++                "reference": "283a40c901101e66de7061bd359252c013dcc43c",
++                "shasum": ""
++            },
++            "require": {
++                "ext-json": "*",
++                "php": "^7.1|^8.0"
++            },
++            "require-dev": {
++                "php-coveralls/php-coveralls": "^2.2",
++                "phpunit/phpunit": "^7.5.15|^8.5",
++                "vimeo/psalm": "^3.5"
++            },
++            "type": "library",
++            "autoload": {
++                "psr-4": {
++                    "Brick\\Math\\": "src/"
++                }
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "description": "Arbitrary-precision arithmetic library",
++            "keywords": [
++                "Arbitrary-precision",
++                "BigInteger",
++                "BigRational",
++                "arithmetic",
++                "bigdecimal",
++                "bignum",
++                "brick",
++                "math"
++            ],
++            "funding": [
++                {
++                    "url": "https://tidelift.com/funding/github/packagist/brick/math",
++                    "type": "tidelift"
++                }
++            ],
++            "time": "2020-08-18T23:57:15+00:00"
++        },
+         {
+             "name": "doctrine/annotations",
+             "version": "1.10.3",
+@@ -2362,6 +2414,162 @@
+             ],
+             "time": "2020-03-23T09:12:05+00:00"
+         },
++        {
++            "name": "ramsey/collection",
++            "version": "1.1.0",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/ramsey/collection.git",
++                "reference": "044184884e3c803e4cbb6451386cb71562939b18"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/ramsey/collection/zipball/044184884e3c803e4cbb6451386cb71562939b18",
++                "reference": "044184884e3c803e4cbb6451386cb71562939b18",
++                "shasum": ""
++            },
++            "require": {
++                "php": "^7.2 || ^8"
++            },
++            "require-dev": {
++                "captainhook/captainhook": "^5.3",
++                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
++                "ergebnis/composer-normalize": "^2.6",
++                "fzaninotto/faker": "^1.5",
++                "hamcrest/hamcrest-php": "^2",
++                "jangregor/phpstan-prophecy": "^0.6",
++                "mockery/mockery": "^1.3",
++                "phpstan/extension-installer": "^1",
++                "phpstan/phpstan": "^0.12.32",
++                "phpstan/phpstan-mockery": "^0.12.5",
++                "phpstan/phpstan-phpunit": "^0.12.11",
++                "phpunit/phpunit": "^8.5",
++                "psy/psysh": "^0.10.4",
++                "slevomat/coding-standard": "^6.3",
++                "squizlabs/php_codesniffer": "^3.5",
++                "vimeo/psalm": "^3.12.2"
++            },
++            "type": "library",
++            "autoload": {
++                "psr-4": {
++                    "Ramsey\\Collection\\": "src/"
++                }
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "authors": [
++                {
++                    "name": "Ben Ramsey",
++                    "email": "ben@benramsey.com",
++                    "homepage": "https://benramsey.com"
++                }
++            ],
++            "description": "A PHP 7.2+ library for representing and manipulating collections.",
++            "keywords": [
++                "array",
++                "collection",
++                "hash",
++                "map",
++                "queue",
++                "set"
++            ],
++            "funding": [
++                {
++                    "url": "https://github.com/ramsey",
++                    "type": "github"
++                }
++            ],
++            "time": "2020-08-11T00:57:21+00:00"
++        },
++        {
++            "name": "ramsey/uuid",
++            "version": "4.1.1",
++            "source": {
++                "type": "git",
++                "url": "https://github.com/ramsey/uuid.git",
++                "reference": "cd4032040a750077205918c86049aa0f43d22947"
++            },
++            "dist": {
++                "type": "zip",
++                "url": "https://api.github.com/repos/ramsey/uuid/zipball/cd4032040a750077205918c86049aa0f43d22947",
++                "reference": "cd4032040a750077205918c86049aa0f43d22947",
++                "shasum": ""
++            },
++            "require": {
++                "brick/math": "^0.8 || ^0.9",
++                "ext-json": "*",
++                "php": "^7.2 || ^8",
++                "ramsey/collection": "^1.0",
++                "symfony/polyfill-ctype": "^1.8"
++            },
++            "replace": {
++                "rhumsaa/uuid": "self.version"
++            },
++            "require-dev": {
++                "codeception/aspect-mock": "^3",
++                "dealerdirect/phpcodesniffer-composer-installer": "^0.6.2 || ^0.7.0",
++                "doctrine/annotations": "^1.8",
++                "goaop/framework": "^2",
++                "mockery/mockery": "^1.3",
++                "moontoast/math": "^1.1",
++                "paragonie/random-lib": "^2",
++                "php-mock/php-mock-mockery": "^1.3",
++                "php-mock/php-mock-phpunit": "^2.5",
++                "php-parallel-lint/php-parallel-lint": "^1.1",
++                "phpbench/phpbench": "^0.17.1",
++                "phpstan/extension-installer": "^1.0",
++                "phpstan/phpstan": "^0.12",
++                "phpstan/phpstan-mockery": "^0.12",
++                "phpstan/phpstan-phpunit": "^0.12",
++                "phpunit/phpunit": "^8.5",
++                "psy/psysh": "^0.10.0",
++                "slevomat/coding-standard": "^6.0",
++                "squizlabs/php_codesniffer": "^3.5",
++                "vimeo/psalm": "3.9.4"
++            },
++            "suggest": {
++                "ext-bcmath": "Enables faster math with arbitrary-precision integers using BCMath.",
++                "ext-ctype": "Enables faster processing of character classification using ctype functions.",
++                "ext-gmp": "Enables faster math with arbitrary-precision integers using GMP.",
++                "ext-uuid": "Enables the use of PeclUuidTimeGenerator and PeclUuidRandomGenerator.",
++                "paragonie/random-lib": "Provides RandomLib for use with the RandomLibAdapter",
++                "ramsey/uuid-doctrine": "Allows the use of Ramsey\\Uuid\\Uuid as Doctrine field type."
++            },
++            "type": "library",
++            "extra": {
++                "branch-alias": {
++                    "dev-master": "4.x-dev"
++                }
++            },
++            "autoload": {
++                "psr-4": {
++                    "Ramsey\\Uuid\\": "src/"
++                },
++                "files": [
++                    "src/functions.php"
++                ]
++            },
++            "notification-url": "https://packagist.org/downloads/",
++            "license": [
++                "MIT"
++            ],
++            "description": "A PHP library for generating and working with universally unique identifiers (UUIDs).",
++            "homepage": "https://github.com/ramsey/uuid",
++            "keywords": [
++                "guid",
++                "identifier",
++                "uuid"
++            ],
++            "funding": [
++                {
++                    "url": "https://github.com/ramsey",
++                    "type": "github"
++                }
++            ],
++            "time": "2020-08-18T17:17:46+00:00"
++        },
+         {
+             "name": "sensio/framework-extra-bundle",
+             "version": "v5.5.6",
+diff --git a/src/ApiPlatform/CartDataPersister.php b/src/ApiPlatform/CartDataPersister.php
+new file mode 100644
+index 00000000..d4887e77
+--- /dev/null
++++ b/src/ApiPlatform/CartDataPersister.php
+@@ -0,0 +1,43 @@
++<?php
++
++namespace App\ApiPlatform;
++
++use ApiPlatform\Core\DataPersister\DataPersisterInterface;
++use App\Entity\Cart;
++use Symfony\Component\HttpFoundation\Session\SessionInterface;
++
++class CartDataPersister implements DataPersisterInterface
++{
++    private $session;
++
++    public function __construct(SessionInterface $session)
++    {
++        $this->session = $session;
++    }
++
++    public function supports($data): bool
++    {
++        return $data instanceof Cart;
++    }
++
++    /**
++     * @param Cart $cart
++     */
++    public function persist($cart)
++    {
++        $this->session->set(self::getKey($cart->getId()), $cart);
++    }
++
++    /**
++     * @param Cart $cart
++     */
++    public function remove($cart)
++    {
++        $this->session->remove(self::getKey($cart->getId()));
++    }
++
++    public static function getKey(string $uuid)
++    {
++        return sprintf('_cart_%s', $uuid);
++    }
++}
+diff --git a/src/ApiPlatform/CartDataProvider.php b/src/ApiPlatform/CartDataProvider.php
+new file mode 100644
+index 00000000..34e532b4
+--- /dev/null
++++ b/src/ApiPlatform/CartDataProvider.php
+@@ -0,0 +1,34 @@
++<?php
++
++namespace App\ApiPlatform;
++
++use ApiPlatform\Core\DataProvider\ItemDataProviderInterface;
++use ApiPlatform\Core\DataProvider\RestrictedDataProviderInterface;
++use App\Entity\Cart;
++use Symfony\Component\HttpFoundation\Session\SessionInterface;
++use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
++
++class CartDataProvider implements ItemDataProviderInterface, RestrictedDataProviderInterface
++{
++    private $session;
++
++    public function __construct(SessionInterface $session)
++    {
++        $this->session = $session;
++    }
++
++    public function supports(string $resourceClass, string $operationName = null, array $context = []): bool
++    {
++        return $resourceClass === Cart::class;
++    }
++
++    public function getItem(string $resourceClass, $id, string $operationName = null, array $context = [])
++    {
++        $key = CartDataPersister::getKey($id);
++        if (!$this->session->has($key)) {
++            throw new NotFoundHttpException('User not found');
++        }
++
++        return clone $this->session->get($key);
++    }
++}
+diff --git a/src/DataFixtures/AppFixtures.php b/src/DataFixtures/AppFixtures.php
+index d40958a8..317c9cd1 100644
+--- a/src/DataFixtures/AppFixtures.php
++++ b/src/DataFixtures/AppFixtures.php
+@@ -5,12 +5,21 @@ namespace App\DataFixtures;
+ use App\Entity\Category;
+ use App\Entity\Color;
+ use App\Entity\Product;
++use App\Entity\User;
+ use Doctrine\Bundle\FixturesBundle\Fixture;
+-use Doctrine\Common\Persistence\ObjectManager;
++use Doctrine\Persistence\ObjectManager;
+ use Symfony\Component\Filesystem\Filesystem;
++use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+ 
+ class AppFixtures extends Fixture
+ {
++    private $passwordEncoder;
++
++    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
++    {
++        $this->passwordEncoder = $passwordEncoder;
++    }
++
+     public function load(ObjectManager $manager)
+     {
+         $colorRed = new Color('red', 'ff0000');
+@@ -72,6 +81,12 @@ class AppFixtures extends Fixture
+         $fs->mirror(__DIR__.'/uploads', $target);
+         $fs->chmod($target, 0777);
+ 
++        $user = new User();
++        $user->setEmail('shopper@example.com');
++        $user->setPassword($this->passwordEncoder->encodePassword($user, 'buy'));
++
++        $manager->persist($user);
++
+         $manager->flush();
+     }
+ 
+diff --git a/src/Entity/Cart.php b/src/Entity/Cart.php
+new file mode 100644
+index 00000000..c4417364
+--- /dev/null
++++ b/src/Entity/Cart.php
+@@ -0,0 +1,80 @@
++<?php
++
++namespace App\Entity;
++
++use ApiPlatform\Core\Annotation\ApiProperty;
++use ApiPlatform\Core\Annotation\ApiResource;
++use Ramsey\Uuid\Uuid;
++use Symfony\Component\Serializer\Annotation\Groups;
++
++/**
++ * @ApiResource(
++ *     normalizationContext={"groups"="cart:read"},
++ *     denormalizationContext={"groups"="cart:write"},
++ *     collectionOperations={"post"},
++ *     itemOperations={
++ *          "get"={
++ *          },
++ *          "put"={
++ *          },
++ *          "delete"={
++ *          },
++ *     }
++ * )
++ */
++class Cart
++{
++    /**
++     * @ApiProperty(identifier=true)
++     */
++    private $id;
++
++    /**
++     * @var CartItem[]
++     * @Groups({"cart:read", "cart:write"})
++     */
++    private $items = [];
++
++    public function __construct()
++    {
++        $this->id = (Uuid::uuid4())->toString();
++    }
++
++    public function getId(): string
++    {
++        return $this->id;
++    }
++
++    /**
++     * @return CartItem[]|array
++     */
++    public function getItems(): array
++    {
++        return $this->items;
++    }
++
++    public function addItem(CartItem $cartItem)
++    {
++        foreach ($this->items as $key => $item) {
++            if ($cartItem->matches($item)) {
++                $this->items[$key] = $cartItem;
++
++                return;
++            }
++        }
++
++        $this->items[] = $cartItem;
++    }
++
++    public function removeItem(CartItem $cartItem)
++    {
++        foreach ($this->items as $key => $item) {
++            if ($cartItem->matches($item)) {
++                unset($this->items[$key]);
++                $this->items = array_values($this->items);
++
++                return;
++            }
++        }
++    }
++}
+diff --git a/src/Entity/CartItem.php b/src/Entity/CartItem.php
+new file mode 100644
+index 00000000..2e911a49
+--- /dev/null
++++ b/src/Entity/CartItem.php
+@@ -0,0 +1,62 @@
++<?php
++
++namespace App\Entity;
++
++use Symfony\Component\Serializer\Annotation\Groups;
++
++class CartItem
++{
++    /**
++     * @Groups({"cart:write", "cart:read"})
++     */
++    private $product;
++
++    /**
++     * @Groups({"cart:write", "cart:read"})
++     */
++    private $color;
++
++    /**
++     * @Groups({"cart:write", "cart:read"})
++     */
++    private $quantity;
++
++    /**
++     * @param $product
++     * @param $color
++     */
++    public function __construct(Product $product, Color $color)
++    {
++        $this->product = $product;
++        $this->color = $color;
++    }
++
++
++    public function getProduct(): Product
++    {
++        return $this->product;
++    }
++
++    public function getColor(): Color
++    {
++        return $this->color;
++    }
++
++    public function getQuantity(): int
++    {
++        return $this->quantity;
++    }
++
++    public function setQuantity(int $quantity)
++    {
++        $this->quantity = $quantity;
++    }
++
++    public function matches(CartItem $cartItem)
++    {
++        $thisKey = sprintf('%s_%s', $this->getProduct()->getId(), $this->getColor()->getId());
++        $thatKey = sprintf('%s_%s', $cartItem->getProduct()->getId(), $cartItem->getColor()->getId());
++
++        return $thisKey === $thatKey;
++    }
++}
+diff --git a/src/Serializer/ProductNormalizer.php b/src/Serializer/ProductNormalizer.php
+index 204a128d..783aa6f4 100644
+--- a/src/Serializer/ProductNormalizer.php
++++ b/src/Serializer/ProductNormalizer.php
+@@ -49,10 +49,15 @@ class ProductNormalizer implements ContextAwareNormalizerInterface, CacheableSup
+         $context[self::ALREADY_CALLED] = true;
+         $data = $this->normalizer->normalize($object, $format, $context);
+ 
++        // for embedded IRI situations
++        if (is_string($data)) {
++            return $data;
++        }
++
+         // add a fake image field
+         $data['image'] = $this->assetPackages
+             ->getUrl('uploads/products/'.$object->getImageFilename());
+ 
+         return $data;
+     }
+-}
+\ No newline at end of file
++}
+diff --git a/symfony.lock b/symfony.lock
+index bdab20ce..5ae32a6d 100644
+--- a/symfony.lock
++++ b/symfony.lock
+@@ -16,6 +16,9 @@
+             "./src/Entity/.gitignore"
+         ]
+     },
++    "brick/math": {
++        "version": "0.9.1"
++    },
+     "doctrine/annotations": {
+         "version": "1.0",
+         "recipe": {
+@@ -161,6 +164,12 @@
+     "psr/log": {
+         "version": "1.1.3"
+     },
++    "ramsey/collection": {
++        "version": "1.1.0"
++    },
++    "ramsey/uuid": {
++        "version": "4.1.1"
++    },
+     "sensio/framework-extra-bundle": {
+         "version": "5.2",
+         "recipe": {
