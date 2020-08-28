@@ -1,12 +1,12 @@
 <template>
     <div :class="$style.component">
         <span
-            v-for="(color, index) in colors"
+            v-for="(color) in colors"
             :key="color['@id']"
-            :class="{ selected: index === selectedIndex}"
+            :class="{ selected: color['@id'] === selectedIndex}"
             :title="color.name"
             :style="{ backgroundColor: `#${color.hexColor}` }"
-            @click="selectColor(index)"
+            @click="selectColor(color['@id'])"
         />
     </div>
 </template>
@@ -34,9 +34,9 @@ export default {
         this.colors = response.data['hydra:member'];
     },
     methods: {
-        selectColor(index) {
-            this.selectedIndex = index;
-            this.$emit('color-selected', this.colors[index]['@id']);
+        selectColor(irl) {
+            this.selectedIndex = irl;
+            this.$emit('color-selected', irl);
         },
     },
 };
