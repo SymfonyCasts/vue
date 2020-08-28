@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 43c2e8a0..5be5b532 100644
+index c6a4d8d2..93b3c7e3 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -73,12 +73,15 @@
@@ -7,8 +7,8 @@ index 43c2e8a0..5be5b532 100644
  
  <script>
 +import cartService from '@/services/cart-service.js';
- import ColorSelector from '@/components/color-selector';
  import { getProduct } from '@/services/products-service';
+ import ColorSelector from '@/components/color-selector';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
  import formatPrice from '@/helpers/format-price';

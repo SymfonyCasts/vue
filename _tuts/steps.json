@@ -986,6 +986,11 @@
             "description": null
         },
         {
+            "id": "basic-product-template-add-service-and-component",
+            "name": "Basic Product Template: Add service and Component",
+            "description": null
+        },
+        {
             "id": "basic-product-template-paste-product-template",
             "name": "Basic Product Template: Paste product template\"",
             "description": null
@@ -996,13 +1001,13 @@
             "description": null
         },
         {
-            "id": "basic-product-template-add-loading-component",
-            "name": "Basic Product Template: Add Loading Component",
+            "id": "basic-product-template-import-components",
+            "name": "Basic Product Template: Import Components",
             "description": null
         },
         {
-            "id": "basic-product-template-add-dummy-addtocart-method",
-            "name": "Basic Product Template: Add Dummy addToCart Method",
+            "id": "basic-product-template-add-methods-and-data",
+            "name": "Basic Product Template: Add methods and data",
             "description": null
         },
         {
@@ -1011,8 +1016,8 @@
             "description": null
         },
         {
-            "id": "basic-product-template-correct-price-in-template",
-            "name": "Basic Product Template: Correct price in Template",
+            "id": "delete-me-23",
+            "name": "delete-me-23",
             "description": null
         },
         {
@@ -1041,58 +1046,58 @@
             "description": null
         },
         {
-            "id": "product-colors-color-service",
-            "name": "Product Colors: Color service",
+            "id": "delete-me-24",
+            "name": "delete-me-24",
             "description": null
         },
         {
-            "id": "product-colors-color-selector-first-component",
-            "name": "Product Colors: Color Selector first component",
+            "id": "delete-me-25",
+            "name": "delete-me-25",
             "description": null
         },
         {
-            "id": "product-colors-color-selector-template",
-            "name": "Product Colors: Color Selector Template",
+            "id": "delete-me-26",
+            "name": "delete-me-26",
             "description": null
         },
         {
-            "id": "product-colors-color-selector-styles",
-            "name": "Product Colors: Color Selector styles",
+            "id": "delete-me-27",
+            "name": "delete-me-27",
             "description": null
         },
         {
-            "id": "product-colors-import-color-selector",
-            "name": "Product Colors: Import Color Selector",
+            "id": "delete-me-28",
+            "name": "delete-me-28",
             "description": null
         },
         {
-            "id": "product-colors-add-color-selector-to-template",
-            "name": "Product Colors: Add Color Selector to template",
+            "id": "delete-me-29",
+            "name": "delete-me-29",
             "description": null
         },
         {
-            "id": "product-colors-fix-template-error",
-            "name": "Product Colors: Fix Template Error",
+            "id": "delete-me-30",
+            "name": "delete-me-30",
             "description": null
         },
         {
-            "id": "select-color-and-quantity-onclick-handler",
-            "name": "Select Color and Quantity: onClick Handler",
+            "id": "delete-me-31",
+            "name": "delete-me-31",
             "description": null
         },
         {
-            "id": "select-color-and-quantity-selectedindex-class",
-            "name": "Select Color and Quantity: selectedIndex Class",
+            "id": "delete-me-32",
+            "name": "delete-me-32",
             "description": null
         },
         {
-            "id": "select-color-and-quantity-updateselectedcolor-method",
-            "name": "Select Color and Quantity: updateSelectedColor method",
+            "id": "delete-me-33",
+            "name": "delete-me-33",
             "description": null
         },
         {
-            "id": "select-color-and-quantity-add-quantity",
-            "name": "Select Color and Quantity: Add Quantity",
+            "id": "delete-me-34",
+            "name": "delete-me-34",
             "description": null
         },
         {
@@ -1536,5 +1541,5 @@
             "description": null
         }
     ],
-    "sha": "488e1cc30daabfb73705776eaddb760e5705477d"
+    "sha": "cddf447f75c9489145b5c33e9fa04dd37021dba0"
 }

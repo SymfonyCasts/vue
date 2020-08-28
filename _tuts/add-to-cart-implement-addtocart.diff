@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 5be5b532..3b38de4c 100644
+index 93b3c7e3..d7e696f6 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -80,8 +80,6 @@ import Loading from '@/components/loading';

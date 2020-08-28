@@ -1,35 +1,46 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 312c0d2c..b927d209 100644
+index cb73d81a..c118072a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -1,44 +1,46 @@
+@@ -1,69 +1,71 @@
  <template>
 -    <div class="row">
 -        <div class="col-12">
 -            <title-component :text="product.name" />
-+    <div class="col-12">
-+        <div class="row">
-+            <div class="col-12">
-+                <title-component :text="product.name" />
-+            </div>
-         </div>
+-        </div>
 -    </div>
- 
+-
 -    <div class="row">
 -        <div
 -            :class="[$style.product, 'col-11', 'row']"
 -        >
--            <div class="col-8">
+-            <div class="col-12 p-3">
+-                <loading v-show="loading" />
++    <div class="col-12">
++        <div class="row">
++            <div class="col-12">
++                <title-component :text="product.name" />
+             </div>
++        </div>
+ 
++        <div class="row">
+             <div
+-                v-show="!loading"
+-                class="col-8"
++                :class="[$style.product, 'col-11', 'row']"
+             >
 -                <img
 -                    class="d-block"
 -                    :src="product.image"
 -                    :alt="product.name"
--                >
-+        <div class="row">
-+            <div
-+                :class="[$style.product, 'col-11', 'row']"
-+            >
-+                <div class="col-8">
++                <div class="col-12 p-3">
++                    <loading v-show="loading" />
++                </div>
++
++                <div
++                    v-show="!loading"
++                    class="col-8"
+                 >
 +                    <img
 +                        class="d-block"
 +                        :src="product.image"
@@ -53,31 +64,65 @@ index 312c0d2c..b927d209 100644
                  </div>
 -            </div>
  
--            <div class="col-4">
+-            <div
+-                v-show="!loading"
+-                class="col-4"
+-            >
 -                <div class="p-3 row">
 -                    <p v-text="product.description" />
-+                <div class="col-4">
++                <div
++                    v-show="!loading"
++                    class="col-4"
++                >
 +                    <div class="p-3 row">
 +                        <p v-text="product.description" />
  
--                    <p>Price: <strong>${{ product.price }}</strong></p>
+-                    <p>Price: <strong>${{ price }}</strong></p>
 -                </div>
-+                        <p>Price: <strong>${{ product.price }}</strong></p>
++                        <p>Price: <strong>${{ price }}</strong></p>
 +                    </div>
  
 -                <div class="p-3 row align-items-center">
+-                    <color-selector
+-                        v-show="product.colors.length !== 0"
+-                        @color-selected="updateSelectedColor"
+-                    />
+-
+-                    <div class="col-3">
+-                        <input
+-                            v-model.number="qty"
+-                            class="form-control"
+-                            type="number"
+-                            min="1"
++                    <div class="p-3 row align-items-center">
++                        <color-selector
++                            v-show="product.colors.length !== 0"
++                            @color-selected="updateSelectedColor"
++                        />
++
++                        <div class="col-3">
++                            <input
++                                v-model.number="qty"
++                                class="form-control"
++                                type="number"
++                                min="1"
++                            >
++                        </div>
++
++                        <button
++                            class="btn btn-info btn-sm"
++                            @click="addToCart"
+                         >
++                            Add to Cart
++                        </button>
+                     </div>
+-
 -                    <button
 -                        class="btn btn-info btn-sm"
+-                        @click="addToCart"
 -                    >
 -                        Add to Cart
 -                    </button>
-+                    <div class="p-3 row align-items-center">
-+                        <button
-+                            class="btn btn-info btn-sm"
-+                        >
-+                            Add to Cart
-+                        </button>
-+                    </div>
                  </div>
              </div>
          </div>

@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index bcdc4c13..312c0d2c 100644
+index bcdc4c13..cb73d81a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -4,6 +4,45 @@
+@@ -4,6 +4,70 @@
              <title-component :text="product.name" />
          </div>
      </div>
@@ -11,7 +11,14 @@ index bcdc4c13..312c0d2c 100644
 +        <div
 +            :class="[$style.product, 'col-11', 'row']"
 +        >
-+            <div class="col-8">
++            <div class="col-12 p-3">
++                <loading v-show="loading" />
++            </div>
++
++            <div
++                v-show="!loading"
++                class="col-8"
++            >
 +                <img
 +                    class="d-block"
 +                    :src="product.image"
@@ -28,16 +35,34 @@ index bcdc4c13..312c0d2c 100644
 +                </div>
 +            </div>
 +
-+            <div class="col-4">
++            <div
++                v-show="!loading"
++                class="col-4"
++            >
 +                <div class="p-3 row">
 +                    <p v-text="product.description" />
 +
-+                    <p>Price: <strong>${{ product.price }}</strong></p>
++                    <p>Price: <strong>${{ price }}</strong></p>
 +                </div>
 +
 +                <div class="p-3 row align-items-center">
++                    <color-selector
++                        v-show="product.colors.length !== 0"
++                        @color-selected="updateSelectedColor"
++                    />
++
++                    <div class="col-3">
++                        <input
++                            v-model.number="qty"
++                            class="form-control"
++                            type="number"
++                            min="1"
++                        >
++                    </div>
++
 +                    <button
 +                        class="btn btn-info btn-sm"
++                        @click="addToCart"
 +                    >
 +                        Add to Cart
 +                    </button>
@@ -48,7 +73,7 @@ index bcdc4c13..312c0d2c 100644
  </template>
  
  <script>
-@@ -27,7 +66,7 @@ export default {
+@@ -27,7 +91,7 @@ export default {
      },
      data() {
          return {
@@ -57,7 +82,7 @@ index bcdc4c13..312c0d2c 100644
              loading: true,
          };
      },
-@@ -48,3 +87,11 @@ export default {
+@@ -48,3 +112,11 @@ export default {
      },
  };
  </script>

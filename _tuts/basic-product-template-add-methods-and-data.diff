@@ -1,0 +1,38 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 53119817..b93cc257 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -97,7 +97,11 @@ export default {
+     },
+     data() {
+         return {
+-            product: { name: '', image: '', price: 0 },
++            product: {
++                name: '', image: '', price: 0, colors: [],
++            },
++            selectedColorId: null,
++            qty: 1,
+             loading: true,
+         };
+     },
+@@ -116,6 +120,20 @@ export default {
+ 
+         this.product = response.data;
+     },
++    methods: {
++        addToCart() {
++            // TODO
++        },
++
++        /**
++         * Update the selectedColorId index accordingly
++         *
++         * @params {string} colorId
++         */
++        updateSelectedColor(colorId) {
++            this.selectedColorId = colorId;
++        },
++    },
+ };
+ </script>
+ 
