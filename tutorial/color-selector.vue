@@ -3,7 +3,7 @@
         <span
             v-for="(color) in colors"
             :key="color['@id']"
-            :class="{ selected: color['@id'] === selectedIndex}"
+            :class="{ selected: color['@id'] === selectedIRI}"
             :title="color.name"
             :style="{ backgroundColor: `#${color.hexColor}` }"
             @click="selectColor(color['@id'])"
@@ -19,7 +19,7 @@ export default {
     data() {
         return {
             colors: [],
-            selectedIndex: null,
+            selectedIRI: null,
         };
     },
     async created() {
@@ -35,7 +35,7 @@ export default {
     },
     methods: {
         selectColor(iri) {
-            this.selectedIndex = iri;
+            this.selectedIRI = iri;
             this.$emit('color-selected', iri);
         },
     },
