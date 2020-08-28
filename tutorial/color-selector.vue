@@ -34,9 +34,9 @@ export default {
         this.colors = response.data['hydra:member'];
     },
     methods: {
-        selectColor(irl) {
-            this.selectedIndex = irl;
-            this.$emit('color-selected', irl);
+        selectColor(iri) {
+            this.selectedIndex = iri;
+            this.$emit('color-selected', iri);
         },
     },
 };
