@@ -1,0 +1,75 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 8b48e576..9fedbf99 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -73,7 +73,7 @@
+ </template>
+ 
+ <script>
+-import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-service.js';
++import { addItemToCart } from '@/services/cart-service.js';
+ import { getProduct } from '@/services/products-service';
+ import ColorSelector from '@/components/color-selector';
+ import Loading from '@/components/loading';
+@@ -99,7 +99,6 @@ export default {
+     },
+     data() {
+         return {
+-            cart: { items: [] },
+             product: {
+                 name: '', image: '', price: 0, colors: [],
+             },
+@@ -132,16 +131,6 @@ export default {
+ 
+         this.product = response.data;
+     },
+-    async mounted() {
+-        try {
+-            this.cart = await getCart();
+-        } catch (e) {
+-            return;
+-        }
+-
+-        document.getElementById('js-shopping-cart-items')
+-            .innerHTML = getCartTotalItems(this.cart).toString();
+-    },
+     methods: {
+         async addToCart() {
+             if (this.product.colors.length && this.selectedColorId === null) {
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index e0b9ba7b..5ebb7528 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -26,6 +26,7 @@ import Product from '@/components/product';
+ import Sidebar from '@/components/sidebar';
+ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
+ import { fetchCategories } from '@/services/categories-service';
++import { getCart, getCartTotalItems } from '@/services/cart-service';
+ 
+ export default {
+     name: 'Products',
+@@ -36,6 +37,7 @@ export default {
+     },
+     data() {
+         return {
++            cart: { items: [] },
+             categories: [],
+             currentCategoryId: getCurrentCategoryId(),
+             sidebarCollapsed: false,
+@@ -71,6 +73,16 @@ export default {
+ 
+         this.categories = response.data['hydra:member'];
+     },
++    async mounted() {
++        try {
++            this.cart = await getCart();
++        } catch (e) {
++            return;
++        }
++
++        document.getElementById('js-shopping-cart-items')
++            .innerHTML = getCartTotalItems(this.cart).toString();
++    },
+     methods: {
+         toggleSidebarCollapsed() {
+             this.sidebarCollapsed = !this.sidebarCollapsed;

@@ -1,0 +1,26 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 6a333d22..8b48e576 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -73,7 +73,7 @@
+ </template>
+ 
+ <script>
+-import { addItemToCart, getCart } from '@/services/cart-service.js';
++import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-service.js';
+ import { getProduct } from '@/services/products-service';
+ import ColorSelector from '@/components/color-selector';
+ import Loading from '@/components/loading';
+@@ -136,8 +136,11 @@ export default {
+         try {
+             this.cart = await getCart();
+         } catch (e) {
+-            // do nothing
++            return;
+         }
++
++        document.getElementById('js-shopping-cart-items')
++            .innerHTML = getCartTotalItems(this.cart).toString();
+     },
+     methods: {
+         async addToCart() {

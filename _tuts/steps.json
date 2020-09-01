@@ -1106,8 +1106,18 @@
             "description": null
         },
         {
+            "id": "delete-me-35",
+            "name": "delete-me-35",
+            "description": null
+        },
+        {
             "id": "add-to-cart-import-cart-service",
             "name": "Add To Cart: Import cart service",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-load-cart-on-mounted",
+            "name": "Add To Cart: Load cart on mounted",
             "description": null
         },
         {
@@ -1116,13 +1126,28 @@
             "description": null
         },
         {
-            "id": "add-to-cart-use-totalitems-in-header",
-            "name": "Add To Cart: Use totalItems in header",
+            "id": "delete-me-36",
+            "name": "delete-me-36",
             "description": null
         },
         {
             "id": "add-to-cart-add-id-to-template",
             "name": "Add to Cart: Add id to template",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-update-total-items-in-header",
+            "name": "Add to Cart: Update Total Items in Header",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-move-mounted-to-products",
+            "name": "Add to Cart: Move mounted to Products",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-pass-down-props",
+            "name": "Add to Cart: Pass down props",
             "description": null
         },
         {
@@ -1541,5 +1566,5 @@
             "description": null
         }
     ],
-    "sha": "e4aada0f1ba9ad2fabff969394cfe8776ab41ef5"
+    "sha": "015714f4115a29b15b073d025b5cafe4f5f62a16"
 }

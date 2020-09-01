@@ -1,137 +1,144 @@
 diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
 new file mode 100644
-index 00000000..09aa629e
+index 00000000..8bb28aba
 --- /dev/null
 +++ b/assets/js/services/cart-service.js
-@@ -0,0 +1,131 @@
+@@ -0,0 +1,138 @@
++import axios from 'axios';
++
 +/**
-+ * Finds an item by product and color id in the storage
++ * @typedef {Object} CartCollection
++ * @property {CartItem} items
++ */
++
++/**
++ * @typedef {object} CartItem
++ * @property {string} product
++ * @property {string|null} color
++ * @property {number} quantity
++ */
++
++/**
++ * Gets the Cart IRI or null if there is none
 + *
-+ * @param {object} storage
++ * @return {string|null}
++ */
++function getCartId() {
++    return window.cartId;
++}
++
++/**
++ * Finds an item in the cart by productId and colorId
++ *
++ * @param {CartCollection} cart
 + * @param {string} productId
-+ * @param {string|null} colorId
++ * @param {string} colorId
++ */
++function findItemIndex(cart, productId, colorId) {
++    return cart.items.findIndex((cartItem) => (
++        cartItem.product === productId && cartItem.color === colorId
++    ));
++}
++
++/**
++ * Gets the current cart or an empty object if no cart is present
++ *
++ * @return {CartCollection}
++ */
++export async function getCart() {
++    const cartId = getCartId();
++
++    if (cartId === null) {
++        return new Promise((resolve) => {
++            resolve({
++                items: [],
++            });
++        });
++    }
++
++    const response = await axios.get(`/api/carts/${cartId}`);
++    return { items: response.data.items };
++}
++
++/**
++ * Adds an item to the cart and saves it
++ *
++ * @param {CartCollection} cart
++ * @param {CartItem} item
++ * @return {Promise}
++ */
++export function addItemToCart(cart, item) {
++    const cartId = getCartId();
++    const itemIndex = findItemIndex(cart, item.product, item.color);
++
++    if (itemIndex !== -1) {
++        cart.items[itemIndex].quantity += item.quantity;
++    } else {
++        cart.items.push(item);
++    }
++
++    if (cartId !== null) {
++        return axios.put(`/api/carts/${cartId}`, cart);
++    }
++
++    return axios.post('/api/carts', cart);
++}
++
++/**
++ * Removes an item from the shopping cart
++ *
++ * @param {CartCollection} cart
++ * @param {string} productId
++ * @param {string} colorId
++ * @return {Promise}
++ */
++export function removeItemFromCart(cart, productId, colorId) {
++    const cartId = getCartId();
++
++    cart.items = cart.items.filter(
++        (item) => (!(item.product === productId && item.color === colorId)),
++    );
++
++    return axios.put(`/api/carts/${cartId}`, cart);
++}
++
++/**
++ * Updates the quantity of a product already in the cart
++ *
++ * @param {CartCollection} cart
++ * @param {string} productId
++ * @param {string} colorId
++ * @param {number} quantity
++ * @return {Promise}
++ */
++export function updateCartItemQuantity(cart, productId, colorId, quantity) {
++    const cartId = getCartId();
++    const cartItemIndex = findItemIndex(cart, productId, colorId);
++
++    if (cartItemIndex === -1) {
++        throw new Error(`Invalid product+color combination: ${productId}, ${colorId}`);
++    }
++
++    cart.items[cartItemIndex].quantity = quantity;
++
++    return axios.put(`/api/carts/${cartId}`, cart);
++}
++
++/**
++ * Clears the shopping cart
++ *
++ * @return {Promise}
++ */
++export function clearCart() {
++    return axios.delete(`/api/carts/${getCartId()}`);
++}
++
++/**
++ * Gets the total number of items in our shopping cart
++ *
++ * @param {CartCollection} cart
 + * @return {number}
 + */
-+const findItemIndex = (storage, productId, colorId) => (
-+    storage.findIndex(
-+        (item) => (
-+            item.productId === productId && item.colorId === colorId
-+        ),
-+    ));
-+
-+const cart = {
-+    /**
-+     * Gets the list of all shopping cart items in an array of objects containing:
-+     * - productId
-+     * - colorId
-+     * - qty
-+     *
-+     * @return {object}
-+     */
-+    getItems() {
-+        return cart.getStorage();
-+    },
-+
-+    /**
-+     * Adds a product into the cart, providing a product id, an optional color id and the quantity
-+     *
-+     * @param {string} productId
-+     * @param {string|null} colorId
-+     * @param {number} qty
-+     */
-+    addItem(productId, colorId, qty) {
-+        const storage = cart.getStorage();
-+        const itemIndex = findItemIndex(storage, productId, colorId);
-+
-+        if (itemIndex !== -1) {
-+            storage[itemIndex].qty += qty;
-+        } else {
-+            storage.push({
-+                productId,
-+                colorId,
-+                qty,
-+            });
-+        }
-+
-+        cart.saveStorage(storage);
-+    },
-+
-+    /**
-+     * Removes an item from the shopping cart identified by productId and an optional colorId
-+     *
-+     * @param {string} productId
-+     * @param {string|null} colorId
-+     */
-+    removeItem(productId, colorId) {
-+        const storage = cart.getStorage();
-+        cart.saveStorage(
-+            storage.filter((item) => (!(item.productId === productId && item.colorId === colorId))),
-+        );
-+    },
-+
-+    /**
-+     * Updates the qty property on a product in the cart
-+     *
-+     * @param {string} productId
-+     * @param {string|null} colorId
-+     * @param {number} qty
-+     */
-+    updateQty(productId, colorId, qty) {
-+        const storage = cart.getStorage();
-+
-+        const cartItemIndex = findItemIndex(storage, productId, colorId);
-+
-+        if (cartItemIndex === -1) {
-+            throw new Error(`Invalid product+color combination: ${productId}, ${colorId}`);
-+        }
-+
-+        storage[cartItemIndex].qty = qty;
-+        cart.saveStorage(storage);
-+    },
-+
-+    /**
-+     * Clears the shopping cart
-+     */
-+    clear() {
-+        cart.saveStorage([]);
-+    },
-+
-+    /**
-+     * Returns the total number of items in our shopping cart
-+     *
-+     * @return {number}
-+     */
-+    totalItems() {
-+        return cart.getStorage().reduce((acc, item) => (acc + item.qty), 0);
-+    },
-+
-+    /**
-+     * Initializes the local storage for our shopping cart
-+     */
-+    initializeStorage() {
-+        if (localStorage.getItem('cart') === null) {
-+            localStorage.setItem('cart', '[]');
-+        }
-+    },
-+
-+    /**
-+     * Gets the local storage as an object
-+     *
-+     * @returns {array}
-+     */
-+    getStorage() {
-+        cart.initializeStorage();
-+        return JSON.parse(localStorage.getItem('cart'));
-+    },
-+
-+    /**
-+     * Saves the local storage in its string format
-+     *
-+     * @param {array} storage
-+     */
-+    saveStorage(storage) {
-+        localStorage.setItem('cart', JSON.stringify(storage));
-+    },
-+};
-+
-+export default cart;
++export function getCartTotalItems(cart) {
++    return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
++}

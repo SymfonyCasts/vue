@@ -1,27 +1,24 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 93b3c7e3..d7e696f6 100644
+index f3968a73..6a333d22 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -80,8 +80,6 @@ import Loading from '@/components/loading';
- import TitleComponent from '@/components/title';
- import formatPrice from '@/helpers/format-price';
- 
--window.cartService = cartService;
--
- export default {
-     name: 'Product',
-     components: {
-@@ -135,7 +133,14 @@ export default {
+@@ -140,8 +140,19 @@ export default {
+         }
      },
      methods: {
-         addToCart() {
+-        addToCart() {
 -            // TODO
++        async addToCart() {
 +            if (this.product.colors.length && this.selectedColorId === null) {
 +                alert('Please, select a product color first!');
 +                return;
 +            }
 +
-+            cartService.addItem(this.product['@id'], this.selectedColorId, this.qty);
++            await addItemToCart(this.cart, {
++                product: this.product['@id'],
++                color: this.selectedColorId,
++                quantity: this.qty,
++            });
 +
 +            window.location = '/';
          },

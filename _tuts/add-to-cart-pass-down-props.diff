@@ -1,0 +1,27 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 9fedbf99..84eb03da 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -96,6 +96,10 @@ export default {
+             type: Array,
+             default: () => ([]),
+         },
++        cart: {
++            type: Object,
++            required: true,
++        },
+     },
+     data() {
+         return {
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 5ebb7528..c9f1a870 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -61,6 +61,7 @@ export default {
+                 ? {
+                     currentProductId: this.currentProductId,
+                     categories: this.categories,
++                    cart: this.cart,
+                 }
+                 : {
+                     currentCategoryId: this.currentCategoryId,

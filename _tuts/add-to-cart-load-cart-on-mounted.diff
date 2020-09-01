@@ -1,0 +1,26 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 36ab7a5f..f3968a73 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -99,6 +99,7 @@ export default {
+     },
+     data() {
+         return {
++            cart: { items: [] },
+             product: {
+                 name: '', image: '', price: 0, colors: [],
+             },
+@@ -131,6 +132,13 @@ export default {
+ 
+         this.product = response.data;
+     },
++    async mounted() {
++        try {
++            this.cart = await getCart();
++        } catch (e) {
++            // do nothing
++        }
++    },
+     methods: {
+         addToCart() {
+             // TODO
