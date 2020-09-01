@@ -8,8 +8,8 @@ import axios from 'axios';
 /**
  * @typedef {object} CartItem
  * @property {string} product
- * @property {string} color
- * @property {string} quantity
+ * @property {string|null} color
+ * @property {number} quantity
  */
 
 /**
