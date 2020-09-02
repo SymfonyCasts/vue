@@ -464,7 +464,7 @@ index 00000000..c4417364
 +}
 diff --git a/src/Entity/CartItem.php b/src/Entity/CartItem.php
 new file mode 100644
-index 00000000..83ad32c2
+index 00000000..0d38ca0a
 --- /dev/null
 +++ b/src/Entity/CartItem.php
 @@ -0,0 +1,62 @@
@@ -524,8 +524,8 @@ index 00000000..83ad32c2
 +
 +    public function matches(CartItem $cartItem)
 +    {
-+        $thisKey = sprintf('%s_%s', $this->getProduct()->getId(), $this->getColor()->getId());
-+        $thatKey = sprintf('%s_%s', $cartItem->getProduct()->getId(), $cartItem->getColor()->getId());
++        $thisKey = sprintf('%s_%s', $this->getProduct()->getId(), $this->getColor() ? $this->getColor()->getId() : 'no_color');
++        $thatKey = sprintf('%s_%s', $cartItem->getProduct()->getId(), $cartItem->getColor() ? $cartItem->getColor()->getId() : 'no_color');
 +
 +        return $thisKey === $thatKey;
 +    }
