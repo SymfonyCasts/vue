@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 3379768b..f0b341ba 100644
+index 880e15a3..c06da299 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -55,6 +55,12 @@ export default {
+@@ -57,6 +57,12 @@ export default {
      },
      async created() {
          const itemsInCart = cartService.getItems();

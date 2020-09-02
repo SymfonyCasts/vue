@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index db9fd966..1c6efb6d 100644
+index 89a27d57..074ed867 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -9,21 +9,44 @@
+@@ -9,23 +9,46 @@
                          <title-component text="Shopping Cart" />
                      </div>
                  </div>
@@ -25,6 +25,7 @@ index db9fd966..1c6efb6d 100644
  <script>
 +import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
+ import shoppingCartMixin from '@/mixins/get-shopping-cart';
  
  export default {
      name: 'ShoppingCart',
@@ -32,6 +33,7 @@ index db9fd966..1c6efb6d 100644
 +        Loading,
          TitleComponent,
      },
+     mixins: [shoppingCartMixin],
 +    data() {
 +        return {
 +            loading: true,

@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index cf719efd..41d85be3 100644
+index 6be56d80..04aa84d1 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -61,7 +61,7 @@ import { getProductsById } from '@/services/products-service';
@@ -8,6 +8,6 @@ index cf719efd..41d85be3 100644
  import TitleComponent from '@/components/title';
 -import ShoppingCartProduct from "@/components/shopping-cart/cart-item";
 +import ShoppingCartProduct from '@/components/shopping-cart/cart-item';
+ import shoppingCartMixin from '@/mixins/get-shopping-cart';
  
  export default {
-     name: 'ShoppingCart',

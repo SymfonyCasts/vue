@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 6b37980e..db9fd966 100644
+index 4bceb255..89a27d57 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -1,18 +1,27 @@
+@@ -1,20 +1,28 @@
  <template>
      <div class="container-fluid">
 -        <div class="row row-no-wrap">
@@ -23,12 +23,13 @@ index 6b37980e..db9fd966 100644
  
  <script>
 +import TitleComponent from '@/components/title';
-+
+ import shoppingCartMixin from '@/mixins/get-shopping-cart';
+ 
  export default {
      name: 'ShoppingCart',
 +    components: {
 +        TitleComponent,
 +    },
+     mixins: [shoppingCartMixin],
  };
  </script>
- 

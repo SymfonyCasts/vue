@@ -1181,6 +1181,21 @@
             "description": null
         },
         {
+            "id": "mixins-create-mixin",
+            "name": "Mixins: Create mixin",
+            "description": null
+        },
+        {
+            "id": "mixins-add-mixin-to-products-vue",
+            "name": "Mixins: Add mixin to Products.vue",
+            "description": null
+        },
+        {
+            "id": "mixins-add-mixin-to-shopping-cart-page",
+            "name": "Mixins: Add mixin to Shopping Cart page",
+            "description": null
+        },
+        {
             "id": "delete-me-12",
             "name": "delete-me-12",
             "description": null
@@ -1566,5 +1581,5 @@
             "description": null
         }
     ],
-    "sha": "9d4e9e87b85abc889add4bee47565c9c9214d736"
+    "sha": "1a2a28a22dcd384353264be90a06f49a71febdca"
 }

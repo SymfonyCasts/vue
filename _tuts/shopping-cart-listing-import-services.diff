@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 1c6efb6d..8ad28f85 100644
+index 074ed867..06f1fff5 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -26,6 +26,7 @@
@@ -9,4 +9,4 @@ index 1c6efb6d..8ad28f85 100644
 +import { getColors } from '@/services/colors-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
- 
+ import shoppingCartMixin from '@/mixins/get-shopping-cart';
