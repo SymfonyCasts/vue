@@ -1,20 +1,41 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index d195b86b..c1381717 100644
+index 69a04272..a42b9b77 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -1,6 +1,6 @@
+@@ -1,25 +1,43 @@
  <template>
 -    <div :class="[$style.component, 'row', 'p-3']">
--        <span class="col-3 row">
+-        <div class="col-3">
+-            <div class="row">
+-                <span class="col">
+-                    {{ product.name }}
+-                </span>
+-
+-                <span class="col-2">
+-                    <span
+-                        class="color-square"
+-                        :style="{
+-                            backgroundColor: `#${product.hexColor}`
+-                        }"
+-                    />
+-                </span>
+-            </div>
+-        </div>
 +    <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
 +        <span class="col-3 row align-items-center">
-             <span class="col">
-                 {{ product.name }}
-             </span>
-@@ -14,10 +14,30 @@
-                 />
-             </span>
-         </span>
++            <span class="col">
++                {{ product.name }}
++            </span>
++
++            <span class="col-2">
++                <span
++                    class="color-square"
++                    :style="{
++                        backgroundColor: `#${product.hexColor}`
++                    }"
++                />
++            </span>
++        </span>
 +
 +        <span class="col-3">
 +            <input
@@ -42,7 +63,7 @@ index d195b86b..c1381717 100644
  export default {
      name: 'ShoppingCartProduct',
      props: {
-@@ -26,6 +46,11 @@ export default {
+@@ -28,6 +46,11 @@ export default {
              required: true,
          },
      },
@@ -54,7 +75,7 @@ index d195b86b..c1381717 100644
  };
  </script>
  
-@@ -41,5 +66,9 @@ export default {
+@@ -43,5 +66,9 @@ export default {
          height: 25px;
          border-radius: 4px;
      }
@@ -64,3 +85,28 @@ index d195b86b..c1381717 100644
 +    }
  }
  </style>
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 99c3a5fc..68cd8a31 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -32,16 +32,10 @@
+ 
+                         <div v-show="!loading && items.length">
+                             <div class="row p-3">
+-                                <div class="col-3">
+-                                    Item Name
+-                                </div>
+-                                <div class="col-3">
+-                                    Quantity
+-                                </div>
+-                                <div class="col-3">
+-                                    Price
+-                                </div>
+-                                <div class="col-3" />
++                                <span class="col-3">Item Name</span>
++                                <span class="col-3">Quantity</span>
++                                <span class="col-3">Price</span>
++                                <span class="col-3" />
+                             </div>
+ 
+                             <shopping-cart-product

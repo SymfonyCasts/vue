@@ -1,24 +1,83 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 0accf3fa..afe589f5 100644
+index fe493222..7373219e 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -21,6 +21,7 @@
+@@ -1,47 +1,55 @@
+ <template>
+     <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
+-        <span class="col-3 row align-items-center">
+-            <span class="col">
+-                {{ product.name }}
+-            </span>
++        <div class="col-3">
++            <div class="row align-items-center">
++                <span class="col">
++                    {{ product.name }}
++                </span>
+ 
+-            <span class="col-2">
+-                <span
+-                    class="color-square"
+-                    :style="{
+-                        backgroundColor: `#${product.hexColor}`
+-                    }"
+-                />
+-            </span>
+-        </span>
++                <span class="col-2">
++                    <span
++                        class="color-square"
++                        :style="{
++                            backgroundColor: `#${product.hexColor}`
++                        }"
++                    />
++                </span>
++            </div>
++        </div>
+ 
+-        <span class="col-3">
++        <div class="col-3">
+             <input
+                 v-model.number="product.qty"
                  class="form-control"
                  type="number"
                  min="1"
 +                @input="updateQty(product['@id'], product.colorId, product.qty)"
              >
-         </span>
+-        </span>
++        </div>
  
-@@ -37,6 +38,7 @@
+-        <span class="col-3">
++        <div class="col-3">
+             ${{ totalPrice }}
+-        </span>
++        </div>
+ 
+-        <span class="col-3">
++        <div class="col-3">
+             <button class="btn btn-info btn-sm">
+                 Remove
+             </button>
+-        </span>
++        </div>
+     </div>
  </template>
  
  <script>
-+import cartService from '@/services/cart-service';
++import { updateCartItemQuantity } from '@/services/cart-service';
  import formatPrice from '@/helpers/format-price';
  
  export default {
-@@ -52,6 +54,18 @@ export default {
+     name: 'ShoppingCartProduct',
+     props: {
++        cart: {
++            type: Object,
++            required: true,
++        },
+         product: {
+             type: Object,
+             required: true,
+@@ -52,6 +60,19 @@ export default {
              return formatPrice(this.product.price * this.product.qty);
          },
      },
@@ -27,13 +86,44 @@ index 0accf3fa..afe589f5 100644
 +         * Updates the product quantity in the cart, then refreshes the page
 +         *
 +         * @param {string} productId
-+         * @param {string} colorId
++         * @param {string|null} colorId
 +         * @param {number} qty
 +         */
-+        updateQty(productId, colorId, qty) {
-+            cartService.updateQty(productId, colorId, qty);
++        async updateQty(productId, colorId, qty) {
++            await updateCartItemQuantity(this.cart, productId, colorId, qty);
++            window.location.reload();
 +        },
 +    },
  };
  </script>
  
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 68cd8a31..a684b773 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -32,14 +32,21 @@
+ 
+                         <div v-show="!loading && items.length">
+                             <div class="row p-3">
+-                                <span class="col-3">Item Name</span>
+-                                <span class="col-3">Quantity</span>
+-                                <span class="col-3">Price</span>
+-                                <span class="col-3" />
++                                <div class="col-3">
++                                    Item Name
++                                </div>
++                                <div class="col-3">
++                                    Quantity
++                                </div>
++                                <div class="col-3">
++                                    Price
++                                </div>
++                                <div class="col-3" />
+                             </div>
+ 
+                             <shopping-cart-product
+                                 v-for="item in items"
++                                :cart="cart"
+                                 :key="item['@id']"
+                                 :product="item"
+                             />

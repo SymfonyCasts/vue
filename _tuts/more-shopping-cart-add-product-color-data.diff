@@ -1,14 +1,14 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 78391d4d..d195b86b 100644
+index 47aabc20..69a04272 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -8,6 +8,9 @@
-             <span class="col-2">
-                 <span
-                     :class="$style['color-square']"
-+                    :style="{
-+                        backgroundColor: `#${product.hexColor}`
-+                    }"
-                 />
-             </span>
-         </span>
+@@ -9,6 +9,9 @@
+                 <span class="col-2">
+                     <span
+                         class="color-square"
++                        :style="{
++                            backgroundColor: `#${product.hexColor}`
++                        }"
+                     />
+                 </span>
+             </div>

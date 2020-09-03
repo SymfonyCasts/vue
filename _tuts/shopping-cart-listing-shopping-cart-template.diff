@@ -1,12 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 4bceb255..89a27d57 100644
+index 42624c3d..89a27d57 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -1,20 +1,28 @@
- <template>
-     <div class="container-fluid">
--        <div class="row row-no-wrap">
-+        <div class="row">
+@@ -4,17 +4,25 @@
              <aside class="col-xs-12 col-lg-3" />
  
              <div class="col-xs-12 col-lg-9">

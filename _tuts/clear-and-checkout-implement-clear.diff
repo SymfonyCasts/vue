@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index e7db3446..91474541 100644
+index 9e24064a..36cb0a2a 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -52,6 +52,7 @@
+@@ -61,6 +61,7 @@
                                      class="col">
                                      <button
                                          class="btn btn-info btn-sm"
@@ -10,7 +10,7 @@ index e7db3446..91474541 100644
                                      >
                                          Clear Shopping Cart
                                      </button>
-@@ -162,6 +163,16 @@ export default {
+@@ -171,6 +172,16 @@ export default {
              this.loading = false;
          },
      },

@@ -1356,8 +1356,8 @@
             "description": null
         },
         {
-            "id": "more-shopping-cart-fix-css",
-            "name": "More Shopping Cart: Fix CSS",
+            "id": "delete-me-37",
+            "name": "delete-me-37",
             "description": null
         },
         {
@@ -1586,5 +1586,5 @@
             "description": null
         }
     ],
-    "sha": "0b5d72b3972471274f6a7c607ca62a68c1db52db"
+    "sha": "70017781646f3d114039463a78e188efda91a5aa"
 }

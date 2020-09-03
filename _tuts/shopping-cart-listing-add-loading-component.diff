@@ -1,14 +1,21 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 89a27d57..074ed867 100644
+index 89a27d57..cccec2b3 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -9,23 +9,46 @@
+@@ -1,5 +1,5 @@
+ <template>
+-    <div class="container-fluid">
++    <div :class="[$style.component, 'container-fluid']">
+         <div class="row">
+             <aside class="col-xs-12 col-lg-3" />
+ 
+@@ -9,23 +9,48 @@
                          <title-component text="Shopping Cart" />
                      </div>
                  </div>
 +
 +                <div class="row">
-+                    <div :class="[$style.content, 'col-11']">
++                    <div class="content col-11">
 +                        <div
 +                            v-show="loading"
 +                            class="col-12 p-3"
@@ -45,7 +52,9 @@ index 89a27d57..074ed867 100644
  <style lang="scss" module>
 +@import '~styles/components/light-component.scss';
 +
-+.content {
-+    @include light-component;
++.component :global {
++    .content {
++        @include light-component;
++    }
 +}
  </style>

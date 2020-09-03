@@ -1,18 +1,36 @@
+diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
+index 7e8018dc..af23cc1a 100644
+--- a/assets/js/components/shopping-cart/cart-item.vue
++++ b/assets/js/components/shopping-cart/cart-item.vue
+@@ -1,6 +1,6 @@
+ <template>
+     <div :class="[$style.component, 'row', 'p-3']">
+-        <span class="col-12">{{ product.name }}</span>
++        <div class="col-12">{{ product.name }}</div>
+     </div>
+ </template>
+ 
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 4516786e..1d010e55 100644
+index a3f106dc..40df0e83 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -27,6 +27,27 @@
+@@ -29,6 +29,33 @@
                                  Sorry! You haven't bought anything yet!
                              </div>
                          </div>
 +
 +                        <div v-show="!loading && items.length">
 +                            <div class="row p-3">
-+                                <span class="col-3">Item Name</span>
-+                                <span class="col-3">Quantity</span>
-+                                <span class="col-3">Price</span>
-+                                <span class="col-3" />
++                                <div class="col-3">
++                                    Item Name
++                                </div>
++                                <div class="col-3">
++                                    Quantity
++                                </div>
++                                <div class="col-3">
++                                    Price
++                                </div>
++                                <div class="col-3" />
 +                            </div>
 +
 +                            <shopping-cart-product
@@ -30,7 +48,7 @@ index 4516786e..1d010e55 100644
                      </div>
                  </div>
              </div>
-@@ -39,11 +60,13 @@ import { getProductsById } from '@/services/products-service';
+@@ -41,11 +68,13 @@ import { getProductsById } from '@/services/products-service';
  import { getColors } from '@/services/colors-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';

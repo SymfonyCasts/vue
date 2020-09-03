@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 91474541..0a6a2286 100644
+index 36cb0a2a..34fa20ba 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -59,6 +59,7 @@
+@@ -68,6 +68,7 @@
  
                                      <button
                                          class="btn btn-info btn-sm"

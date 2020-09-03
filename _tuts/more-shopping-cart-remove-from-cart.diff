@@ -1,11 +1,11 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index afe589f5..8fb8e11b 100644
+index 7373219e..dbf1c974 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -30,7 +30,10 @@
-         </span>
+@@ -32,7 +32,10 @@
+         </div>
  
-         <span class="col-3">
+         <div class="col-3">
 -            <button class="btn btn-info btn-sm">
 +            <button
 +                class="btn btn-info btn-sm"
@@ -13,10 +13,19 @@ index afe589f5..8fb8e11b 100644
 +            >
                  Remove
              </button>
-         </span>
-@@ -65,6 +68,18 @@ export default {
-         updateQty(productId, colorId, qty) {
-             cartService.updateQty(productId, colorId, qty);
+         </div>
+@@ -40,7 +43,7 @@
+ </template>
+ 
+ <script>
+-import { updateCartItemQuantity } from '@/services/cart-service';
++import { updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
+ import formatPrice from '@/helpers/format-price';
+ 
+ export default {
+@@ -72,6 +75,18 @@ export default {
+             await updateCartItemQuantity(this.cart, productId, colorId, qty);
+             window.location.reload();
          },
 +
 +        /**
@@ -26,7 +35,7 @@ index afe589f5..8fb8e11b 100644
 +         * @param {string|null} colorId
 +         */
 +        removeFromCart(productId, colorId) {
-+            cartService.removeItem(productId, colorId);
++            removeItemFromCart(this.cart, productId, colorId);
 +
 +            window.location.reload();
 +        },
