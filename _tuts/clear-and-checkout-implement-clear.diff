@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 9e24064a..36cb0a2a 100644
+index 9e24064a..dc87f1bc 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -61,6 +61,7 @@
@@ -10,7 +10,15 @@ index 9e24064a..36cb0a2a 100644
                                      >
                                          Clear Shopping Cart
                                      </button>
-@@ -171,6 +172,16 @@ export default {
+@@ -83,6 +84,7 @@
+ <script>
+ import { getProductsById } from '@/services/products-service';
+ import { getColors } from '@/services/colors-service';
++import { clearCart } from '@/services/cart-service';
+ import formatPrice from '@/helpers/format-price';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+@@ -171,6 +173,16 @@ export default {
              this.loading = false;
          },
      },
@@ -19,7 +27,7 @@ index 9e24064a..36cb0a2a 100644
 +         * Clears the shopping cart and goes to the home page
 +         */
 +        clearCart() {
-+            cartService.clear();
++            clearCart();
 +
 +            window.location = '/';
 +        },

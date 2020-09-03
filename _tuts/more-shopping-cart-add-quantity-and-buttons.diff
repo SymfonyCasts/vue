@@ -1,59 +1,36 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 69a04272..a42b9b77 100644
+index 69a04272..926dbc26 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -1,25 +1,43 @@
+@@ -1,5 +1,5 @@
  <template>
 -    <div :class="[$style.component, 'row', 'p-3']">
--        <div class="col-3">
--            <div class="row">
--                <span class="col">
--                    {{ product.name }}
--                </span>
--
--                <span class="col-2">
--                    <span
--                        class="color-square"
--                        :style="{
--                            backgroundColor: `#${product.hexColor}`
--                        }"
--                    />
--                </span>
--            </div>
--        </div>
 +    <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
-+        <span class="col-3 row align-items-center">
-+            <span class="col">
-+                {{ product.name }}
-+            </span>
+         <div class="col-3">
+             <div class="row">
+                 <span class="col">
+@@ -16,10 +16,30 @@
+                 </span>
+             </div>
+         </div>
 +
-+            <span class="col-2">
-+                <span
-+                    class="color-square"
-+                    :style="{
-+                        backgroundColor: `#${product.hexColor}`
-+                    }"
-+                />
-+            </span>
-+        </span>
-+
-+        <span class="col-3">
++        <div class="col-3">
 +            <input
 +                class="form-control"
 +                type="number"
 +                min="1"
 +            >
-+        </span>
++        </div>
 +
-+        <span class="col-3">
++        <div class="col-3">
 +            ${{ totalPrice }}
-+        </span>
++        </div>
 +
-+        <span class="col-3">
++        <div class="col-3">
 +            <button class="btn btn-info btn-sm">
 +                Remove
 +            </button>
-+        </span>
++        </div>
      </div>
  </template>
  
@@ -63,7 +40,7 @@ index 69a04272..a42b9b77 100644
  export default {
      name: 'ShoppingCartProduct',
      props: {
-@@ -28,6 +46,11 @@ export default {
+@@ -28,6 +48,11 @@ export default {
              required: true,
          },
      },
@@ -75,7 +52,7 @@ index 69a04272..a42b9b77 100644
  };
  </script>
  
-@@ -43,5 +66,9 @@ export default {
+@@ -43,5 +68,9 @@ export default {
          height: 25px;
          border-radius: 4px;
      }
@@ -85,28 +62,3 @@ index 69a04272..a42b9b77 100644
 +    }
  }
  </style>
-diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 99c3a5fc..68cd8a31 100644
---- a/assets/js/pages/shopping-cart.vue
-+++ b/assets/js/pages/shopping-cart.vue
-@@ -32,16 +32,10 @@
- 
-                         <div v-show="!loading && items.length">
-                             <div class="row p-3">
--                                <div class="col-3">
--                                    Item Name
--                                </div>
--                                <div class="col-3">
--                                    Quantity
--                                </div>
--                                <div class="col-3">
--                                    Price
--                                </div>
--                                <div class="col-3" />
-+                                <span class="col-3">Item Name</span>
-+                                <span class="col-3">Quantity</span>
-+                                <span class="col-3">Price</span>
-+                                <span class="col-3" />
-                             </div>
- 
-                             <shopping-cart-product

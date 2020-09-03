@@ -1,66 +1,16 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index fe493222..7373219e 100644
+index 5191553a..772f8779 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -1,47 +1,55 @@
- <template>
-     <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
--        <span class="col-3 row align-items-center">
--            <span class="col">
--                {{ product.name }}
--            </span>
-+        <div class="col-3">
-+            <div class="row align-items-center">
-+                <span class="col">
-+                    {{ product.name }}
-+                </span>
- 
--            <span class="col-2">
--                <span
--                    class="color-square"
--                    :style="{
--                        backgroundColor: `#${product.hexColor}`
--                    }"
--                />
--            </span>
--        </span>
-+                <span class="col-2">
-+                    <span
-+                        class="color-square"
-+                        :style="{
-+                            backgroundColor: `#${product.hexColor}`
-+                        }"
-+                    />
-+                </span>
-+            </div>
-+        </div>
- 
--        <span class="col-3">
-+        <div class="col-3">
-             <input
-                 v-model.number="product.qty"
+@@ -23,6 +23,7 @@
                  class="form-control"
                  type="number"
                  min="1"
 +                @input="updateQty(product['@id'], product.colorId, product.qty)"
              >
--        </span>
-+        </div>
+         </div>
  
--        <span class="col-3">
-+        <div class="col-3">
-             ${{ totalPrice }}
--        </span>
-+        </div>
- 
--        <span class="col-3">
-+        <div class="col-3">
-             <button class="btn btn-info btn-sm">
-                 Remove
-             </button>
--        </span>
-+        </div>
-     </div>
+@@ -39,11 +40,16 @@
  </template>
  
  <script>
@@ -77,7 +27,7 @@ index fe493222..7373219e 100644
          product: {
              type: Object,
              required: true,
-@@ -52,6 +60,19 @@ export default {
+@@ -54,6 +60,19 @@ export default {
              return formatPrice(this.product.price * this.product.qty);
          },
      },
@@ -98,28 +48,10 @@ index fe493222..7373219e 100644
  </script>
  
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 68cd8a31..a684b773 100644
+index 99c3a5fc..a684b773 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -32,14 +32,21 @@
- 
-                         <div v-show="!loading && items.length">
-                             <div class="row p-3">
--                                <span class="col-3">Item Name</span>
--                                <span class="col-3">Quantity</span>
--                                <span class="col-3">Price</span>
--                                <span class="col-3" />
-+                                <div class="col-3">
-+                                    Item Name
-+                                </div>
-+                                <div class="col-3">
-+                                    Quantity
-+                                </div>
-+                                <div class="col-3">
-+                                    Price
-+                                </div>
-+                                <div class="col-3" />
-                             </div>
+@@ -46,6 +46,7 @@
  
                              <shopping-cart-product
                                  v-for="item in items"
