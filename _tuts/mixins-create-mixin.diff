@@ -1,9 +1,9 @@
 diff --git a/assets/js/mixins/get-shopping-cart.js b/assets/js/mixins/get-shopping-cart.js
 new file mode 100644
-index 00000000..6cee0e94
+index 00000000..7105d6f1
 --- /dev/null
 +++ b/assets/js/mixins/get-shopping-cart.js
-@@ -0,0 +1,19 @@
+@@ -0,0 +1,24 @@
 +import { getCart, getCartTotalItems } from '@/services/cart-service';
 +
 +export default {
@@ -13,11 +13,16 @@ index 00000000..6cee0e94
 +        };
 +    },
 +    async mounted() {
++        let cartResponse;
 +        try {
-+            this.cart = await getCart();
++            cartResponse = await getCart();
 +        } catch (e) {
 +            return;
 +        }
++
++        cartResponse.items.forEach((item) => {
++            this.cart.items.push(item);
++        });
 +
 +        document.getElementById('js-shopping-cart-items')
 +            .innerHTML = getCartTotalItems(this.cart).toString();

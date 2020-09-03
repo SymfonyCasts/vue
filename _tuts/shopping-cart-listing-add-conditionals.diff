@@ -1,17 +1,18 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 880e15a3..c06da299 100644
+index 8ef5f226..6cd59826 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -57,6 +57,12 @@ export default {
-     },
-     async created() {
-         const itemsInCart = cartService.getItems();
+@@ -57,6 +57,13 @@ export default {
+     watch: {
+         'cart.items.length': async function watchCartItems() {
+             this.loading = true;
 +
-+        if (!itemsInCart.length) {
-+            this.loading = false;
-+            return;
-+        }
++            if (!this.cart.items.length) {
++                this.items = [];
++                this.loading = false;
++                return;
++            }
 +
-         const productIds = itemsInCart.map((item) => item.productId);
+             const productIds = this.cart.items.map((item) => item.product);
  
-         let colorsResponse = null;
+             let colorsResponse = null;

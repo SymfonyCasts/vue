@@ -1236,6 +1236,11 @@
             "description": null
         },
         {
+            "id": "shopping-cart-listing-change-created-into-watch",
+            "name": "Shopping Cart Listing: Change created into watch",
+            "description": null
+        },
+        {
             "id": "shopping-cart-listing-add-cart-data-to-product-list",
             "name": "Shopping Cart Listing: Add cart data to product list",
             "description": null
@@ -1581,5 +1586,5 @@
             "description": null
         }
     ],
-    "sha": "1a2a28a22dcd384353264be90a06f49a71febdca"
+    "sha": "0b5d72b3972471274f6a7c607ca62a68c1db52db"
 }

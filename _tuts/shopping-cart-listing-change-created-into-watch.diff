@@ -1,0 +1,56 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index fba33cfe..8516dd28 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -46,30 +46,33 @@ export default {
+             loading: true,
+         };
+     },
+-    async created() {
+-        const productIds = this.cart.items.map((item) => item.product);
++    watch: {
++        'cart.items.length': async function watchCartItems() {
++            this.loading = true;
++            const productIds = this.cart.items.map((item) => item.product);
+ 
+-        let colorsResponse = null;
+-        let productsResponse = null;
++            let colorsResponse = null;
++            let productsResponse = null;
+ 
+-        // Retrieve both colors and products from the server
+-        try {
+-            colorsResponse = await getColors();
+-            productsResponse = await getProductsById(productIds);
+-        } catch (e) {
+-            this.loading = false;
++            // Retrieve both colors and products from the server
++            try {
++                colorsResponse = await getColors();
++                productsResponse = await getProductsById(productIds);
++            } catch (e) {
++                this.loading = false;
+ 
+-            return;
+-        }
++                return;
++            }
+ 
+-        // Map all colors to our object dictionary by @id
+-        colorsResponse.data['hydra:member'].forEach((color) => {
+-            this.colors[color['@id']] = color;
+-        });
++            // Map all colors to our object dictionary by @id
++            colorsResponse.data['hydra:member'].forEach((color) => {
++                this.colors[color['@id']] = color;
++            });
+ 
+-        this.items = productsResponse.data['hydra:member'];
++            this.items = productsResponse.data['hydra:member'];
+ 
+-        this.loading = false;
++            this.loading = false;
++        },
+     },
+ };
+ </script>

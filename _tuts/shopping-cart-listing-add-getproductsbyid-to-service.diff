@@ -1,8 +1,8 @@
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
-index a4544239..cdabbaea 100644
+index a4544239..eaa39e64 100644
 --- a/assets/js/services/products-service.js
 +++ b/assets/js/services/products-service.js
-@@ -32,3 +32,21 @@ export function getProduct(productIri) {
+@@ -32,3 +32,25 @@ export function getProduct(productIri) {
          url: productIri,
      });
  }
@@ -15,7 +15,11 @@ index a4544239..cdabbaea 100644
 + */
 +export function getProductsById(ids) {
 +    if (!ids.length) {
-+        return Promise.resolve({ 'hydra:member': [] });
++        return Promise.resolve({
++            data: {
++                'hydra:member': [],
++            },
++        });
 +    }
 +
 +    return axios({

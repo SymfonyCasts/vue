@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 85a1347e..6be56d80 100644
+index 4516786e..1d010e55 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -27,6 +27,27 @@
@@ -30,7 +30,7 @@ index 85a1347e..6be56d80 100644
                      </div>
                  </div>
              </div>
-@@ -40,11 +61,13 @@ import { getProductsById } from '@/services/products-service';
+@@ -39,11 +60,13 @@ import { getProductsById } from '@/services/products-service';
  import { getColors } from '@/services/colors-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';

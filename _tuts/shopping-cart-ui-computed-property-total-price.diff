@@ -1,16 +1,16 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 04aa84d1..f7b9037b 100644
+index d4ab0589..15f02e93 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -59,6 +59,7 @@
- import cartService from '@/services/cart-service';
+@@ -58,6 +58,7 @@
+ <script>
  import { getProductsById } from '@/services/products-service';
  import { getColors } from '@/services/colors-service';
 +import formatPrice from '@/helpers/format-price';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
  import ShoppingCartProduct from '@/components/shopping-cart/cart-item';
-@@ -79,6 +80,22 @@ export default {
+@@ -78,6 +79,22 @@ export default {
              loading: true,
          };
      },
@@ -30,6 +30,6 @@ index 04aa84d1..f7b9037b 100644
 +            return formatPrice(total);
 +        },
 +    },
-     async created() {
-         const itemsInCart = cartService.getItems();
- 
+     watch: {
+         'cart.items.length': async function watchCartItems() {
+             this.loading = true;

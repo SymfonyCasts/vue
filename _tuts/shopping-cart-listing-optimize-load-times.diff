@@ -1,17 +1,20 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index bd13fa64..880e15a3 100644
+index b2f8df12..8ef5f226 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -64,8 +64,10 @@ export default {
+@@ -64,11 +64,12 @@ export default {
  
-         // Retrieve both colors and products from the server
-         try {
--            colorsResponse = await getColors();
--            productsResponse = await getProductsById(productIds);
-+            [colorsResponse, productsResponse] = await Promise.all([
-+                getColors(),
-+                getProductsById(productIds),
-+            ]);
-         } catch (e) {
-             this.loading = false;
+             // Retrieve both colors and products from the server
+             try {
+-                colorsResponse = await getColors();
+-                productsResponse = await getProductsById(productIds);
++                [colorsResponse, productsResponse] = await Promise.all([
++                    getColors(),
++                    getProductsById(productIds),
++                ]);
+             } catch (e) {
+                 this.loading = false;
+-
+                 return;
+             }
  
