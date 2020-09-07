@@ -1291,8 +1291,13 @@
             "description": null
         },
         {
-            "id": "shopping-cart-ui-no-cart-template-block",
-            "name": "Shopping Cart UI: No cart template block",
+            "id": "shopping-cart-ui-extract-to-component",
+            "name": "Shopping Cart UI: Extract to Component",
+            "description": null
+        },
+        {
+            "id": "delete-me-38",
+            "name": "delete-me-38",
             "description": null
         },
         {
@@ -1311,8 +1316,18 @@
             "description": null
         },
         {
+            "id": "delete-me-39",
+            "name": "delete-me-39",
+            "description": null
+        },
+        {
             "id": "shopping-cart-ui-computed-property-total-price",
             "name": "Shopping Cart UI: Computed Property Total Price",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-include-component",
+            "name": "Shopping Cart UI: Include component",
             "description": null
         },
         {
@@ -1586,5 +1601,5 @@
             "description": null
         }
     ],
-    "sha": "d96ed1ba4137420497d107a2e7ab6fd2ac018f7c"
+    "sha": "8da8034a7713fa0691fbab23cdb6a4ce743fc7a8"
 }

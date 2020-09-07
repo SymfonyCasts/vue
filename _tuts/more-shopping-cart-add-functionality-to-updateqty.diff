@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 5191553a..772f8779 100644
+index 51cced5c..febb9a1c 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
 @@ -23,6 +23,7 @@
@@ -18,7 +18,7 @@ index 5191553a..772f8779 100644
  import formatPrice from '@/helpers/format-price';
  
  export default {
-     name: 'ShoppingCartProduct',
+     name: 'ShoppingCartItem',
      props: {
 +        cart: {
 +            type: Object,
@@ -47,15 +47,38 @@ index 5191553a..772f8779 100644
  };
  </script>
  
+diff --git a/assets/js/components/shopping-cart/index.vue b/assets/js/components/shopping-cart/index.vue
+index c425f197..944b668f 100644
+--- a/assets/js/components/shopping-cart/index.vue
++++ b/assets/js/components/shopping-cart/index.vue
+@@ -26,6 +26,7 @@
+             <shopping-cart-item
+                 v-for="item in items"
+                 :key="item['@id']"
++                :cart="cart"
+                 :product="item"
+             />
+ 
+@@ -48,6 +49,10 @@ export default {
+         ShoppingCartItem,
+     },
+     props: {
++        cart: {
++            type: Object,
++            required: true,
++        },
+         items: {
+             type: Array,
+             required: true,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 99c3a5fc..a684b773 100644
+index 22237090..93958f9a 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -46,6 +46,7 @@
- 
-                             <shopping-cart-product
-                                 v-for="item in items"
-+                                :cart="cart"
-                                 :key="item['@id']"
-                                 :product="item"
-                             />
+@@ -22,6 +22,7 @@
+                         <shopping-cart-list
+                             v-show="!loading"
+                             :items="items"
++                            :cart="cart"
+                         />
+                     </div>
+                 </div>
