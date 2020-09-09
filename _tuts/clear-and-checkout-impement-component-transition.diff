@@ -1,0 +1,43 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index e4ce3665..76da150b 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -19,12 +19,17 @@
+                             <loading />
+                         </div>
+ 
+-                        <component
+-                            :is="currentComponent"
+-                            v-show="!loading"
+-                            :items="items"
+-                            :cart="cart"
+-                        />
++                        <transition
++                            name="fade"
++                            mode="out-in"
++                        >
++                            <component
++                                :is="currentComponent"
++                                v-show="!loading"
++                                :items="items"
++                                :cart="cart"
++                            />
++                        </transition>
+ 
+                         <div
+                             v-show="!loading && items.length"
+@@ -154,6 +159,14 @@ export default {
+ .component :global {
+     .content {
+         @include light-component;
++
++        .fade-enter-active, .fade-leave-active {
++            transition: opacity .5s;
++        }
++
++        .fade-enter, .fade-leave-to {
++            opacity: 0;
++        }
+     }
+ }
+ </style>

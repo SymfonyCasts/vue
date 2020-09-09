@@ -1316,6 +1316,11 @@
             "description": null
         },
         {
+            "id": "delete-me-40",
+            "name": "delete-me-40",
+            "description": null
+        },
+        {
             "id": "delete-me-39",
             "name": "delete-me-39",
             "description": null
@@ -1381,18 +1386,28 @@
             "description": null
         },
         {
-            "id": "clear-and-checkout-implement-clear",
-            "name": "Clear and Checkout: Implement Clear",
+            "id": "clear-and-checkout-implement-step-switch",
+            "name": "Clear and Checkout: Implement step switch",
             "description": null
         },
         {
-            "id": "clear-and-checkout-disable-on-empty",
-            "name": "Clear and Checkout: Disable on Empty",
+            "id": "clear-and-checkout-implement-currentstate",
+            "name": "Clear and Checkout: Implement currentState",
             "description": null
         },
         {
-            "id": "clear-and-checkout-implement-checkout",
-            "name": "Clear and Checkout: Implement Checkout",
+            "id": "clear-and-checkout-create-checkout-main-component",
+            "name": "Clear and Checkout: Create checkout main component",
+            "description": null
+        },
+        {
+            "id": "clear-and-checkout-implement-generic-component",
+            "name": "Clear and Checkout: Implement Generic Component",
+            "description": null
+        },
+        {
+            "id": "clear-and-checkout-impement-component-transition",
+            "name": "Clear and Checkout: Impement Component Transition",
             "description": null
         },
         {
@@ -1601,5 +1616,5 @@
             "description": null
         }
     ],
-    "sha": "8da8034a7713fa0691fbab23cdb6a4ce743fc7a8"
+    "sha": "08e841d26f6d97bd75f6ab7ed2342b96f0634dc5"
 }

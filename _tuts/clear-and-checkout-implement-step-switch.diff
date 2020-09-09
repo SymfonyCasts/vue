@@ -1,0 +1,32 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 9e31b36a..66dbd994 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -32,6 +32,7 @@
+                             <div class="col-2">
+                                 <button
+                                     class="btn btn-info btn-sm"
++                                    @click="switchState"
+                                 >
+                                     Checkout!
+                                 </button>
+@@ -62,6 +63,7 @@ export default {
+     mixins: [shoppingCartMixin],
+     data() {
+         return {
++            currentState: 1,
+             colors: {},
+             items: [],
+             loading: false,
+@@ -118,6 +120,11 @@ export default {
+             this.loading = false;
+         },
+     },
++    methods: {
++        switchState() {
++            this.currentState = 3 - this.currentState;
++        },
++    },
+ };
+ </script>
+ 

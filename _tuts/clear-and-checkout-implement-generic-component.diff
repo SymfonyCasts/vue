@@ -1,0 +1,42 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 0a8b5b1a..e4ce3665 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -19,7 +19,8 @@
+                             <loading />
+                         </div>
+ 
+-                        <shopping-cart-list
++                        <component
++                            :is="currentComponent"
+                             v-show="!loading"
+                             :items="items"
+                             :cart="cart"
+@@ -48,6 +49,7 @@
+ <script>
+ import { getProductsById } from '@/services/products-service';
+ import { getColors } from '@/services/colors-service';
++import CheckoutForm from '@/components/checkout';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartList from '@/components/shopping-cart';
+@@ -56,6 +58,7 @@ import shoppingCartMixin from '@/mixins/get-shopping-cart';
+ export default {
+     name: 'ShoppingCart',
+     components: {
++        CheckoutForm,
+         Loading,
+         TitleComponent,
+         ShoppingCartList,
+@@ -70,6 +73,11 @@ export default {
+         };
+     },
+     computed: {
++        currentComponent() {
++            return this.currentState === 1
++                ? ShoppingCartList
++                : CheckoutForm;
++        },
+         pageTitle() {
+             return this.currentState === 1
+                 ? 'Shopping Cart'
