@@ -1411,6 +1411,11 @@
             "description": null
         },
         {
+            "id": "clear-and-checkout-transition-title",
+            "name": "Clear and Checkout: Transition Title",
+            "description": null
+        },
+        {
             "id": "checkout-first-page-template-entry",
             "name": "Checkout First Page: Template Entry",
             "description": null
@@ -1616,5 +1621,5 @@
             "description": null
         }
     ],
-    "sha": "08e841d26f6d97bd75f6ab7ed2342b96f0634dc5"
+    "sha": "fd800894c5a76ed737b8aac51526ca64be6ae982"
 }
