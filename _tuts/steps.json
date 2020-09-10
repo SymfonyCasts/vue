@@ -8,6 +8,7 @@
         {
             "id": "vue-instance-install-vue-enable-vue-loader",
             "name": "Vue Instance: Install Vue, Enable Vue Loader",
+            "name": "Vue Instance: Install Vue, Enable Vue Loader",
             "description": null
         },
         {
@@ -766,16 +767,6 @@
             "description": null
         },
         {
-            "id": "delete-me-7",
-            "name": "delete me 7",
-            "description": null
-        },
-        {
-            "id": "delete-me-1",
-            "name": "Delete me 1",
-            "description": null
-        },
-        {
             "id": "helper-use-format-price-incorrectly",
             "name": "Helper: use format-price incorrectly",
             "description": null
@@ -786,16 +777,6 @@
             "description": null
         },
         {
-            "id": "delete-me-3",
-            "name": "delete me 3",
-            "description": null
-        },
-        {
-            "id": "delete-me-4",
-            "name": "delete me 4",
-            "description": null
-        },
-        {
             "id": "v-input-search-bar-add-x-span",
             "name": "V-Input Search Bar: Add x span",
             "description": null
@@ -803,16 +784,6 @@
         {
             "id": "v-input-search-bar-event-handler",
             "name": "V-Input Search Bar: event handler",
-            "description": null
-        },
-        {
-            "id": "delete-me-5",
-            "name": "delete me 5",
-            "description": null
-        },
-        {
-            "id": "delete-me-6",
-            "name": "delete me 6",
             "description": null
         },
         {
@@ -916,33 +887,13 @@
             "description": null
         },
         {
-            "id": "delete-me-19",
-            "name": "delete-me-19",
-            "description": null
-        },
-        {
-            "id": "delete-me-20",
-            "name": "delete-me-20",
-            "description": null
-        },
-        {
             "id": "delete-me-21",
             "name": "delete-me-21",
             "description": null
         },
         {
-            "id": "delete-me-22",
-            "name": "delete-me-22",
-            "description": null
-        },
-        {
             "id": "basic-product-page-service-getproduct-function",
             "name": "Basic Product Page: Service getProduct function",
-            "description": null
-        },
-        {
-            "id": "delete-me-14",
-            "name": "delete-me-14",
             "description": null
         },
         {
@@ -1016,98 +967,8 @@
             "description": null
         },
         {
-            "id": "delete-me-23",
-            "name": "delete-me-23",
-            "description": null
-        },
-        {
-            "id": "delete-me-8",
-            "name": "delete me 8",
-            "description": null
-        },
-        {
-            "id": "delete-me-10",
-            "name": "delete-me-10",
-            "description": null
-        },
-        {
-            "id": "delete-me-11",
-            "name": "delete-me-11",
-            "description": null
-        },
-        {
-            "id": "delete-me-15",
-            "name": "delete-me-15",
-            "description": null
-        },
-        {
-            "id": "delete-me-9",
-            "name": "delete me 9",
-            "description": null
-        },
-        {
-            "id": "delete-me-24",
-            "name": "delete-me-24",
-            "description": null
-        },
-        {
-            "id": "delete-me-25",
-            "name": "delete-me-25",
-            "description": null
-        },
-        {
-            "id": "delete-me-26",
-            "name": "delete-me-26",
-            "description": null
-        },
-        {
-            "id": "delete-me-27",
-            "name": "delete-me-27",
-            "description": null
-        },
-        {
-            "id": "delete-me-28",
-            "name": "delete-me-28",
-            "description": null
-        },
-        {
-            "id": "delete-me-29",
-            "name": "delete-me-29",
-            "description": null
-        },
-        {
-            "id": "delete-me-30",
-            "name": "delete-me-30",
-            "description": null
-        },
-        {
-            "id": "delete-me-31",
-            "name": "delete-me-31",
-            "description": null
-        },
-        {
-            "id": "delete-me-32",
-            "name": "delete-me-32",
-            "description": null
-        },
-        {
-            "id": "delete-me-33",
-            "name": "delete-me-33",
-            "description": null
-        },
-        {
-            "id": "delete-me-34",
-            "name": "delete-me-34",
-            "description": null
-        },
-        {
             "id": "add-to-cart-copy-cart-service",
             "name": "Add To Cart: Copy Cart Service",
-            "description": null
-        },
-        {
-            "id": "delete-me-35",
-            "name": "delete-me-35",
             "description": null
         },
         {
@@ -1123,11 +984,6 @@
         {
             "id": "add-to-cart-implement-addtocart",
             "name": "Add To Cart: Implement addToCart",
-            "description": null
-        },
-        {
-            "id": "delete-me-36",
-            "name": "delete-me-36",
             "description": null
         },
         {
@@ -1193,11 +1049,6 @@
         {
             "id": "mixins-add-mixin-to-shopping-cart-page",
             "name": "Mixins: Add mixin to Shopping Cart page",
-            "description": null
-        },
-        {
-            "id": "delete-me-12",
-            "name": "delete-me-12",
             "description": null
         },
         {
@@ -1296,33 +1147,8 @@
             "description": null
         },
         {
-            "id": "delete-me-38",
-            "name": "delete-me-38",
-            "description": null
-        },
-        {
-            "id": "delete-me-16",
-            "name": "delete-me-16",
-            "description": null
-        },
-        {
             "id": "shopping-cart-ui-products-list",
             "name": "Shopping Cart UI: Products list",
-            "description": null
-        },
-        {
-            "id": "shopping-cart-ui-include-product-component",
-            "name": "Shopping Cart UI: Include Product component",
-            "description": null
-        },
-        {
-            "id": "delete-me-40",
-            "name": "delete-me-40",
-            "description": null
-        },
-        {
-            "id": "delete-me-39",
-            "name": "delete-me-39",
             "description": null
         },
         {
@@ -1333,11 +1159,6 @@
         {
             "id": "shopping-cart-ui-include-component",
             "name": "Shopping Cart UI: Include component",
-            "description": null
-        },
-        {
-            "id": "delete-me-17",
-            "name": "delete-me-17",
             "description": null
         },
         {
@@ -1373,11 +1194,6 @@
         {
             "id": "more-shopping-cart-remove-from-cart",
             "name": "More Shopping Cart: Remove From Cart",
-            "description": null
-        },
-        {
-            "id": "delete-me-37",
-            "name": "delete-me-37",
             "description": null
         },
         {
@@ -1541,11 +1357,6 @@
             "description": null
         },
         {
-            "id": "delete-me-18",
-            "name": "delete-me-18",
-            "description": null
-        },
-        {
             "id": "server-validation-onsubmit",
             "name": "Server Validation: onSubmit",
             "description": null
@@ -1615,11 +1426,6 @@
             "name": "Client Validation: submit.prevent",
             "description": null
         },
-        {
-            "id": "delete-me-13",
-            "name": "delete-me-13",
-            "description": null
-        }
     ],
     "sha": "fd800894c5a76ed737b8aac51526ca64be6ae982"
 }
