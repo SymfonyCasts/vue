@@ -37,7 +37,7 @@ index 8b48e576..9fedbf99 100644
          async addToCart() {
              if (this.product.colors.length && this.selectedColorId === null) {
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index e0b9ba7b..5ebb7528 100644
+index 836385a6..5ebb7528 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -26,6 +26,7 @@ import Product from '@/components/product';
@@ -48,14 +48,18 @@ index e0b9ba7b..5ebb7528 100644
  
  export default {
      name: 'Products',
-@@ -36,6 +37,7 @@ export default {
+@@ -36,9 +37,10 @@ export default {
      },
      data() {
          return {
+-            sidebarCollapsed: false,
 +            cart: { items: [] },
              categories: [],
              currentCategoryId: getCurrentCategoryId(),
-             sidebarCollapsed: false,
++            sidebarCollapsed: false,
+         };
+     },
+     computed: {
 @@ -71,6 +73,16 @@ export default {
  
          this.categories = response.data['hydra:member'];

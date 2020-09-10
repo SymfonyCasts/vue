@@ -8,7 +8,6 @@
         {
             "id": "vue-instance-install-vue-enable-vue-loader",
             "name": "Vue Instance: Install Vue, Enable Vue Loader",
-            "name": "Vue Instance: Install Vue, Enable Vue Loader",
             "description": null
         },
         {
@@ -1427,5 +1426,5 @@
             "description": null
         }
     ],
-    "sha": "fd800894c5a76ed737b8aac51526ca64be6ae982"
+    "sha": "c13e6dbd6535b30eda1ab05b4151d44cb45254b1"
 }
