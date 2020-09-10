@@ -886,11 +886,6 @@
             "description": null
         },
         {
-            "id": "delete-me-21",
-            "name": "delete-me-21",
-            "description": null
-        },
-        {
             "id": "basic-product-page-service-getproduct-function",
             "name": "Basic Product Page: Service getProduct function",
             "description": null
