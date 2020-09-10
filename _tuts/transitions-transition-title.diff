@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 3d824be2..7f69720b 100644
+index 61b6bb69..3c7f2ed5 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -6,7 +6,22 @@
@@ -26,10 +26,10 @@ index 3d824be2..7f69720b 100644
                      </div>
                  </div>
  
-@@ -82,11 +97,6 @@ export default {
-                 ? ShoppingCartList
-                 : CheckoutForm;
-         },
+@@ -81,11 +96,6 @@ export default {
+         };
+     },
+     computed: {
 -        pageTitle() {
 -            return this.currentState === 1
 -                ? 'Shopping Cart'

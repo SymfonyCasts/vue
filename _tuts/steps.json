@@ -1191,38 +1191,48 @@
             "description": null
         },
         {
-            "id": "clear-and-checkout-buttons-template",
-            "name": "Clear and Checkout: Buttons Template",
+            "id": "transitions-button-template",
+            "name": "Transitions: Button template",
             "description": null
         },
         {
-            "id": "clear-and-checkout-implement-step-switch",
-            "name": "Clear and Checkout: Implement step switch",
+            "id": "transitions-implement-step-switch",
+            "name": "Transitions: Implement step switch",
             "description": null
         },
         {
-            "id": "clear-and-checkout-implement-currentstate",
-            "name": "Clear and Checkout: Implement currentState",
+            "id": "transitions-implement-currentstate",
+            "name": "Transitions: Implement currentState",
             "description": null
         },
         {
-            "id": "clear-and-checkout-create-checkout-main-component",
-            "name": "Clear and Checkout: Create checkout main component",
+            "id": "transitions-create-checkout-main-component",
+            "name": "Transitions: Create checkout main component",
             "description": null
         },
         {
-            "id": "clear-and-checkout-implement-generic-component",
-            "name": "Clear and Checkout: Implement Generic Component",
+            "id": "transitions-add-checkout-form-component",
+            "name": "Transitions: Add checkout-form component",
             "description": null
         },
         {
-            "id": "clear-and-checkout-impement-component-transition",
-            "name": "Clear and Checkout: Impement Component Transition",
+            "id": "transitions-implement-checkout-form-dry-switch",
+            "name": "Transitions: Implement checkout-form dry switch",
             "description": null
         },
         {
-            "id": "clear-and-checkout-transition-title",
-            "name": "Clear and Checkout: Transition Title",
+            "id": "transitions-implement-transition",
+            "name": "Transitions: Implement transition",
+            "description": null
+        },
+        {
+            "id": "transitions-better-transition",
+            "name": "Transitions: Better transition",
+            "description": null
+        },
+        {
+            "id": "transitions-transition-title",
+            "name": "Transitions: Transition Title",
             "description": null
         },
         {
@@ -1421,5 +1431,5 @@
             "description": null
         }
     ],
-    "sha": "c13e6dbd6535b30eda1ab05b4151d44cb45254b1"
+    "sha": "123ab1f995eadddcfc180a6cd255dd2772127b28"
 }

@@ -1,0 +1,16 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index a737b4e8..61b6bb69 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -19,7 +19,10 @@
+                             <loading />
+                         </div>
+ 
+-                        <transition name="fade">
++                        <transition
++                            name="fade"
++                            mode="out-in"
++                        >
+                             <shopping-cart-list
+                                 v-if="!loading && currentState === 1"
+                                 :items="items"
