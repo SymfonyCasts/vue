@@ -1425,7 +1425,7 @@
             "id": "client-validation-submit-prevent",
             "name": "Client Validation: submit.prevent",
             "description": null
-        },
+        }
     ],
     "sha": "fd800894c5a76ed737b8aac51526ca64be6ae982"
 }
