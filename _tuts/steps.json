@@ -1236,31 +1236,6 @@
             "description": null
         },
         {
-            "id": "delete-me-1",
-            "name": "delete-me-1",
-            "description": null
-        },
-        {
-            "id": "delete-me-2",
-            "name": "delete-me-2",
-            "description": null
-        },
-        {
-            "id": "delete-me-3",
-            "name": "delete-me-3",
-            "description": null
-        },
-        {
-            "id": "delete-me-4",
-            "name": "delete-me-4",
-            "description": null
-        },
-        {
-            "id": "delete-me-5",
-            "name": "delete-me-5",
-            "description": null
-        },
-        {
             "id": "checkout-form-basic-data",
             "name": "Checkout Form: Basic Data",
             "description": null
@@ -1401,18 +1376,8 @@
             "description": null
         },
         {
-            "id": "delete-me-7",
-            "name": "delete-me-7",
-            "description": null
-        },
-        {
             "id": "server-validation-final-submit",
             "name": "Server Validation: Final Submit",
-            "description": null
-        },
-        {
-            "id": "delete-me-8",
-            "name": "delete-me-8",
             "description": null
         },
         {
