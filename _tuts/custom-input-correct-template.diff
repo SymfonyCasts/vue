@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 4618d804..06115a65 100644
+index ba4d29f6..52715db0 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
 @@ -8,7 +8,6 @@
@@ -15,7 +15,7 @@ index 4618d804..06115a65 100644
              class="invalid-feedback"
          >
 -            {{ validationErrors.customerName }}
-+            {{ '' }}
++
          </span>
      </div>
  </template>
@@ -23,7 +23,7 @@ index 4618d804..06115a65 100644
      name: 'FormInput',
      methods: {
          isFieldValid(fieldName) {
--            return (this.validation[fieldName] === null);
+-            return (typeof this.validationErrors[fieldName] === 'undefined');
 +            return true;
          },
      },

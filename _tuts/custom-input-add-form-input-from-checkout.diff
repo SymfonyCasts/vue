@@ -1,0 +1,31 @@
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index da93bfac..74a9aea6 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -2,15 +2,25 @@
+     <div class="row p-3">
+         <div class="col-12">
+             <form>
+-
++                <form-input
++                    id="customerName"
++                    v-model="form.customerName"
++                    label="Name:"
++                    :error-message="validationErrors.customerName"
++                />
+             </form>
+         </div>
+     </div>
+ </template>
+ 
+ <script>
++import FormInput from '@/components/checkout/form-input';
++
+ export default {
+     name: 'CheckoutForm',
++    components: {
++        FormInput,
++    },
+     props: {
+         cart: {
+             type: Object,

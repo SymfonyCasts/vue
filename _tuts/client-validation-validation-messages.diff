@@ -1,17 +1,20 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 9c3f333f..52201344 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -172,6 +172,22 @@ export default {
-                 customerPhone: null,
-             };
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 5d4e947f..b1785bc6 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -117,7 +117,7 @@ export default {
+         async onSubmit(event) {
+             event.preventDefault();
+             this.loading = true;
+-            this.formError = false;
++            this.serverError = false;
+             this.validationErrors = {};
+ 
+             try {
+@@ -137,6 +137,16 @@ export default {
+                 this.loading = false;
+             }
          },
-+
-+        /**
-+         * Validates our form fields and sets proper validation messages if any of them are empty.
-+         *
-+         * @param {Event} event
-+         */
 +        validateForm(event) {
 +            const validationMessages = {
 +                customerName: 'Please, enter your full name!',

@@ -1,50 +1,49 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 56827de0..8ea66afd 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -56,6 +56,22 @@
-                                 type="tel"
-                                 :error-message="validationErrors.customerPhone"
-                             />
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 5f000184..3eb46b2c 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -31,6 +31,22 @@
+                     v-model="form.customerPhone"
+                     v-bind="getFormFields('customerPhone', 'Phone Number:', 'tel')"
+                 />
 +
-+                            <div class="row p-3 justify-content-end align-items-center">
-+                                <loading
-+                                    v-show="loading"
-+                                    class="col-auto"
-+                                />
++                <div class="row p-3 justify-content-end align-items-center">
++                    <loading
++                        v-show="loading"
++                        class="col-auto"
++                    />
 +
-+                                <div class="col-auto">
-+                                    <button
-+                                        type="submit"
-+                                        class="btn btn-info btn-sm"
-+                                    >
-+                                        Checkout!
-+                                    </button>
-+                                </div>
-+                            </div>
-                         </form>
-                     </div>
-                 </div>
-@@ -67,12 +83,14 @@
++                    <div class="col-auto">
++                        <button
++                            type="submit"
++                            class="btn btn-info btn-sm"
++                        >
++                            Checkout!
++                        </button>
++                    </div>
++                </div>
+             </form>
+         </div>
+     </div>
+@@ -38,11 +54,13 @@
+ 
  <script>
- import cartService from '@/services/cart-service';
  import FormInput from '@/components/checkout/form-input';
 +import Loading from '@/components/loading';
- import TitleComponent from '@/components/title';
  
  export default {
-     name: 'Checkout',
+     name: 'CheckoutForm',
      components: {
          FormInput,
 +        Loading,
-         TitleComponent,
      },
-     data() {
-@@ -94,6 +112,7 @@ export default {
-                 customerCity: null,
-                 customerPhone: null,
+     props: {
+         cart: {
+@@ -62,6 +80,7 @@ export default {
+                 purchaseItems: [],
              },
+             validationErrors: {},
 +            loading: false,
          };
      },
-     async created() {
+     created() {

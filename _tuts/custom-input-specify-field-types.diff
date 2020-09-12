@@ -1,0 +1,38 @@
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 18851df1..5f000184 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -9,7 +9,7 @@
+ 
+                 <form-input
+                     v-model="form.customerEmail"
+-                    v-bind="getFormFields('customerEmail', 'Email:')"
++                    v-bind="getFormFields('customerEmail', 'Email:', 'email')"
+                 />
+ 
+                 <form-input
+@@ -29,7 +29,7 @@
+ 
+                 <form-input
+                     v-model="form.customerPhone"
+-                    v-bind="getFormFields('customerPhone', 'Phone Number:')"
++                    v-bind="getFormFields('customerPhone', 'Phone Number:', 'tel')"
+                 />
+             </form>
+         </div>
+@@ -73,12 +73,14 @@ export default {
+          *
+          * @param {string} id
+          * @param {string} label
++         * @param {string} [type=text]
+          * @return {object}
+          */
+-        getFormFields(id, label) {
++        getFormFields(id, label, type) {
+             return {
+                 id,
+                 label,
++                type: type || 'text',
+                 errorMessage: this.validationErrors[id],
+             };
+         },

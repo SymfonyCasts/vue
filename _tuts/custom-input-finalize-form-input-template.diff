@@ -1,10 +1,10 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index f92accab..74481717 100644
+index 32cde60d..51ab909e 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
 @@ -1,24 +1,24 @@
  <template>
-     <div class="form-row p-3">
+     <div class="p-3">
          <label
 -            for="customerName"
 +            :for="id"
@@ -28,7 +28,7 @@ index f92accab..74481717 100644
 +            v-show="!isValid"
              class="invalid-feedback"
          >
--            {{ '' }}
+-
 +            {{ errorMessage }}
          </span>
      </div>

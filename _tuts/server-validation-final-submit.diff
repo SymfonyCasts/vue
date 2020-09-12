@@ -1,21 +1,32 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index be721d24..9dd12cfb 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -144,16 +144,20 @@ export default {
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 2da9461d..5d4e947f 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -64,6 +64,7 @@
+ import FormInput from '@/components/checkout/form-input';
+ import Loading from '@/components/loading';
+ import { createOrder } from '@/services/checkout-service';
++import { clearCart } from '@/services/cart-service';
+ 
+ export default {
+     name: 'CheckoutForm',
+@@ -116,17 +117,21 @@ export default {
+         async onSubmit(event) {
              event.preventDefault();
              this.loading = true;
-             this.serverError = false;
-+            this.resetValidationFields();
+-            this.serverError = false;
++            this.formError = false;
++            this.validationErrors = {};
  
              try {
                  const response = await createOrder(this.form);
-+                cartService.clear();
++                await clearCart();
              } catch (error) {
                  const { response } = error;
  
                  if (response.status !== 400) {
-                     this.serverError = true;
+-                    this.serverError = true;
++                    this.formError = true;
                  } else {
 -                    console.log(response.data);
 +                    response.data.violations.forEach((violation) => {

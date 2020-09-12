@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index ae4e6b03..ea816655 100644
+index 3dd97d79..ceac325b 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
 @@ -15,6 +15,7 @@
@@ -10,55 +10,45 @@ index ae4e6b03..ea816655 100644
          >
          <span
              v-show="!isValid"
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 12f81a1e..381a4590 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -25,6 +25,7 @@
-                                 v-model="form.customerName"
-                                 label="Name:"
-                                 :error-message="validationErrors.customerName"
-+                                @blur="validateForm"
-                             />
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 52b05e3b..0517ce8f 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -12,31 +12,37 @@
+                 <form-input
+                     v-model="form.customerName"
+                     v-bind="getFormFields('customerName', 'Name:')"
++                    @blur="validateForm"
+                 />
  
-                             <form-input
-@@ -33,6 +34,7 @@
-                                 label="Email:"
-                                 type="email"
-                                 :error-message="validationErrors.customerEmail"
-+                                @blur="validateForm"
-                             />
+                 <form-input
+                     v-model="form.customerEmail"
+                     v-bind="getFormFields('customerEmail', 'Email:', 'email')"
++                    @blur="validateForm"
+                 />
  
-                             <form-input
-@@ -40,6 +42,7 @@
-                                 v-model="form.customerAddress"
-                                 label="Address:"
-                                 :error-message="validationErrors.customerAddress"
-+                                @blur="validateForm"
-                             />
+                 <form-input
+                     v-model="form.customerAddress"
+                     v-bind="getFormFields('customerAddress', 'Address:')"
++                    @blur="validateForm"
+                 />
  
-                             <form-input
-@@ -47,6 +50,7 @@
-                                 v-model="form.customerZip"
-                                 label="Zip Code:"
-                                 :error-message="validationErrors.customerZip"
-+                                @blur="validateForm"
-                             />
+                 <form-input
+                     v-model="form.customerZip"
+                     v-bind="getFormFields('customerZip', 'Zip Code:')"
++                    @blur="validateForm"
+                 />
  
-                             <form-input
-@@ -54,6 +58,7 @@
-                                 v-model="form.customerCity"
-                                 label="City:"
-                                 :error-message="validationErrors.customerCity"
-+                                @blur="validateForm"
-                             />
+                 <form-input
+                     v-model="form.customerCity"
+                     v-bind="getFormFields('customerCity', 'City:')"
++                    @blur="validateForm"
+                 />
  
-                             <form-input
-@@ -62,6 +67,7 @@
-                                 label="Phone Number:"
-                                 type="tel"
-                                 :error-message="validationErrors.customerPhone"
-+                                @blur="validateForm"
-                             />
+                 <form-input
+                     v-model="form.customerPhone"
+                     v-bind="getFormFields('customerPhone', 'Phone Number:', 'tel')"
++                    @blur="validateForm"
+                 />
  
-                             <div class="row p-3 justify-content-end align-items-center">
+                 <div class="row p-3 justify-content-end align-items-center">

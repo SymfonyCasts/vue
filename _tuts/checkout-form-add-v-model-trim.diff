@@ -1,13 +1,13 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 51bb7a7b..599cf448 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -22,7 +22,7 @@
-                                 </label>
-                                 <input
-                                     id="customerName"
--                                    v-model="form.customerName"
-+                                    v-model.trim="form.customerName"
-                                     type="text"
-                                     class="form-control"
-                                 >
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 678c8456..90934cbb 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -11,7 +11,7 @@
+                     </label>
+                     <input
+                         id="customerName"
+-                        v-model="form.customerName"
++                        v-model.trim="form.customerName"
+                         type="text"
+                         class="form-control"
+                     >

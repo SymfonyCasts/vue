@@ -1,23 +1,19 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 8ea66afd..22798a25 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -81,6 +81,7 @@
- </template>
- 
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 3eb46b2c..d39b62cb 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -55,6 +55,7 @@
  <script>
-+import { createOrder } from '@/services/checkout-service';
- import cartService from '@/services/cart-service';
  import FormInput from '@/components/checkout/form-input';
  import Loading from '@/components/loading';
-@@ -124,6 +125,24 @@ export default {
-             quantity: item.qty,
-         }));
-     },
-+    methods: {
-+        /**
-+         * Sends the form data and process the response!
-+         */
++import { createOrder } from '@/services/checkout-service';
+ 
+ export default {
+     name: 'CheckoutForm',
+@@ -103,6 +104,19 @@ export default {
+                 errorMessage: this.validationErrors[id],
+             };
+         },
 +        async onSubmit() {
 +            this.loading = true;
 +
@@ -31,7 +27,6 @@ index 8ea66afd..22798a25 100644
 +                this.loading = false;
 +            }
 +        },
-+    },
+     },
  };
  </script>
- 

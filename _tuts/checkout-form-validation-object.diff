@@ -1,19 +1,12 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 15ddc900..17f09d9a 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -39,6 +39,14 @@ export default {
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index e1df1ee2..4495f648 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -26,6 +26,7 @@ export default {
                  customerPhone: '',
                  purchaseItems: [],
              },
-+            validationErrors: {
-+                customerName: null,
-+                customerEmail: null,
-+                customerAddress: null,
-+                customerZip: null,
-+                customerCity: null,
-+                customerPhone: null,
-+            },
++            validationErrors: {},
          };
      },
-     async created() {
+     created() {

@@ -1,0 +1,63 @@
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 93122134..def2462b 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -10,38 +10,38 @@
+                 />
+ 
+                 <form-input
+-                    id="customerName"
+-                    v-model="form.customerName"
+-                    label="Name:"
+-                    :error-message="validationErrors.customerName"
++                    id="customerEmail"
++                    v-model="form.customerEmail"
++                    label="Email:"
++                    :error-message="validationErrors.customerEmail"
+                 />
+ 
+                 <form-input
+-                    id="customerName"
+-                    v-model="form.customerName"
+-                    label="Name:"
+-                    :error-message="validationErrors.customerName"
++                    id="customerAddress"
++                    v-model="form.customerAddress"
++                    label="Address:"
++                    :error-message="validationErrors.customerAddress"
+                 />
+ 
+                 <form-input
+-                    id="customerName"
+-                    v-model="form.customerName"
+-                    label="Name:"
+-                    :error-message="validationErrors.customerName"
++                    id="customerZip"
++                    v-model="form.customerZip"
++                    label="Zip Code:"
++                    :error-message="validationErrors.customerZip"
+                 />
+ 
+                 <form-input
+-                    id="customerName"
+-                    v-model="form.customerName"
+-                    label="Name:"
+-                    :error-message="validationErrors.customerName"
++                    id="customerCity"
++                    v-model="form.customerCity"
++                    label="City:"
++                    :error-message="validationErrors.customerCity"
+                 />
+ 
+                 <form-input
+-                    id="customerName"
+-                    v-model="form.customerName"
+-                    label="Name:"
+-                    :error-message="validationErrors.customerName"
++                    id="customerPhone"
++                    v-model="form.customerPhone"
++                    label="Phone Number:"
++                    :error-message="validationErrors.customerPhone"
+                 />
+             </form>
+         </div>

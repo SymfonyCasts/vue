@@ -1,0 +1,88 @@
+diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
+new file mode 100644
+index 00000000..ba4d29f6
+--- /dev/null
++++ b/assets/js/components/checkout/form-input.vue
+@@ -0,0 +1,36 @@
++<template>
++    <div class="p-3">
++        <label
++            for="customerName"
++            class="col-form-label"
++        >
++            Name:
++        </label>
++        <input
++            id="customerName"
++            v-model.trim="form.customerName"
++            type="text"
++            :class="{
++                'is-invalid': !isFieldValid('customerName'),
++                'form-control': true,
++            }"
++        >
++        <span
++            v-show="!isFieldValid('customerName')"
++            class="invalid-feedback"
++        >
++            {{ validationErrors.customerName }}
++        </span>
++    </div>
++</template>
++
++<script>
++export default {
++    name: 'FormInput',
++    methods: {
++        isFieldValid(fieldName) {
++            return (typeof this.validationErrors[fieldName] === 'undefined');
++        },
++    },
++};
++</script>
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 13ea7e11..da93bfac 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -2,29 +2,7 @@
+     <div class="row p-3">
+         <div class="col-12">
+             <form>
+-                <div class="p-3">
+-                    <label
+-                        for="customerName"
+-                        class="col-form-label"
+-                    >
+-                        Name:
+-                    </label>
+-                    <input
+-                        id="customerName"
+-                        v-model.trim="form.customerName"
+-                        type="text"
+-                        :class="{
+-                            'is-invalid': !isFieldValid('customerName'),
+-                            'form-control': true,
+-                        }"
+-                    >
+-                    <span
+-                        v-show="!isFieldValid('customerName')"
+-                        class="invalid-feedback"
+-                    >
+-                        {{ validationErrors.customerName }}
+-                    </span>
+-                </div>
++
+             </form>
+         </div>
+     </div>
+@@ -56,10 +34,5 @@ export default {
+     created() {
+         this.form.purchaseItems = this.cart.items;
+     },
+-    methods: {
+-        isFieldValid(fieldName) {
+-            return (typeof this.validationErrors[fieldName] === 'undefined');
+-        },
+-    },
+ };
+ </script>

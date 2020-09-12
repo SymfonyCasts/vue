@@ -1,16 +1,16 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 59797b58..40bad474 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -114,6 +114,7 @@ export default {
-                 customerPhone: null,
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 2e518adc..8bb9fe51 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -82,6 +82,7 @@ export default {
              },
+             validationErrors: {},
              loading: false,
 +            serverError: false,
          };
      },
-     async created() {
-@@ -134,13 +135,18 @@ export default {
+     created() {
+@@ -107,13 +108,18 @@ export default {
          async onSubmit(event) {
              event.preventDefault();
              this.loading = true;
@@ -18,13 +18,12 @@ index 59797b58..40bad474 100644
  
              try {
                  const response = await createOrder(this.form);
--
++            } catch (error) {
++                const { response } = error;
+ 
 -                console.log(response.data);
 -            } catch (e) {
 -                console.log('error', e);
-+            } catch (error) {
-+                const { response } = error;
-+
 +                if (response.status !== 400) {
 +                    this.serverError = true;
 +                } else {

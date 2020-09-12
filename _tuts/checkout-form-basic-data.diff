@@ -1,11 +1,11 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index d30b7b4d..cec03e30 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -27,6 +27,19 @@ export default {
-     components: {
-         TitleComponent,
-     },
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 8aa32543..015f985c 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -9,5 +9,18 @@
+ <script>
+ export default {
+     name: 'CheckoutForm',
 +    data() {
 +        return {
 +            form: {
@@ -21,4 +21,3 @@ index d30b7b4d..cec03e30 100644
 +    },
  };
  </script>
- 

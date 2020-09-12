@@ -1,35 +1,21 @@
-diff --git a/assets/js/pages/checkout.vue b/assets/js/pages/checkout.vue
-index 381a4590..9f4cd8e0 100644
---- a/assets/js/pages/checkout.vue
-+++ b/assets/js/pages/checkout.vue
-@@ -12,7 +12,7 @@
- 
-                 <div class="row">
-                     <div :class="[$style.content, 'col-11']">
--                        <form @submit="onSubmit">
-+                        <form @submit.prevent="onSubmit">
-                             <div
-                                 v-show="serverError"
-                                 class="alert alert-danger m-3"
-@@ -136,11 +136,8 @@ export default {
-     methods: {
-         /**
-          * Sends the form data and process the response!
--         *
--         * @param {Event} event
-          */
--        async onSubmit(event) {
+diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
+index 0517ce8f..07c2d558 100644
+--- a/assets/js/components/checkout/index.vue
++++ b/assets/js/components/checkout/index.vue
+@@ -1,7 +1,7 @@
+ <template>
+     <div class="row p-3">
+         <div class="col-12">
+-            <form @submit="onSubmit">
++            <form @submit.prevent="onSubmit">
+                 <div
+                     v-show="serverError"
+                     class="alert alert-danger m-3"
+@@ -121,7 +121,6 @@ export default {
+             };
+         },
+         async onSubmit(event) {
 -            event.preventDefault();
-+        async onSubmit() {
              this.loading = true;
              this.serverError = false;
-             this.validationErrors = this.initializeValidationFields();
-@@ -148,6 +145,8 @@ export default {
-             try {
-                 const response = await createOrder(this.form);
-                 cartService.clear();
-+                const id = Number(response.data['@id'].split('/').pop());
-+                window.location = `/confirmation/${id}`;
-             } catch (error) {
-                 const { response } = error;
- 
+             this.validationErrors = {};

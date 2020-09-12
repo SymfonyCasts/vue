@@ -1236,38 +1236,38 @@
             "description": null
         },
         {
-            "id": "checkout-first-page-template-entry",
-            "name": "Checkout First Page: Template Entry",
+            "id": "delete-me-1",
+            "name": "delete-me-1",
             "description": null
         },
         {
-            "id": "checkout-first-page-correct-template",
-            "name": "Checkout First Page: Correct template",
+            "id": "delete-me-2",
+            "name": "delete-me-2",
             "description": null
         },
         {
-            "id": "checkout-first-page-encore-entry",
-            "name": "Checkout First Page: Encore Entry",
+            "id": "delete-me-3",
+            "name": "delete-me-3",
             "description": null
         },
         {
-            "id": "checkout-first-page-page-file",
-            "name": "Checkout First Page: Page File",
+            "id": "delete-me-4",
+            "name": "delete-me-4",
             "description": null
         },
         {
-            "id": "checkout-first-page-checkout-page-component",
-            "name": "Checkout First Page: Checkout Page Component",
+            "id": "delete-me-5",
+            "name": "delete-me-5",
             "description": null
         },
         {
-            "id": "checkout-first-page-basic-data",
-            "name": "Checkout First Page: Basic Data",
+            "id": "checkout-form-basic-data",
+            "name": "Checkout Form: Basic Data",
             "description": null
         },
         {
-            "id": "checkout-first-page-created-function",
-            "name": "Checkout First Page: Created function",
+            "id": "checkout-form-created-function",
+            "name": "Checkout Form: Created function",
             "description": null
         },
         {
@@ -1291,63 +1291,68 @@
             "description": null
         },
         {
-            "id": "checkout-form-extract-into-form-field-component",
-            "name": "Checkout Form: Extract into Form Field Component",
+            "id": "custom-input-extract-into-form-field-component",
+            "name": "Custom Input: Extract into Form Field Component",
             "description": null
         },
         {
-            "id": "checkout-form-add-form-input-from-checkout",
-            "name": "Checkout Form: Add Form-Input from Checkout",
+            "id": "custom-input-add-form-input-from-checkout",
+            "name": "Custom Input: Add Form-Input from Checkout",
             "description": null
         },
         {
-            "id": "checkout-form-correct-template",
-            "name": "Checkout Form: Correct template",
+            "id": "custom-input-correct-template",
+            "name": "Custom Input: Correct template",
             "description": null
         },
         {
-            "id": "checkout-form-add-props-to-form-input",
-            "name": "Checkout Form: Add Props to Form-Input",
+            "id": "custom-input-add-props-to-form-input",
+            "name": "Custom Input: Add Props to Form-Input",
             "description": null
         },
         {
-            "id": "checkout-form-add-computed-property",
-            "name": "Checkout Form: Add Computed Property",
+            "id": "custom-input-add-computed-property",
+            "name": "Custom Input: Add Computed Property",
             "description": null
         },
         {
-            "id": "checkout-form-finalize-form-input-template",
-            "name": "Checkout Form: Finalize Form-Input Template",
+            "id": "custom-input-finalize-form-input-template",
+            "name": "Custom Input: Finalize Form-Input Template",
             "description": null
         },
         {
-            "id": "checkout-form-v-model-in-form-input",
-            "name": "Checkout Form: v-model in form-input",
+            "id": "custom-input-v-model-in-form-input",
+            "name": "Custom Input: v-model in Form-Input",
             "description": null
         },
         {
-            "id": "checkout-form-v-model-input-emit",
-            "name": "Checkout Form: v-model input emit",
+            "id": "custom-input-v-model-input-emit",
+            "name": "Custom Input: v-model input emit",
             "description": null
         },
         {
-            "id": "checkout-form-paste-the-fields-5-times",
-            "name": "Checkout Form: Paste the fields 5 times",
+            "id": "custom-input-paste-the-fields-5-times",
+            "name": "Custom Input: Paste the fields 5 times",
             "description": null
         },
         {
-            "id": "checkout-form-correct-form-field-names",
-            "name": "Checkout Form: Correct form field names",
+            "id": "custom-input-correct-form-field-names",
+            "name": "Custom Input: Correct form field names",
             "description": null
         },
         {
-            "id": "checkout-form-add-type-prop",
-            "name": "Checkout Form: Add Type Prop",
+            "id": "custom-input-normalize-form-attributes",
+            "name": "Custom Input: Normalize form attributes",
             "description": null
         },
         {
-            "id": "checkout-form-specify-field-types",
-            "name": "Checkout Form: Specify Field Types",
+            "id": "custom-input-add-type-prop",
+            "name": "Custom Input: Add Type Prop",
+            "description": null
+        },
+        {
+            "id": "custom-input-specify-field-types",
+            "name": "Custom Input Specify Field Types",
             "description": null
         },
         {
@@ -1396,8 +1401,8 @@
             "description": null
         },
         {
-            "id": "server-validation-validation-fields",
-            "name": "Server Validation: Validation Fields",
+            "id": "delete-me-7",
+            "name": "delete-me-7",
             "description": null
         },
         {
@@ -1406,8 +1411,8 @@
             "description": null
         },
         {
-            "id": "client-validation-initialize-data-fields",
-            "name": "Client Validation: Initialize data fields",
+            "id": "delete-me-8",
+            "name": "delete-me-8",
             "description": null
         },
         {
@@ -1429,7 +1434,12 @@
             "id": "client-validation-submit-prevent",
             "name": "Client Validation: submit.prevent",
             "description": null
+        },
+        {
+            "id": "client-validation-redirect",
+            "name": "Client Validation: Redirect",
+            "description": null
         }
     ],
-    "sha": "123ab1f995eadddcfc180a6cd255dd2772127b28"
+    "sha": "feb0a01218787cc942aaa80a4042f68226079381"
 }
