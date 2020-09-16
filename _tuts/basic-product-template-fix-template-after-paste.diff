@@ -1,42 +1,40 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index b7318a25..642bdbc7 100644
+index 6b7abb6a..44f4fd64 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -1,69 +1,71 @@
+@@ -1,67 +1,69 @@
  <template>
--    <div class="row">
--        <div class="col-12">
--            <title-component :text="product.name" />
--        </div>
+-    <div class="p-3">
+-        <title-component :text="product.name" />
 -    </div>
 -
--    <div class="row">
--        <div
--            :class="[$style.product, 'col-11', 'row']"
--        >
--            <div class="col-12 p-3">
--                <loading v-show="loading" />
-+    <div class="col-12">
-+        <div class="row">
-+            <div class="col-12">
-+                <title-component :text="product.name" />
-             </div>
-+        </div>
+-    <div
+-        :class="$style.product"
+-    >
+-        <div class="p-3">
+-            <loading v-show="loading" />
++    <div>
++        <div class="pb-3">
++            <title-component :text="product.name" />
+         </div>
  
-+        <div class="row">
-             <div
+-        <div class="row">
+-            <div
 -                v-show="!loading"
 -                class="col-8"
-+                :class="[$style.product, 'col-11', 'row']"
-             >
+-            >
 -                <img
 -                    class="d-block"
 -                    :src="product.image"
 -                    :alt="product.name"
-+                <div class="col-12 p-3">
-+                    <loading v-show="loading" />
-+                </div>
++        <div
++            :class="$style.product"
++        >
++            <div class="p-3">
++                <loading v-show="loading" />
++            </div>
 +
++            <div class="row">
 +                <div
 +                    v-show="!loading"
 +                    class="col-8"

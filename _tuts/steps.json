@@ -956,13 +956,28 @@
             "description": null
         },
         {
+            "id": "basic-product-template-paste-computed-property-from-product-card",
+            "name": "Basic Product Template: Paste computed property from product-card",
+            "description": null
+        },
+        {
             "id": "basic-product-template-add-methods-and-data",
             "name": "Basic Product Template: Add methods and data",
             "description": null
         },
         {
-            "id": "basic-product-template-paste-computed-property-from-productcard",
-            "name": "Basic Product Template: Paste Computed Property from ProductCard",
+            "id": "basic-product-template-add-updateselectedcolor",
+            "name": "Basic Product Template: Add updateSelectedColor",
+            "description": null
+        },
+        {
+            "id": "basic-product-template-add-qty",
+            "name": "Basic Product Template: Add qty",
+            "description": null
+        },
+        {
+            "id": "basic-product-template-add-addtocart-dummy-function",
+            "name": "Basic Product Template: Add addToCart dummy function",
             "description": null
         },
         {
@@ -1411,5 +1426,5 @@
             "description": null
         }
     ],
-    "sha": "62c44fba2b9ec612ba37c4857b1f3a2eaea7200d"
+    "sha": "082dbc31a057bf4d7518e74afa55f121125a932a"
 }

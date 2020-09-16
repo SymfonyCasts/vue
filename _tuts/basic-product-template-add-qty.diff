@@ -1,0 +1,12 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index dc98ecad..75fe8a74 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -96,6 +96,7 @@ export default {
+                 name: '', image: '', price: 0, colors: [],
+             },
+             selectedColorId: null,
++            qty: 1,
+             loading: true,
+         };
+     },

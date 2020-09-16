@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index cb5a94ec..10a532b2 100644
+index 71d91b6c..8b546691 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -93,7 +93,11 @@ export default {
+@@ -92,7 +92,9 @@ export default {
      },
      data() {
          return {
@@ -10,29 +10,6 @@ index cb5a94ec..10a532b2 100644
 +            product: {
 +                name: '', image: '', price: 0, colors: [],
 +            },
-+            selectedColorId: null,
-+            qty: 1,
              loading: true,
          };
      },
-@@ -112,6 +116,20 @@ export default {
- 
-         this.product = response.data;
-     },
-+    methods: {
-+        addToCart() {
-+            // TODO
-+        },
-+
-+        /**
-+         * Update the selectedColorId index accordingly
-+         *
-+         * @params {string} colorId
-+         */
-+        updateSelectedColor(colorId) {
-+            this.selectedColorId = colorId;
-+        },
-+    },
- };
- </script>
- 

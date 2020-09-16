@@ -1,20 +1,24 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 794944d2..b7318a25 100644
+index 794944d2..6b7abb6a 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -4,6 +4,70 @@
-             <title-component :text="product.name" />
-         </div>
-     </div>
+@@ -1,7 +1,69 @@
+ <template>
+-    <div class="row">
+-        <div class="col-12">
+-            <title-component :text="product.name" />
++    <div class="p-3">
++        <title-component :text="product.name" />
++    </div>
 +
-+    <div class="row">
-+        <div
-+            :class="[$style.product, 'col-11', 'row']"
-+        >
-+            <div class="col-12 p-3">
-+                <loading v-show="loading" />
-+            </div>
++    <div
++        :class="$style.product"
++    >
++        <div class="p-3">
++            <loading v-show="loading" />
++        </div>
 +
++        <div class="row">
 +            <div
 +                v-show="!loading"
 +                class="col-8"
@@ -68,12 +72,10 @@ index 794944d2..b7318a25 100644
 +                    </button>
 +                </div>
 +            </div>
-+        </div>
-+    </div>
+         </div>
+     </div>
  </template>
- 
- <script>
-@@ -23,7 +87,7 @@ export default {
+@@ -23,7 +85,7 @@ export default {
      },
      data() {
          return {
@@ -82,7 +84,7 @@ index 794944d2..b7318a25 100644
              loading: true,
          };
      },
-@@ -44,3 +108,11 @@ export default {
+@@ -44,3 +106,11 @@ export default {
      },
  };
  </script>
