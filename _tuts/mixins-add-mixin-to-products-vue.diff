@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index c9f1a870..fc8092e3 100644
+index a8d7553b..00627016 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -26,7 +26,7 @@ import Product from '@/components/product';
@@ -22,7 +22,7 @@ index c9f1a870..fc8092e3 100644
              categories: [],
              currentCategoryId: getCurrentCategoryId(),
              sidebarCollapsed: false,
-@@ -74,16 +74,6 @@ export default {
+@@ -73,16 +73,6 @@ export default {
  
          this.categories = response.data['hydra:member'];
      },

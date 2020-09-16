@@ -1,21 +1,18 @@
 diff --git a/assets/js/services/products-service.js b/assets/js/services/products-service.js
-index 62681e63..a4544239 100644
+index 62681e63..41780cfa 100644
 --- a/assets/js/services/products-service.js
 +++ b/assets/js/services/products-service.js
-@@ -19,3 +19,16 @@ export function fetchProducts(categoryIri, searchTerm) {
+@@ -19,3 +19,13 @@ export function fetchProducts(categoryIri, searchTerm) {
          params,
      });
  }
 +
 +/**
-+ * Gets a product from the database according to the productIri
++ * Gets a product from the API according to the productIri
 + *
 + * @param {string} productIri
 + * @return {Promise}
 + */
 +export function getProduct(productIri) {
-+    return axios({
-+        method: 'get',
-+        url: productIri,
-+    });
++    return axios.get(productIri);
 +}

@@ -1,8 +1,13 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index d58c33e3..f479d07b 100644
+index 6941d9e0..ea66bd43 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -5,7 +5,40 @@
+@@ -1,10 +1,13 @@
+ <template>
+     <div>
++        <h1>{{ product.name }}</h1>
+         I'd <3 to see a Product here!
+     </div>
  </template>
  
  <script>
@@ -10,16 +15,11 @@ index d58c33e3..f479d07b 100644
 +
  export default {
      name: 'Product',
-+    props: {
-+        currentProductId: {
-+            type: String,
-+            default: null,
-+        },
-+        categories: {
-+            type: Array,
-+            default: () => ([]),
-+        },
-+    },
+     props: {
+@@ -13,5 +16,26 @@ export default {
+             default: null,
+         },
+     },
 +    data() {
 +        return {
 +            product: null,

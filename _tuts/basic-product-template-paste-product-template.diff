@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index bcdc4c13..cb73d81a 100644
+index 794944d2..b7318a25 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -4,6 +4,70 @@
@@ -73,7 +73,7 @@ index bcdc4c13..cb73d81a 100644
  </template>
  
  <script>
-@@ -27,7 +91,7 @@ export default {
+@@ -23,7 +87,7 @@ export default {
      },
      data() {
          return {
@@ -82,7 +82,7 @@ index bcdc4c13..cb73d81a 100644
              loading: true,
          };
      },
-@@ -48,3 +112,11 @@ export default {
+@@ -44,3 +108,11 @@ export default {
      },
  };
  </script>

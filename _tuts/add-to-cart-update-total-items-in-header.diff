@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 6a333d22..8b48e576 100644
+index cbb3dda7..e2cec9c2 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
 @@ -73,7 +73,7 @@
@@ -11,7 +11,7 @@ index 6a333d22..8b48e576 100644
  import { getProduct } from '@/services/products-service';
  import ColorSelector from '@/components/color-selector';
  import Loading from '@/components/loading';
-@@ -136,8 +136,11 @@ export default {
+@@ -132,8 +132,11 @@ export default {
          try {
              this.cart = await getCart();
          } catch (e) {

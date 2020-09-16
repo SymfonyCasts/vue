@@ -881,6 +881,11 @@
             "description": null
         },
         {
+            "id": "generic-component-add-props-to-product-vue",
+            "name": "Generic Component: Add props to product.vue",
+            "description": null
+        },
+        {
             "id": "generic-component-v-bind-directive",
             "name": "Generic Component: v-bind directive",
             "description": null
@@ -1406,5 +1411,5 @@
             "description": null
         }
     ],
-    "sha": "b5d39e810f24ff3501f74c2c1480442548c9bcbc"
+    "sha": "62c44fba2b9ec612ba37c4857b1f3a2eaea7200d"
 }
