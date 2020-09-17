@@ -1,20 +1,20 @@
 diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 5bd39a54..f4fac92a 100644
+index 00688d41..1d8186a5 100644
 --- a/assets/js/components/product.vue
 +++ b/assets/js/components/product.vue
-@@ -90,6 +90,10 @@ export default {
+@@ -91,6 +91,10 @@ export default {
              type: String,
              default: null,
          },
 +        cart: {
 +            type: Object,
-+            required: true,
++            default: null,
 +        },
      },
      data() {
          return {
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 073532ce..a8d7553b 100644
+index 6ad70b20..1dcc90b0 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -60,6 +60,7 @@ export default {

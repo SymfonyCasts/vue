@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index a8d7553b..00627016 100644
+index 1dcc90b0..525e01d8 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -26,7 +26,7 @@ import Product from '@/components/product';
@@ -18,10 +18,10 @@ index a8d7553b..00627016 100644
 +    mixins: [shoppingCartMixin],
      data() {
          return {
--            cart: { items: [] },
+-            cart: null,
+             sidebarCollapsed: false,
              categories: [],
              currentCategoryId: getCurrentCategoryId(),
-             sidebarCollapsed: false,
 @@ -73,16 +73,6 @@ export default {
  
          this.categories = response.data['hydra:member'];

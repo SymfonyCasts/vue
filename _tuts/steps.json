@@ -996,6 +996,11 @@
             "description": null
         },
         {
+            "id": "add-to-cart-disable-add-to-cart-button-on-load",
+            "name": "Add To Cart: Disable add to cart button on load",
+            "description": null
+        },
+        {
             "id": "add-to-cart-implement-addtocart",
             "name": "Add To Cart: Implement addToCart",
             "description": null
@@ -1426,5 +1431,5 @@
             "description": null
         }
     ],
-    "sha": "082dbc31a057bf4d7518e74afa55f121125a932a"
+    "sha": "0725b1e3ff58e5a935005716cefc4c696701efe3"
 }
