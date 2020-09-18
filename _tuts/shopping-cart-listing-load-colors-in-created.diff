@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index cb166dd7..257f40df 100644
+index ff646ef8..f2670895 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -44,6 +44,25 @@ export default {
+@@ -40,6 +40,25 @@ export default {
              loading: true,
          };
      },

@@ -1,25 +1,25 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 0a8b5b1a..40a65060 100644
+index 959089b5..f97ce1e4 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -20,11 +20,15 @@
-                         </div>
+@@ -17,11 +17,15 @@
+                     </div>
  
-                         <shopping-cart-list
--                            v-show="!loading"
-+                            v-show="!loading && currentState === 1"
-                             :items="items"
-                             :cart="cart"
-                         />
+                     <shopping-cart-list
+-                        v-show="!loading"
++                        v-show="!loading && currentState === 1"
+                         :items="items"
+                         :cart="cart"
+                     />
  
-+                        <checkout-form
-+                            v-show="!loading && currentState === 2"
-+                        />
++                    <checkout-form
++                        v-show="!loading && currentState === 2"
++                    />
 +
-                         <div
-                             v-show="!loading && items.length"
-                             class="row p-3 justify-content-end"
-@@ -48,6 +52,7 @@
+                     <div
+                         v-show="!loading && items.length"
+                         class="row p-3 justify-content-end"
+@@ -44,6 +48,7 @@
  <script>
  import { getProductsById } from '@/services/products-service';
  import { getColors } from '@/services/colors-service';
@@ -27,7 +27,7 @@ index 0a8b5b1a..40a65060 100644
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
-@@ -56,6 +61,7 @@ import shoppingCartMixin from '@/mixins/get-shopping-cart';
+@@ -52,6 +57,7 @@ import shoppingCartMixin from '@/mixins/get-shopping-cart';
  export default {
      name: 'ShoppingCart',
      components: {

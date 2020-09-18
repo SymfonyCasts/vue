@@ -11,12 +11,12 @@ index 67f60ab8..a926cba7 100644
  </template>
  
 diff --git a/assets/js/components/shopping-cart/index.vue b/assets/js/components/shopping-cart/index.vue
-index 7d1a3ddc..2f5bf8c2 100644
+index f145b5e5..e9a976bf 100644
 --- a/assets/js/components/shopping-cart/index.vue
 +++ b/assets/js/components/shopping-cart/index.vue
-@@ -8,12 +8,44 @@
-                 Sorry! You haven't bought anything yet!
-             </div>
+@@ -6,12 +6,42 @@
+         >
+             Sorry! You haven't bought anything yet!
          </div>
 +
 +        <div v-show="items.length">
@@ -39,10 +39,8 @@ index 7d1a3ddc..2f5bf8c2 100644
 +                :product="item"
 +            />
 +
-+            <div class="row p-3">
-+                <span class="col-12">
-+                    Total: <strong>${{ totalPrice }}</strong>
-+                </span>
++            <div class="p-3">
++                Total: <strong>${{ totalPrice }}</strong>
 +            </div>
 +        </div>
      </div>

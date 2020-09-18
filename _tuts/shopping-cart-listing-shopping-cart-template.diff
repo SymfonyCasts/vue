@@ -1,16 +1,14 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 42624c3d..89a27d57 100644
+index 42624c3d..d4768d77 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -4,17 +4,25 @@
+@@ -4,17 +4,23 @@
              <aside class="col-xs-12 col-lg-3" />
  
              <div class="col-xs-12 col-lg-9">
 -                // TODO: List the products in the cart here
-+                <div class="row">
-+                    <div class="col-12">
-+                        <title-component text="Shopping Cart" />
-+                    </div>
++                <div class="pb-3">
++                    <title-component text="Shopping Cart" />
 +                </div>
              </div>
          </div>

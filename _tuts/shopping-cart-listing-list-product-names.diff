@@ -1,19 +1,19 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 07962308..db437e62 100644
+index f2482d36..35660ffc 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -18,6 +18,14 @@
-                         >
-                             <loading />
-                         </div>
-+
-+                        <div
-+                            v-for="item in items"
-+                            class="p-3"
-+                            :key="item['@id']"
-+                        >
-+                            {{ item.name }}
-+                        </div>
+@@ -15,6 +15,14 @@
+                     >
+                         <loading />
                      </div>
++
++                    <div
++                        v-for="item in items"
++                        :key="item['@id']"
++                        class="p-3"
++                    >
++                        {{ item.name }}
++                    </div>
                  </div>
              </div>
+         </div>

@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index c51240f1..cb166dd7 100644
+index ed97283f..ff646ef8 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -40,6 +40,7 @@ export default {
+@@ -36,6 +36,7 @@ export default {
      mixins: [shoppingCartMixin],
      data() {
          return {

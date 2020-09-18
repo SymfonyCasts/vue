@@ -48,10 +48,10 @@ index 51cced5c..febb9a1c 100644
  </script>
  
 diff --git a/assets/js/components/shopping-cart/index.vue b/assets/js/components/shopping-cart/index.vue
-index c425f197..944b668f 100644
+index 11678636..745ca1c7 100644
 --- a/assets/js/components/shopping-cart/index.vue
 +++ b/assets/js/components/shopping-cart/index.vue
-@@ -26,6 +26,7 @@
+@@ -24,6 +24,7 @@
              <shopping-cart-item
                  v-for="item in items"
                  :key="item['@id']"
@@ -59,7 +59,7 @@ index c425f197..944b668f 100644
                  :product="item"
              />
  
-@@ -48,6 +49,10 @@ export default {
+@@ -44,6 +45,10 @@ export default {
          ShoppingCartItem,
      },
      props: {
@@ -71,14 +71,14 @@ index c425f197..944b668f 100644
              type: Array,
              required: true,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 22237090..93958f9a 100644
+index e7afb015..d36e0918 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -22,6 +22,7 @@
-                         <shopping-cart-list
-                             v-show="!loading"
-                             :items="items"
-+                            :cart="cart"
-                         />
-                     </div>
+@@ -19,6 +19,7 @@
+                     <shopping-cart-list
+                         v-show="!loading"
+                         :items="items"
++                        :cart="cart"
+                     />
                  </div>
+             </div>

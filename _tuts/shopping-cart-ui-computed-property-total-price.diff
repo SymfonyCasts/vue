@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/shopping-cart/index.vue b/assets/js/components/shopping-cart/index.vue
-index 2f5bf8c2..c425f197 100644
+index e9a976bf..11678636 100644
 --- a/assets/js/components/shopping-cart/index.vue
 +++ b/assets/js/components/shopping-cart/index.vue
-@@ -40,6 +40,7 @@
+@@ -36,6 +36,7 @@
  
  <script>
  import ShoppingCartItem from '@/components/shopping-cart/cart-item';
@@ -10,7 +10,7 @@ index 2f5bf8c2..c425f197 100644
  
  export default {
      name: 'ShoppingCartList',
-@@ -52,5 +53,21 @@ export default {
+@@ -48,5 +49,21 @@ export default {
              required: true,
          },
      },

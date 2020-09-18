@@ -1,18 +1,16 @@
 diff --git a/assets/js/components/shopping-cart/index.vue b/assets/js/components/shopping-cart/index.vue
 new file mode 100644
-index 00000000..7d1a3ddc
+index 00000000..f145b5e5
 --- /dev/null
 +++ b/assets/js/components/shopping-cart/index.vue
-@@ -0,0 +1,24 @@
+@@ -0,0 +1,22 @@
 +<template>
-+    <div class="col-11">
++    <div>
 +        <div
 +            v-show="!items.length"
-+            class="row"
++            class="p-3"
 +        >
-+            <div class="col-12 p-3">
-+                Sorry! You haven't bought anything yet!
-+            </div>
++            Sorry! You haven't bought anything yet!
 +        </div>
 +    </div>
 +</template>
