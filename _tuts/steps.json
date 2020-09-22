@@ -1081,33 +1081,48 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-import-services",
-            "name": "Shopping Cart Listing: Import services",
+            "id": "shopping-cart-listing-add-cart-mixin",
+            "name": "Shopping Cart Listing: Add Cart mixin",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-add-data-properties",
-            "name": "Shopping Cart Listing: Add Data Properties",
+            "id": "shopping-cart-listing-paste-product-service-function",
+            "name": "Shopping Cart Listing: Paste product service function",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-load-colors-in-created",
-            "name": "Shopping Cart Listing: Load colors in created",
+            "id": "shopping-cart-listing-add-first-watcher",
+            "name": "Shopping Cart Listing: Add first watcher",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-add-getproductsbyid-to-service",
-            "name": "Shopping Cart Listing: Add getProductsById to service",
+            "id": "delete-me-2",
+            "name": "delete-me-2",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-load-products-in-created",
-            "name": "Shopping Cart Listing: Load products in created",
+            "id": "delete-me-3",
+            "name": "delete-me-3",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-change-created-into-watch",
-            "name": "Shopping Cart Listing: Change created into watch",
+            "id": "shopping-cart-listing-load-colors-in-watcher",
+            "name": "Shopping Cart Listing: Load colors in watcher",
+            "description": null
+        },
+        {
+            "id": "delete-me-4",
+            "name": "delete-me-4",
+            "description": null
+        },
+        {
+            "id": "delete-me-5",
+            "name": "delete-me-5",
+            "description": null
+        },
+        {
+            "id": "delete-me-6",
+            "name": "delete-me-6",
             "description": null
         },
         {
@@ -1116,8 +1131,8 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-list-product-names",
-            "name": "Shopping Cart Listing: List Product Names",
+            "id": "delete-me-7",
+            "name": "delete-me-7",
             "description": null
         },
         {
@@ -1436,5 +1451,5 @@
             "description": null
         }
     ],
-    "sha": "2475b344b90fc0b7566dba0de7423dff6e94a467"
+    "sha": "6db6cf62a6421a5ab9fe3ac7276aa7b120dc0faa"
 }

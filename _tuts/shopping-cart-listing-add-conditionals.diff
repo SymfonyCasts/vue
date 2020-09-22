@@ -1,19 +1,11 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index eefac2b3..35c9cc30 100644
+index 42506a80..18319d07 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -47,12 +47,19 @@ export default {
-         return {
-             colors: {},
-             items: [],
--            loading: true,
-+            loading: false,
-         };
+@@ -57,6 +57,12 @@ export default {
      },
      watch: {
-         'cart.items.length': async function watchCartItems() {
-             this.loading = true;
-+
+         async cart() {
 +            if (!this.cart.items.length) {
 +                this.items = [];
 +                this.loading = false;
@@ -22,4 +14,4 @@ index eefac2b3..35c9cc30 100644
 +
              const productIds = this.cart.items.map((item) => item.product);
  
-             let colorsResponse = null;
+             this.loading = true;

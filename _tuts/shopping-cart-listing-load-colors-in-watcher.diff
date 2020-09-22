@@ -1,0 +1,45 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 1c6058f7..9230c589 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -35,6 +35,7 @@
+ </template>
+ 
+ <script>
++import { getColors } from '@/services/colors-service';
+ import { getProductsById } from '@/services/products-service';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+@@ -49,6 +50,7 @@ export default {
+     mixins: [shoppingCartMixin],
+     data() {
+         return {
++            colors: {},
+             items: [],
+             loading: false,
+         };
+@@ -60,9 +62,11 @@ export default {
+             this.loading = true;
+             this.items = [];
+ 
++            let colorsResponse = null;
+             let productsResponse = null;
+ 
+             try {
++                colorsResponse = await getColors();
+                 productsResponse = await getProductsById(productIds);
+             } catch (e) {
+                 this.loading = false;
+@@ -70,6 +74,12 @@ export default {
+             }
+ 
+             this.items = productsResponse.data['hydra:member'];
++
++            // Map all colors to our object dictionary by @id
++            colorsResponse.data['hydra:member'].forEach((color) => {
++                this.colors[color['@id']] = color;
++            });
++
+             this.loading = false;
+         },
+     },

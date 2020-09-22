@@ -1,0 +1,33 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 55e84fc5..c3147699 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -15,6 +15,19 @@
+                     >
+                         <loading />
+                     </div>
++
++                    <div
++                        v-if="cart !== null"
++                        class="p-3"
++                    >
++                        <div
++                            v-for="(cartItem, Index) in cart.items"
++                            :key="Index"
++                            class="p-3"
++                        >
++                            {{ cartItem.product }}
++                        </div>
++                    </div>
+                 </div>
+             </div>
+         </div>
+@@ -35,7 +48,7 @@ export default {
+     mixins: [shoppingCartMixin],
+     data() {
+         return {
+-            loading: true,
++            loading: false,
+         };
+     },
+ };

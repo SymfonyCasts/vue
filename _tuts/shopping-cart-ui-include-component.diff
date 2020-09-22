@@ -1,34 +1,38 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 35c9cc30..e7afb015 100644
+index 18319d07..b42230da 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -16,13 +16,10 @@
+@@ -16,18 +16,10 @@
                          <loading />
                      </div>
  
 -                    <div
--                        v-for="item in items"
--                        :key="item['@id']"
++                    <shopping-cart-list
+                         v-show="!loading"
 -                        class="p-3"
 -                    >
--                        {{ item.name }}
+-                        <div
+-                            v-for="(cartItem, Index) in items"
+-                            :key="Index"
+-                            class="p-3"
+-                        >
+-                            {{ cartItem.name }}
+-                        </div>
 -                    </div>
-+                    <shopping-cart-list
-+                        v-show="!loading"
 +                        :items="items"
 +                    />
                  </div>
              </div>
          </div>
-@@ -34,6 +31,7 @@ import { getProductsById } from '@/services/products-service';
- import { getColors } from '@/services/colors-service';
+@@ -39,6 +31,7 @@ import { getColors } from '@/services/colors-service';
+ import { getProductsById } from '@/services/products-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
 +import ShoppingCartList from '@/components/shopping-cart';
  import shoppingCartMixin from '@/mixins/get-shopping-cart';
  
  export default {
-@@ -41,6 +39,7 @@ export default {
+@@ -46,6 +39,7 @@ export default {
      components: {
          Loading,
          TitleComponent,
