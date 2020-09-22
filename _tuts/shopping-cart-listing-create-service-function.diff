@@ -1,0 +1,100 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 46f77ba4..129b4bb0 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -65,42 +65,6 @@ export default {
+                 return;
+             }
+ 
+-            const productIds = this.cart.items.map((item) => item.product);
+-            let colorsResponse = null;
+-            let productsResponse = null;
+-
+-            try {
+-                [colorsResponse, productsResponse] = await Promise.all([
+-                    getColors(),
+-                    getProductsById(productIds),
+-                ]);
+-            } catch (e) {
+-                this.loading = false;
+-                return;
+-            }
+-
+-            // Map all colors to our object dictionary by @id
+-            colorsResponse.data['hydra:member'].forEach((color) => {
+-                this.colors[color['@id']] = color;
+-            });
+-
+-            // Assign our returned products to our products array,
+-            // applying the proper colorId, hexColor and qty values
+-            this.items = productsResponse.data['hydra:member'].map((product) => {
+-                const productInCart = this.cart.items.find(
+-                    (item) => (item.product === product['@id']),
+-                );
+-
+-                return {
+-                    ...product,
+-                    colorId: productInCart.color,
+-                    hexColor: productInCart.color
+-                        ? this.colors[productInCart.color].hexColor
+-                        : 'fff',
+-                    qty: productInCart.quantity,
+-                };
+-            });
+-
+             this.loading = false;
+         },
+     },
+diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
+index 8bb28aba..80bbf7e9 100644
+--- a/assets/js/services/cart-service.js
++++ b/assets/js/services/cart-service.js
+@@ -1,4 +1,6 @@
+ import axios from 'axios';
++import { getColors } from '@/services/colors-service';
++import { getProductsById } from '@/services/products-service';
+ 
+ /**
+  * @typedef {Object} CartCollection
+@@ -136,3 +138,41 @@ export function clearCart() {
+ export function getCartTotalItems(cart) {
+     return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
+ }
++
++export async function getFullShoppingCart(cart) {
++    const productIds = this.cart.items.map((item) => item.product);
++    let colorsResponse = null;
++    let productsResponse = null;
++
++    try {
++        [colorsResponse, productsResponse] = await Promise.all([
++            getColors(),
++            getProductsById(productIds),
++        ]);
++    } catch (e) {
++        this.loading = false;
++        return;
++    }
++
++    // Map all colors to our object dictionary by @id
++    colorsResponse.data['hydra:member'].forEach((color) => {
++        this.colors[color['@id']] = color;
++    });
++
++    // Assign our returned products to our products array,
++    // applying the proper colorId, hexColor and qty values
++    this.items = productsResponse.data['hydra:member'].map((product) => {
++        const productInCart = this.cart.items.find(
++            (item) => (item.product === product['@id']),
++        );
++
++        return {
++            ...product,
++            colorId: productInCart.color,
++            hexColor: productInCart.color
++                ? this.colors[productInCart.color].hexColor
++                : 'fff',
++            qty: productInCart.quantity,
++        };
++    });
++}

@@ -1146,6 +1146,21 @@
             "description": null
         },
         {
+            "id": "shopping-cart-listing-create-service-function",
+            "name": "Shopping Cart Listing: Create service function",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-fix-service-function",
+            "name": "Shopping Cart Listing: Fix service function",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-implement-method-in-watcher",
+            "name": "Shopping Cart Listing: Implement method in watcher",
+            "description": null
+        },
+        {
             "id": "shopping-cart-ui-first-component",
             "name": "Shopping Cart UI: First component",
             "description": null
@@ -1451,5 +1466,5 @@
             "description": null
         }
     ],
-    "sha": "6db6cf62a6421a5ab9fe3ac7276aa7b120dc0faa"
+    "sha": "2ec850cada1bb67965a4d3e0bcca87c1660c5536"
 }

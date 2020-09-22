@@ -25,7 +25,7 @@ index 015f985c..e1df1ee2 100644
  };
  </script>
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 4499c38d..9be7260b 100644
+index 2e91c5e6..1cdc6496 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -43,6 +43,7 @@

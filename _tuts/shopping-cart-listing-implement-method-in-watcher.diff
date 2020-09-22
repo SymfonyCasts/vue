@@ -1,0 +1,27 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 129b4bb0..e291e96a 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -35,8 +35,7 @@
+ </template>
+ 
+ <script>
+-import { getColors } from '@/services/colors-service';
+-import { getProductsById } from '@/services/products-service';
++import { getFullShoppingCart } from '@/services/cart-service';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+ import shoppingCartMixin from '@/mixins/get-shopping-cart';
+@@ -65,6 +64,12 @@ export default {
+                 return;
+             }
+ 
++            try {
++                this.items = await getFullShoppingCart(this.cart);
++            } catch (e) {
++                this.loading = false;
++            }
++
+             this.loading = false;
+         },
+     },

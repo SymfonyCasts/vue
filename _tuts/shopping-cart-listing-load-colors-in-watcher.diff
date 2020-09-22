@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 1c6058f7..9230c589 100644
+index 7af72a7f..5ac04989 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -35,6 +35,7 @@
@@ -18,10 +18,10 @@ index 1c6058f7..9230c589 100644
              items: [],
              loading: false,
          };
-@@ -60,9 +62,11 @@ export default {
-             this.loading = true;
+@@ -59,9 +61,11 @@ export default {
              this.items = [];
  
+             const productIds = this.cart.items.map((item) => item.product);
 +            let colorsResponse = null;
              let productsResponse = null;
  
@@ -30,7 +30,7 @@ index 1c6058f7..9230c589 100644
                  productsResponse = await getProductsById(productIds);
              } catch (e) {
                  this.loading = false;
-@@ -70,6 +74,12 @@ export default {
+@@ -69,6 +73,12 @@ export default {
              }
  
              this.items = productsResponse.data['hydra:member'];
