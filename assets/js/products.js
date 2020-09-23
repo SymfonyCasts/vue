@@ -1,6 +1,6 @@
 import Vue from 'vue';
 
-const app = new Vue({
+new Vue({
     el: '#app',
     data() {
         return {
@@ -9,5 +9,3 @@ const app = new Vue({
     },
     template: '<h1>Hello {{ firstName }}! Is this cooler?</h1>',
 });
-
-window.app = app;
