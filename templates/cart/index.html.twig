@@ -6,28 +6,12 @@
 
 {% block stylesheets %}
     {{ parent() }}
-    
-    {{ encore_entry_link_tags('products') }}
+
+    {{ encore_entry_link_tags('shopping-cart') }}
 {% endblock %}
 
 {% block javascripts %}
     {{ parent() }}
 
-    <script>
-        {% if currentCategoryId is defined %}
-            window.currentCategoryId = '{{ currentCategoryId|e('js') }}';
-        {% else %}
-            window.currentCategoryId = null;
-        {% endif %}
-
-        {% if currentProductId is defined %}
-            window.currentProductId = '{{ currentProductId|e('js') }}';
-        {% else %}
-            window.currentProductId = null;
-        {% endif %}
-
-        window.categories = {{ categories|jsonld }};
-    </script>
-
-    {{ encore_entry_script_tags('products') }}
+    {{ encore_entry_script_tags('shopping-cart') }}
 {% endblock %}
