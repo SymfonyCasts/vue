@@ -91,6 +91,10 @@ export default {
             type: String,
             default: null,
         },
+        cart: {
+            type: Object,
+            default: null,
+        },
     },
     data() {
         return {

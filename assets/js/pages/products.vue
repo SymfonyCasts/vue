@@ -60,6 +60,7 @@ export default {
             return this.currentProductId !== null
                 ? {
                     currentProductId: this.currentProductId,
+                    cart: this.cart,
                 }
                 : {
                     currentCategoryId: this.currentCategoryId,
