@@ -95,6 +95,7 @@ export default {
             product: {
                 name: '', image: '', price: 0, colors: [],
             },
+            selectedColorId: null,
             loading: true,
         };
     },
@@ -121,6 +122,16 @@ export default {
         }
 
         this.product = response.data;
+    },
+    methods: {
+        /**
+         * Update the selectedColorId index accordingly
+         *
+         * @params {string} colorId
+         */
+        updateSelectedColor(colorId) {
+            this.selectedColorId = colorId;
+        },
     },
 };
 </script>
