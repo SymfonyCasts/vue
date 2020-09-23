@@ -56,8 +56,8 @@ export default {
         };
     },
     watch: {
-        currentCategoryId(newVal, oldVal) {
-            console.log(newVal, oldVal);
+        currentCategoryId() {
+            this.loadProducts(null);
         },
     },
     created() {
