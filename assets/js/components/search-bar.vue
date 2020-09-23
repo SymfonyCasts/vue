@@ -1,5 +1,6 @@
 <template>
-    <div>
+    <div class="input-group">
+
         <input
             v-model="searchTerm"
             class="form-control"
@@ -7,6 +8,17 @@
             type="search"
             @input="onInput"
         >
+
+        <div
+            class="input-group-append"
+            v-show="searchTerm !== ''"
+        >
+            <button
+                class="btn btn-outline-secondary"
+            >
+                X
+            </button>
+        </div>
     </div>
 </template>
 
