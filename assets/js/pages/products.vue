@@ -51,6 +51,9 @@ export default {
         currentProductId() {
             return getCurrentProductId();
         },
+        currentComponent() {
+            return this.currentProductId !== null ? Product : Catalog;
+        },
     },
     async created() {
         const response = await fetchCategories();
