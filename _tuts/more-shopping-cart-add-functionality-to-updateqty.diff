@@ -85,7 +85,7 @@ index 37939f3f..cbf785f2 100644
              type: Array,
              required: true,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 18e0c6f8..cb908755 100644
+index 9cb70843..5d2d1571 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -19,6 +19,7 @@
