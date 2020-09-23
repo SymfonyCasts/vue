@@ -31,13 +31,14 @@ export default {
     },
     data() {
         return {
+            products: [],
             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
         };
     },
     async mounted() {
         const response = await axios.get('/api/products');
 
-        console.log(response);
+        this.products = response.data['hydra:member'];
     },
 };
 </script>
