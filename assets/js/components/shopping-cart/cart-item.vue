@@ -31,7 +31,14 @@ export default {
 <style lang="scss" module>
 @import '~styles/variables/colors.scss';
 
-.component {
+.component :global {
     border-bottom: 1px solid $light-component-border;
+
+    span.color-square {
+        display: inline-block;
+        width: 25px;
+        height: 25px;
+        border-radius: 4px;
+    }
 }
 </style>
