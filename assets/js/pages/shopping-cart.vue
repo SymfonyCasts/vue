@@ -5,7 +5,7 @@
 
             <div class="col-xs-12 col-lg-9">
                 <div class="pb-3">
-                    <title-component text="Shopping Cart" />
+                    <title-component :text="pageTitle" />
                 </div>
 
                 <div class="content">
@@ -31,7 +31,7 @@
                                 class="btn btn-info btn-sm"
                                 @click="switchState"
                             >
-                                Checkout!
+                                {{ buttonText }}
                             </button>
                         </div>
                     </div>
@@ -63,6 +63,18 @@ export default {
             items: [],
             loading: false,
         };
+    },
+    computed: {
+        pageTitle() {
+            return this.currentState === 1
+                ? 'Shopping Cart'
+                : 'Checkout';
+        },
+        buttonText() {
+            return this.currentState === 1
+                ? 'Checkout >>'
+                : '<< Back';
+        },
     },
     watch: {
         async cart() {
