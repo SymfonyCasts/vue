@@ -146,6 +146,14 @@ export default {
                 customerCity: 'Please, enter your City!',
                 customerPhone: 'Please, provide a phone number!',
             };
+
+            const validationField = event.target.id;
+
+            if (!this.form[validationField]) {
+                this.validationErrors[validationField] = validationMessages[validationField];
+            } else {
+                delete this.validationErrors[validationField];
+            }
         },
     },
 };
