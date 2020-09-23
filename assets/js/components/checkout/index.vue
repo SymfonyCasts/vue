@@ -117,7 +117,7 @@ export default {
         async onSubmit(event) {
             event.preventDefault();
             this.loading = true;
-            this.formError = false;
+            this.serverError = false;
             this.validationErrors = {};
 
             try {
@@ -136,6 +136,16 @@ export default {
             } finally {
                 this.loading = false;
             }
+        },
+        validateForm(event) {
+            const validationMessages = {
+                customerName: 'Please, enter your full name!',
+                customerEmail: 'Please, enter your email address!',
+                customerAddress: 'Please, enter your street address!',
+                customerZip: 'Please, enter your ZIP code!',
+                customerCity: 'Please, enter your City!',
+                customerPhone: 'Please, provide a phone number!',
+            };
         },
     },
 };
