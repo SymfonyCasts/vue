@@ -9,6 +9,9 @@
                 <span class="col-2">
                     <span
                         class="color-square"
+                        :style="{
+                            backgroundColor: `#${product.hexColor}`
+                        }"
                     />
                 </span>
             </div>
