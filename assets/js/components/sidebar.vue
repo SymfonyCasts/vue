@@ -78,7 +78,7 @@ export default {
 <style lang="scss" module>
 @import '~styles/components/light-component';
 
-.component {
+.component :global {
     @include light-component;
 
     ul {
@@ -86,7 +86,7 @@ export default {
             background: $blue-component-link-hover;
         }
 
-        :global li a.selected {
+        li a.selected {
             background: $light-component-border;
         }
     }
