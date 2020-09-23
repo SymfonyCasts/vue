@@ -59,6 +59,7 @@
 
                         <button
                             class="btn btn-info btn-sm"
+                            :disabled="cart === null"
                             @click="addToCart"
                         >
                             Add to Cart
