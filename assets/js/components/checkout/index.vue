@@ -1,7 +1,7 @@
 <template>
     <div class="row p-3">
         <div class="col-12">
-            <form @submit="onSubmit">
+            <form @submit.prevent="onSubmit">
                 <div
                     v-show="serverError"
                     class="alert alert-danger m-3"
@@ -121,7 +121,6 @@ export default {
             };
         },
         async onSubmit(event) {
-            event.preventDefault();
             this.loading = true;
             this.serverError = false;
             this.validationErrors = {};
