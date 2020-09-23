@@ -2,6 +2,13 @@
     <div class="row p-3">
         <div class="col-12">
             <form @submit="onSubmit">
+                <div
+                    v-show="serverError"
+                    class="alert alert-danger m-3"
+                >
+                    Oops, there's been an error sending your data! Please, try again!
+                </div>
+
                 <form-input
                     v-model="form.customerName"
                     v-bind="getFormFields('customerName', 'Name:')"
