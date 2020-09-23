@@ -15,6 +15,19 @@
                     >
                         <loading />
                     </div>
+
+                    <div
+                        v-if="cart !== null"
+                        class="p-3"
+                    >
+                        <div
+                            v-for="(cartItem, index) in cart.items"
+                            :key="index"
+                            class="p-3"
+                        >
+                            {{ cartItem.product }}
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -35,7 +48,7 @@ export default {
     mixins: [shoppingCartMixin],
     data() {
         return {
-            loading: true,
+            loading: false,
         };
     },
 };
