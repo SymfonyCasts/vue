@@ -1,5 +1,5 @@
 <template>
-    <div :class="[$style.component, 'row', 'p-3']">
+    <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
         <div class="col-3">
             <div class="row">
                 <span class="col">
@@ -16,16 +16,41 @@
                 </span>
             </div>
         </div>
+
+        <div class="col-3">
+            <input
+                class="form-control"
+                type="number"
+                min="1"
+            >
+        </div>
+
+        <div class="col-3">
+            ${{ totalPrice }}
+        </div>
+
+        <div class="col-3">
+            <button class="btn btn-info btn-sm">
+                Remove
+            </button>
+        </div>
     </div>
 </template>
 
 <script>
+import formatPrice from '@/helpers/format-price';
+
 export default {
     name: 'ShoppingCartItem',
     props: {
         cartItem: {
             type: Object,
             required: true,
+        },
+    },
+    computed: {
+        totalPrice() {
+            return formatPrice(this.product.price * this.product.qty);
         },
     },
 };
@@ -42,6 +67,10 @@ export default {
         width: 25px;
         height: 25px;
         border-radius: 4px;
+    }
+
+    input {
+        width: 60px;
     }
 }
 </style>
