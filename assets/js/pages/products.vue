@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="row">
-                    <legend-component title="TODO PUT LEGEND HERE" />
+                    <legend-component title="{{ legend }}" />
                 </div>
             </div>
         </div>
