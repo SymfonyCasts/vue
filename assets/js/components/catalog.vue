@@ -56,7 +56,7 @@ export default {
             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
         };
     },
-    async created() {
+    created() {
         this.loadProducts(null);
     },
     methods: {
