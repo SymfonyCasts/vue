@@ -16,18 +16,10 @@
                         <loading />
                     </div>
 
-                    <div
+                    <shopping-cart-list
                         v-show="!loading"
-                        class="p-3"
-                    >
-                        <div
-                            v-for="(cartItem, index) in items"
-                            :key="index"
-                            class="p-3"
-                        >
-                            {{ cartItem.name }}
-                        </div>
-                    </div>
+                        :items="items"
+                    />
                 </div>
             </div>
         </div>
@@ -38,12 +30,14 @@
 import { getFullShoppingCart } from '@/services/cart-service';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
+import ShoppingCartList from '@/components/shopping-cart';
 import shoppingCartMixin from '@/mixins/get-shopping-cart';
 
 export default {
     name: 'ShoppingCart',
     components: {
         Loading,
+        ShoppingCartList,
         TitleComponent,
     },
     mixins: [shoppingCartMixin],
