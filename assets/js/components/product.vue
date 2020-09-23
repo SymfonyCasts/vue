@@ -1,7 +1,69 @@
 <template>
-    <div class="row">
-        <div class="col-12">
-            <title-component :text="product.name" />
+    <div class="p-3">
+        <title-component :text="product.name" />
+    </div>
+
+    <div
+        :class="$style.product"
+    >
+        <div class="p-3">
+            <loading v-show="loading" />
+        </div>
+
+        <div class="row">
+            <div
+                v-show="!loading"
+                class="col-8"
+            >
+                <img
+                    class="d-block"
+                    :src="product.image"
+                    :alt="product.name"
+                >
+
+                <div class="p-2">
+                    <small>brought to you by </small>
+
+                    <small
+                        class="d-inline"
+                        v-text="product.brand"
+                    />
+                </div>
+            </div>
+
+            <div
+                v-show="!loading"
+                class="col-4"
+            >
+                <div class="p-3 row">
+                    <p v-text="product.description" />
+
+                    <p>Price: <strong>${{ price }}</strong></p>
+                </div>
+
+                <div class="p-3 row align-items-center">
+                    <color-selector
+                        v-show="product.colors.length !== 0"
+                        @color-selected="updateSelectedColor"
+                    />
+
+                    <div class="col-3">
+                        <input
+                            v-model.number="qty"
+                            class="form-control"
+                            type="number"
+                            min="1"
+                        >
+                    </div>
+
+                    <button
+                        class="btn btn-info btn-sm"
+                        @click="addToCart"
+                    >
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -23,7 +85,7 @@ export default {
     },
     data() {
         return {
-            product: { name: '' },
+            product: { name: '', image: '', price: 0 },
             loading: true,
         };
     },
@@ -44,3 +106,11 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+@import '~styles/components/light-component';
+
+.product {
+    @include light-component;
+}
+</style>
