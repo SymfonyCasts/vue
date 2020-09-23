@@ -17,9 +17,13 @@
                     </div>
 
                     <shopping-cart-list
-                        v-show="!loading"
+                        v-show="!loading && currentState === 1"
                         :items="items"
                         :cart="cart"
+                    />
+
+                    <checkout-form
+                        v-show="!loading && currentState === 2"
                     />
 
                     <div
@@ -44,6 +48,7 @@
 <script>
 import { getFullShoppingCart } from '@/services/cart-service';
 import Loading from '@/components/loading';
+import CheckoutForm from '@/components/checkout';
 import TitleComponent from '@/components/title';
 import ShoppingCartList from '@/components/shopping-cart';
 import shoppingCartMixin from '@/mixins/get-shopping-cart';
@@ -51,6 +56,7 @@ import shoppingCartMixin from '@/mixins/get-shopping-cart';
 export default {
     name: 'ShoppingCart',
     components: {
+        CheckoutForm,
         Loading,
         ShoppingCartList,
         TitleComponent,
