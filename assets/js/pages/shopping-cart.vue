@@ -29,6 +29,7 @@
                         <div class="col-2">
                             <button
                                 class="btn btn-info btn-sm"
+                                @click="switchState"
                             >
                                 Checkout!
                             </button>
@@ -57,6 +58,7 @@ export default {
     mixins: [shoppingCartMixin],
     data() {
         return {
+            currentState: 1,
             colors: {},
             items: [],
             loading: false,
@@ -79,6 +81,11 @@ export default {
             }
 
             this.loading = false;
+        },
+    },
+    methods: {
+        switchState() {
+            this.currentState = 3 - this.currentState;
         },
     },
 };
