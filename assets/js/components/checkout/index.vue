@@ -12,31 +12,37 @@
                 <form-input
                     v-model="form.customerName"
                     v-bind="getFormFields('customerName', 'Name:')"
+                    @blur="validateForm"
                 />
 
                 <form-input
                     v-model="form.customerEmail"
                     v-bind="getFormFields('customerEmail', 'Email:', 'email')"
+                    @blur="validateForm"
                 />
 
                 <form-input
                     v-model="form.customerAddress"
                     v-bind="getFormFields('customerAddress', 'Address:')"
+                    @blur="validateForm"
                 />
 
                 <form-input
                     v-model="form.customerZip"
                     v-bind="getFormFields('customerZip', 'Zip Code:')"
+                    @blur="validateForm"
                 />
 
                 <form-input
                     v-model="form.customerCity"
                     v-bind="getFormFields('customerCity', 'City:')"
+                    @blur="validateForm"
                 />
 
                 <form-input
                     v-model="form.customerPhone"
                     v-bind="getFormFields('customerPhone', 'Phone Number:', 'tel')"
+                    @blur="validateForm"
                 />
 
                 <div class="row p-3 justify-content-end align-items-center">
