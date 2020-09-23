@@ -1,14 +1,14 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <aside class="col-xs-12 col-3">
+            <aside :class="asideClass">
                 <sidebar
                     :collapsed="sidebarCollapsed"
                     @toggle-collapsed="toggleSidebarCollapsed"
                 />
             </aside>
 
-            <div class="col-xs-12 col-9">
+            <div :class="contentClass">
                 <catalog />
             </div>
         </div>
@@ -29,6 +29,14 @@ export default {
         return {
             sidebarCollapsed: false,
         };
+    },
+    computed: {
+        asideClass() {
+            return this.sidebarCollapsed ? 'aside-collapsed' : 'col-xs-12 col-3';
+        },
+        contentClass() {
+            return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
+        },
     },
     methods: {
         toggleSidebarCollapsed() {
