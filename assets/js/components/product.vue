@@ -72,7 +72,7 @@
 </template>
 
 <script>
-import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-service.js';
+import { addItemToCart } from '@/services/cart-service.js';
 import formatPrice from '@/helpers/format-price';
 import { getProduct } from '@/services/products-service';
 import ColorSelector from '@/components/color-selector';
@@ -94,7 +94,6 @@ export default {
     },
     data() {
         return {
-            cart: null,
             product: {
                 name: '', image: '', price: 0, colors: [],
             },
@@ -126,16 +125,6 @@ export default {
         }
 
         this.product = response.data;
-    },
-    async mounted() {
-        try {
-            this.cart = await getCart();
-        } catch (e) {
-            return;
-        }
-
-        document.getElementById('js-shopping-cart-items')
-            .innerHTML = getCartTotalItems(this.cart).toString();
     },
     methods: {
         async addToCart() {
