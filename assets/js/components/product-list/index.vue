@@ -9,11 +9,13 @@
 </template>
 
 <script>
+import Loading from '@/components/loading';
 import ProductCard from '@/components/product-list/product-card';
 
 export default {
     name: 'ProductList',
     components: {
+        Loading,
         ProductCard,
     },
     props: {
