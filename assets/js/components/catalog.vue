@@ -51,7 +51,6 @@ export default {
     data() {
         return {
             products: [],
-            searchTerm: '',
             loading: false,
             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
         };
@@ -61,7 +60,7 @@ export default {
     },
     methods: {
         onSearchProducts(event) {
-            this.searchTerm = event.term;
+            this.loadProducts(event.term);
         },
 
         async loadProducts(searchTerm) {
