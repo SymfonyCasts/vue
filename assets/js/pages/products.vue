@@ -26,7 +26,7 @@ import Product from '@/components/product';
 import Sidebar from '@/components/sidebar';
 import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 import { fetchCategories } from '@/services/categories-service';
-import { getCart, getCartTotalItems } from '@/services/cart-service';
+import shoppingCartMixin from '@/mixins/get-shopping-cart';
 
 export default {
     name: 'Products',
@@ -35,9 +35,9 @@ export default {
         Product,
         Sidebar,
     },
+    mixins: [shoppingCartMixin],
     data() {
         return {
-            cart: null,
             sidebarCollapsed: false,
             categories: [],
             currentCategoryId: getCurrentCategoryId(),
@@ -72,16 +72,6 @@ export default {
         const response = await fetchCategories();
 
         this.categories = response.data['hydra:member'];
-    },
-    async mounted() {
-        try {
-            this.cart = await getCart();
-        } catch (e) {
-            return;
-        }
-
-        document.getElementById('js-shopping-cart-items')
-            .innerHTML = getCartTotalItems(this.cart).toString();
     },
     methods: {
         toggleSidebarCollapsed() {
