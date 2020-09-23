@@ -1,15 +1,22 @@
 <template>
-    <div>
-        <h1>{{ product.name }}</h1>
+    <div class="row">
+        <div class="col-12">
+            <title-component />
+        </div>
+
         I'd <3 to see a Product here!
     </div>
 </template>
 
 <script>
 import { getProduct } from '@/services/products-service';
+import TitleComponent from '@/components/title';
 
 export default {
     name: 'Product',
+    components: {
+        TitleComponent,
+    },
     props: {
         currentProductId: {
             type: String,
