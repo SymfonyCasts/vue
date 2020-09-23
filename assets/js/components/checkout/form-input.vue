@@ -13,6 +13,7 @@
                 'is-invalid': !isValid,
                 'form-control': true,
             }"
+            :value="value"
         >
         <span
             v-show="!isValid"
@@ -36,6 +37,11 @@ export default {
             required: true,
         },
         errorMessage: {
+            type: String,
+            required: false,
+            default: '',
+        },
+        value: {
             type: String,
             required: false,
             default: '',
