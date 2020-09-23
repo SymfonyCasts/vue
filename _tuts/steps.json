@@ -1096,43 +1096,13 @@
             "description": null
         },
         {
-            "id": "delete-me-2",
-            "name": "delete-me-2",
-            "description": null
-        },
-        {
-            "id": "delete-me-3",
-            "name": "delete-me-3",
-            "description": null
-        },
-        {
             "id": "shopping-cart-listing-load-colors-in-watcher",
             "name": "Shopping Cart Listing: Load colors in watcher",
             "description": null
         },
         {
-            "id": "delete-me-4",
-            "name": "delete-me-4",
-            "description": null
-        },
-        {
-            "id": "delete-me-5",
-            "name": "delete-me-5",
-            "description": null
-        },
-        {
-            "id": "delete-me-6",
-            "name": "delete-me-6",
-            "description": null
-        },
-        {
             "id": "shopping-cart-listing-add-cart-data-to-product-list",
             "name": "Shopping Cart Listing: Add cart data to product list",
-            "description": null
-        },
-        {
-            "id": "delete-me-7",
-            "name": "delete-me-7",
             "description": null
         },
         {
@@ -1213,11 +1183,6 @@
         {
             "id": "shopping-cart-ui-better-totalprice",
             "name": "Shopping Cart UI: Better TotalPrice",
-            "description": null
-        },
-        {
-            "id": "delete-me-8",
-            "name": "delete-me-8",
             "description": null
         },
         {
@@ -1469,12 +1434,7 @@
             "id": "client-validation-redirect",
             "name": "Client Validation: Redirect",
             "description": null
-        },
-        {
-            "id": "delete-me-1",
-            "name": "delete-me-1",
-            "description": null
         }
     ],
-    "sha": "f523668d7e453c192abe3ca2aaf48a4ad1d554c5"
+    "sha": "37203b0be18c9537fdf7e20499a4826ef5342e4c"
 }
