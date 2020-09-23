@@ -3,45 +3,33 @@
         <div class="col-12">
             <form>
                 <form-input
-                    id="customerName"
                     v-model="form.customerName"
-                    label="Name:"
-                    :error-message="validationErrors.customerName"
+                    v-bind="getFormFields('customerName', 'Name:')"
                 />
 
                 <form-input
-                    id="customerEmail"
                     v-model="form.customerEmail"
-                    label="Email:"
-                    :error-message="validationErrors.customerEmail"
+                    v-bind="getFormFields('customerEmail', 'Email:')"
                 />
 
                 <form-input
-                    id="customerAddress"
                     v-model="form.customerAddress"
-                    label="Address:"
-                    :error-message="validationErrors.customerAddress"
+                    v-bind="getFormFields('customerAddress', 'Address:')"
                 />
 
                 <form-input
-                    id="customerZip"
                     v-model="form.customerZip"
-                    label="Zip Code:"
-                    :error-message="validationErrors.customerZip"
+                    v-bind="getFormFields('customerZip', 'Zip Code:')"
                 />
 
                 <form-input
-                    id="customerCity"
                     v-model="form.customerCity"
-                    label="City:"
-                    :error-message="validationErrors.customerCity"
+                    v-bind="getFormFields('customerCity', 'City:')"
                 />
 
                 <form-input
-                    id="customerPhone"
                     v-model="form.customerPhone"
-                    label="Phone Number:"
-                    :error-message="validationErrors.customerPhone"
+                    v-bind="getFormFields('customerPhone', 'Phone Number:')"
                 />
             </form>
         </div>
@@ -78,6 +66,22 @@ export default {
     },
     created() {
         this.form.purchaseItems = this.cart.items;
+    },
+    methods: {
+        /**
+         * Gets an object with the necessary form fields
+         *
+         * @param {string} id
+         * @param {string} label
+         * @return {object}
+         */
+        getFormFields(id, label) {
+            return {
+                id,
+                label,
+                errorMessage: this.validationErrors[id],
+            };
+        },
     },
 };
 </script>
