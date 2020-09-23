@@ -41,9 +41,9 @@ export default {
             default: '',
         },
     },
-    methods: {
-        isFieldValid(fieldName) {
-            return true;
+    computed: {
+        isValid() {
+            return !this.errorMessage;
         },
     },
 };
