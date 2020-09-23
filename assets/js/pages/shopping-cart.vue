@@ -11,8 +11,11 @@
 </template>
 
 <script>
+import shoppingCartMixin from '@/mixins/get-shopping-cart';
+
 export default {
     name: 'ShoppingCart',
+    mixins: [shoppingCartMixin],
 };
 </script>
 
