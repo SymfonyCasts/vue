@@ -55,6 +55,7 @@
 <script>
 import FormInput from '@/components/checkout/form-input';
 import Loading from '@/components/loading';
+import { createOrder } from '@/services/checkout-service';
 
 export default {
     name: 'CheckoutForm',
@@ -102,6 +103,19 @@ export default {
                 type: type || 'text',
                 errorMessage: this.validationErrors[id],
             };
+        },
+        async onSubmit() {
+            this.loading = true;
+
+            try {
+                const response = await createOrder(this.form);
+
+                console.log(response.data);
+            } catch (e) {
+                console.log('error', e);
+            } finally {
+                this.loading = false;
+            }
         },
     },
 };
