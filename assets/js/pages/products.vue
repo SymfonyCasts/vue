@@ -22,6 +22,7 @@
 
 <script>
 import Catalog from '@/components/catalog';
+import Product from '@/components/product';
 import Sidebar from '@/components/sidebar';
 import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 import { fetchCategories } from '@/services/categories-service';
@@ -30,6 +31,7 @@ export default {
     name: 'Products',
     components: {
         Catalog,
+        Product,
         Sidebar,
     },
     data() {
