@@ -35,9 +35,9 @@ export default {
         };
     },
     mounted() {
-        axios.get('/api/products').then((response) => {
-            console.log(response);
-        });
+        const response = await axios.get('/api/products');
+
+        console.log(response);
     },
 };
 </script>
