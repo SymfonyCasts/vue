@@ -48,12 +48,16 @@ export default {
 
         this.loading = true;
 
-        const response = await axios.get('/api/products', {
-            params,
-        });
+        try {
+            const response = await axios.get('/api/products', {
+                params,
+            });
 
-        this.loading = false;
-        this.products = response.data['hydra:member'];
+            this.loading = false;
+            this.products = response.data['hydra:member'];
+        } catch (e) {
+            this.loading = false;
+        }
     },
 };
 </script>
