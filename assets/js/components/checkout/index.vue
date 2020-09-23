@@ -49,6 +49,7 @@
                         <button
                             type="submit"
                             class="btn btn-info btn-sm"
+                            :disabled="loading"
                         >
                             Checkout!
                         </button>

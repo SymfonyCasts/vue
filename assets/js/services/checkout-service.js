@@ -9,7 +9,7 @@ import axios from 'axios';
 export function createOrder(data) {
     return axios({
         method: 'post',
-        url: '/api/slfjasfd',
+        url: '/api/purchases',
         data,
     });
 }
