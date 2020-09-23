@@ -4,7 +4,7 @@
             <aside class="col-xs-12 col-3">
                 <sidebar
                     :collapsed="sidebarCollapsed"
-                    v-on:toggle-collapsed="toggleSidebarCollapsed"
+                    @toggle-collapsed="toggleSidebarCollapsed"
                 />
             </aside>
 
