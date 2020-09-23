@@ -15,6 +15,7 @@
         >
             <button
                 class="btn btn-outline-secondary"
+                @click="eraseSearchTerm"
             >
                 X
             </button>
@@ -41,6 +42,9 @@ export default {
                 this.$emit('search-products', { term: this.searchTerm });
                 this.searchTimeout = null;
             }, 200);
+        },
+        eraseSearchTerm() {
+            this.searchTerm = '';
         },
     },
 };
