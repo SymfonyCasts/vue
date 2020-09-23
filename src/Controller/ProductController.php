@@ -36,8 +36,11 @@ class ProductController extends AbstractController
     /**
      * @Route("/product/{id}", name="app_product")
      */
-    public function showProduct(Product $product): Response
+    public function showProduct(Product $product, IriConverterInterface $iriConverter, CategoryRepository $categoryRepository): Response
     {
-        return $this->render('product/index.html.twig');
+        return $this->render('product/index.html.twig', [
+            'currentProductId' => $iriConverter->getIriFromItem($product),
+            'categories' => $categoryRepository->findAll(),
+        ]);
     }
 }
