@@ -10,7 +10,7 @@
                     <span
                         class="color-square"
                         :style="{
-                            backgroundColor: `#${product.hexColor}`
+                            backgroundColor: `#${cartItem.hexColor}`
                         }"
                     />
                 </span>
@@ -19,10 +19,11 @@
 
         <div class="col-3">
             <input
-                v-model.number="product.qty"
+                v-model.number="cartItem.qty"
                 class="form-control"
                 type="number"
                 min="1"
+                @input="updateQty(cartItem['@id'], cartItem.colorId, cartItem.qty)"
             >
         </div>
 
@@ -39,11 +40,16 @@
 </template>
 
 <script>
+import { updateCartItemQuantity } from '@/services/cart-service';
 import formatPrice from '@/helpers/format-price';
 
 export default {
     name: 'ShoppingCartItem',
     props: {
+        cart: {
+            type: Object,
+            required: true,
+        },
         cartItem: {
             type: Object,
             required: true,
@@ -52,6 +58,19 @@ export default {
     computed: {
         totalPrice() {
             return formatPrice(this.product.price * this.product.qty);
+        },
+    },
+    methods: {
+        /**
+         * Updates the product quantity in the cart, then refreshes the page
+         *
+         * @param {string} productId
+         * @param {string|null} colorId
+         * @param {number} qty
+         */
+        async updateQty(productId, colorId, qty) {
+            await updateCartItemQuantity(this.cart, productId, colorId, qty);
+            window.location.reload();
         },
     },
 };

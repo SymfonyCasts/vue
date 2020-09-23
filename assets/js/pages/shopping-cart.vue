@@ -19,6 +19,7 @@
                     <shopping-cart-list
                         v-show="!loading"
                         :items="items"
+                        :cart="cart"
                     />
                 </div>
             </div>

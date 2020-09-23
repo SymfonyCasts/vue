@@ -24,6 +24,7 @@
             <shopping-cart-item
                 v-for="item in items"
                 :key="item['@id']"
+                :cart="cart"
                 :cart-item="item"
             />
 
@@ -44,6 +45,10 @@ export default {
         ShoppingCartItem,
     },
     props: {
+        cart: {
+            type: Object,
+            required: true,
+        },
         items: {
             type: Array,
             required: true,
