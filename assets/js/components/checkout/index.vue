@@ -1,7 +1,22 @@
 <template>
     <div class="row p-3">
         <div class="col-12">
-            A cool checkout form will appear right here!
+            <form>
+                <div class="p-3">
+                    <label
+                        for="customerName"
+                        class="col-form-label"
+                    >
+                        Name:
+                    </label>
+                    <input
+                        id="customerName"
+                        v-model="form.customerName"
+                        type="text"
+                        class="form-control"
+                    >
+                </div>
+            </form>
         </div>
     </div>
 </template>
