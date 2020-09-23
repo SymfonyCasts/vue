@@ -14,6 +14,7 @@
                 'form-control': true,
             }"
             :value="value"
+            @input="$emit('input', $event.target.value)"
         >
         <span
             v-show="!isValid"
