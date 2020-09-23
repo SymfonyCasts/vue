@@ -33,7 +33,7 @@ export default {
             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
         };
     },
-    async mounted() {
+    async created() {
         const response = await axios.get('/api/products');
 
         this.products = response.data['hydra:member'];
