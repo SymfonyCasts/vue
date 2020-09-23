@@ -16,15 +16,17 @@
                         <loading />
                     </div>
 
-                    <shopping-cart-list
-                        v-show="!loading && currentState === 1"
-                        :items="items"
-                        :cart="cart"
-                    />
+                    <transition name="fade">
+                        <shopping-cart-list
+                            v-if="!loading && currentState === 1"
+                            :items="items"
+                            :cart="cart"
+                        />
 
-                    <checkout-form
-                        v-show="!loading && currentState === 2"
-                    />
+                        <checkout-form
+                            v-else
+                        />
+                    </transition>
 
                     <div
                         v-show="!loading && items.length"
@@ -115,6 +117,14 @@ export default {
 .component :global {
     .content {
         @include light-component;
+    }
+
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity .2s;
+    }
+
+    .fade-enter, .fade-leave-to {
+        opacity: 0;
     }
 }
 </style>
