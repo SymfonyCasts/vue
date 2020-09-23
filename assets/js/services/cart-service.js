@@ -139,8 +139,14 @@ export function getCartTotalItems(cart) {
     return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
 }
 
+/**
+ * Gets the full info on the shopping cart
+ *
+ * @param {CartCollection} cart
+ * @returns {Array}
+ */
 export async function getFullShoppingCart(cart) {
-    const productIds = this.cart.items.map((item) => item.product);
+    const productIds = cart.items.map((item) => item.product);
     let colorsResponse = null;
     let productsResponse = null;
 
@@ -150,19 +156,20 @@ export async function getFullShoppingCart(cart) {
             getProductsById(productIds),
         ]);
     } catch (e) {
-        this.loading = false;
-        return;
+        return [];
     }
+
+    const mappedColors = {};
 
     // Map all colors to our object dictionary by @id
     colorsResponse.data['hydra:member'].forEach((color) => {
-        this.colors[color['@id']] = color;
+        mappedColors[color['@id']] = color;
     });
 
     // Assign our returned products to our products array,
     // applying the proper colorId, hexColor and qty values
-    this.items = productsResponse.data['hydra:member'].map((product) => {
-        const productInCart = this.cart.items.find(
+    return productsResponse.data['hydra:member'].map((product) => {
+        const productInCart = cart.items.find(
             (item) => (item.product === product['@id']),
         );
 
@@ -170,7 +177,7 @@ export async function getFullShoppingCart(cart) {
             ...product,
             colorId: productInCart.color,
             hexColor: productInCart.color
-                ? this.colors[productInCart.color].hexColor
+                ? mappedColors[productInCart.color].hexColor
                 : 'fff',
             qty: productInCart.quantity,
         };
