@@ -7,9 +7,9 @@
 </template>
 
 <script>
-    export default {
-        name: "product.vue"
-    }
+export default {
+    name: 'ShoppingCartItem',
+};
 </script>
 
 <style scoped>
