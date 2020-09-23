@@ -4,6 +4,7 @@
 
 <script>
 export default {
+    name: 'Products',
     data() {
         return {
             firstName: 'Ryan',
