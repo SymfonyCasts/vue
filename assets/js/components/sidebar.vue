@@ -5,6 +5,8 @@
                 Categories
             </h5>
 
+            <loading v-show="loading" />
+
             <ul class="nav flex-column mb4">
                 <li class="nav-item">
                     <a
