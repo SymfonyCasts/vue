@@ -60,6 +60,11 @@ export default {
             this.loading = true;
             this.items = [];
 
+            if (!this.cart.items.length) {
+                this.loading = false;
+                return;
+            }
+
             const productIds = this.cart.items.map((item) => item.product);
             let colorsResponse = null;
             let productsResponse = null;
