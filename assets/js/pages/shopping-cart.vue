@@ -21,6 +21,19 @@
                         :items="items"
                         :cart="cart"
                     />
+
+                    <div
+                        v-show="!loading && items.length"
+                        class="row p-3 justify-content-end"
+                    >
+                        <div class="col-2">
+                            <button
+                                class="btn btn-info btn-sm"
+                            >
+                                Checkout!
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
