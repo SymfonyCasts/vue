@@ -9,8 +9,12 @@
         </div>
 
         <div class="row">
-            <div class="col-xs-12 col-6 mb-2 pb-2">
-                TODO - load some products!
+            <div
+                v-for="product in products"
+                :key="product['@id']"
+                class="col-xs-12 col-6 mb-2 pb-2"
+            >
+                {{ product.name }}
             </div>
         </div>
 
