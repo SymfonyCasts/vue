@@ -69,7 +69,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" module>
 @import '../../scss/components/light-component';
 
 .sidebar {
