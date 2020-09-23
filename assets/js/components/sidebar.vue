@@ -49,8 +49,8 @@
 </template>
 
 <script>
-import axios from 'axios';
 import Loading from '@/components/loading';
+import { fetchCategories } from '@/services/categories-service';
 
 export default {
     name: 'Sidebar',
@@ -78,7 +78,7 @@ export default {
         },
     },
     async created() {
-        const response = await axios.get('/api/categories');
+        const response = await fetchCategories();
 
         this.categories = response.data['hydra:member'];
     },
