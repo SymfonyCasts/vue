@@ -125,6 +125,10 @@ export default {
         this.product = response.data;
     },
     methods: {
+        addToCart() {
+            // TODO
+        },
+
         /**
          * Update the selectedColorId index accordingly
          *
