@@ -5,7 +5,22 @@
 
             <div class="col-xs-12 col-lg-9">
                 <div class="pb-3">
-                    <title-component :text="pageTitle" />
+                    <transition
+                        name="fade"
+                        mode="out-in"
+                    >
+                        <title-component
+                            v-if="currentState === 1"
+                            key="1"
+                            text="Shopping Cart"
+                        />
+
+                        <title-component
+                            v-else
+                            key="2"
+                            text="Checkout"
+                        />
+                    </transition>
                 </div>
 
                 <div class="content">
@@ -76,11 +91,6 @@ export default {
         };
     },
     computed: {
-        pageTitle() {
-            return this.currentState === 1
-                ? 'Shopping Cart'
-                : 'Checkout';
-        },
         buttonText() {
             return this.currentState === 1
                 ? 'Checkout >>'
