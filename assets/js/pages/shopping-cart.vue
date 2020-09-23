@@ -17,15 +17,15 @@
                     </div>
 
                     <div
-                        v-if="cart !== null"
+                        v-show="!loading"
                         class="p-3"
                     >
                         <div
-                            v-for="(cartItem, index) in cart.items"
+                            v-for="(cartItem, index) in items"
                             :key="index"
                             class="p-3"
                         >
-                            {{ cartItem.product }}
+                            {{ cartItem.name }}
                         </div>
                     </div>
                 </div>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { getProductsById } from '@/services/products-service';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 import shoppingCartMixin from '@/mixins/get-shopping-cart';
@@ -48,8 +49,28 @@ export default {
     mixins: [shoppingCartMixin],
     data() {
         return {
+            items: [],
             loading: false,
         };
+    },
+    watch: {
+        async cart() {
+            this.loading = true;
+            this.items = [];
+
+            const productIds = this.cart.items.map((item) => item.product);
+            let productsResponse = null;
+
+            try {
+                productsResponse = await getProductsById(productIds);
+            } catch (e) {
+                this.loading = false;
+                return;
+            }
+
+            this.items = productsResponse.data['hydra:member'];
+            this.loading = false;
+        },
     },
 };
 </script>
