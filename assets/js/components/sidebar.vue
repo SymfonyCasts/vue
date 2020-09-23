@@ -1,6 +1,6 @@
 <template>
     <div
-        :class="[$style.sidebar, 'p-3', 'mb-5']"
+        :class="[$style.component, 'p-3', 'mb-5']"
         :style="{ width: collapsed ? '70px' : 'auto' }"
     >
         <div v-show="!collapsed">
@@ -72,7 +72,7 @@ export default {
 <style lang="scss" module>
 @import '~styles/components/light-component';
 
-.sidebar {
+.component {
     @include light-component;
 
     ul {
