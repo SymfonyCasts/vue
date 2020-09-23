@@ -23,7 +23,7 @@ export default {
     },
     data() {
         return {
-            product: null,
+            product: { name: '' },
             loading: true,
         };
     },
