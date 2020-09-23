@@ -32,7 +32,10 @@
         </div>
 
         <div class="col-3">
-            <button class="btn btn-info btn-sm">
+            <button
+                class="btn btn-info btn-sm"
+                @click="removeFromCart(product['@id'], product.colorId)"
+            >
                 Remove
             </button>
         </div>
@@ -40,7 +43,7 @@
 </template>
 
 <script>
-import { updateCartItemQuantity } from '@/services/cart-service';
+import { updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
 import formatPrice from '@/helpers/format-price';
 
 export default {
@@ -70,6 +73,18 @@ export default {
          */
         async updateQty(productId, colorId, qty) {
             await updateCartItemQuantity(this.cart, productId, colorId, qty);
+            window.location.reload();
+        },
+
+        /**
+         * Removes a product from the cart, then refreshes the page
+         *
+         * @param {string} productId
+         * @param {string|null} colorId
+         */
+        removeFromCart(productId, colorId) {
+            removeItemFromCart(this.cart, productId, colorId);
+
             window.location.reload();
         },
     },
