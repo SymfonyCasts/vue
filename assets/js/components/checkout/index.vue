@@ -8,6 +8,41 @@
                     label="Name:"
                     :error-message="validationErrors.customerName"
                 />
+
+                <form-input
+                    id="customerName"
+                    v-model="form.customerName"
+                    label="Name:"
+                    :error-message="validationErrors.customerName"
+                />
+
+                <form-input
+                    id="customerName"
+                    v-model="form.customerName"
+                    label="Name:"
+                    :error-message="validationErrors.customerName"
+                />
+
+                <form-input
+                    id="customerName"
+                    v-model="form.customerName"
+                    label="Name:"
+                    :error-message="validationErrors.customerName"
+                />
+
+                <form-input
+                    id="customerName"
+                    v-model="form.customerName"
+                    label="Name:"
+                    :error-message="validationErrors.customerName"
+                />
+
+                <form-input
+                    id="customerName"
+                    v-model="form.customerName"
+                    label="Name:"
+                    :error-message="validationErrors.customerName"
+                />
             </form>
         </div>
     </div>
