@@ -9,6 +9,16 @@
 <script>
 export default {
     name: 'Title',
+    props: {
+        currentCategoryId: {
+            type: String,
+            default: null,
+        },
+        categories: {
+            type: Array,
+            required: true,
+        },
+    },
 };
 </script>
 
