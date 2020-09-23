@@ -16,7 +16,10 @@
                         <loading />
                     </div>
 
-                    <transition name="fade">
+                    <transition
+                        name="fade"
+                        mode="out-in"
+                    >
                         <shopping-cart-list
                             v-if="!loading && currentState === 1"
                             :items="items"
