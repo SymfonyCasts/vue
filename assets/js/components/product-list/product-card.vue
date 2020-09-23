@@ -57,6 +57,14 @@ export default {
         price() {
             return formatPrice(this.product.price);
         },
+
+        /**
+         * Returns the URL for the product
+         * @returns {string}
+         */
+        productUrl() {
+            return `/product/${this.product.id}`;
+        },
     },
 };
 </script>
