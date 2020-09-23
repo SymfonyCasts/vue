@@ -19,3 +19,13 @@ export function fetchProducts(categoryIri, searchTerm) {
         params,
     });
 }
+
+/**
+ * Gets a product from the API according to the productIri
+ *
+ * @param {string} productIri
+ * @return {Promise}
+ */
+export function getProduct(productIri) {
+    return axios.get(productIri);
+}
