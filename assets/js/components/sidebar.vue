@@ -10,7 +10,7 @@
                     <a
                         :class="{
                             'nav-link': true,
-                            [$style.selected]: currentCategoryId === null,
+                            'selected': currentCategoryId === null,
                         }"
                         href="/"
                     >All Products</a>
@@ -25,7 +25,7 @@
                         :href="`/category/${category.id}`"
                         :class="{
                             'nav-link': true,
-                            [$style.selected]: category['@id'] === currentCategoryId,
+                            'selected': category['@id'] === currentCategoryId,
                         }"
                     >
                         {{ category.name }}
@@ -86,7 +86,7 @@ export default {
             background: $blue-component-link-hover;
         }
 
-        li a.selected {
+        :global li a.selected {
             background: $light-component-border;
         }
     }
