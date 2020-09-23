@@ -72,11 +72,15 @@
 
 <script>
 import { getProduct } from '@/services/products-service';
+import ColorSelector from '@/components/color-selector';
+import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
 export default {
     name: 'Product',
     components: {
+        ColorSelector,
+        Loading,
         TitleComponent,
     },
     props: {
