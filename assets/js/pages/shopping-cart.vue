@@ -1,5 +1,5 @@
 <template>
-    <div class="container-fluid">
+    <div :class="[$style.component, 'container-fluid']">
         <div class="row">
             <aside class="col-xs-12 col-lg-3" />
 
@@ -7,23 +7,46 @@
                 <div class="pb-3">
                     <title-component text="Shopping Cart" />
                 </div>
+
+                <div class="content">
+                    <div
+                        v-show="loading"
+                        class="p-3"
+                    >
+                        <loading />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </template>
 
 <script>
+import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 import shoppingCartMixin from '@/mixins/get-shopping-cart';
 
 export default {
     name: 'ShoppingCart',
     components: {
+        Loading,
         TitleComponent,
     },
     mixins: [shoppingCartMixin],
+    data() {
+        return {
+            loading: true,
+        };
+    },
 };
 </script>
 
 <style lang="scss" module>
+@import '~styles/components/light-component.scss';
+
+.component :global {
+    .content {
+        @include light-component;
+    }
+}
 </style>
