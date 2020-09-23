@@ -5,7 +5,7 @@
     >
         <h5 class="text-center">
             Categories
-            {{ _uid }}
+            {{ definitelyNotARealProperty }}
         </h5>
 
         <ul class="nav flex-column mb4">
