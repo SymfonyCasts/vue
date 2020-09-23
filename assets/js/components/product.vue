@@ -96,6 +96,7 @@ export default {
                 name: '', image: '', price: 0, colors: [],
             },
             selectedColorId: null,
+            qty: 1,
             loading: true,
         };
     },
