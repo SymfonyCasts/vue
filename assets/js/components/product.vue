@@ -93,6 +93,7 @@ export default {
     },
     data() {
         return {
+            cart: null,
             product: {
                 name: '', image: '', price: 0, colors: [],
             },
@@ -124,6 +125,13 @@ export default {
         }
 
         this.product = response.data;
+    },
+    async mounted() {
+        try {
+            this.cart = await getCart();
+        } catch (e) {
+            // do nothing
+        }
     },
     methods: {
         addToCart() {
