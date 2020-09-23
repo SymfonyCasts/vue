@@ -1,6 +1,7 @@
 <template>
     <div>
         <input
+            :value="searchTerm"
             class="form-control"
             placeholder="Search products..."
             type="search"
@@ -11,5 +12,10 @@
 <script>
 export default {
     name: 'SearchBar',
+    data() {
+        return {
+            searchTerm: '',
+        };
+    },
 };
 </script>
