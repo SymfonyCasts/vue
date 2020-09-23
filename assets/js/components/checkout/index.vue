@@ -120,7 +120,7 @@ export default {
                 errorMessage: this.validationErrors[id],
             };
         },
-        async onSubmit(event) {
+        async onSubmit() {
             this.loading = true;
             this.serverError = false;
             this.validationErrors = {};
@@ -128,6 +128,9 @@ export default {
             try {
                 const response = await createOrder(this.form);
                 await clearCart();
+
+                const id = Number(response.data['@id'].split('/').pop());
+                window.location = `/confirmation/${id}`;
             } catch (error) {
                 const { response } = error;
 
