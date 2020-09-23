@@ -59,15 +59,6 @@ export default {
             ],
         };
     },
-    props: {
-        testProp: {
-            type: String,
-            default: 'I am the default value',
-        },
-    },
-    created() {
-        console.log(this, this.categories);
-    },
     methods: {
         toggleCollapsed() {
             this.collapsed = !this.collapsed;
