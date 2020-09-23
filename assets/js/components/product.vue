@@ -7,5 +7,11 @@
 <script>
 export default {
     name: 'Product',
+    props: {
+        currentProductId: {
+            type: String,
+            default: null,
+        },
+    },
 };
 </script>
