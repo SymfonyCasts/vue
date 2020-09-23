@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import formatPrice from '@/helpers/format-price';
 import { getProduct } from '@/services/products-service';
 import ColorSelector from '@/components/color-selector';
 import Loading from '@/components/loading';
@@ -94,6 +95,15 @@ export default {
             product: { name: '', image: '', price: 0 },
             loading: true,
         };
+    },
+    computed: {
+        /**
+         * Returns a formatted price for the product
+         * @returns {string}
+         */
+        price() {
+            return formatPrice(this.product.price);
+        },
     },
     async created() {
         let response;
