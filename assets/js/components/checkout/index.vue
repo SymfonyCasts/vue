@@ -104,7 +104,8 @@ export default {
                 errorMessage: this.validationErrors[id],
             };
         },
-        async onSubmit() {
+        async onSubmit(event) {
+            event.preventDefault();
             this.loading = true;
 
             try {
