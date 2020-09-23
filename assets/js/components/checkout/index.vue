@@ -26,6 +26,7 @@ export default {
                 customerPhone: '',
                 purchaseItems: [],
             },
+            validationErrors: {},
         };
     },
     created() {
