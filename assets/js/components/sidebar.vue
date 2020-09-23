@@ -5,6 +5,7 @@
     >
         <h5 class="text-center">
             Categories
+            {{ _uid }}
         </h5>
 
         <ul class="nav flex-column mb4">
