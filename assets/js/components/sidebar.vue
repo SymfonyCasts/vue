@@ -1,5 +1,8 @@
 <template>
-    <div :class="[$style.sidebar, 'p-3', 'mb-5']">
+    <div
+        :class="[$style.sidebar, 'p-3', 'mb-5']"
+        :style="{ width: collapsed ? '70px' : 'auto' }"
+    >
         <h5 class="text-center">
             Categories
         </h5>
@@ -33,6 +36,7 @@ export default {
     name: 'Sidebar',
     data() {
         return {
+            collapsed: false,
             categories: [
                 {
                     name: 'Dot Matrix Printers',
