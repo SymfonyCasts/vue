@@ -3,7 +3,7 @@
         :class="[$style.sidebar, 'p-3', 'mb-5']"
         :style="{ width: collapsed ? '70px' : 'auto' }"
     >
-        <div v-if="!collapsed">
+        <div v-show="!collapsed">
             <h5 class="text-center">
                 Categories
             </h5>
