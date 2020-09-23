@@ -19,5 +19,9 @@ export default {
 </script>
 
 <style lang="scss" module>
+@import '~styles/variables/colors.scss';
 
+.component {
+    border-bottom: 1px solid $light-component-border;
+}
 </style>
