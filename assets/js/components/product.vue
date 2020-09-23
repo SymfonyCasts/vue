@@ -71,6 +71,7 @@
 </template>
 
 <script>
+import { addItemToCart, getCart } from '@/services/cart-service.js';
 import formatPrice from '@/helpers/format-price';
 import { getProduct } from '@/services/products-service';
 import ColorSelector from '@/components/color-selector';
