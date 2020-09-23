@@ -8,6 +8,7 @@
         "api-platform/api-pack": "^1.2",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
         "doctrine/inflector": "1.3.*",
+        "ramsey/uuid": "^4.1",
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/console": "5.0.*",
         "symfony/debug-pack": "^1.0",
