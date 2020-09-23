@@ -65,8 +65,10 @@ export default {
             let productsResponse = null;
 
             try {
-                colorsResponse = await getColors();
-                productsResponse = await getProductsById(productIds);
+                [colorsResponse, productsResponse] = await Promise.all([
+                    getColors(),
+                    getProductsById(productIds),
+                ]);
             } catch (e) {
                 this.loading = false;
                 return;
