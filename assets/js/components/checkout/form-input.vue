@@ -8,7 +8,7 @@
         </label>
         <input
             :id="id"
-            type="text"
+            :type="type"
             :class="{
                 'is-invalid': !isValid,
                 'form-control': true,
@@ -41,6 +41,11 @@ export default {
             type: String,
             required: false,
             default: '',
+        },
+        type: {
+            type: String,
+            required: false,
+            default: 'text',
         },
         value: {
             type: String,
