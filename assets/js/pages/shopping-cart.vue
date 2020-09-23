@@ -43,6 +43,7 @@
 
                         <checkout-form
                             v-else
+                            :cart="cart"
                         />
                     </transition>
 

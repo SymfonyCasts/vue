@@ -9,6 +9,12 @@
 <script>
 export default {
     name: 'CheckoutForm',
+    props: {
+        cart: {
+            type: Object,
+            required: true,
+        },
+    },
     data() {
         return {
             form: {
@@ -21,6 +27,9 @@ export default {
                 purchaseItems: [],
             },
         };
+    },
+    created() {
+        this.form.purchaseItems = this.cart.items;
     },
 };
 </script>
