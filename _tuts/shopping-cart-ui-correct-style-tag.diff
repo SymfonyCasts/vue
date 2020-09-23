@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 2f0f7d51..1995ece7 100644
+index 4831516c..ad80b4c7 100644
 --- a/assets/js/components/shopping-cart/cart-item.vue
 +++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -16,6 +16,6 @@ export default {
+@@ -18,6 +18,6 @@ export default {
  };
  </script>
  

@@ -1201,13 +1201,23 @@
             "description": null
         },
         {
+            "id": "shopping-cart-ui-include-component",
+            "name": "Shopping Cart UI: Include Component",
+            "description": null
+        },
+        {
             "id": "shopping-cart-ui-computed-property-total-price",
             "name": "Shopping Cart UI: Computed Property Total Price",
             "description": null
         },
         {
-            "id": "shopping-cart-ui-include-component",
-            "name": "Shopping Cart UI: Include component",
+            "id": "shopping-cart-ui-better-totalprice",
+            "name": "Shopping Cart UI: Better TotalPrice",
+            "description": null
+        },
+        {
+            "id": "delete-me-8",
+            "name": "delete-me-8",
             "description": null
         },
         {
@@ -1466,5 +1476,5 @@
             "description": null
         }
     ],
-    "sha": "2ec850cada1bb67965a4d3e0bcca87c1660c5536"
+    "sha": "f523668d7e453c192abe3ca2aaf48a4ad1d554c5"
 }

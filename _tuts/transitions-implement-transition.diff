@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index a729575c..fa195c25 100644
+index e3bf112d..7c9fcf2e 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -16,15 +16,17 @@
@@ -28,7 +28,7 @@ index a729575c..fa195c25 100644
  
                      <div
                          v-show="!loading && items.length"
-@@ -116,5 +118,13 @@ export default {
+@@ -117,5 +119,13 @@ export default {
      .content {
          @include light-component;
      }
