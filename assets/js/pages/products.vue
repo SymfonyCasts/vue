@@ -71,5 +71,11 @@ export default {
 
 .sidebar {
     @include light-component;
+
+    ul {
+        li a:hover {
+            background: $blue-component-link-hover;
+        }
+    }
 }
 </style>
