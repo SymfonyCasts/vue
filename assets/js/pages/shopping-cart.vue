@@ -35,6 +35,7 @@
 </template>
 
 <script>
+import { getColors } from '@/services/colors-service';
 import { getProductsById } from '@/services/products-service';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
@@ -49,6 +50,7 @@ export default {
     mixins: [shoppingCartMixin],
     data() {
         return {
+            colors: {},
             items: [],
             loading: false,
         };
@@ -59,9 +61,11 @@ export default {
             this.items = [];
 
             const productIds = this.cart.items.map((item) => item.product);
+            let colorsResponse = null;
             let productsResponse = null;
 
             try {
+                colorsResponse = await getColors();
                 productsResponse = await getProductsById(productIds);
             } catch (e) {
                 this.loading = false;
@@ -69,6 +73,12 @@ export default {
             }
 
             this.items = productsResponse.data['hydra:member'];
+
+            // Map all colors to our object dictionary by @id
+            colorsResponse.data['hydra:member'].forEach((color) => {
+                this.colors[color['@id']] = color;
+            });
+
             this.loading = false;
         },
     },
