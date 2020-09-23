@@ -43,3 +43,24 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+@import '~styles/components/light-component';
+.product-box {
+    border: 1px solid $light-component-border;
+    box-shadow: 0 0 7px 4px #efefee;
+    border-radius: 5px;
+}
+.image {
+    img {
+        width: 100%;
+        height: auto;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+}
+</style>
