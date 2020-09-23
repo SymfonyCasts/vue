@@ -135,8 +135,19 @@ export default {
         }
     },
     methods: {
-        addToCart() {
-            // TODO
+        async addToCart() {
+            if (this.product.colors.length && this.selectedColorId === null) {
+                alert('Please, select a product color first!');
+                return;
+            }
+
+            await addItemToCart(this.cart, {
+                product: this.product['@id'],
+                color: this.selectedColorId,
+                quantity: this.qty,
+            });
+
+            window.location = '/';
         },
 
         /**
