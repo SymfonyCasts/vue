@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 1b8cc26d..ebc79201 100644
+index 0e7e459a..c81dec49 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -29,6 +29,7 @@
@@ -10,7 +10,7 @@ index 1b8cc26d..ebc79201 100644
                              >
                                  Checkout!
                              </button>
-@@ -58,6 +59,7 @@ export default {
+@@ -57,6 +58,7 @@ export default {
      mixins: [shoppingCartMixin],
      data() {
          return {
@@ -18,7 +18,7 @@ index 1b8cc26d..ebc79201 100644
              colors: {},
              items: [],
              loading: false,
-@@ -82,6 +84,11 @@ export default {
+@@ -81,6 +83,11 @@ export default {
              this.loading = false;
          },
      },
