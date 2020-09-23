@@ -1,10 +1,8 @@
 <template>
     <div class="row">
         <div class="col-12">
-            <title-component />
+            <title-component :text="product.name" />
         </div>
-
-        I'd <3 to see a Product here!
     </div>
 </template>
 
