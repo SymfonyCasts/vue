@@ -1,11 +1,10 @@
 <template>
     <div>
         <input
-            :value="searchTerm"
+            v-model="searchTerm"
             class="form-control"
             placeholder="Search products..."
             type="search"
-            @input="searchTerm = $event.target.value"
         >
     </div>
 </template>
