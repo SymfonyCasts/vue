@@ -1,7 +1,17 @@
 <template>
     <div :class="[$style.component, 'row', 'p-3']">
-        <div class="col-12">
-            {{ cartItem.name }}
+        <div class="col-3">
+            <div class="row">
+                <span class="col">
+                    {{ cartItem.name }}
+                </span>
+
+                <span class="col-2">
+                    <span
+                        class="color-square"
+                    />
+                </span>
+            </div>
         </div>
     </div>
 </template>
