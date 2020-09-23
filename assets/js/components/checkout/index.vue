@@ -11,7 +11,7 @@
                     </label>
                     <input
                         id="customerName"
-                        v-model="form.customerName"
+                        v-model.trim="form.customerName"
                         type="text"
                         class="form-control"
                     >
