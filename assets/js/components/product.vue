@@ -92,7 +92,9 @@ export default {
     },
     data() {
         return {
-            product: { name: '', image: '', price: 0 },
+            product: {
+                name: '', image: '', price: 0, colors: [],
+            },
             loading: true,
         };
     },
