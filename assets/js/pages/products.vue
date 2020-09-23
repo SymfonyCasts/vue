@@ -46,7 +46,7 @@
                 </div>
 
                 <div class="row">
-                    <legend-component v-bind:title="legend" />
+                    <legend-component :title="legend" />
                 </div>
             </div>
         </div>
