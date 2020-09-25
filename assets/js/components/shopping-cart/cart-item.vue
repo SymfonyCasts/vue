@@ -19,7 +19,7 @@
 
         <div class="col-3">
             <input
-                v-model="cartItem.qty"
+                v-model.number="cartItem.qty"
                 class="form-control"
                 type="number"
                 min="1"
