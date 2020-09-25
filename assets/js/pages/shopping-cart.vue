@@ -20,6 +20,8 @@
                         v-show="!loading"
                         :items="items"
                         :cart="cart"
+                        @updateQuantity="updateQuantity"
+                        @removeFromCart="removeFromCart"
                     />
 
                     <div
@@ -42,7 +44,7 @@
 </template>
 
 <script>
-import { getFullShoppingCart } from '@/services/cart-service';
+import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 import ShoppingCartList from '@/components/shopping-cart';
@@ -77,7 +79,7 @@ export default {
         },
     },
     watch: {
-        async cart() {
+        'cart.items.length': async function watchCartItemsLength() {
             this.loading = true;
             this.items = [];
 
@@ -98,6 +100,31 @@ export default {
     methods: {
         switchState() {
             this.currentState = 3 - this.currentState;
+        },
+
+        /**
+         * Updates the product quantity in the cart, then refreshes the page
+         *
+         * @param {string} product
+         * @param {string|null} color
+         * @param {number} quantity
+         */
+        async updateQuantity({ product, color, quantity }) {
+            await updateCartItemQuantity(this.cart, product, color, quantity);
+
+            this.updateShoppingCartHeader();
+        },
+
+        /**
+         * Removes a product from the cart, then refreshes the page
+         *
+         * @param {string} product
+         * @param {string|null} color
+         */
+        async removeFromCart({ product, color }) {
+            await removeItemFromCart(this.cart, product, color);
+
+            this.updateShoppingCartHeader();
         },
     },
 };
