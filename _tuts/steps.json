@@ -1211,6 +1211,21 @@
             "description": null
         },
         {
+            "id": "more-shopping-cart-fix-v-model",
+            "name": "More Shopping Cart: Fix v-model",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-add-event-emits",
+            "name": "More Shopping Cart: Add event emits",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-pass-events-up-the-parent-component",
+            "name": "More Shopping Cart: Pass events up the parent component",
+            "description": null
+        },
+        {
             "id": "more-shopping-cart-add-functionality-to-updateqty",
             "name": "More Shopping Cart: Add functionality to updateQty",
             "description": null
@@ -1218,6 +1233,21 @@
         {
             "id": "more-shopping-cart-remove-from-cart",
             "name": "More Shopping Cart: Remove From Cart",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-fix-mixin-cart-item",
+            "name": "More Shopping Cart: Fix mixin cart item",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-refactor-get-shopping-cart-mixin",
+            "name": "More Shopping Cart: Refactor get-shopping-cart mixin",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-update-header-on-cart-change",
+            "name": "More Shopping Cart: Update header on cart change",
             "description": null
         },
         {
@@ -1436,5 +1466,5 @@
             "description": null
         }
     ],
-    "sha": "75cec45cef6fc300f562b84ece621dcdebdef518"
+    "sha": "f76ee0932fd9afca3ee2f1bf299d039997c3e2c5"
 }
