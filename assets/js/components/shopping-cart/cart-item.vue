@@ -23,6 +23,11 @@
                 class="form-control"
                 type="number"
                 min="1"
+                @input="$emit('updateQuantity', {
+                    product: cartItem['@id'],
+                    color: cartItem.colorId,
+                    quantity: cartItem.qty
+                })"
             >
         </div>
 
@@ -31,7 +36,13 @@
         </div>
 
         <div class="col-3">
-            <button class="btn btn-info btn-sm">
+            <button
+                class="btn btn-info btn-sm"
+                @click="$emit('removeFromCart', {
+                    product: cartItem['@id'],
+                    color: cartItem.colorId
+                })"
+            >
                 Remove
             </button>
         </div>
