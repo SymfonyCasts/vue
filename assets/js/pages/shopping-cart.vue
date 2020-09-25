@@ -59,7 +59,7 @@ export default {
     mixins: [shoppingCartMixin],
     data() {
         return {
-            currentState: 1,
+            currentState: 'cart',
             colors: {},
             items: [],
             loading: false,
@@ -86,7 +86,7 @@ export default {
     },
     methods: {
         switchState() {
-            this.currentState = 3 - this.currentState;
+            this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
         },
 
         /**
