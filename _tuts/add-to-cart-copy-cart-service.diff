@@ -1,6 +1,6 @@
 diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
 new file mode 100644
-index 00000000..8bb28aba
+index 00000000..d10716ee
 --- /dev/null
 +++ b/assets/js/services/cart-service.js
 @@ -0,0 +1,138 @@
@@ -8,7 +8,7 @@ index 00000000..8bb28aba
 +
 +/**
 + * @typedef {Object} CartCollection
-+ * @property {CartItem} items
++ * @property {CartItem[]} items
 + */
 +
 +/**
