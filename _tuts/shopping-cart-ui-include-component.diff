@@ -5,7 +5,7 @@ index e291e96a..9cb70843 100644
 @@ -16,18 +16,10 @@
                          <loading />
                      </div>
-
+ 
 -                    <div
 +                    <shopping-cart-list
                          v-show="!loading"
@@ -30,7 +30,7 @@ index e291e96a..9cb70843 100644
  import TitleComponent from '@/components/title';
 +import ShoppingCartList from '@/components/shopping-cart';
  import shoppingCartMixin from '@/mixins/get-shopping-cart';
-
+ 
  export default {
      name: 'ShoppingCart',
      components: {
