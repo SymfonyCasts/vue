@@ -79,7 +79,6 @@ export default {
          */
         async updateQuantity({ productId, colorId, qty }) {
             await updateCartItemQuantity(this.cart, productId, colorId, qty);
-            window.location.reload();
         },
     },
 };
