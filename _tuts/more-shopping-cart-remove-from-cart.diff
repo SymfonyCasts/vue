@@ -1,43 +1,37 @@
-diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 2945e782..2d8cfeef 100644
---- a/assets/js/components/shopping-cart/cart-item.vue
-+++ b/assets/js/components/shopping-cart/cart-item.vue
-@@ -32,7 +32,10 @@
-         </div>
- 
-         <div class="col-3">
--            <button class="btn btn-info btn-sm">
-+            <button
-+                class="btn btn-info btn-sm"
-+                @click="removeFromCart(product['@id'], product.colorId)"
-+            >
-                 Remove
-             </button>
-         </div>
-@@ -40,7 +43,7 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 6d95ba1d..00b06d0f 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -20,6 +20,7 @@
+                         v-show="!loading"
+                         :items="items"
+                         @updateQuantity="updateQuantity"
++                        @removeFromCart="removeFromCart"
+                     />
+                 </div>
+             </div>
+@@ -28,7 +29,7 @@
  </template>
  
  <script>
--import { updateCartItemQuantity } from '@/services/cart-service';
-+import { updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
- import formatPrice from '@/helpers/format-price';
- 
- export default {
-@@ -72,6 +75,18 @@ export default {
-             await updateCartItemQuantity(this.cart, productId, colorId, qty);
-             window.location.reload();
+-import { getFullShoppingCart, updateCartItemQuantity } from '@/services/cart-service';
++import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartList from '@/components/shopping-cart';
+@@ -79,6 +80,16 @@ export default {
+         async updateQuantity({ product, color, quantity }) {
+             await updateCartItemQuantity(this.cart, product, color, quantity);
          },
 +
 +        /**
 +         * Removes a product from the cart, then refreshes the page
 +         *
-+         * @param {string} productId
-+         * @param {string|null} colorId
++         * @param {string} product
++         * @param {string|null} color
 +         */
-+        removeFromCart(productId, colorId) {
-+            removeItemFromCart(this.cart, productId, colorId);
-+
-+            window.location.reload();
++        async removeFromCart({ product, color }) {
++            await removeItemFromCart(this.cart, product, color);
 +        },
      },
  };
