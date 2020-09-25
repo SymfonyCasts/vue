@@ -3,7 +3,9 @@ import { getCart, getCartTotalItems } from '@/services/cart-service';
 export default {
     data() {
         return {
-            cart: null,
+            cart: {
+                items: [],
+            },
         };
     },
     async mounted() {

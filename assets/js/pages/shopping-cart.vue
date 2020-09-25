@@ -52,7 +52,7 @@ export default {
         };
     },
     watch: {
-        async cart() {
+        'cart.items.length': async function watchCartItemsLength() {
             this.loading = true;
             this.items = [];
 
