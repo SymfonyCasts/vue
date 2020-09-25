@@ -50,7 +50,7 @@ export default {
     },
     computed: {
         totalPrice() {
-            return formatPrice(this.product.price * this.product.qty);
+            return formatPrice(this.cartItem.price * this.cartItem.qty);
         },
     },
 };
