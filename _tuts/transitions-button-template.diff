@@ -1,10 +1,10 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 5d2d1571..0e7e459a 100644
+index bfd6cfee..27c0242f 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -21,6 +21,19 @@
-                         :items="items"
-                         :cart="cart"
+@@ -22,6 +22,19 @@
+                         @updateQuantity="updateQuantity"
+                         @removeFromCart="removeFromCart"
                      />
 +
 +                    <div
