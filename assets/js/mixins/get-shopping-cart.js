@@ -3,6 +3,7 @@ import { getCart, getCartTotalItems } from '@/services/cart-service';
 export default {
     data() {
         return {
+            /** @type CartCollection */
             cart: {
                 items: [],
             },
