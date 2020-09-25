@@ -10,7 +10,7 @@
                     <span
                         class="color-square"
                         :style="{
-                            backgroundColor: `#${product.hexColor}`
+                            backgroundColor: `#${cartItem.hexColor}`
                         }"
                     />
                 </span>
