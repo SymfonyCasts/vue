@@ -25,6 +25,8 @@
                 v-for="item in items"
                 :key="item['@id']"
                 :cart-item="item"
+                @updateQuantity="(data) => $emit('updateQuantity', data)"
+                @removeFromCart="(data) => $emit('removeFromCart', data)"
             />
 
             <div class="p-3">
