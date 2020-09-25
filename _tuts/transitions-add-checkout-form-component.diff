@@ -1,15 +1,16 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 42bbc34d..5916dacd 100644
+index fd52b6a9..bd057484 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -17,11 +17,15 @@
+@@ -17,12 +17,16 @@
                      </div>
  
                      <shopping-cart-list
 -                        v-show="!loading"
 +                        v-show="!loading && currentState === 1"
                          :items="items"
-                         :cart="cart"
+                         @updateQuantity="updateQuantity"
+                         @removeFromCart="removeFromCart"
                      />
  
 +                    <checkout-form
@@ -19,15 +20,15 @@ index 42bbc34d..5916dacd 100644
                      <div
                          v-show="!loading && items.length"
                          class="row p-3 justify-content-end"
-@@ -44,6 +48,7 @@
+@@ -45,6 +49,7 @@
  <script>
- import { getFullShoppingCart } from '@/services/cart-service';
+ import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
  import Loading from '@/components/loading';
 +import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
  import shoppingCartMixin from '@/mixins/get-shopping-cart';
-@@ -51,6 +56,7 @@ import shoppingCartMixin from '@/mixins/get-shopping-cart';
+@@ -52,6 +57,7 @@ import shoppingCartMixin from '@/mixins/get-shopping-cart';
  export default {
      name: 'ShoppingCart',
      components: {
