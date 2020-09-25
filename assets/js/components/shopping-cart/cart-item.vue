@@ -23,7 +23,11 @@
                 class="form-control"
                 type="number"
                 min="1"
-                @input="updateQty(cartItem['@id'], cartItem.colorId, cartItem.qty)"
+                @input="$emit('updateQuantity', {
+                    product: cartItem['@id'],
+                    color: cartItem.colorId,
+                    quantity: cartItem.qty
+                })"
             >
         </div>
 
@@ -34,7 +38,10 @@
         <div class="col-3">
             <button
                 class="btn btn-info btn-sm"
-                @click="removeFromCart(product['@id'], product.colorId)"
+                @click="$emit('removeFromCart', {
+                    product: cartItem['@id'],
+                    color: cartItem.colorId
+                })"
             >
                 Remove
             </button>
@@ -43,16 +50,11 @@
 </template>
 
 <script>
-import { updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
 import formatPrice from '@/helpers/format-price';
 
 export default {
     name: 'ShoppingCartItem',
     props: {
-        cart: {
-            type: Object,
-            required: true,
-        },
         cartItem: {
             type: Object,
             required: true,
@@ -60,32 +62,7 @@ export default {
     },
     computed: {
         totalPrice() {
-            return formatPrice(this.product.price * this.product.qty);
-        },
-    },
-    methods: {
-        /**
-         * Updates the product quantity in the cart, then refreshes the page
-         *
-         * @param {string} productId
-         * @param {string|null} colorId
-         * @param {number} qty
-         */
-        async updateQty(productId, colorId, qty) {
-            await updateCartItemQuantity(this.cart, productId, colorId, qty);
-            window.location.reload();
-        },
-
-        /**
-         * Removes a product from the cart, then refreshes the page
-         *
-         * @param {string} productId
-         * @param {string|null} colorId
-         */
-        removeFromCart(productId, colorId) {
-            removeItemFromCart(this.cart, productId, colorId);
-
-            window.location.reload();
+            return formatPrice(this.cartItem.price * this.cartItem.qty);
         },
     },
 };
