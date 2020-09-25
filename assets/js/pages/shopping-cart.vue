@@ -21,7 +21,7 @@
                         mode="out-in"
                     >
                         <shopping-cart-list
-                            v-if="!loading && currentState === 1"
+                            v-if="!loading && currentState === 'cart'"
                             :items="items"
                             @updateQuantity="updateQuantity"
                             @removeFromCart="removeFromCart"
@@ -70,7 +70,7 @@ export default {
     mixins: [shoppingCartMixin],
     data() {
         return {
-            currentState: 1,
+            currentState: 'cart',
             colors: {},
             items: [],
             loading: false,
@@ -78,12 +78,12 @@ export default {
     },
     computed: {
         pageTitle() {
-            return this.currentState === 1
+            return this.currentState === 'cart'
                 ? 'Shopping Cart'
                 : 'Checkout';
         },
         buttonText() {
-            return this.currentState === 1
+            return this.currentState === 'cart'
                 ? 'Checkout >>'
                 : '<< Back';
         },
@@ -109,7 +109,7 @@ export default {
     },
     methods: {
         switchState() {
-            this.currentState = 3 - this.currentState;
+            this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
         },
 
         /**
