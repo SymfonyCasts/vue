@@ -67,12 +67,12 @@ export default {
     },
     computed: {
         pageTitle() {
-            return this.currentState === 1
+            return this.currentState === 'cart'
                 ? 'Shopping Cart'
                 : 'Checkout';
         },
         buttonText() {
-            return this.currentState === 1
+            return this.currentState === 'cart'
                 ? 'Checkout >>'
                 : '<< Back';
         },
