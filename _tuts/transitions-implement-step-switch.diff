@@ -1,8 +1,8 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 0e7e459a..c81dec49 100644
+index 27c0242f..30e37a5f 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -29,6 +29,7 @@
+@@ -30,6 +30,7 @@
                          <div class="col-2">
                              <button
                                  class="btn btn-info btn-sm"
@@ -10,7 +10,7 @@ index 0e7e459a..c81dec49 100644
                              >
                                  Checkout!
                              </button>
-@@ -57,6 +58,7 @@ export default {
+@@ -58,6 +59,7 @@ export default {
      mixins: [shoppingCartMixin],
      data() {
          return {
@@ -18,15 +18,14 @@ index 0e7e459a..c81dec49 100644
              colors: {},
              items: [],
              loading: false,
-@@ -81,6 +83,11 @@ export default {
-             this.loading = false;
+@@ -83,6 +85,10 @@ export default {
          },
      },
-+    methods: {
+     methods: {
 +        switchState() {
 +            this.currentState = 3 - this.currentState;
 +        },
-+    },
- };
- </script>
- 
++
+         /**
+          * Updates the product quantity in the cart, then refreshes the page
+          *
