@@ -46,7 +46,7 @@ index 46f77ba4..129b4bb0 100644
          },
      },
 diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
-index 8bb28aba..80bbf7e9 100644
+index d10716ee..950fae22 100644
 --- a/assets/js/services/cart-service.js
 +++ b/assets/js/services/cart-service.js
 @@ -1,4 +1,6 @@
