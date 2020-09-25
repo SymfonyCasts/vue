@@ -25,10 +25,10 @@ index 015f985c..e1df1ee2 100644
  };
  </script>
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index b35fe5eb..2bc7726b 100644
+index 3b089452..9c1ee5ca 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -43,6 +43,7 @@
+@@ -44,6 +44,7 @@
  
                          <checkout-form
                              v-else
