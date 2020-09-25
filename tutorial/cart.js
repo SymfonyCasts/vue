@@ -2,7 +2,7 @@ import axios from 'axios';
 
 /**
  * @typedef {Object} CartCollection
- * @property {CartItem} items
+ * @property {CartItem[]} items
  */
 
 /**
