@@ -19,7 +19,6 @@
                     <shopping-cart-list
                         v-show="!loading && currentState === 1"
                         :items="items"
-                        :cart="cart"
                         @updateQuantity="updateQuantity"
                         @removeFromCart="removeFromCart"
                     />
