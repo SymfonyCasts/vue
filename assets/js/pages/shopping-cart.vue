@@ -73,12 +73,12 @@ export default {
         /**
          * Updates the product quantity in the cart, then refreshes the page
          *
-         * @param {string} productId
-         * @param {string|null} colorId
-         * @param {number} qty
+         * @param {string} product
+         * @param {string|null} color
+         * @param {number} quantity
          */
-        async updateQuantity({ productId, colorId, qty }) {
-            await updateCartItemQuantity(this.cart, productId, colorId, qty);
+        async updateQuantity({ product, color, quantity }) {
+            await updateCartItemQuantity(this.cart, product, color, quantity);
         },
     },
 };
