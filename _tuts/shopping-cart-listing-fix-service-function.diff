@@ -1,5 +1,5 @@
 diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
-index 80bbf7e9..c7bfa092 100644
+index 950fae22..8c6a40f9 100644
 --- a/assets/js/services/cart-service.js
 +++ b/assets/js/services/cart-service.js
 @@ -139,8 +139,14 @@ export function getCartTotalItems(cart) {
