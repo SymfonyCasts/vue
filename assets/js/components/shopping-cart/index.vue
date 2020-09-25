@@ -24,8 +24,9 @@
             <shopping-cart-item
                 v-for="item in items"
                 :key="item['@id']"
-                :cart="cart"
                 :cart-item="item"
+                @updateQuantity="(data) => $emit('updateQuantity', data)"
+                @removeFromCart="(data) => $emit('removeFromCart', data)"
             />
 
             <div class="p-3">
@@ -45,10 +46,6 @@ export default {
         ShoppingCartItem,
     },
     props: {
-        cart: {
-            type: Object,
-            required: true,
-        },
         items: {
             type: Array,
             required: true,
