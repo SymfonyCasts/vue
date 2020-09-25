@@ -1,0 +1,27 @@
+diff --git a/assets/js/mixins/get-shopping-cart.js b/assets/js/mixins/get-shopping-cart.js
+index b8b7a81e..c848c02e 100644
+--- a/assets/js/mixins/get-shopping-cart.js
++++ b/assets/js/mixins/get-shopping-cart.js
+@@ -3,6 +3,7 @@ import { getCart, getCartTotalItems } from '@/services/cart-service';
+ export default {
+     data() {
+         return {
++            /** @type CartCollection */
+             cart: {
+                 items: [],
+             },
+@@ -15,7 +16,12 @@ export default {
+             return;
+         }
+ 
+-        document.getElementById('js-shopping-cart-items')
+-            .innerHTML = getCartTotalItems(this.cart).toString();
++        this.updateShoppingCartHeader();
++    },
++    methods: {
++        updateShoppingCartHeader() {
++            document.getElementById('js-shopping-cart-items')
++                .innerHTML = getCartTotalItems(this.cart).toString();
++        },
+     },
+ };
