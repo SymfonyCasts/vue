@@ -4,7 +4,7 @@ import { getProductsById } from '@/services/products-service';
 
 /**
  * @typedef {Object} CartCollection
- * @property {CartItem} items
+ * @property {CartItem[]} items
  */
 
 /**
