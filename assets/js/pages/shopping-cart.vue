@@ -17,14 +17,14 @@
                     </div>
 
                     <shopping-cart-list
-                        v-show="!loading && currentState === 1"
+                        v-if="!loading && currentState === 'cart'"
                         :items="items"
                         @updateQuantity="updateQuantity"
                         @removeFromCart="removeFromCart"
                     />
 
                     <checkout-form
-                        v-show="!loading && currentState === 2"
+                        v-else
                     />
 
                     <div
