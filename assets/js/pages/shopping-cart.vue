@@ -80,6 +80,8 @@ export default {
          */
         async updateQuantity({ product, color, quantity }) {
             await updateCartItemQuantity(this.cart, product, color, quantity);
+
+            this.updateShoppingCartHeader();
         },
 
         /**
@@ -90,6 +92,8 @@ export default {
          */
         async removeFromCart({ product, color }) {
             await removeItemFromCart(this.cart, product, color);
+
+            this.updateShoppingCartHeader();
         },
     },
 };
