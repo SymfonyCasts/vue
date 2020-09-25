@@ -77,7 +77,7 @@ export default {
          * @param {string|null} colorId
          * @param {number} qty
          */
-        async updateQuantity(productId, colorId, qty) {
+        async updateQuantity({ productId, colorId, qty }) {
             await updateCartItemQuantity(this.cart, productId, colorId, qty);
             window.location.reload();
         },
