@@ -26,6 +26,8 @@
                 :key="item['@id']"
                 :cart="cart"
                 :cart-item="item"
+                @updateQuantity="(data) => $emit('updateQuantity', data)"
+                @removeFromCart="(data) => $emit('removeFromCart', data)"
             />
 
             <div class="p-3">

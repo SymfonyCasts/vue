@@ -20,6 +20,7 @@
                         v-show="!loading"
                         :items="items"
                         :cart="cart"
+                        @updateQuantity="updateQuantity"
                     />
                 </div>
             </div>
@@ -28,7 +29,7 @@
 </template>
 
 <script>
-import { getFullShoppingCart } from '@/services/cart-service';
+import { getFullShoppingCart, updateCartItemQuantity } from '@/services/cart-service';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 import ShoppingCartList from '@/components/shopping-cart';
@@ -66,6 +67,19 @@ export default {
             }
 
             this.loading = false;
+        },
+    },
+    methods: {
+        /**
+         * Updates the product quantity in the cart, then refreshes the page
+         *
+         * @param {string} productId
+         * @param {string|null} colorId
+         * @param {number} qty
+         */
+        async updateQuantity(productId, colorId, qty) {
+            await updateCartItemQuantity(this.cart, productId, colorId, qty);
+            window.location.reload();
         },
     },
 };
