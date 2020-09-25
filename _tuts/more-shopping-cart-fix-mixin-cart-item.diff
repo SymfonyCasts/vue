@@ -1,0 +1,28 @@
+diff --git a/assets/js/mixins/get-shopping-cart.js b/assets/js/mixins/get-shopping-cart.js
+index 1138565e..b8b7a81e 100644
+--- a/assets/js/mixins/get-shopping-cart.js
++++ b/assets/js/mixins/get-shopping-cart.js
+@@ -3,7 +3,9 @@ import { getCart, getCartTotalItems } from '@/services/cart-service';
+ export default {
+     data() {
+         return {
+-            cart: null,
++            cart: {
++                items: [],
++            },
+         };
+     },
+     async mounted() {
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 00b06d0f..1d948000 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -51,7 +51,7 @@ export default {
+         };
+     },
+     watch: {
+-        async cart() {
++        'cart.items.length': async function watchCartItemsLength() {
+             this.loading = true;
+             this.items = [];
+ 
