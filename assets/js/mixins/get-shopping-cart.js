@@ -15,7 +15,12 @@ export default {
             return;
         }
 
-        document.getElementById('js-shopping-cart-items')
-            .innerHTML = getCartTotalItems(this.cart).toString();
+        this.updateShoppingCartHeader();
+    },
+    methods: {
+        updateShoppingCartHeader() {
+            document.getElementById('js-shopping-cart-items')
+                .innerHTML = getCartTotalItems(this.cart).toString();
+        },
     },
 };
