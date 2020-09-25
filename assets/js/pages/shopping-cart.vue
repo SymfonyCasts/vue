@@ -18,7 +18,7 @@
 
                     <transition name="fade">
                         <shopping-cart-list
-                            v-if="!loading && currentState === 1"
+                            v-if="!loading && currentState === 'cart'"
                             :items="items"
                             @updateQuantity="updateQuantity"
                             @removeFromCart="removeFromCart"
