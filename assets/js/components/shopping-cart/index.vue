@@ -47,10 +47,6 @@ export default {
         ShoppingCartItem,
     },
     props: {
-        cart: {
-            type: Object,
-            required: true,
-        },
         items: {
             type: Array,
             required: true,

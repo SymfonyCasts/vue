@@ -55,10 +55,6 @@ import formatPrice from '@/helpers/format-price';
 export default {
     name: 'ShoppingCartItem',
     props: {
-        cart: {
-            type: Object,
-            required: true,
-        },
         cartItem: {
             type: Object,
             required: true,
