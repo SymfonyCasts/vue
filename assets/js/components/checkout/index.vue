@@ -53,12 +53,9 @@ export default {
             validationErrors: {},
         };
     },
-    created() {
-        this.form.purchaseItems = this.cart.items;
-    },
     methods: {
         isFieldValid(fieldName) {
-            return (typeof this.validationErrors[fieldName] === 'undefined');
+            return (fieldName in this.validationErrors);
         },
     },
 };
