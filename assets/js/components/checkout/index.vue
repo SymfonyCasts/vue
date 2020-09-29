@@ -55,7 +55,7 @@ export default {
     },
     methods: {
         isFieldValid(fieldName) {
-            return (fieldName in this.validationErrors);
+            return !(fieldName in this.validationErrors);
         },
     },
 };
