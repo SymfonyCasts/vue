@@ -35,16 +35,13 @@ export default {
         label: {
             type: String,
             required: true,
-            default: '',
         },
         errorMessage: {
             type: String,
-            required: false,
             default: '',
         },
         value: {
             type: String,
-            required: false,
             default: '',
         },
     },
