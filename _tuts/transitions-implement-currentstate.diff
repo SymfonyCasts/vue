@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 30e37a5f..fd52b6a9 100644
+index 292e412d..8369e25d 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -5,7 +5,7 @@
@@ -26,12 +26,12 @@ index 30e37a5f..fd52b6a9 100644
      },
 +    computed: {
 +        pageTitle() {
-+            return this.currentState === 1
++            return this.currentState === 'cart'
 +                ? 'Shopping Cart'
 +                : 'Checkout';
 +        },
 +        buttonText() {
-+            return this.currentState === 1
++            return this.currentState === 'cart'
 +                ? 'Checkout >>'
 +                : '<< Back';
 +        },
