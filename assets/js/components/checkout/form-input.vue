@@ -1,24 +1,25 @@
 <template>
     <div class="p-3">
         <label
-            for="customerName"
+            :for="id"
             class="col-form-label"
         >
-            Name:
+            {{ label }}
         </label>
         <input
-            id="customerName"
+            :id="id"
             type="text"
+            :value="value"
             :class="{
-                'is-invalid': !isFieldValid('customerName'),
+                'is-invalid': !isValid,
                 'form-control': true,
             }"
         >
         <span
-            v-show="!isFieldValid('customerName')"
+            v-show="!isValid"
             class="invalid-feedback"
         >
-
+            {{ errorMessage }}
         </span>
     </div>
 </template>
@@ -37,7 +38,10 @@ export default {
         },
         errorMessage: {
             type: String,
-            required: false,
+            default: '',
+        },
+        value: {
+            type: String,
             default: '',
         },
     },
