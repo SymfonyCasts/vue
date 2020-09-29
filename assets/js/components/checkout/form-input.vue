@@ -29,7 +29,7 @@ export default {
     name: 'FormInput',
     methods: {
         isFieldValid(fieldName) {
-            return (typeof this.validationErrors[fieldName] === 'undefined');
+            return !(fieldName in this.validationErrors);
         },
     },
 };
