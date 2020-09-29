@@ -44,8 +44,5 @@ export default {
             validationErrors: {},
         };
     },
-    created() {
-        this.form.purchaseItems = this.cart.items;
-    },
 };
 </script>
