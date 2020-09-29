@@ -9,11 +9,11 @@
         <input
             :id="id"
             type="text"
-            :value="value"
             :class="{
                 'is-invalid': !isValid,
                 'form-control': true,
             }"
+            :value="value"
         >
         <span
             v-show="!isValid"
