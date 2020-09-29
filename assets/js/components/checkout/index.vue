@@ -28,8 +28,5 @@ export default {
             },
         };
     },
-    created() {
-        this.form.purchaseItems = this.cart.items;
-    },
 };
 </script>
