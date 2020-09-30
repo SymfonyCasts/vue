@@ -110,8 +110,8 @@ export default {
                 const response = await createOrder(this.form);
 
                 console.log(response.data);
-            } catch (e) {
-                console.log('error', e);
+            } catch (error) {
+                console.log('error', error);
             } finally {
                 this.loading = false;
             }
