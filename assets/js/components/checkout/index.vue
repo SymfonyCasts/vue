@@ -109,7 +109,7 @@ export default {
                 errorMessage: this.validationErrors[id],
             };
         },
-        async onSubmit(event) {
+        async onSubmit() {
             this.loading = true;
             this.form.purchaseItems = this.cart.items;
             this.serverError = false;
