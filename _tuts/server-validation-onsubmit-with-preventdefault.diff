@@ -1,8 +1,8 @@
 diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 4546214e..2e518adc 100644
+index 9702ccee..73ce55ba 100644
 --- a/assets/js/components/checkout/index.vue
 +++ b/assets/js/components/checkout/index.vue
-@@ -104,7 +104,8 @@ export default {
+@@ -101,7 +101,8 @@ export default {
                  errorMessage: this.validationErrors[id],
              };
          },
@@ -10,5 +10,5 @@ index 4546214e..2e518adc 100644
 +        async onSubmit(event) {
 +            event.preventDefault();
              this.loading = true;
+             this.form.purchaseItems = this.cart.items;
  
-             try {
