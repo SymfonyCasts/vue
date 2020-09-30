@@ -40,17 +40,14 @@ export default {
         },
         errorMessage: {
             type: String,
-            required: false,
             default: '',
         },
         type: {
             type: String,
-            required: false,
             default: 'text',
         },
         value: {
             type: String,
-            required: false,
             default: '',
         },
     },
