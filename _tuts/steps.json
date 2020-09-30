@@ -1301,8 +1301,8 @@
             "description": null
         },
         {
-            "id": "checkout-form-created-function",
-            "name": "Checkout Form: Created function",
+            "id": "checkout-form-include-cart-prop",
+            "name": "Checkout Form: Include Cart prop",
             "description": null
         },
         {
@@ -1341,23 +1341,23 @@
             "description": null
         },
         {
-            "id": "custom-input-add-props-to-form-input",
-            "name": "Custom Input: Add Props to Form-Input",
+            "id": "delete-me-2",
+            "name": "delete-me-2",
             "description": null
         },
         {
-            "id": "custom-input-add-computed-property",
-            "name": "Custom Input: Add Computed Property",
+            "id": "delete-me-3",
+            "name": "delete-me-3",
             "description": null
         },
         {
-            "id": "custom-input-finalize-form-input-template",
-            "name": "Custom Input: Finalize Form-Input Template",
+            "id": "delete-me-4",
+            "name": "delete-me-4",
             "description": null
         },
         {
-            "id": "custom-input-v-model-in-form-input",
-            "name": "Custom Input: v-model in Form-Input",
+            "id": "delete-me-5",
+            "name": "delete-me-5",
             "description": null
         },
         {
@@ -1416,6 +1416,11 @@
             "description": null
         },
         {
+            "id": "server-validation-submit-prevent",
+            "name": "Server Validation: submit.prevent",
+            "description": null
+        },
+        {
             "id": "server-validation-better-onsubmit-checking-status-code",
             "name": "Server Validation: Better onSubmit checking status code",
             "description": null
@@ -1456,8 +1461,8 @@
             "description": null
         },
         {
-            "id": "client-validation-submit-prevent",
-            "name": "Client Validation: submit.prevent",
+            "id": "delete-me-6",
+            "name": "delete-me-6",
             "description": null
         },
         {
@@ -1466,5 +1471,5 @@
             "description": null
         }
     ],
-    "sha": "67bed0b638ae2f8d53140ab01122327bf1b82866"
+    "sha": "f87ba16939660c0314e17da8967aefd22ef4e208"
 }
