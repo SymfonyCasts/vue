@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 0517ce8f..07c2d558 100644
+index 73ce55ba..1301ae2e 100644
 --- a/assets/js/components/checkout/index.vue
 +++ b/assets/js/components/checkout/index.vue
 @@ -1,7 +1,7 @@
@@ -8,14 +8,16 @@ index 0517ce8f..07c2d558 100644
          <div class="col-12">
 -            <form @submit="onSubmit">
 +            <form @submit.prevent="onSubmit">
-                 <div
-                     v-show="serverError"
-                     class="alert alert-danger m-3"
-@@ -121,7 +121,6 @@ export default {
+                 <form-input
+                     v-model="form.customerName"
+                     v-bind="getFieldProps('customerName', 'Name:')"
+@@ -101,8 +101,7 @@ export default {
+                 errorMessage: this.validationErrors[id],
              };
          },
-         async onSubmit(event) {
+-        async onSubmit(event) {
 -            event.preventDefault();
++        async onSubmit() {
              this.loading = true;
-             this.serverError = false;
-             this.validationErrors = {};
+             this.form.purchaseItems = this.cart.items;
+ 
