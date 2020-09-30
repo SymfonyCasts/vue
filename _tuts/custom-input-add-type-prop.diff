@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 10e506e1..3dd97d79 100644
+index 177555c9..02866233 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
 @@ -8,7 +8,7 @@
@@ -11,15 +11,14 @@ index 10e506e1..3dd97d79 100644
              :class="{
                  'is-invalid': !isValid,
                  'form-control': true,
-@@ -42,6 +42,11 @@ export default {
-             required: false,
+@@ -41,6 +41,10 @@ export default {
+             type: String,
              default: '',
          },
 +        type: {
 +            type: String,
-+            required: false,
 +            default: 'text',
 +        },
          value: {
              type: String,
-             required: false,
+             default: '',
