@@ -3,7 +3,7 @@
         <div class="col-12">
             <form @submit.prevent="onSubmit">
                 <div
-                    v-show="serverError"
+                    v-show="formError"
                     class="alert alert-danger m-3"
                 >
                     Oops, there's been an error sending your data! Please, try again!
