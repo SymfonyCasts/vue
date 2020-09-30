@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index d39b62cb..4546214e 100644
+index bbbb08b0..9702ccee 100644
 --- a/assets/js/components/checkout/index.vue
 +++ b/assets/js/components/checkout/index.vue
 @@ -1,7 +1,7 @@
@@ -10,4 +10,4 @@ index d39b62cb..4546214e 100644
 +            <form @submit="onSubmit">
                  <form-input
                      v-model="form.customerName"
-                     v-bind="getFormFields('customerName', 'Name:')"
+                     v-bind="getFieldProps('customerName', 'Name:')"
