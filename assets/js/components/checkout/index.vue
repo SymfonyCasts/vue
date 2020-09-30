@@ -119,6 +119,7 @@ export default {
         },
         async onSubmit() {
             this.loading = true;
+            this.form.purchaseItems = this.cart.items;
             this.serverError = false;
             this.validationErrors = {};
 
@@ -132,7 +133,7 @@ export default {
                 const { response } = error;
 
                 if (response.status !== 400) {
-                    this.formError = true;
+                    this.serverError = true;
                 } else {
                     response.data.violations.forEach((violation) => {
                         this.validationErrors[violation.propertyPath] = violation.message;
