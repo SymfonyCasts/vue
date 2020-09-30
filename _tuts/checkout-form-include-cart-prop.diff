@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 015f985c..e1df1ee2 100644
+index 015f985c..a38bb458 100644
 --- a/assets/js/components/checkout/index.vue
 +++ b/assets/js/components/checkout/index.vue
 @@ -9,6 +9,12 @@
@@ -15,15 +15,6 @@ index 015f985c..e1df1ee2 100644
      data() {
          return {
              form: {
-@@ -22,5 +28,8 @@ export default {
-             },
-         };
-     },
-+    created() {
-+        this.form.purchaseItems = this.cart.items;
-+    },
- };
- </script>
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
 index 02b99983..94da63ce 100644
 --- a/assets/js/pages/shopping-cart.vue
