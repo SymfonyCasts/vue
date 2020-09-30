@@ -1,30 +1,68 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index ba4d29f6..52715db0 100644
+index 53c477cc..0008e8c2 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
-@@ -8,7 +8,6 @@
+@@ -1,25 +1,25 @@
+ <template>
+     <div class="p-3">
+         <label
+-            for="customerName"
++            :for="id"
+             class="col-form-label"
+         >
+-            Name:
++            {{ label }}
          </label>
          <input
-             id="customerName"
+-            id="customerName"
 -            v-model.trim="form.customerName"
++            :id="id"
              type="text"
              :class="{
-                 'is-invalid': !isFieldValid('customerName'),
-@@ -19,7 +18,7 @@
-             v-show="!isFieldValid('customerName')"
+-                'is-invalid': !isFieldValid('customerName'),
++                'is-invalid': !isValid,
+                 'form-control': true,
+             }"
++            :value="value"
+         >
+         <span
+-            v-show="!isFieldValid('customerName')"
++            v-show="!isValid"
              class="invalid-feedback"
          >
 -            {{ validationErrors.customerName }}
-+
++            {{ errorMessage }}
          </span>
      </div>
  </template>
-@@ -29,7 +28,7 @@ export default {
+@@ -27,9 +27,27 @@
+ <script>
+ export default {
      name: 'FormInput',
-     methods: {
-         isFieldValid(fieldName) {
--            return (typeof this.validationErrors[fieldName] === 'undefined');
-+            return true;
+-    methods: {
+-        isFieldValid(fieldName) {
+-            return !(fieldName in this.validationErrors);
++    props: {
++        id: {
++            type: String,
++            required: true,
++        },
++        label: {
++            type: String,
++            required: true,
++        },
++        errorMessage: {
++            type: String,
++            default: '',
++        },
++        value: {
++            type: String,
++            default: '',
++        },
++    },
++    computed: {
++        isValid() {
++            return !this.errorMessage;
          },
      },
  };
