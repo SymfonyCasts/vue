@@ -92,7 +92,7 @@ export default {
             },
             validationErrors: {},
             loading: false,
-            serverError: false,
+            formError: false,
         };
     },
     methods: {
@@ -113,7 +113,7 @@ export default {
         async onSubmit() {
             this.loading = true;
             this.form.purchaseItems = this.cart.items;
-            this.serverError = false;
+            this.formError = false;
 
             try {
                 const response = await createOrder(this.form);
@@ -121,7 +121,7 @@ export default {
                 const { response } = error;
 
                 if (response.status !== 400) {
-                    this.serverError = true;
+                    this.formError = true;
                 } else {
                     console.log(response.data);
                 }
