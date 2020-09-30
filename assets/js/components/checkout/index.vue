@@ -4,7 +4,7 @@
             <form>
                 <form-input
                     id="customerName"
-                    v-model="form.customerName"
+                    :value="form.customerName"
                     label="Name:"
                     :error-message="validationErrors.customerName"
                 />
