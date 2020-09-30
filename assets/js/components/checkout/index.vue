@@ -4,32 +4,34 @@
             <form @submit="onSubmit">
                 <form-input
                     v-model="form.customerName"
-                    v-bind="getFormFields('customerName', 'Name:')"
+                    v-bind="getFieldProps('customerName', 'Name:')"
                 />
 
                 <form-input
                     v-model="form.customerEmail"
-                    v-bind="getFormFields('customerEmail', 'Email:', 'email')"
+                    type="email"
+                    v-bind="getFieldProps('customerEmail', 'Email:')"
                 />
 
                 <form-input
                     v-model="form.customerAddress"
-                    v-bind="getFormFields('customerAddress', 'Address:')"
+                    v-bind="getFieldProps('customerAddress', 'Address:')"
                 />
 
                 <form-input
                     v-model="form.customerZip"
-                    v-bind="getFormFields('customerZip', 'Zip Code:')"
+                    v-bind="getFieldProps('customerZip', 'Zip Code:')"
                 />
 
                 <form-input
                     v-model="form.customerCity"
-                    v-bind="getFormFields('customerCity', 'City:')"
+                    v-bind="getFieldProps('customerCity', 'City:')"
                 />
 
                 <form-input
                     v-model="form.customerPhone"
-                    v-bind="getFormFields('customerPhone', 'Phone Number:', 'tel')"
+                    type="tel"
+                    v-bind="getFieldProps('customerPhone', 'Phone Number:')"
                 />
 
                 <div class="row p-3 justify-content-end align-items-center">
@@ -84,23 +86,18 @@ export default {
             loading: false,
         };
     },
-    created() {
-        this.form.purchaseItems = this.cart.items;
-    },
     methods: {
         /**
          * Gets an object with the necessary form fields
          *
          * @param {string} id
          * @param {string} label
-         * @param {string} [type=text]
          * @return {object}
          */
-        getFormFields(id, label, type) {
+        getFieldProps(id, label) {
             return {
                 id,
                 label,
-                type: type || 'text',
                 errorMessage: this.validationErrors[id],
             };
         },
