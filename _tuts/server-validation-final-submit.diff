@@ -1,32 +1,18 @@
 diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 2da9461d..5d4e947f 100644
+index 83cc8e96..58618dfc 100644
 --- a/assets/js/components/checkout/index.vue
 +++ b/assets/js/components/checkout/index.vue
-@@ -64,6 +64,7 @@
- import FormInput from '@/components/checkout/form-input';
- import Loading from '@/components/loading';
- import { createOrder } from '@/services/checkout-service';
-+import { clearCart } from '@/services/cart-service';
- 
- export default {
-     name: 'CheckoutForm',
-@@ -116,17 +117,21 @@ export default {
-         async onSubmit(event) {
-             event.preventDefault();
+@@ -114,6 +114,7 @@ export default {
              this.loading = true;
--            this.serverError = false;
-+            this.formError = false;
+             this.form.purchaseItems = this.cart.items;
+             this.formError = false;
 +            this.validationErrors = {};
  
              try {
                  const response = await createOrder(this.form);
-+                await clearCart();
-             } catch (error) {
-                 const { response } = error;
- 
+@@ -123,7 +124,9 @@ export default {
                  if (response.status !== 400) {
--                    this.serverError = true;
-+                    this.formError = true;
+                     this.formError = true;
                  } else {
 -                    console.log(response.data);
 +                    response.data.violations.forEach((violation) => {
