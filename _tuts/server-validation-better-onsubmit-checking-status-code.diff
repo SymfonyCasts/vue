@@ -1,31 +1,31 @@
 diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 2e518adc..8bb9fe51 100644
+index 1301ae2e..ececd672 100644
 --- a/assets/js/components/checkout/index.vue
 +++ b/assets/js/components/checkout/index.vue
-@@ -82,6 +82,7 @@ export default {
+@@ -84,6 +84,7 @@ export default {
              },
              validationErrors: {},
              loading: false,
-+            serverError: false,
++            formError: false,
          };
      },
-     created() {
-@@ -107,13 +108,18 @@ export default {
-         async onSubmit(event) {
-             event.preventDefault();
+     methods: {
+@@ -104,13 +105,18 @@ export default {
+         async onSubmit() {
              this.loading = true;
-+            this.serverError = false;
+             this.form.purchaseItems = this.cart.items;
++            this.formError = false;
  
              try {
                  const response = await createOrder(this.form);
-+            } catch (error) {
-+                const { response } = error;
- 
+-
 -                console.log(response.data);
--            } catch (e) {
--                console.log('error', e);
+             } catch (error) {
+-                console.log('error', error);
++                const { response } = error;
++
 +                if (response.status !== 400) {
-+                    this.serverError = true;
++                    this.formError = true;
 +                } else {
 +                    console.log(response.data);
 +                }
