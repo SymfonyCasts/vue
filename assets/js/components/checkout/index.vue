@@ -103,6 +103,7 @@ export default {
         },
         async onSubmit() {
             this.loading = true;
+            this.form.purchaseItems = this.cart.items;
 
             try {
                 const response = await createOrder(this.form);
