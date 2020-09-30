@@ -1,10 +1,10 @@
 diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 5f000184..3eb46b2c 100644
+index f6993ac9..724a49f4 100644
 --- a/assets/js/components/checkout/index.vue
 +++ b/assets/js/components/checkout/index.vue
-@@ -31,6 +31,22 @@
-                     v-model="form.customerPhone"
-                     v-bind="getFormFields('customerPhone', 'Phone Number:', 'tel')"
+@@ -33,6 +33,22 @@
+                     type="tel"
+                     v-bind="getFieldProps('customerPhone', 'Phone Number:')"
                  />
 +
 +                <div class="row p-3 justify-content-end align-items-center">
@@ -25,7 +25,7 @@ index 5f000184..3eb46b2c 100644
              </form>
          </div>
      </div>
-@@ -38,11 +54,13 @@
+@@ -40,11 +56,13 @@
  
  <script>
  import FormInput from '@/components/checkout/form-input';
@@ -39,11 +39,11 @@ index 5f000184..3eb46b2c 100644
      },
      props: {
          cart: {
-@@ -62,6 +80,7 @@ export default {
+@@ -64,6 +82,7 @@ export default {
                  purchaseItems: [],
              },
              validationErrors: {},
 +            loading: false,
          };
      },
-     created() {
+     methods: {
