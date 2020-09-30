@@ -1,7 +1,7 @@
 <template>
     <div class="row p-3">
         <div class="col-12">
-            <form @submit="onSubmit">
+            <form @submit.prevent="onSubmit">
                 <form-input
                     v-model="form.customerName"
                     v-bind="getFieldProps('customerName', 'Name:')"
@@ -102,7 +102,6 @@ export default {
             };
         },
         async onSubmit(event) {
-            event.preventDefault();
             this.loading = true;
             this.form.purchaseItems = this.cart.items;
 
