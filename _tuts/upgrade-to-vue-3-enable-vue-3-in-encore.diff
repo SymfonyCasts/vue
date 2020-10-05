@@ -1,0 +1,15 @@
+diff --git a/webpack.config.js b/webpack.config.js
+index 50ff08ee..ff9b2f8c 100644
+--- a/webpack.config.js
++++ b/webpack.config.js
+@@ -70,7 +70,9 @@ Encore
+     })
+ 
+     // Enable .vue file processing
+-    .enableVueLoader()
++    .enableVueLoader({
++        version: 3,
++    })
+ 
+     // gives better module CSS naming in dev
+     .configureCssLoader((config) => {

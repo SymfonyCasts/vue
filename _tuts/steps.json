@@ -1,0 +1,35 @@
+{
+    "steps": [
+        {
+            "id": "start",
+            "name": "start",
+            "description": null
+        },
+        {
+            "id": "upgrade-to-vue-3-enable-vue-3-in-encore",
+            "name": "Upgrade to Vue 3: Enable Vue 3 in Encore",
+            "description": null
+        },
+        {
+            "id": "upgrade-to-vue-3-install-compiler-sfc",
+            "name": "Upgrade to Vue 3: Install compiler-sfc",
+            "description": null
+        },
+        {
+            "id": "upgrade-to-vue-3-update-vue-and-vue-loader-versions",
+            "name": "Upgrade to Vue 3: Update Vue and Vue-loader versions",
+            "description": null
+        },
+        {
+            "id": "upgrade-to-vue-3-make-pages-render",
+            "name": "Upgrade to Vue 3: Make pages render",
+            "description": null
+        },
+        {
+            "id": "upgrade-to-vue-3-make-v-model-work",
+            "name": "Upgrade to Vue 3: Make v-model work",
+            "description": null
+        }
+    ],
+    "sha": "696ebfe01c01814a69c6b93ab3f8c8bce8635b06"
+}
