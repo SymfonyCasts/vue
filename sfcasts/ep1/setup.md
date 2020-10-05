@@ -46,7 +46,7 @@ or `http`. We'll talk about why I used the `--allow-http` flag later.
 Copy the URL, find your browser, paste it in the address bar and... say hello
 to a giant error!
 
-> Yarn & Webpack Encore Setup
+## Yarn & Webpack Encore Setup
 
 Let's... back up. There are two things you need to know about our project. First,
 to help process JavaScript and CSS, we're using Webpack Encore: a simple tool
