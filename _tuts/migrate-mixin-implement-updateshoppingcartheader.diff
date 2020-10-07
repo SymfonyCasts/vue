@@ -1,0 +1,38 @@
+diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
+index e1555979..87a2dd5d 100644
+--- a/assets/js/factory/get-shopping-cart.js
++++ b/assets/js/factory/get-shopping-cart.js
+@@ -7,6 +7,11 @@ const cart = reactive({
+ });
+ 
+ export default function useShoppingCart() {
++    const updateShoppingCartHeader = () => {
++        document.getElementById('js-shopping-cart-items')
++            .innerHTML = getCartTotalItems(cart).toString();
++    };
++
+     onMounted(async () => {
+         cart.items.length = 0;
+ 
+@@ -21,19 +26,11 @@ export default function useShoppingCart() {
+             cart.items.push(item);
+         });
+ 
+-        // this.updateShoppingCartHeader();
++        updateShoppingCartHeader();
+     });
+ 
+     return {
+         cart,
++        updateShoppingCartHeader,
+     };
+-
+-    /*
+-        methods: {
+-            updateShoppingCartHeader() {
+-                document.getElementById('js-shopping-cart-items')
+-                    .innerHTML = getCartTotalItems(this.cart).toString();
+-            },
+-        },
+-    */
+ }

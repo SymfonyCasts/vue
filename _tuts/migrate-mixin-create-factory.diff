@@ -1,0 +1,68 @@
+diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
+new file mode 100644
+index 00000000..14533204
+--- /dev/null
++++ b/assets/js/factory/get-shopping-cart.js
+@@ -0,0 +1,29 @@
++import { getCart, getCartTotalItems } from '@/services/cart-service';
++
++export default function useShoppingCart() {
++    return {
++        data() {
++            return {
++                /** @type CartCollection */
++                cart: {
++                    items: [],
++                },
++            };
++        },
++        async mounted() {
++            try {
++                this.cart = await getCart();
++            } catch (e) {
++                return;
++            }
++
++            this.updateShoppingCartHeader();
++        },
++        methods: {
++            updateShoppingCartHeader() {
++                document.getElementById('js-shopping-cart-items')
++                    .innerHTML = getCartTotalItems(this.cart).toString();
++            },
++        },
++    };
++}
+diff --git a/assets/js/mixins/get-shopping-cart.js b/assets/js/mixins/get-shopping-cart.js
+deleted file mode 100644
+index c848c02e..00000000
+--- a/assets/js/mixins/get-shopping-cart.js
++++ /dev/null
+@@ -1,27 +0,0 @@
+-import { getCart, getCartTotalItems } from '@/services/cart-service';
+-
+-export default {
+-    data() {
+-        return {
+-            /** @type CartCollection */
+-            cart: {
+-                items: [],
+-            },
+-        };
+-    },
+-    async mounted() {
+-        try {
+-            this.cart = await getCart();
+-        } catch (e) {
+-            return;
+-        }
+-
+-        this.updateShoppingCartHeader();
+-    },
+-    methods: {
+-        updateShoppingCartHeader() {
+-            document.getElementById('js-shopping-cart-items')
+-                .innerHTML = getCartTotalItems(this.cart).toString();
+-        },
+-    },
+-};

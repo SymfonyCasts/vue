@@ -1,0 +1,64 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 2f2d0d43..ac6ae120 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -26,7 +26,7 @@ import Product from '@/components/product';
+ import Sidebar from '@/components/sidebar';
+ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
+ import { fetchCategories } from '@/services/categories-service';
+-import shoppingCartMixin from '@/mixins/get-shopping-cart';
++import useShoppingCart from '@/factory/get-shopping-cart';
+ 
+ export default {
+     name: 'Products',
+@@ -35,7 +35,6 @@ export default {
+         Product,
+         Sidebar,
+     },
+-    mixins: [shoppingCartMixin],
+     data() {
+         return {
+             sidebarCollapsed: false,
+@@ -79,6 +78,9 @@ export default {
+         },
+     },
+     setup() {
++        return {
++            ...useShoppingCart(),
++        };
+     },
+ };
+ </script>
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 94da63ce..b434f07b 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -73,7 +73,7 @@ import Loading from '@/components/loading';
+ import CheckoutForm from '@/components/checkout';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartList from '@/components/shopping-cart';
+-import shoppingCartMixin from '@/mixins/get-shopping-cart';
++import useShoppingCart from '@/factory/get-shopping-cart';
+ 
+ export default {
+     name: 'ShoppingCart',
+@@ -83,7 +83,6 @@ export default {
+         ShoppingCartList,
+         TitleComponent,
+     },
+-    mixins: [shoppingCartMixin],
+     data() {
+         return {
+             currentState: 'cart',
+@@ -148,6 +147,11 @@ export default {
+             this.updateShoppingCartHeader();
+         },
+     },
++    setup() {
++        return {
++            ...useShoppingCart(),
++        };
++    },
+ };
+ </script>
+ 

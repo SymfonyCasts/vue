@@ -1,0 +1,31 @@
+diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
+index 9fdb5d47..b53c532c 100644
+--- a/assets/js/factory/get-shopping-cart.js
++++ b/assets/js/factory/get-shopping-cart.js
+@@ -1,4 +1,4 @@
+-import { reactive } from 'vue';
++import { onMounted, reactive } from 'vue';
+ import { getCart, getCartTotalItems } from '@/services/cart-service';
+ 
+ /** @type CartCollection */
+@@ -7,9 +7,20 @@ const cart = reactive({
+ });
+ 
+ export default function useShoppingCart() {
++    onMounted(async () => {
++        try {
++            this.cart = await getCart();
++        } catch (e) {
++            return;
++        }
++
++        this.updateShoppingCartHeader();
++    });
++
+     return {
+         cart,
+     };
++
+     /*
+         async mounted() {
+             try {

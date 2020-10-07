@@ -59,7 +59,42 @@
             "id": "setup-function-test-value-with-reactive",
             "name": "Setup Function: Test value with reactive",
             "description": null
+        },
+        {
+            "id": "migrate-mixin-remove-setup-contents",
+            "name": "Migrate Mixin: Remove setup contents",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-create-factory",
+            "name": "Migrate Mixin: Create factory",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-migrate-data-to-reactive",
+            "name": "Migrate Mixin: Migrate data to reactive",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-implement-in-both-pages",
+            "name": "Migrate Mixin: Implement in both pages",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-copy-paste-mounted-function",
+            "name": "Migrate Mixin: Copy\/Paste mounted function",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-implement-onmounted",
+            "name": "Migrate Mixin: Implement onMounted",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-implement-updateshoppingcartheader",
+            "name": "Migrate Mixin: Implement updateShoppingCartHeader",
+            "description": null
         }
     ],
-    "sha": "d4c7aae0eec1d0f72654810f727b01bbc8ad1dfc"
+    "sha": "0a8d2b5e10bd24d0f4b59b198cd34e132e5fd6b2"
 }
