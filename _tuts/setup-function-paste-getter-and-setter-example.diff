@@ -1,0 +1,25 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index ca1dc591..aa09132f 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -80,6 +80,20 @@ export default {
+         },
+     },
+     setup() {
++        const FirstName = {
++            _value: 'Ryan',
++
++            get value() {
++                console.log('Value is being read!');
++                return this._value;
++            },
++
++            set value(newValue) {
++                console.log('Value is being set!');
++                this._value = newValue;
++            },
++        };
++
+         const firstName = 'Ryan';
+         window.firstName = firstName;
+ 

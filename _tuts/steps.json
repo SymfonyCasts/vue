@@ -29,7 +29,37 @@
             "id": "upgrade-to-vue-3-make-v-model-work",
             "name": "Upgrade to Vue 3: Make v-model work",
             "description": null
+        },
+        {
+            "id": "setup-function-first-setup-test",
+            "name": "Setup Function: First setup test",
+            "description": null
+        },
+        {
+            "id": "setup-function-add-variable-to-window",
+            "name": "Setup Function: Add variable to window",
+            "description": null
+        },
+        {
+            "id": "setup-function-paste-getter-and-setter-example",
+            "name": "Setup Function: Paste getter and setter example",
+            "description": null
+        },
+        {
+            "id": "setup-function-use-getter-setter-in-setup",
+            "name": "Setup Function: Use getter\/setter in setup",
+            "description": null
+        },
+        {
+            "id": "setup-function-test-value-with-ref",
+            "name": "Setup Function: Test value with Ref",
+            "description": null
+        },
+        {
+            "id": "setup-function-test-value-with-reactive",
+            "name": "Setup Function: Test value with reactive",
+            "description": null
         }
     ],
-    "sha": "696ebfe01c01814a69c6b93ab3f8c8bce8635b06"
+    "sha": "d4c7aae0eec1d0f72654810f727b01bbc8ad1dfc"
 }

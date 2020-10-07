@@ -1,0 +1,40 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 94e5c723..5c720437 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -8,7 +8,7 @@
+                     :categories="categories"
+                     @toggle-collapsed="toggleSidebarCollapsed"
+                 />
+-                {{ firstName }}
++                {{ person.firstName }}
+             </aside>
+ 
+             <div :class="contentClass">
+@@ -22,7 +22,7 @@
+ </template>
+ 
+ <script>
+-import { ref } from 'vue';
++import { reactive } from 'vue';
+ import Catalog from '@/components/catalog';
+ import Product from '@/components/product';
+ import Sidebar from '@/components/sidebar';
+@@ -81,11 +81,14 @@ export default {
+         },
+     },
+     setup() {
+-        const firstName = ref('Ryan');
+-        window.firstName = firstName;
++        const person = reactive({
++            firstName: 'Ryan',
++        });
++
++        window.person = person;
+ 
+         return {
+-            firstName,
++            person,
+         };
+     },
+ };

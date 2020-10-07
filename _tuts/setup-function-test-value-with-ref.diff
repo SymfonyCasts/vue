@@ -1,0 +1,40 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index b1ae7c37..94e5c723 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -22,6 +22,7 @@
+ </template>
+ 
+ <script>
++import { ref } from 'vue';
+ import Catalog from '@/components/catalog';
+ import Product from '@/components/product';
+ import Sidebar from '@/components/sidebar';
+@@ -80,24 +81,11 @@ export default {
+         },
+     },
+     setup() {
+-        const FirstName = {
+-            _value: 'Ryan',
+-
+-            get value() {
+-                console.log('Value is being read!');
+-                return this._value;
+-            },
+-
+-            set value(newValue) {
+-                console.log('Value is being set!');
+-                this._value = newValue;
+-            },
+-        };
+-
+-        window.firstName = FirstName;
++        const firstName = ref('Ryan');
++        window.firstName = firstName;
+ 
+         return {
+-            firstName: FirstName.value,
++            firstName,
+         };
+     },
+ };
