@@ -1,0 +1,55 @@
+diff --git a/assets/js/factory/get-sidebar-collapsed.js b/assets/js/factory/get-sidebar-collapsed.js
+index 0de4658d..be177332 100644
+--- a/assets/js/factory/get-sidebar-collapsed.js
++++ b/assets/js/factory/get-sidebar-collapsed.js
+@@ -1,15 +1,16 @@
+-import { ref } from 'vue';
++import { computed, ref } from 'vue';
+ 
+ export default function useSidebarCollapsed() {
+     const sidebarCollapsed = ref(false);
+-    /*
+-    asideClass() {
+-        return this.sidebarCollapsed ? 'aside-collapsed' : 'col-xs-12 col-3';
+-    },
+-    contentClass() {
+-        return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
+-    },
+ 
++    const asideClass = computed(
++        () => (sidebarCollapsed.value ? 'aside-collapsed' : 'col-xs-12 col-3'),
++    );
++
++    const contentClass = computed(
++        () => (sidebarCollapsed.value ? 'col-xs-12 col-11' : 'col-xs-12 col-9'),
++    );
++    /*
+     methods: {
+         toggleSidebarCollapsed() {
+             this.sidebarCollapsed = !this.sidebarCollapsed;
+@@ -17,6 +18,8 @@ export default function useSidebarCollapsed() {
+     },
+    */
+     return {
++        asideClass,
++        contentClass,
+         sidebarCollapsed,
+     };
+ }
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 938c8a50..f14b3cb8 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -43,12 +43,6 @@ export default {
+         };
+     },
+     computed: {
+-        asideClass() {
+-            return this.sidebarCollapsed ? 'aside-collapsed' : 'col-xs-12 col-3';
+-        },
+-        contentClass() {
+-            return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
+-        },
+         currentProductId() {
+             return getCurrentProductId();
+         },

@@ -1,0 +1,43 @@
+diff --git a/assets/js/factory/get-sidebar-collapsed.js b/assets/js/factory/get-sidebar-collapsed.js
+index be177332..485fd823 100644
+--- a/assets/js/factory/get-sidebar-collapsed.js
++++ b/assets/js/factory/get-sidebar-collapsed.js
+@@ -10,16 +10,15 @@ export default function useSidebarCollapsed() {
+     const contentClass = computed(
+         () => (sidebarCollapsed.value ? 'col-xs-12 col-11' : 'col-xs-12 col-9'),
+     );
+-    /*
+-    methods: {
+-        toggleSidebarCollapsed() {
+-            this.sidebarCollapsed = !this.sidebarCollapsed;
+-        },
+-    },
+-   */
++
++    const toggleSidebarCollapsed = () => {
++        sidebarCollapsed.value = !sidebarCollapsed.value;
++    };
++
+     return {
+         asideClass,
+         contentClass,
+         sidebarCollapsed,
++        toggleSidebarCollapsed,
+     };
+ }
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index f14b3cb8..61eeccd7 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -66,11 +66,6 @@ export default {
+ 
+         this.categories = response.data['hydra:member'];
+     },
+-    methods: {
+-        toggleSidebarCollapsed() {
+-            this.sidebarCollapsed = !this.sidebarCollapsed;
+-        },
+-    },
+     setup() {
+         return {
+             ...useShoppingCart(),

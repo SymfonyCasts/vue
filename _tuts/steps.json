@@ -94,7 +94,32 @@
             "id": "migrate-mixin-implement-updateshoppingcartheader",
             "name": "Migrate Mixin: Implement updateShoppingCartHeader",
             "description": null
+        },
+        {
+            "id": "separated-sidebar-create-factory-function",
+            "name": "Separated Sidebar: Create factory function",
+            "description": null
+        },
+        {
+            "id": "separated-sidebar-import-factory-from-products",
+            "name": "Separated Sidebar: Import factory from products",
+            "description": null
+        },
+        {
+            "id": "separated-sidebar-implement-ref-value",
+            "name": "Separated Sidebar: Implement ref value",
+            "description": null
+        },
+        {
+            "id": "separated-sidebar-implement-computed-properties",
+            "name": "Separated Sidebar: Implement computed properties",
+            "description": null
+        },
+        {
+            "id": "separated-sidebar-implement-method",
+            "name": "Separated Sidebar: Implement method",
+            "description": null
         }
     ],
-    "sha": "0a8d2b5e10bd24d0f4b59b198cd34e132e5fd6b2"
+    "sha": "479732b4aef0764f4b834bb6b2917b00eafa0c92"
 }
