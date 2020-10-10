@@ -1,0 +1,101 @@
+diff --git a/assets/js/factory/get-page-context.js b/assets/js/factory/get-page-context.js
+new file mode 100644
+index 00000000..71be51d9
+--- /dev/null
++++ b/assets/js/factory/get-page-context.js
+@@ -0,0 +1,39 @@
++import Product from '@/components/product';
++import Catalog from '@/components/catalog';
++import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
++import { fetchCategories } from '@/services/categories-service';
++
++export default function usePageContext() {
++    /*
++    data() {
++        return {
++            categories: [],
++            currentCategoryId: getCurrentCategoryId(),
++        };
++    },
++    computed: {
++        currentProductId() {
++            return getCurrentProductId();
++        },
++        currentComponent() {
++            return this.currentProductId !== null ? Product : Catalog;
++        },
++        currentProps() {
++            return this.currentProductId !== null
++                ? {
++                    currentProductId: this.currentProductId,
++                    cart: this.cart,
++                }
++                : {
++                    currentCategoryId: this.currentCategoryId,
++                    categories: this.categories,
++                };
++        },
++    },
++    async created() {
++        const response = await fetchCategories();
++
++        this.categories = response.data['hydra:member'];
++    },
++     */
++}
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 61eeccd7..c346e8f1 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -21,51 +21,15 @@
+ </template>
+ 
+ <script>
+-import Catalog from '@/components/catalog';
+-import Product from '@/components/product';
+ import Sidebar from '@/components/sidebar';
+-import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
+-import { fetchCategories } from '@/services/categories-service';
+ import useShoppingCart from '@/factory/get-shopping-cart';
+ import useSidebarCollapsed from '@/factory/get-sidebar-collapsed';
+ 
+ export default {
+     name: 'Products',
+     components: {
+-        Catalog,
+-        Product,
+         Sidebar,
+     },
+-    data() {
+-        return {
+-            categories: [],
+-            currentCategoryId: getCurrentCategoryId(),
+-        };
+-    },
+-    computed: {
+-        currentProductId() {
+-            return getCurrentProductId();
+-        },
+-        currentComponent() {
+-            return this.currentProductId !== null ? Product : Catalog;
+-        },
+-        currentProps() {
+-            return this.currentProductId !== null
+-                ? {
+-                    currentProductId: this.currentProductId,
+-                    cart: this.cart,
+-                }
+-                : {
+-                    currentCategoryId: this.currentCategoryId,
+-                    categories: this.categories,
+-                };
+-        },
+-    },
+-    async created() {
+-        const response = await fetchCategories();
+-
+-        this.categories = response.data['hydra:member'];
+-    },
+     setup() {
+         return {
+             ...useShoppingCart(),

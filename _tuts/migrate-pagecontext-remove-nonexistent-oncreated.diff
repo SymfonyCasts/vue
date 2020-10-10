@@ -1,0 +1,61 @@
+diff --git a/assets/js/factory/get-page-context.js b/assets/js/factory/get-page-context.js
+index 4174cddb..d72ec43f 100644
+--- a/assets/js/factory/get-page-context.js
++++ b/assets/js/factory/get-page-context.js
+@@ -1,4 +1,4 @@
+-import { computed, reactive, onCreated } from 'vue';
++import { computed, reactive } from 'vue';
+ import Product from '@/components/product';
+ import Catalog from '@/components/catalog';
+ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
+@@ -22,14 +22,14 @@ export default function usePageContext() {
+             }
+     ));
+ 
+-    onCreated(async () => {
++    const initCategories = async () => {
+         const response = await fetchCategories();
+ 
+         categories.length = 0;
+         response.data['hydra:member'].forEach((item) => {
+             categories.push(item);
+         });
+-    });
++    };
+ 
+     return {
+         categories,
+@@ -37,5 +37,6 @@ export default function usePageContext() {
+         currentProductId,
+         currentComponent,
+         currentProps,
++        initCategories,
+     };
+ }
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index c346e8f1..95e87fad 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -22,6 +22,7 @@
+ 
+ <script>
+ import Sidebar from '@/components/sidebar';
++import usePageContext from '@/factory/get-page-context';
+ import useShoppingCart from '@/factory/get-shopping-cart';
+ import useSidebarCollapsed from '@/factory/get-sidebar-collapsed';
+ 
+@@ -31,9 +32,14 @@ export default {
+         Sidebar,
+     },
+     setup() {
++        const pageContext = usePageContext();
++
++        pageContext.initCategories();
++
+         return {
+             ...useShoppingCart(),
+             ...useSidebarCollapsed(),
++            ...pageContext,
+         };
+     },
+ };

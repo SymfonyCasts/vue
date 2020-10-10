@@ -1,0 +1,76 @@
+diff --git a/assets/js/factory/get-page-context.js b/assets/js/factory/get-page-context.js
+index 71be51d9..4174cddb 100644
+--- a/assets/js/factory/get-page-context.js
++++ b/assets/js/factory/get-page-context.js
+@@ -1,39 +1,41 @@
++import { computed, reactive, onCreated } from 'vue';
+ import Product from '@/components/product';
+ import Catalog from '@/components/catalog';
+ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
+ import { fetchCategories } from '@/services/categories-service';
+ 
+ export default function usePageContext() {
+-    /*
+-    data() {
+-        return {
+-            categories: [],
+-            currentCategoryId: getCurrentCategoryId(),
+-        };
+-    },
+-    computed: {
+-        currentProductId() {
+-            return getCurrentProductId();
+-        },
+-        currentComponent() {
+-            return this.currentProductId !== null ? Product : Catalog;
+-        },
+-        currentProps() {
+-            return this.currentProductId !== null
+-                ? {
+-                    currentProductId: this.currentProductId,
+-                    cart: this.cart,
+-                }
+-                : {
+-                    currentCategoryId: this.currentCategoryId,
+-                    categories: this.categories,
+-                };
+-        },
+-    },
+-    async created() {
++    const categories = reactive([]);
++    const currentCategoryId = computed(() => (getCurrentCategoryId()));
++    const currentProductId = computed(() => (getCurrentProductId()));
++
++    const currentComponent = computed(() => (currentProductId.value !== null ? Product : Catalog));
++    const currentProps = computed(() => (
++        currentProductId.value !== null
++            ? {
++                currentProductId: currentProductId.value,
++                cart,
++            }
++            : {
++                currentCategoryId: currentCategoryId.value,
++                categories,
++            }
++    ));
++
++    onCreated(async () => {
+         const response = await fetchCategories();
+ 
+-        this.categories = response.data['hydra:member'];
+-    },
+-     */
++        categories.length = 0;
++        response.data['hydra:member'].forEach((item) => {
++            categories.push(item);
++        });
++    });
++
++    return {
++        categories,
++        currentCategoryId,
++        currentProductId,
++        currentComponent,
++        currentProps,
++    };
+ }

@@ -119,7 +119,27 @@
             "id": "separated-sidebar-implement-method",
             "name": "Separated Sidebar: Implement method",
             "description": null
+        },
+        {
+            "id": "migrate-pagecontext-create-page-context-factory",
+            "name": "Migrate pageContext: Create page context factory",
+            "description": null
+        },
+        {
+            "id": "migrate-pagecontext-implement-usepagecontext",
+            "name": "Migrate pageContext: Implement usePageContext",
+            "description": null
+        },
+        {
+            "id": "migrate-pagecontext-remove-nonexistent-oncreated",
+            "name": "Migrate pageContext: Remove nonexistent onCreated",
+            "description": null
+        },
+        {
+            "id": "migrate-pagecontext-pass-cart-object",
+            "name": "Migrate pageContext: Pass cart object",
+            "description": null
         }
     ],
-    "sha": "479732b4aef0764f4b834bb6b2917b00eafa0c92"
+    "sha": "9f4072b74bd5d3db3599720915773a03312e630f"
 }
