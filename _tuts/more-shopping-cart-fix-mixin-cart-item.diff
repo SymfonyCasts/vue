@@ -14,10 +14,10 @@ index 1138565e..b8b7a81e 100644
      },
      async mounted() {
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 00b06d0f..1d948000 100644
+index 654c5a02..19058bb0 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -51,7 +51,7 @@ export default {
+@@ -50,7 +50,7 @@ export default {
          };
      },
      watch: {
