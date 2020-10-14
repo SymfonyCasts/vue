@@ -30,7 +30,7 @@ index 2f2d0d43..ac6ae120 100644
  };
  </script>
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 94da63ce..b434f07b 100644
+index c7a268af..2f703531 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -73,7 +73,7 @@ import Loading from '@/components/loading';
@@ -50,7 +50,7 @@ index 94da63ce..b434f07b 100644
      data() {
          return {
              currentState: 'cart',
-@@ -148,6 +147,11 @@ export default {
+@@ -147,6 +146,11 @@ export default {
              this.updateShoppingCartHeader();
          },
      },

@@ -1,0 +1,68 @@
+diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
+index c09efe09..ba03011e 100644
+--- a/assets/js/factory/get-shopping-cart.js
++++ b/assets/js/factory/get-shopping-cart.js
+@@ -1,5 +1,5 @@
+ import { onMounted, reactive } from 'vue';
+-import { getCart, getCartTotalItems } from '@/services/cart-service';
++import {getCart, getCartTotalItems, getFullShoppingCart} from '@/services/cart-service';
+ 
+ /** @type CartCollection */
+ const cart = reactive({
+@@ -31,6 +31,26 @@ export default function useShoppingCart() {
+         updateShoppingCartHeader();
+     });
+ 
++    watch: {
++        'cart.items.length': async function watchCartItemsLength() {
++            this.loading = true;
++            this.items = [];
++
++            if (!this.cart.items.length) {
++                this.loading = false;
++                return;
++            }
++
++            try {
++                this.items = await getFullShoppingCart(this.cart);
++            } catch (e) {
++                this.loading = false;
++            }
++
++            this.loading = false;
++        },
++    },
++
+     return {
+         cart,
+         items,
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index c74860ac..cb459719 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -96,25 +96,6 @@ export default {
+                 : '<< Back';
+         },
+     },
+-    watch: {
+-        'cart.items.length': async function watchCartItemsLength() {
+-            this.loading = true;
+-            this.items = [];
+-
+-            if (!this.cart.items.length) {
+-                this.loading = false;
+-                return;
+-            }
+-
+-            try {
+-                this.items = await getFullShoppingCart(this.cart);
+-            } catch (e) {
+-                this.loading = false;
+-            }
+-
+-            this.loading = false;
+-        },
+-    },
+     methods: {
+         switchState() {
+             this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';

@@ -1,0 +1,57 @@
+diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
+index ba03011e..10e9e100 100644
+--- a/assets/js/factory/get-shopping-cart.js
++++ b/assets/js/factory/get-shopping-cart.js
+@@ -1,5 +1,5 @@
+-import { onMounted, reactive } from 'vue';
+-import {getCart, getCartTotalItems, getFullShoppingCart} from '@/services/cart-service';
++import { onMounted, reactive, watch } from 'vue';
++import { getCart, getCartTotalItems, getFullShoppingCart } from '@/services/cart-service';
+ 
+ /** @type CartCollection */
+ const cart = reactive({
+@@ -31,25 +31,25 @@ export default function useShoppingCart() {
+         updateShoppingCartHeader();
+     });
+ 
+-    watch: {
+-        'cart.items.length': async function watchCartItemsLength() {
+-            this.loading = true;
+-            this.items = [];
+-
+-            if (!this.cart.items.length) {
+-                this.loading = false;
+-                return;
+-            }
+-
+-            try {
+-                this.items = await getFullShoppingCart(this.cart);
+-            } catch (e) {
+-                this.loading = false;
+-            }
+-
+-            this.loading = false;
+-        },
+-    },
++    watch(cart.items.length, async () => {
++        loading = true;
++        items.length = 0;
++
++        if (!cart.items.length) {
++            loading = false;
++            return;
++        }
++
++        try {
++            await getFullShoppingCart(cart).forEach((item) => {
++                items.push(item);
++            });
++        } catch (e) {
++            loading = false;
++        }
++
++        loading = false;
++    });
+ 
+     return {
+         cart,

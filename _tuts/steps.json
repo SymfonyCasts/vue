@@ -139,7 +139,22 @@
             "id": "migrate-pagecontext-pass-cart-object",
             "name": "Migrate pageContext: Pass cart object",
             "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-move-items",
+            "name": "Migrate Shopping Cart: Move items",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-copy-paste-watcher",
+            "name": "Migrate Shopping Cart: copy paste watcher",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-implement-watcher",
+            "name": "Migrate Shopping Cart: Implement watcher",
+            "description": null
         }
     ],
-    "sha": "9f4072b74bd5d3db3599720915773a03312e630f"
+    "sha": "6cd4e8e59c8151510f697bd432c5a5774be7d375"
 }
