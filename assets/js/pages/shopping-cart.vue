@@ -87,7 +87,6 @@ export default {
     data() {
         return {
             currentState: 'cart',
-            colors: {},
             items: [],
             loading: false,
         };
