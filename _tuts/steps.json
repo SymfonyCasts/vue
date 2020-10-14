@@ -1276,11 +1276,6 @@
             "description": null
         },
         {
-            "id": "delete-me-1",
-            "name": "delete-me-1",
-            "description": null
-        },
-        {
             "id": "transitions-implement-transition",
             "name": "Transitions: Implement transition",
             "description": null
@@ -1338,26 +1333,6 @@
         {
             "id": "custom-input-correct-template",
             "name": "Custom Input: Correct template",
-            "description": null
-        },
-        {
-            "id": "delete-me-2",
-            "name": "delete-me-2",
-            "description": null
-        },
-        {
-            "id": "delete-me-3",
-            "name": "delete-me-3",
-            "description": null
-        },
-        {
-            "id": "delete-me-4",
-            "name": "delete-me-4",
-            "description": null
-        },
-        {
-            "id": "delete-me-5",
-            "name": "delete-me-5",
             "description": null
         },
         {
@@ -1458,11 +1433,6 @@
         {
             "id": "client-validation-blur-event",
             "name": "Client Validation: Blur event",
-            "description": null
-        },
-        {
-            "id": "delete-me-6",
-            "name": "delete-me-6",
             "description": null
         },
         {
