@@ -1,0 +1,30 @@
+diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+index fbc98707..17910c7e 100644
+--- a/assets/js/factory/get-page-shopping-cart.js
++++ b/assets/js/factory/get-page-shopping-cart.js
+@@ -1,7 +1,11 @@
+ import { ref, reactive, watch } from 'vue';
+ import { getFullShoppingCart } from '@/services/cart-service';
+ 
+-export default function usePageShoppingCart() {
++/**
++ * @param {CartCollection} cart
++ * @returns {Object}
++ */
++export default function usePageShoppingCart(cart) {
+     const items = reactive([]);
+     const loading = ref(false);
+ 
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 74c9748a..85d389b0 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -113,7 +113,7 @@ export default {
+             updateShoppingCartHeader,
+             updateQuantity,
+             removeFromCart,
+-            ...usePageShoppingCart(),
++            ...usePageShoppingCart(cart),
+         };
+     },
+ };

@@ -1,0 +1,24 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index f24733b9..74c9748a 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -101,8 +101,18 @@ export default {
+         },
+     },
+     setup() {
++        const {
++            cart,
++            updateShoppingCartHeader,
++            updateQuantity,
++            removeFromCart,
++        } = useShoppingCart();
++
+         return {
+-            ...useShoppingCart(),
++            cart,
++            updateShoppingCartHeader,
++            updateQuantity,
++            removeFromCart,
+             ...usePageShoppingCart(),
+         };
+     },

@@ -141,6 +141,16 @@
             "description": null
         },
         {
+            "id": "migrate-shoppingcart-move-methods",
+            "name": "Migrate ShoppingCart: Move methods",
+            "description": null
+        },
+        {
+            "id": "migrate-shoppingcart-correct-methods-syntax",
+            "name": "Migrate ShoppingCart: Correct methods syntax",
+            "description": null
+        },
+        {
             "id": "migrate-shopping-cart-move-items",
             "name": "Migrate Shopping Cart: Move items",
             "description": null
@@ -154,7 +164,32 @@
             "id": "migrate-shopping-cart-implement-watcher",
             "name": "Migrate Shopping Cart: Implement watcher",
             "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-extract-cart-items",
+            "name": "Migrate Shopping Cart: Extract cart items",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-use-cart-in-factory",
+            "name": "Migrate Shopping Cart: Use cart in factory",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-fix-watcher-in-factory",
+            "name": "Migrate Shopping Cart: Fix watcher in factory",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-switch-to-watcheffect",
+            "name": "Migrate Shopping Cart: Switch to watchEffect",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-remove-debug-functions",
+            "name": "Migrate Shopping Cart: remove debug functions",
+            "description": null
         }
     ],
-    "sha": "6cd4e8e59c8151510f697bd432c5a5774be7d375"
+    "sha": "39cc0b8b5d04ce93ea3060d10f24d52101295a02"
 }

@@ -1,0 +1,66 @@
+diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
+index 05307c86..87096eba 100644
+--- a/assets/js/factory/get-shopping-cart.js
++++ b/assets/js/factory/get-shopping-cart.js
+@@ -1,5 +1,10 @@
+ import { onMounted, reactive } from 'vue';
+-import {getCart, getCartTotalItems, removeItemFromCart, updateCartItemQuantity} from '@/services/cart-service';
++import {
++    getCart,
++    getCartTotalItems,
++    removeItemFromCart,
++    updateCartItemQuantity,
++} from '@/services/cart-service';
+ 
+ /** @type CartCollection */
+ const cart = reactive({
+@@ -36,11 +41,11 @@ export default function useShoppingCart() {
+      * @param {string|null} color
+      * @param {number} quantity
+      */
+-    async updateQuantity({ product, color, quantity }) {
+-        await updateCartItemQuantity(this.cart, product, color, quantity);
++    const updateQuantity = async ({ product, color, quantity }) => {
++        await updateCartItemQuantity(cart, product, color, quantity);
+ 
+-        this.updateShoppingCartHeader();
+-    },
++        updateShoppingCartHeader();
++    };
+ 
+     /**
+      * Removes a product from the cart, then refreshes the page
+@@ -48,14 +53,16 @@ export default function useShoppingCart() {
+      * @param {string} product
+      * @param {string|null} color
+      */
+-    async removeFromCart({ product, color }) {
+-        await removeItemFromCart(this.cart, product, color);
++    const removeFromCart = async ({ product, color }) => {
++        await removeItemFromCart(cart, product, color);
+ 
+-        this.updateShoppingCartHeader();
+-    },
++        updateShoppingCartHeader();
++    };
+ 
+     return {
+         cart,
+         updateShoppingCartHeader,
++        updateQuantity,
++        removeFromCart,
+     };
+ }
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 6c770492..6f89cc8c 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -68,7 +68,7 @@
+ </template>
+ 
+ <script>
+-import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
++import { getFullShoppingCart } from '@/services/cart-service';
+ import Loading from '@/components/loading';
+ import CheckoutForm from '@/components/checkout';
+ import TitleComponent from '@/components/title';

@@ -1,0 +1,14 @@
+diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+index 91c3e21c..ddf5ab89 100644
+--- a/assets/js/factory/get-page-shopping-cart.js
++++ b/assets/js/factory/get-page-shopping-cart.js
+@@ -29,9 +29,6 @@ export default function usePageShoppingCart(cart) {
+         }
+ 
+         loading.value = false;
+-    }, {
+-        onTrack: (data) => { console.log('tracking', data); },
+-        onTrigger: (data) => { console.log('triggering', data); },
+     });
+ 
+     return {

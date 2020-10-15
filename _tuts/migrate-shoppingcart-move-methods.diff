@@ -1,0 +1,79 @@
+diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
+index 87a2dd5d..05307c86 100644
+--- a/assets/js/factory/get-shopping-cart.js
++++ b/assets/js/factory/get-shopping-cart.js
+@@ -1,5 +1,5 @@
+ import { onMounted, reactive } from 'vue';
+-import { getCart, getCartTotalItems } from '@/services/cart-service';
++import {getCart, getCartTotalItems, removeItemFromCart, updateCartItemQuantity} from '@/services/cart-service';
+ 
+ /** @type CartCollection */
+ const cart = reactive({
+@@ -29,6 +29,31 @@ export default function useShoppingCart() {
+         updateShoppingCartHeader();
+     });
+ 
++    /**
++     * Updates the product quantity in the cart, then refreshes the page
++     *
++     * @param {string} product
++     * @param {string|null} color
++     * @param {number} quantity
++     */
++    async updateQuantity({ product, color, quantity }) {
++        await updateCartItemQuantity(this.cart, product, color, quantity);
++
++        this.updateShoppingCartHeader();
++    },
++
++    /**
++     * Removes a product from the cart, then refreshes the page
++     *
++     * @param {string} product
++     * @param {string|null} color
++     */
++    async removeFromCart({ product, color }) {
++        await removeItemFromCart(this.cart, product, color);
++
++        this.updateShoppingCartHeader();
++    },
++
+     return {
+         cart,
+         updateShoppingCartHeader,
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 2f703531..6c770492 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -120,31 +120,6 @@ export default {
+         switchState() {
+             this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
+         },
+-
+-        /**
+-         * Updates the product quantity in the cart, then refreshes the page
+-         *
+-         * @param {string} product
+-         * @param {string|null} color
+-         * @param {number} quantity
+-         */
+-        async updateQuantity({ product, color, quantity }) {
+-            await updateCartItemQuantity(this.cart, product, color, quantity);
+-
+-            this.updateShoppingCartHeader();
+-        },
+-
+-        /**
+-         * Removes a product from the cart, then refreshes the page
+-         *
+-         * @param {string} product
+-         * @param {string|null} color
+-         */
+-        async removeFromCart({ product, color }) {
+-            await removeItemFromCart(this.cart, product, color);
+-
+-            this.updateShoppingCartHeader();
+-        },
+     },
+     setup() {
+         return {

@@ -1,17 +1,10 @@
-diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
-index c09efe09..ba03011e 100644
---- a/assets/js/factory/get-shopping-cart.js
-+++ b/assets/js/factory/get-shopping-cart.js
-@@ -1,5 +1,5 @@
- import { onMounted, reactive } from 'vue';
--import { getCart, getCartTotalItems } from '@/services/cart-service';
-+import {getCart, getCartTotalItems, getFullShoppingCart} from '@/services/cart-service';
- 
- /** @type CartCollection */
- const cart = reactive({
-@@ -31,6 +31,26 @@ export default function useShoppingCart() {
-         updateShoppingCartHeader();
-     });
+diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+index f231172c..aa7480bf 100644
+--- a/assets/js/factory/get-page-shopping-cart.js
++++ b/assets/js/factory/get-page-shopping-cart.js
+@@ -4,6 +4,26 @@ export default function usePageShoppingCart() {
+     const items = reactive([]);
+     const loading = ref(false);
  
 +    watch: {
 +        'cart.items.length': async function watchCartItemsLength() {
@@ -34,10 +27,10 @@ index c09efe09..ba03011e 100644
 +    },
 +
      return {
-         cart,
          items,
+         loading,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index c74860ac..cb459719 100644
+index a640ed55..70aa71b6 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -96,25 +96,6 @@ export default {

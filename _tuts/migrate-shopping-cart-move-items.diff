@@ -1,33 +1,46 @@
-diff --git a/assets/js/factory/get-shopping-cart.js b/assets/js/factory/get-shopping-cart.js
-index 87a2dd5d..c09efe09 100644
---- a/assets/js/factory/get-shopping-cart.js
-+++ b/assets/js/factory/get-shopping-cart.js
-@@ -7,6 +7,8 @@ const cart = reactive({
- });
- 
- export default function useShoppingCart() {
-+    const items = reactive([]);
+diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+new file mode 100644
+index 00000000..f231172c
+--- /dev/null
++++ b/assets/js/factory/get-page-shopping-cart.js
+@@ -0,0 +1,11 @@
++import { ref, reactive } from 'vue';
 +
-     const updateShoppingCartHeader = () => {
-         document.getElementById('js-shopping-cart-items')
-             .innerHTML = getCartTotalItems(cart).toString();
-@@ -31,6 +33,7 @@ export default function useShoppingCart() {
- 
-     return {
-         cart,
++export default function usePageShoppingCart() {
++    const items = reactive([]);
++    const loading = ref(false);
++
++    return {
 +        items,
-         updateShoppingCartHeader,
-     };
- }
++        loading,
++    };
++}
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 2f703531..c74860ac 100644
+index 6f89cc8c..a640ed55 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -86,7 +86,6 @@ export default {
+@@ -74,6 +74,7 @@ import CheckoutForm from '@/components/checkout';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartList from '@/components/shopping-cart';
+ import useShoppingCart from '@/factory/get-shopping-cart';
++import usePageShoppingCart from '@/factory/get-page-shopping-cart';
+ 
+ export default {
+     name: 'ShoppingCart',
+@@ -86,8 +87,6 @@ export default {
      data() {
          return {
              currentState: 'cart',
 -            items: [],
-             loading: false,
+-            loading: false,
          };
      },
+     computed: {
+@@ -124,6 +123,7 @@ export default {
+     setup() {
+         return {
+             ...useShoppingCart(),
++            ...usePageShoppingCart(),
+         };
+     },
+ };
