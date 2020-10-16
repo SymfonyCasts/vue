@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index b1ae7c37..94e5c723 100644
+index 65d5ff63..94e5c723 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -22,6 +22,7 @@
@@ -10,30 +10,32 @@ index b1ae7c37..94e5c723 100644
  import Catalog from '@/components/catalog';
  import Product from '@/components/product';
  import Sidebar from '@/components/sidebar';
-@@ -80,24 +81,11 @@ export default {
+@@ -80,27 +81,11 @@ export default {
          },
      },
      setup() {
--        const FirstName = {
--            _value: 'Ryan',
+-        class FirstName {
+-            constructor(value) {
+-                this._value = value;
+-            }
 -
 -            get value() {
 -                console.log('Value is being read!');
 -                return this._value;
--            },
+-            }
 -
 -            set value(newValue) {
 -                console.log('Value is being set!');
 -                this._value = newValue;
--            },
--        };
+-            }
+-        }
 -
--        window.firstName = FirstName;
+-        const firstName = new FirstName('Ryan');
 +        const firstName = ref('Ryan');
-+        window.firstName = firstName;
+         window.firstName = firstName;
  
          return {
--            firstName: FirstName.value,
+-            firstName: firstName.value,
 +            firstName,
          };
      },

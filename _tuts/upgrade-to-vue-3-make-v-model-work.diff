@@ -1,18 +1,16 @@
 diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index f8b29d00..f0753db7 100644
+index f8b29d00..1f8d5f2d 100644
 --- a/assets/js/components/checkout/form-input.vue
 +++ b/assets/js/components/checkout/form-input.vue
-@@ -13,8 +13,8 @@
+@@ -13,7 +13,7 @@
                  'is-invalid': !isValid,
                  'form-control': true,
              }"
 -            :value="value"
--            @input="$emit('input', $event.target.value)"
 +            :value="modelValue"
-+            @input="$emit('update:modelValue', $event.target.value)"
+             @input="$emit('input', $event.target.value)"
              @blur="$emit('blur', $event)"
          >
-         <span
 @@ -46,7 +46,7 @@ export default {
              type: String,
              default: 'text',

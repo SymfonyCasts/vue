@@ -1,0 +1,4 @@
+diff --git a/assets/js/mixins/get-shopping-cart.js b/assets/js/factory/shopping-cart.js
+similarity index 100%
+rename from assets/js/mixins/get-shopping-cart.js
+rename to assets/js/factory/shopping-cart.js

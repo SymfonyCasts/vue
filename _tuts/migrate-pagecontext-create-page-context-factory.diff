@@ -44,7 +44,7 @@ index 00000000..71be51d9
 +     */
 +}
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 61eeccd7..c346e8f1 100644
+index 3b9cc760..5367ad4d 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -21,51 +21,15 @@
@@ -56,7 +56,7 @@ index 61eeccd7..c346e8f1 100644
  import Sidebar from '@/components/sidebar';
 -import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 -import { fetchCategories } from '@/services/categories-service';
- import useShoppingCart from '@/factory/get-shopping-cart';
+ import useShoppingCart from '@/factory/shopping-cart';
  import useSidebarCollapsed from '@/factory/get-sidebar-collapsed';
  
  export default {

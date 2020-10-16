@@ -37,7 +37,7 @@ index 0de4658d..be177332 100644
      };
  }
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 938c8a50..f14b3cb8 100644
+index 1accfb1c..7e6ba0c0 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -43,12 +43,6 @@ export default {

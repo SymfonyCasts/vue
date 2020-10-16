@@ -16,7 +16,7 @@ index d72ec43f..1247f666 100644
      const currentCategoryId = computed(() => (getCurrentCategoryId()));
      const currentProductId = computed(() => (getCurrentProductId()));
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 95e87fad..f072a981 100644
+index dd594833..aca8435c 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -32,12 +32,13 @@ export default {

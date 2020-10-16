@@ -16,13 +16,13 @@ index 00000000..f231172c
 +    };
 +}
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 6f89cc8c..a640ed55 100644
+index 6345354c..8e8302d1 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -74,6 +74,7 @@ import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
- import useShoppingCart from '@/factory/get-shopping-cart';
+ import useShoppingCart from '@/factory/shopping-cart';
 +import usePageShoppingCart from '@/factory/get-page-shopping-cart';
  
  export default {

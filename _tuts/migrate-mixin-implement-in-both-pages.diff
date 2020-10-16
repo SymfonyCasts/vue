@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 2f2d0d43..ac6ae120 100644
+index 2f2d0d43..ddd84443 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -26,7 +26,7 @@ import Product from '@/components/product';
@@ -7,7 +7,7 @@ index 2f2d0d43..ac6ae120 100644
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';
 -import shoppingCartMixin from '@/mixins/get-shopping-cart';
-+import useShoppingCart from '@/factory/get-shopping-cart';
++import useShoppingCart from '@/factory/shopping-cart';
  
  export default {
      name: 'Products',
@@ -30,7 +30,7 @@ index 2f2d0d43..ac6ae120 100644
  };
  </script>
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index c7a268af..2f703531 100644
+index c7a268af..d7d84635 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -73,7 +73,7 @@ import Loading from '@/components/loading';
@@ -38,7 +38,7 @@ index c7a268af..2f703531 100644
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
 -import shoppingCartMixin from '@/mixins/get-shopping-cart';
-+import useShoppingCart from '@/factory/get-shopping-cart';
++import useShoppingCart from '@/factory/shopping-cart';
  
  export default {
      name: 'ShoppingCart',

@@ -31,6 +31,11 @@
             "description": null
         },
         {
+            "id": "upgrade-to-vue-3-v-model-fix-input-emit",
+            "name": "Upgrade to Vue 3: v-model fix input emit",
+            "description": null
+        },
+        {
             "id": "setup-function-first-setup-test",
             "name": "Setup Function: First setup test",
             "description": null
@@ -63,6 +68,11 @@
         {
             "id": "migrate-mixin-remove-setup-contents",
             "name": "Migrate Mixin: Remove setup contents",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-rename-mixin-directory",
+            "name": "Migrate Mixin: Rename mixin directory",
             "description": null
         },
         {
@@ -191,5 +201,5 @@
             "description": null
         }
     ],
-    "sha": "39cc0b8b5d04ce93ea3060d10f24d52101295a02"
+    "sha": "564076bdcff84b68922ddb10d118940273a9d44b"
 }

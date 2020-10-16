@@ -33,7 +33,7 @@ index 4174cddb..d72ec43f 100644
      };
  }
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index c346e8f1..95e87fad 100644
+index 5367ad4d..dd594833 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -22,6 +22,7 @@
@@ -41,7 +41,7 @@ index c346e8f1..95e87fad 100644
  <script>
  import Sidebar from '@/components/sidebar';
 +import usePageContext from '@/factory/get-page-context';
- import useShoppingCart from '@/factory/get-shopping-cart';
+ import useShoppingCart from '@/factory/shopping-cart';
  import useSidebarCollapsed from '@/factory/get-sidebar-collapsed';
  
 @@ -31,9 +32,14 @@ export default {
