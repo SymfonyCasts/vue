@@ -1,0 +1,59 @@
+diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
+index 87a2dd5d..9abf0ecc 100644
+--- a/assets/js/modules/shopping-cart.js
++++ b/assets/js/modules/shopping-cart.js
+@@ -1,4 +1,4 @@
+-import { onMounted, reactive } from 'vue';
++import { reactive } from 'vue';
+ import { getCart, getCartTotalItems } from '@/services/cart-service';
+ 
+ /** @type CartCollection */
+@@ -12,7 +12,7 @@ export default function useShoppingCart() {
+             .innerHTML = getCartTotalItems(cart).toString();
+     };
+ 
+-    onMounted(async () => {
++    const loadShoppingCart = async () => {
+         cart.items.length = 0;
+ 
+         let newCart;
+@@ -27,10 +27,11 @@ export default function useShoppingCart() {
+         });
+ 
+         updateShoppingCartHeader();
+-    });
++    };
+ 
+     return {
+         cart,
++        loadShoppingCart,
+         updateShoppingCartHeader,
+     };
+ }
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 880caf43..37360971 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -21,6 +21,7 @@
+ </template>
+ 
+ <script>
++import { onMounted } from 'vue';
+ import Sidebar from '@/components/sidebar';
+ import usePageContext from '@/modules/page-context';
+ import useShoppingCart from '@/modules/shopping-cart';
+@@ -36,8 +37,13 @@ export default {
+ 
+         pageContext.initCategories();
+ 
++        const { loadShoppingCart } = useShoppingCart();
++
++        onMounted(() => {
++            loadShoppingCart();
++        });
++
+         return {
+-            ...useShoppingCart(),
+             ...useCollapsibleSidebar(),
+             ...pageContext,
+         };

@@ -1,0 +1,44 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index fd89f0e0..952feb5f 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -2,10 +2,7 @@
+     <div class="container-fluid">
+         <div class="row">
+             <aside :class="asideClass">
+-                <sidebar
+-                    :current-category-id="currentCategoryId"
+-                    :categories="categories"
+-                />
++                <sidebar />
+             </aside>
+ 
+             <div :class="contentClass">
+@@ -32,9 +29,6 @@ export default {
+     },
+     setup() {
+         const {
+-            initCategories,
+-            categories,
+-            currentCategoryId,
+             currentComponent,
+             currentProps,
+         } = usePageContext();
+@@ -43,8 +37,6 @@ export default {
+ 
+         const { asideClass, contentClass } = useCollapsibleSidebar();
+ 
+-        initCategories();
+-
+         onMounted(() => {
+             loadShoppingCart();
+         });
+@@ -52,8 +44,6 @@ export default {
+         return {
+             asideClass,
+             contentClass,
+-            currentCategoryId,
+-            categories,
+             currentComponent,
+             currentProps,
+         };

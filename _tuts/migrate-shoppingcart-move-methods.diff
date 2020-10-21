@@ -1,17 +1,17 @@
-diff --git a/assets/js/factory/shopping-cart.js b/assets/js/factory/shopping-cart.js
-index 87a2dd5d..05307c86 100644
---- a/assets/js/factory/shopping-cart.js
-+++ b/assets/js/factory/shopping-cart.js
+diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
+index 9abf0ecc..457e0ec9 100644
+--- a/assets/js/modules/shopping-cart.js
++++ b/assets/js/modules/shopping-cart.js
 @@ -1,5 +1,5 @@
- import { onMounted, reactive } from 'vue';
+ import { reactive } from 'vue';
 -import { getCart, getCartTotalItems } from '@/services/cart-service';
-+import {getCart, getCartTotalItems, removeItemFromCart, updateCartItemQuantity} from '@/services/cart-service';
++import { getCart, getCartTotalItems, removeItemFromCart, updateCartItemQuantity } from '@/services/cart-service';
  
  /** @type CartCollection */
  const cart = reactive({
 @@ -29,6 +29,31 @@ export default function useShoppingCart() {
          updateShoppingCartHeader();
-     });
+     };
  
 +    /**
 +     * Updates the product quantity in the cart, then refreshes the page
@@ -40,12 +40,12 @@ index 87a2dd5d..05307c86 100644
 +
      return {
          cart,
-         updateShoppingCartHeader,
+         loadShoppingCart,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index d7d84635..0091db99 100644
+index eff675d1..cc8bb5ec 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -120,31 +120,6 @@ export default {
+@@ -121,31 +121,6 @@ export default {
          switchState() {
              this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
          },
@@ -76,4 +76,4 @@ index d7d84635..0091db99 100644
 -        },
      },
      setup() {
-         return {
+         const { loadShoppingCart, cart, updateShoppingCartHeader } = useShoppingCart();

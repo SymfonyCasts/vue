@@ -1,0 +1,17 @@
+diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
+index efa223da..371e562a 100644
+--- a/assets/js/modules/page-context.js
++++ b/assets/js/modules/page-context.js
+@@ -5,10 +5,11 @@ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-conte
+ import { fetchCategories } from '@/services/categories-service';
+ import useShoppingCart from '@/modules/shopping-cart';
+ 
++const categories = reactive([]);
++
+ export default function usePageContext() {
+     const { cart } = useShoppingCart();
+ 
+-    const categories = reactive([]);
+     const currentCategoryId = computed(() => (getCurrentCategoryId()));
+     const currentProductId = computed(() => (getCurrentProductId()));
+ 

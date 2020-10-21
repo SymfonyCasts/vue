@@ -1,12 +1,12 @@
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index ddd84443..9249cda5 100644
+index 6899bf0a..39a22d0a 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -27,6 +27,7 @@ import Sidebar from '@/components/sidebar';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';
- import useShoppingCart from '@/factory/shopping-cart';
-+import useSidebarCollapsed from '@/factory/get-sidebar-collapsed';
+ import useShoppingCart from '@/modules/shopping-cart';
++import useCollapsibleSidebar from '@/modules/collapsible-sidebar';
  
  export default {
      name: 'Products',
@@ -14,7 +14,7 @@ index ddd84443..9249cda5 100644
      setup() {
          return {
              ...useShoppingCart(),
-+            ...useSidebarCollapsed(),
++            ...useCollapsibleSidebar(),
          };
      },
  };

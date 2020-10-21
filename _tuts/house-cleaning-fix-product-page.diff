@@ -1,0 +1,46 @@
+diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+index 1d8186a5..ab25ae08 100644
+--- a/assets/js/components/product.vue
++++ b/assets/js/components/product.vue
+@@ -78,6 +78,8 @@ import { getProduct } from '@/services/products-service';
+ import ColorSelector from '@/components/color-selector';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
++import usePageContext from '@/modules/page-context';
++import useShoppingCart from '@/modules/shopping-cart';
+ 
+ export default {
+     name: 'Product',
+@@ -86,16 +88,6 @@ export default {
+         Loading,
+         TitleComponent,
+     },
+-    props: {
+-        currentProductId: {
+-            type: String,
+-            default: null,
+-        },
+-        cart: {
+-            type: Object,
+-            default: null,
+-        },
+-    },
+     data() {
+         return {
+             product: {
+@@ -155,6 +147,15 @@ export default {
+             this.selectedColorId = colorId;
+         },
+     },
++    setup() {
++        const { cart } = useShoppingCart();
++        const { currentProductId } = usePageContext();
++
++        return {
++            cart,
++            currentProductId,
++        };
++    },
+ };
+ </script>
+ 

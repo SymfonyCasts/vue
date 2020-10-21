@@ -1,0 +1,29 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index ee784393..eff675d1 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -68,6 +68,7 @@
+ </template>
+ 
+ <script>
++import { onMounted } from 'vue';
+ import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
+ import Loading from '@/components/loading';
+ import CheckoutForm from '@/components/checkout';
+@@ -147,8 +148,15 @@ export default {
+         },
+     },
+     setup() {
++        const { loadShoppingCart, cart, updateShoppingCartHeader } = useShoppingCart();
++
++        onMounted(() => {
++            loadShoppingCart();
++        });
++
+         return {
+-            ...useShoppingCart(),
++            cart,
++            updateShoppingCartHeader,
+         };
+     },
+ };

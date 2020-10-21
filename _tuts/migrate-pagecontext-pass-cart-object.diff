@@ -1,37 +1,16 @@
-diff --git a/assets/js/factory/get-page-context.js b/assets/js/factory/get-page-context.js
-index d72ec43f..1247f666 100644
---- a/assets/js/factory/get-page-context.js
-+++ b/assets/js/factory/get-page-context.js
-@@ -4,7 +4,11 @@ import Catalog from '@/components/catalog';
+diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
+index 8afe4429..efa223da 100644
+--- a/assets/js/modules/page-context.js
++++ b/assets/js/modules/page-context.js
+@@ -3,8 +3,11 @@ import Product from '@/components/product';
+ import Catalog from '@/components/catalog';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';
++import useShoppingCart from '@/modules/shopping-cart';
  
--export default function usePageContext() {
-+/**
-+ * @param {CartCollection} cart
-+ * @returns {Object}
-+ */
-+export default function usePageContext(cart) {
+ export default function usePageContext() {
++    const { cart } = useShoppingCart();
++
      const categories = reactive([]);
      const currentCategoryId = computed(() => (getCurrentCategoryId()));
      const currentProductId = computed(() => (getCurrentProductId()));
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index dd594833..aca8435c 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
-@@ -32,12 +32,13 @@ export default {
-         Sidebar,
-     },
-     setup() {
--        const pageContext = usePageContext();
-+        const shoppingCart = useShoppingCart();
-+        const pageContext = usePageContext(shoppingCart.cart);
- 
-         pageContext.initCategories();
- 
-         return {
--            ...useShoppingCart(),
-+            ...shoppingCart,
-             ...useSidebarCollapsed(),
-             ...pageContext,
-         };

@@ -1,7 +1,7 @@
-diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
 index f231172c..aa7480bf 100644
---- a/assets/js/factory/get-page-shopping-cart.js
-+++ b/assets/js/factory/get-page-shopping-cart.js
+--- a/assets/js/modules/get-page-shopping-cart.js
++++ b/assets/js/modules/get-page-shopping-cart.js
 @@ -4,6 +4,26 @@ export default function usePageShoppingCart() {
      const items = reactive([]);
      const loading = ref(false);
@@ -30,10 +30,10 @@ index f231172c..aa7480bf 100644
          items,
          loading,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 8e8302d1..1ce3bbac 100644
+index 22c77272..798eda85 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -96,25 +96,6 @@ export default {
+@@ -97,25 +97,6 @@ export default {
                  : '<< Back';
          },
      },

@@ -1,8 +1,8 @@
-diff --git a/assets/js/factory/get-page-context.js b/assets/js/factory/get-page-context.js
-index 71be51d9..4174cddb 100644
---- a/assets/js/factory/get-page-context.js
-+++ b/assets/js/factory/get-page-context.js
-@@ -1,39 +1,41 @@
+diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
+index 71be51d9..f2577d8d 100644
+--- a/assets/js/modules/page-context.js
++++ b/assets/js/modules/page-context.js
+@@ -1,39 +1,42 @@
 +import { computed, reactive, onCreated } from 'vue';
  import Product from '@/components/product';
  import Catalog from '@/components/catalog';
@@ -42,6 +42,7 @@ index 71be51d9..4174cddb 100644
 +    const currentProductId = computed(() => (getCurrentProductId()));
 +
 +    const currentComponent = computed(() => (currentProductId.value !== null ? Product : Catalog));
++
 +    const currentProps = computed(() => (
 +        currentProductId.value !== null
 +            ? {

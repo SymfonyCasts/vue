@@ -1,7 +1,7 @@
-diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
 index 0a579b13..91c3e21c 100644
---- a/assets/js/factory/get-page-shopping-cart.js
-+++ b/assets/js/factory/get-page-shopping-cart.js
+--- a/assets/js/modules/get-page-shopping-cart.js
++++ b/assets/js/modules/get-page-shopping-cart.js
 @@ -1,4 +1,4 @@
 -import { ref, reactive, watch } from 'vue';
 +import { ref, reactive, watchEffect } from 'vue';

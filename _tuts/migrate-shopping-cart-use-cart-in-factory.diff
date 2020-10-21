@@ -1,7 +1,7 @@
-diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
 index fbc98707..17910c7e 100644
---- a/assets/js/factory/get-page-shopping-cart.js
-+++ b/assets/js/factory/get-page-shopping-cart.js
+--- a/assets/js/modules/get-page-shopping-cart.js
++++ b/assets/js/modules/get-page-shopping-cart.js
 @@ -1,7 +1,11 @@
  import { ref, reactive, watch } from 'vue';
  import { getFullShoppingCart } from '@/services/cart-service';
@@ -16,11 +16,11 @@ index fbc98707..17910c7e 100644
      const loading = ref(false);
  
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index bf36d58a..f6ed1cb6 100644
+index ea2130f7..e526d8b9 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -113,7 +113,7 @@ export default {
-             updateShoppingCartHeader,
+@@ -117,7 +117,7 @@ export default {
+             cart,
              updateQuantity,
              removeFromCart,
 -            ...usePageShoppingCart(),

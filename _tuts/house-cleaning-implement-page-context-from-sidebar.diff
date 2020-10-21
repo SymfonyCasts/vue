@@ -1,0 +1,42 @@
+diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
+index b1ace471..83f9fa20 100644
+--- a/assets/js/components/sidebar.vue
++++ b/assets/js/components/sidebar.vue
+@@ -51,22 +51,13 @@
+ <script>
+ import Loading from '@/components/loading';
+ import useCollapsibleSidebar from '@/modules/collapsible-sidebar';
++import usePageContext from '@/modules/page-context';
+ 
+ export default {
+     name: 'Sidebar',
+     components: {
+         Loading,
+     },
+-    props: {
+-        currentCategoryId: {
+-            type: String,
+-            default: null,
+-        },
+-        categories: {
+-            type: Array,
+-            required: true,
+-        },
+-    },
+     computed: {
+         loading() {
+             return this.categories.length === 0;
+@@ -74,8 +65,13 @@ export default {
+     },
+     setup() {
+         const { sidebarCollapsed, toggleSidebarCollapsed } = useCollapsibleSidebar();
++        const { currentCategoryId, categories, initCategories } = usePageContext();
++
++        initCategories();
+ 
+         return {
++            categories,
++            currentCategoryId,
+             sidebarCollapsed,
+             toggleSidebarCollapsed,
+         };

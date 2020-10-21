@@ -1,7 +1,7 @@
-diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
 index 91c3e21c..ddf5ab89 100644
---- a/assets/js/factory/get-page-shopping-cart.js
-+++ b/assets/js/factory/get-page-shopping-cart.js
+--- a/assets/js/modules/get-page-shopping-cart.js
++++ b/assets/js/modules/get-page-shopping-cart.js
 @@ -29,9 +29,6 @@ export default function usePageShoppingCart(cart) {
          }
  

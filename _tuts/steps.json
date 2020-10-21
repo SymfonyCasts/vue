@@ -151,6 +151,61 @@
             "description": null
         },
         {
+            "id": "migrate-pagecontext-fix-onmounted",
+            "name": "Migrate pageContext: Fix onMounted",
+            "description": null
+        },
+        {
+            "id": "migrate-pagecontext-add-onmounted-to-shopping-cart",
+            "name": "Migrate pageContext: Add onMounted to shopping-cart",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-collapsible-sidebar-global-data",
+            "name": "House Cleaning: collapsible-sidebar global data",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-implement-collapsible-sidebar-from-sidebar",
+            "name": "House Cleaning: Implement collapsible-sidebar from sidebar",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-clean-up-products-vue-from-collapsible-sidebar",
+            "name": "House Cleaning: Clean up Products.vue from collapsible-sidebar",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-implement-page-context-from-sidebar",
+            "name": "House Cleaning: Implement page-context from sidebar",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-remove-categories-context-from-products-vue",
+            "name": "House Cleaning: Remove categories context from products.vue",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-make-categories-global",
+            "name": "House Cleaning: Make categories global",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-remove-currentprops",
+            "name": "House Cleaning: Remove currentProps",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-use-page-context-form-catalog",
+            "name": "House Cleaning: Use page-context form catalog",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-fix-product-page",
+            "name": "House Cleaning: Fix product page",
+            "description": null
+        },
+        {
             "id": "migrate-shoppingcart-move-methods",
             "name": "Migrate ShoppingCart: Move methods",
             "description": null
@@ -201,5 +256,5 @@
             "description": null
         }
     ],
-    "sha": "564076bdcff84b68922ddb10d118940273a9d44b"
+    "sha": "2b3122795b745f611df9d272e23002ce3158672d"
 }

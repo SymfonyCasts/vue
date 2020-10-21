@@ -1,12 +1,12 @@
-diff --git a/assets/js/factory/get-sidebar-collapsed.js b/assets/js/factory/get-sidebar-collapsed.js
-index 0de4658d..be177332 100644
---- a/assets/js/factory/get-sidebar-collapsed.js
-+++ b/assets/js/factory/get-sidebar-collapsed.js
+diff --git a/assets/js/modules/collapsible-sidebar.js b/assets/js/modules/collapsible-sidebar.js
+index 1a1a65a5..2efd6c6e 100644
+--- a/assets/js/modules/collapsible-sidebar.js
++++ b/assets/js/modules/collapsible-sidebar.js
 @@ -1,15 +1,16 @@
 -import { ref } from 'vue';
 +import { computed, ref } from 'vue';
  
- export default function useSidebarCollapsed() {
+ export default function useCollapsibleSidebar() {
      const sidebarCollapsed = ref(false);
 -    /*
 -    asideClass() {
@@ -27,7 +27,7 @@ index 0de4658d..be177332 100644
      methods: {
          toggleSidebarCollapsed() {
              this.sidebarCollapsed = !this.sidebarCollapsed;
-@@ -17,6 +18,8 @@ export default function useSidebarCollapsed() {
+@@ -17,6 +18,8 @@ export default function useCollapsibleSidebar() {
      },
     */
      return {
@@ -37,7 +37,7 @@ index 0de4658d..be177332 100644
      };
  }
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 1accfb1c..7e6ba0c0 100644
+index 914f8d12..43ab5950 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -43,12 +43,6 @@ export default {

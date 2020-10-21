@@ -1,8 +1,8 @@
-diff --git a/assets/js/factory/get-page-context.js b/assets/js/factory/get-page-context.js
+diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
 new file mode 100644
 index 00000000..71be51d9
 --- /dev/null
-+++ b/assets/js/factory/get-page-context.js
++++ b/assets/js/modules/page-context.js
 @@ -0,0 +1,39 @@
 +import Product from '@/components/product';
 +import Catalog from '@/components/catalog';
@@ -44,7 +44,7 @@ index 00000000..71be51d9
 +     */
 +}
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 3b9cc760..5367ad4d 100644
+index 6f317f5e..36f4df76 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -21,51 +21,15 @@
@@ -56,8 +56,8 @@ index 3b9cc760..5367ad4d 100644
  import Sidebar from '@/components/sidebar';
 -import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 -import { fetchCategories } from '@/services/categories-service';
- import useShoppingCart from '@/factory/shopping-cart';
- import useSidebarCollapsed from '@/factory/get-sidebar-collapsed';
+ import useShoppingCart from '@/modules/shopping-cart';
+ import useCollapsibleSidebar from '@/modules/collapsible-sidebar';
  
  export default {
      name: 'Products',

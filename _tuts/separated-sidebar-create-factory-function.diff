@@ -1,10 +1,10 @@
-diff --git a/assets/js/factory/get-sidebar-collapsed.js b/assets/js/factory/get-sidebar-collapsed.js
+diff --git a/assets/js/modules/collapsible-sidebar.js b/assets/js/modules/collapsible-sidebar.js
 new file mode 100644
-index 00000000..dd417074
+index 00000000..67028593
 --- /dev/null
-+++ b/assets/js/factory/get-sidebar-collapsed.js
++++ b/assets/js/modules/collapsible-sidebar.js
 @@ -0,0 +1,19 @@
-+export default function useSidebarCollapsed() {
++export default function useCollapsibleSidebar() {
 +    /*
 +    sidebarCollapsed: false,
 +

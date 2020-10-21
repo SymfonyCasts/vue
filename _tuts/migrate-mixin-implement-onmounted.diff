@@ -1,7 +1,7 @@
-diff --git a/assets/js/factory/shopping-cart.js b/assets/js/factory/shopping-cart.js
+diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
 index ded4c954..e1555979 100644
---- a/assets/js/factory/shopping-cart.js
-+++ b/assets/js/factory/shopping-cart.js
+--- a/assets/js/modules/shopping-cart.js
++++ b/assets/js/modules/shopping-cart.js
 @@ -8,13 +8,20 @@ const cart = reactive({
  
  export default function useShoppingCart() {

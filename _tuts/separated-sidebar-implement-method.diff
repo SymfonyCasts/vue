@@ -1,8 +1,8 @@
-diff --git a/assets/js/factory/get-sidebar-collapsed.js b/assets/js/factory/get-sidebar-collapsed.js
-index be177332..485fd823 100644
---- a/assets/js/factory/get-sidebar-collapsed.js
-+++ b/assets/js/factory/get-sidebar-collapsed.js
-@@ -10,16 +10,15 @@ export default function useSidebarCollapsed() {
+diff --git a/assets/js/modules/collapsible-sidebar.js b/assets/js/modules/collapsible-sidebar.js
+index 2efd6c6e..ae157e9f 100644
+--- a/assets/js/modules/collapsible-sidebar.js
++++ b/assets/js/modules/collapsible-sidebar.js
+@@ -10,16 +10,15 @@ export default function useCollapsibleSidebar() {
      const contentClass = computed(
          () => (sidebarCollapsed.value ? 'col-xs-12 col-11' : 'col-xs-12 col-9'),
      );
@@ -26,7 +26,7 @@ index be177332..485fd823 100644
      };
  }
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 7e6ba0c0..3b9cc760 100644
+index 43ab5950..6f317f5e 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -66,11 +66,6 @@ export default {

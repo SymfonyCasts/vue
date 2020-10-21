@@ -1,8 +1,8 @@
-diff --git a/assets/js/factory/get-page-shopping-cart.js b/assets/js/factory/get-page-shopping-cart.js
+diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
 new file mode 100644
 index 00000000..f231172c
 --- /dev/null
-+++ b/assets/js/factory/get-page-shopping-cart.js
++++ b/assets/js/modules/get-page-shopping-cart.js
 @@ -0,0 +1,11 @@
 +import { ref, reactive } from 'vue';
 +
@@ -16,18 +16,18 @@ index 00000000..f231172c
 +    };
 +}
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 6345354c..8e8302d1 100644
+index 87591f6b..22c77272 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -74,6 +74,7 @@ import CheckoutForm from '@/components/checkout';
+@@ -75,6 +75,7 @@ import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
- import useShoppingCart from '@/factory/shopping-cart';
-+import usePageShoppingCart from '@/factory/get-page-shopping-cart';
+ import useShoppingCart from '@/modules/shopping-cart';
++import usePageShoppingCart from '@/modules/get-page-shopping-cart';
  
  export default {
      name: 'ShoppingCart',
-@@ -86,8 +87,6 @@ export default {
+@@ -87,8 +88,6 @@ export default {
      data() {
          return {
              currentState: 'cart',
@@ -36,10 +36,20 @@ index 6345354c..8e8302d1 100644
          };
      },
      computed: {
-@@ -124,6 +123,7 @@ export default {
+@@ -123,7 +122,7 @@ export default {
+         },
+     },
      setup() {
+-        const { loadShoppingCart, cart, updateShoppingCartHeader } = useShoppingCart();
++        const { loadShoppingCart, cart } = useShoppingCart();
+ 
+         onMounted(() => {
+             loadShoppingCart();
+@@ -131,7 +130,7 @@ export default {
+ 
          return {
-             ...useShoppingCart(),
+             cart,
+-            updateShoppingCartHeader,
 +            ...usePageShoppingCart(),
          };
      },

@@ -1,10 +1,10 @@
-diff --git a/assets/js/factory/shopping-cart.js b/assets/js/factory/shopping-cart.js
-index 05307c86..87096eba 100644
---- a/assets/js/factory/shopping-cart.js
-+++ b/assets/js/factory/shopping-cart.js
+diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
+index 457e0ec9..9eaf87e2 100644
+--- a/assets/js/modules/shopping-cart.js
++++ b/assets/js/modules/shopping-cart.js
 @@ -1,5 +1,10 @@
- import { onMounted, reactive } from 'vue';
--import {getCart, getCartTotalItems, removeItemFromCart, updateCartItemQuantity} from '@/services/cart-service';
+ import { reactive } from 'vue';
+-import { getCart, getCartTotalItems, removeItemFromCart, updateCartItemQuantity } from '@/services/cart-service';
 +import {
 +    getCart,
 +    getCartTotalItems,
@@ -30,7 +30,7 @@ index 05307c86..87096eba 100644
  
      /**
       * Removes a product from the cart, then refreshes the page
-@@ -48,14 +53,16 @@ export default function useShoppingCart() {
+@@ -48,15 +53,17 @@ export default function useShoppingCart() {
       * @param {string} product
       * @param {string|null} color
       */
@@ -46,19 +46,20 @@ index 05307c86..87096eba 100644
  
      return {
          cart,
+         loadShoppingCart,
          updateShoppingCartHeader,
 +        updateQuantity,
 +        removeFromCart,
      };
  }
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 0091db99..6345354c 100644
+index cc8bb5ec..87591f6b 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -68,7 +68,7 @@
- </template>
+@@ -69,7 +69,7 @@
  
  <script>
+ import { onMounted } from 'vue';
 -import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
 +import { getFullShoppingCart } from '@/services/cart-service';
  import Loading from '@/components/loading';

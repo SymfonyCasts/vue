@@ -1,7 +1,7 @@
-diff --git a/assets/js/factory/shopping-cart.js b/assets/js/factory/shopping-cart.js
+diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
 index 9fdb5d47..ded4c954 100644
---- a/assets/js/factory/shopping-cart.js
-+++ b/assets/js/factory/shopping-cart.js
+--- a/assets/js/modules/shopping-cart.js
++++ b/assets/js/modules/shopping-cart.js
 @@ -1,4 +1,4 @@
 -import { reactive } from 'vue';
 +import { onMounted, reactive } from 'vue';

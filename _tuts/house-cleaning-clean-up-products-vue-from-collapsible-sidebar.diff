@@ -1,0 +1,52 @@
+diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
+index 37360971..fd89f0e0 100644
+--- a/assets/js/pages/products.vue
++++ b/assets/js/pages/products.vue
+@@ -3,10 +3,8 @@
+         <div class="row">
+             <aside :class="asideClass">
+                 <sidebar
+-                    :collapsed="sidebarCollapsed"
+                     :current-category-id="currentCategoryId"
+                     :categories="categories"
+-                    @toggle-collapsed="toggleSidebarCollapsed"
+                 />
+             </aside>
+ 
+@@ -33,19 +31,31 @@ export default {
+         Sidebar,
+     },
+     setup() {
+-        const pageContext = usePageContext();
+-
+-        pageContext.initCategories();
++        const {
++            initCategories,
++            categories,
++            currentCategoryId,
++            currentComponent,
++            currentProps,
++        } = usePageContext();
+ 
+         const { loadShoppingCart } = useShoppingCart();
+ 
++        const { asideClass, contentClass } = useCollapsibleSidebar();
++
++        initCategories();
++
+         onMounted(() => {
+             loadShoppingCart();
+         });
+ 
+         return {
+-            ...useCollapsibleSidebar(),
+-            ...pageContext,
++            asideClass,
++            contentClass,
++            currentCategoryId,
++            categories,
++            currentComponent,
++            currentProps,
+         };
+     },
+ };

@@ -1,14 +1,14 @@
-diff --git a/assets/js/factory/get-page-context.js b/assets/js/factory/get-page-context.js
-index 4174cddb..d72ec43f 100644
---- a/assets/js/factory/get-page-context.js
-+++ b/assets/js/factory/get-page-context.js
+diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
+index f2577d8d..8afe4429 100644
+--- a/assets/js/modules/page-context.js
++++ b/assets/js/modules/page-context.js
 @@ -1,4 +1,4 @@
 -import { computed, reactive, onCreated } from 'vue';
 +import { computed, reactive } from 'vue';
  import Product from '@/components/product';
  import Catalog from '@/components/catalog';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
-@@ -22,14 +22,14 @@ export default function usePageContext() {
+@@ -23,14 +23,14 @@ export default function usePageContext() {
              }
      ));
  
@@ -25,7 +25,7 @@ index 4174cddb..d72ec43f 100644
  
      return {
          categories,
-@@ -37,5 +37,6 @@ export default function usePageContext() {
+@@ -38,5 +38,6 @@ export default function usePageContext() {
          currentProductId,
          currentComponent,
          currentProps,
@@ -33,16 +33,16 @@ index 4174cddb..d72ec43f 100644
      };
  }
 diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 5367ad4d..dd594833 100644
+index 36f4df76..880caf43 100644
 --- a/assets/js/pages/products.vue
 +++ b/assets/js/pages/products.vue
 @@ -22,6 +22,7 @@
  
  <script>
  import Sidebar from '@/components/sidebar';
-+import usePageContext from '@/factory/get-page-context';
- import useShoppingCart from '@/factory/shopping-cart';
- import useSidebarCollapsed from '@/factory/get-sidebar-collapsed';
++import usePageContext from '@/modules/page-context';
+ import useShoppingCart from '@/modules/shopping-cart';
+ import useCollapsibleSidebar from '@/modules/collapsible-sidebar';
  
 @@ -31,9 +32,14 @@ export default {
          Sidebar,
@@ -54,7 +54,7 @@ index 5367ad4d..dd594833 100644
 +
          return {
              ...useShoppingCart(),
-             ...useSidebarCollapsed(),
+             ...useCollapsibleSidebar(),
 +            ...pageContext,
          };
      },
