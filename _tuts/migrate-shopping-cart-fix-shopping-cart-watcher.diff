@@ -1,0 +1,13 @@
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 3014b213..d02bf934 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -112,7 +112,7 @@ export default {
+             fullCartItems,
+         } = useShoppingCart();
+ 
+-        watch(cart.items, async () => {
++        watch(cart, async () => {
+             loading.value = true;
+ 
+             await loadFullShoppingCart();

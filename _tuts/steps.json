@@ -206,18 +206,28 @@
             "description": null
         },
         {
-            "id": "migrate-shoppingcart-move-methods",
-            "name": "Migrate ShoppingCart: Move methods",
+            "id": "migrate-shopping-cart-move-methods",
+            "name": "Migrate Shopping Cart: Move methods",
             "description": null
         },
         {
-            "id": "migrate-shoppingcart-correct-methods-syntax",
-            "name": "Migrate ShoppingCart: Correct methods syntax",
+            "id": "migrate-shopping-cart-correct-methods-syntax",
+            "name": "Migrate Shopping Cart: Correct methods syntax",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-correct-cart-methods-in-page",
+            "name": "Migrate Shopping Cart: Correct cart methods in page",
             "description": null
         },
         {
             "id": "migrate-shopping-cart-move-items",
             "name": "Migrate Shopping Cart: Move items",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-loading-as-a-ref",
+            "name": "Migrate Shopping Cart: loading as a ref",
             "description": null
         },
         {
@@ -231,18 +241,23 @@
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-extract-cart-items",
-            "name": "Migrate Shopping Cart: Extract cart items",
+            "id": "migrate-shopping-cart-fix-watcher",
+            "name": "Migrate Shopping Cart: Fix watcher",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-use-cart-in-factory",
-            "name": "Migrate Shopping Cart: Use cart in factory",
+            "id": "migrate-shopping-cart-copy-paste-watcher-into-module",
+            "name": "Migrate Shopping Cart: copy\/paste watcher into module",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-fix-watcher-in-factory",
-            "name": "Migrate Shopping Cart: Fix watcher in factory",
+            "id": "migrate-shopping-cart-correct-helper-in-factory",
+            "name": "Migrate Shopping Cart: Correct helper in factory",
+            "description": null
+        },
+        {
+            "id": "migrate-shopping-cart-fix-shopping-cart-watcher",
+            "name": "Migrate Shopping Cart: Fix shopping cart watcher",
             "description": null
         },
         {
@@ -256,5 +271,5 @@
             "description": null
         }
     ],
-    "sha": "2b3122795b745f611df9d272e23002ce3158672d"
+    "sha": "8578d3595c75c6e7e8d105cbfab529eb6eb95a97"
 }

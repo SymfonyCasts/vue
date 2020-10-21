@@ -1,0 +1,49 @@
+diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
+index 3d1220b6..cc2eb638 100644
+--- a/assets/js/modules/shopping-cart.js
++++ b/assets/js/modules/shopping-cart.js
+@@ -66,7 +66,6 @@ export default function useShoppingCart() {
+         fullCartItems.length = 0;
+ 
+         if (!cart.items.length) {
+-            loading.value = false;
+             return;
+         }
+ 
+@@ -74,7 +73,6 @@ export default function useShoppingCart() {
+         try {
+             newItems = await getFullShoppingCart(cart);
+         } catch (e) {
+-            loading.value = false;
+             return;
+         }
+ 
+@@ -87,6 +85,7 @@ export default function useShoppingCart() {
+         cart,
+         fullCartItems,
+         loadShoppingCart,
++        loadFullShoppingCart,
+         updateQuantity,
+         removeFromCart,
+     };
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index 4294d176..3014b213 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -105,6 +105,7 @@ export default {
+ 
+         const {
+             loadShoppingCart,
++            loadFullShoppingCart,
+             removeFromCart,
+             updateQuantity,
+             cart,
+@@ -114,6 +115,8 @@ export default {
+         watch(cart.items, async () => {
+             loading.value = true;
+ 
++            await loadFullShoppingCart();
++
+             loading.value = false;
+         });
+ 

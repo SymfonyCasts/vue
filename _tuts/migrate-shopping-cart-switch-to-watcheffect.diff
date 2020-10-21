@@ -1,29 +1,30 @@
-diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
-index 0a579b13..91c3e21c 100644
---- a/assets/js/modules/get-page-shopping-cart.js
-+++ b/assets/js/modules/get-page-shopping-cart.js
-@@ -1,4 +1,4 @@
--import { ref, reactive, watch } from 'vue';
-+import { ref, reactive, watchEffect } from 'vue';
- import { getFullShoppingCart } from '@/services/cart-service';
+diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
+index d02bf934..d96cf967 100644
+--- a/assets/js/pages/shopping-cart.vue
++++ b/assets/js/pages/shopping-cart.vue
+@@ -68,7 +68,7 @@
+ </template>
  
- /**
-@@ -9,7 +9,7 @@ export default function usePageShoppingCart(cart) {
-     const items = reactive([]);
-     const loading = ref(false);
+ <script>
+-import { onMounted, ref, watch } from 'vue';
++import { onMounted, ref, watchEffect } from 'vue';
+ import Loading from '@/components/loading';
+ import CheckoutForm from '@/components/checkout';
+ import TitleComponent from '@/components/title';
+@@ -112,12 +112,15 @@ export default {
+             fullCartItems,
+         } = useShoppingCart();
  
--    watch(cart, async () => {
-+    watchEffect(async () => {
-         loading.value = true;
-         items.length = 0;
+-        watch(cart, async () => {
++        watchEffect(async () => {
+             loading.value = true;
  
-@@ -29,6 +29,9 @@ export default function usePageShoppingCart(cart) {
-         }
+             await loadFullShoppingCart();
  
-         loading.value = false;
-+    }, {
-+        onTrack: (data) => { console.log('tracking', data); },
-+        onTrigger: (data) => { console.log('triggering', data); },
-     });
+             loading.value = false;
++        }, {
++            onTrack: (data) => { console.log('tracking', data); },
++            onTrigger: (data) => { console.log('triggering', data); },
+         });
  
-     return {
+         onMounted(() => {

@@ -1,65 +1,59 @@
-diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
-index aa7480bf..fbc98707 100644
---- a/assets/js/modules/get-page-shopping-cart.js
-+++ b/assets/js/modules/get-page-shopping-cart.js
-@@ -1,28 +1,31 @@
--import { ref, reactive } from 'vue';
-+import { ref, reactive, watch } from 'vue';
-+import { getFullShoppingCart } from '@/services/cart-service';
- 
- export default function usePageShoppingCart() {
-     const items = reactive([]);
-     const loading = ref(false);
- 
--    watch: {
--        'cart.items.length': async function watchCartItemsLength() {
--            this.loading = true;
--            this.items = [];
-+    watch(cart.items.length, async () => {
-+        loading.value = true;
-+        items.length = 0;
- 
--            if (!this.cart.items.length) {
--                this.loading = false;
--                return;
--            }
-+        if (!cart.items.length) {
-+            loading.value = false;
-+            return;
-+        }
- 
--            try {
--                this.items = await getFullShoppingCart(this.cart);
--            } catch (e) {
--                this.loading = false;
--            }
-+        try {
-+            const newItems = await getFullShoppingCart(cart);
- 
--            this.loading = false;
--        },
--    },
-+            newItems.forEach((item) => {
-+                items.push(item);
-+            });
-+        } catch (e) {
-+            loading.value = false;
-+        }
-+
-+        loading.value = false;
-+    });
- 
-     return {
-         items,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 798eda85..b22cda74 100644
+index 95febdfd..46ec5cb4 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -69,7 +69,6 @@
+@@ -68,7 +68,7 @@
+ </template>
  
  <script>
- import { onMounted } from 'vue';
--import { getFullShoppingCart } from '@/services/cart-service';
+-import { onMounted, ref } from 'vue';
++import { onMounted, ref, watch } from 'vue';
+ import { getFullShoppingCart } from '@/services/cart-service';
  import Loading from '@/components/loading';
  import CheckoutForm from '@/components/checkout';
- import TitleComponent from '@/components/title';
+@@ -112,25 +112,29 @@ export default {
+             fullCartItems,
+         } = useShoppingCart();
+ 
+-        watch: {
+-            'cart.items.length': async function watchCartItemsLength() {
+-                this.loading = true;
+-                this.items = [];
++        watch(cart.items.length, async () => {
++            loading.value = true;
++            fullCartItems.length = 0;
+ 
+-                if (!this.cart.items.length) {
+-                    this.loading = false;
+-                    return;
+-                }
++            if (!cart.items.length) {
++                loading.value = false;
++                return;
++            }
+ 
+-                try {
+-                    this.items = await getFullShoppingCart(this.cart);
+-                } catch (e) {
+-                    this.loading = false;
+-                }
++            let newItems;
++            try {
++                newItems = await getFullShoppingCart(cart);
++            } catch (e) {
++                loading.value = false;
++                return;
++            }
+ 
+-                this.loading = false;
+-            },
+-        },
++            newItems.forEach((item) => {
++                fullCartItems.push(item);
++            });
++
++            loading.value = false;
++        });
+ 
+         onMounted(() => {
+             loadShoppingCart();

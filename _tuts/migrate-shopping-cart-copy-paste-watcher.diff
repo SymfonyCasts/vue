@@ -1,39 +1,8 @@
-diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
-index f231172c..aa7480bf 100644
---- a/assets/js/modules/get-page-shopping-cart.js
-+++ b/assets/js/modules/get-page-shopping-cart.js
-@@ -4,6 +4,26 @@ export default function usePageShoppingCart() {
-     const items = reactive([]);
-     const loading = ref(false);
- 
-+    watch: {
-+        'cart.items.length': async function watchCartItemsLength() {
-+            this.loading = true;
-+            this.items = [];
-+
-+            if (!this.cart.items.length) {
-+                this.loading = false;
-+                return;
-+            }
-+
-+            try {
-+                this.items = await getFullShoppingCart(this.cart);
-+            } catch (e) {
-+                this.loading = false;
-+            }
-+
-+            this.loading = false;
-+        },
-+    },
-+
-     return {
-         items,
-         loading,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 22c77272..798eda85 100644
+index 56b8c397..95febdfd 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -97,25 +97,6 @@ export default {
+@@ -96,25 +96,6 @@ export default {
                  : '<< Back';
          },
      },
@@ -59,3 +28,30 @@ index 22c77272..798eda85 100644
      methods: {
          switchState() {
              this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
+@@ -131,6 +112,26 @@ export default {
+             fullCartItems,
+         } = useShoppingCart();
+ 
++        watch: {
++            'cart.items.length': async function watchCartItemsLength() {
++                this.loading = true;
++                this.items = [];
++
++                if (!this.cart.items.length) {
++                    this.loading = false;
++                    return;
++                }
++
++                try {
++                    this.items = await getFullShoppingCart(this.cart);
++                } catch (e) {
++                    this.loading = false;
++                }
++
++                this.loading = false;
++            },
++        },
++
+         onMounted(() => {
+             loadShoppingCart();
+         });

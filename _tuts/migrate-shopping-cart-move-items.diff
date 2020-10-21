@@ -1,56 +1,49 @@
-diff --git a/assets/js/modules/get-page-shopping-cart.js b/assets/js/modules/get-page-shopping-cart.js
-new file mode 100644
-index 00000000..f231172c
---- /dev/null
-+++ b/assets/js/modules/get-page-shopping-cart.js
-@@ -0,0 +1,11 @@
-+import { ref, reactive } from 'vue';
+diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
+index 834dc5c9..12b575c2 100644
+--- a/assets/js/modules/shopping-cart.js
++++ b/assets/js/modules/shopping-cart.js
+@@ -11,6 +11,8 @@ const cart = reactive({
+     items: [],
+ });
+ 
++const fullCartItems = reactive([]);
 +
-+export default function usePageShoppingCart() {
-+    const items = reactive([]);
-+    const loading = ref(false);
-+
-+    return {
-+        items,
-+        loading,
-+    };
-+}
+ export default function useShoppingCart() {
+     const updateShoppingCartHeader = () => {
+         document.getElementById('js-shopping-cart-items')
+@@ -61,6 +63,7 @@ export default function useShoppingCart() {
+ 
+     return {
+         cart,
++        fullCartItems,
+         loadShoppingCart,
+         updateQuantity,
+         removeFromCart,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 87591f6b..22c77272 100644
+index 7624d525..a35a8e37 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
-@@ -75,6 +75,7 @@ import CheckoutForm from '@/components/checkout';
- import TitleComponent from '@/components/title';
- import ShoppingCartList from '@/components/shopping-cart';
- import useShoppingCart from '@/modules/shopping-cart';
-+import usePageShoppingCart from '@/modules/get-page-shopping-cart';
- 
- export default {
-     name: 'ShoppingCart',
-@@ -87,8 +88,6 @@ export default {
+@@ -87,7 +87,6 @@ export default {
      data() {
          return {
              currentState: 'cart',
 -            items: [],
--            loading: false,
+             loading: false,
          };
      },
-     computed: {
-@@ -123,7 +122,7 @@ export default {
-         },
-     },
-     setup() {
--        const { loadShoppingCart, cart, updateShoppingCartHeader } = useShoppingCart();
-+        const { loadShoppingCart, cart } = useShoppingCart();
+@@ -128,6 +127,7 @@ export default {
+             removeFromCart,
+             updateQuantity,
+             cart,
++            fullCartItems,
+         } = useShoppingCart();
  
          onMounted(() => {
-             loadShoppingCart();
-@@ -131,7 +130,7 @@ export default {
+@@ -136,6 +136,7 @@ export default {
  
          return {
              cart,
--            updateShoppingCartHeader,
-+            ...usePageShoppingCart(),
++            items: fullCartItems,
+             removeFromCart,
+             updateQuantity,
          };
-     },
- };
