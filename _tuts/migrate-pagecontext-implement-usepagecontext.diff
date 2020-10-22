@@ -1,9 +1,9 @@
 diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
-index 71be51d9..f2577d8d 100644
+index 71be51d9..136371ff 100644
 --- a/assets/js/modules/page-context.js
 +++ b/assets/js/modules/page-context.js
-@@ -1,39 +1,42 @@
-+import { computed, reactive, onCreated } from 'vue';
+@@ -1,39 +1,39 @@
++import { computed, ref, onCreated } from 'vue';
  import Product from '@/components/product';
  import Catalog from '@/components/catalog';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
@@ -37,7 +37,7 @@ index 71be51d9..f2577d8d 100644
 -        },
 -    },
 -    async created() {
-+    const categories = reactive([]);
++    const categories = ref([]);
 +    const currentCategoryId = computed(() => (getCurrentCategoryId()));
 +    const currentProductId = computed(() => (getCurrentProductId()));
 +
@@ -61,10 +61,7 @@ index 71be51d9..f2577d8d 100644
 -        this.categories = response.data['hydra:member'];
 -    },
 -     */
-+        categories.length = 0;
-+        response.data['hydra:member'].forEach((item) => {
-+            categories.push(item);
-+        });
++        categories.value = response.data['hydra:member'];
 +    });
 +
 +    return {

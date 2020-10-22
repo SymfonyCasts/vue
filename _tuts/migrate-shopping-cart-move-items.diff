@@ -1,17 +1,19 @@
 diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
-index 834dc5c9..12b575c2 100644
+index 5d247e62..3a0db4ff 100644
 --- a/assets/js/modules/shopping-cart.js
 +++ b/assets/js/modules/shopping-cart.js
-@@ -11,6 +11,8 @@ const cart = reactive({
+@@ -11,6 +11,10 @@ const cart = reactive({
      items: [],
  });
  
-+const fullCartItems = reactive([]);
++const fullCartItems = reactive({
++    items: [],
++});
 +
  export default function useShoppingCart() {
      const updateShoppingCartHeader = () => {
          document.getElementById('js-shopping-cart-items')
-@@ -61,6 +63,7 @@ export default function useShoppingCart() {
+@@ -56,6 +60,7 @@ export default function useShoppingCart() {
  
      return {
          cart,
@@ -20,7 +22,7 @@ index 834dc5c9..12b575c2 100644
          updateQuantity,
          removeFromCart,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 7624d525..a35a8e37 100644
+index 7624d525..9a049412 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -87,7 +87,6 @@ export default {
@@ -43,7 +45,7 @@ index 7624d525..a35a8e37 100644
  
          return {
              cart,
-+            items: fullCartItems,
++            fullCartItems,
              removeFromCart,
              updateQuantity,
          };

@@ -1,5 +1,5 @@
 diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
-index 8afe4429..efa223da 100644
+index 8ddc19b1..2bd4e7a6 100644
 --- a/assets/js/modules/page-context.js
 +++ b/assets/js/modules/page-context.js
 @@ -3,8 +3,11 @@ import Product from '@/components/product';
@@ -11,6 +11,6 @@ index 8afe4429..efa223da 100644
  export default function usePageContext() {
 +    const { cart } = useShoppingCart();
 +
-     const categories = reactive([]);
+     const categories = ref([]);
      const currentCategoryId = computed(() => (getCurrentCategoryId()));
      const currentProductId = computed(() => (getCurrentProductId()));

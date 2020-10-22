@@ -1,26 +1,18 @@
 diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
-index ded4c954..e1555979 100644
+index ded4c954..275d9ce2 100644
 --- a/assets/js/modules/shopping-cart.js
 +++ b/assets/js/modules/shopping-cart.js
-@@ -8,13 +8,20 @@ const cart = reactive({
- 
+@@ -9,12 +9,12 @@ const cart = reactive({
  export default function useShoppingCart() {
      onMounted(async () => {
-+        cart.items.length = 0;
-+
-+        let newCart;
          try {
 -            this.cart = await getCart();
-+            newCart = await getCart();
++            cart.items = (await getCart()).items;
          } catch (e) {
              return;
          }
  
 -        this.updateShoppingCartHeader();
-+        newCart.items.forEach((item) => {
-+            cart.items.push(item);
-+        });
-+
 +        // this.updateShoppingCartHeader();
      });
  

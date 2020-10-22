@@ -151,6 +151,11 @@
             "description": null
         },
         {
+            "id": "migrate-pagecontext-fix-categories-error",
+            "name": "Migrate pageContext: fix categories error",
+            "description": null
+        },
+        {
             "id": "migrate-pagecontext-fix-onmounted",
             "name": "Migrate pageContext: Fix onMounted",
             "description": null
@@ -226,6 +231,11 @@
             "description": null
         },
         {
+            "id": "migrate-shopping-cart-fix-template",
+            "name": "Migrate Shopping Cart: Fix template",
+            "description": null
+        },
+        {
             "id": "migrate-shopping-cart-loading-as-a-ref",
             "name": "Migrate Shopping Cart: loading as a ref",
             "description": null
@@ -246,6 +256,11 @@
             "description": null
         },
         {
+            "id": "migrate-shopping-cart-fix-watcher-for-real-now",
+            "name": "Migrate Shopping Cart: Fix watcher for real now",
+            "description": null
+        },
+        {
             "id": "migrate-shopping-cart-copy-paste-watcher-into-module",
             "name": "Migrate Shopping Cart: copy\/paste watcher into module",
             "description": null
@@ -256,8 +271,8 @@
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-fix-shopping-cart-watcher",
-            "name": "Migrate Shopping Cart: Fix shopping cart watcher",
+            "id": "delete-me-1",
+            "name": "delete-me-1",
             "description": null
         },
         {
@@ -271,5 +286,5 @@
             "description": null
         }
     ],
-    "sha": "8578d3595c75c6e7e8d105cbfab529eb6eb95a97"
+    "sha": "d439e8a7e29911c22e3eb0481b93ece59040bf68"
 }

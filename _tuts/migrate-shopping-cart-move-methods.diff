@@ -1,5 +1,5 @@
 diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
-index 9abf0ecc..457e0ec9 100644
+index 5cabc9b8..2b43d6e4 100644
 --- a/assets/js/modules/shopping-cart.js
 +++ b/assets/js/modules/shopping-cart.js
 @@ -1,5 +1,5 @@
@@ -9,7 +9,7 @@ index 9abf0ecc..457e0ec9 100644
  
  /** @type CartCollection */
  const cart = reactive({
-@@ -29,6 +29,31 @@ export default function useShoppingCart() {
+@@ -24,6 +24,31 @@ export default function useShoppingCart() {
          updateShoppingCartHeader();
      };
  

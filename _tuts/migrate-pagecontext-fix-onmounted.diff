@@ -1,5 +1,5 @@
 diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
-index 87a2dd5d..9abf0ecc 100644
+index 597c4ed7..5cabc9b8 100644
 --- a/assets/js/modules/shopping-cart.js
 +++ b/assets/js/modules/shopping-cart.js
 @@ -1,4 +1,4 @@
@@ -8,17 +8,19 @@ index 87a2dd5d..9abf0ecc 100644
  import { getCart, getCartTotalItems } from '@/services/cart-service';
  
  /** @type CartCollection */
-@@ -12,7 +12,7 @@ export default function useShoppingCart() {
+@@ -12,7 +12,9 @@ export default function useShoppingCart() {
              .innerHTML = getCartTotalItems(cart).toString();
      };
  
 -    onMounted(async () => {
 +    const loadShoppingCart = async () => {
-         cart.items.length = 0;
- 
-         let newCart;
-@@ -27,10 +27,11 @@ export default function useShoppingCart() {
-         });
++        cart.items.length = 0;
++
+         try {
+             cart.items = (await getCart()).items;
+         } catch (e) {
+@@ -20,10 +22,11 @@ export default function useShoppingCart() {
+         }
  
          updateShoppingCartHeader();
 -    });

@@ -1,5 +1,5 @@
 diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
-index 457e0ec9..9eaf87e2 100644
+index 2b43d6e4..3b59fe01 100644
 --- a/assets/js/modules/shopping-cart.js
 +++ b/assets/js/modules/shopping-cart.js
 @@ -1,5 +1,10 @@
@@ -14,7 +14,7 @@ index 457e0ec9..9eaf87e2 100644
  
  /** @type CartCollection */
  const cart = reactive({
-@@ -36,11 +41,11 @@ export default function useShoppingCart() {
+@@ -31,11 +36,11 @@ export default function useShoppingCart() {
       * @param {string|null} color
       * @param {number} quantity
       */
@@ -30,7 +30,7 @@ index 457e0ec9..9eaf87e2 100644
  
      /**
       * Removes a product from the cart, then refreshes the page
-@@ -48,15 +53,17 @@ export default function useShoppingCart() {
+@@ -43,15 +48,17 @@ export default function useShoppingCart() {
       * @param {string} product
       * @param {string|null} color
       */

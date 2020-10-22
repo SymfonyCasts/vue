@@ -1,0 +1,13 @@
+diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+index a125ab8c..b9055357 100644
+--- a/assets/js/components/catalog.vue
++++ b/assets/js/components/catalog.vue
+@@ -59,7 +59,7 @@ export default {
+                 return 'All Products';
+             }
+ 
+-            const category = this.categories.find((cat) => (cat['@id'] === this.currentCategoryId));
++            const category = this.categories.value.find((cat) => (cat['@id'] === this.currentCategoryId));
+ 
+             return category ? category.name : '';
+         },

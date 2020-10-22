@@ -1,14 +1,14 @@
 diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
-index f2577d8d..8afe4429 100644
+index 136371ff..8ddc19b1 100644
 --- a/assets/js/modules/page-context.js
 +++ b/assets/js/modules/page-context.js
 @@ -1,4 +1,4 @@
--import { computed, reactive, onCreated } from 'vue';
-+import { computed, reactive } from 'vue';
+-import { computed, ref, onCreated } from 'vue';
++import { computed, ref } from 'vue';
  import Product from '@/components/product';
  import Catalog from '@/components/catalog';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
-@@ -23,14 +23,14 @@ export default function usePageContext() {
+@@ -23,11 +23,11 @@ export default function usePageContext() {
              }
      ));
  
@@ -16,16 +16,13 @@ index f2577d8d..8afe4429 100644
 +    const initCategories = async () => {
          const response = await fetchCategories();
  
-         categories.length = 0;
-         response.data['hydra:member'].forEach((item) => {
-             categories.push(item);
-         });
+         categories.value = response.data['hydra:member'];
 -    });
 +    };
  
      return {
          categories,
-@@ -38,5 +38,6 @@ export default function usePageContext() {
+@@ -35,5 +35,6 @@ export default function usePageContext() {
          currentProductId,
          currentComponent,
          currentProps,

@@ -1,5 +1,5 @@
 diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
-index 12b575c2..3d1220b6 100644
+index 3a0db4ff..919a069a 100644
 --- a/assets/js/modules/shopping-cart.js
 +++ b/assets/js/modules/shopping-cart.js
 @@ -2,6 +2,7 @@ import { reactive } from 'vue';
@@ -10,36 +10,31 @@ index 12b575c2..3d1220b6 100644
      removeItemFromCart,
      updateCartItemQuantity,
  } from '@/services/cart-service';
-@@ -61,6 +62,27 @@ export default function useShoppingCart() {
+@@ -58,6 +59,22 @@ export default function useShoppingCart() {
          updateShoppingCartHeader();
      };
  
 +    const loadFullShoppingCart = async () => {
-+        fullCartItems.length = 0;
++        fullCartItems.items.length = 0;
 +
 +        if (!cart.items.length) {
 +            loading.value = false;
 +            return;
 +        }
 +
-+        let newItems;
 +        try {
-+            newItems = await getFullShoppingCart(cart);
++            fullCartItems.items = await getFullShoppingCart(cart);
 +        } catch (e) {
 +            loading.value = false;
 +            return;
 +        }
-+
-+        newItems.forEach((item) => {
-+            fullCartItems.push(item);
-+        });
 +    };
 +
      return {
          cart,
          fullCartItems,
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 5360a92a..4294d176 100644
+index 8c2ef7a3..d2e29378 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -69,7 +69,6 @@
@@ -50,28 +45,23 @@ index 5360a92a..4294d176 100644
  import Loading from '@/components/loading';
  import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';
-@@ -114,24 +113,6 @@ export default {
+@@ -114,19 +113,6 @@ export default {
  
-         watch(cart.items, async () => {
+         watch(cart, async () => {
              loading.value = true;
--            fullCartItems.length = 0;
+-            fullCartItems.items.length = 0;
 -
 -            if (!cart.items.length) {
 -                loading.value = false;
 -                return;
 -            }
 -
--            let newItems;
 -            try {
--                newItems = await getFullShoppingCart(cart);
+-                fullCartItems.items = await getFullShoppingCart(cart);
 -            } catch (e) {
 -                loading.value = false;
 -                return;
 -            }
--
--            newItems.forEach((item) => {
--                fullCartItems.push(item);
--            });
  
              loading.value = false;
          });

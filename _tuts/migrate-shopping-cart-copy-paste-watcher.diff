@@ -1,5 +1,5 @@
 diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 56b8c397..95febdfd 100644
+index be87e8be..8df10ef8 100644
 --- a/assets/js/pages/shopping-cart.vue
 +++ b/assets/js/pages/shopping-cart.vue
 @@ -96,25 +96,6 @@ export default {
@@ -9,7 +9,7 @@ index 56b8c397..95febdfd 100644
 -    watch: {
 -        'cart.items.length': async function watchCartItemsLength() {
 -            this.loading = true;
--            this.items = [];
+-            this.fullCartItems.items = [];
 -
 -            if (!this.cart.items.length) {
 -                this.loading = false;
@@ -17,7 +17,7 @@ index 56b8c397..95febdfd 100644
 -            }
 -
 -            try {
--                this.items = await getFullShoppingCart(this.cart);
+-                this.fullCartItems.items = await getFullShoppingCart(this.cart);
 -            } catch (e) {
 -                this.loading = false;
 -            }
@@ -35,7 +35,7 @@ index 56b8c397..95febdfd 100644
 +        watch: {
 +            'cart.items.length': async function watchCartItemsLength() {
 +                this.loading = true;
-+                this.items = [];
++                this.fullCartItems.items = [];
 +
 +                if (!this.cart.items.length) {
 +                    this.loading = false;
@@ -43,7 +43,7 @@ index 56b8c397..95febdfd 100644
 +                }
 +
 +                try {
-+                    this.items = await getFullShoppingCart(this.cart);
++                    this.fullCartItems.items = await getFullShoppingCart(this.cart);
 +                } catch (e) {
 +                    this.loading = false;
 +                }
