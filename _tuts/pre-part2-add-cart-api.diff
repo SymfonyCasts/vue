@@ -1,9 +1,9 @@
 diff --git a/composer.json b/composer.json
-index 48a614c4..84c5360d 100644
+index efbd99f1..bc163661 100644
 --- a/composer.json
 +++ b/composer.json
-@@ -8,6 +8,7 @@
-         "api-platform/api-pack": "^1.2",
+@@ -9,6 +9,7 @@
+         "composer/package-versions-deprecated": "^1.11",
          "doctrine/doctrine-fixtures-bundle": "^3.3",
          "doctrine/inflector": "1.3.*",
 +        "ramsey/uuid": "^4.1",
@@ -11,21 +11,27 @@ index 48a614c4..84c5360d 100644
          "symfony/console": "5.0.*",
          "symfony/debug-pack": "^1.0",
 diff --git a/composer.lock b/composer.lock
-index 5f492496..156d500e 100644
+index 693b8cd0..67bda0e7 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "f17f646dfc5cbdfd0d068b78ee93cc40",
-+    "content-hash": "a83e8eb69091a2d20d81bda362279d6b",
+-    "content-hash": "902d46ac7dca421532eb6a0fab1205de",
++    "content-hash": "2bfbdd0719ed147ae6af174f84cd951b",
      "packages": [
          {
              "name": "api-platform/api-pack",
-@@ -262,6 +262,58 @@
+@@ -191,8 +191,68 @@
+                 "rest",
+                 "swagger"
              ],
-             "time": "2020-07-15T08:39:18+00:00"
++            "support": {
++                "issues": "https://github.com/api-platform/core/issues",
++                "source": "https://github.com/api-platform/core/tree/2.5"
++            },
+             "time": "2020-05-28T15:07:16+00:00"
          },
 +        {
 +            "name": "brick/math",
@@ -71,6 +77,10 @@ index 5f492496..156d500e 100644
 +                "brick",
 +                "math"
 +            ],
++            "support": {
++                "issues": "https://github.com/brick/math/issues",
++                "source": "https://github.com/brick/math/tree/master"
++            },
 +            "funding": [
 +                {
 +                    "url": "https://tidelift.com/funding/github/packagist/brick/math",
@@ -80,9 +90,9 @@ index 5f492496..156d500e 100644
 +            "time": "2020-08-18T23:57:15+00:00"
 +        },
          {
-             "name": "doctrine/annotations",
-             "version": "1.10.3",
-@@ -2362,6 +2414,162 @@
+             "name": "composer/package-versions-deprecated",
+             "version": "1.11.99",
+@@ -2366,6 +2426,162 @@
              ],
              "time": "2020-03-23T09:12:05+00:00"
          },
