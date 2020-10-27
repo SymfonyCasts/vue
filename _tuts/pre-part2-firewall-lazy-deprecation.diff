@@ -1,0 +1,14 @@
+diff --git a/config/packages/security.yaml b/config/packages/security.yaml
+index b9682c10..9d199bab 100644
+--- a/config/packages/security.yaml
++++ b/config/packages/security.yaml
+@@ -15,7 +15,8 @@ security:
+             pattern: ^/(_(profiler|wdt)|css|images|js)/
+             security: false
+         main:
+-            anonymous: lazy
++            anonymous: true
++            lazy: true
+             guard:
+                 authenticators:
+                     - App\Security\LoginFormAuthenticator

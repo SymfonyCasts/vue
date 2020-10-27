@@ -821,6 +821,31 @@
             "description": null
         },
         {
+            "id": "pre-part2-upgrade-migrations-config",
+            "name": "Pre-Part2: upgrade migrations config",
+            "description": null
+        },
+        {
+            "id": "pre-part2-firewall-lazy-deprecation",
+            "name": "Pre-Part2: firewall lazy deprecation",
+            "description": null
+        },
+        {
+            "id": "pre-part2-kernel-route-deprecation",
+            "name": "Pre-Part2: kernel route deprecation",
+            "description": null
+        },
+        {
+            "id": "pre-part2-unpack-packs",
+            "name": "Pre-Part2: unpack packs",
+            "description": null
+        },
+        {
+            "id": "pre-part2-upgrading-migrations",
+            "name": "Pre-Part2: upgrading migrations",
+            "description": null
+        },
+        {
             "id": "pre-part2-add-cart-api",
             "name": "Pre-Part2: add cart API",
             "description": null
@@ -1446,5 +1471,5 @@
             "description": null
         }
     ],
-    "sha": "20d31e90ce873ce2e01aa6465c7914a56398df45"
+    "sha": "7ed0694daf4e609e1927ba44982afec35fc1e006"
 }
