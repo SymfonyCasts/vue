@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index efbd99f1..bc163661 100644
+index c00573ff..50cdaba5 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -9,6 +9,7 @@
@@ -8,30 +8,24 @@ index efbd99f1..bc163661 100644
          "doctrine/inflector": "1.3.*",
 +        "ramsey/uuid": "^4.1",
          "sensio/framework-extra-bundle": "^5.5",
-         "symfony/console": "5.0.*",
+         "symfony/console": "5.1.*",
          "symfony/debug-pack": "^1.0",
 diff --git a/composer.lock b/composer.lock
-index 693b8cd0..67bda0e7 100644
+index ac48d7ba..965606d2 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "902d46ac7dca421532eb6a0fab1205de",
-+    "content-hash": "2bfbdd0719ed147ae6af174f84cd951b",
+-    "content-hash": "bebe937758e099bb9c1d66d3436feb2d",
++    "content-hash": "f77e4af633aeb2db0f6051d4c60ee4dc",
      "packages": [
          {
              "name": "api-platform/api-pack",
-@@ -191,8 +191,68 @@
-                 "rest",
-                 "swagger"
-             ],
-+            "support": {
-+                "issues": "https://github.com/api-platform/core/issues",
-+                "source": "https://github.com/api-platform/core/tree/2.5"
-+            },
-             "time": "2020-05-28T15:07:16+00:00"
+@@ -196,6 +196,62 @@
+             },
+             "time": "2020-08-28T16:23:13+00:00"
          },
 +        {
 +            "name": "brick/math",
@@ -92,8 +86,8 @@ index 693b8cd0..67bda0e7 100644
          {
              "name": "composer/package-versions-deprecated",
              "version": "1.11.99",
-@@ -2366,6 +2426,162 @@
-             ],
+@@ -2531,6 +2587,162 @@
+             },
              "time": "2020-03-23T09:12:05+00:00"
          },
 +        {
@@ -254,7 +248,7 @@ index 693b8cd0..67bda0e7 100644
 +        },
          {
              "name": "sensio/framework-extra-bundle",
-             "version": "v5.5.6",
+             "version": "v5.6.1",
 diff --git a/src/ApiPlatform/CartDataPersister.php b/src/ApiPlatform/CartDataPersister.php
 new file mode 100644
 index 00000000..f249b337
@@ -563,7 +557,7 @@ index 204a128d..783aa6f4 100644
 \ No newline at end of file
 +}
 diff --git a/symfony.lock b/symfony.lock
-index bdab20ce..5ae32a6d 100644
+index faa6a08b..386d24f0 100644
 --- a/symfony.lock
 +++ b/symfony.lock
 @@ -16,6 +16,9 @@

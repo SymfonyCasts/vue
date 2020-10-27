@@ -816,6 +816,11 @@
             "description": null
         },
         {
+            "id": "pre-part2-upgrade-php-deps",
+            "name": "Pre-Part2: upgrade php deps",
+            "description": null
+        },
+        {
             "id": "pre-part2-add-cart-api",
             "name": "Pre-Part2: add cart API",
             "description": null
@@ -1441,5 +1446,5 @@
             "description": null
         }
     ],
-    "sha": "2159514d1444a22aa8fc81adab1aa16277630b29"
+    "sha": "20d31e90ce873ce2e01aa6465c7914a56398df45"
 }
