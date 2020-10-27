@@ -1,7 +1,7 @@
-diff --git a/assets/js/mixins/get-shopping-cart.js b/assets/js/mixins/get-shopping-cart.js
-index b8b7a81e..c848c02e 100644
---- a/assets/js/mixins/get-shopping-cart.js
-+++ b/assets/js/mixins/get-shopping-cart.js
+diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
+index b8b7a81e8..c848c02e8 100644
+--- a/assets/mixins/get-shopping-cart.js
++++ b/assets/mixins/get-shopping-cart.js
 @@ -3,6 +3,7 @@ import { getCart, getCartTotalItems } from '@/services/cart-service';
  export default {
      data() {

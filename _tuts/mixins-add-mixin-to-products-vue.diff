@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 1dcc90b0..525e01d8 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 1dcc90b02..525e01d82 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -26,7 +26,7 @@ import Product from '@/components/product';
  import Sidebar from '@/components/sidebar';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';

@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
-index ac68a526..7ad5265d 100644
---- a/assets/js/components/product-list/product-card.vue
-+++ b/assets/js/components/product-list/product-card.vue
+diff --git a/assets/components/product-list/product-card.vue b/assets/components/product-list/product-card.vue
+index ac68a5267..7ad5265db 100644
+--- a/assets/components/product-list/product-card.vue
++++ b/assets/components/product-list/product-card.vue
 @@ -2,14 +2,19 @@
      <div class="col-xs-12 col-6 mb-2 pb-2">
          <div :class="$style['product-box']">

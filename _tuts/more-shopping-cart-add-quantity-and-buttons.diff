@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index a8118ae4..84f30a0e 100644
---- a/assets/js/components/shopping-cart/cart-item.vue
-+++ b/assets/js/components/shopping-cart/cart-item.vue
+diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
+index a8118ae46..84f30a0eb 100644
+--- a/assets/components/shopping-cart/cart-item.vue
++++ b/assets/components/shopping-cart/cart-item.vue
 @@ -1,5 +1,5 @@
  <template>
 -    <div :class="[$style.component, 'row', 'p-3']">

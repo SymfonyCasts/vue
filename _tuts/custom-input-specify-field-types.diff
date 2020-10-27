@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 018e2d2f..f6993ac9 100644
---- a/assets/js/components/checkout/index.vue
-+++ b/assets/js/components/checkout/index.vue
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index 018e2d2f1..f6993ac96 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
 @@ -9,6 +9,7 @@
  
                  <form-input

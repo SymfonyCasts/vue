@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 85e113cd..1bec5ac9 100644
---- a/assets/js/pages/shopping-cart.vue
-+++ b/assets/js/pages/shopping-cart.vue
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 85e113cdc..1bec5ac91 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
 @@ -16,16 +16,18 @@
                          <loading />
                      </div>

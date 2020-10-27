@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 75fe8a74..acbff5fd 100644
---- a/assets/js/components/product.vue
-+++ b/assets/js/components/product.vue
+diff --git a/assets/components/product.vue b/assets/components/product.vue
+index 75fe8a741..acbff5fd3 100644
+--- a/assets/components/product.vue
++++ b/assets/components/product.vue
 @@ -125,6 +125,10 @@ export default {
          this.product = response.data;
      },

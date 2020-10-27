@@ -1,8 +1,8 @@
-diff --git a/assets/js/components/color-selector.vue b/assets/js/components/color-selector.vue
+diff --git a/assets/components/color-selector.vue b/assets/components/color-selector.vue
 new file mode 100644
-index 00000000..505e3f6d
+index 000000000..505e3f6d1
 --- /dev/null
-+++ b/assets/js/components/color-selector.vue
++++ b/assets/components/color-selector.vue
 @@ -0,0 +1,65 @@
 +<template>
 +    <div :class="$style.component">
@@ -69,11 +69,11 @@ index 00000000..505e3f6d
 +    }
 +}
 +</style>
-diff --git a/assets/js/services/colors-service.js b/assets/js/services/colors-service.js
+diff --git a/assets/services/colors-service.js b/assets/services/colors-service.js
 new file mode 100644
-index 00000000..d7bb4d00
+index 000000000..d7bb4d00a
 --- /dev/null
-+++ b/assets/js/services/colors-service.js
++++ b/assets/services/colors-service.js
 @@ -0,0 +1,13 @@
 +import axios from 'axios';
 +

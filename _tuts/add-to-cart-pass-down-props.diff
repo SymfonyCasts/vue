@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 00688d41..1d8186a5 100644
---- a/assets/js/components/product.vue
-+++ b/assets/js/components/product.vue
+diff --git a/assets/components/product.vue b/assets/components/product.vue
+index 00688d41f..1d8186a59 100644
+--- a/assets/components/product.vue
++++ b/assets/components/product.vue
 @@ -91,6 +91,10 @@ export default {
              type: String,
              default: null,
@@ -13,10 +13,10 @@ index 00688d41..1d8186a5 100644
      },
      data() {
          return {
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 6ad70b20..1dcc90b0 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 6ad70b20c..1dcc90b02 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -60,6 +60,7 @@ export default {
              return this.currentProductId !== null
                  ? {

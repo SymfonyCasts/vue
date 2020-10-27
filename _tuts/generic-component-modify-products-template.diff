@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index dd9d84ad..b5e400ff 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index dd9d84ad7..b5e400ff2 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -11,9 +11,10 @@
              </aside>
  

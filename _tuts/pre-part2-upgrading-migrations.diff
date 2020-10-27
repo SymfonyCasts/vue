@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index ec18d37a..b4a96221 100644
+index ec18d37a8..b4a962218 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -11,7 +11,7 @@
@@ -12,7 +12,7 @@ index ec18d37a..b4a96221 100644
          "doctrine/orm": "^2",
          "nelmio/cors-bundle": "^2.1",
 diff --git a/composer.lock b/composer.lock
-index e1a4ac1f..d558cb66 100644
+index e1a4ac1f6..d558cb66f 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
@@ -187,7 +187,7 @@ index e1a4ac1f..d558cb66 100644
          {
              "name": "doctrine/orm",
 diff --git a/config/packages/doctrine_migrations.yaml b/config/packages/doctrine_migrations.yaml
-index 61e66124..051200aa 100644
+index 61e661240..051200aa9 100644
 --- a/config/packages/doctrine_migrations.yaml
 +++ b/config/packages/doctrine_migrations.yaml
 @@ -3,3 +3,6 @@ doctrine_migrations:

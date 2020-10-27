@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index f6993ac9..724a49f4 100644
---- a/assets/js/components/checkout/index.vue
-+++ b/assets/js/components/checkout/index.vue
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index f6993ac96..724a49f43 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
 @@ -33,6 +33,22 @@
                      type="tel"
                      v-bind="getFieldProps('customerPhone', 'Phone Number:')"

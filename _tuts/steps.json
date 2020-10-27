@@ -851,6 +851,11 @@
             "description": null
         },
         {
+            "id": "pre-part2-move-assets-around",
+            "name": "Pre-Part2: move assets\/ around",
+            "description": null
+        },
+        {
             "id": "linking-products-add-a-tags",
             "name": "Linking Products: Add A tags",
             "description": null
@@ -1471,5 +1476,5 @@
             "description": null
         }
     ],
-    "sha": "7ed0694daf4e609e1927ba44982afec35fc1e006"
+    "sha": "91d57ceb207464f8319bb3bcc9b04333d26017af"
 }

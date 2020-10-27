@@ -1,7 +1,7 @@
-diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
-index 950fae22..8c6a40f9 100644
---- a/assets/js/services/cart-service.js
-+++ b/assets/js/services/cart-service.js
+diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
+index 950fae220..8c6a40f95 100644
+--- a/assets/services/cart-service.js
++++ b/assets/services/cart-service.js
 @@ -139,8 +139,14 @@ export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }

@@ -1,8 +1,8 @@
-diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
+diff --git a/assets/components/product.vue b/assets/components/product.vue
 new file mode 100644
-index 00000000..d58c33e3
+index 000000000..d58c33e3a
 --- /dev/null
-+++ b/assets/js/components/product.vue
++++ b/assets/components/product.vue
 @@ -0,0 +1,11 @@
 +<template>
 +    <div>

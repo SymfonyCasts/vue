@@ -1,8 +1,8 @@
-diff --git a/assets/js/services/cart-service.js b/assets/js/services/cart-service.js
+diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
 new file mode 100644
-index 00000000..d10716ee
+index 000000000..d10716ee0
 --- /dev/null
-+++ b/assets/js/services/cart-service.js
++++ b/assets/services/cart-service.js
 @@ -0,0 +1,138 @@
 +import axios from 'axios';
 +

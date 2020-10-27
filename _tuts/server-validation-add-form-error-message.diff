@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index ececd672..885217c2 100644
---- a/assets/js/components/checkout/index.vue
-+++ b/assets/js/components/checkout/index.vue
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index ececd6729..885217c20 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
 @@ -2,6 +2,13 @@
      <div class="row p-3">
          <div class="col-12">

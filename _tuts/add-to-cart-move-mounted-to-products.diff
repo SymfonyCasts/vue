@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index a7b92fbe..00688d41 100644
---- a/assets/js/components/product.vue
-+++ b/assets/js/components/product.vue
+diff --git a/assets/components/product.vue b/assets/components/product.vue
+index a7b92fbec..00688d41f 100644
+--- a/assets/components/product.vue
++++ b/assets/components/product.vue
 @@ -72,7 +72,7 @@
  </template>
  
@@ -36,10 +36,10 @@ index a7b92fbe..00688d41 100644
      methods: {
          async addToCart() {
              if (this.product.colors.length && this.selectedColorId === null) {
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 391599f0..6ad70b20 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 391599f06..6ad70b20c 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -26,6 +26,7 @@ import Product from '@/components/product';
  import Sidebar from '@/components/sidebar';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';

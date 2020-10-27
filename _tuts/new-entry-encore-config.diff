@@ -1,12 +1,12 @@
 diff --git a/webpack.config.js b/webpack.config.js
-index 5b7629b1..50ff08ee 100644
+index 019198c20..77a47bcd0 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
 @@ -26,6 +26,7 @@ Encore
       */
-     .addEntry('app', './assets/js/app.js')
-     .addEntry('products', './assets/js/products.js')
-+    .addEntry('shopping-cart', './assets/js/shopping-cart.js')
+     .addEntry('app', './assets/app.js')
+     .addEntry('products', './assets/products.js')
++    .addEntry('shopping-cart', './assets/shopping-cart.js')
      //.addEntry('page1', './assets/js/page1.js')
      //.addEntry('page2', './assets/js/page2.js')
  

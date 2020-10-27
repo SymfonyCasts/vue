@@ -1,5 +1,5 @@
 diff --git a/src/Controller/ProductController.php b/src/Controller/ProductController.php
-index e1f8cafe..a86ca51e 100644
+index e1f8cafe1..a86ca51ed 100644
 --- a/src/Controller/ProductController.php
 +++ b/src/Controller/ProductController.php
 @@ -2,10 +2,10 @@

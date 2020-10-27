@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
-index ad5a96e9..a125ab8c 100644
---- a/assets/js/components/catalog.vue
-+++ b/assets/js/components/catalog.vue
+diff --git a/assets/components/catalog.vue b/assets/components/catalog.vue
+index ad5a96e99..a125ab8c7 100644
+--- a/assets/components/catalog.vue
++++ b/assets/components/catalog.vue
 @@ -2,10 +2,7 @@
      <div>
          <div class="row">

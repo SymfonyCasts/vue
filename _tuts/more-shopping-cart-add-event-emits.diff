@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 3e336fad..ed28cbde 100644
---- a/assets/js/components/shopping-cart/cart-item.vue
-+++ b/assets/js/components/shopping-cart/cart-item.vue
+diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
+index 3e336fad2..ed28cbde8 100644
+--- a/assets/components/shopping-cart/cart-item.vue
++++ b/assets/components/shopping-cart/cart-item.vue
 @@ -23,6 +23,11 @@
                  class="form-control"
                  type="number"

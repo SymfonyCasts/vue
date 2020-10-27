@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index dcb72f0c..46f77ba4 100644
---- a/assets/js/pages/shopping-cart.vue
-+++ b/assets/js/pages/shopping-cart.vue
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index dcb72f0cf..46f77ba4f 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
 @@ -60,6 +60,11 @@ export default {
              this.loading = true;
              this.items = [];

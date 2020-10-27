@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 02866233..f8b29d00 100644
---- a/assets/js/components/checkout/form-input.vue
-+++ b/assets/js/components/checkout/form-input.vue
+diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
+index 02866233e..f8b29d00c 100644
+--- a/assets/components/checkout/form-input.vue
++++ b/assets/components/checkout/form-input.vue
 @@ -15,6 +15,7 @@
              }"
              :value="value"
@@ -10,10 +10,10 @@ index 02866233..f8b29d00 100644
          >
          <span
              v-show="!isValid"
-diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index cecd8e27..b0c39837 100644
---- a/assets/js/components/checkout/index.vue
-+++ b/assets/js/components/checkout/index.vue
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index cecd8e272..b0c398379 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
 @@ -12,33 +12,39 @@
                  <form-input
                      v-model="form.customerName"

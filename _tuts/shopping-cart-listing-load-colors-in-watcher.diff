@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 7af72a7f..5ac04989 100644
---- a/assets/js/pages/shopping-cart.vue
-+++ b/assets/js/pages/shopping-cart.vue
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 7af72a7f2..5ac049893 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
 @@ -35,6 +35,7 @@
  </template>
  

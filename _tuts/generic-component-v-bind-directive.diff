@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index b5e400ff..391599f0 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index b5e400ff2..391599f06 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -13,8 +13,7 @@
              <div :class="contentClass">
                  <component

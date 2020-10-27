@@ -1,6 +1,6 @@
 diff --git a/assets/js/components/product-list/product-card.vue b/assets/js/components/product-list/product-card.vue
 new file mode 100644
-index 00000000..89928521
+index 000000000..899285219
 --- /dev/null
 +++ b/assets/js/components/product-list/product-card.vue
 @@ -0,0 +1,17 @@

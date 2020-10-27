@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index d4768d77..55e84fc5 100644
---- a/assets/js/pages/shopping-cart.vue
-+++ b/assets/js/pages/shopping-cart.vue
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index d4768d77d..55e84fc56 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
 @@ -1,5 +1,5 @@
  <template>
 -    <div class="container-fluid">

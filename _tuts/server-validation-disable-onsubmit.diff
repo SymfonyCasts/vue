@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/checkout/index.vue b/assets/js/components/checkout/index.vue
-index 885217c2..83cc8e96 100644
---- a/assets/js/components/checkout/index.vue
-+++ b/assets/js/components/checkout/index.vue
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index 885217c20..83cc8e96a 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
 @@ -51,6 +51,7 @@
                          <button
                              type="submit"
@@ -10,10 +10,10 @@ index 885217c2..83cc8e96 100644
                          >
                              Checkout!
                          </button>
-diff --git a/assets/js/services/checkout-service.js b/assets/js/services/checkout-service.js
-index decb83e8..bca8d23a 100644
---- a/assets/js/services/checkout-service.js
-+++ b/assets/js/services/checkout-service.js
+diff --git a/assets/services/checkout-service.js b/assets/services/checkout-service.js
+index decb83e83..bca8d23a7 100644
+--- a/assets/services/checkout-service.js
++++ b/assets/services/checkout-service.js
 @@ -9,7 +9,7 @@ import axios from 'axios';
  export function createOrder(data) {
      return axios({

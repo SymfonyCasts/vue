@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/title.vue b/assets/js/components/title.vue
-index 559b3a01..bf266bc9 100644
---- a/assets/js/components/title.vue
-+++ b/assets/js/components/title.vue
+diff --git a/assets/components/title.vue b/assets/components/title.vue
+index 559b3a01f..bf266bc99 100644
+--- a/assets/components/title.vue
++++ b/assets/components/title.vue
 @@ -1,7 +1,7 @@
  <template>
      <div :class="$style.component">

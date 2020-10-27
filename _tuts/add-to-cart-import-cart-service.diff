@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index acbff5fd..3ffd3f78 100644
---- a/assets/js/components/product.vue
-+++ b/assets/js/components/product.vue
+diff --git a/assets/components/product.vue b/assets/components/product.vue
+index acbff5fd3..3ffd3f789 100644
+--- a/assets/components/product.vue
++++ b/assets/components/product.vue
 @@ -71,6 +71,7 @@
  </template>
  

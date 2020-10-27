@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 794944d2..6b7abb6a 100644
---- a/assets/js/components/product.vue
-+++ b/assets/js/components/product.vue
+diff --git a/assets/components/product.vue b/assets/components/product.vue
+index 794944d22..6b7abb6a6 100644
+--- a/assets/components/product.vue
++++ b/assets/components/product.vue
 @@ -1,7 +1,69 @@
  <template>
 -    <div class="row">

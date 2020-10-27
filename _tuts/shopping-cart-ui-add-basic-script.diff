@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/shopping-cart/cart-item.vue b/assets/js/components/shopping-cart/cart-item.vue
-index 4e7e4645..4831516c 100644
---- a/assets/js/components/shopping-cart/cart-item.vue
-+++ b/assets/js/components/shopping-cart/cart-item.vue
+diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
+index 4e7e46455..4831516cf 100644
+--- a/assets/components/shopping-cart/cart-item.vue
++++ b/assets/components/shopping-cart/cart-item.vue
 @@ -9,6 +9,12 @@
  <script>
  export default {

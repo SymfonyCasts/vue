@@ -1,8 +1,8 @@
-diff --git a/assets/js/services/checkout-service.js b/assets/js/services/checkout-service.js
+diff --git a/assets/services/checkout-service.js b/assets/services/checkout-service.js
 new file mode 100644
-index 00000000..bca8d23a
+index 000000000..bca8d23a7
 --- /dev/null
-+++ b/assets/js/services/checkout-service.js
++++ b/assets/services/checkout-service.js
 @@ -0,0 +1,15 @@
 +import axios from 'axios';
 +

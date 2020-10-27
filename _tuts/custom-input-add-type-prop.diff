@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 177555c9..02866233 100644
---- a/assets/js/components/checkout/form-input.vue
-+++ b/assets/js/components/checkout/form-input.vue
+diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
+index 177555c99..02866233e 100644
+--- a/assets/components/checkout/form-input.vue
++++ b/assets/components/checkout/form-input.vue
 @@ -8,7 +8,7 @@
          </label>
          <input
