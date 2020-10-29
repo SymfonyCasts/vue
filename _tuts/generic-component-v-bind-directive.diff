@@ -1,30 +1,29 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index b5e400ff2..391599f06 100644
+index 00a83fd75..6d5b3cc13 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
-@@ -13,8 +13,7 @@
+@@ -13,9 +13,7 @@
              <div :class="contentClass">
                  <component
                      :is="currentComponent"
--                    :categories="categories"
 -                    :current-category-id="currentCategoryId"
+-                    :categories="categories"
+-                    :product-id="currentProductId"
 +                    v-bind="currentProps"
                  />
              </div>
          </div>
-@@ -55,6 +54,16 @@ export default {
+@@ -56,6 +54,14 @@ export default {
          currentComponent() {
-             return this.currentProductId !== null ? Product : Catalog;
+             return this.currentProductId !== null ? ProductShow : Catalog;
          },
 +        currentProps() {
-+            return this.currentProductId !== null
-+                ? {
-+                    currentProductId: this.currentProductId,
-+                }
-+                : {
-+                    currentCategoryId: this.currentCategoryId,
-+                    categories: this.categories,
-+                };
++            return this.currentComponent === ProductShow ? {
++                productId: this.currentProductId,
++            } : {
++                currentCategoryId: this.currentCategoryId,
++                categories: this.categories,
++            };
 +        },
      },
      async created() {

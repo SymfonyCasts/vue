@@ -856,6 +856,16 @@
             "description": null
         },
         {
+            "id": "pre-part2-remove-ts-interfaces",
+            "name": "Pre-Part2: remove ts interfaces",
+            "description": null
+        },
+        {
+            "id": "pre-part2-add-tutorial-directory",
+            "name": "Pre-Part2: add tutorial\/ directory",
+            "description": null
+        },
+        {
             "id": "linking-products-add-a-tags",
             "name": "Linking Products: Add A tags",
             "description": null
@@ -878,6 +888,11 @@
         {
             "id": "linking-products-add-controller-variables",
             "name": "Linking Products: Add Controller variables",
+            "description": null
+        },
+        {
+            "id": "linking-products-add-currentproductid",
+            "name": "Linking Products: add currentProductId",
             "description": null
         },
         {
@@ -936,6 +951,16 @@
             "description": null
         },
         {
+            "id": "basic-product-page-v-if-product",
+            "name": "Basic Product Page: v-if=product",
+            "description": null
+        },
+        {
+            "id": "basic-product-page-add-loading",
+            "name": "Basic Product Page: add loading",
+            "description": null
+        },
+        {
             "id": "basic-product-page-add-title-to-product",
             "name": "Basic Product Page: Add Title to Product",
             "description": null
@@ -966,8 +991,8 @@
             "description": null
         },
         {
-            "id": "basic-product-page-initialize-product-data",
-            "name": "Basic Product Page: Initialize Product data",
+            "id": "delete-me-10",
+            "name": "delete me 10",
             "description": null
         },
         {
@@ -981,8 +1006,8 @@
             "description": null
         },
         {
-            "id": "basic-product-template-fix-template-after-paste",
-            "name": "Basic Product Template: Fix Template after Paste",
+            "id": "delete-me-5",
+            "name": "delete me 5",
             "description": null
         },
         {
@@ -996,23 +1021,23 @@
             "description": null
         },
         {
-            "id": "basic-product-template-add-methods-and-data",
-            "name": "Basic Product Template: Add methods and data",
+            "id": "delete-me-3",
+            "name": "delete me 3",
             "description": null
         },
         {
-            "id": "basic-product-template-add-updateselectedcolor",
-            "name": "Basic Product Template: Add updateSelectedColor",
+            "id": "delete-me-1",
+            "name": "delete me 1",
             "description": null
         },
         {
-            "id": "basic-product-template-add-qty",
-            "name": "Basic Product Template: Add qty",
+            "id": "delete-me-2",
+            "name": "delete me 2",
             "description": null
         },
         {
-            "id": "basic-product-template-add-addtocart-dummy-function",
-            "name": "Basic Product Template: Add addToCart dummy function",
+            "id": "delete-me-4",
+            "name": "delete me 4",
             "description": null
         },
         {
@@ -1476,5 +1501,5 @@
             "description": null
         }
     ],
-    "sha": "91d57ceb207464f8319bb3bcc9b04333d26017af"
+    "sha": "966ef59703f44009b79a4292a532b48a92774bc9"
 }

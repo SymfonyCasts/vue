@@ -1,10 +1,10 @@
 diff --git a/assets/services/products-service.js b/assets/services/products-service.js
-index 41780cfa3..98406094f 100644
+index 63078a73f..3182a1c0b 100644
 --- a/assets/services/products-service.js
 +++ b/assets/services/products-service.js
 @@ -29,3 +29,22 @@ export function fetchProducts(categoryIri, searchTerm) {
- export function getProduct(productIri) {
-     return axios.get(productIri);
+ export function fetchOneProduct(iri) {
+     return axios.get(iri);
  }
 +
 +/**

@@ -1,16 +1,35 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index d58c33e3a..6941d9e02 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -7,5 +7,11 @@
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index e7ba09ea0..ef2e83afa 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -1,11 +1,17 @@
+ <template>
+     <div>
+-        I'd ❤️ to see a Product here!
++        I'd ❤️ to see Product {{ productId }} here!
+     </div>
+ </template>
+ 
  <script>
  export default {
-     name: 'Product',
+     name: 'ProductShow',
 +    props: {
-+        currentProductId: {
++        productId: {
 +            type: String,
-+            default: null,
++            required: true,
 +        },
 +    },
  };
  </script>
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 97df2fa4b..00a83fd75 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -15,6 +15,7 @@
+                     :is="currentComponent"
+                     :current-category-id="currentCategoryId"
+                     :categories="categories"
++                    :product-id="currentProductId"
+                 />
+             </div>
+         </div>

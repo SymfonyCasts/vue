@@ -1,17 +1,17 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
 new file mode 100644
-index 000000000..d58c33e3a
+index 000000000..e7ba09ea0
 --- /dev/null
-+++ b/assets/components/product.vue
++++ b/assets/components/product-show.vue
 @@ -0,0 +1,11 @@
 +<template>
 +    <div>
-+        I'd <3 to see a Product here!
++        I'd ❤️ to see a Product here!
 +    </div>
 +</template>
 +
 +<script>
 +export default {
-+    name: 'Product',
++    name: 'ProductShow',
 +};
 +</script>

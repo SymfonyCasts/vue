@@ -1,20 +1,19 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index 44f4fd647..fb855c333 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -72,11 +72,15 @@
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index ff264de12..1070c7dd3 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -65,12 +65,14 @@
  
  <script>
- import { getProduct } from '@/services/products-service';
+ import { fetchOneProduct } from '@/services/products-service';
 +import ColorSelector from '@/components/color-selector';
-+import Loading from '@/components/loading';
+ import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
  
  export default {
-     name: 'Product',
+     name: 'ProductShow',
      components: {
 +        ColorSelector,
-+        Loading,
+         Loading,
          TitleComponent,
      },
-     props: {

@@ -1,20 +1,29 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index c11efb455..9b1ab3fa0 100644
+index 60f7da8f0..e800a6e10 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
-@@ -22,6 +22,7 @@
+@@ -12,6 +12,8 @@
+ 
+             <div :class="contentClass">
+                 Product: {{ currentProductId }}
++                <product-show />
++
+                 <catalog
+                     :current-category-id="currentCategoryId"
+                     :categories="categories"
+@@ -23,6 +25,7 @@
  
  <script>
  import Catalog from '@/components/catalog';
-+import Product from '@/components/product';
++import ProductShow from '@/components/product-show';
  import Sidebar from '@/components/sidebar';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';
-@@ -30,6 +31,7 @@ export default {
+@@ -31,6 +34,7 @@ export default {
      name: 'Products',
      components: {
          Catalog,
-+        Product,
++        ProductShow,
          Sidebar,
      },
      data() {

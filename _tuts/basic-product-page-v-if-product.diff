@@ -1,0 +1,14 @@
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index 2db7eca98..1e8f39b28 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -1,6 +1,8 @@
+ <template>
+     <div>
+-        <h1>{{ product.name }}</h1>
++        <div v-if="product">
++            <h1>{{ product.name }}</h1>
++        </div>
+     </div>
+ </template>
+ 

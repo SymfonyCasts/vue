@@ -1,13 +1,13 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 9b1ab3fa0..dd9d84ad7 100644
+index e800a6e10..e3e02195d 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
-@@ -51,6 +51,9 @@ export default {
+@@ -54,6 +54,9 @@ export default {
          currentProductId() {
              return getCurrentProductId();
          },
 +        currentComponent() {
-+            return this.currentProductId !== null ? Product : Catalog;
++            return this.currentProductId !== null ? ProductShow : Catalog;
 +        },
      },
      async created() {

@@ -14,3 +14,7 @@ index ad5a96e99..a125ab8c7 100644
              </div>
              <div class="col-9">
                  <search-bar @search-products="onSearchProducts" />
+diff --git a/tutorial/cart-service.js b/tutorial/cart.js
+similarity index 100%
+rename from tutorial/cart-service.js
+rename to tutorial/cart.js

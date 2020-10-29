@@ -1,18 +1,18 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index 3ffd3f789..9e6e8bbcd 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -93,6 +93,7 @@ export default {
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index dba286046..04ca89058 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -86,6 +86,7 @@ export default {
      },
      data() {
          return {
 +            cart: null,
-             product: {
-                 name: '', image: '', price: 0, colors: [],
-             },
-@@ -125,6 +126,13 @@ export default {
- 
-         this.product = response.data;
+             product: null,
+             loading: true,
+         };
+@@ -106,6 +107,13 @@ export default {
+             this.loading = false;
+         }
      },
 +    async mounted() {
 +        try {
@@ -21,6 +21,6 @@ index 3ffd3f789..9e6e8bbcd 100644
 +            // do nothing
 +        }
 +    },
-     methods: {
-         addToCart() {
-             // TODO
+ };
+ </script>
+ 

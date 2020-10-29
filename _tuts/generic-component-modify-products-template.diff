@@ -1,17 +1,17 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index dd9d84ad7..b5e400ff2 100644
+index e3e02195d..97df2fa4b 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
-@@ -11,9 +11,10 @@
+@@ -11,10 +11,8 @@
              </aside>
  
              <div :class="contentClass">
+-                Product: {{ currentProductId }}
+-                <product-show />
+-
 -                <catalog
--                    :current-category-id="currentCategoryId"
 +                <component
 +                    :is="currentComponent"
+                     :current-category-id="currentCategoryId"
                      :categories="categories"
-+                    :current-category-id="currentCategoryId"
                  />
-             </div>
-         </div>

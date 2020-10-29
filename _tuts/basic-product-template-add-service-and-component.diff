@@ -1,9 +1,9 @@
 diff --git a/assets/components/color-selector.vue b/assets/components/color-selector.vue
 new file mode 100644
-index 000000000..505e3f6d1
+index 000000000..98e57dcd3
 --- /dev/null
 +++ b/assets/components/color-selector.vue
-@@ -0,0 +1,65 @@
+@@ -0,0 +1,57 @@
 +<template>
 +    <div :class="$style.component">
 +        <span
@@ -29,15 +29,7 @@ index 000000000..505e3f6d1
 +        };
 +    },
 +    async created() {
-+        let response;
-+
-+        try {
-+            response = await getColors();
-+        } catch (e) {
-+            return;
-+        }
-+
-+        this.colors = response.data['hydra:member'];
++        this.colors = (await getColors()).data['hydra:member'];
 +    },
 +    methods: {
 +        selectColor(iri) {

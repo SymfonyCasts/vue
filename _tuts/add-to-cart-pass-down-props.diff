@@ -1,10 +1,10 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index 00688d41f..1d8186a59 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -91,6 +91,10 @@ export default {
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index ff6fa1097..a8881baf2 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -84,6 +84,10 @@ export default {
              type: String,
-             default: null,
+             required: true,
          },
 +        cart: {
 +            type: Object,
@@ -14,14 +14,14 @@ index 00688d41f..1d8186a59 100644
      data() {
          return {
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 6ad70b20c..1dcc90b02 100644
+index efed492eb..0493b3aee 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
-@@ -60,6 +60,7 @@ export default {
-             return this.currentProductId !== null
-                 ? {
-                     currentProductId: this.currentProductId,
-+                    cart: this.cart,
-                 }
-                 : {
-                     currentCategoryId: this.currentCategoryId,
+@@ -59,6 +59,7 @@ export default {
+         currentProps() {
+             return this.currentComponent === ProductShow ? {
+                 productId: this.currentProductId,
++                cart: this.cart,
+             } : {
+                 currentCategoryId: this.currentCategoryId,
+                 categories: this.categories,

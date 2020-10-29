@@ -1,16 +1,13 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index d0fef963a..c7e2b6579 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -1,10 +1,8 @@
- <template>
-     <div class="row">
-         <div class="col-12">
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index 527edc5d2..1784d21e2 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -3,7 +3,7 @@
+         <loading v-if="loading" />
+ 
+         <div v-if="product">
 -            <title-component />
 +            <title-component :text="product.name" />
          </div>
--
--        I'd <3 to see a Product here!
      </div>
  </template>
- 

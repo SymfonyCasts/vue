@@ -11,9 +11,21 @@ similarity index 100%
 rename from assets/js/components/legend.vue
 rename to assets/components/legend.vue
 diff --git a/assets/js/components/loading.vue b/assets/components/loading.vue
-similarity index 100%
+similarity index 76%
 rename from assets/js/components/loading.vue
 rename to assets/components/loading.vue
+index 601dc6650..2410aeb9a 100644
+--- a/assets/js/components/loading.vue
++++ b/assets/components/loading.vue
+@@ -12,7 +12,7 @@ export default {
+ 
+ <style lang="scss" module>
+ .component {
+-    background: url('../../images/loading.gif') no-repeat left center;
++    background: url('../images/loading.gif') no-repeat left center;
+     padding: 0 0 4px 50px;
+ }
+ </style>
 diff --git a/assets/js/components/product-list/index.vue b/assets/components/product-list/index.vue
 similarity index 100%
 rename from assets/js/components/product-list/index.vue
@@ -99,7 +111,7 @@ similarity index 100%
 rename from assets/scss/variables/colors.scss
 rename to assets/styles/variables/colors.scss
 diff --git a/webpack.config.js b/webpack.config.js
-index 5b7629b13..019198c20 100644
+index 5b7629b13..eac2f3aa2 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
 @@ -24,8 +24,8 @@ Encore
@@ -113,3 +125,14 @@ index 5b7629b13..019198c20 100644
      //.addEntry('page1', './assets/js/page1.js')
      //.addEntry('page2', './assets/js/page2.js')
  
+@@ -38,8 +38,8 @@ Encore
+ 
+     // This is our alias to the root vue components dir
+     .addAliases({
+-        '@': path.resolve(__dirname, 'assets', 'js'),
+-        styles: path.resolve(__dirname, 'assets', 'scss'),
++        '@': path.resolve(__dirname, 'assets'),
++        styles: path.resolve(__dirname, 'assets', 'styles'),
+     })
+ 
+     /*

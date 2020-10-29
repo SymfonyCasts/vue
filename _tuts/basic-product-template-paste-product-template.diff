@@ -1,26 +1,18 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index 794944d22..6b7abb6a6 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -1,7 +1,69 @@
- <template>
--    <div class="row">
--        <div class="col-12">
--            <title-component :text="product.name" />
-+    <div class="p-3">
-+        <title-component :text="product.name" />
-+    </div>
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index 1784d21e2..ff264de12 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -5,6 +5,61 @@
+         <div v-if="product">
+             <title-component :text="product.name" />
+         </div>
 +
-+    <div
-+        :class="$style.product"
-+    >
-+        <div class="p-3">
-+            <loading v-show="loading" />
-+        </div>
-+
-+        <div class="row">
++        <div
++            v-if="product"
++            :class="$style.product"
++            class="row"
++        >
 +            <div
-+                v-show="!loading"
 +                class="col-8"
 +            >
 +                <img
@@ -40,7 +32,6 @@ index 794944d22..6b7abb6a6 100644
 +            </div>
 +
 +            <div
-+                v-show="!loading"
 +                class="col-4"
 +            >
 +                <div class="p-3 row">
@@ -52,12 +43,10 @@ index 794944d22..6b7abb6a6 100644
 +                <div class="p-3 row align-items-center">
 +                    <color-selector
 +                        v-show="product.colors.length !== 0"
-+                        @color-selected="updateSelectedColor"
 +                    />
 +
 +                    <div class="col-3">
 +                        <input
-+                            v-model.number="qty"
 +                            class="form-control"
 +                            type="number"
 +                            min="1"
@@ -66,25 +55,16 @@ index 794944d22..6b7abb6a6 100644
 +
 +                    <button
 +                        class="btn btn-info btn-sm"
-+                        @click="addToCart"
 +                    >
 +                        Add to Cart
 +                    </button>
 +                </div>
 +            </div>
-         </div>
++        </div>
      </div>
  </template>
-@@ -23,7 +85,7 @@ export default {
-     },
-     data() {
-         return {
--            product: { name: '' },
-+            product: { name: '', image: '', price: 0 },
-             loading: true,
-         };
-     },
-@@ -44,3 +106,11 @@ export default {
+ 
+@@ -40,3 +95,11 @@ export default {
      },
  };
  </script>

@@ -1,27 +1,27 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index a7b92fbec..00688d41f 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -72,7 +72,7 @@
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index 60316416b..ff6fa1097 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -65,7 +65,7 @@
  </template>
  
  <script>
 -import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-service.js';
 +import { addItemToCart } from '@/services/cart-service.js';
  import formatPrice from '@/helpers/format-price';
- import { getProduct } from '@/services/products-service';
+ import { fetchOneProduct } from '@/services/products-service';
  import ColorSelector from '@/components/color-selector';
-@@ -94,7 +94,6 @@ export default {
+@@ -87,7 +87,6 @@ export default {
      },
      data() {
          return {
 -            cart: null,
-             product: {
-                 name: '', image: '', price: 0, colors: [],
-             },
-@@ -127,16 +126,6 @@ export default {
- 
-         this.product = response.data;
+             product: null,
+             loading: true,
+         };
+@@ -108,16 +107,6 @@ export default {
+             this.loading = false;
+         }
      },
 -    async mounted() {
 -        try {
@@ -37,10 +37,10 @@ index a7b92fbec..00688d41f 100644
          async addToCart() {
              if (this.product.colors.length && this.selectedColorId === null) {
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 391599f06..6ad70b20c 100644
+index 6d5b3cc13..efed492eb 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
-@@ -26,6 +26,7 @@ import Product from '@/components/product';
+@@ -26,6 +26,7 @@ import ProductShow from '@/components/product-show';
  import Sidebar from '@/components/sidebar';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';
@@ -56,7 +56,7 @@ index 391599f06..6ad70b20c 100644
              sidebarCollapsed: false,
              categories: [],
              currentCategoryId: getCurrentCategoryId(),
-@@ -70,6 +72,16 @@ export default {
+@@ -68,6 +70,16 @@ export default {
  
          this.categories = response.data['hydra:member'];
      },

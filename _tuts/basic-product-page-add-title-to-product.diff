@@ -1,29 +1,27 @@
-diff --git a/assets/components/product.vue b/assets/components/product.vue
-index ea66bd430..d0fef963a 100644
---- a/assets/components/product.vue
-+++ b/assets/components/product.vue
-@@ -1,15 +1,22 @@
- <template>
--    <div>
--        <h1>{{ product.name }}</h1>
-+    <div class="row">
-+        <div class="col-12">
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index 55b7ad601..527edc5d2 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -3,7 +3,7 @@
+         <loading v-if="loading" />
+ 
+         <div v-if="product">
+-            <h1>{{ product.name }}</h1>
 +            <title-component />
-+        </div>
-+
-         I'd <3 to see a Product here!
+         </div>
      </div>
  </template>
- 
+@@ -11,11 +11,13 @@
  <script>
- import { getProduct } from '@/services/products-service';
+ import { fetchOneProduct } from '@/services/products-service';
+ import Loading from '@/components/loading';
 +import TitleComponent from '@/components/title';
  
  export default {
-     name: 'Product',
-+    components: {
+     name: 'ProductShow',
+     components: {
+         Loading,
 +        TitleComponent,
-+    },
+     },
      props: {
-         currentProductId: {
-             type: String,
+         productId: {
