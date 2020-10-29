@@ -866,6 +866,21 @@
             "description": null
         },
         {
+            "id": "pre-part2-adding-font-awesome",
+            "name": "Pre-Part2: adding font awesome",
+            "description": null
+        },
+        {
+            "id": "pre-part2-adding-color-to-more-fixtures",
+            "name": "Pre-Part2: adding color to more fixtures",
+            "description": null
+        },
+        {
+            "id": "pre-part2-rendering-cart-number-from-server",
+            "name": "Pre-Part2: rendering cart number from server",
+            "description": null
+        },
+        {
             "id": "linking-products-add-a-tags",
             "name": "Linking Products: Add A tags",
             "description": null
@@ -1066,6 +1081,26 @@
             "description": null
         },
         {
+            "id": "add-to-cart-add-loading",
+            "name": "Add To Cart: add loading",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-add-check-on-success",
+            "name": "Add To Cart: add check on success",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-add-quantity",
+            "name": "Add To Cart: add quantity",
+            "description": null
+        },
+        {
+            "id": "add-to-cart-add-selected-color",
+            "name": "Add To Cart: add selected color",
+            "description": null
+        },
+        {
             "id": "add-to-cart-add-id-to-template",
             "name": "Add to Cart: Add id to template",
             "description": null
@@ -1076,13 +1111,28 @@
             "description": null
         },
         {
-            "id": "add-to-cart-move-mounted-to-products",
-            "name": "Add to Cart: Move mounted to Products",
+            "id": "delete-me-6",
+            "name": "delete me 6",
             "description": null
         },
         {
-            "id": "add-to-cart-pass-down-props",
-            "name": "Add to Cart: Pass down props",
+            "id": "delete-me-7",
+            "name": "delete me 7",
+            "description": null
+        },
+        {
+            "id": "delete-me-9",
+            "name": "delete me 9",
+            "description": null
+        },
+        {
+            "id": "delete-me-11",
+            "name": "delete me 11",
+            "description": null
+        },
+        {
+            "id": "delete-me-12",
+            "name": "delete me 12",
             "description": null
         },
         {
@@ -1117,12 +1167,37 @@
         },
         {
             "id": "mixins-create-mixin",
-            "name": "Mixins: Create mixin",
+            "name": "Mixins: create mixin",
+            "description": null
+        },
+        {
+            "id": "mixins-use-await",
+            "name": "Mixins: use await",
             "description": null
         },
         {
             "id": "mixins-add-mixin-to-products-vue",
             "name": "Mixins: Add mixin to Products.vue",
+            "description": null
+        },
+        {
+            "id": "mixins-copy-addtocart-to-mixin",
+            "name": "Mixins: copy addToCart to mixin",
+            "description": null
+        },
+        {
+            "id": "mixins-move-state-into-mixin",
+            "name": "Mixins: move state into mixin",
+            "description": null
+        },
+        {
+            "id": "mixins-adding-args-to-addtocart",
+            "name": "Mixins: adding args to addToCart",
+            "description": null
+        },
+        {
+            "id": "mixins-call-mixin-method",
+            "name": "Mixins: call mixin method",
             "description": null
         },
         {
@@ -1501,5 +1576,5 @@
             "description": null
         }
     ],
-    "sha": "966ef59703f44009b79a4292a532b48a92774bc9"
+    "sha": "46de7c4021e17c86a404aff6b1eeed900cc86aad"
 }

@@ -1,41 +1,46 @@
-diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 0493b3aee..750e76046 100644
---- a/assets/pages/products.vue
-+++ b/assets/pages/products.vue
-@@ -26,7 +26,7 @@ import ProductShow from '@/components/product-show';
- import Sidebar from '@/components/sidebar';
- import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
- import { fetchCategories } from '@/services/categories-service';
--import { getCart, getCartTotalItems } from '@/services/cart-service';
-+import shoppingCartMixin from '@/mixins/get-shopping-cart';
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index b31f09a4c..70502c08f 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -73,12 +73,13 @@
+ </template>
+ 
+ <script>
+-import { getCart, addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
++import { addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
+ import formatPrice from '@/helpers/format-price';
+ import { fetchOneProduct } from '@/services/products-service';
+ import ColorSelector from '@/components/color-selector';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
++import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  
  export default {
-     name: 'Products',
-@@ -35,9 +35,9 @@ export default {
-         ProductShow,
-         Sidebar,
+     name: 'ProductShow',
+@@ -87,6 +88,7 @@ export default {
+         Loading,
+         TitleComponent,
      },
-+    mixins: [shoppingCartMixin],
++    mixins: [ShoppingCartMixin],
+     props: {
+         productId: {
+             type: String,
+@@ -95,7 +97,6 @@ export default {
+     },
      data() {
          return {
 -            cart: null,
-             sidebarCollapsed: false,
-             categories: [],
-             currentCategoryId: getCurrentCategoryId(),
-@@ -71,16 +71,6 @@ export default {
- 
-         this.categories = response.data['hydra:member'];
+             quantity: 1,
+             selectedColorId: null,
+             addToCartLoading: false,
+@@ -114,10 +115,6 @@ export default {
+         },
      },
--    async mounted() {
--        try {
--            this.cart = await getCart();
--        } catch (e) {
--            return;
--        }
+     async created() {
+-        getCart().then((cart) => {
+-            this.cart = cart;
+-        });
 -
--        document.getElementById('js-shopping-cart-items')
--            .innerHTML = getCartTotalItems(this.cart).toString();
--    },
-     methods: {
-         toggleSidebarCollapsed() {
-             this.sidebarCollapsed = !this.sidebarCollapsed;
+         try {
+             this.product = (await fetchOneProduct(this.productId)).data;
+         } finally {

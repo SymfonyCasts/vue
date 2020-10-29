@@ -1,0 +1,26 @@
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index 3931b7674..791943ae9 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -98,8 +98,6 @@ export default {
+         return {
+             quantity: 1,
+             selectedColorId: null,
+-            addToCartLoading: false,
+-            addToCartSuccess: false,
+             product: null,
+             loading: true,
+         };
+diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
+index 26169ccde..551dfb41a 100644
+--- a/assets/mixins/get-shopping-cart.js
++++ b/assets/mixins/get-shopping-cart.js
+@@ -4,6 +4,8 @@ export default {
+     data() {
+         return {
+             cart: null,
++            addToCartLoading: false,
++            addToCartSuccess: false,
+         };
+     },
+     async created() {

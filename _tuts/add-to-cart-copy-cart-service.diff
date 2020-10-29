@@ -1,9 +1,9 @@
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
 new file mode 100644
-index 000000000..d10716ee0
+index 000000000..c98f3d694
 --- /dev/null
 +++ b/assets/services/cart-service.js
-@@ -0,0 +1,138 @@
+@@ -0,0 +1,141 @@
 +import axios from 'axios';
 +
 +/**
@@ -43,7 +43,7 @@ index 000000000..d10716ee0
 +/**
 + * Gets the current cart or an empty object if no cart is present
 + *
-+ * @return {CartCollection}
++ * @return {Promise<CartCollection>}
 + */
 +export async function getCart() {
 +    const cartId = getCartId();
@@ -67,7 +67,7 @@ index 000000000..d10716ee0
 + * @param {CartItem} item
 + * @return {Promise}
 + */
-+export function addItemToCart(cart, item) {
++export async function addItemToCart(cart, item) {
 +    const cartId = getCartId();
 +    const itemIndex = findItemIndex(cart, item.product, item.color);
 +
@@ -77,11 +77,14 @@ index 000000000..d10716ee0
 +        cart.items.push(item);
 +    }
 +
++    let response = null;
 +    if (cartId !== null) {
-+        return axios.put(`/api/carts/${cartId}`, cart);
++        response = await axios.put(`/api/carts/${cartId}`, cart);
++    } else {
++        response = await axios.post('/api/carts', cart);
 +    }
 +
-+    return axios.post('/api/carts', cart);
++    return { items: response.data.items };
 +}
 +
 +/**

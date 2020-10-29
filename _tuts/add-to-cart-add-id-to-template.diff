@@ -1,13 +1,13 @@
 diff --git a/templates/base.html.twig b/templates/base.html.twig
-index 2b29dd7c3..a9790d780 100644
+index 2936a4ea4..a5afd323f 100644
 --- a/templates/base.html.twig
 +++ b/templates/base.html.twig
 @@ -41,7 +41,7 @@
                      {% endif %}
                      <li class="nav-item">
                          <a class="nav-link" href="#">
--                            Shopping Cart (<span>0</span>)
-+                            Shopping Cart (<span id="js-shopping-cart-items">0</span>)
+-                            Shopping Cart (<span>{{ count_cart_items() }}</span>)
++                            Shopping Cart (<span id="js-shopping-cart-items">{{ count_cart_items() }}</span>)
                          </a>
                      </li>
                  </ul>

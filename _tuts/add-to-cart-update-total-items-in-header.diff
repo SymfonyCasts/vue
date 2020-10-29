@@ -1,26 +1,23 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index c482205a0..60316416b 100644
+index 8fa298075..b31f09a4c 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -65,7 +65,7 @@
+@@ -73,7 +73,7 @@
  </template>
  
  <script>
--import { addItemToCart, getCart } from '@/services/cart-service.js';
-+import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-service.js';
+-import { getCart, addItemToCart } from '@/services/cart-service.js';
++import { getCart, addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
  import formatPrice from '@/helpers/format-price';
  import { fetchOneProduct } from '@/services/products-service';
  import ColorSelector from '@/components/color-selector';
-@@ -112,8 +112,11 @@ export default {
-         try {
-             this.cart = await getCart();
-         } catch (e) {
--            // do nothing
-+            return;
-         }
+@@ -140,6 +140,9 @@ export default {
+             });
+             this.addToCartLoading = false;
+             this.addToCartSuccess = true;
 +
-+        document.getElementById('js-shopping-cart-items')
-+            .innerHTML = getCartTotalItems(this.cart).toString();
-     },
-     methods: {
-         async addToCart() {
++            document.getElementById('js-shopping-cart-items')
++                .innerHTML = getCartTotalItems(this.cart).toString();
+         },
+ 
+         updateSelectedColor(iri) {

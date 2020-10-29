@@ -1,0 +1,28 @@
+diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
+index 551dfb41a..57680ab78 100644
+--- a/assets/mixins/get-shopping-cart.js
++++ b/assets/mixins/get-shopping-cart.js
+@@ -12,8 +12,8 @@ export default {
+         this.cart = await getCart();
+     },
+     methods: {
+-        async addToCart() {
+-            if (this.product.colors.length && this.selectedColorId === null) {
++        async addToCart(product, selectedColorId, quantity) {
++            if (product.colors.length && selectedColorId === null) {
+                 alert('Please select a color first!');
+                 return;
+             }
+@@ -21,9 +21,9 @@ export default {
+             this.addToCartLoading = true;
+             this.addToCartSuccess = false;
+             this.cart = await addItemToCart(this.cart, {
+-                product: this.product['@id'],
+-                color: this.selectedColorId,
+-                quantity: this.quantity,
++                product: product['@id'],
++                color: selectedColorId,
++                quantity,
+             });
+             this.addToCartLoading = false;
+             this.addToCartSuccess = true;

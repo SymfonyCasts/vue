@@ -1,0 +1,37 @@
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index a91ed5a08..0923583e8 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -58,6 +58,9 @@
+                             <i
+                                 class="fas fa-spinner fa-spin"
+                                 v-show="addToCartLoading" />
++                            <i
++                                class="fas fa-check"
++                                v-show="addToCartSuccess" />
+                         </button>
+                     </div>
+                 </div>
+@@ -91,6 +94,7 @@ export default {
+         return {
+             cart: null,
+             addToCartLoading: false,
++            addToCartSuccess: false,
+             product: null,
+             loading: true,
+         };
+@@ -118,12 +122,14 @@ export default {
+     methods: {
+         async addToCart() {
+             this.addToCartLoading = true;
++            this.addToCartSuccess = false;
+             this.cart = await addItemToCart(this.cart, {
+                 product: this.product['@id'],
+                 color: null,
+                 quantity: 1,
+             });
+             this.addToCartLoading = false;
++            this.addToCartSuccess = true;
+         },
+     },
+ };

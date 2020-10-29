@@ -1,25 +1,35 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index d0e8e7e19..c482205a0 100644
+index 402323dec..57acd49d5 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -115,6 +115,22 @@ export default {
-             // do nothing
+@@ -52,6 +52,7 @@
+                         <button
+                             class="btn btn-info btn-sm"
+                             :disabled="cart === null"
++                            @click="addToCart"
+                         >
+                             Add to Cart
+                         </button>
+@@ -63,7 +64,7 @@
+ </template>
+ 
+ <script>
+-import { getCart } from '@/services/cart-service.js';
++import { getCart, addItemToCart } from '@/services/cart-service.js';
+ import formatPrice from '@/helpers/format-price';
+ import { fetchOneProduct } from '@/services/products-service';
+ import ColorSelector from '@/components/color-selector';
+@@ -110,6 +111,15 @@ export default {
+             this.loading = false;
          }
      },
 +    methods: {
 +        async addToCart() {
-+            if (this.product.colors.length && this.selectedColorId === null) {
-+                alert('Please, select a product color first!');
-+                return;
-+            }
-+
-+            await addItemToCart(this.cart, {
++            this.cart = await addItemToCart(this.cart, {
 +                product: this.product['@id'],
-+                color: this.selectedColorId,
-+                quantity: this.qty,
++                color: null,
++                quantity: 1,
 +            });
-+
-+            window.location = '/';
 +        },
 +    },
  };

@@ -1,0 +1,67 @@
+diff --git a/src/Twig/CartExtension.php b/src/Twig/CartExtension.php
+new file mode 100644
+index 000000000..b3daa1a16
+--- /dev/null
++++ b/src/Twig/CartExtension.php
+@@ -0,0 +1,48 @@
++<?php
++
++namespace App\Twig;
++
++use App\ApiPlatform\CartDataPersister;
++use App\Entity\Cart;
++use App\Entity\CartItem;
++use Symfony\Component\HttpFoundation\Session\SessionInterface;
++use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
++use Twig\Extension\AbstractExtension;
++use Twig\TwigFunction;
++
++class CartExtension extends AbstractExtension
++{
++    private $session;
++
++    public function __construct(SessionInterface $session)
++    {
++        $this->session = $session;
++    }
++
++    public function getFunctions()
++    {
++        return [
++            new TwigFunction('count_cart_items', [$this, 'countCartItems']),
++        ];
++    }
++
++    public function countCartItems(): int
++    {
++        $cartId = $this->session->get('_cart_id');
++        if (!$cartId) {
++            return 0;
++        }
++
++        $key = CartDataPersister::getKey($cartId);
++        if (!$this->session->has($key)) {
++            return 0;
++        }
++
++        /** @var Cart $cart */
++        $cart = $this->session->get($key);
++
++        return array_reduce($cart->getItems(), function($accumulator, CartItem $item) {
++            return $accumulator + $item->getQuantity();
++        }, 0);
++    }
++}
+diff --git a/templates/base.html.twig b/templates/base.html.twig
+index 2b29dd7c3..2936a4ea4 100644
+--- a/templates/base.html.twig
++++ b/templates/base.html.twig
+@@ -41,7 +41,7 @@
+                     {% endif %}
+                     <li class="nav-item">
+                         <a class="nav-link" href="#">
+-                            Shopping Cart (<span>0</span>)
++                            Shopping Cart (<span>{{ count_cart_items() }}</span>)
+                         </a>
+                     </li>
+                 </ul>

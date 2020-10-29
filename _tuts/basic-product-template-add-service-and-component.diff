@@ -1,9 +1,9 @@
 diff --git a/assets/components/color-selector.vue b/assets/components/color-selector.vue
 new file mode 100644
-index 000000000..98e57dcd3
+index 000000000..5ca77de1b
 --- /dev/null
 +++ b/assets/components/color-selector.vue
-@@ -0,0 +1,57 @@
+@@ -0,0 +1,55 @@
 +<template>
 +    <div :class="$style.component">
 +        <span
@@ -42,8 +42,6 @@ index 000000000..98e57dcd3
 +
 +<style lang="scss" module>
 +.component :global {
-+    display: inline-block;
-+    width: 105px;
 +    height: 25px;
 +
 +    span {

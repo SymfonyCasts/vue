@@ -1,0 +1,28 @@
+diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
+index 791943ae9..8734adb6c 100644
+--- a/assets/components/product-show.vue
++++ b/assets/components/product-show.vue
+@@ -119,6 +119,10 @@ export default {
+         }
+     },
+     methods: {
++        addToCart() {
++            this.addProductToCart(this.product, this.selectedColorId, this.quantity);
++        },
++
+         updateSelectedColor(iri) {
+             this.selectedColorId = iri;
+         },
+diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
+index 57680ab78..a22a90b0b 100644
+--- a/assets/mixins/get-shopping-cart.js
++++ b/assets/mixins/get-shopping-cart.js
+@@ -12,7 +12,7 @@ export default {
+         this.cart = await getCart();
+     },
+     methods: {
+-        async addToCart(product, selectedColorId, quantity) {
++        async addProductToCart(product, selectedColorId, quantity) {
+             if (product.colors.length && selectedColorId === null) {
+                 alert('Please select a color first!');
+                 return;

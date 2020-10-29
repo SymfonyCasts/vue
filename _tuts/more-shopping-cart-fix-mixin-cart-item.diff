@@ -1,8 +1,8 @@
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index 1138565ea..b8b7a81e8 100644
+index a22a90b0b..e2ea56388 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
-@@ -3,7 +3,9 @@ import { getCart, getCartTotalItems } from '@/services/cart-service';
+@@ -3,7 +3,9 @@ import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-servi
  export default {
      data() {
          return {
@@ -10,9 +10,9 @@ index 1138565ea..b8b7a81e8 100644
 +            cart: {
 +                items: [],
 +            },
+             addToCartLoading: false,
+             addToCartSuccess: false,
          };
-     },
-     async mounted() {
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
 index 654c5a02c..19058bb0b 100644
 --- a/assets/pages/shopping-cart.vue

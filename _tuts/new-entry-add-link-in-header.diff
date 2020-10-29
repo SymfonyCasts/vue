@@ -1,5 +1,5 @@
 diff --git a/templates/base.html.twig b/templates/base.html.twig
-index a9790d780..8f437c534 100644
+index a5afd323f..b9a96333f 100644
 --- a/templates/base.html.twig
 +++ b/templates/base.html.twig
 @@ -40,7 +40,7 @@
@@ -8,6 +8,6 @@ index a9790d780..8f437c534 100644
                      <li class="nav-item">
 -                        <a class="nav-link" href="#">
 +                        <a class="nav-link" href="{{ path('app_cart') }}">
-                             Shopping Cart (<span id="js-shopping-cart-items">0</span>)
+                             Shopping Cart (<span id="js-shopping-cart-items">{{ count_cart_items() }}</span>)
                          </a>
                      </li>
