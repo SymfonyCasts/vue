@@ -556,6 +556,49 @@ index 204a128d4..783aa6f49 100644
 -}
 \ No newline at end of file
 +}
+diff --git a/src/Twig/SerializerExtension.php b/src/Twig/SerializerExtension.php
+index 97f810b7f..792047082 100644
+--- a/src/Twig/SerializerExtension.php
++++ b/src/Twig/SerializerExtension.php
+@@ -2,6 +2,7 @@
+ 
+ namespace App\Twig;
+ 
++use ApiPlatform\Core\Api\IriConverterInterface;
+ use Twig\Extension\AbstractExtension;
+ use Twig\TwigFilter;
+ use Symfony\Component\Serializer\SerializerInterface;
+@@ -9,16 +10,19 @@ use Symfony\Component\Serializer\SerializerInterface;
+ class SerializerExtension extends AbstractExtension
+ {
+     private $serializer;
++    private $iriConverter;
+ 
+-    public function __construct(SerializerInterface $serializer)
++    public function __construct(SerializerInterface $serializer, IriConverterInterface $iriConverter)
+     {
+         $this->serializer = $serializer;
++        $this->iriConverter = $iriConverter;
+     }
+ 
+     public function getFilters(): array
+     {
+         return [
+             new TwigFilter('jsonld', [$this, 'serializeToJsonLd'], ['is_safe' => ['html']]),
++            new TwigFilter('iri', [$this, 'convertToIri'], ['is_safe' => ['html']]),
+         ];
+     }
+ 
+@@ -26,4 +30,9 @@ class SerializerExtension extends AbstractExtension
+     {
+         return $this->serializer->serialize($data, 'jsonld');
+     }
++
++    public function convertToIri(object $item): string
++    {
++        return $this->iriConverter->getIriFromItem($item);
++    }
+ }
 diff --git a/symfony.lock b/symfony.lock
 index 0bab824ac..7079f6e8f 100644
 --- a/symfony.lock
@@ -584,7 +627,7 @@ index 0bab824ac..7079f6e8f 100644
          "version": "5.2",
          "recipe": {
 diff --git a/templates/base.html.twig b/templates/base.html.twig
-index 53b0297d7..2b29dd7c3 100644
+index 53b0297d7..102b46d18 100644
 --- a/templates/base.html.twig
 +++ b/templates/base.html.twig
 @@ -58,6 +58,13 @@
@@ -593,9 +636,9 @@ index 53b0297d7..2b29dd7c3 100644
          {% block javascripts %}
 +            <script>
 +                {% if app.session.has('_cart_id') %}
-+                    window.cartId = '{{ app.session.get('_cart_id') }}';
++                    window.cartIri = '{{ app.session.get('_cart_'~app.session.get('_cart_id'))|iri }}';
 +                {% else %}
-+                    window.cartId = null;
++                    window.cartIri = null;
 +                {% endif %}
 +            </script>
              {{ encore_entry_script_tags('app') }}

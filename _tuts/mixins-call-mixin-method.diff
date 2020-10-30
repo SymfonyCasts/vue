@@ -14,7 +14,7 @@ index 791943ae9..8734adb6c 100644
              this.selectedColorId = iri;
          },
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index 57680ab78..a22a90b0b 100644
+index 4e7a44b25..65bb57f5e 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -12,7 +12,7 @@ export default {

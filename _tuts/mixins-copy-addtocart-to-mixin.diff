@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 70502c08f..3931b7674 100644
+index 62b4b7038..3931b7674 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
 @@ -73,7 +73,6 @@
@@ -22,7 +22,7 @@ index 70502c08f..3931b7674 100644
 -
 -            this.addToCartLoading = true;
 -            this.addToCartSuccess = false;
--            this.cart = await addItemToCart(this.cart, {
+-            await addItemToCart(this.cart, {
 -                product: this.product['@id'],
 -                color: this.selectedColorId,
 -                quantity: this.quantity,
@@ -38,7 +38,7 @@ index 70502c08f..3931b7674 100644
              this.selectedColorId = iri;
          },
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index ff5f75c9c..26169ccde 100644
+index ff5f75c9c..0eedcf2b3 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -1,4 +1,4 @@
@@ -60,7 +60,7 @@ index ff5f75c9c..26169ccde 100644
 +
 +            this.addToCartLoading = true;
 +            this.addToCartSuccess = false;
-+            this.cart = await addItemToCart(this.cart, {
++            await addItemToCart(this.cart, {
 +                product: this.product['@id'],
 +                color: this.selectedColorId,
 +                quantity: this.quantity,

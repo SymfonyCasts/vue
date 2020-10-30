@@ -1,5 +1,5 @@
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index e2ea56388..d295a4890 100644
+index 93406f27a..9c0a9c61a 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -3,6 +3,7 @@ import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-servi

@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index c5ef8d15c..8fa298075 100644
+index fb8b7873f..99df2780e 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
 @@ -37,7 +37,9 @@
@@ -32,7 +32,7 @@ index c5ef8d15c..8fa298075 100644
 +
              this.addToCartLoading = true;
              this.addToCartSuccess = false;
-             this.cart = await addItemToCart(this.cart, {
+             await addItemToCart(this.cart, {
                  product: this.product['@id'],
 -                color: null,
 +                color: this.selectedColorId,

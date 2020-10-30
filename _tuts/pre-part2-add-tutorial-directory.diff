@@ -1,9 +1,9 @@
 diff --git a/tutorial/cart-service.js b/tutorial/cart-service.js
 new file mode 100644
-index 000000000..c98f3d694
+index 000000000..03fd8884e
 --- /dev/null
 +++ b/tutorial/cart-service.js
-@@ -0,0 +1,141 @@
+@@ -0,0 +1,143 @@
 +import axios from 'axios';
 +
 +/**
@@ -23,8 +23,12 @@ index 000000000..c98f3d694
 + *
 + * @return {string|null}
 + */
-+function getCartId() {
-+    return window.cartId;
++function getCartIri() {
++    return window.cartIri;
++}
++
++function setCartIri(cartIri) {
++    window.cartIri = cartIri;
 +}
 +
 +/**
@@ -46,9 +50,9 @@ index 000000000..c98f3d694
 + * @return {Promise<CartCollection>}
 + */
 +export async function getCart() {
-+    const cartId = getCartId();
++    const cartIri = getCartIri();
 +
-+    if (cartId === null) {
++    if (cartIri === null) {
 +        return new Promise((resolve) => {
 +            resolve({
 +                items: [],
@@ -56,7 +60,7 @@ index 000000000..c98f3d694
 +        });
 +    }
 +
-+    const response = await axios.get(`/api/carts/${cartId}`);
++    const response = await axios.get(cartIri);
 +    return { items: response.data.items };
 +}
 +
@@ -68,7 +72,7 @@ index 000000000..c98f3d694
 + * @return {Promise}
 + */
 +export async function addItemToCart(cart, item) {
-+    const cartId = getCartId();
++    const cartIri = getCartIri();
 +    const itemIndex = findItemIndex(cart, item.product, item.color);
 +
 +    if (itemIndex !== -1) {
@@ -78,10 +82,11 @@ index 000000000..c98f3d694
 +    }
 +
 +    let response = null;
-+    if (cartId !== null) {
-+        response = await axios.put(`/api/carts/${cartId}`, cart);
++    if (cartIri !== null) {
++        response = await axios.put(cartIri, cart);
 +    } else {
 +        response = await axios.post('/api/carts', cart);
++        setCartIri(response.data['@id']);
 +    }
 +
 +    return { items: response.data.items };
@@ -96,13 +101,11 @@ index 000000000..c98f3d694
 + * @return {Promise}
 + */
 +export function removeItemFromCart(cart, productId, colorId) {
-+    const cartId = getCartId();
-+
 +    cart.items = cart.items.filter(
 +        (item) => (!(item.product === productId && item.color === colorId)),
 +    );
 +
-+    return axios.put(`/api/carts/${cartId}`, cart);
++    return axios.put(getCartIri(), cart);
 +}
 +
 +/**
@@ -115,7 +118,6 @@ index 000000000..c98f3d694
 + * @return {Promise}
 + */
 +export function updateCartItemQuantity(cart, productId, colorId, quantity) {
-+    const cartId = getCartId();
 +    const cartItemIndex = findItemIndex(cart, productId, colorId);
 +
 +    if (cartItemIndex === -1) {
@@ -124,7 +126,7 @@ index 000000000..c98f3d694
 +
 +    cart.items[cartItemIndex].quantity = quantity;
 +
-+    return axios.put(`/api/carts/${cartId}`, cart);
++    return axios.put(getCartIri(), cart);
 +}
 +
 +/**
@@ -133,7 +135,7 @@ index 000000000..c98f3d694
 + * @return {Promise}
 + */
 +export function clearCart() {
-+    return axios.delete(`/api/carts/${getCartId()}`);
++    return axios.delete(getCartIri());
 +}
 +
 +/**
@@ -147,10 +149,10 @@ index 000000000..c98f3d694
 +}
 diff --git a/tutorial/color-selector.vue b/tutorial/color-selector.vue
 new file mode 100644
-index 000000000..505e3f6d1
+index 000000000..5ca77de1b
 --- /dev/null
 +++ b/tutorial/color-selector.vue
-@@ -0,0 +1,65 @@
+@@ -0,0 +1,55 @@
 +<template>
 +    <div :class="$style.component">
 +        <span
@@ -176,15 +178,7 @@ index 000000000..505e3f6d1
 +        };
 +    },
 +    async created() {
-+        let response;
-+
-+        try {
-+            response = await getColors();
-+        } catch (e) {
-+            return;
-+        }
-+
-+        this.colors = response.data['hydra:member'];
++        this.colors = (await getColors()).data['hydra:member'];
 +    },
 +    methods: {
 +        selectColor(iri) {
@@ -197,8 +191,6 @@ index 000000000..505e3f6d1
 +
 +<style lang="scss" module>
 +.component :global {
-+    display: inline-block;
-+    width: 105px;
 +    height: 25px;
 +
 +    span {

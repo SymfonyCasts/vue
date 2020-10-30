@@ -46,7 +46,7 @@ index 46f77ba4f..129b4bb02 100644
          },
      },
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index c98f3d694..3aaea10b8 100644
+index 03fd8884e..4da7020ce 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
 @@ -1,4 +1,6 @@
@@ -56,7 +56,7 @@ index c98f3d694..3aaea10b8 100644
  
  /**
   * @typedef {Object} CartCollection
-@@ -139,3 +141,41 @@ export function clearCart() {
+@@ -141,3 +143,41 @@ export function clearCart() {
  export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }

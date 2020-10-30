@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 57acd49d5..a91ed5a08 100644
+index ed0606a08..e2ea9e774 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
 @@ -55,6 +55,9 @@
@@ -20,12 +20,15 @@ index 57acd49d5..a91ed5a08 100644
              product: null,
              loading: true,
          };
-@@ -113,11 +117,13 @@ export default {
+@@ -112,12 +116,14 @@ export default {
+         }
      },
      methods: {
-         async addToCart() {
+-        addToCart() {
+-            addItemToCart(this.cart, {
++        async addToCart() {
 +            this.addToCartLoading = true;
-             this.cart = await addItemToCart(this.cart, {
++            await addItemToCart(this.cart, {
                  product: this.product['@id'],
                  color: null,
                  quantity: 1,

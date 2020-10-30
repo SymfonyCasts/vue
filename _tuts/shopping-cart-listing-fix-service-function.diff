@@ -1,8 +1,8 @@
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index 3aaea10b8..c3b886c83 100644
+index 4da7020ce..118f09492 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
-@@ -142,8 +142,14 @@ export function getCartTotalItems(cart) {
+@@ -144,8 +144,14 @@ export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
  
@@ -18,7 +18,7 @@ index 3aaea10b8..c3b886c83 100644
      let colorsResponse = null;
      let productsResponse = null;
  
-@@ -153,19 +159,20 @@ export async function getFullShoppingCart(cart) {
+@@ -155,19 +161,20 @@ export async function getFullShoppingCart(cart) {
              getProductsById(productIds),
          ]);
      } catch (e) {
@@ -44,7 +44,7 @@ index 3aaea10b8..c3b886c83 100644
              (item) => (item.product === product['@id']),
          );
  
-@@ -173,7 +180,7 @@ export async function getFullShoppingCart(cart) {
+@@ -175,7 +182,7 @@ export async function getFullShoppingCart(cart) {
              ...product,
              colorId: productInCart.color,
              hexColor: productInCart.color
