@@ -1,37 +1,37 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 85e113cdc..1bec5ac91 100644
+index 48d1dac6c..e1f7c0a2b 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -16,16 +16,18 @@
-                         <loading />
-                     </div>
+@@ -8,16 +8,18 @@
  
--                    <shopping-cart-list
--                        v-if="!loading && currentState === 'cart'"
--                        :items="items"
--                        @updateQuantity="updateQuantity"
--                        @removeFromCart="removeFromCart"
--                    />
+                 <loading v-show="loading" />
+ 
+-                <shopping-cart-list
+-                    v-if="!loading && currentState === 'cart'"
+-                    :items="items"
+-                    @updateQuantity="updateQuantity"
+-                    @removeFromCart="removeFromCart"
+-                />
 -
--                    <checkout-form
--                        v-else
--                    />
-+                    <transition name="fade">
-+                        <shopping-cart-list
-+                            v-if="!loading && currentState === 'cart'"
-+                            :items="items"
-+                            @updateQuantity="updateQuantity"
-+                            @removeFromCart="removeFromCart"
-+                        />
+-                <checkout-form
+-                    v-else
+-                />
++                <transition name="fade">
++                    <shopping-cart-list
++                        v-if="!loading && currentState === 'cart'"
++                        :items="items"
++                        @updateQuantity="updateQuantity"
++                        @removeFromCart="removeFromCart"
++                    />
 +
-+                        <checkout-form
-+                            v-else
-+                        />
-+                    </transition>
++                    <checkout-form
++                        v-else
++                    />
++                </transition>
  
-                     <div
-                         v-show="!loading && items.length"
-@@ -141,5 +143,13 @@ export default {
+                 <div
+                     v-show="!loading && items.length"
+@@ -132,5 +134,13 @@ export default {
      .content {
          @include light-component;
      }

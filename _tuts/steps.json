@@ -871,8 +871,8 @@
             "description": null
         },
         {
-            "id": "pre-part2-adding-color-to-more-fixtures",
-            "name": "Pre-Part2: adding color to more fixtures",
+            "id": "pre-part2-adding-cart-template",
+            "name": "Pre-Part2: Adding cart template",
             "description": null
         },
         {
@@ -1131,8 +1131,8 @@
             "description": null
         },
         {
-            "id": "delete-me-12",
-            "name": "delete me 12",
+            "id": "new-entry-add-link-to-cart",
+            "name": "New Entry: Add link to cart",
             "description": null
         },
         {
@@ -1161,8 +1161,8 @@
             "description": null
         },
         {
-            "id": "new-entry-add-link-in-header",
-            "name": "New Entry: Add link in header",
+            "id": "delete-me-14",
+            "name": "delete me 14",
             "description": null
         },
         {
@@ -1206,18 +1206,23 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-shopping-cart-template",
-            "name": "Shopping Cart Listing: Shopping Cart template",
+            "id": "delete-me-16",
+            "name": "delete me 16",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-add-loading-component",
-            "name": "Shopping Cart Listing: Add Loading Component",
+            "id": "delete-me-17",
+            "name": "delete me 17",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-add-cart-mixin",
-            "name": "Shopping Cart Listing: Add Cart mixin",
+            "id": "shopping-cart-listing-render-cart-items",
+            "name": "Shopping Cart Listing: render cart items",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-add-loading",
+            "name": "Shopping Cart Listing: add loading",
             "description": null
         },
         {
@@ -1576,5 +1581,5 @@
             "description": null
         }
     ],
-    "sha": "6e03e4bfb5f3b3a93b127bb7f343f7cd8a1fcfcf"
+    "sha": "9816453f66852dbf58721e0681be9d9a1e3f847a"
 }

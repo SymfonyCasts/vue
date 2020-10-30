@@ -1,14 +1,12 @@
-diff --git a/templates/cart/index.html.twig b/templates/cart/index.html.twig
-index a611f0bbf..7f031cd1e 100644
---- a/templates/cart/index.html.twig
-+++ b/templates/cart/index.html.twig
-@@ -6,28 +6,12 @@
- 
+diff --git a/templates/cart/cart.html.twig b/templates/cart/cart.html.twig
+index 47b78ad04..7f031cd1e 100644
+--- a/templates/cart/cart.html.twig
++++ b/templates/cart/cart.html.twig
+@@ -7,27 +7,11 @@
  {% block stylesheets %}
      {{ parent() }}
--    
+ 
 -    {{ encore_entry_link_tags('products') }}
-+
 +    {{ encore_entry_link_tags('shopping-cart') }}
  {% endblock %}
  

@@ -1,24 +1,24 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 7af72a7f2..5ac049893 100644
+index b73b4dbf3..e6cf78ce7 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -35,6 +35,7 @@
+@@ -25,6 +25,7 @@
  </template>
  
  <script>
 +import { getColors } from '@/services/colors-service';
  import { getProductsById } from '@/services/products-service';
- import Loading from '@/components/loading';
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
-@@ -49,6 +50,7 @@ export default {
-     mixins: [shoppingCartMixin],
+@@ -39,6 +40,7 @@ export default {
+     mixins: [ShoppingCartMixin],
      data() {
          return {
 +            colors: {},
              items: [],
              loading: false,
          };
-@@ -59,9 +61,11 @@ export default {
+@@ -49,9 +51,11 @@ export default {
              this.items = [];
  
              const productIds = this.cart.items.map((item) => item.product);
@@ -30,7 +30,7 @@ index 7af72a7f2..5ac049893 100644
                  productsResponse = await getProductsById(productIds);
              } catch (e) {
                  this.loading = false;
-@@ -69,6 +73,12 @@ export default {
+@@ -59,6 +63,12 @@ export default {
              }
  
              this.items = productsResponse.data['hydra:member'];

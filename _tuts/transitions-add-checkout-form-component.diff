@@ -1,34 +1,46 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 081ee2875..85e113cdc 100644
+index 8e59faeb9..48d1dac6c 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -17,12 +17,16 @@
-                     </div>
+@@ -4,23 +4,21 @@
+             <aside class="col-xs-12 col-lg-3" />
  
-                     <shopping-cart-list
--                        v-show="!loading"
-+                        v-if="!loading && currentState === 'cart'"
-                         :items="items"
-                         @updateQuantity="updateQuantity"
-                         @removeFromCart="removeFromCart"
-                     />
+             <div class="col-xs-12 col-lg-9">
+-<<<<<<< HEAD
+-                <div class="pb-3">
+-                    <title-component :text="pageTitle" />
+-                </div>
+-=======
+-                <title-component text="Shopping Cart" />
+->>>>>>> _tuts/master/transitions-implement-step-switch
++                <title-component :text="pageTitle" />
  
-+                    <checkout-form
-+                        v-else
-+                    />
+                 <loading v-show="loading" />
+ 
+                 <shopping-cart-list
+-                    v-show="!loading"
++                    v-if="!loading && currentState === 'cart'"
+                     :items="items"
+                     @updateQuantity="updateQuantity"
+                     @removeFromCart="removeFromCart"
+                 />
+ 
++                <checkout-form
++                    v-else
++                />
 +
-                     <div
-                         v-show="!loading && items.length"
-                         class="row p-3 justify-content-end"
-@@ -45,6 +49,7 @@
+                 <div
+                     v-show="!loading && items.length"
+                     class="row p-3 justify-content-end"
+@@ -42,6 +40,7 @@
  <script>
  import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
- import Loading from '@/components/loading';
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 +import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
- import shoppingCartMixin from '@/mixins/get-shopping-cart';
-@@ -52,6 +57,7 @@ import shoppingCartMixin from '@/mixins/get-shopping-cart';
+ import Loading from '@/components/loading';
+@@ -49,6 +48,7 @@ import Loading from '@/components/loading';
  export default {
      name: 'ShoppingCart',
      components: {

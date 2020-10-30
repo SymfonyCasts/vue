@@ -1,16 +1,20 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 360752738..42624c3d5 100644
+index 447b03e6b..e9ef10372 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -11,8 +11,11 @@
+@@ -15,6 +15,7 @@
  </template>
  
  <script>
-+import shoppingCartMixin from '@/mixins/get-shopping-cart';
-+
++import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+ import TitleComponent from '@/components/title';
+ 
  export default {
-     name: 'ShoppingCart',
-+    mixins: [shoppingCartMixin],
+@@ -22,6 +23,7 @@ export default {
+     components: {
+         TitleComponent,
+     },
++    mixins: [ShoppingCartMixin],
  };
  </script>
  

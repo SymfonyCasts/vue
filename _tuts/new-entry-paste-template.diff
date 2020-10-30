@@ -1,18 +1,18 @@
-diff --git a/templates/cart/index.html.twig b/templates/cart/index.html.twig
-new file mode 100644
-index 000000000..a611f0bbf
---- /dev/null
-+++ b/templates/cart/index.html.twig
-@@ -0,0 +1,33 @@
-+{% extends 'base.html.twig' %}
-+
-+{% block body %}
+diff --git a/templates/cart/cart.html.twig b/templates/cart/cart.html.twig
+index 261522de2..47b78ad04 100644
+--- a/templates/cart/cart.html.twig
++++ b/templates/cart/cart.html.twig
+@@ -1,5 +1,33 @@
+ {% extends 'base.html.twig' %}
+ 
+ {% block body %}
+-    <h1>TODO - put a cart here!</h1>
 +    <div id="app"></div>
 +{% endblock %}
 +
 +{% block stylesheets %}
 +    {{ parent() }}
-+    
++
 +    {{ encore_entry_link_tags('products') }}
 +{% endblock %}
 +
@@ -36,4 +36,4 @@ index 000000000..a611f0bbf
 +    </script>
 +
 +    {{ encore_entry_script_tags('products') }}
-+{% endblock %}
+ {% endblock %}

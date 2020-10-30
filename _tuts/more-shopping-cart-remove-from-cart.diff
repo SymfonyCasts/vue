@@ -1,25 +1,25 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 16a3b0640..654c5a02c 100644
+index 66b7630c0..3057ad820 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -20,6 +20,7 @@
-                         v-show="!loading"
-                         :items="items"
-                         @updateQuantity="updateQuantity"
-+                        @removeFromCart="removeFromCart"
-                     />
-                 </div>
+@@ -12,6 +12,7 @@
+                     v-show="!loading"
+                     :items="items"
+                     @updateQuantity="updateQuantity"
++                    @removeFromCart="removeFromCart"
+                 />
              </div>
-@@ -28,7 +29,7 @@
+         </div>
+@@ -19,7 +20,7 @@
  </template>
  
  <script>
 -import { getFullShoppingCart, updateCartItemQuantity } from '@/services/cart-service';
-+import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
- import Loading from '@/components/loading';
++    import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
-@@ -78,6 +79,16 @@ export default {
+@@ -69,6 +70,16 @@ export default {
          async updateQuantity({ product, color, quantity }) {
              await updateCartItemQuantity(this.cart, product, color, quantity);
          },

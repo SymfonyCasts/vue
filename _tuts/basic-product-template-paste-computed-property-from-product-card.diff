@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index a669711e7..ef9d186d1 100644
+index 0baf70992..8631a95c4 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -62,6 +62,7 @@
+@@ -65,6 +65,7 @@
  </template>
  
  <script>
@@ -10,7 +10,7 @@ index a669711e7..ef9d186d1 100644
  import { fetchOneProduct } from '@/services/products-service';
  import ColorSelector from '@/components/color-selector';
  import Loading from '@/components/loading';
-@@ -86,6 +87,15 @@ export default {
+@@ -89,6 +90,15 @@ export default {
              loading: true,
          };
      },

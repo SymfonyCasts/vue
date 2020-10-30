@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index ede0b9642..ff1421739 100644
+index 0a6f6bbc5..a131b948f 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -84,6 +84,7 @@ export default {
+@@ -87,6 +87,7 @@ export default {
      },
      data() {
          return {
@@ -10,7 +10,7 @@ index ede0b9642..ff1421739 100644
              product: null,
              loading: true,
          };
-@@ -98,6 +99,10 @@ export default {
+@@ -101,6 +102,10 @@ export default {
          },
      },
      async created() {

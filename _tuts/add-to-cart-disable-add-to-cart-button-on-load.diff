@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index ff1421739..402323dec 100644
+index a131b948f..f41af964f 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -51,6 +51,7 @@
+@@ -54,6 +54,7 @@
                      <div class="col">
                          <button
                              class="btn btn-info btn-sm"

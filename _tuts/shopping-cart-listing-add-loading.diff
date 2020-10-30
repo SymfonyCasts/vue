@@ -1,0 +1,25 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 7be84d21f..f89ffb346 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -7,6 +7,7 @@
+                 <title-component text="Shopping Cart" />
+ 
+                 <div class="content p-3">
++                    <loading v-if="cart === null" />
+                     <div
+                         v-if="cart !== null"
+                     >
+@@ -26,10 +27,12 @@
+ <script>
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+ import TitleComponent from '@/components/title';
++import Loading from '@/components/loading';
+ 
+ export default {
+     name: 'ShoppingCart',
+     components: {
++        Loading,
+         TitleComponent,
+     },
+     mixins: [ShoppingCartMixin],

@@ -1,16 +1,16 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 1bec5ac91..a40cb17a8 100644
+index e1f7c0a2b..f45556bd8 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -16,7 +16,10 @@
-                         <loading />
-                     </div>
+@@ -8,7 +8,10 @@
  
--                    <transition name="fade">
-+                    <transition
-+                        name="fade"
-+                        mode="out-in"
-+                    >
-                         <shopping-cart-list
-                             v-if="!loading && currentState === 'cart'"
-                             :items="items"
+                 <loading v-show="loading" />
+ 
+-                <transition name="fade">
++                <transition
++                    name="fade"
++                    mode="out-in"
++                >
+                     <shopping-cart-list
+                         v-if="!loading && currentState === 'cart'"
+                         :items="items"

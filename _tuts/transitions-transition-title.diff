@@ -1,32 +1,32 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index a40cb17a8..41d0ac611 100644
+index f45556bd8..fc3ecd05c 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -5,7 +5,22 @@
+@@ -4,7 +4,22 @@
+             <aside class="col-xs-12 col-lg-3" />
  
              <div class="col-xs-12 col-lg-9">
-                 <div class="pb-3">
--                    <title-component :text="pageTitle" />
-+                    <transition
-+                        name="fade"
-+                        mode="out-in"
-+                    >
-+                        <title-component
-+                            v-if="currentState === 'cart'"
-+                            key="1"
-+                            text="Shopping Cart"
-+                        />
+-                <title-component :text="pageTitle" />
++                <transition
++                    name="fade"
++                    mode="out-in"
++                >
++                    <title-component
++                        v-if="currentState === 'cart'"
++                        key="1"
++                        text="Shopping Cart"
++                    />
 +
-+                        <title-component
-+                            v-else
-+                            key="2"
-+                            text="Checkout"
-+                        />
-+                    </transition>
-                 </div>
++                    <title-component
++                        v-else
++                        key="2"
++                        text="Checkout"
++                    />
++                </transition>
  
-                 <div class="content">
-@@ -76,11 +91,6 @@ export default {
+                 <loading v-show="loading" />
+ 
+@@ -67,11 +82,6 @@ export default {
          };
      },
      computed: {

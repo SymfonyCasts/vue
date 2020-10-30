@@ -1,25 +1,25 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 5f7d90acb..16a3b0640 100644
+index ee959e43b..66b7630c0 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -19,6 +19,7 @@
-                     <shopping-cart-list
-                         v-show="!loading"
-                         :items="items"
-+                        @updateQuantity="updateQuantity"
-                     />
-                 </div>
+@@ -11,6 +11,7 @@
+                 <shopping-cart-list
+                     v-show="!loading"
+                     :items="items"
++                    @updateQuantity="updateQuantity"
+                 />
              </div>
-@@ -27,7 +28,7 @@
+         </div>
+@@ -18,7 +19,7 @@
  </template>
  
  <script>
 -import { getFullShoppingCart } from '@/services/cart-service';
 +import { getFullShoppingCart, updateCartItemQuantity } from '@/services/cart-service';
- import Loading from '@/components/loading';
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
-@@ -66,6 +67,18 @@ export default {
+@@ -57,6 +58,18 @@ export default {
              this.loading = false;
          },
      },
