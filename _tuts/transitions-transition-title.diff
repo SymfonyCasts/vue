@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index f45556bd8..fc3ecd05c 100644
+index ad7da0316..349f0a222 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -4,7 +4,22 @@
@@ -26,10 +26,10 @@ index f45556bd8..fc3ecd05c 100644
  
                  <loading v-show="loading" />
  
-@@ -67,11 +82,6 @@ export default {
-         };
-     },
-     computed: {
+@@ -70,11 +85,6 @@ export default {
+         isLoading() {
+             return this.itemsLoading || this.cart === null;
+         },
 -        pageTitle() {
 -            return this.currentState === 'cart'
 -                ? 'Shopping Cart'

@@ -1,24 +1,22 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 58021d603..2d37fb638 100644
+index ecedb5f10..91cf30349 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -55,42 +55,6 @@ export default {
+@@ -56,39 +56,10 @@ export default {
+             this.completeCartItems = [];
+ 
+             if (!this.cart.items.length) {
+-                this.loading = false;
++                this.itemsLoading = false;
                  return;
              }
  
 -            const productIds = this.cart.items.map((item) => item.product);
--            let colorsResponse = null;
--            let productsResponse = null;
 -
--            try {
--                [colorsResponse, productsResponse] = await Promise.all([
--                    getColors(),
--                    getProductsById(productIds),
--                ]);
--            } catch (e) {
--                this.loading = false;
--                return;
--            }
+-            const [colorsResponse, productsResponse] = await Promise.all([
+-                getColors(),
+-                fetchProductsById(productIds),
+-            ]);
 -
 -            // Map all colors to our object dictionary by @id
 -            colorsResponse.data['hydra:member'].forEach((color) => {
@@ -27,7 +25,7 @@ index 58021d603..2d37fb638 100644
 -
 -            // Assign our returned products to our products array,
 -            // applying the proper colorId, hexColor and qty values
--            this.items = productsResponse.data['hydra:member'].map((product) => {
+-            this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
 -                const productInCart = this.cart.items.find(
 -                    (item) => (item.product === product['@id']),
 -                );
@@ -42,39 +40,32 @@ index 58021d603..2d37fb638 100644
 -                };
 -            });
 -
-             this.loading = false;
+             this.itemsLoading = false;
          },
      },
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index 03fd8884e..4da7020ce 100644
+index 03fd8884e..45ae9441b 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
 @@ -1,4 +1,6 @@
  import axios from 'axios';
 +import { getColors } from '@/services/colors-service';
-+import { getProductsById } from '@/services/products-service';
++import { fetchProductsById } from '@/services/products-service';
  
  /**
   * @typedef {Object} CartCollection
-@@ -141,3 +143,41 @@ export function clearCart() {
+@@ -141,3 +143,34 @@ export function clearCart() {
  export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
 +
 +export async function getFullShoppingCart(cart) {
 +    const productIds = this.cart.items.map((item) => item.product);
-+    let colorsResponse = null;
-+    let productsResponse = null;
 +
-+    try {
-+        [colorsResponse, productsResponse] = await Promise.all([
-+            getColors(),
-+            getProductsById(productIds),
-+        ]);
-+    } catch (e) {
-+        this.loading = false;
-+        return;
-+    }
++    const [colorsResponse, productsResponse] = await Promise.all([
++        getColors(),
++        fetchProductsById(productIds),
++    ]);
 +
 +    // Map all colors to our object dictionary by @id
 +    colorsResponse.data['hydra:member'].forEach((color) => {
@@ -83,7 +74,7 @@ index 03fd8884e..4da7020ce 100644
 +
 +    // Assign our returned products to our products array,
 +    // applying the proper colorId, hexColor and qty values
-+    this.items = productsResponse.data['hydra:member'].map((product) => {
++    this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
 +        const productInCart = this.cart.items.find(
 +            (item) => (item.product === product['@id']),
 +        );

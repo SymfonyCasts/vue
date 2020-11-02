@@ -1236,6 +1236,11 @@
             "description": null
         },
         {
+            "id": "shopping-cart-listing-add-isloading-computed",
+            "name": "Shopping Cart Listing: add isLoading computed",
+            "description": null
+        },
+        {
             "id": "shopping-cart-listing-load-colors-in-watcher",
             "name": "Shopping Cart Listing: Load colors in watcher",
             "description": null
@@ -1581,5 +1586,5 @@
             "description": null
         }
     ],
-    "sha": "9816453f66852dbf58721e0681be9d9a1e3f847a"
+    "sha": "2a1bcaf822f17397f13111d27ec9f43676a46e3d"
 }

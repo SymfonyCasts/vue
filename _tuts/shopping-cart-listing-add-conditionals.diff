@@ -1,10 +1,10 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 6aa39fcb9..58021d603 100644
+index 4d6fc4e9b..ecedb5f10 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -50,6 +50,11 @@ export default {
-             this.loading = true;
-             this.items = [];
+@@ -55,6 +55,11 @@ export default {
+             this.itemsLoading = true;
+             this.completeCartItems = [];
  
 +            if (!this.cart.items.length) {
 +                this.loading = false;
@@ -12,5 +12,5 @@ index 6aa39fcb9..58021d603 100644
 +            }
 +
              const productIds = this.cart.items.map((item) => item.product);
-             let colorsResponse = null;
-             let productsResponse = null;
+ 
+             const [colorsResponse, productsResponse] = await Promise.all([

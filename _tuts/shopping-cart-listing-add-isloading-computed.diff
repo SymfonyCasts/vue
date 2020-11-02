@@ -1,0 +1,41 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index f9e7bd26b..b82ce9218 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -7,9 +7,9 @@
+                 <title-component text="Shopping Cart" />
+ 
+                 <div class="content p-3">
+-                    <loading v-show="cart === null" />
++                    <loading v-show="isLoading" />
+                     <div
+-                        v-if="cart !== null"
++                        v-show="!isLoading"
+                     >
+                         <div
+                             v-for="(cartItem, index) in completeCartItems"
+@@ -40,16 +40,24 @@ export default {
+     data() {
+         return {
+             completeCartItems: [],
++            itemsLoading: true,
+         };
+     },
++    computed: {
++        isLoading() {
++            return this.itemsLoading || this.cart === null;
++        },
++    },
+     watch: {
+         async cart() {
++            this.itemsLoading = true;
+             this.completeCartItems = [];
+ 
+             const productIds = this.cart.items.map((item) => item.product);
+ 
+             const productsResponse = await fetchProductsById(productIds);
+             this.completeCartItems = productsResponse.data['hydra:member'];
++            this.itemsLoading = false;
+         },
+     },
+ };

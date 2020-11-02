@@ -1,20 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 8e59faeb9..48d1dac6c 100644
+index d6e9e7d0f..0d1cfbe1c 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -4,23 +4,21 @@
-             <aside class="col-xs-12 col-lg-3" />
- 
-             <div class="col-xs-12 col-lg-9">
--<<<<<<< HEAD
--                <div class="pb-3">
--                    <title-component :text="pageTitle" />
--                </div>
--=======
--                <title-component text="Shopping Cart" />
-->>>>>>> _tuts/master/transitions-implement-step-switch
-+                <title-component :text="pageTitle" />
- 
+@@ -9,12 +9,16 @@
                  <loading v-show="loading" />
  
                  <shopping-cart-list
@@ -32,7 +20,7 @@ index 8e59faeb9..48d1dac6c 100644
                  <div
                      v-show="!loading && items.length"
                      class="row p-3 justify-content-end"
-@@ -42,6 +40,7 @@
+@@ -36,6 +40,7 @@
  <script>
  import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
@@ -40,7 +28,7 @@ index 8e59faeb9..48d1dac6c 100644
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
  import Loading from '@/components/loading';
-@@ -49,6 +48,7 @@ import Loading from '@/components/loading';
+@@ -43,6 +48,7 @@ import Loading from '@/components/loading';
  export default {
      name: 'ShoppingCart',
      components: {

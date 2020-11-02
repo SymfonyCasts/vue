@@ -1,17 +1,13 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index f89ffb346..b73b4dbf3 100644
+index c49084d3a..f9e7bd26b 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -9,13 +9,13 @@
-                 <div class="content p-3">
-                     <loading v-if="cart === null" />
-                     <div
--                        v-if="cart !== null"
-+                        v-show="!loading"
+@@ -12,10 +12,10 @@
+                         v-if="cart !== null"
                      >
                          <div
 -                            v-for="(cartItem, index) in cart.items"
-+                            v-for="(cartItem, index) in items"
++                            v-for="(cartItem, index) in completeCartItems"
                              :key="index"
                          >
 -                            {{ cartItem.product }} ({{ cartItem.quantity }})
@@ -23,37 +19,27 @@ index f89ffb346..b73b4dbf3 100644
  </template>
  
  <script>
-+import { getProductsById } from '@/services/products-service';
++import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import Loading from '@/components/loading';
-@@ -36,6 +37,31 @@ export default {
+@@ -36,6 +37,21 @@ export default {
          TitleComponent,
      },
      mixins: [ShoppingCartMixin],
 +    data() {
 +        return {
-+            items: [],
-+            loading: false,
++            completeCartItems: [],
 +        };
 +    },
 +    watch: {
 +        async cart() {
-+            this.loading = true;
-+            this.items = [];
++            this.completeCartItems = [];
 +
 +            const productIds = this.cart.items.map((item) => item.product);
-+            let productsResponse = null;
 +
-+            try {
-+                productsResponse = await getProductsById(productIds);
-+            } catch (e) {
-+                this.loading = false;
-+                return;
-+            }
-+
-+            this.items = productsResponse.data['hydra:member'];
-+            this.loading = false;
++            const productsResponse = await fetchProductsById(productIds);
++            this.completeCartItems = productsResponse.data['hydra:member'];
 +        },
 +    },
  };

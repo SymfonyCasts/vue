@@ -1,8 +1,8 @@
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index 4da7020ce..118f09492 100644
+index 45ae9441b..bf2b23abd 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
-@@ -144,8 +144,14 @@ export function getCartTotalItems(cart) {
+@@ -144,23 +144,31 @@ export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
  
@@ -15,17 +15,11 @@ index 4da7020ce..118f09492 100644
  export async function getFullShoppingCart(cart) {
 -    const productIds = this.cart.items.map((item) => item.product);
 +    const productIds = cart.items.map((item) => item.product);
-     let colorsResponse = null;
-     let productsResponse = null;
  
-@@ -155,19 +161,20 @@ export async function getFullShoppingCart(cart) {
-             getProductsById(productIds),
-         ]);
-     } catch (e) {
--        this.loading = false;
--        return;
-+        return [];
-     }
+     const [colorsResponse, productsResponse] = await Promise.all([
+         getColors(),
+         fetchProductsById(productIds),
+     ]);
  
 +    const mappedColors = {};
 +
@@ -37,14 +31,14 @@ index 4da7020ce..118f09492 100644
  
      // Assign our returned products to our products array,
      // applying the proper colorId, hexColor and qty values
--    this.items = productsResponse.data['hydra:member'].map((product) => {
+-    this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
 -        const productInCart = this.cart.items.find(
-+    return productsResponse.data['hydra:member'].map((product) => {
++    return this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
 +        const productInCart = cart.items.find(
              (item) => (item.product === product['@id']),
          );
  
-@@ -175,7 +182,7 @@ export async function getFullShoppingCart(cart) {
+@@ -168,7 +176,7 @@ export async function getFullShoppingCart(cart) {
              ...product,
              colorId: productInCart.color,
              hexColor: productInCart.color

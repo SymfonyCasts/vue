@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index cc4a8dcd6..2e86459a2 100644
+index d26710fe9..57a97f79a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -14,13 +14,26 @@
+@@ -14,6 +14,19 @@
                      @updateQuantity="updateQuantity"
                      @removeFromCart="removeFromCart"
                  />
@@ -22,11 +22,3 @@ index cc4a8dcd6..2e86459a2 100644
              </div>
          </div>
      </div>
- </template>
- 
- <script>
--    import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
-+import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
- import ShoppingCartMixin from '@/mixins/get-shopping-cart';
- import TitleComponent from '@/components/title';
- import ShoppingCartList from '@/components/shopping-cart';

@@ -1,21 +1,22 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e6cf78ce7..6192d51fc 100644
+index 651c7786a..41de907cf 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -62,13 +62,28 @@ export default {
-                 return;
-             }
+@@ -58,7 +58,6 @@ export default {
+             const productIds = this.cart.items.map((item) => item.product);
  
--            this.items = productsResponse.data['hydra:member'];
--
+             const productsResponse = await fetchProductsById(productIds);
+-            this.completeCartItems = productsResponse.data['hydra:member'];
+ 
+             const colorsResponse = await getColors();
              // Map all colors to our object dictionary by @id
-             colorsResponse.data['hydra:member'].forEach((color) => {
+@@ -66,6 +65,23 @@ export default {
                  this.colors[color['@id']] = color;
              });
  
 +            // Assign our returned products to our products array,
 +            // applying the proper colorId, hexColor and qty values
-+            this.items = productsResponse.data['hydra:member'].map((product) => {
++            this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
 +                const productInCart = this.cart.items.find(
 +                    (item) => (item.product === product['@id']),
 +                );
@@ -30,6 +31,6 @@ index e6cf78ce7..6192d51fc 100644
 +                };
 +            });
 +
-             this.loading = false;
+             this.itemsLoading = false;
          },
      },

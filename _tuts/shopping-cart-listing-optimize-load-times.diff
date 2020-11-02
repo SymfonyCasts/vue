@@ -1,17 +1,18 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 6192d51fc..6aa39fcb9 100644
+index 41de907cf..4d6fc4e9b 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -55,8 +55,10 @@ export default {
-             let productsResponse = null;
+@@ -57,9 +57,11 @@ export default {
  
-             try {
--                colorsResponse = await getColors();
--                productsResponse = await getProductsById(productIds);
-+                [colorsResponse, productsResponse] = await Promise.all([
-+                    getColors(),
-+                    getProductsById(productIds),
-+                ]);
-             } catch (e) {
-                 this.loading = false;
-                 return;
+             const productIds = this.cart.items.map((item) => item.product);
+ 
+-            const productsResponse = await fetchProductsById(productIds);
++            const [colorsResponse, productsResponse] = await Promise.all([
++                getColors(),
++                fetchProductsById(productIds),
++            ]);
+ 
+-            const colorsResponse = await getColors();
+             // Map all colors to our object dictionary by @id
+             colorsResponse.data['hydra:member'].forEach((color) => {
+                 this.colors[color['@id']] = color;
