@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 709f503b5..801cdfe3f 100644
+index 7327564ac..267960fd5 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -25,8 +25,7 @@
+@@ -26,8 +26,7 @@
  </template>
  
  <script>
@@ -12,19 +12,20 @@ index 709f503b5..801cdfe3f 100644
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import Loading from '@/components/loading';
-@@ -40,7 +39,6 @@ export default {
+@@ -41,7 +40,6 @@ export default {
      mixins: [ShoppingCartMixin],
      data() {
          return {
 -            colors: {},
-             completeCartItems: [],
-             itemsLoading: true,
+             completeCart: null,
          };
-@@ -60,6 +58,7 @@ export default {
+     },
+@@ -52,6 +50,8 @@ export default {
+                 this.itemsLoading = false;
                  return;
              }
- 
-+            this.completeCartItems = await getFullShoppingCart(this.cart);
-             this.itemsLoading = false;
++
++            this.completeCart = await getFullShoppingCart(this.cart);
          },
      },
+ };

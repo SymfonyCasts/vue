@@ -14,7 +14,7 @@ index 68f11e6f1..d0dadbda8 100644
              addToCartSuccess: false,
          };
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index b955d59d3..d6ee57f4f 100644
+index 3dd3c5ed2..7788e71bb 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -20,7 +20,7 @@
@@ -26,12 +26,12 @@ index b955d59d3..d6ee57f4f 100644
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
-@@ -46,7 +46,7 @@ export default {
-         },
+@@ -40,7 +40,7 @@ export default {
+         };
      },
      watch: {
 -        async cart() {
 +        'cart.items.length': async function watchCartItemsLength() {
-             this.itemsLoading = true;
-             this.completeCartItems = [];
- 
+             if (!this.cart.items.length) {
+                 // TODO - this var no longer exists
+                 this.itemsLoading = false;

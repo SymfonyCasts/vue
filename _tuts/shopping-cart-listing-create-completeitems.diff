@@ -1,0 +1,22 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index c32953bcc..e19bb423f 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -42,7 +42,16 @@ export default {
+             const productIds = this.cart.items.map((item) => item.product);
+ 
+             const productsResponse = await fetchProductsById(productIds);
+-            console.log(productsResponse, this.cart);
++            const completeItems = productsResponse.data['hydra:member'].map((product) => {
++                const cartItem = this.cart.items.find((item) => item.product === product['@id']);
++
++                return {
++                    product,
++                    color: cartItem.color,
++                    quantity: cartItem.quantity,
++                };
++            });
++            console.log(completeItems);
+         },
+     },
+ };

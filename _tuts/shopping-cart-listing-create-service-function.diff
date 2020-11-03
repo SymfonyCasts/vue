@@ -1,11 +1,12 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 94b29ec78..709f503b5 100644
+index e4998f658..7327564ac 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -60,29 +60,6 @@ export default {
+@@ -52,32 +52,6 @@ export default {
+                 this.itemsLoading = false;
                  return;
              }
- 
+-
 -            const productIds = this.cart.items.map((item) => item.product);
 -
 -            const [colorsResponse, productsResponse] = await Promise.all([
@@ -18,8 +19,7 @@ index 94b29ec78..709f503b5 100644
 -                this.colors[color['@id']] = color;
 -            });
 -
--            // Create items with complete product, color & quantity info
--            this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
+-            const completeItems = productsResponse.data['hydra:member'].map((product) => {
 -                const cartItem = this.cart.items.find((item) => item.product === product['@id']);
 -
 -                return {
@@ -29,11 +29,14 @@ index 94b29ec78..709f503b5 100644
 -                };
 -            });
 -
-             this.itemsLoading = false;
+-            this.completeCart = {
+-                items: completeItems,
+-            };
          },
      },
+ };
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index a948b5937..26f5528a1 100644
+index a948b5937..f8bc2d7b4 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
 @@ -1,4 +1,6 @@
@@ -43,7 +46,7 @@ index a948b5937..26f5528a1 100644
  
  /**
   * @typedef {Object} CartCollection
-@@ -141,3 +143,28 @@ export function clearCart() {
+@@ -141,3 +143,31 @@ export function clearCart() {
  export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
@@ -61,8 +64,7 @@ index a948b5937..26f5528a1 100644
 +        this.colors[color['@id']] = color;
 +    });
 +
-+    // Create items with complete product, color & quantity info
-+    this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
++    const completeItems = productsResponse.data['hydra:member'].map((product) => {
 +        const cartItem = this.cart.items.find((item) => item.product === product['@id']);
 +
 +        return {
@@ -71,4 +73,8 @@ index a948b5937..26f5528a1 100644
 +            quantity: cartItem.quantity,
 +        };
 +    });
++
++    this.completeCart = {
++        items: completeItems,
++    };
 +}

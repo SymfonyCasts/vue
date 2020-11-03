@@ -1,20 +1,7 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index c49084d3a..f9e7bd26b 100644
+index c49084d3a..c32953bcc 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -12,10 +12,10 @@
-                         v-if="cart !== null"
-                     >
-                         <div
--                            v-for="(cartItem, index) in cart.items"
-+                            v-for="(cartItem, index) in completeCartItems"
-                             :key="index"
-                         >
--                            {{ cartItem.product }} ({{ cartItem.quantity }})
-+                            {{ cartItem.name }}
-                         </div>
-                     </div>
-                 </div>
 @@ -25,6 +25,7 @@
  </template>
  
@@ -23,23 +10,16 @@ index c49084d3a..f9e7bd26b 100644
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import Loading from '@/components/loading';
-@@ -36,6 +37,21 @@ export default {
+@@ -36,6 +37,14 @@ export default {
          TitleComponent,
      },
      mixins: [ShoppingCartMixin],
-+    data() {
-+        return {
-+            completeCartItems: [],
-+        };
-+    },
 +    watch: {
 +        async cart() {
-+            this.completeCartItems = [];
-+
 +            const productIds = this.cart.items.map((item) => item.product);
 +
 +            const productsResponse = await fetchProductsById(productIds);
-+            this.completeCartItems = productsResponse.data['hydra:member'];
++            console.log(productsResponse, this.cart);
 +        },
 +    },
  };

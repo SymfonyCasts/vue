@@ -1236,8 +1236,18 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-add-isloading-computed",
-            "name": "Shopping Cart Listing: add isLoading computed",
+            "id": "shopping-cart-listing-create-completeitems",
+            "name": "Shopping Cart Listing: create completeItems",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-add-completecart",
+            "name": "Shopping Cart Listing: add completeCart",
+            "description": null
+        },
+        {
+            "id": "delete-me-18",
+            "name": "delete me 18",
             "description": null
         },
         {
@@ -1586,5 +1596,5 @@
             "description": null
         }
     ],
-    "sha": "014e675df01ad48403d9e8d2470be2568f1cbb40"
+    "sha": "2ed49137a7aa4011ef896785c2c1768a832aab44"
 }

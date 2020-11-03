@@ -1,39 +1,21 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 0de4fb41a..bd751a0f5 100644
+index 2e02f2596..a87265c09 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -15,7 +15,7 @@
-                             v-for="(cartItem, index) in completeCartItems"
+@@ -16,6 +16,7 @@
                              :key="index"
                          >
--                            {{ cartItem.name }}
-+                            {{ cartItem.product.name }} ({{ cartItem.quantity }})
+                             {{ cartItem.product.name }} ({{ cartItem.quantity }})
++                            {{ cartItem.color ? cartItem.color.hexColor : '' }}
                          </div>
                      </div>
                  </div>
-@@ -58,7 +58,6 @@ export default {
-             const productIds = this.cart.items.map((item) => item.product);
+@@ -61,7 +62,7 @@ export default {
  
-             const productsResponse = await fetchProductsById(productIds);
--            this.completeCartItems = productsResponse.data['hydra:member'];
- 
-             const colorsResponse = await fetchColors();
-             // Map all colors to our object dictionary by @id
-@@ -66,6 +65,17 @@ export default {
-                 this.colors[color['@id']] = color;
-             });
- 
-+            // Create items with complete product, color & quantity info
-+            this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
-+                const cartItem = this.cart.items.find((item) => item.product === product['@id']);
-+
-+                return {
-+                    product,
+                 return {
+                     product,
+-                    color: cartItem.color,
 +                    color: cartItem.color ? this.colors[cartItem.color] : null,
-+                    quantity: cartItem.quantity,
-+                };
-+            });
-+
-             this.itemsLoading = false;
-         },
-     },
+                     quantity: cartItem.quantity,
+                 };
+             });

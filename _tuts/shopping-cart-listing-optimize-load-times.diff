@@ -1,9 +1,9 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index bd751a0f5..efcac4632 100644
+index a87265c09..172ec3814 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -57,9 +57,11 @@ export default {
- 
+@@ -49,9 +49,11 @@ export default {
+         async cart() {
              const productIds = this.cart.items.map((item) => item.product);
  
 -            const productsResponse = await fetchProductsById(productIds);

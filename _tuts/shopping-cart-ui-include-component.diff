@@ -1,21 +1,22 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 801cdfe3f..34cc71a86 100644
+index 267960fd5..e0f071cc3 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -6,19 +6,12 @@
+@@ -6,20 +6,12 @@
              <div class="col-xs-12 col-lg-9">
                  <title-component text="Shopping Cart" />
  
 -                <div class="content p-3">
--                    <loading v-show="isLoading" />
+-                    <loading v-show="completeCart === null" />
 -                    <div
--                        v-show="!isLoading"
+-                        v-if="completeCart !== null"
 -                    >
 -                        <div
--                            v-for="(cartItem, index) in completeCartItems"
+-                            v-for="(cartItem, index) in completeCart.items"
 -                            :key="index"
 -                        >
 -                            {{ cartItem.product.name }} ({{ cartItem.quantity }})
+-                            {{ cartItem.color ? cartItem.color.hexColor : '' }}
 -                        </div>
 -                    </div>
 -                </div>
@@ -28,7 +29,7 @@ index 801cdfe3f..34cc71a86 100644
              </div>
          </div>
      </div>
-@@ -28,12 +21,14 @@
+@@ -29,12 +21,14 @@
  import { getFullShoppingCart } from '@/services/cart-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
