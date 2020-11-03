@@ -1,12 +1,12 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index b82ce9218..651c7786a 100644
+index b82ce9218..0de4fb41a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -25,6 +25,7 @@
  </template>
  
  <script>
-+import { getColors } from '@/services/colors-service';
++import { fetchColors } from '@/services/colors-service';
  import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
@@ -23,7 +23,7 @@ index b82ce9218..651c7786a 100644
              const productsResponse = await fetchProductsById(productIds);
              this.completeCartItems = productsResponse.data['hydra:member'];
 +
-+            const colorsResponse = await getColors();
++            const colorsResponse = await fetchColors();
 +            // Map all colors to our object dictionary by @id
 +            colorsResponse.data['hydra:member'].forEach((color) => {
 +                this.colors[color['@id']] = color;

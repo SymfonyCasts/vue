@@ -1,6 +1,6 @@
 diff --git a/assets/components/color-selector.vue b/assets/components/color-selector.vue
 new file mode 100644
-index 000000000..5ca77de1b
+index 000000000..12f59fc9c
 --- /dev/null
 +++ b/assets/components/color-selector.vue
 @@ -0,0 +1,55 @@
@@ -18,7 +18,7 @@ index 000000000..5ca77de1b
 +</template>
 +
 +<script>
-+import { getColors } from '@/services/colors-service';
++import { fetchColors } from '@/services/colors-service';
 +
 +export default {
 +    name: 'ColorSelector',
@@ -29,7 +29,7 @@ index 000000000..5ca77de1b
 +        };
 +    },
 +    async created() {
-+        this.colors = (await getColors()).data['hydra:member'];
++        this.colors = (await fetchColors()).data['hydra:member'];
 +    },
 +    methods: {
 +        selectColor(iri) {
@@ -61,7 +61,7 @@ index 000000000..5ca77de1b
 +</style>
 diff --git a/assets/services/colors-service.js b/assets/services/colors-service.js
 new file mode 100644
-index 000000000..d7bb4d00a
+index 000000000..ec82627db
 --- /dev/null
 +++ b/assets/services/colors-service.js
 @@ -0,0 +1,13 @@
@@ -72,7 +72,7 @@ index 000000000..d7bb4d00a
 + *
 + * @return {Promise}
 + */
-+export function getColors() {
++export function fetchColors() {
 +    return axios({
 +        method: 'get',
 +        url: '/api/colors',

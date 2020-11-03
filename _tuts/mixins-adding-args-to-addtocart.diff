@@ -1,9 +1,9 @@
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index 32547cc4c..4e7a44b25 100644
+index aa7eff62a..2dd5a57c0 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -12,8 +12,8 @@ export default {
-         this.cart = await getCart();
+         this.cart = await fetchCart();
      },
      methods: {
 -        async addToCart() {

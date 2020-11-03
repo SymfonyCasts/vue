@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index c6875abb8..34cc71a86 100644
+index 801cdfe3f..34cc71a86 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -6,19 +6,12 @@
@@ -15,7 +15,7 @@ index c6875abb8..34cc71a86 100644
 -                            v-for="(cartItem, index) in completeCartItems"
 -                            :key="index"
 -                        >
--                            {{ cartItem.name }}
+-                            {{ cartItem.product.name }} ({{ cartItem.quantity }})
 -                        </div>
 -                    </div>
 -                </div>

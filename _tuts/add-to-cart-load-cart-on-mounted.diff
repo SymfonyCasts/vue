@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 0a6f6bbc5..a131b948f 100644
+index ba068de17..4a8952023 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
 @@ -87,6 +87,7 @@ export default {
@@ -14,7 +14,7 @@ index 0a6f6bbc5..a131b948f 100644
          },
      },
      async created() {
-+        getCart().then((cart) => {
++        fetchCart().then((cart) => {
 +            this.cart = cart;
 +        });
 +

@@ -1,6 +1,6 @@
 diff --git a/tutorial/cart-service.js b/tutorial/cart-service.js
 new file mode 100644
-index 000000000..03fd8884e
+index 000000000..a948b5937
 --- /dev/null
 +++ b/tutorial/cart-service.js
 @@ -0,0 +1,143 @@
@@ -49,7 +49,7 @@ index 000000000..03fd8884e
 + *
 + * @return {Promise<CartCollection>}
 + */
-+export async function getCart() {
++export async function fetchCart() {
 +    const cartIri = getCartIri();
 +
 +    if (cartIri === null) {
@@ -210,7 +210,7 @@ index 000000000..5ca77de1b
 +</style>
 diff --git a/tutorial/colors-service.js b/tutorial/colors-service.js
 new file mode 100644
-index 000000000..d7bb4d00a
+index 000000000..ec82627db
 --- /dev/null
 +++ b/tutorial/colors-service.js
 @@ -0,0 +1,13 @@
@@ -221,7 +221,7 @@ index 000000000..d7bb4d00a
 + *
 + * @return {Promise}
 + */
-+export function getColors() {
++export function fetchColors() {
 +    return axios({
 +        method: 'get',
 +        url: '/api/colors',

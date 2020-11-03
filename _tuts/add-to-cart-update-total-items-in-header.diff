@@ -1,13 +1,13 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 1956585f5..d375d9353 100644
+index d802ddbf1..c0ed11611 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
 @@ -78,7 +78,7 @@
  </template>
  
  <script>
--import { getCart, addItemToCart } from '@/services/cart-service.js';
-+import { getCart, addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
+-import { fetchCart, addItemToCart } from '@/services/cart-service.js';
++import { fetchCart, addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
  import formatPrice from '@/helpers/format-price';
  import { fetchOneProduct } from '@/services/products-service';
  import ColorSelector from '@/components/color-selector';

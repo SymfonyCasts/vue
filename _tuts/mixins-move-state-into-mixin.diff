@@ -12,7 +12,7 @@ index 75a4fbcc1..9a85d095a 100644
              loading: true,
          };
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index 0eedcf2b3..32547cc4c 100644
+index deda9b991..aa7eff62a 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -4,6 +4,8 @@ export default {

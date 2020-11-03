@@ -38,18 +38,18 @@ index ef896d41d..75a4fbcc1 100644
              this.selectedColorId = iri;
          },
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index ff5f75c9c..0eedcf2b3 100644
+index ede946de1..deda9b991 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -1,4 +1,4 @@
--import { getCart } from '@/services/cart-service';
-+import { addItemToCart, getCart, getCartTotalItems } from '@/services/cart-service';
+-import { fetchCart } from '@/services/cart-service';
++import { addItemToCart, fetchCart, getCartTotalItems } from '@/services/cart-service';
  
  export default {
      data() {
 @@ -9,4 +9,25 @@ export default {
      async created() {
-         this.cart = await getCart();
+         this.cart = await fetchCart();
      },
 +    methods: {
 +        async addToCart() {

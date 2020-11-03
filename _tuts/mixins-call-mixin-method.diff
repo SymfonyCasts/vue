@@ -14,11 +14,11 @@ index 9a85d095a..61fabf2b6 100644
              this.selectedColorId = iri;
          },
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index 4e7a44b25..65bb57f5e 100644
+index 2dd5a57c0..68f11e6f1 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -12,7 +12,7 @@ export default {
-         this.cart = await getCart();
+         this.cart = await fetchCart();
      },
      methods: {
 -        async addToCart(product, selectedColorId, quantity) {

@@ -1,12 +1,12 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 91cf30349..c6875abb8 100644
+index 709f503b5..801cdfe3f 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -25,8 +25,7 @@
  </template>
  
  <script>
--import { getColors } from '@/services/colors-service';
+-import { fetchColors } from '@/services/colors-service';
 -import { fetchProductsById } from '@/services/products-service';
 +import { getFullShoppingCart } from '@/services/cart-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';

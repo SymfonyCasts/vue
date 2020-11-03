@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 4d6fc4e9b..ecedb5f10 100644
+index efcac4632..94b29ec78 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -55,6 +55,11 @@ export default {
@@ -7,7 +7,7 @@ index 4d6fc4e9b..ecedb5f10 100644
              this.completeCartItems = [];
  
 +            if (!this.cart.items.length) {
-+                this.loading = false;
++                this.itemsLoading = false;
 +                return;
 +            }
 +

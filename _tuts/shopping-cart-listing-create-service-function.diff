@@ -1,20 +1,15 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index ecedb5f10..91cf30349 100644
+index 94b29ec78..709f503b5 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -56,39 +56,10 @@ export default {
-             this.completeCartItems = [];
- 
-             if (!this.cart.items.length) {
--                this.loading = false;
-+                this.itemsLoading = false;
+@@ -60,29 +60,6 @@ export default {
                  return;
              }
  
 -            const productIds = this.cart.items.map((item) => item.product);
 -
 -            const [colorsResponse, productsResponse] = await Promise.all([
--                getColors(),
+-                fetchColors(),
 -                fetchProductsById(productIds),
 -            ]);
 -
@@ -23,20 +18,14 @@ index ecedb5f10..91cf30349 100644
 -                this.colors[color['@id']] = color;
 -            });
 -
--            // Assign our returned products to our products array,
--            // applying the proper colorId, hexColor and qty values
+-            // Create items with complete product, color & quantity info
 -            this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
--                const productInCart = this.cart.items.find(
--                    (item) => (item.product === product['@id']),
--                );
+-                const cartItem = this.cart.items.find((item) => item.product === product['@id']);
 -
 -                return {
--                    ...product,
--                    colorId: productInCart.color,
--                    hexColor: productInCart.color
--                        ? this.colors[productInCart.color].hexColor
--                        : 'fff',
--                    qty: productInCart.quantity,
+-                    product,
+-                    color: cartItem.color ? this.colors[cartItem.color] : null,
+-                    quantity: cartItem.quantity,
 -                };
 -            });
 -
@@ -44,17 +33,17 @@ index ecedb5f10..91cf30349 100644
          },
      },
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index 03fd8884e..45ae9441b 100644
+index a948b5937..26f5528a1 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
 @@ -1,4 +1,6 @@
  import axios from 'axios';
-+import { getColors } from '@/services/colors-service';
++import { fetchColors } from '@/services/colors-service';
 +import { fetchProductsById } from '@/services/products-service';
  
  /**
   * @typedef {Object} CartCollection
-@@ -141,3 +143,34 @@ export function clearCart() {
+@@ -141,3 +143,28 @@ export function clearCart() {
  export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
@@ -63,7 +52,7 @@ index 03fd8884e..45ae9441b 100644
 +    const productIds = this.cart.items.map((item) => item.product);
 +
 +    const [colorsResponse, productsResponse] = await Promise.all([
-+        getColors(),
++        fetchColors(),
 +        fetchProductsById(productIds),
 +    ]);
 +
@@ -72,20 +61,14 @@ index 03fd8884e..45ae9441b 100644
 +        this.colors[color['@id']] = color;
 +    });
 +
-+    // Assign our returned products to our products array,
-+    // applying the proper colorId, hexColor and qty values
++    // Create items with complete product, color & quantity info
 +    this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
-+        const productInCart = this.cart.items.find(
-+            (item) => (item.product === product['@id']),
-+        );
++        const cartItem = this.cart.items.find((item) => item.product === product['@id']);
 +
 +        return {
-+            ...product,
-+            colorId: productInCart.color,
-+            hexColor: productInCart.color
-+                ? this.colors[productInCart.color].hexColor
-+                : 'fff',
-+            qty: productInCart.quantity,
++            product,
++            color: cartItem.color ? this.colors[cartItem.color] : null,
++            quantity: cartItem.quantity,
 +        };
 +    });
 +}

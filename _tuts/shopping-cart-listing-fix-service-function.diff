@@ -1,8 +1,8 @@
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index 45ae9441b..bf2b23abd 100644
+index 26f5528a1..8d459ced6 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
-@@ -144,23 +144,31 @@ export function getCartTotalItems(cart) {
+@@ -144,26 +144,34 @@ export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
  
@@ -17,7 +17,7 @@ index 45ae9441b..bf2b23abd 100644
 +    const productIds = cart.items.map((item) => item.product);
  
      const [colorsResponse, productsResponse] = await Promise.all([
-         getColors(),
+         fetchColors(),
          fetchProductsById(productIds),
      ]);
  
@@ -29,21 +29,15 @@ index 45ae9441b..bf2b23abd 100644
 +        mappedColors[color['@id']] = color;
      });
  
-     // Assign our returned products to our products array,
-     // applying the proper colorId, hexColor and qty values
+     // Create items with complete product, color & quantity info
 -    this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
--        const productInCart = this.cart.items.find(
-+    return this.completeCartItems = productsResponse.data['hydra:member'].map((product) => {
-+        const productInCart = cart.items.find(
-             (item) => (item.product === product['@id']),
-         );
++    return productsResponse.data['hydra:member'].map((product) => {
+         const cartItem = this.cart.items.find((item) => item.product === product['@id']);
  
-@@ -168,7 +176,7 @@ export async function getFullShoppingCart(cart) {
-             ...product,
-             colorId: productInCart.color,
-             hexColor: productInCart.color
--                ? this.colors[productInCart.color].hexColor
-+                ? mappedColors[productInCart.color].hexColor
-                 : 'fff',
-             qty: productInCart.quantity,
+         return {
+             product,
+-            color: cartItem.color ? this.colors[cartItem.color] : null,
++            color: cartItem.color ? mappedColors[cartItem.color] : null,
+             quantity: cartItem.quantity,
          };
+     });
