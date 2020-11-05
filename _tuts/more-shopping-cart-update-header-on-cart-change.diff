@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 7788e71bb..39c652016 100644
+index e978ccd16..0e63b56ea 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -60,6 +60,8 @@ export default {
+@@ -56,6 +56,8 @@ export default {
           */
          async updateQuantity({ product, color, quantity }) {
              await updateCartItemQuantity(this.cart, product, color, quantity);
@@ -11,7 +11,7 @@ index 7788e71bb..39c652016 100644
          },
  
          /**
-@@ -70,6 +72,8 @@ export default {
+@@ -66,6 +68,8 @@ export default {
           */
          async removeFromCart({ product, color }) {
              await removeItemFromCart(this.cart, product, color);

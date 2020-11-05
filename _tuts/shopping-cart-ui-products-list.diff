@@ -1,36 +1,17 @@
 diff --git a/assets/components/shopping-cart/index.vue b/assets/components/shopping-cart/index.vue
-index f145b5e5d..87226c7dd 100644
+index bfe0561f6..f411056ac 100644
 --- a/assets/components/shopping-cart/index.vue
 +++ b/assets/components/shopping-cart/index.vue
-@@ -6,12 +6,42 @@
-         >
-             Sorry! You haven't bought anything yet!
+@@ -3,12 +3,23 @@
+         <div v-if="items.length === 0">
+             Your cart is empty! Get to shopping!
          </div>
 +
-+        <div v-show="items.length">
-+            <div class="row p-3">
-+                <div class="col-3">
-+                    Item Name
-+                </div>
-+                <div class="col-3">
-+                    Quantity
-+                </div>
-+                <div class="col-3">
-+                    Price
-+                </div>
-+                <div class="col-3" />
-+            </div>
-+
-+            <shopping-cart-item
-+                v-for="item in items"
-+                :key="item['@id']"
-+                :cart-item="item"
-+            />
-+
-+            <div class="p-3">
-+                Total: <strong>$ // TODO</strong>
-+            </div>
-+        </div>
++        <shopping-cart-item
++            v-for="item in items"
++            :key="item['@id']"
++            :item="item"
++        />
      </div>
  </template>
  

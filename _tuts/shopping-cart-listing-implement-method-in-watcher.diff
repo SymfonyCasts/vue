@@ -1,31 +1,22 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 7327564ac..267960fd5 100644
+index ee1b2dbb7..2863cfbce 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -26,8 +26,7 @@
+@@ -28,8 +28,7 @@
  </template>
  
  <script>
 -import { fetchColors } from '@/services/colors-service';
 -import { fetchProductsById } from '@/services/products-service';
-+import { getFullShoppingCart } from '@/services/cart-service';
++import { fetchFullCart } from '@/services/cart-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import Loading from '@/components/loading';
-@@ -41,7 +40,6 @@ export default {
-     mixins: [ShoppingCartMixin],
-     data() {
-         return {
--            colors: {},
-             completeCart: null,
-         };
+@@ -48,6 +47,7 @@ export default {
      },
-@@ -52,6 +50,8 @@ export default {
-                 this.itemsLoading = false;
-                 return;
-             }
-+
-+            this.completeCart = await getFullShoppingCart(this.cart);
+     watch: {
+         async cart() {
++            this.completeCart = await fetchFullCart(this.cart);
          },
      },
  };

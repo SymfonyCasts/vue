@@ -1,5 +1,5 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 3e336fad2..ed28cbde8 100644
+index 1ccb75aae..92ab73f24 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
 @@ -23,6 +23,11 @@
@@ -7,9 +7,9 @@ index 3e336fad2..ed28cbde8 100644
                  type="number"
                  min="1"
 +                @input="$emit('updateQuantity', {
-+                    product: cartItem['@id'],
-+                    color: cartItem.colorId,
-+                    quantity: cartItem.qty
++                    product: item['@id'],
++                    color: item.color['@id'],
++                    quantity: item.quantity
 +                })"
              >
          </div>
@@ -22,8 +22,8 @@ index 3e336fad2..ed28cbde8 100644
 +            <button
 +                class="btn btn-info btn-sm"
 +                @click="$emit('removeFromCart', {
-+                    product: cartItem['@id'],
-+                    color: cartItem.colorId
++                    product: item.product['@id'],
++                    color: item.color['@id']
 +                })"
 +            >
                  Remove

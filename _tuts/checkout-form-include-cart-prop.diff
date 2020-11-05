@@ -16,14 +16,14 @@ index 015f985c8..a38bb4587 100644
          return {
              form: {
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 5820c84ca..08840b9e6 100644
+index 122ca0a33..a5d38a9f5 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -36,6 +36,7 @@
+@@ -34,6 +34,7 @@
  
-                     <checkout-form
-                         v-else
-+                        :cart="cart"
-                     />
-                 </transition>
+                         <checkout-form
+                             v-if="completeCart && currentState === 'checkout'"
++                            :cart="cart"
+                         />
+                     </transition>
  

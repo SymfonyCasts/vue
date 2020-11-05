@@ -1221,6 +1221,11 @@
             "description": null
         },
         {
+            "id": "shopping-cart-listing-message-for-empty",
+            "name": "Shopping Cart Listing: message for empty",
+            "description": null
+        },
+        {
             "id": "shopping-cart-listing-add-loading",
             "name": "Shopping Cart Listing: add loading",
             "description": null
@@ -1266,8 +1271,8 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-add-conditionals",
-            "name": "Shopping Cart Listing: Add conditionals",
+            "id": "delete-me-19",
+            "name": "delete me 19",
             "description": null
         },
         {
@@ -1321,6 +1326,11 @@
             "description": null
         },
         {
+            "id": "shopping-cart-ui-update-list-template",
+            "name": "Shopping Cart UI: update list template",
+            "description": null
+        },
+        {
             "id": "shopping-cart-ui-products-list",
             "name": "Shopping Cart UI: Products list",
             "description": null
@@ -1328,6 +1338,11 @@
         {
             "id": "shopping-cart-ui-include-component",
             "name": "Shopping Cart UI: Include Component",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-add-cart-structure",
+            "name": "Shopping Cart UI: add cart structure",
             "description": null
         },
         {
@@ -1356,13 +1371,23 @@
             "description": null
         },
         {
+            "id": "more-shopping-cart-add-qty-column",
+            "name": "More Shopping Cart: add qty column",
+            "description": null
+        },
+        {
             "id": "more-shopping-cart-add-quantity-and-buttons",
             "name": "More Shopping Cart: Add Quantity and Buttons",
             "description": null
         },
         {
-            "id": "more-shopping-cart-wire-product-qty",
-            "name": "More Shopping Cart: Wire Product Qty",
+            "id": "more-shopping-cart-add-delete-col",
+            "name": "More Shopping Cart: add delete col",
+            "description": null
+        },
+        {
+            "id": "delete-me-21",
+            "name": "delete me 21",
             "description": null
         },
         {
@@ -1596,5 +1621,5 @@
             "description": null
         }
     ],
-    "sha": "2ed49137a7aa4011ef896785c2c1768a832aab44"
+    "sha": "c4a90c182373bd209e99a248ba9333c8fea1b40d"
 }

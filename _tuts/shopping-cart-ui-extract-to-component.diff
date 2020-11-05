@@ -1,16 +1,13 @@
 diff --git a/assets/components/shopping-cart/index.vue b/assets/components/shopping-cart/index.vue
 new file mode 100644
-index 000000000..f145b5e5d
+index 000000000..e90497b50
 --- /dev/null
 +++ b/assets/components/shopping-cart/index.vue
-@@ -0,0 +1,22 @@
+@@ -0,0 +1,19 @@
 +<template>
 +    <div>
-+        <div
-+            v-show="!items.length"
-+            class="p-3"
-+        >
-+            Sorry! You haven't bought anything yet!
++        <div v-if="completeCart.items.length === 0">
++            Your cart is empty! Get to shopping!
 +        </div>
 +    </div>
 +</template>

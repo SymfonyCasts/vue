@@ -1,24 +1,20 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 39c652016..7cf934e40 100644
+index 0e63b56ea..a08fcd425 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -14,6 +14,19 @@
-                     @updateQuantity="updateQuantity"
-                     @removeFromCart="removeFromCart"
-                 />
+@@ -15,6 +15,15 @@
+                         @updateQuantity="updateQuantity"
+                         @removeFromCart="removeFromCart"
+                     />
 +
-+                <div
-+                    v-show="!loading && items.length"
-+                    class="row p-3 justify-content-end"
-+                >
-+                    <div class="col-2">
-+                        <button
-+                            class="btn btn-info btn-sm"
-+                        >
++                    <div
++                        v-if="completeCart && completeCart.items.length > 0"
++                        class="text-right"
++                    >
++                        <button class="btn btn-primary xl">
 +                            Checkout!
 +                        </button>
 +                    </div>
-+                </div>
+                 </div>
              </div>
          </div>
-     </div>

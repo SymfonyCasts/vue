@@ -1,22 +1,13 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 2cec2ed3f..bf9f709f8 100644
+index 041f22efd..10260b34e 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -1,5 +1,9 @@
+@@ -1,5 +1,7 @@
  <template>
--    
+-
 +    <div :class="[$style.component, 'row', 'p-3']">
-+        <div class="col-12">
-+            {{ cartItem.name }}
-+        </div>
++        {{ item.product.name }}
 +    </div>
  </template>
  
  <script>
-@@ -10,4 +14,4 @@
- 
- <style scoped>
- 
--</style>
-\ No newline at end of file
-+</style>

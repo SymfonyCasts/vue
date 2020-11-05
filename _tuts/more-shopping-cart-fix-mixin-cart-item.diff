@@ -14,24 +14,15 @@ index 68f11e6f1..d0dadbda8 100644
              addToCartSuccess: false,
          };
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 3dd3c5ed2..7788e71bb 100644
+index 00c445fff..e978ccd16 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -20,7 +20,7 @@
- </template>
- 
- <script>
--    import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
-+import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
- import ShoppingCartMixin from '@/mixins/get-shopping-cart';
- import TitleComponent from '@/components/title';
- import ShoppingCartList from '@/components/shopping-cart';
-@@ -40,7 +40,7 @@ export default {
+@@ -42,7 +42,7 @@ export default {
          };
      },
      watch: {
 -        async cart() {
 +        'cart.items.length': async function watchCartItemsLength() {
-             if (!this.cart.items.length) {
-                 // TODO - this var no longer exists
-                 this.itemsLoading = false;
+             this.completeCart = await fetchFullCart(this.cart);
+         },
+     },

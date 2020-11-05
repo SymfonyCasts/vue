@@ -1,8 +1,8 @@
 diff --git a/assets/components/shopping-cart/index.vue b/assets/components/shopping-cart/index.vue
-index 87226c7dd..eb79d2ef9 100644
+index c10562269..c32eca77f 100644
 --- a/assets/components/shopping-cart/index.vue
 +++ b/assets/components/shopping-cart/index.vue
-@@ -28,7 +28,7 @@
+@@ -25,7 +25,7 @@
              />
  
              <div class="p-3">
@@ -11,7 +11,7 @@ index 87226c7dd..eb79d2ef9 100644
              </div>
          </div>
      </div>
-@@ -36,6 +36,7 @@
+@@ -33,6 +33,7 @@
  
  <script>
  import ShoppingCartItem from '@/components/shopping-cart/cart-item';
@@ -19,7 +19,7 @@ index 87226c7dd..eb79d2ef9 100644
  
  export default {
      name: 'ShoppingCartList',
-@@ -48,5 +49,21 @@ export default {
+@@ -45,5 +46,21 @@ export default {
              required: true,
          },
      },
@@ -33,7 +33,7 @@ index 87226c7dd..eb79d2ef9 100644
 +            let total = 0;
 +
 +            this.items.forEach((item) => {
-+                total += item.price * item.qty;
++                total += item.product.price * item.quantity;
 +            });
 +
 +            return formatPrice(total);

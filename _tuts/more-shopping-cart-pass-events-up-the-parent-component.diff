@@ -1,11 +1,11 @@
 diff --git a/assets/components/shopping-cart/index.vue b/assets/components/shopping-cart/index.vue
-index 37939f3fb..baf2d3b38 100644
+index 911ae8757..79d41ca84 100644
 --- a/assets/components/shopping-cart/index.vue
 +++ b/assets/components/shopping-cart/index.vue
-@@ -25,6 +25,8 @@
+@@ -22,6 +22,8 @@
                  v-for="item in items"
                  :key="item['@id']"
-                 :cart-item="item"
+                 :item="item"
 +                @updateQuantity="(data) => $emit('updateQuantity', data)"
 +                @removeFromCart="(data) => $emit('removeFromCart', data)"
              />

@@ -1,20 +1,20 @@
 diff --git a/assets/components/shopping-cart/index.vue b/assets/components/shopping-cart/index.vue
-index eb79d2ef9..37939f3fb 100644
+index c32eca77f..911ae8757 100644
 --- a/assets/components/shopping-cart/index.vue
 +++ b/assets/components/shopping-cart/index.vue
-@@ -56,13 +56,9 @@ export default {
+@@ -53,13 +53,9 @@ export default {
           * @return {string}
           */
          totalPrice() {
 -            let total = 0;
 -
 -            this.items.forEach((item) => {
--                total += item.price * item.qty;
+-                total += item.product.price * item.quantity;
 -            });
 -
 -            return formatPrice(total);
 +            return formatPrice(
-+                this.items.reduce((acc, item) => (acc + (item.price * item.qty)), 0),
++                this.items.reduce((acc, item) => (acc + (item.product.price * item.quantity)), 0),
 +            );
          },
      },

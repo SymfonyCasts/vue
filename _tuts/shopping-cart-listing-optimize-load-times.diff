@@ -1,18 +1,18 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index a87265c09..172ec3814 100644
+index 6b5304821..51f21e04a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -49,9 +49,11 @@ export default {
+@@ -50,9 +50,10 @@ export default {
          async cart() {
              const productIds = this.cart.items.map((item) => item.product);
  
 -            const productsResponse = await fetchProductsById(productIds);
+-
+-            const colorsResponse = await fetchColors();
 +            const [colorsResponse, productsResponse] = await Promise.all([
 +                fetchColors(),
 +                fetchProductsById(productIds),
 +            ]);
  
--            const colorsResponse = await fetchColors();
              // Map all colors to our object dictionary by @id
-             colorsResponse.data['hydra:member'].forEach((color) => {
-                 this.colors[color['@id']] = color;
+             const mappedColors = {};

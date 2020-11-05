@@ -1,16 +1,20 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 7cf934e40..87a4230ea 100644
+index a08fcd425..784138c38 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -22,6 +22,7 @@
-                     <div class="col-2">
-                         <button
-                             class="btn btn-info btn-sm"
+@@ -20,7 +20,10 @@
+                         v-if="completeCart && completeCart.items.length > 0"
+                         class="text-right"
+                     >
+-                        <button class="btn btn-primary xl">
++                        <button
++                            class="btn btn-info btn-sm"
 +                            @click="switchState"
-                         >
++                        >
                              Checkout!
                          </button>
-@@ -49,6 +50,7 @@ export default {
+                     </div>
+@@ -47,6 +50,7 @@ export default {
      mixins: [ShoppingCartMixin],
      data() {
          return {
@@ -18,7 +22,7 @@ index 7cf934e40..87a4230ea 100644
              completeCart: null,
          };
      },
-@@ -64,6 +66,10 @@ export default {
+@@ -56,6 +60,10 @@ export default {
          },
      },
      methods: {

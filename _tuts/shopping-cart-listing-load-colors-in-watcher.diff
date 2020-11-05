@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 44d03556f..2e02f2596 100644
+index 88979ec69..a439f0b4d 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -25,6 +25,7 @@
+@@ -27,6 +27,7 @@
  </template>
  
  <script>
@@ -10,24 +10,19 @@ index 44d03556f..2e02f2596 100644
  import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
-@@ -39,6 +40,7 @@ export default {
-     mixins: [ShoppingCartMixin],
-     data() {
-         return {
-+            colors: {},
-             completeCart: null,
-         };
-     },
-@@ -47,6 +49,13 @@ export default {
+@@ -49,6 +50,16 @@ export default {
              const productIds = this.cart.items.map((item) => item.product);
  
              const productsResponse = await fetchProductsById(productIds);
 +
 +            const colorsResponse = await fetchColors();
++
 +            // Map all colors to our object dictionary by @id
++            const mappedColors = {};
 +            colorsResponse.data['hydra:member'].forEach((color) => {
-+                this.colors[color['@id']] = color;
++                mappedColors[color['@id']] = color;
 +            });
++            console.log(mappedColors);
 +
              const completeItems = productsResponse.data['hydra:member'].map((product) => {
                  const cartItem = this.cart.items.find((item) => item.product === product['@id']);

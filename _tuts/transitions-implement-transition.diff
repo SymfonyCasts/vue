@@ -1,36 +1,36 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 85ca7bca8..41c85643f 100644
+index 9ec5dde0c..24a0565b1 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -8,16 +8,18 @@
+@@ -9,16 +9,18 @@
+                 <div class="content p-3">
+                     <loading v-show="completeCart === null" />
  
-                 <loading v-show="loading" />
+-                    <shopping-cart-list
+-                        v-if="completeCart && currentState === 'cart'"
+-                        :items="completeCart.items"
+-                        @updateQuantity="updateQuantity"
+-                        @removeFromCart="removeFromCart"
+-                    />
++                    <transition name="fade">
++                        <shopping-cart-list
++                            v-if="completeCart && currentState === 'cart'"
++                            :items="completeCart.items"
++                            @updateQuantity="updateQuantity"
++                            @removeFromCart="removeFromCart"
++                        />
  
--                <shopping-cart-list
--                    v-if="!loading && currentState === 'cart'"
--                    :items="items"
--                    @updateQuantity="updateQuantity"
--                    @removeFromCart="removeFromCart"
--                />
-+                <transition name="fade">
-+                    <shopping-cart-list
-+                        v-if="!loading && currentState === 'cart'"
-+                        :items="items"
-+                        @updateQuantity="updateQuantity"
-+                        @removeFromCart="removeFromCart"
-+                    />
+-                    <checkout-form
+-                        v-if="completeCart && currentState === 'checkout'"
+-                    />
++                        <checkout-form
++                            v-if="completeCart && currentState === 'checkout'"
++                        />
++                    </transition>
  
--                <checkout-form
--                    v-else
--                />
-+                    <checkout-form
-+                        v-else
-+                    />
-+                </transition>
- 
-                 <div
-                     v-show="!loading && items.length"
-@@ -123,5 +125,13 @@ export default {
+                     <div
+                         v-if="completeCart && completeCart.items.length > 0"
+@@ -117,5 +119,13 @@ export default {
      .content {
          @include light-component;
      }

@@ -1,17 +1,15 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e19bb423f..44d03556f 100644
+index f228d9c5e..88979ec69 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -7,15 +7,15 @@
+@@ -7,16 +7,16 @@
                  <title-component text="Shopping Cart" />
  
                  <div class="content p-3">
 -                    <loading v-show="cart === null" />
+-                    <div v-if="cart !== null">
 +                    <loading v-show="completeCart === null" />
-                     <div
--                        v-if="cart !== null"
-+                        v-if="completeCart !== null"
-                     >
++                    <div v-if="completeCart !== null">
                          <div
 -                            v-for="(cartItem, index) in cart.items"
 +                            v-for="(cartItem, index) in completeCart.items"
@@ -20,9 +18,13 @@ index e19bb423f..44d03556f 100644
 -                            {{ cartItem.product }} ({{ cartItem.quantity }})
 +                            {{ cartItem.product.name }} ({{ cartItem.quantity }})
                          </div>
+ 
+-                        <div v-if="cart.items.length === 0">
++                        <div v-if="completeCart.items.length === 0">
+                             Your cart is empty! Get to shopping!
+                         </div>
                      </div>
-                 </div>
-@@ -37,6 +37,11 @@ export default {
+@@ -39,6 +39,11 @@ export default {
          TitleComponent,
      },
      mixins: [ShoppingCartMixin],
@@ -34,7 +36,7 @@ index e19bb423f..44d03556f 100644
      watch: {
          async cart() {
              const productIds = this.cart.items.map((item) => item.product);
-@@ -51,7 +56,10 @@ export default {
+@@ -53,7 +58,10 @@ export default {
                      quantity: cartItem.quantity,
                  };
              });

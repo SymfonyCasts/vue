@@ -1,28 +1,28 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 060223c68..85ca7bca8 100644
+index 7970c1d11..9ec5dde0c 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -9,12 +9,16 @@
-                 <loading v-show="loading" />
+@@ -10,12 +10,16 @@
+                     <loading v-show="completeCart === null" />
  
-                 <shopping-cart-list
--                    v-show="!loading"
-+                    v-if="!loading && currentState === 'cart'"
-                     :items="items"
-                     @updateQuantity="updateQuantity"
-                     @removeFromCart="removeFromCart"
-                 />
+                     <shopping-cart-list
+-                        v-if="completeCart"
++                        v-if="completeCart && currentState === 'cart'"
+                         :items="completeCart.items"
+                         @updateQuantity="updateQuantity"
+                         @removeFromCart="removeFromCart"
+                     />
  
-+                <checkout-form
-+                    v-else
-+                />
++                    <checkout-form
++                        v-if="completeCart && currentState === 'checkout'"
++                    />
 +
-                 <div
-                     v-show="!loading && items.length"
-                     class="row p-3 justify-content-end"
+                     <div
+                         v-if="completeCart && completeCart.items.length > 0"
+                         class="text-right"
 @@ -36,6 +40,7 @@
  <script>
- import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
+ import { fetchFullCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 +import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';

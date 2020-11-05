@@ -1,0 +1,30 @@
+diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
+index 129f39f21..1f09d5177 100644
+--- a/assets/components/shopping-cart/cart-item.vue
++++ b/assets/components/shopping-cart/cart-item.vue
+@@ -16,6 +16,15 @@
+                 </span>
+             </div>
+         </div>
++
++        <div class="col-3">
++            <input
++                v-model="item.quantity"
++                class="form-control"
++                type="number"
++                min="1"
++            >
++        </div>
+     </div>
+ </template>
+ 
+@@ -48,5 +57,9 @@ export default {
+         height: 25px;
+         border-radius: 4px;
+     }
++
++    input {
++        width: 60px;
++    }
+ }
+ </style>

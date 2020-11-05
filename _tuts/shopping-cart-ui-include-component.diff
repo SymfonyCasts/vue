@@ -1,16 +1,12 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 267960fd5..e0f071cc3 100644
+index 2863cfbce..e39b5a3d2 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -6,20 +6,12 @@
-             <div class="col-xs-12 col-lg-9">
-                 <title-component text="Shopping Cart" />
+@@ -8,19 +8,11 @@
  
--                <div class="content p-3">
--                    <loading v-show="completeCart === null" />
--                    <div
--                        v-if="completeCart !== null"
--                    >
+                 <div class="content p-3">
+                     <loading v-show="completeCart === null" />
+-                    <div v-if="completeCart !== null">
 -                        <div
 -                            v-for="(cartItem, index) in completeCart.items"
 -                            :key="index"
@@ -18,19 +14,20 @@ index 267960fd5..e0f071cc3 100644
 -                            {{ cartItem.product.name }} ({{ cartItem.quantity }})
 -                            {{ cartItem.color ? cartItem.color.hexColor : '' }}
 -                        </div>
+ 
+-                        <div v-if="completeCart.items.length === 0">
+-                            Your cart is empty! Get to shopping!
+-                        </div>
 -                    </div>
--                </div>
-+                <loading v-show="loading" />
-+
-+                <shopping-cart-list
-+                    v-show="!loading"
-+                    :items="items"
-+                />
++                    <shopping-cart-list
++                        v-if="completeCart"
++                        :items="completeCart.items"
++                    />
+                 </div>
              </div>
          </div>
-     </div>
-@@ -29,12 +21,14 @@
- import { getFullShoppingCart } from '@/services/cart-service';
+@@ -31,12 +23,14 @@
+ import { fetchFullCart } from '@/services/cart-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
 +import ShoppingCartList from '@/components/shopping-cart';

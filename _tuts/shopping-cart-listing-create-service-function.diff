@@ -1,12 +1,11 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e4998f658..7327564ac 100644
+index 51f21e04a..ee1b2dbb7 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -52,32 +52,6 @@ export default {
-                 this.itemsLoading = false;
-                 return;
-             }
--
+@@ -48,32 +48,6 @@ export default {
+     },
+     watch: {
+         async cart() {
 -            const productIds = this.cart.items.map((item) => item.product);
 -
 -            const [colorsResponse, productsResponse] = await Promise.all([
@@ -15,8 +14,9 @@ index e4998f658..7327564ac 100644
 -            ]);
 -
 -            // Map all colors to our object dictionary by @id
+-            const mappedColors = {};
 -            colorsResponse.data['hydra:member'].forEach((color) => {
--                this.colors[color['@id']] = color;
+-                mappedColors[color['@id']] = color;
 -            });
 -
 -            const completeItems = productsResponse.data['hydra:member'].map((product) => {
@@ -24,7 +24,7 @@ index e4998f658..7327564ac 100644
 -
 -                return {
 -                    product,
--                    color: cartItem.color ? this.colors[cartItem.color] : null,
+-                    color: cartItem.color ? mappedColors[cartItem.color] : null,
 -                    quantity: cartItem.quantity,
 -                };
 -            });
@@ -36,7 +36,7 @@ index e4998f658..7327564ac 100644
      },
  };
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index a948b5937..f8bc2d7b4 100644
+index a948b5937..1d765a6af 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
 @@ -1,4 +1,6 @@
@@ -46,12 +46,12 @@ index a948b5937..f8bc2d7b4 100644
  
  /**
   * @typedef {Object} CartCollection
-@@ -141,3 +143,31 @@ export function clearCart() {
+@@ -141,3 +143,32 @@ export function clearCart() {
  export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
 +
-+export async function getFullShoppingCart(cart) {
++export async function fetchFullCart(cart) {
 +    const productIds = this.cart.items.map((item) => item.product);
 +
 +    const [colorsResponse, productsResponse] = await Promise.all([
@@ -60,8 +60,9 @@ index a948b5937..f8bc2d7b4 100644
 +    ]);
 +
 +    // Map all colors to our object dictionary by @id
++    const mappedColors = {};
 +    colorsResponse.data['hydra:member'].forEach((color) => {
-+        this.colors[color['@id']] = color;
++        mappedColors[color['@id']] = color;
 +    });
 +
 +    const completeItems = productsResponse.data['hydra:member'].map((product) => {
@@ -69,7 +70,7 @@ index a948b5937..f8bc2d7b4 100644
 +
 +        return {
 +            product,
-+            color: cartItem.color ? this.colors[cartItem.color] : null,
++            color: cartItem.color ? mappedColors[cartItem.color] : null,
 +            quantity: cartItem.quantity,
 +        };
 +    });

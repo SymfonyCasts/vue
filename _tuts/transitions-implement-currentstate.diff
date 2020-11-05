@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 87a4230ea..060223c68 100644
+index 784138c38..7970c1d11 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -4,7 +4,7 @@
@@ -9,8 +9,8 @@ index 87a4230ea..060223c68 100644
 -                <title-component text="Shopping Cart" />
 +                <title-component :text="pageTitle" />
  
-                 <loading v-show="loading" />
- 
+                 <div class="content p-3">
+                     <loading v-show="completeCart === null" />
 @@ -24,7 +24,7 @@
                              class="btn btn-info btn-sm"
                              @click="switchState"
@@ -38,4 +38,4 @@ index 87a4230ea..060223c68 100644
 +    },
      watch: {
          'cart.items.length': async function watchCartItemsLength() {
-             if (!this.cart.items.length) {
+             this.completeCart = await fetchFullCart(this.cart);

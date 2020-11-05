@@ -1,5 +1,5 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index a8118ae46..84f30a0eb 100644
+index 1f09d5177..031657c46 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
 @@ -1,5 +1,5 @@
@@ -9,27 +9,13 @@ index a8118ae46..84f30a0eb 100644
          <div class="col-3">
              <div class="row">
                  <span class="col">
-@@ -16,10 +16,30 @@
-                 </span>
-             </div>
+@@ -25,10 +25,16 @@
+                 min="1"
+             >
          </div>
 +
 +        <div class="col-3">
-+            <input
-+                class="form-control"
-+                type="number"
-+                min="1"
-+            >
-+        </div>
-+
-+        <div class="col-3">
 +            ${{ totalPrice }}
-+        </div>
-+
-+        <div class="col-3">
-+            <button class="btn btn-info btn-sm">
-+                Remove
-+            </button>
 +        </div>
      </div>
  </template>
@@ -40,25 +26,13 @@ index a8118ae46..84f30a0eb 100644
  export default {
      name: 'ShoppingCartItem',
      props: {
-@@ -28,6 +48,11 @@ export default {
-             required: true,
+@@ -41,6 +47,9 @@ export default {
+         hexColor() {
+             return this.item.color ? this.item.color.hexColor : 'fff';
          },
-     },
-+    computed: {
 +        totalPrice() {
-+            return formatPrice(this.cartItem.price * this.cartItem.qty);
++            return formatPrice(this.item.product.price * this.item.quantity);
 +        },
-+    },
+     },
  };
  </script>
- 
-@@ -43,5 +68,9 @@ export default {
-         height: 25px;
-         border-radius: 4px;
-     }
-+
-+    input {
-+        width: 60px;
-+    }
- }
- </style>

@@ -1,8 +1,8 @@
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index f8bc2d7b4..65224bd33 100644
+index 1d765a6af..61be39257 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
-@@ -144,17 +144,25 @@ export function getCartTotalItems(cart) {
+@@ -144,8 +144,14 @@ export function getCartTotalItems(cart) {
      return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
  }
  
@@ -10,33 +10,24 @@ index f8bc2d7b4..65224bd33 100644
 + * Gets the full info on the shopping cart
 + *
 + * @param {CartCollection} cart
-+ * @returns {Array}
++ * @returns {Promise}
 + */
- export async function getFullShoppingCart(cart) {
+ export async function fetchFullCart(cart) {
 -    const productIds = this.cart.items.map((item) => item.product);
 +    const productIds = cart.items.map((item) => item.product);
  
      const [colorsResponse, productsResponse] = await Promise.all([
          fetchColors(),
-         fetchProductsById(productIds),
-     ]);
- 
-+    const mappedColors = {};
-+
-     // Map all colors to our object dictionary by @id
-     colorsResponse.data['hydra:member'].forEach((color) => {
--        this.colors[color['@id']] = color;
-+        mappedColors[color['@id']] = color;
+@@ -159,7 +165,7 @@ export async function fetchFullCart(cart) {
      });
  
      const completeItems = productsResponse.data['hydra:member'].map((product) => {
-@@ -162,12 +170,12 @@ export async function getFullShoppingCart(cart) {
+-        const cartItem = this.cart.items.find((item) => item.product === product['@id']);
++        const cartItem = cart.items.find((item) => item.product === product['@id']);
  
          return {
              product,
--            color: cartItem.color ? this.colors[cartItem.color] : null,
-+            color: cartItem.color ? mappedColors[cartItem.color] : null,
-             quantity: cartItem.quantity,
+@@ -168,7 +174,7 @@ export async function fetchFullCart(cart) {
          };
      });
  
