@@ -1,0 +1,35 @@
+diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
+index 72f1bdbc8..9670fe659 100644
+--- a/assets/components/shopping-cart/cart-sidebar.vue
++++ b/assets/components/shopping-cart/cart-sidebar.vue
+@@ -24,6 +24,7 @@
+                     :allow-add-to-cart="allowAddToCart"
+                     :product="featuredProduct"
+                     add-button-text="+"
++                    @add-to-cart="(data) => $emit('add-to-cart', data)"
+                 />
+             </div>
+         </div>
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 34d8771ea..d6da37234 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -8,6 +8,7 @@
+                     :allow-add-to-cart="cart !== null"
+                     :add-to-cart-success="addToCartSuccess"
+                     :add-to-cart-loading="addToCartLoading"
++                    @add-to-cart="addToCart"
+                 />
+             </aside>
+ 
+@@ -116,6 +117,10 @@ export default {
+ 
+             [this.featuredProduct] = featuredProductsResponse.data['hydra:member'];
+         },
++
++        addToCart({ quantity, selectedColorId }) {
++            this.addProductToCart(this.featuredProduct, selectedColorId, quantity);
++        },
+     },
+ };
+ </script>

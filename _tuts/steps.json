@@ -881,6 +881,11 @@
             "description": null
         },
         {
+            "id": "pre-part2-add-featured-products",
+            "name": "Pre-Part2: add featured products",
+            "description": null
+        },
+        {
             "id": "linking-products-add-a-tags",
             "name": "Linking Products: Add A tags",
             "description": null
@@ -1426,23 +1431,108 @@
             "description": null
         },
         {
-            "id": "more-shopping-cart-deep-watch",
-            "name": "More Shopping Cart: deep watch",
+            "id": "delete-me-28",
+            "name": "delete me 28",
             "description": null
         },
         {
-            "id": "more-shopping-cart-fix-mixin-cart-item",
-            "name": "More Shopping Cart: Fix mixin cart item",
+            "id": "delete-me-29",
+            "name": "delete me 29",
             "description": null
         },
         {
-            "id": "delete-me-23",
-            "name": "delete me 23",
+            "id": "cart-sidebar-new-product-show-dir",
+            "name": "Cart Sidebar: new product-show\/ dir",
             "description": null
         },
         {
-            "id": "delete-me-24",
-            "name": "delete me 24",
+            "id": "cart-sidebar-create-add-controls-component",
+            "name": "Cart Sidebar: create add-controls component",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-move-styles",
+            "name": "Cart Sidebar: move styles",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-add-props",
+            "name": "Cart Sidebar: add props",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-add-data",
+            "name": "Cart Sidebar: add data",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-use-component",
+            "name": "Cart Sidebar: use component",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-move-updateselectedcolor",
+            "name": "Cart Sidebar: move updateSelectedColor()",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-addtocart",
+            "name": "Cart Sidebar: addToCart()",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-load-featuredproduct",
+            "name": "Cart Sidebar: load featuredProduct",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-array-destructuring",
+            "name": "Cart Sidebar: array destructuring",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-new-cart-sidebar-component",
+            "name": "Cart Sidebar: new cart-sidebar component",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-use-cart-sidebar",
+            "name": "Cart Sidebar: use cart-sidebar",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-import-cartaddcontrols",
+            "name": "Cart Sidebar: import CartAddControls",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-shorten-button-text",
+            "name": "Cart Sidebar: shorten button text",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-pass-down-props",
+            "name": "Cart Sidebar: pass down props",
+            "description": null
+        },
+        {
+            "id": "cart-sidebar-handle-addtocart",
+            "name": "Cart Sidebar: handle addToCart()",
+            "description": null
+        },
+        {
+            "id": "smart-watch-use-deep-watch",
+            "name": "Smart Watch: use deep watch",
+            "description": null
+        },
+        {
+            "id": "smart-watch-nullify-products-on-load",
+            "name": "Smart Watch: nullify products on load",
+            "description": null
+        },
+        {
+            "id": "smart-watch-watch-the-length",
+            "name": "Smart Watch: watch the length",
             "description": null
         },
         {
@@ -1636,5 +1726,5 @@
             "description": null
         }
     ],
-    "sha": "55475999384d79ac0b6aa9fee6de09ae892970d2"
+    "sha": "c973b10e06aaccb3b2a873acdeb9d14df35b88c7"
 }

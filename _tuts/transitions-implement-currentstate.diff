@@ -1,9 +1,9 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e6e86840a..7c30daba4 100644
+index 41182ae69..2a2c08ce0 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -4,7 +4,7 @@
-             <aside class="col-xs-12 col-lg-3" />
+@@ -13,7 +13,7 @@
+             </aside>
  
              <div class="col-xs-12 col-lg-9">
 -                <title-component text="Shopping Cart" />
@@ -11,7 +11,7 @@ index e6e86840a..7c30daba4 100644
  
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
-@@ -24,7 +24,7 @@
+@@ -33,7 +33,7 @@
                              class="btn btn-info btn-sm"
                              @click="switchState"
                          >
@@ -20,8 +20,8 @@ index e6e86840a..7c30daba4 100644
                          </button>
                      </div>
                  </div>
-@@ -74,6 +74,17 @@ export default {
-                 items: completeItems,
+@@ -87,6 +87,17 @@ export default {
+                 items: completeItems.filter((item) => item.product),
              };
          },
 +

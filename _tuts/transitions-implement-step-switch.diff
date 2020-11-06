@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 9b65e8072..e6e86840a 100644
+index 9e915eecd..41182ae69 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -20,7 +20,10 @@
+@@ -29,7 +29,10 @@
                          v-if="completeCart && completeCart.items.length > 0"
                          class="text-right"
                      >
@@ -14,16 +14,16 @@ index 9b65e8072..e6e86840a 100644
                              Checkout!
                          </button>
                      </div>
-@@ -48,6 +51,7 @@ export default {
+@@ -59,6 +62,7 @@ export default {
      mixins: [ShoppingCartMixin],
      data() {
          return {
 +            currentState: 'cart',
              products: null,
              colors: null,
-         };
-@@ -77,6 +81,10 @@ export default {
-         },
+             featuredProduct: null,
+@@ -93,6 +97,10 @@ export default {
+         this.loadFeaturedProduct();
      },
      methods: {
 +        switchState() {

@@ -1,0 +1,36 @@
+diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
+index ad4226209..98740ad86 100644
+--- a/assets/components/product-show/cart-add-controls.vue
++++ b/assets/components/product-show/cart-add-controls.vue
+@@ -17,7 +17,7 @@
+             :disabled="!allowAddToCart"
+             @click="addToCart"
+         >
+-            Add to Cart
++            {{ addButtonText }}
+             <i
+                 v-show="addToCartLoading"
+                 class="fas fa-spinner fa-spin"
+@@ -43,6 +43,10 @@ export default {
+             type: Object,
+             required: true,
+         },
++        addButtonText: {
++            type: String,
++            default: 'Add to Cart',
++        },
+         allowAddToCart: {
+             type: Boolean,
+             required: true,
+diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
+index 5dc35855a..3533afe9c 100644
+--- a/assets/components/shopping-cart/cart-sidebar.vue
++++ b/assets/components/shopping-cart/cart-sidebar.vue
+@@ -23,6 +23,7 @@
+                     :add-to-cart-success="false"
+                     :allow-add-to-cart="false"
+                     :product="featuredProduct"
++                    add-button-text="+"
+                 />
+             </div>
+         </div>

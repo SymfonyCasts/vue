@@ -1,0 +1,34 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 7470759c3..88c7a3a42 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -1,7 +1,12 @@
+ <template>
+     <div :class="[$style.component, 'container-fluid']">
+         <div class="row">
+-            <aside class="col-xs-12 col-lg-3" />
++            <aside class="col-xs-12 col-lg-3">
++                <cart-sidebar
++                    v-if="featuredProduct"
++                    :featured-product="featuredProduct"
++                />
++            </aside>
+ 
+             <div class="col-xs-12 col-lg-9">
+                 <title-component text="Shopping Cart" />
+@@ -28,6 +33,7 @@ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartList from '@/components/shopping-cart';
+ import Loading from '@/components/loading';
++import CartSidebar from '@/components/shopping-cart/cart-sidebar';
+ 
+ export default {
+     name: 'ShoppingCart',
+@@ -35,6 +41,7 @@ export default {
+         Loading,
+         ShoppingCartList,
+         TitleComponent,
++        CartSidebar,
+     },
+     mixins: [ShoppingCartMixin],
+     data() {

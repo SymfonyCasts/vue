@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index ef896d41d..75a4fbcc1 100644
+index ad24cbc3b..325d35970 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -78,7 +78,6 @@
+@@ -74,7 +74,6 @@
  </template>
  
  <script>
@@ -10,7 +10,7 @@ index ef896d41d..75a4fbcc1 100644
  import formatPrice from '@/helpers/format-price';
  import { fetchOneProduct } from '@/services/products-service';
  import ColorSelector from '@/components/color-selector';
-@@ -127,26 +126,6 @@ export default {
+@@ -123,26 +122,6 @@ export default {
          }
      },
      methods: {

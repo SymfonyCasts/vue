@@ -1,16 +1,16 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 544cc149a..66b06ae9f 100644
+index 63a6913da..922354b52 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -55,6 +55,7 @@
-                         <button
-                             class="btn btn-info btn-sm"
-                             :disabled="cart === null"
-+                            @click="addToCart"
-                         >
-                             Add to Cart
-                         </button>
-@@ -66,7 +67,7 @@
+@@ -51,6 +51,7 @@
+                             <button
+                                 class="btn btn-info btn-sm"
+                                 :disabled="cart === null"
++                                @click="addToCart"
+                             >
+                                 Add to Cart
+                             </button>
+@@ -63,7 +64,7 @@
  </template>
  
  <script>
@@ -19,7 +19,7 @@ index 544cc149a..66b06ae9f 100644
  import formatPrice from '@/helpers/format-price';
  import { fetchOneProduct } from '@/services/products-service';
  import ColorSelector from '@/components/color-selector';
-@@ -113,6 +114,15 @@ export default {
+@@ -110,6 +111,15 @@ export default {
              this.loading = false;
          }
      },

@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index c622f20eb..0baf70992 100644
+index 051bca714..62a8f09cb 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -66,12 +66,14 @@
+@@ -63,12 +63,14 @@
  
  <script>
  import { fetchOneProduct } from '@/services/products-service';

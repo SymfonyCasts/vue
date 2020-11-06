@@ -1,0 +1,30 @@
+diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
+index ef1caffea..f2606ee17 100644
+--- a/assets/components/product-show/cart-add-controls.vue
++++ b/assets/components/product-show/cart-add-controls.vue
+@@ -56,6 +56,12 @@ export default {
+             required: true,
+         },
+     },
++    data() {
++        return {
++            quantity: 1,
++            selectedColorId: null,
++        };
++    },
+ };
+ </script>
+ 
+diff --git a/assets/components/product-show/index.vue b/assets/components/product-show/index.vue
+index 0117959a9..4659c55da 100644
+--- a/assets/components/product-show/index.vue
++++ b/assets/components/product-show/index.vue
+@@ -67,8 +67,6 @@ export default {
+     },
+     data() {
+         return {
+-            quantity: 1,
+-            selectedColorId: null,
+             product: null,
+             loading: true,
+         };

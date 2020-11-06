@@ -1,12 +1,12 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 4a8952023..544cc149a 100644
+index ac8a14190..63a6913da 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -54,6 +54,7 @@
-                     <div class="col">
-                         <button
-                             class="btn btn-info btn-sm"
-+                            :disabled="cart === null"
-                         >
-                             Add to Cart
-                         </button>
+@@ -50,6 +50,7 @@
+ 
+                             <button
+                                 class="btn btn-info btn-sm"
++                                :disabled="cart === null"
+                             >
+                                 Add to Cart
+                             </button>

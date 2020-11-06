@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 20afaeb02..f17907658 100644
+index 945e5f430..9ae8cb72a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -63,12 +63,8 @@ export default {
+@@ -76,12 +76,8 @@ export default {
          },
      },
      watch: {
@@ -16,4 +16,4 @@ index 20afaeb02..f17907658 100644
 +            this.loadColorsAndProducts();
          },
      },
-     methods: {
+     created() {

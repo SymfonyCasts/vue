@@ -1,0 +1,50 @@
+diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
+index 3533afe9c..72f1bdbc8 100644
+--- a/assets/components/shopping-cart/cart-sidebar.vue
++++ b/assets/components/shopping-cart/cart-sidebar.vue
+@@ -19,9 +19,9 @@
+                 </h6>
+ 
+                 <cart-add-controls
+-                    :add-to-cart-loading="false"
+-                    :add-to-cart-success="false"
+-                    :allow-add-to-cart="false"
++                    :add-to-cart-loading="addToCartLoading"
++                    :add-to-cart-success="addToCartSuccess"
++                    :allow-add-to-cart="allowAddToCart"
+                     :product="featuredProduct"
+                     add-button-text="+"
+                 />
+@@ -44,6 +44,18 @@ export default {
+             type: Object,
+             required: true,
+         },
++        allowAddToCart: {
++            type: Boolean,
++            required: true,
++        },
++        addToCartLoading: {
++            type: Boolean,
++            required: true,
++        },
++        addToCartSuccess: {
++            type: Boolean,
++            required: true,
++        },
+     },
+     computed: {
+         price() {
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 88c7a3a42..34d8771ea 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -5,6 +5,9 @@
+                 <cart-sidebar
+                     v-if="featuredProduct"
+                     :featured-product="featuredProduct"
++                    :allow-add-to-cart="cart !== null"
++                    :add-to-cart-success="addToCartSuccess"
++                    :add-to-cart-loading="addToCartLoading"
+                 />
+             </aside>
+ 

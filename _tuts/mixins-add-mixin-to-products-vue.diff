@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index c0ed11611..ef896d41d 100644
+index 49ddd84b8..ad24cbc3b 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -78,12 +78,13 @@
+@@ -74,12 +74,13 @@
  </template>
  
  <script>
@@ -17,7 +17,7 @@ index c0ed11611..ef896d41d 100644
  
  export default {
      name: 'ProductShow',
-@@ -92,6 +93,7 @@ export default {
+@@ -88,6 +89,7 @@ export default {
          Loading,
          TitleComponent,
      },
@@ -25,7 +25,7 @@ index c0ed11611..ef896d41d 100644
      props: {
          productId: {
              type: String,
-@@ -100,7 +102,6 @@ export default {
+@@ -96,7 +98,6 @@ export default {
      },
      data() {
          return {
@@ -33,7 +33,7 @@ index c0ed11611..ef896d41d 100644
              quantity: 1,
              selectedColorId: null,
              addToCartLoading: false,
-@@ -119,10 +120,6 @@ export default {
+@@ -115,10 +116,6 @@ export default {
          },
      },
      async created() {

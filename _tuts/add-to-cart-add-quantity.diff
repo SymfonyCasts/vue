@@ -1,16 +1,16 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index dfba8ccd3..641365b59 100644
+index 6b0b69e66..4a94bdc09 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -45,6 +45,7 @@
+@@ -43,6 +43,7 @@
+                             />
  
-                     <div class="col-2">
-                         <input
-+                            v-model.number="quantity"
-                             class="form-control"
-                             type="number"
-                             min="1"
-@@ -98,6 +99,7 @@ export default {
+                             <input
++                                v-model.number="quantity"
+                                 class="form-control mx-3"
+                                 type="number"
+                                 min="1"
+@@ -95,6 +96,7 @@ export default {
      data() {
          return {
              cart: null,
@@ -18,7 +18,7 @@ index dfba8ccd3..641365b59 100644
              addToCartLoading: false,
              addToCartSuccess: false,
              product: null,
-@@ -131,7 +133,7 @@ export default {
+@@ -128,7 +130,7 @@ export default {
              await addItemToCart(this.cart, {
                  product: this.product['@id'],
                  color: null,

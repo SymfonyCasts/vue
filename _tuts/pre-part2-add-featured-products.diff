@@ -1,0 +1,78 @@
+diff --git a/assets/services/products-service.js b/assets/services/products-service.js
+index 62681e633..ea5abceb5 100644
+--- a/assets/services/products-service.js
++++ b/assets/services/products-service.js
+@@ -19,3 +19,9 @@ export function fetchProducts(categoryIri, searchTerm) {
+         params,
+     });
+ }
++
++export function fetchFeaturedProducts() {
++    return axios.get('/api/products', {
++        params: { featured: 1 },
++    });
++}
+diff --git a/src/ApiPlatform/FeaturedProductsFilter.php b/src/ApiPlatform/FeaturedProductsFilter.php
+new file mode 100644
+index 000000000..b9d61b8f7
+--- /dev/null
++++ b/src/ApiPlatform/FeaturedProductsFilter.php
+@@ -0,0 +1,38 @@
++<?php
++
++namespace App\ApiPlatform;
++
++use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\AbstractFilter;
++use ApiPlatform\Core\Bridge\Doctrine\Orm\Util\QueryNameGeneratorInterface;
++use Doctrine\ORM\QueryBuilder;
++
++class FeaturedProductsFilter extends AbstractFilter
++{
++    protected function filterProperty(string $property, $value, QueryBuilder $queryBuilder, QueryNameGeneratorInterface $queryNameGenerator, string $resourceClass, string $operationName = null)
++    {
++        if ($property !== 'featured') {
++            return;
++        }
++
++        $alias = $queryBuilder->getRootAliases()[0];
++        $queryBuilder->leftJoin(sprintf('%s.colors', $alias), 'color')
++            ->andWhere('color.id IS NOT NULL');
++    }
++
++    public function getDescription(string $resourceClass): array
++    {
++        return [
++            'featured' => [
++                'property' => null,
++                'type' => 'bool',
++                'required' => false,
++                'openapi' => [
++                    'description' => 'Returns "featured" products',
++                    'schema' => [
++                        'type' => 'bool',
++                    ],
++                ],
++            ]
++        ];
++    }
++}
+diff --git a/src/Entity/Product.php b/src/Entity/Product.php
+index e4f3fa6dd..6cdfc4f40 100644
+--- a/src/Entity/Product.php
++++ b/src/Entity/Product.php
+@@ -5,6 +5,7 @@ namespace App\Entity;
+ use ApiPlatform\Core\Annotation\ApiResource;
+ use ApiPlatform\Core\Annotation\ApiFilter;
+ use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
++use App\ApiPlatform\FeaturedProductsFilter;
+ use Doctrine\Common\Collections\ArrayCollection;
+ use Doctrine\Common\Collections\Collection;
+ use Doctrine\ORM\Mapping as ORM;
+@@ -16,6 +17,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
+  *     normalizationContext={"groups"={"product:read"}}
+  * )
+  * @ApiFilter(SearchFilter::class, properties={"category": "exact", "name": "partial", "id": "exact"})
++ * @ApiFilter(FeaturedProductsFilter::class)
+  */
+ class Product
+ {

@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 75a4fbcc1..9a85d095a 100644
+index 325d35970..4ff036336 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -103,8 +103,6 @@ export default {
+@@ -99,8 +99,6 @@ export default {
          return {
              quantity: 1,
              selectedColorId: null,

@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 6a75107f9..19b392de7 100644
+index e0a2f34fe..448c2cf8b 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -9,7 +9,7 @@
+@@ -18,7 +18,7 @@
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
  

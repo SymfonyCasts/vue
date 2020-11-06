@@ -1,0 +1,105 @@
+diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
+new file mode 100644
+index 000000000..5bec865d9
+--- /dev/null
++++ b/assets/components/product-show/cart-add-controls.vue
+@@ -0,0 +1,42 @@
++<template>
++    <div class="d-flex align-items-center justify-content-center">
++        <color-selector
++            v-if="product.colors.length !== 0"
++            @color-selected="updateSelectedColor"
++        />
++
++        <input
++            v-model.number="quantity"
++            class="form-control mx-3"
++            type="number"
++            min="1"
++        >
++
++        <button
++            class="btn btn-info btn-sm"
++            :disabled="cart === null"
++            @click="addToCart"
++        >
++            Add to Cart
++            <i
++                v-show="addToCartLoading"
++                class="fas fa-spinner fa-spin"
++            />
++            <i
++                v-show="addToCartSuccess"
++                class="fas fa-check"
++            />
++        </button>
++    </div>
++</template>
++
++<script>
++import ColorSelector from '@/components/color-selector';
++
++export default {
++    name: 'ProductShowCartAddControls',
++    components: {
++        ColorSelector,
++    },
++};
++</script>
+diff --git a/assets/components/product-show/index.vue b/assets/components/product-show/index.vue
+index 7d8348faa..912e7a33f 100644
+--- a/assets/components/product-show/index.vue
++++ b/assets/components/product-show/index.vue
+@@ -37,35 +37,7 @@
+                     </div>
+ 
+                     <div class="col-8 p-3">
+-                        <div class="d-flex align-items-center justify-content-center">
+-                            <color-selector
+-                                v-if="product.colors.length !== 0"
+-                                @color-selected="updateSelectedColor"
+-                            />
+-
+-                            <input
+-                                v-model.number="quantity"
+-                                class="form-control mx-3"
+-                                type="number"
+-                                min="1"
+-                            >
+-
+-                            <button
+-                                class="btn btn-info btn-sm"
+-                                :disabled="cart === null"
+-                                @click="addToCart"
+-                            >
+-                                Add to Cart
+-                                <i
+-                                    v-show="addToCartLoading"
+-                                    class="fas fa-spinner fa-spin"
+-                                />
+-                                <i
+-                                    v-show="addToCartSuccess"
+-                                    class="fas fa-check"
+-                                />
+-                            </button>
+-                        </div>
++                        TODO
+                     </div>
+                 </div>
+             </div>
+@@ -76,7 +48,6 @@
+ <script>
+ import formatPrice from '@/helpers/format-price';
+ import { fetchOneProduct } from '@/services/products-service';
+-import ColorSelector from '@/components/color-selector';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+@@ -84,7 +55,6 @@ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+ export default {
+     name: 'ProductShow',
+     components: {
+-        ColorSelector,
+         Loading,
+         TitleComponent,
+     },

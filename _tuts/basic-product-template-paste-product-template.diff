@@ -1,8 +1,8 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 1784d21e2..c622f20eb 100644
+index 1784d21e2..051bca714 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -5,6 +5,62 @@
+@@ -5,6 +5,59 @@
          <div v-if="product">
              <title-component :text="product.name" />
          </div>
@@ -29,35 +29,32 @@ index 1784d21e2..c622f20eb 100644
 +                </div>
 +            </div>
 +
-+            <div class="col-8">
-+                <div class="p-3">
-+                    <p v-text="product.description" />
++            <div class="col-8 p-3">
++                <div v-text="product.description" />
 +
-+                    <p>Price: <strong>${{ price }}</strong></p>
-+                </div>
-+
-+                <div class="p-3 row align-items-center">
-+                    <div
-+                        v-if="product.colors.length !== 0"
-+                        class="col-3"
-+                    >
-+                        <color-selector />
++                <div class="row mt-4 align-items-center">
++                    <div class="col-4">
++                        Price: <strong>${{ price }}</strong>
 +                    </div>
 +
-+                    <div class="col-2">
-+                        <input
-+                            class="form-control"
-+                            type="number"
-+                            min="1"
-+                        >
-+                    </div>
++                    <div class="col-8 p-3">
++                        <div class="d-flex align-items-center justify-content-center">
++                            <color-selector
++                                v-if="product.colors.length !== 0"
++                            />
 +
-+                    <div class="col">
-+                        <button
-+                            class="btn btn-info btn-sm"
-+                        >
-+                            Add to Cart
-+                        </button>
++                            <input
++                                class="form-control mx-3"
++                                type="number"
++                                min="1"
++                            >
++
++                            <button
++                                class="btn btn-info btn-sm"
++                            >
++                                Add to Cart
++                            </button>
++                        </div>
 +                    </div>
 +                </div>
 +            </div>
@@ -65,7 +62,7 @@ index 1784d21e2..c622f20eb 100644
      </div>
  </template>
  
-@@ -40,3 +96,16 @@ export default {
+@@ -40,3 +93,20 @@ export default {
      },
  };
  </script>
@@ -79,6 +76,10 @@ index 1784d21e2..c622f20eb 100644
 +    img {
 +        max-width:100%;
 +        max-height:100%;
++    }
++
++    input {
++        width: 60px;
 +    }
 +}
 +</style>

@@ -1,19 +1,19 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 392ad1bd9..dfba8ccd3 100644
+index a82bea80b..6b0b69e66 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
-@@ -62,6 +62,10 @@
-                                 v-show="addToCartLoading"
-                                 class="fas fa-spinner fa-spin"
-                             />
-+                            <i
-+                                v-show="addToCartSuccess"
-+                                class="fas fa-check"
-+                            />
-                         </button>
+@@ -58,6 +58,10 @@
+                                     v-show="addToCartLoading"
+                                     class="fas fa-spinner fa-spin"
+                                 />
++                                <i
++                                    v-show="addToCartSuccess"
++                                    class="fas fa-check"
++                                />
+                             </button>
+                         </div>
                      </div>
-                 </div>
-@@ -95,6 +99,7 @@ export default {
+@@ -92,6 +96,7 @@ export default {
          return {
              cart: null,
              addToCartLoading: false,
@@ -21,7 +21,7 @@ index 392ad1bd9..dfba8ccd3 100644
              product: null,
              loading: true,
          };
-@@ -122,12 +127,14 @@ export default {
+@@ -119,12 +124,14 @@ export default {
      methods: {
          async addToCart() {
              this.addToCartLoading = true;

@@ -1,0 +1,48 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index cb69bded6..a0ad9e206 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -23,7 +23,7 @@
+ 
+ <script>
+ import { fetchColors } from '@/services/colors-service';
+-import { fetchProductsById } from '@/services/products-service';
++import { fetchFeaturedProducts, fetchProductsById } from '@/services/products-service';
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartList from '@/components/shopping-cart';
+@@ -41,6 +41,7 @@ export default {
+         return {
+             products: null,
+             colors: null,
++            featuredProduct: null,
+         };
+     },
+     computed: {
+@@ -67,6 +68,9 @@ export default {
+             this.loadColorsAndProducts();
+         },
+     },
++    created() {
++        this.loadFeaturedProduct();
++    },
+     methods: {
+         async loadColorsAndProducts() {
+             const productIds = this.cart.items.map((item) => item.product);
+@@ -92,6 +96,16 @@ export default {
+         removeFromCart({ productId, colorId }) {
+             this.removeProductFromCart(productId, colorId);
+         },
++
++        async loadFeaturedProduct() {
++            const featuredProductsResponse = await fetchFeaturedProducts();
++
++            if (featuredProductsResponse.data['hydra:member'].length === 0) {
++                return;
++            }
++
++            this.featuredProduct = featuredProductsResponse.data['hydra:member'][0];
++        },
+     },
+ };
+ </script>

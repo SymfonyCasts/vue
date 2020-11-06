@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index a71412c51..6a75107f9 100644
+index 3f5325563..e0a2f34fe 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -9,16 +9,18 @@
+@@ -18,16 +18,18 @@
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
  
@@ -31,7 +31,7 @@ index a71412c51..6a75107f9 100644
  
                      <div
                          v-if="completeCart && completeCart.items.length > 0"
-@@ -137,5 +139,13 @@ export default {
+@@ -167,5 +169,13 @@ export default {
      .content {
          @include light-component;
      }

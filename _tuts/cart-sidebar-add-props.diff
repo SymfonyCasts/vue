@@ -1,0 +1,38 @@
+diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
+index 6b458b25e..ef1caffea 100644
+--- a/assets/components/product-show/cart-add-controls.vue
++++ b/assets/components/product-show/cart-add-controls.vue
+@@ -14,7 +14,7 @@
+ 
+         <button
+             class="btn btn-info btn-sm"
+-            :disabled="cart === null"
++            :disabled="!allowAddToCart"
+             @click="addToCart"
+         >
+             Add to Cart
+@@ -38,6 +38,24 @@ export default {
+     components: {
+         ColorSelector,
+     },
++    props: {
++        product: {
++            type: Object,
++            required: true,
++        },
++        allowAddToCart: {
++            type: Boolean,
++            required: true,
++        },
++        addToCartLoading: {
++            type: Boolean,
++            required: true,
++        },
++        addToCartSuccess: {
++            type: Boolean,
++            required: true,
++        },
++    },
+ };
+ </script>
+ 
