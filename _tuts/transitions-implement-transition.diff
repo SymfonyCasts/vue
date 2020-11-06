@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 52ed70d9a..17b6a20e5 100644
+index a71412c51..6a75107f9 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -9,16 +9,18 @@
@@ -12,6 +12,10 @@ index 52ed70d9a..17b6a20e5 100644
 -                        @updateQuantity="updateQuantity"
 -                        @removeFromCart="removeFromCart"
 -                    />
+-
+-                    <checkout-form
+-                        v-if="completeCart && currentState === 'checkout'"
+-                    />
 +                    <transition name="fade">
 +                        <shopping-cart-list
 +                            v-if="completeCart && currentState === 'cart'"
@@ -19,10 +23,7 @@ index 52ed70d9a..17b6a20e5 100644
 +                            @updateQuantity="updateQuantity"
 +                            @removeFromCart="removeFromCart"
 +                        />
- 
--                    <checkout-form
--                        v-if="completeCart && currentState === 'checkout'"
--                    />
++
 +                        <checkout-form
 +                            v-if="completeCart && currentState === 'checkout'"
 +                        />
@@ -30,7 +31,7 @@ index 52ed70d9a..17b6a20e5 100644
  
                      <div
                          v-if="completeCart && completeCart.items.length > 0"
-@@ -100,5 +102,13 @@ export default {
+@@ -137,5 +139,13 @@ export default {
      .content {
          @include light-component;
      }

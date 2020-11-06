@@ -1,18 +1,18 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 3f6a8fe86..76326ecfb 100644
+index cb69bded6..20afaeb02 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -42,8 +42,12 @@ export default {
-         };
+@@ -63,8 +63,12 @@ export default {
+         },
      },
      watch: {
 -        async cart() {
--            this.completeCart = await fetchFullCart(this.cart);
+-            this.loadColorsAndProducts();
 +        cart: {
 +            deep: true,
 +
 +            async handler() {
-+                this.completeCart = await fetchFullCart(this.cart);
++                this.loadColorsAndProducts();
 +            },
          },
      },

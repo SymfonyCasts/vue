@@ -1,0 +1,16 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index ef2e0df0f..93fd0b7a9 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -68,6 +68,11 @@ export default {
+     },
+     watch: {
+         async cart() {
++            this.loadColorsAndProducts();
++        },
++    },
++    methods: {
++        async loadColorsAndProducts() {
+             const productIds = this.cart.items.map((item) => item.product);
+ 
+             const [colorsResponse, productsResponse] = await Promise.all([

@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 44a6fdd32..7b3c3a670 100644
+index 17092fb8b..5e8299f3a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -27,6 +27,7 @@
@@ -10,19 +10,26 @@ index 44a6fdd32..7b3c3a670 100644
  import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
-@@ -49,6 +50,15 @@ export default {
+@@ -42,6 +43,7 @@ export default {
+     data() {
+         return {
+             products: null,
++            colors: null,
+         };
+     },
+     computed: {
+@@ -68,6 +70,14 @@ export default {
              const productIds = this.cart.items.map((item) => item.product);
  
              const productsResponse = await fetchProductsById(productIds);
 +            const colorsResponse = await fetchColors();
 +
 +            // Map all colors to our object dictionary by @id
-+            const mappedColors = {};
++            this.colors = {};
 +            colorsResponse.data['hydra:member'].forEach((color) => {
-+                mappedColors[color['@id']] = color;
++                this.colors[color['@id']] = color;
 +            });
-+            console.log(mappedColors);
 +
-             const products = productsResponse.data['hydra:member'];
- 
-             const completeItems = this.cart.items.map((cartItem) => (
+             this.products = productsResponse.data['hydra:member'];
+         },
+     },

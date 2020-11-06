@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 8a6a8b475..6b80b8072 100644
+index 9b65e8072..e6e86840a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -20,7 +20,10 @@
@@ -14,15 +14,15 @@ index 8a6a8b475..6b80b8072 100644
                              Checkout!
                          </button>
                      </div>
-@@ -47,6 +50,7 @@ export default {
+@@ -48,6 +51,7 @@ export default {
      mixins: [ShoppingCartMixin],
      data() {
          return {
 +            currentState: 'cart',
-             completeCart: null,
+             products: null,
+             colors: null,
          };
-     },
-@@ -56,6 +60,10 @@ export default {
+@@ -77,6 +81,10 @@ export default {
          },
      },
      methods: {
@@ -30,6 +30,6 @@ index 8a6a8b475..6b80b8072 100644
 +            this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
 +        },
 +
-         updateQuantity({ productId, colorId, quantity }) {
-             this.updateProductQuantity(productId, colorId, quantity);
-         },
+         async loadColorsAndProducts() {
+             const productIds = this.cart.items.map((item) => item.product);
+ 

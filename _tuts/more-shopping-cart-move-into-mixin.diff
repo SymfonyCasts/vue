@@ -24,21 +24,20 @@ index 68f11e6f1..b15445888 100644
      },
  };
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 18b81f4cc..82df6bfdb 100644
+index d9d111408..1dbcb7b0c 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -21,7 +21,7 @@
+@@ -21,7 +21,6 @@
  </template>
  
  <script>
--import { fetchFullCart, updateCartItemQuantity } from '@/services/cart-service';
-+import { fetchFullCart } from '@/services/cart-service';
+-import { updateCartItemQuantity } from '@/services/cart-service';
+ import { fetchColors } from '@/services/colors-service';
+ import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
- import TitleComponent from '@/components/title';
- import ShoppingCartList from '@/components/shopping-cart';
-@@ -47,7 +47,7 @@ export default {
-     },
-     methods: {
+@@ -86,7 +85,7 @@ export default {
+         },
+ 
          updateQuantity({ productId, colorId, quantity }) {
 -            updateCartItemQuantity(this.cart, productId, colorId, quantity);
 +            this.updateProductQuantity(productId, colorId, quantity);

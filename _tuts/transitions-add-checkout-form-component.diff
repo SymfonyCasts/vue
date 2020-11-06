@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 0eb76d880..52ed70d9a 100644
+index 7c30daba4..a71412c51 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -10,12 +10,16 @@
@@ -20,15 +20,15 @@ index 0eb76d880..52ed70d9a 100644
                      <div
                          v-if="completeCart && completeCart.items.length > 0"
                          class="text-right"
-@@ -36,6 +40,7 @@
- <script>
- import { fetchFullCart } from '@/services/cart-service';
+@@ -37,6 +41,7 @@
+ import { fetchColors } from '@/services/colors-service';
+ import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 +import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
  import Loading from '@/components/loading';
-@@ -43,6 +48,7 @@ import Loading from '@/components/loading';
+@@ -44,6 +49,7 @@ import Loading from '@/components/loading';
  export default {
      name: 'ShoppingCart',
      components: {

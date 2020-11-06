@@ -16,7 +16,7 @@ index 015f985c8..a38bb4587 100644
          return {
              form: {
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index d25f6a87e..57af25047 100644
+index 57d6e7d3f..35da58cad 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -34,6 +34,7 @@

@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index c98c43868..d94b52fab 100644
+index 7a54b4c18..ef2e0df0f 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -50,8 +50,10 @@ export default {
+@@ -70,8 +70,10 @@ export default {
          async cart() {
              const productIds = this.cart.items.map((item) => item.product);
  
@@ -14,4 +14,4 @@ index c98c43868..d94b52fab 100644
 +            ]);
  
              // Map all colors to our object dictionary by @id
-             const mappedColors = {};
+             this.colors = {};

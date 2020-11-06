@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 6b80b8072..0eb76d880 100644
+index e6e86840a..7c30daba4 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -4,7 +4,7 @@
@@ -20,11 +20,11 @@ index 6b80b8072..0eb76d880 100644
                          </button>
                      </div>
                  </div>
-@@ -54,6 +54,18 @@ export default {
-             completeCart: null,
-         };
-     },
-+    computed: {
+@@ -74,6 +74,17 @@ export default {
+                 items: completeItems,
+             };
+         },
++
 +        pageTitle() {
 +            return this.currentState === 'cart'
 +                ? 'Shopping Cart'
@@ -35,7 +35,6 @@ index 6b80b8072..0eb76d880 100644
 +                ? 'Checkout >>'
 +                : '<< Back';
 +        },
-+    },
+     },
      watch: {
          'cart.items.length': async function watchCartItemsLength() {
-             this.completeCart = await fetchFullCart(this.cart);

@@ -1246,8 +1246,8 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-add-completecart",
-            "name": "Shopping Cart Listing: add completeCart",
+            "id": "shopping-cart-listing-completecart-computed",
+            "name": "Shopping Cart Listing: completeCart computed",
             "description": null
         },
         {
@@ -1271,23 +1271,23 @@
             "description": null
         },
         {
-            "id": "delete-me-19",
-            "name": "delete me 19",
+            "id": "shopping-cart-listing-organize-into-a-method",
+            "name": "Shopping Cart Listing: organize into a method",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-create-service-function",
-            "name": "Shopping Cart Listing: Create service function",
+            "id": "delete-me-25",
+            "name": "delete me 25",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-fix-service-function",
-            "name": "Shopping Cart Listing: Fix service function",
+            "id": "delete-me-26",
+            "name": "delete me 26",
             "description": null
         },
         {
-            "id": "shopping-cart-listing-implement-method-in-watcher",
-            "name": "Shopping Cart Listing: Implement method in watcher",
+            "id": "delete-me-27",
+            "name": "delete me 27",
             "description": null
         },
         {
@@ -1636,5 +1636,5 @@
             "description": null
         }
     ],
-    "sha": "379fa6e5dab2003072e49a4e5913441fb1d99fe4"
+    "sha": "55475999384d79ac0b6aa9fee6de09ae892970d2"
 }
