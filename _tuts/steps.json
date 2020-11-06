@@ -1426,6 +1426,11 @@
             "description": null
         },
         {
+            "id": "more-shopping-cart-deep-watch",
+            "name": "More Shopping Cart: deep watch",
+            "description": null
+        },
+        {
             "id": "more-shopping-cart-fix-mixin-cart-item",
             "name": "More Shopping Cart: Fix mixin cart item",
             "description": null
@@ -1631,5 +1636,5 @@
             "description": null
         }
     ],
-    "sha": "4796488da971297f18aa5111afa2c69af461956e"
+    "sha": "379fa6e5dab2003072e49a4e5913441fb1d99fe4"
 }

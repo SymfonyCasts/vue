@@ -1,28 +1,19 @@
-diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index eaf6cb097..5d4a584a9 100644
---- a/assets/mixins/get-shopping-cart.js
-+++ b/assets/mixins/get-shopping-cart.js
-@@ -9,7 +9,9 @@ import {
- export default {
-     data() {
-         return {
--            cart: null,
-+            cart: {
-+                items: [],
-+            },
-             addToCartLoading: false,
-             addToCartSuccess: false,
-         };
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 3f6a8fe86..e2531b64b 100644
+index 76326ecfb..e2531b64b 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -42,7 +42,7 @@ export default {
+@@ -42,12 +42,8 @@ export default {
          };
      },
      watch: {
--        async cart() {
+-        cart: {
+-            deep: true,
+-
+-            async handler() {
+-                this.completeCart = await fetchFullCart(this.cart);
+-            },
 +        'cart.items.length': async function watchCartItemsLength() {
-             this.completeCart = await fetchFullCart(this.cart);
++            this.completeCart = await fetchFullCart(this.cart);
          },
      },
+     methods: {
