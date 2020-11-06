@@ -1,0 +1,13 @@
+diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
+index 96365fe91..3bed6b351 100644
+--- a/assets/components/shopping-cart/cart-item.vue
++++ b/assets/components/shopping-cart/cart-item.vue
+@@ -19,7 +19,7 @@
+ 
+         <div class="col-3">
+             <input
+-                v-model.number="item.quantity"
++                :value="item.quantity"
+                 class="form-control"
+                 type="number"
+                 min="1"

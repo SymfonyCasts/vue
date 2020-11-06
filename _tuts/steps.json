@@ -1381,8 +1381,13 @@
             "description": null
         },
         {
-            "id": "more-shopping-cart-add-quantity-and-buttons",
-            "name": "More Shopping Cart: Add Quantity and Buttons",
+            "id": "more-shopping-cart-switch-qty-to-value",
+            "name": "More Shopping Cart: switch qty to :value",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-add-price-column",
+            "name": "More Shopping Cart: Add price column",
             "description": null
         },
         {
@@ -1726,5 +1731,5 @@
             "description": null
         }
     ],
-    "sha": "c973b10e06aaccb3b2a873acdeb9d14df35b88c7"
+    "sha": "e7ff84f7ac4358f0ab2cc154f5450c829d704767"
 }
