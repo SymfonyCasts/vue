@@ -1,9 +1,9 @@
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
 new file mode 100644
-index 000000000..a948b5937
+index 000000000..4efcd765a
 --- /dev/null
 +++ b/assets/services/cart-service.js
-@@ -0,0 +1,143 @@
+@@ -0,0 +1,148 @@
 +import axios from 'axios';
 +
 +/**
@@ -61,6 +61,7 @@ index 000000000..a948b5937
 +    }
 +
 +    const response = await axios.get(cartIri);
++
 +    return { items: response.data.items };
 +}
 +
@@ -100,12 +101,14 @@ index 000000000..a948b5937
 + * @param {string} colorId
 + * @return {Promise}
 + */
-+export function removeItemFromCart(cart, productId, colorId) {
++export async function removeItemFromCart(cart, productId, colorId) {
 +    cart.items = cart.items.filter(
 +        (item) => (!(item.product === productId && item.color === colorId)),
 +    );
 +
-+    return axios.put(getCartIri(), cart);
++    const response = await axios.put(getCartIri(), cart);
++
++    return { items: response.data.items };
 +}
 +
 +/**
@@ -117,7 +120,7 @@ index 000000000..a948b5937
 + * @param {number} quantity
 + * @return {Promise}
 + */
-+export function updateCartItemQuantity(cart, productId, colorId, quantity) {
++export async function updateCartItemQuantity(cart, productId, colorId, quantity) {
 +    const cartItemIndex = findItemIndex(cart, productId, colorId);
 +
 +    if (cartItemIndex === -1) {
@@ -126,7 +129,9 @@ index 000000000..a948b5937
 +
 +    cart.items[cartItemIndex].quantity = quantity;
 +
-+    return axios.put(getCartIri(), cart);
++    const response = await axios.put(getCartIri(), cart);
++
++    return { items: response.data.items };
 +}
 +
 +/**
