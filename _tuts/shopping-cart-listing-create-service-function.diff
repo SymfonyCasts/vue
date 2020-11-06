@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 51f21e04a..ee1b2dbb7 100644
+index d94b52fab..ee1b2dbb7 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -48,32 +48,6 @@ export default {
@@ -19,15 +19,15 @@ index 51f21e04a..ee1b2dbb7 100644
 -                mappedColors[color['@id']] = color;
 -            });
 -
--            const completeItems = productsResponse.data['hydra:member'].map((product) => {
--                const cartItem = this.cart.items.find((item) => item.product === product['@id']);
+-            const products = productsResponse.data['hydra:member'];
 -
--                return {
--                    product,
+-            const completeItems = this.cart.items.map((cartItem) => (
+-                {
+-                    product: products.find((product) => product['@id'] === cartItem.product),
 -                    color: cartItem.color ? mappedColors[cartItem.color] : null,
 -                    quantity: cartItem.quantity,
--                };
--            });
+-                }
+-            ));
 -
 -            this.completeCart = {
 -                items: completeItems,
@@ -36,7 +36,7 @@ index 51f21e04a..ee1b2dbb7 100644
      },
  };
 diff --git a/assets/services/cart-service.js b/assets/services/cart-service.js
-index a948b5937..1d765a6af 100644
+index a948b5937..af358f847 100644
 --- a/assets/services/cart-service.js
 +++ b/assets/services/cart-service.js
 @@ -1,4 +1,6 @@
@@ -65,15 +65,15 @@ index a948b5937..1d765a6af 100644
 +        mappedColors[color['@id']] = color;
 +    });
 +
-+    const completeItems = productsResponse.data['hydra:member'].map((product) => {
-+        const cartItem = this.cart.items.find((item) => item.product === product['@id']);
++    const products = productsResponse.data['hydra:member'];
 +
-+        return {
-+            product,
++    const completeItems = this.cart.items.map((cartItem) => (
++        {
++            product: products.find((product) => product['@id'] === cartItem.product),
 +            color: cartItem.color ? mappedColors[cartItem.color] : null,
 +            quantity: cartItem.quantity,
-+        };
-+    });
++        }
++    ));
 +
 +    this.completeCart = {
 +        items: completeItems,

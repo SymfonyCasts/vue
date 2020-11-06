@@ -1391,8 +1391,8 @@
             "description": null
         },
         {
-            "id": "more-shopping-cart-fix-v-model",
-            "name": "More Shopping Cart: Fix v-model",
+            "id": "delete-me-22",
+            "name": "delete me 22",
             "description": null
         },
         {
@@ -1621,5 +1621,5 @@
             "description": null
         }
     ],
-    "sha": "c4a90c182373bd209e99a248ba9333c8fea1b40d"
+    "sha": "a7a6ad46f12634f153220a4025d4d88fc137ed51"
 }

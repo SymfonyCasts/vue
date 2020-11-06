@@ -1,14 +1,7 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 1f09d5177..031657c46 100644
+index 96365fe91..6b9762576 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -1,5 +1,5 @@
- <template>
--    <div :class="[$style.component, 'row', 'p-3']">
-+    <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
-         <div class="col-3">
-             <div class="row">
-                 <span class="col">
 @@ -25,10 +25,16 @@
                  min="1"
              >

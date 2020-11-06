@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index a439f0b4d..6b5304821 100644
+index 7b3c3a670..c98c43868 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -14,6 +14,7 @@
@@ -10,19 +10,19 @@ index a439f0b4d..6b5304821 100644
                          </div>
  
                          <div v-if="completeCart.items.length === 0">
-@@ -58,14 +59,13 @@ export default {
+@@ -57,14 +58,13 @@ export default {
              colorsResponse.data['hydra:member'].forEach((color) => {
                  mappedColors[color['@id']] = color;
              });
 -            console.log(mappedColors);
  
-             const completeItems = productsResponse.data['hydra:member'].map((product) => {
-                 const cartItem = this.cart.items.find((item) => item.product === product['@id']);
+             const products = productsResponse.data['hydra:member'];
  
-                 return {
-                     product,
+             const completeItems = this.cart.items.map((cartItem) => (
+                 {
+                     product: products.find((product) => product['@id'] === cartItem.product),
 -                    color: cartItem.color,
 +                    color: cartItem.color ? mappedColors[cartItem.color] : null,
                      quantity: cartItem.quantity,
-                 };
-             });
+                 }
+             ));
