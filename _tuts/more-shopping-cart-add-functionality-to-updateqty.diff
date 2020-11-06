@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e39b5a3d2..8fd964530 100644
+index e39b5a3d2..18b81f4cc 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -12,6 +12,7 @@
@@ -19,20 +19,13 @@ index e39b5a3d2..8fd964530 100644
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
-@@ -44,6 +45,18 @@ export default {
+@@ -44,6 +45,11 @@ export default {
              this.completeCart = await fetchFullCart(this.cart);
          },
      },
 +    methods: {
-+        /**
-+         * Updates the product quantity in the cart, then refreshes the page
-+         *
-+         * @param {string} product
-+         * @param {string|null} color
-+         * @param {number} quantity
-+         */
-+        async updateQuantity({ product, color, quantity }) {
-+            await updateCartItemQuantity(this.cart, product, color, quantity);
++        updateQuantity({ productId, colorId, quantity }) {
++            updateCartItemQuantity(this.cart, productId, colorId, quantity);
 +        },
 +    },
  };

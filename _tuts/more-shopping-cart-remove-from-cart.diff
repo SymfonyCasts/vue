@@ -1,5 +1,30 @@
+diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
+index 1761d4fbd..eaf6cb097 100644
+--- a/assets/mixins/get-shopping-cart.js
++++ b/assets/mixins/get-shopping-cart.js
+@@ -2,6 +2,7 @@ import {
+     addItemToCart,
+     fetchCart,
+     getCartTotalItems,
++    removeItemFromCart,
+     updateCartItemQuantity,
+ } from '@/services/cart-service';
+ 
+@@ -42,6 +43,12 @@ export default {
+             this.updateCartHeaderTotal();
+         },
+ 
++        async removeProductFromCart(productId, colorId) {
++            await removeItemFromCart(this.cart, productId, colorId);
++
++            this.updateCartHeaderTotal();
++        },
++
+         updateCartHeaderTotal() {
+             document.getElementById('js-shopping-cart-items')
+                 .innerHTML = getCartTotalItems(this.cart).toString();
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 8fd964530..00c445fff 100644
+index 82df6bfdb..3f6a8fe86 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -13,6 +13,7 @@
@@ -10,28 +35,13 @@ index 8fd964530..00c445fff 100644
                      />
                  </div>
              </div>
-@@ -21,7 +22,7 @@
- </template>
- 
- <script>
--import { fetchFullCart, updateCartItemQuantity } from '@/services/cart-service';
-+import { fetchFullCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
- import ShoppingCartMixin from '@/mixins/get-shopping-cart';
- import TitleComponent from '@/components/title';
- import ShoppingCartList from '@/components/shopping-cart';
-@@ -56,6 +57,16 @@ export default {
-         async updateQuantity({ product, color, quantity }) {
-             await updateCartItemQuantity(this.cart, product, color, quantity);
+@@ -49,6 +50,10 @@ export default {
+         updateQuantity({ productId, colorId, quantity }) {
+             this.updateProductQuantity(productId, colorId, quantity);
          },
 +
-+        /**
-+         * Removes a product from the cart, then refreshes the page
-+         *
-+         * @param {string} product
-+         * @param {string|null} color
-+         */
-+        async removeFromCart({ product, color }) {
-+            await removeItemFromCart(this.cart, product, color);
++        removeFromCart({ productId, colorId }) {
++            this.removeProductFromCart(productId, colorId);
 +        },
      },
  };

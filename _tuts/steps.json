@@ -1411,6 +1411,16 @@
             "description": null
         },
         {
+            "id": "more-shopping-cart-move-into-mixin",
+            "name": "More Shopping Cart: move into mixin",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-update-header-on-qty-change",
+            "name": "More Shopping Cart: update header on qty change",
+            "description": null
+        },
+        {
             "id": "more-shopping-cart-remove-from-cart",
             "name": "More Shopping Cart: Remove From Cart",
             "description": null
@@ -1421,13 +1431,13 @@
             "description": null
         },
         {
-            "id": "more-shopping-cart-refactor-get-shopping-cart-mixin",
-            "name": "More Shopping Cart: Refactor get-shopping-cart mixin",
+            "id": "delete-me-23",
+            "name": "delete me 23",
             "description": null
         },
         {
-            "id": "more-shopping-cart-update-header-on-cart-change",
-            "name": "More Shopping Cart: Update header on cart change",
+            "id": "delete-me-24",
+            "name": "delete me 24",
             "description": null
         },
         {
@@ -1621,5 +1631,5 @@
             "description": null
         }
     ],
-    "sha": "a7a6ad46f12634f153220a4025d4d88fc137ed51"
+    "sha": "0a02f4a7d0dbe6be6e5c4ae4c9a5adeb29c59473"
 }

@@ -1,0 +1,47 @@
+diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
+index 68f11e6f1..b15445888 100644
+--- a/assets/mixins/get-shopping-cart.js
++++ b/assets/mixins/get-shopping-cart.js
+@@ -1,4 +1,9 @@
+-import { addItemToCart, fetchCart, getCartTotalItems } from '@/services/cart-service';
++import {
++    addItemToCart,
++    fetchCart,
++    getCartTotalItems,
++    updateCartItemQuantity,
++} from '@/services/cart-service';
+ 
+ export default {
+     data() {
+@@ -31,5 +36,9 @@ export default {
+             document.getElementById('js-shopping-cart-items')
+                 .innerHTML = getCartTotalItems(this.cart).toString();
+         },
++
++        updateProductQuantity(productId, colorId, quantity) {
++            updateCartItemQuantity(this.cart, productId, colorId, quantity);
++        },
+     },
+ };
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 18b81f4cc..82df6bfdb 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -21,7 +21,7 @@
+ </template>
+ 
+ <script>
+-import { fetchFullCart, updateCartItemQuantity } from '@/services/cart-service';
++import { fetchFullCart } from '@/services/cart-service';
+ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+ import TitleComponent from '@/components/title';
+ import ShoppingCartList from '@/components/shopping-cart';
+@@ -47,7 +47,7 @@ export default {
+     },
+     methods: {
+         updateQuantity({ productId, colorId, quantity }) {
+-            updateCartItemQuantity(this.cart, productId, colorId, quantity);
++            this.updateProductQuantity(productId, colorId, quantity);
+         },
+     },
+ };
