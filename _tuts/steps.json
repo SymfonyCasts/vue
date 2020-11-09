@@ -1191,6 +1191,11 @@
             "description": null
         },
         {
+            "id": "shopping-cart-listing-set-products-data",
+            "name": "Shopping Cart Listing: set products data",
+            "description": null
+        },
+        {
             "id": "shopping-cart-listing-completecart-computed",
             "name": "Shopping Cart Listing: completeCart computed",
             "description": null
@@ -1681,5 +1686,5 @@
             "description": null
         }
     ],
-    "sha": "32978fcaa703d35c90fdd1b3e0e6e8e50f2449fb"
+    "sha": "0e9e6248433da563525b4f2344a056197e1a8e92"
 }

@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 39334842c..17092fb8b 100644
+index 5e89b2d05..17092fb8b 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -7,16 +7,16 @@
@@ -24,21 +24,16 @@ index 39334842c..17092fb8b 100644
                              Your cart is empty! Get to shopping!
                          </div>
                      </div>
-@@ -39,21 +39,36 @@ export default {
-         TitleComponent,
+@@ -44,12 +44,11 @@ export default {
+             products: null,
+         };
      },
-     mixins: [ShoppingCartMixin],
 -    watch: {
 -        async cart() {
 -            const productIds = this.cart.items.map((item) => item.product);
 -
 -            const productsResponse = await fetchProductsById(productIds);
--            const products = productsResponse.data['hydra:member'];
-+    data() {
-+        return {
-+            products: null,
-+        };
-+    },
+-            this.products = productsResponse.data['hydra:member'];
 +    computed: {
 +        completeCart() {
 +            if (!this.cart || !this.products) {
@@ -47,9 +42,7 @@ index 39334842c..17092fb8b 100644
  
              const completeItems = this.cart.items.map((cartItem) => (
                  {
--                    product: products.find((product) => product['@id'] === cartItem.product),
-+                    product: this.products.find((product) => product['@id'] === cartItem.product),
-                     color: cartItem.color,
+@@ -58,7 +57,18 @@ export default {
                      quantity: cartItem.quantity,
                  }
              ));
