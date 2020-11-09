@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 5137d7d3b..0a0616e0a 100644
+index 6456b336e..52f9cf25c 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -66,6 +66,7 @@
+@@ -75,6 +75,7 @@
  import FormInput from '@/components/checkout/form-input';
  import Loading from '@/components/loading';
  import { createOrder } from '@/services/checkout-service';
@@ -10,7 +10,7 @@ index 5137d7d3b..0a0616e0a 100644
  
  export default {
      name: 'CheckoutForm',
-@@ -120,7 +121,10 @@ export default {
+@@ -129,7 +130,10 @@ export default {
                      purchaseItems: this.cart.items,
                  });
  

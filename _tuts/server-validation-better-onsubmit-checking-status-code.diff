@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index cc8480edb..372dc7579 100644
+index 731a092c0..4a05e65c7 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -83,6 +83,7 @@ export default {
+@@ -92,6 +92,7 @@ export default {
              },
              validationErrors: {},
              loading: false,
@@ -10,7 +10,7 @@ index cc8480edb..372dc7579 100644
          };
      },
      methods: {
-@@ -102,6 +103,7 @@ export default {
+@@ -111,6 +112,7 @@ export default {
          },
          async onSubmit() {
              this.loading = true;
@@ -18,7 +18,7 @@ index cc8480edb..372dc7579 100644
  
              try {
                  const response = await createOrder({
-@@ -111,7 +113,13 @@ export default {
+@@ -120,7 +122,13 @@ export default {
  
                  console.log(response.data);
              } catch (error) {

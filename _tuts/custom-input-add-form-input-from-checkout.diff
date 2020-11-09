@@ -1,12 +1,11 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 03f571e09..bf73c0154 100644
+index c62d7053b..bf73c0154 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -2,15 +2,25 @@
+@@ -2,14 +2,25 @@
      <div class="row p-3">
          <div class="col-12">
              <form>
--
 +                <form-input
 +                    id="customerName"
 +                    :value="form.customerName"

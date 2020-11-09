@@ -1,20 +1,20 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index cbf971587..94dfafd32 100644
+index c0f17fd94..62a689fe2 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -9,6 +9,7 @@
- 
-                 <form-input
-                     v-model="form.customerEmail"
-+                    type="email"
-                     v-bind="getFieldProps('customerEmail', 'Email:')"
-                 />
- 
-@@ -29,6 +30,7 @@
- 
-                 <form-input
-                     v-model="form.customerPhone"
-+                    type="tel"
-                     v-bind="getFieldProps('customerPhone', 'Phone Number:')"
-                 />
-             </form>
+@@ -12,6 +12,7 @@
+                     <form-input
+                         v-model="form.customerEmail"
+                         class="col"
++                        type="email"
+                         v-bind="getFieldProps('customerEmail', 'Email:')"
+                     />
+                 </div>
+@@ -37,6 +38,7 @@
+                     <form-input
+                         v-model="form.customerPhone"
+                         class="col"
++                        type="tel"
+                         v-bind="getFieldProps('customerPhone', 'Phone Number:')"
+                     />
+                 </div>

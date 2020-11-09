@@ -1,11 +1,11 @@
 diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
 new file mode 100644
-index 000000000..53c477cc1
+index 000000000..d4242b766
 --- /dev/null
 +++ b/assets/components/checkout/form-input.vue
 @@ -0,0 +1,36 @@
 +<template>
-+    <div class="p-3">
++    <div class="form-group">
 +        <label
 +            for="customerName"
 +            class="col-form-label"
@@ -41,14 +41,14 @@ index 000000000..53c477cc1
 +};
 +</script>
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index ccb4170b7..03f571e09 100644
+index de6073b8a..c62d7053b 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -2,29 +2,7 @@
+@@ -2,29 +2,6 @@
      <div class="row p-3">
          <div class="col-12">
              <form>
--                <div class="p-3">
+-                <div class="form-group">
 -                    <label
 -                        for="customerName"
 -                        class="col-form-label"
@@ -71,11 +71,10 @@ index ccb4170b7..03f571e09 100644
 -                        {{ validationErrors.customerName }}
 -                    </span>
 -                </div>
-+
              </form>
          </div>
      </div>
-@@ -52,10 +30,5 @@ export default {
+@@ -52,10 +29,5 @@ export default {
              validationErrors: {},
          };
      },

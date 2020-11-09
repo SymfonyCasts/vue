@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 372dc7579..9d5b2c836 100644
+index 4a05e65c7..d3a8b4828 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -2,6 +2,13 @@
@@ -13,6 +13,6 @@ index 372dc7579..9d5b2c836 100644
 +                    Oops, there's been an error sending your data! Please, try again!
 +                </div>
 +
-                 <form-input
-                     v-model="form.customerName"
-                     v-bind="getFieldProps('customerName', 'Name:')"
+                 <div class="form-row">
+                     <form-input
+                         v-model="form.customerName"

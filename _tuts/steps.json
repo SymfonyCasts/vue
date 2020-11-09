@@ -1561,6 +1561,11 @@
             "description": null
         },
         {
+            "id": "custom-input-organize-into-cols",
+            "name": "Custom Input: organize into cols",
+            "description": null
+        },
+        {
             "id": "custom-input-add-type-prop",
             "name": "Custom Input: Add Type Prop",
             "description": null
@@ -1676,5 +1681,5 @@
             "description": null
         }
     ],
-    "sha": "45c07a99851dcfc2427f2980b6cc3c9d683bbe68"
+    "sha": "32978fcaa703d35c90fdd1b3e0e6e8e50f2449fb"
 }
