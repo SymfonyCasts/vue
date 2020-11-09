@@ -1016,11 +1016,6 @@
             "description": null
         },
         {
-            "id": "delete-me-10",
-            "name": "delete me 10",
-            "description": null
-        },
-        {
             "id": "basic-product-template-add-service-and-component",
             "name": "Basic Product Template: Add service and Component",
             "description": null
@@ -1031,11 +1026,6 @@
             "description": null
         },
         {
-            "id": "delete-me-5",
-            "name": "delete me 5",
-            "description": null
-        },
-        {
             "id": "basic-product-template-import-components",
             "name": "Basic Product Template: Import Components",
             "description": null
@@ -1043,26 +1033,6 @@
         {
             "id": "basic-product-template-paste-computed-property-from-product-card",
             "name": "Basic Product Template: Paste computed property from product-card",
-            "description": null
-        },
-        {
-            "id": "delete-me-3",
-            "name": "delete me 3",
-            "description": null
-        },
-        {
-            "id": "delete-me-1",
-            "name": "delete me 1",
-            "description": null
-        },
-        {
-            "id": "delete-me-2",
-            "name": "delete me 2",
-            "description": null
-        },
-        {
-            "id": "delete-me-4",
-            "name": "delete me 4",
             "description": null
         },
         {
@@ -1121,26 +1091,6 @@
             "description": null
         },
         {
-            "id": "delete-me-6",
-            "name": "delete me 6",
-            "description": null
-        },
-        {
-            "id": "delete-me-7",
-            "name": "delete me 7",
-            "description": null
-        },
-        {
-            "id": "delete-me-9",
-            "name": "delete me 9",
-            "description": null
-        },
-        {
-            "id": "delete-me-11",
-            "name": "delete me 11",
-            "description": null
-        },
-        {
             "id": "new-entry-add-link-to-cart",
             "name": "New Entry: Add link to cart",
             "description": null
@@ -1168,11 +1118,6 @@
         {
             "id": "new-entry-correct-template",
             "name": "New Entry: Correct template",
-            "description": null
-        },
-        {
-            "id": "delete-me-14",
-            "name": "delete me 14",
             "description": null
         },
         {
@@ -1216,16 +1161,6 @@
             "description": null
         },
         {
-            "id": "delete-me-16",
-            "name": "delete me 16",
-            "description": null
-        },
-        {
-            "id": "delete-me-17",
-            "name": "delete me 17",
-            "description": null
-        },
-        {
             "id": "shopping-cart-listing-render-cart-items",
             "name": "Shopping Cart Listing: render cart items",
             "description": null
@@ -1261,11 +1196,6 @@
             "description": null
         },
         {
-            "id": "delete-me-18",
-            "name": "delete me 18",
-            "description": null
-        },
-        {
             "id": "shopping-cart-listing-load-colors-in-watcher",
             "name": "Shopping Cart Listing: Load colors in watcher",
             "description": null
@@ -1283,21 +1213,6 @@
         {
             "id": "shopping-cart-listing-organize-into-a-method",
             "name": "Shopping Cart Listing: organize into a method",
-            "description": null
-        },
-        {
-            "id": "delete-me-25",
-            "name": "delete me 25",
-            "description": null
-        },
-        {
-            "id": "delete-me-26",
-            "name": "delete me 26",
-            "description": null
-        },
-        {
-            "id": "delete-me-27",
-            "name": "delete me 27",
             "description": null
         },
         {
@@ -1401,16 +1316,6 @@
             "description": null
         },
         {
-            "id": "delete-me-21",
-            "name": "delete me 21",
-            "description": null
-        },
-        {
-            "id": "delete-me-22",
-            "name": "delete me 22",
-            "description": null
-        },
-        {
             "id": "more-shopping-cart-add-event-emits",
             "name": "More Shopping Cart: Add event emits",
             "description": null
@@ -1438,16 +1343,6 @@
         {
             "id": "more-shopping-cart-remove-from-cart",
             "name": "More Shopping Cart: Remove From Cart",
-            "description": null
-        },
-        {
-            "id": "delete-me-28",
-            "name": "delete me 28",
-            "description": null
-        },
-        {
-            "id": "delete-me-29",
-            "name": "delete me 29",
             "description": null
         },
         {
@@ -1736,11 +1631,6 @@
             "description": null
         },
         {
-            "id": "delete-me-31",
-            "name": "delete me 31",
-            "description": null
-        },
-        {
             "id": "client-validation-validation-messages",
             "name": "Client Validation: Validation messages",
             "description": null
@@ -1783,11 +1673,6 @@
         {
             "id": "client-validation-remove-log",
             "name": "Client Validation: remove log",
-            "description": null
-        },
-        {
-            "id": "delete-me-35",
-            "name": "delete me 35",
             "description": null
         }
     ],
