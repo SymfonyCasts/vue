@@ -1,14 +1,14 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 9e915eecd..41182ae69 100644
+index bd3d1df95..5fd8a5fee 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -29,7 +29,10 @@
                          v-if="completeCart && completeCart.items.length > 0"
                          class="text-right"
                      >
--                        <button class="btn btn-primary xl">
+-                        <button class="btn btn-primary btn-lg">
 +                        <button
-+                            class="btn btn-info btn-sm"
++                            class="btn btn-primary btn-lg"
 +                            @click="switchState"
 +                        >
                              Checkout!

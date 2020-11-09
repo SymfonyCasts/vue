@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 448c2cf8b..089f15658 100644
+index 0ffad5fa5..147e0ea3e 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -13,7 +13,22 @@
+@@ -13,7 +13,20 @@
              </aside>
  
              <div class="col-xs-12 col-lg-9">
@@ -13,20 +13,18 @@ index 448c2cf8b..089f15658 100644
 +                >
 +                    <title-component
 +                        v-if="currentState === 'cart'"
-+                        key="1"
 +                        text="Shopping Cart"
 +                    />
 +
 +                    <title-component
 +                        v-else
-+                        key="2"
 +                        text="Checkout"
 +                    />
 +                </transition>
  
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
-@@ -96,11 +111,6 @@ export default {
+@@ -99,11 +112,6 @@ export default {
              };
          },
  

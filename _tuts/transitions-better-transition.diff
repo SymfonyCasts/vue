@@ -1,13 +1,16 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e0a2f34fe..448c2cf8b 100644
+index a0d457f21..0ffad5fa5 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -18,7 +18,7 @@
+@@ -18,7 +18,10 @@
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
  
 -                    <transition name="fade">
-+                    <transition name="fade" mode="out-in">
++                    <transition
++                        name="fade"
++                        mode="out-in"
++                    >
                          <shopping-cart-list
                              v-if="completeCart && currentState === 'cart'"
                              :items="completeCart.items"

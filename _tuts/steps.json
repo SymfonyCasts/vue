@@ -1571,6 +1571,16 @@
             "description": null
         },
         {
+            "id": "transitions-temporary-long-transition",
+            "name": "Transitions: temporary long transition",
+            "description": null
+        },
+        {
+            "id": "transitions-back-to-short-transition",
+            "name": "Transitions: back to short transition",
+            "description": null
+        },
+        {
             "id": "transitions-better-transition",
             "name": "Transitions: Better transition",
             "description": null
@@ -1578,6 +1588,11 @@
         {
             "id": "transitions-transition-title",
             "name": "Transitions: Transition Title",
+            "description": null
+        },
+        {
+            "id": "transitions-add-key",
+            "name": "Transitions: add key=",
             "description": null
         },
         {
@@ -1731,5 +1746,5 @@
             "description": null
         }
     ],
-    "sha": "e7ff84f7ac4358f0ab2cc154f5450c829d704767"
+    "sha": "3ad1bee8213fc63c73ae615571b20fa46831e113"
 }

@@ -1,0 +1,18 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 147e0ea3e..c06e25a6c 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -19,11 +19,13 @@
+                 >
+                     <title-component
+                         v-if="currentState === 'cart'"
++                        key="1"
+                         text="Shopping Cart"
+                     />
+ 
+                     <title-component
+                         v-else
++                        key="2"
+                         text="Checkout"
+                     />
+                 </transition>
