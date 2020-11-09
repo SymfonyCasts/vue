@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index d2416d7dd..e0230a97b 100644
+index 841cbaa0f..ccb4170b7 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -13,8 +13,17 @@
@@ -21,7 +21,7 @@ index d2416d7dd..e0230a97b 100644
                  </div>
              </form>
          </div>
-@@ -44,5 +53,10 @@ export default {
+@@ -43,5 +52,10 @@ export default {
              validationErrors: {},
          };
      },

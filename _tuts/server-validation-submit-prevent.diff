@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 73ce55bac..1301ae2e7 100644
+index 1ea2724e2..cc8480edb 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -1,7 +1,7 @@
@@ -11,7 +11,7 @@ index 73ce55bac..1301ae2e7 100644
                  <form-input
                      v-model="form.customerName"
                      v-bind="getFieldProps('customerName', 'Name:')"
-@@ -101,8 +101,7 @@ export default {
+@@ -100,8 +100,7 @@ export default {
                  errorMessage: this.validationErrors[id],
              };
          },
@@ -19,5 +19,5 @@ index 73ce55bac..1301ae2e7 100644
 -            event.preventDefault();
 +        async onSubmit() {
              this.loading = true;
-             this.form.purchaseItems = this.cart.items;
  
+             try {

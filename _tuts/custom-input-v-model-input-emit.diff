@@ -1,17 +1,17 @@
 diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
-index 0008e8c24..177555c99 100644
+index 052e4f661..848835cdd 100644
 --- a/assets/components/checkout/form-input.vue
 +++ b/assets/components/checkout/form-input.vue
 @@ -14,6 +14,7 @@
+                 'is-invalid': !isValid,
                  'form-control': true,
              }"
-             :value="value"
 +            @input="$emit('input', $event.target.value)"
          >
          <span
              v-show="!isValid"
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 9b8d17411..613711a35 100644
+index bf73c0154..af7d7b725 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -4,7 +4,7 @@

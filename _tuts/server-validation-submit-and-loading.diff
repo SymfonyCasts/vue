@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index f6993ac96..724a49f43 100644
+index 94dfafd32..58f47bec9 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -33,6 +33,22 @@
@@ -16,9 +16,9 @@ index f6993ac96..724a49f43 100644
 +                    <div class="col-auto">
 +                        <button
 +                            type="submit"
-+                            class="btn btn-info btn-sm"
++                            class="btn btn-info btn-lg"
 +                        >
-+                            Checkout!
++                            Order!
 +                        </button>
 +                    </div>
 +                </div>
@@ -39,8 +39,8 @@ index f6993ac96..724a49f43 100644
      },
      props: {
          cart: {
-@@ -64,6 +82,7 @@ export default {
-                 purchaseItems: [],
+@@ -63,6 +81,7 @@ export default {
+                 customerPhone: '',
              },
              validationErrors: {},
 +            loading: false,

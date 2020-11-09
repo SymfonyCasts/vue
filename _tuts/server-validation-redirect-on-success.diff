@@ -1,17 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index b0c398379..3b069e89c 100644
+index 5137d7d3b..0a0616e0a 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -3,7 +3,7 @@
-         <div class="col-12">
-             <form @submit.prevent="onSubmit">
-                 <div
--                    v-show="serverError"
-+                    v-show="formError"
-                     class="alert alert-danger m-3"
-                 >
-                     Oops, there's been an error sending your data! Please, try again!
-@@ -72,6 +72,7 @@
+@@ -66,6 +66,7 @@
  import FormInput from '@/components/checkout/form-input';
  import Loading from '@/components/loading';
  import { createOrder } from '@/services/checkout-service';
@@ -19,10 +10,11 @@ index b0c398379..3b069e89c 100644
  
  export default {
      name: 'CheckoutForm',
-@@ -124,6 +125,10 @@ export default {
+@@ -120,7 +121,10 @@ export default {
+                     purchaseItems: this.cart.items,
+                 });
  
-             try {
-                 const response = await createOrder(this.form);
+-                console.log(response.data);
 +                await clearCart();
 +
 +                const id = Number(response.data['@id'].split('/').pop());

@@ -1,0 +1,48 @@
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index d0df6885d..d97e0732c 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
+@@ -96,14 +96,7 @@ export default {
+                 customerCity: '',
+                 customerPhone: '',
+             },
+-            validationErrors: {
+-                customerName: null,
+-                customerEmail: null,
+-                customerAddress: null,
+-                customerZip: null,
+-                customerCity: null,
+-                customerPhone: null,
+-            },
++            validationErrors: this.getEmptyValidationErrors(),
+             loading: false,
+             serverError: false,
+         };
+@@ -126,9 +119,7 @@ export default {
+         async onSubmit() {
+             this.loading = true;
+             this.serverError = false;
+-            this.validationErrors = {
+-                customerName: null
+-            };
++            this.validationErrors = this.getEmptyValidationErrors();
+ 
+             try {
+                 const response = await createOrder({
+@@ -174,6 +165,16 @@ export default {
+                 this.validationErrors[validationField] = null;
+             }
+         },
++        getEmptyValidationErrors() {
++            return {
++                customerName: null,
++                customerEmail: null,
++                customerAddress: null,
++                customerZip: null,
++                customerCity: null,
++                customerPhone: null,
++            };
++        },
+     },
+ };
+ </script>

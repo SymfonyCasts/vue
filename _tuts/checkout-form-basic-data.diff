@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 8aa325438..015f985c8 100644
+index 8aa325438..127f8567c 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -9,5 +9,18 @@
+@@ -9,5 +9,17 @@
  <script>
  export default {
      name: 'CheckoutForm',
@@ -15,7 +15,6 @@ index 8aa325438..015f985c8 100644
 +                customerZip: '',
 +                customerCity: '',
 +                customerPhone: '',
-+                purchaseItems: [],
 +            },
 +        };
 +    },

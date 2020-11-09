@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 0ffad5fa5..147e0ea3e 100644
+index 2bd9cad83..c930c476f 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -13,7 +13,20 @@
@@ -24,7 +24,7 @@ index 0ffad5fa5..147e0ea3e 100644
  
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
-@@ -99,11 +112,6 @@ export default {
+@@ -98,11 +111,6 @@ export default {
              };
          },
  
@@ -35,4 +35,4 @@ index 0ffad5fa5..147e0ea3e 100644
 -        },
          buttonText() {
              return this.currentState === 'cart'
-                 ? 'Checkout >>'
+                 ? 'Check Out >>'

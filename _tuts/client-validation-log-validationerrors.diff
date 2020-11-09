@@ -1,0 +1,13 @@
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index 5985ff72f..18c4b96a3 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
+@@ -153,6 +153,8 @@ export default {
+             }
+         },
+         validateForm(event) {
++            console.log(this.validationErrors);
++
+             const validationMessages = {
+                 customerName: 'Please, enter your full name!',
+                 customerEmail: 'Please, enter your email address!',

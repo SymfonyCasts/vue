@@ -886,6 +886,11 @@
             "description": null
         },
         {
+            "id": "pre-part2-better-confirmation-page",
+            "name": "Pre-Part2: better confirmation page",
+            "description": null
+        },
+        {
             "id": "linking-products-add-a-tags",
             "name": "Linking Products: Add A tags",
             "description": null
@@ -1726,6 +1731,16 @@
             "description": null
         },
         {
+            "id": "server-validation-redirect-on-success",
+            "name": "Server Validation: redirect on success",
+            "description": null
+        },
+        {
+            "id": "delete-me-31",
+            "name": "delete me 31",
+            "description": null
+        },
+        {
             "id": "client-validation-validation-messages",
             "name": "Client Validation: Validation messages",
             "description": null
@@ -1741,10 +1756,40 @@
             "description": null
         },
         {
-            "id": "client-validation-redirect",
-            "name": "Client Validation: Redirect",
+            "id": "client-validation-initialize-errors",
+            "name": "Client Validation: initialize errors",
+            "description": null
+        },
+        {
+            "id": "client-validation-set-to-null",
+            "name": "Client Validation: set to null",
+            "description": null
+        },
+        {
+            "id": "client-validation-log-validationerrors",
+            "name": "Client Validation: log validationErrors",
+            "description": null
+        },
+        {
+            "id": "client-validation-re-init-1-field",
+            "name": "Client Validation: re-init 1 field",
+            "description": null
+        },
+        {
+            "id": "client-validation-re-init-validationerrors",
+            "name": "Client Validation: re-init validationErrors",
+            "description": null
+        },
+        {
+            "id": "client-validation-remove-log",
+            "name": "Client Validation: remove log",
+            "description": null
+        },
+        {
+            "id": "delete-me-35",
+            "name": "delete me 35",
             "description": null
         }
     ],
-    "sha": "3ad1bee8213fc63c73ae615571b20fa46831e113"
+    "sha": "45c07a99851dcfc2427f2980b6cc3c9d683bbe68"
 }

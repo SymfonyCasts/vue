@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 58618dfc4..9108d8bcf 100644
+index 0a0616e0a..318fc1f9e 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -132,6 +132,16 @@ export default {
+@@ -139,6 +139,16 @@ export default {
                  this.loading = false;
              }
          },
@@ -12,7 +12,7 @@ index 58618dfc4..9108d8bcf 100644
 +                customerEmail: 'Please, enter your email address!',
 +                customerAddress: 'Please, enter your street address!',
 +                customerZip: 'Please, enter your ZIP code!',
-+                customerCity: 'Please, enter your City!',
++                customerCity: 'Please, enter your city!',
 +                customerPhone: 'Please, provide a phone number!',
 +            };
 +        },

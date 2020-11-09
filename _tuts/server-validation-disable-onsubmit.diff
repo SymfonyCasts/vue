@@ -1,14 +1,14 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 885217c20..83cc8e96a 100644
+index 9d5b2c836..7c1dff204 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -51,6 +51,7 @@
                          <button
                              type="submit"
-                             class="btn btn-info btn-sm"
+                             class="btn btn-info btn-lg"
 +                            :disabled="loading"
                          >
-                             Checkout!
+                             Order!
                          </button>
 diff --git a/assets/services/checkout-service.js b/assets/services/checkout-service.js
 index decb83e83..bca8d23a7 100644
