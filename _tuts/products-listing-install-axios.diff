@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index 84a168eac..66bb94d8f 100644
+index eefe03312..91d2df9de 100644
 --- a/package.json
 +++ b/package.json
 @@ -4,6 +4,7 @@
@@ -11,13 +11,23 @@ index 84a168eac..66bb94d8f 100644
          "core-js": "^3.0.0",
          "eslint": "^6.7.2",
 diff --git a/yarn.lock b/yarn.lock
-index 1bfbafaef..caec550f2 100644
+index f554615b7..37572c7c4 100644
 --- a/yarn.lock
 +++ b/yarn.lock
-@@ -1345,6 +1345,13 @@ aws4@^1.8.0:
-   resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
-   integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
+@@ -1293,6 +1293,23 @@ atob@^2.1.2:
+   resolved "https://registry.yarnpkg.com/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
+   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
  
++aws-sign2@~0.7.0:
++  version "0.7.0"
++  resolved "https://registry.yarnpkg.com/aws-sign2/-/aws-sign2-0.7.0.tgz#b46e890934a9591f2d2f6f86d7e6a9f1b3fe76a8"
++  integrity sha1-tG6JCTSpWR8tL2+G1+ap8bP+dqg=
++
++aws4@^1.8.0:
++  version "1.9.1"
++  resolved "https://registry.yarnpkg.com/aws4/-/aws4-1.9.1.tgz#7e33d8f7d449b3f673cd72deb9abdc552dbe528e"
++  integrity sha512-wMHVg2EOHaMRxbzgFJ9gtjOOCrI80OHLG14rxi28XwOW8ux6IiEbRCGGGqCtdAIg4FQCbW20k9RsT4y3gJlFug==
++
 +axios@^0.19.2:
 +  version "0.19.2"
 +  resolved "https://registry.yarnpkg.com/axios/-/axios-0.19.2.tgz#3ea36c5d8818d0d5f8a8a97a6d36b86cdc00cb27"
@@ -28,7 +38,7 @@ index 1bfbafaef..caec550f2 100644
  babel-loader@^8.0.0:
    version "8.1.0"
    resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.1.0.tgz#c611d5112bd5209abe8b9fa84c3e4da25275f1c3"
-@@ -2365,6 +2372,13 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
+@@ -2277,6 +2294,13 @@ debug@2.6.9, debug@^2.2.0, debug@^2.3.3, debug@^2.6.9:
    dependencies:
      ms "2.0.0"
  
@@ -42,7 +52,7 @@ index 1bfbafaef..caec550f2 100644
  debug@^3.0.0, debug@^3.1.1, debug@^3.2.5:
    version "3.2.6"
    resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
-@@ -3259,6 +3273,13 @@ flush-write-stream@^1.0.0:
+@@ -3137,6 +3161,13 @@ flush-write-stream@^1.0.0:
      inherits "^2.0.3"
      readable-stream "^2.3.6"
  

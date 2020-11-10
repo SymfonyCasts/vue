@@ -11,7 +11,7 @@ index 79b4e2f7d..a7062c9ca 100644
  
  body {
 diff --git a/package.json b/package.json
-index 66bb94d8f..687e26ec7 100644
+index 91d2df9de..497d2eb0c 100644
 --- a/package.json
 +++ b/package.json
 @@ -3,6 +3,7 @@
@@ -23,7 +23,7 @@ index 66bb94d8f..687e26ec7 100644
          "axios": "^0.19.2",
          "bootstrap": "^4.4.1",
 diff --git a/yarn.lock b/yarn.lock
-index 663aff1ee..1dc1d94a3 100644
+index ff7875d34..5cea7c7e5 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -824,6 +824,11 @@
