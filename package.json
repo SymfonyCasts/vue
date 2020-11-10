@@ -10,8 +10,8 @@
         "eslint-config-airbnb-base": "^14.0.0",
         "eslint-plugin-import": "^2.19.1",
         "eslint-plugin-vue": "^6.0.1",
-        "node-sass": "^4.13.0",
         "regenerator-runtime": "^0.13.2",
+        "sass": "^1.29.0",
         "sass-loader": "^8.0.0",
         "webpack-notifier": "^1.6.0"
     },
