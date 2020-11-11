@@ -215,7 +215,7 @@ index 000000000..9a9edf7f7
 +</style>
 diff --git a/tutorial/color-selector.vue b/tutorial/color-selector.vue
 new file mode 100644
-index 000000000..5ca77de1b
+index 000000000..12f59fc9c
 --- /dev/null
 +++ b/tutorial/color-selector.vue
 @@ -0,0 +1,55 @@
@@ -233,7 +233,7 @@ index 000000000..5ca77de1b
 +</template>
 +
 +<script>
-+import { getColors } from '@/services/colors-service';
++import { fetchColors } from '@/services/colors-service';
 +
 +export default {
 +    name: 'ColorSelector',
@@ -244,7 +244,7 @@ index 000000000..5ca77de1b
 +        };
 +    },
 +    async created() {
-+        this.colors = (await getColors()).data['hydra:member'];
++        this.colors = (await fetchColors()).data['hydra:member'];
 +    },
 +    methods: {
 +        selectColor(iri) {
