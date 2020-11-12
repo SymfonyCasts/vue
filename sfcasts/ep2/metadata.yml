@@ -1,1 +1,8 @@
-chapters: []
+chapters:
+    - setup
+    - product-show-page
+    - product-context
+    - dynamic-component
+    - ajax-delay-rendering
+    - product-template
+    - add-to-cart
