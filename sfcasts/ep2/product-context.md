@@ -1,101 +1,76 @@
-# Product Context
+# Current Product Id
 
-Coming soon...
+So here's the plan: ,ake our top-level Vue component - `products.vue` - able to
+render either the product list page *or* the product show page. Why are we making
+*one* component able to render two different pages? Well, in reality, this is
+basically how Vue router normally works: one top-level file leverages the
+Router to render one of many different components based on the URL. And, in this
+case, I *also* want both pages to have the same *sidebar*. So we'll be re-using
+the layout from `products.vue`.
 
-So here's the plan. Make our top level view component, product style view, able to
-render either the product list page or the product show page. Right now, it always
-renders just this product list page. As I keep mentioning, this kind of thing is
-normally done with the view router, which reads your URL and then renders different
-components based on the URL for now. We're going to do that same thing ourselves, but
-instead of reading the URL to figure out which component we're going to render, we'll
-pass some info into view that says, Hey, we are on the product
+## Passing a currentProductId Global Variable
 
-Show page.
+So... how will this component determine which page it's on? We could parse the
+URL... *or* we could pass some info *into* Vue to help it.
 
-If you look on a template when we're on a specific category page, like for example,
-if I click office supplies,
+Look at the Twig template. When we're on a specific category page, for example,
+if I click "Office Supplies", we set a `currentCategoryId` global variable, which
+our Vue component reads to load the correct category. Now, we're going to do the
+*same* again: add a `currentProductId` if we're on a product page.
 
-We're
+In the controller... in the `showCategory()` action, the `currentCategoryId` is
+not the *database* id, it's the category IRI - like `/api/category/5`. We generated
+that by autowiring the `IriConverterInterface` thing.
 
-Already passing a current category ID global variable, which our view app reads to
-load the correct category. Now we'll do the same thing by adding a current product ID
-and the controller. If you actually look on a controller for the show category, the
-current category ID is not actually the database ID. It's actually the, I R I, the
-kind of /API /category slash
+Down in `showProduct()`, let's do the same thing: add
+`IriConverterInterface $iriConverter` and then pass a new variable:
+`currentProductId` set to `$iriConverter->getIriFromItem()` and pass it `$product`,
+which is the entity object that Symfony automatically queried for.
 
-A string.
+By the way, we *could* pass the *entire* `Product` object into the template and
+then serialize it to JSON - similar to what we did with the `categories`. That
+would help us avoid an AJAX call for the product data *and* let Vue render a bit
+faster. I'm going to avoid that here... mostly to make our life a bit harder. Again,
+yay learning!
 
-And we generated that by auto wind, this IRI converter interface thing. So we're
-gonna do the same thing down here. I'm going to add IRI converter interface,
-arguments, call IRI converter, and then we'll pass the picker
+In the template, copy the `currentCategoryId` code... then change everything to
+`currentProductId`. So if that variable is defined, set a new global JavaScript
+variable and escape it for JavaScript, just in case.
 
-Current product ID set to IRI converter
+Cool! So in theory, at the browser, if we click into a product, we should have a
+global variable. I'll try it in the console: `window.currentProductId`. Cool!
 
-Arrow, get IRI from item and pass it. The product. This is the product object we're
-using the functionality from a Senseo framework, extra bundle to automatically query
-for that object.
+## Reading the currentProductId in Vue
 
-By the
+So how could we read this in a Vue component? Well... it's a global variable... so
+we could put `window.currentPrroductId` *anywhere*. But in the last tutorial, we
+started centralizing these global variables into a `services/page-context.js` file.
+As a reminder, `services/` is a directory that - for the most part - holds files
+that make AJAX calls. But in the case of `page-context`, instead of reading data
+from AJAX calls, it reads global variables.
 
-Way, we could pass the entire product object into the template and then serialize it
-kind of similar to what we did with the categories that would help us avoid an Ajax
-call for the product data and allow our view after render more quickly, I'm going to
-avoid that here mostly just to make our life a bit harder again,
+Add a new method here, `export function  getCurrentProductId()` and make it return
+`window.currentProductId`. We can even impress of friends by adding some documentation
+to this.
 
-In a template.
+Beautiful!
 
-We'll do basically the same thing as before. We'll say if current product ID is
-defined and window dot current product ID = current product ID, and then we'll escape
-it. So it's safe. And JSON though, that shouldn't be a problem L's current
-productivity = no.
+To make sure this is all working, let's render this value in our Vue component. To
+do that, we need to make it available in the template... because we can't just call
+random functions from up here. The easiest - and nicest - way to do that is via
+a computed prop. In the component, add a new one called `currentProductId()`.
+Inside, return `getCurrentProductId()` and hit tab to auto-complete that.
 
-Cool.
+Now, when it auto-completed, PhpStorm automatically added the new import *for* me...
+though I don't love that it put this on multiple lines... I'll fix that.
 
-So in theory, if I click into a product over here, we now have that global variable
-being printed out in our template back, you can even say, uh, window dot current
-product ID.
+*Anyways*, we now have a `currentProductId` computed prop, so we can use it up
+in the template right before the `catalog` component, which lists all the products:
+`{{ currentProductId }}`.
 
-So how could we read this in our view component? Well, it's a global variable. So in,
-we really could just read that anywhere that we want it to and JavaScript via window
-dot current product E but in the last tutorial, we were centralizing these global
-variables into a services /page context that JS. So those reminder services is a
-directory that holds for the most part files that help us with Ajax calls. But in the
-case of page contact, instead of reading data from ADSL calls, it's actually reading
-the global variables. So let's add a new method here, export a function called get
-current product ID, And it will return window dot current product ID. And if we want
-we'll even put a, uh, some documentation on there, returns a string on it.
+I love it! Go check the browser. We don't even need to reload! It's already there.
 
-No,
-
-It returns the current product ID. That's set by the server.
-
-Beautiful
-
-To make sure this is all working. Let's render the current product ID inside of our
-view component to do that. We need to make it available up here as a variable and
-easiest way to do that. Nicest way to do that is via computed prop. In fact, we look
-down here and compute it.
-
-All right,
-
-Slide, a new computer prop here
-
-Called current product ID
-
-Here. We'll return get current product ID and I'll hit tab to auto complete that.
-Now, when I did that, that actually automatically up here added this new import for
-me though. I don't love that it put this on multiple lines, like that's unnecessary,
-so I will fix that, but it adds this little import here from that. So, uh, which of
-course is important. All right, now that we have a computer property called current
-product D let's use this up here.
-
-We'll just put it right. Yeah.
-
-For our catalog. I'll say curly, curly, current product ID. All right. When you move
-over, yay. Don't even need to reload. It is already there. Okay, cool. So now how do
-we render something different inside of this component based on this? Well, there are
-a couple options, including V if, but instead we're going to use something really
-cool called a generic component. That's next.
-
-Okay.
-
+Now that we have this, I feel the power. But how can we render something different
+in the component *based* on this? Well, there are a couple of options, including
+the tried-and-true `v-if`. But instead we're going to use something fancier called
+a dynamic component. That's next.
