@@ -1,63 +1,74 @@
-# Setup
+# Project Setup
 
-Coming soon...
+Welcome back you beautiful front-end JavaScript people! In part 1 of our Vue
+series, we learned a ton of Vue basics and more. Now it's time to go further: to
+get into the nitty-gritty details of building a real app with products, a shopping
+cart, and a simple checkout form. Whoa. So let's get right down to business.
 
-Welcome back you beautiful front end JavaScript people. Okay. In part one of our view
-tutorial, we learned all of, all of the view basics and more. Now it's time to go a
-step further and get into the nitty gritty details of building a real app with
-products, a shopping cart, and a simple checkout form. Whoa. So let's get right down
-to business to really have fun. You should definitely download the course code from
-this page and code along with me after you unzip, you'll find a start directory with
-the same code that you see here.
+To *truly* embrace the Vue goodness, you should definitely download the course code
+from this page and code along with me. After you unzip the file, you'll find a
+`start/` directory with the same code that you see here. Check out this `README.md`
+file for all of the setup instructions.
 
-Check out this,
+## Starting the symfony Web Server
 
-Read me.md file for all of the setup instructions. One of the last steps will be to
-find a terminal move into the project and use the Symfony. Binary is an easy way to
-start a local web server, do it with Symfony serve dash dash allow HTTP dash D
+One of the *last* steps will be to find a terminal, move into the project and use
+the [symfony binary](https://symfony.com/download) as an easy way to start a local
+web server. Do it with:
 
-The dash
+```terminal
+symfony serve --allow-http -d
+```
 
-D is so that it runs as a Damon in the background. This will start a web
-server@onetosevendotzero.zero.one that supports HTTPS or HTTP. I added the allow HTTP
-flag because we're because using HTTP makes it a bit easier to work with web PACS dev
-server option. Something that that's something that we talked about in the last
-tutorial that you can absolutely use HTTPS if you want. And the details of how to
-make that play nicely with Encore are in the Encore doc.
+The `-d` is so that it runs as a daemon in the background. This starts a web
+server at `127.0.0.:8000` that supports HTTPS *or* HTTP. I added the `--allow-http`
+flag because using HTTP makes it a bit easier to work with the webpack dev-server,
+which we'll use in a second. We talked about that in the
+[previous tutorial](https://symfonycasts.com/screencast/vue/dev-server) including
+details on how to use the web server with https.
 
-Anyways, let's go check out the site
+Anyways, let's go check out the site! Go to `http://127.0.0.1:8000`
 
-HTTP colon //and then one, two seven-zero.zero.one, colon 8,000
+## Executing the Encore dev-server
 
-To see Hey, giant air.
+And say hello to... a giant error! Ok, good start! Our site uses Webpack Encore
+to build its assets... and I *haven't* executed Encore yet.
 
-Oh, of course. Our site is looking for our Webpack Encore built assets and we haven't
-executed Encore. So they're not there yet. Back in the terminal, The terminal, we can
-do that with yarn dev server. This starts another server that will host our compiled
-CSS and JS files. I like it because parts of our page will,
+No problem: back at the terminal, run:
 
-Hmm.
+```terminal
+yarn dev-server
+```
 
-That starts another server that will host our compiled CSS and JS files. I like it
-because parts of our page will automatically update without us needing to reload the
-page. Something else that we talked about in the last tutorial, but if it gives you
-any problems, just run yarn watch instead. Now when we refresh, okay,
+This starts another server that will host our compiled CSS and JS files. I like
+using this because parts of our page will automatically update without us even
+needing to reload. Again, we talked more about this in part 1. If the dev-server
+gives you any trouble, just use `yarn watch` instead.
 
-Yay.
+## Hello MVP Office Supplies
 
-It's MVP office supplies, our site to sell mostly functional office supplies to
-startups that truly embrace the minimum viable product mentality. All of these
-products are barely viable. I assure you it's average. This app is not a single page
-application it's designed to have normal server-side render pages on most of the site
+*Now* when we refresh... woohoo! Welcome to MVP Office Supplies: our site to sell\
+"mostly functional" office supplies to startups that truly embrace the minimum
+viable product mentality. All of these products are... barely viable.
 
-We're using Vue just to build out a section of our site, this product listing page
-and soon a product show, page, a cart and a checkout. You can already click a
-category to go to another page, which loads the same view app, but filtered for that
-specific category. We're not using something like view router yet to avoid the full
-page refreshes, but we will in a future tutorial that is totally optional in our
-code, in the assets directory. All this is broken down into some directories, like
-our one page and a bunch of components for the different parts. We also have helpers
-and services, which are mostly for Ajax calls. I did reorganize this directory
-slightly by moving from, uh, since part one. So what's next it's time to allow a user
-to actually click this link, to view an individual product. Let's do that.
+This app is *not* a single page application: it's designed to use normal
+server-side-rendered pages on most of the site. We're using Vue just to build a
+*section* of our app: this product listing page and, soon, a product show, shopping
+cart and checkout.
 
+In the section that's powered by the Vue app, you can already click a category to
+go to another page. This loads the *same* Vue app, but filtered to that specific
+category. We're not using something like Vue Router yet to avoid the full page
+refreshes, but we will in a future tutorial. That is totally optional.
+
+In our code, all of the logic lives in the `assets/` directory and it's organized
+there into more folders, like a file to hold the top-level component for our one
+page and `components/` to hold different small - and sometimes re-usable - pieces.
+We also have `helpers/` and services, which mostly hold AJAX logic. I *did*
+reorganize this slightly after part 1 to match the latest standards for organizing
+JavaScript in a Symfony app.
+
+Ok: for our *first* mission, it's time to allow a user to click this link and view
+and individual product page. Will that page by a traditional server-side rendered
+page? another Vue app? The same Vue app? All valid options! Let's talk about them
+and choose one next.
