@@ -1,120 +1,114 @@
-# Product Show Page
+# Page 2: Product Show Page
 
-Coming soon...
+Let's build a page to *view* a single product! We'll get there by clicking on this
+link... or the image or... any of this.
 
-Let's build a product page. We'll get there by clicking on this link or the image or
-any of this. Now we could use the view routers that when we click any of these links,
-there's no refresh. We'll save that for another tutorial in part, because I want to
-prove that view can be used just as well in a traditional app. This means that we
-will make these nice traditional links, the template for this lives, add assets,
-components, product list, product card, that view Let's separate wrapping the image
-and an anchor tag. So I'll say, Hey
+Now we *could* use the Vue router so that when we click any of these links,
+there's no full page refresh. We'll save that for another tutorial in part, because
+I want to show how Vue can be used as a mini SPA for part of your site *or* as
+just one piece of traditional app.
 
-In Dandenong and do the closing a Hey, do the closing and then indent.
+## Linking to Another Page
 
-And for the H ref, let's actually use a computed property. So I'll say colon a draft
-and we'll use a computer property called product URL. So we don't have to repeat
-ourselves over and over again.
+This means that we will make these nice traditional links. The Vue component that
+renders this lives at `assets/components/product-list/product-card.vue`. Let's
+start by wrapping the image and an anchor tag. Add an `a`, a closing `a`, indend
+and, for the `href`, we can use a computed property to keep things clean:
+`:href=productUrl`.
 
-Do the
+Do the same thing down around the product name: `<a :href="productUrl">`. And to
+be *extra*, we can use `:text` and to print the product name.
 
-Same thing down here for this product name. I'll say a H ref I'll change that to
-colon H ref product URL, and then we can wrap the product name actually to be extra
-fancy. Ooh, we can even instead use the fancy, The text and put product that name
-inside of there. Totally do not need to do that. Just kind of a little more hipster.
-Now I can have the anchor tag be self-closing.
+That part is *totally* unnecessary, it's just more hipster because now the anchor
+can be self-closing. Oooo.
 
-Okay.
+Finally, for the "View Product" button, we should really change this to a normal
+anchor tag with an `href`. But to be extra complicated, let's activate it with a
+click listener: `@click=""` and call a method we'll add soon: `goToProduct()`.
 
-And finally, down here for the actual view product button, we should really change
-this to a normal, a tag that's semantically, correct? Because this is just going to
-be a normal get request link, but to be extra complicated, let's activate this with a
-click listener. So I'm going to say, add click = go to product. We will call a new
-method that we haven't created yet. I would not do this in a real app. I'm just
-trying to make our life harder for the tutorial. Yay learning. So if we go over right
-now and I will open my browser tools, thanks to the dev server, I don't even need to
-refresh. It's already freaking out because the property or method, product URL is not
-defined on the instance. So let's add that first down here, we already have a
-computed section. So I'll add a new product URL computed and inside of here
+To be clear: I would *not* do this in a real app - it's weird to make normal
+navigational links use fancy JavaScript... and it's not great for accessibility.
+I'm just trying to make our life harder for the tutorial. Yay learning!
 
-Let's return. And I'll use the look cool little ticks. So we can say /products /and,
-and dollar sign, open, curly, close curly, and inside of there, we'll say this
-product, that ID, which is one of the properties that we have, uh, on the product.
-Yes, I am hard coding the URL. We talked about this in the last tutorial, doing this
-makes life a lot easier, but if you really hate this, you can use FOS JS, routing
-bundle. If you want to generate them dynamically, that's all supposed to finish this
-by adding the, uh, method that we need for the Ana quick listener, the go-to product
-method. So at the bottom, I'll add a methods section Go-to product. And inside of
-here, we can use a window dot location = and then this.product URL To use our
-computed property. How nice is that? All right. Let's try it. If I move over it
-automatically refresh for me, I'll click any of these spots and we'd go do a big
-error page. Okay. Let me show you something. Before I started recording this tutorial
-in the source controller product controller directory, This is the controller that
-actually renders the pages we've seen so far, the homepage, which renders the
-category list, the individual category page. And before I started recording the
-destroyer, I already added a route and a controller and a template for our new
-product show page. So this is actually what's being executed right here. Now notice
-all of these, uh, control rented the same template, actually rent, which is
-templates, product index dot HTML, that twig.
+Head over to the browser and I'll open my debugging tools. Thanks to the dev
+server, we don't even need to refresh: it's already panicking because the
+"property or method, productUrl is not defined on the instance".
 
-Yeah.
+Let's add that first. In the component, we already have a `computed` section. Add
+another for `productUrl`. For the `return`, use the fancy "ticks" so we can say
+`/products/` then `${}` with `product.id` inside. As you'll see in a minute, I've
+*already* created a route and controller for this URL.
 
-Before I talk about that, just in general, now that we're on this product page,
+And, yes: I *am* hardcoding that URL. You *can* generate URLs dynamically by using
+FOSJsRoutingBundle, but I'm *fine* with hardcoding them: it makes life simpler.
+We also talked about this in
+[the first tutorial](https://symfonycasts.com/screencast/vue/categories-ajax#linking-properly).
 
-We can really
+To finish things, we need a method for the `@click` listener: `goToProduct()`.
+At the bottom, add a `methods` section with `goToProduct()`. Inside we can use
+`window.location =` and then `this.productUrl` to re-use our computed property.
 
-Render anything. So if we wanted to, we could decide that this is just going to be a
-normal twig rendered HTML page. And maybe we render a new product /show to HTML twig,
-and it's a totally normal page. And I guess our view application is just responsible
-for the kind of a product list page, but then the product show page is a traditional
-app. Or if we wanted to, we could run it the same. We could render a completely new
-view application. We could render a dif different template that renders a different
-view application that does something totally different, or we could render the same
-view. Application
+Super nice! Let's try it! When I move back to the browser, it automatically reloaded
+for me. Click any of the spots and... big error page!
 
-Happened,
+## The Product Page
 
-Detect that we're now on a product show page and make it render in a different way.
+Before I started recording the tutorial, I created a route and controller for this.
+Open `src/ControllerProductController.php`. This controller renders every page
+we've seen so far: the homepage - which renders all the products - the category
+page and - now - the individual *product* page. This is what's currently being
+executed.
+
+Notice that all of these pages render the same template, which is
+`templates/product/index.html.twig`.
+
+But, hold on, let's back up. We could make this "product show" page look and work
+*however* we want. For example, we could decide that this is going to be a normal,
+Twig-rendered HTML page: maybe we only needed Vue for our fancy product list. So,
+we could render a new `product/show.html.twig` and... be done.
+
+*Or*, if the page *is* going to be fancy and Vue would be nice to use, we could
+render a totally *different* Webpack entry that renders a *different*, new Vue
+application.
+
+*Or*... again, we could render the *same* Vue application that we've *been* using,
+but make that app smarter by *detecting* that we're on the product show page and
+rendering in a different way.
+
 We're still doing full page refreshes, but this is the idea behind a single page
-application, or even a mini single page application that powers a section of your
-site. You have one app,
+application, or even a mini single page application that powers just one section
+of your site. You have one app that renders different components based on the
+URL.
 
-Okay.
+So which page you're on and then renders differently based on that. *This* is what
+we're going to do.
 
-So which page you're on and then renders differently based on that.
+## The current Vue Setup
 
-Yeah.
+As a reminder, here is how the whole thing works currently. In `index.html.twig`,
+we're including the `products` entry, which is the `assets/products.js` file.
+This file grabs the `assets/pages/products.vue` component - that's right here - and
+renders it. We're now going to make this component smart enough to either render
+the product list page *or* the product show page. Normally that kind of toggling
+is done with a Vue router, but we're going to do it by passing info from the server,
+which in some ways, will be trickier.
 
-So instead of our index, that age toy, you can see that we're rendering this
-product's entry, which is this, uh, assets, products that JS file. And you can see
-what it does. It just grabs this pages /products view application, which is this
-products that view here and render
+Anyways, the new product show controller is already set up to use that same
+`index.html.twig` template that renders the `products` entrypoint and ultimately
+renders the `products.vue` component. But to get this to work, the template needs
+a `categories` variable so it can set a global `categories` JavaScript variables
+that we're using.
 
-That
+To do that, we'll use the same code as the other controllers. I'll copy the
+`categories` variable from up here. Then, we'll need to autowire the
+`CategoryRepository`: `CategoryRepository $categoryRepository`, add a 2nd argument
+to `render()` and paste!
 
-What we're going to do is actually make this component smart enough to either run to
-the product list page or the product show page. Normally that kind of toggling is
-done with a view router, which also helps avoid full page refreshes. We won't use
-view router, which will actually be a bit trickier in some ways. Anyways, this page
-is already set up to use the same template as the other pages, which as I mentioned,
-renders this products entry point and ultimately renders this product status view
-component. But in order to get this work inside of our template, we're actually
-passing. One of the things we need to pass here is the, uh, list, uh, the categories
-data, cause that's actually used inside the applications. So that's why we're getting
-this air.
+Now when we refresh... it's alive! Well... it's still executing the *exact* same
+Vue app as before.... which renders the product *list* page... but it's a start.
 
-So
+So next: let's pass some info to Vue to say:
 
-To do that, we'll use the same thing that we did before. And we can see in all of our
-controllers are passing this categories information. It's actually copying the
-categories variable from the, uh, one of the other end points. And we need to auto
-wire category repository. So no problem, we'll say category Repository, category
-repository, and I'll add a second argument to the render and pass in category.
+> Hey! We are on the product show page!
 
-Now when we refresh
-
-It's alive. But of course, since we're executing the exact same view app is before it
-renders the product list page. So next let's pass some info to view, to say, Hey, we
-are on the product show page. We'll then use that information inside of our products,
-that view components to render different things inside of it.
-
+We'll then use that info inside `products.vue` to render something different.
