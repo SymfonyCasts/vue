@@ -69,6 +69,6 @@ reorganize this slightly after part 1 to match the latest standards for organizi
 JavaScript in a Symfony app.
 
 Ok: for our *first* mission, it's time to allow a user to click this link and view
-an individual product page. Will that page by a traditional server-side rendered
+an individual product page. Will that page be a traditional server-side rendered
 page? Another Vue app? The same Vue app? Something written in ColdFusion? 3 of those
 are valid options! Let's talk about them and choose one next.
