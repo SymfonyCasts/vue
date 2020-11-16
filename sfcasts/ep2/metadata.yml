@@ -4,6 +4,7 @@ chapters:
     - product-context
     - dynamic-component
     - ajax-delay-rendering
+    - dumb-component
     - product-template
     - add-to-cart
     - cart-loading-quantity

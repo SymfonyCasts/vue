@@ -1,110 +1,118 @@
-# Ajax Delay Rendering
+# AJAX & Delayed Rendering
 
-Coming soon...
+Let's start build the product page. In the component, we have the `productId`, but
+not the product *data*. We'll need an Ajax call to get that.
 
-Okay, let's start grading our product page in the funnel. We have the product ID, but
-not the product data. We'll need an Ajax call to get that in `services/products-services.js`
-This is where we've been centralizing our Ajax logic for products.
-Let's add a new method to fetch just one product. We'll say export function 
-`fetchOneProduct()` within `iri` argument. And the cool thing about those IRAs is they are
-strings, so they are URL. So we can say return `axios.get()` in, literally pass it.
-The `iri`. Pretty awesome. And we can even add some documentation on this to be extra
-cool. This is going to be a string. This will return a promise, uh, which will
-resolve to an axial response. You can keep that if you want. Um, I'll just say that
-it's going to return a promise. I'll say gets a product from the API, according to
-the IRI. Cool.
+## AJAX call for Product Data
 
-Over in `product-show.vue`, we're definitely going to need a product data to store the
-object that we're going to get back to the Ajax call. So let's start there. I'll add
-a `data` key inside. We're going to return `product` and we're going to initialize it to
-`null`. Now to make the ajax call, we're going to want to do that as early as possible.
-So what right when this component is instantiated. Oh, and you know what? ESPN is mad
-here because data should be after props, not for functionality, just as a coding
-standard. Anyways, after this, let's add a `created()` function. Okay.
+In `services/products-services.js`, this is where we've been centralizing our AJAX
+logic for products. Let's add a new method to fetch just *one* product:
+`export function fetchOneProduct()` with an `iri` argument.
 
-And inside of here, uh, what I'm actually gonna do is also add a `loading` data to
-`false`, or kind of keep track of whether or not we're loading. Actually let's default
-that to `true` because we will be loading at first and then down here, just to be a
-little bit extra safe. I'll wrap this in a try catch block inside the tri we'll say
-`this.products` equals, and we can use that new `fetchOneProduct()`. So I'll say
-fetch one product hit tab. And when I did that, it added the import for me up here,
-as soon as we'll say fetch product, and we will pass that `this.productId` now
-we're really going to do is actually a weight that, so I'm going to say `await` on
-that so we can wait for it. And of course, when we use a weight, it means that we
-needed to make the function `async`
+My favorite part about those IRI strings is that they are *also* URLs. So we can
+say return `axios.get()` and literally pass it `iri`.
 
-And really, if you look at whatever eight, what our API end point and really because
-what fetch one product returns is actually the response object from Axios. We need to
-fetch the `data` key off of that. So I'll add `.data` on the end of it.
+Pretty awesome. We can even add documentation above this function to be extra
+cool: the argument will be a string and this will return a `Promise`... that will
+resolve to an `AxiosResponse`, which you can keep for some extra auto-complete if
+you want. And a description and... nice!
 
-Cool.
+Over in `product-show.vue`, we're definitely going to need a piece of data to
+store the object that we're going to get back from the AJAX call. Start there:
+add a `data()` function and return an object with a `product` key initialized to
+`null`. Oh, but... ESLint wants me to move `data` *after* `props` - that's just
+a coding standards thing.
 
-Now, inside the try, I'm not going to do a catch. Exactly. I'm just going to put a
-`finally` on it and say `this.loading = false;`. So if we thought that this endpoint
-might fail, for some reason, we could actually do a try-catch and maybe set some
-error, error message and display that. But at least in this case, if it fails, it's
-going to set our loading to false.
+For the AJAX call, we want to make it as *early* as possible. Do that by adding
+a `created()` function. Let's think... we're also going to want to know if when
+the AJAX call is still loading. So let's add a `loading` data set to `true`.
 
-The on top, let's use one of the properties from that product object. Now, as a
-reminder, our API has a full page of documentation at `localhost/api`, where you
-can actually see what all of the different, uh, things are that you're gonna get back
-from these end points. So for example, you can see all the different properties that
-we're expecting to get back from our products. End point. So in this case, there's a
-name key. So over here, I'm going to actually add an `<h1>` tag and we'll say curly,
-curly `product.name`, all right. So easy enough, we make an ajax call. We set it
-on a product data. We even have any loading data. We're not using that yet, but we
-will in a second. So when we move over, we have an air, okay. Let's just try to
-refresh that these same air cannot read property name of no coming from product show.
-So you can pretty easily assume that that is coming from right here. Now, this is a
-very common thing in view, what's happening is that the template renders product,
-that name immediately book product is no. When we first render the component, one way
-to avoid this is to initialize your product to an object with a `name`, key, something
-like this. But I prefer to do a different solution because that looks kind of hacky
-to me.
+Back in `created()`, I'm going to wrap the AJAX call in a try block *just* to
+get some rudimentary error handling. Say `this.products` equals and use that new
+`fetchOneProduct()` function. Hit tab to auto-complete that so PhpStorm adds the
+`import` for us.
 
-Simply don't run to the product until it's loaded. And this is really easy to do up
-here. I'm going to wrap our `<h1>` in another `<div>`, and I'm doing that simply because
-we're eventually going to have more product stuff here that we're going to want to
-render conditionally. And on that diff, I'm going to say `v-if="product"`
-Now the `v-if` is
+Pass the function `this.productId`. Oh, but what we *really* want to do is *wait*
+for this: add `await` and then, of course, the function now needs to be `async`.
+Then, because `fetchOneProduct()` resolve to an AxiosResponse, the product will
+live on a `data` key - grab that.
 
-Important here. If we use the `v-show`, it would still try to execute the code inside.
-It would just be hidden with `v-if`. The code inside here is not executed at all. So to
-move over now and refresh
+Cool! Finish this by adding `finally` with `this.loading = false`.
 
-Wow, it's actually empty. Let's check our view dev tools here, go down on the
-products, go on a product show and okay. You consider that the product data is
-actually null
+If I thought that this endpoint might fail for some legitimate reason, I'd add
+a `catch` and set an error on a piece of data to display it. But this at least
+sets the loading to false if something unexpected happens.
 
-And that's because of the error that you decide to make a second ago, which is down
-here and it should be `this.product` equals that it's now I don't even need to refresh. We
-can instantly see it. And the point now is when we refresh you, don't see an air. If
-somebody doesn't render that until the product is actually done, uh, loading from
-Ajax.
+## Using v-if for Truly Conditional Rendering
 
-So that's much better. Well, but we are missing one thing and that's kind of loading
-animation. You can see this is empty for just a second, which is not ideal. So that's
-simple enough over inside of here. We'll import `Loading` from, and we'll use the
-loading component that we created in the last tutorial, which is awesome. We're able
-to reuse this everywhere for a consistent loading feel down here. We'll add the
-normal `components`, key loading inside, and then up here, okay.
+Ok! Up on the template, let's start rendering some data! As a reminder, our API
+has a *full* page of documentation at `http://localhost:8000/api`. Fancy! Here,
+you can see what all of the different endpoints will return. For example, this
+shows all the different fields that we expect to get back for a product, like
+`name`!
 
-We can say `<loading>` with a `v-if="loading"`. Now there's two things about that. We
-might not even really even need a loading data in here because either the product is
-no, if we're loading or it's not, no, it's not in all of them. We're downloading, but
-that's fine. The second thing is notice I'm using `v-if` until now. I've always been
-using `v-show` with our loading animation. And actually it doesn't really matter much.
-If this loading animation we're going to show and hide the multiple times. I
-definitely choose `v-show` so that because that's a faster and hiding and showing, but
-since it will only load once and then disappear forever, `v-if` allows the components be
-completely destroyed once it's hidden, but really these are micro optimizations.
-Anyways, when we move over now and refresh, there we go. We see the loading
-animation. Once it's done loading and conditional loads title, except this title
-actually looks a little bit different than our categories page. See, it's kind of a
-smaller font over here. And the reason for that is if you look at the catalog
-components, it uses a title component. Yeah. We actually centralized our title into
-its own component in the last tutorial, but in product show, we're not actually using
-that yet. So next let's do that.
+Back in the component, add an `<h1>` tag and with `{{ product.name }}`.
 
-Okay.
+So... easy enough! We make an AJAX call and set it on a `product` data. We also
+have a `loading` data, which we'll use in a second.
 
+But when we check this in the browser...error! If we refresh... bah! It's still
+there. Go away! It says:
+
+> Cannot read property name of null
+
+And it's coming from `ProductShow`. I'm pretty sure the problem is right here in
+the template and... it makes sense! When the template *first* renders, the `product`
+is `null`. Hencem error!
+
+One way to avoid this is to initialize your `product` to an object with a `name`
+key, something like this. But I prefer a different solution... because this looks
+kinda hacky to me.
+
+Instead, simply don't render the product until it's loaded. Doing this is easy.
+Up in the template, wrap the `<h1>` in another `<div>`, which I'm doing because
+there will soon be even *more* product stuff that I want to render conditionally.
+On that `div`, add `v-if="product"`.
+
+The `v-if` is important. If we used `v-show`, it would *still* try to execute the
+code inside... it would just be hidden. With `v-if`, the code inside is not
+executed at *all*.
+
+So when we over over now and refresh... it's empty! And no error? Let me check
+the Dev tools: find `ProductShow` and... yea - the `product` data is *still*
+`null`.
+
+That's because of a typo that you probably saw me make a minute ago. Down in
+`created, `it should be `this.product` equals.
+
+Now... I don't even need to refresh: we instantly see the name. Well, *nearly*
+instantly: when we refresh, it *waits* until the `product` data is available,
+and *then* loads.
+
+## Loading Animation
+
+Before we keep going, since the page *is* empty for a moment, let's adds a loading
+animation. Simple enough! Back in the component, import `Loading` from
+`@/components/loading`, add a `components` key - `Loading` - then up in the
+template say `<loading>` with a `v-if="loading"`!
+
+Two things about this. One: we might not even need a `loading` data for this
+component because either the product is `null` - which means we're loading - or
+it's not... which means loading is done. But that's fine.
+
+Two, I'm using `v-if` on the `<loading>` component. Until now, I've always used
+`v-show` to hide and show the loading animation. Why the change? Well... it doesn't
+really matter. If a loading animation will be shown and hidden multiple times, I
+would *definitely* choose `v-show` because that's faster at hiding and showing.
+But since it will only load once... and then disappear forever, `v-if` allows the
+components be completely destroyed. But really, these are micro optimizations.
+
+Anyways, when we move over now and refresh... there we go! We see the loading
+animation and *then* the product name.
+
+Hmm, except this `h1` looks a bit different than our products list page. See: it's
+kind of a smaller font over here. The reason is that - if you look at the `catalog`
+component - it uses a `title` component. Yeah, we centralized our title into
+its own component in the last tutorial so that all titles have the same "look"...
+but in `product-show`, we're not using that yet! Let's fix that next, which will
+expose a problem the title component.

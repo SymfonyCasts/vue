@@ -1,58 +1,7 @@
-# Product Template
+# Product Template & Color Selector
 
 Coming soon...
 
-We have this title component, which we're using, which we're reusing so that we can
-have a consistent look with some styles that we have here on the bottom, uh, across
-our components. So in product show, let's use this down here. I will import 
-`TitleComponent`, calling that tall component and not title from `@/component/title`. 
-Then we'll put that into our components spot down here, the `TitleComponent`
-
-And up here instead of my manual, `<h1>`, it will say `<title-component />`. And for now I'm
-purposely not passing a prop in there. So I realized that looks kind of strange
-because there's a problem can move over and try this. We are in a product page and it
-seems to kind of work. It says all products show where that's coming from. And more
-importantly, there's an air down here missing required props `categories`. We are
-apparently supposed to pass a `categories`, prop to our title. Oh, okay. Let's see.
-What's going on here. The problem is, if you look at a title component, it's way too
-smart, it wants to do everything for us. It's expecting us to pass it, the
-`categories`, the `currentCategoryId`. And then it does a bunch of logic to figure out
-if we're on a specific category page or if we're not, but now we need to do something
-different when you're on it.
-
-And this logic isn't able to handle it. What we need to do is actually turn this into
-a dumb components that receives just whatever text we want as a prop in Prince that
-here. So this is really a mistake that I originally made. We made this title
-component kind of hold this logic here, which seemed like a good idea at the time.
-But now we can see that it would have been a better if it was just a dumb component.
-And we did all the work of passing it, the text from the outside. So we've talked a
-few times about having dumb components that just render markup versus smart
-components that do calculations, but don't run a markup. It's not a complete rule,
-but this is kind of why dumb components are very easy to reuse. All right? So let's
-turn this into a dump component. What we're going to do down here is we only need one
-property. We're going to call it `text`. It's going to be string. It's going to
-
-Be required true.
-
-Then up here instead of `categoryName`, it's just going to be `text`. Now, all this
-logic for computing, the `categoryName`, I'm going to copy this, then delete the
-entire computed section. And then if you go into the catalog components, so 
-`assets/components/catalog.vue` This is actually where we're using the title component right now
-are passing those two things in here. So I'm going to put the new computer property
-into this class. I currently do not have a computer property yet.
-
-So let's add one after data `computed()`,
-
-Then we will pass in the category name and this as the same, uh, uh, current category
-ID and categories. Uh, those are both pieces of props on this component. And then up
-here, it's very simple. Now let me have the `<title-components>`. I'm actually just going
-to shorten this to a single line because now it's as simple as passing that `text`, um,
-prop set to `categoryName`
-
-And before we go to the next page, let's actually go back here and click all
-products. It says all products, office supplies. It says office supplies. And on the
-product show page, we are now free to do whatever we want to do. So on product show,
-we are going to pass it. The tech `:text="product.name"`. Love that that is super
 easy and it shows up perfectly, okay, we've come this far. Let's actually finish
 rendering this component, which is mostly just a bunch of HTML that we need to print
 out. That's going to render various properties from our product object. Now, if you
@@ -128,4 +77,3 @@ another event down here, which is pretty cool. We are going to take advantage of
 soon so that we configure out which one is clicked when we hook up this, add to cart
 functionality. So next we are ready to start adding things to our cart. So let's do
 that.
-
