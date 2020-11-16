@@ -6,3 +6,5 @@ chapters:
     - ajax-delay-rendering
     - product-template
     - add-to-cart
+    - cart-loading-quantity
+    - external-dom-updates
