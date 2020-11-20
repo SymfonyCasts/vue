@@ -16,7 +16,7 @@ and, for the `href`, we can use a computed property to keep things clean:
 `:href=productUrl`.
 
 Do the same thing down around the product name: `<a :href="productUrl">`. And to
-be *extra* cool, we can use `:text` to print the product name.
+be *extra* cool, we can use `v-text` to print the product name.
 
 That part is *totally* unnecessary, it's just more hipster... because now the anchor
 can be self-closing. Oooo.
