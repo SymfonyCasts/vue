@@ -38,6 +38,8 @@ non-functional. What I mean is: it's not bound to a piece of data and it doesn't
 have any listeners on it. It's just... an input. Below this is a button that *also*
 doesn't do anything yet.
 
+## The Color Selector
+
 The most interesting part might be that we're rendering the `<color-selector>`
 component. Remember: some - but not *all* - products have some colors to choose
 from. If there *are* colors, we render the color selector.
