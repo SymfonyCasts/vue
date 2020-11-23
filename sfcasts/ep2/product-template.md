@@ -1,79 +1,78 @@
 # Product Template & Color Selector
 
-Coming soon...
+Time to build out this product show page and *really* make it shine. This is...
+mostly just a bunch of HTML that prints out product details... so let's cheat!
+If you downloaded the course code, you should have a `tutorial/` directory. Let me
+find mine. This holds a few files that we're going to use. Start by copying this
+`colors-service.js` into `assets/service/`. We'll check that out in a minute.
 
-easy and it shows up perfectly, okay, we've come this far. Let's actually finish
-rendering this component, which is mostly just a bunch of HTML that we need to print
-out. That's going to render various properties from our product object. Now, if you
-download the course code, you should have a `tutorial/` directory. Let me find mine
-here. It is with a couple of files inside of it that we're going to use in this
-tutorial. First, I want you to copy this `colors-service.js` into our `assets/service/`
-directory. I'll Talk about this in a second.
+Also copy `color-selector.vue` and put that into `assets/components/`.
 
-Then I also want you to call it, copy the `color-selector.vue` and put that into the
-`components/` directory. Okay. We haven't talked about out about it, uh, much yet, but
-some products come in several colors and the user will need to choose which color
-they want when they add to the cart. So this is a simple component that loads all of
-the colors inside of created from an Ajax call. So there's actually an end point that
-returns all of the different colors that are available in our entire system. So in
-our API, there's not different.
+Okay: we haven't talked about it yet, but *some* products come in *several* colors.
+This means that the user will need to choose which color they want when they add
+it their cart. This is simple component loads all of the colors inside its
+`created` function. Yep, there is literally an endpoint that returns information -
+like hex colors - for *every* possible color in the system.
 
-Okay?
+It then renders each color via different color swatches. When a user clicks on one,
+the component emits - via this `selectColor()` method - a `color-selected` event.
+That's going to be *super* handy later. Also, when it loops over the colors, it
+uses a dynamic `selected` class so we can see which color is currently selected.
 
-So there's returns to the full collection of colors in the entire database. So not
-specific to one product, it then presents each color via V4 in three different
-swatches. When a user clicks on them, the component emits via this `selectColor()`, a
-`color-selected` event that we can listen to. Also when it loops them, it uses a
-dynamic selected class. So it gets slightly different styling. When this one is
-selected, you're going to see that in a second. So it's pretty straight forward, but
-that's a pretty cool reusable component. I paste it in here just because as cool as
-it is, there's nothing really new about it For the rest of the products show
-template. I'm actually going to go to the bottom here after my VF product in paste, a
-bunch of HTML that you can get from the code block on this page. And let's see, you
-got a little extra white space right there. That looks good. We'll talk about this in
-a second
+So, it's pretty straightforward, but this is also a *pretty* cool, reusable component!
+Though, it doesn't contain anything really *new* for us.
 
-And all the way at the bottom. I'm also going to, after my script, pass a small style
-tag. Now, if you go back up to the template code that has pasted, there's nothing too
-special here. We're just printing out a, we have a new div here that only renters via
-V if product, instead of here, we're just printing out the image and other data like
-the brand, the description is different fields on the product. We also at the bottom
-have an input for the quantity, but this is non-functional meaning it's not bound to
-any data or anything. It's just an input. And there's also a button that doesn't do
-anything yet. So a bunch of HTML, we are also rendering the `<color-selector>`. If this
-specific product call it product has color. So I mentioned already some products have
-colors and some don't. So there's a color is property on the product, which tells us
-whether or not this product accepts colors. So if it does accept colors, we're going
-to run to that `<color-selector>`. And let's actually make sure that we import that. So
-down here, I will import `ColorSelector` from `@/components/color-selector`. And then
-down here, we can put that inside of our `components`.
+For the rest of the `product-show` template, go into the template and, after the,
+`v-if` I'll paste a *bunch* of HTML! You can copy this from the code
+block on this page. Oh, I've got some extra whitespace.
 
-And now it should be re it should be usable up here. Uh, this is one of the things we
-do here is we print out price. That's actually a computed property. Uh, we can
-actually steal this from `ProductCard`. Uh, if you remember in product card, we have a
-computed price thing here. And what that does is it actually, um, formats the price
-before it prints it out. So I'm actually going to copy this, move this over into our
-`ProductShow` down here as a `computed` property.
+And... *all* the way at the bottom, after the `script`, I'll also paste a small
+`style` tag.
 
-So I'll say computed paste that there, and then this references, when I pasted that
-in one thing it did, I want to notice is it automatically imported that format price
-for me? So you do need to import that now, and that should be it button. My build is
-super mad. For some reason, export get colors was not found in at services, colors,
-dash service. That's actually checked that out. Ah, this is my bad. This is called
-fetch colors inside of here. I will fix that in the code download, but we actually
-needed to import fetched colors here and then use `fetchColors` down there meant to
-change that in the tutorial directory I will. So your should be called `fetchColors`.
-Now the build is happy. That's also one of the benefits of and Encore. I made a
-mistake there and, um, I build didn't even work.
+Scroll back up to the template code that we just pasted. There's nothing too
+special here: there's a new `div` that only renders `v-if` there is a `product`.
+Inside, we render the image and other data like the `brand` and `description`.
 
-All right. So now with any luck when you're refresh, when we go over, yes, it's
-already there. I'll refresh to be sure, but we have the image, the title, the
-description, the formatted price. Beautiful. When you see an example of the color
-selector, go to furniture and click this big cool inflatable sofa, boom. There is our
-cool color selector and you can see the different, uh, styling you get when you
-select one. And even though we're not listening to it yet, if you go to the view dev
-tools and go to events, you can see every time I click one of those, it's dispatching
-another event down here, which is pretty cool. We are going to take advantage of that
-soon so that we configure out which one is clicked when we hook up this, add to cart
-functionality. So next we are ready to start adding things to our cart. So let's do
-that.
+Near the bottom, there is also an `input` for the quantity... but this is
+non-functional. What I mean is: it's not bound to a piece of data and it doesn't
+have any listeners on it. It's just... an input. Below this is a button that *also*
+doesn't do anything yet.
+
+The most interesting part might be that we're rendering the `<color-selector>`
+component. Remember: some - but not *all* - products have some colors to choose
+from. If there *are* colors, we render the color selector.
+
+Oh, but we haven't imported this yet. Down here, import `ColorSelector` from
+`@/components/color-selector`... and put that inside `components`.
+
+One other special thing we do in the template is print a `price` computed property...
+which we don't have yet. Open `product-cart`. This *already* has a computed `price`
+property which formats the price before rendering it. Copy that, go back to
+`product-show`, find `computed` and paste.
+
+Thanks to PhpStorm, when I pasted that, *it* added the `formatPrice` import *for*
+me. Awesome!
+
+But... I've been noticing that my Encore build is *super* mad! What's up?
+
+> export `getColors` was not found in `@services/colors-service`.
+
+Ah, I bet that's my fault! Open the `color-service.js` file. Yep! The export is
+called `fetchColors`, but in `color-selector.vue`, I'm using `getColors()`. I'll
+change that *and* fix the file in the `tutorial/` directory so you don't have
+this issue.
+
+*Now* the build is happy. It's pretty awesome that Webpack won't let me get away
+with mistakes like this.
+
+Ok: with any luck, the page *should* work. When we move over... yes! I'll refresh
+to be sure... but we have an image, title, description, formatted price! Beautiful!
+
+To see an example of the color selector, go to Furniture and click this big cool
+Inflatable Sofa that's *great* for office productivity. Boom! A neat color select
+with a border on the active element. And even though we're not listening to it yet,
+if you go to the Vue dev tools and click "Events"... each time I click a color,
+it dispatches a `color-selected` event. We're going to take advantage of that
+soon.
+
+Ok! I think we're ready to start adding stuff to our cart! Let's do that next!
