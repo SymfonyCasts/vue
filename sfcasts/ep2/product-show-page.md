@@ -15,15 +15,21 @@ start by wrapping the image in an anchor tag. Add an `a`, a closing `a`, indent
 and, for the `href`, we can use a computed property to keep things clean:
 `:href=productUrl`.
 
+[[[ code('2bae0023ea') ]]]
+
 Do the same thing down around the product name: `<a :href="productUrl">`. And to
 be *extra* cool, we can use `v-text` to print the product name.
 
 That part is *totally* unnecessary, it's just more hipster... because now the anchor
 can be self-closing. Oooo.
 
+[[[ code('07ac0d260c') ]]]
+
 Finally, for the "View Product" button, we should really change this to a normal
 anchor tag with an `href`. But to be extra complicated, let's activate it with a
 click listener: `@click=""` and call a method we'll add soon: `goToProduct()`.
+
+[[[ code('aa33b26087') ]]]
 
 To be clear: I would *not* do this in a real app - it's weird to make normal
 navigational links use fancy JavaScript... and it's not great for accessibility.
@@ -38,6 +44,8 @@ another: `productUrl`. For the `return`, use the fancy "ticks" so we can say
 `/products/` then `${}` with `product.id` inside. As you'll see in a minute, I've
 *already* created a route and controller for this URL.
 
+[[[ code('00084efbc9') ]]]
+
 And, yes: I *am* hardcoding that URL. You *can* generate URLs dynamically by using
 FOSJsRoutingBundle, but I'm *fine* with hardcoding them: it makes my life simpler.
 We also talked about this in
@@ -47,6 +55,8 @@ To finish things, we need a method for the `@click` listener: `goToProduct()`.
 At the bottom, add a `methods` section with `goToProduct()`. Inside, say
 `window.location =` and then `this.productUrl` to re-use our computed property.
 
+[[[ code('7a65300d93') ]]]
+
 Super nice! Let's try it! When I move back to the browser, it automatically reloaded
 for me. Click any of the spots and... big error page!
 
@@ -54,9 +64,17 @@ for me. Click any of the spots and... big error page!
 
 Before I started recording the tutorial, I created a route and controller for this
 URL. Open `src/Controller/ProductController.php`. This controller renders every page
-we've seen so far: the homepage - which lists all the products - the category
-page and - now - the individual *product* page. This is what's currently being
-executed.
+we've seen so far: the homepage - which lists all the products:
+
+[[[ code('eb3a0f7854') ]]]
+
+the category page:
+
+[[[ code('ce82ee9757') ]]]
+
+and - now - the individual *product* page. This is what's currently being executed.
+
+[[[ code('63ad09600d') ]]]
 
 Notice that all of these render the same template, which is
 `templates/product/index.html.twig`.
@@ -83,8 +101,15 @@ on the URL. *This* is what we're going to do.
 
 As a reminder, here is how the whole thing works currently. In `index.html.twig`,
 we're including the `products` entry, which is the `assets/products.js` file.
+
+[[[ code('bd2e21465a') ]]]
+
 This grabs the `assets/pages/products.vue` component - that's right here - and
-renders it. We're now going to make this component smart enough to either render
+renders it. 
+
+[[[ code('478d784817') ]]]
+
+We're now going to make this component smart enough to either render
 the product list page *or* the product show page. Normally that kind of toggling
 is done with a Vue router, but we're going to do it by passing info from the server,
 which in some ways, will be trickier.
@@ -99,6 +124,8 @@ To pass that, we'll use the same code as the other controllers. Copy the
 `categories` variable from up here. Then, we'll need to autowire the
 `CategoryRepository`: `CategoryRepository $categoryRepository`, add a 2nd argument
 to `render()`, and paste!
+
+[[[ code('d9e5443c7a') ]]]
 
 Now when we refresh... it's alive! Well... it's still executing the *exact* same
 Vue app as before.... which renders the product *list* page... but it's a start.
