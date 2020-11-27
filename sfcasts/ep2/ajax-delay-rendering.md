@@ -27,7 +27,7 @@ a `created()` function. Let's think... we're also going to want to know when
 the AJAX call is still loading.... so add a `loading` data set to `true`.
 
 Back in `created()`, wrap the AJAX call in a try block *just* to
-get some rudimentary error handling. Say `this.products` equals and use that new
+get some rudimentary error handling. Say `this.product` equals and use that new
 `fetchOneProduct()` function. Hit tab to auto-complete that so PhpStorm adds the
 `import` for us. Good job editor!
 
