@@ -3,9 +3,13 @@
 In the last tutorial, we created a `title` component, which we're reusing so that
 we can have a consistent look and styling.
 
+[[[ code('43b583bc8b') ]]]
+
 Cool! In `product-show.vue`, let's use that! Import  `TitleComponent` from
 `@/components/title`, add this into the `components` key, then up here, instead
 of our manual `<h1>`, say `<title-component />`.
+
+[[[ code('57eeecfaae') ]]]
 
 I'm purposely *not* passing a prop to this yet... and yes, I know it looks
 weird - like "how will it know what title to render?". Ya see... we have a
@@ -24,6 +28,8 @@ And then *it* does the logic to figure out if we're on a category page and eithe
 prints that category name or "All Products". There's no way for us to make it
 render *anything* else.
 
+[[[ code('d062194331') ]]]
+
 ## Converting to a Dumb Component
 
 What we need to do is convert `title` into a *dumb* component that does nothing
@@ -36,7 +42,11 @@ always follow it - but it's a nice guide to keep things organized and reusable.
 Ok: let's make this component less smart! Under `props`, we only need one: call
 it `text`. It will be a `String` and also required.
 
+[[[ code('5e0b115069') ]]]
+
 Then, in the template, instead of `categoryName`, just render `text`!
+
+[[[ code('edce6e47b2') ]]]
 
 What about all the logic inside the `categoryName` computed prop? Copy this and
 delete the entire `computed` section. Now open `assets/components/catalog.vue`.
@@ -46,14 +56,20 @@ this doesn't have a `computed` section yet, so add one after `data` - `computed`
 and paste `categoryName`. Both `this.currentCategoryId` and `this.categories` are
 available on this component, so this "should" just work.
 
+[[[ code('f932fb70bf') ]]]
+
 Back up top, we can shorten `<title-component>` significantly: we only need to pass
 `text` set to `categoryName`.
+
+[[[ code('7db61dae86') ]]]
 
 Let's make sure this still works. Back at the browser, click "All Products". The
 title looks good! Try "Office Supplies" and... perfect!
 
 Thanks to this, in `product-show`, we're free to pass *whatever* we want to the
 title, like `:text="product.name"`.
+
+[[[ code('0aa804f54a') ]]]
 
 I *love* that. And... it even works.
 
