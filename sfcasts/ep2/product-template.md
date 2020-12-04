@@ -6,7 +6,11 @@ If you downloaded the course code, you should have a `tutorial/` directory. Let 
 find mine. This holds a few files that we're going to use. Start by copying
 `colors-service.js` into `assets/service/`. We'll check that out in a minute.
 
+[[[ code('16e61774a4') ]]]
+
 Also copy `color-selector.vue` and put that into `assets/components/`.
+
+[[[ code('ada33b1b48') ]]]
 
 Okay: we haven't talked about it yet, but *some* products come in *several* colors.
 This means that the user will need to choose which color they want when they add
@@ -27,8 +31,12 @@ For the rest of the `product-show` component, go into the template and, after th
 `v-if`, I'll paste a *bunch* of HTML! You can copy this from the code block on
 this page. Oh, I've got some extra whitespace.
 
+[[[ code('968ac9ec5c') ]]]
+
 Then... *all* the way at the bottom, after the `script`, I'll also paste a small
 `style` tag.
+
+[[[ code('169459b466') ]]]
 
 Scroll back up to the template code that we just pasted. There's nothing too
 special: there's a new `div` that only renders `v-if` there is a `product`.
@@ -47,10 +55,14 @@ component. If this product comes in multiple colors, we render the color selecto
 Oh, but we haven't imported this yet. Down here, import `ColorSelector` from
 `@/components/color-selector`... and put that inside `components`.
 
+[[[ code('444bea5175') ]]]
+
 One other special thing we do in the template is print a `price` computed property...
 which we don't have yet. Open `product-card`. This *already* has a computed `price`
 property that formats the price before rendering it. Copy that, go to
 `product-show`, find `computed` and paste.
+
+[[[ code('688bca7b69') ]]]
 
 Thanks to PhpStorm, when I pasted that, *it* added the `formatPrice` import *for*
 me. Awesome!
