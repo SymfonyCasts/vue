@@ -21,10 +21,17 @@ we do *not* have a cart associated with our session yet.
 
 The `cart-service.js` file holds a number of functions for fetching the cart, adding
 items to the cart and so on. To get the cart id, this calls `getCartIrI()`, which
-reads that global variable. Back in `addItemToCart()`, this is smart
-enough to work even if the user doesn't have a cart yet. If the `cartIri` is *not*
-null, it updates it. But if it *is* null, it creates a new cart, which our API
-will automatically associate with the current user's session.
+reads that global variable:
+
+[[[ code('07d365de22') ]]]
+
+Back in `addItemToCart()`:
+
+[[[ code('a8bcc361be') ]]]
+
+this is smart  enough to work even if the user doesn't have a cart yet. 
+If the `cartIri` is *not* null, it updates it. But if it *is* null, it creates 
+a new cart, which our API will automatically associate with the current user's session.
 
 By the way, the cart data itself is *also* stored in the session instead of the
 database. That fact is completely *not* important for us in Vue. I just mention
@@ -41,12 +48,15 @@ new items to the cart. Wait... but why do we need to fetch the cart data in orde
 to add an item to it?
 
 The reason is... well... in *part* because I'm trying to make our life difficult.
-But that's not the entire reason. Look at `addItemToCart`: the `cart` object is
-the first argument. That's needed so that if we add a product to the cart and it's
-already *in* the cart, it can read the existing quantity and *increase* it. Now,
-we *could* have moved this smartness into our API, which would make our life easier
-here. But since we don't always have that luxury in the real world, we'll handle it
-in JavaScript.
+But that's not the entire reason. Look at `addItemToCart`: 
+
+[[[ code('0e681eba69') ]]]
+
+the `cart` object is  the first argument. That's needed so that if we add a product 
+to the cart and it's  already *in* the cart, it can read the existing quantity 
+and *increase* it. Now, we *could* have moved this smartness into our API, 
+which would make our life easier here. But since we don't always have that luxury 
+in the real world, we'll handle it in JavaScript.
 
 Oh, and speaking of complications, we could *also* make our life simpler by
 rendering the *entire* cart object as the global variable... instead of just the
@@ -55,11 +65,15 @@ the `cartIri` variable. If we output the *entire* cart as JSON, then we could
 avoid an AJAX call in Vue. I probably *would* do that in a real app. But for the
 tutorial, this AJAX call is going to complicate things in *wonderful* ways.
 
+[[[ code('d0be644a94') ]]]
+
 ## Fetching the Cart via AJAX
 
 Anyways, let's get to work! Inside `product-show.vue`, we need the `cart` object
 so that we can use it when an item is *added* to the cart. Down in `data`, add
 a new key to store this: `cart`.
+
+[[[ code('1b3ac74345') ]]]
 
 Next, in `created()`, call one of the new functions - `fetchCart()` and let
 PhpStorm auto-complete that: we want the one from `assets/`. But, hmm: let's make
@@ -70,6 +84,8 @@ Anyways, when I auto-completed that, PhpStorm added the `fetchCart` import for u
 Back in create, since `fetchCart()` returns a `Promise`, we can say `.then()`
 and pass a callback with a `cart` argument. Inside, all we need is
 `this.cart = cart`.
+
+[[[ code('da63dd9950') ]]]
 
 If you're wondering why I didn't use `await`, good... wondering! If we *had* used
 `await`, it would mean that this first AJAX call would need to finish before the
