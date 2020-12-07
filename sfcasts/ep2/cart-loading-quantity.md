@@ -1,66 +1,73 @@
-# Cart Loading Quantity
+# Loading Animations & Quantity Input
 
-Coming soon...
+Our add to cart button works... though it's not very obvious. We click "Add to Cart"
+and... nothing happens! Sure, we can refresh and see that the shopping cart header
+is increasing... but come on! We need some fireworks for when an item is added!
 
-Our add to cart button works though. It's not very obvious. Like can click this
-button. Nothing happens though. When I refresh, I can see the shopping cart header is
-increasing.
+Find the `data()` section of the component. The first goal is to add a loading
+animation *while* the item is being added. To track that "state", create a new
+`addToCartLoading` data set to `false` by default.
 
-I probably need something to show that this is working. Okay. Let's up our level of
-fancy over in our components of any `data()` section, let's add a new `addToCartLoading`
-data set to `false` by default, Then down inside of our function, we can start by
-saying `this.addToCartLoading = true`
- 
-And then at the bottom of this, we'll say `this.addToCartLoading = false;`
-But the only thing is that we need to actually add an awake here. So I will
-say a `await`. And as soon as I make that away, I need to make my function. `async` love
-it opens out our template. We can now use this new `addToCartLoading`. So I'll copy
-that head up to my template. And how about this right after the add to cart, I'll add
-an `<i />` tag It's self-closing and inside of this, I'll say `v-show="addToCartLoading"`
-and we'll make this some using font. Awesome on this. So I can say `class="fas fa-spinner fa-spin"`
-So that should give me a nice little
-loading icon. When I go over here, I shouldn't need to refresh. Yep. It instantly
-works. So that's already better.
+Then, inside of the method, put `this.addToCartLoading = true` on the top, and
+`this.addToCartLoading = false` on the bottom.
 
-What's
-Also as an show that it worked, I want this happy feeling like you added something to
-your cart, so let's go back over here, go back down to data. And we'll also add
-something. That's a piece of data that says adding the thing that the cart was
-successful. So `addToCartSuccess: false`.
+Oh, but *now* we will need to make the AJAX call *wait* until it finishes. Add
+`await` and then, of course, we need to make the function `async`.
 
-And then down here, after we add it to our cart successfully, we'll say 
-`this.addToCartSuccess = true;` And actually in case we add multiple things in the cart up
-here. When we first do this, we'll set it back to fall. So we'll start at `false` and
-then set it to `true` once we've added it to the cart.
+I love it! Copy the new `addToCartLoading` and head up to the template. Let's see..
+right after the button, add an `<i />` tag that's self-closing with
+`v-show="addToCartLoading"`. Our project uses FontAwesome, so we an turn this into
+a loading animation with `class="fas fa-spinner fa-spin"`.
 
-now Up inside of our template, we're gonna use that in a very similar way. So let's copy
-our `<i>` tag and we'll say, `addToCartSuccess`. And this time let's do `fas` and we'll do
-an `fa-check` for a little check, Mark. That's not spinning. All right, let's try this
-over here. And boom, I love the way that that is feeling
+Yes, we *do* have a `Loading` component, but this will look nicer in this spot.
+Back at the browser, we shouldn't event need to refresh. Yep! It *instantly*
+works and looks better.
 
-So when we add an item to the cart down here for checkout our AJAXcall, and in
-addition to the product, there are two other imparts. There's the color, which some
-products have a color, and there's also the quantity right now. We're just hard to go
-to in both of these
+But, hmm. I *also* want users to get a happy feeling once the "add to cart"
+finishes. Back in the component, go find `data` again: I want to be able to track
+whether or not an "add to cart" has finished successfully. Create a new piece o
+data for this called `addToCartSuccess` set to `false`.
 
-Let's fix the quantity. First, what we need to do is basically bind to this color
-data. When you need to do is basically bind our input here to a piece of colored data
-so that when the input changes, it updates a piece of data. So let's start by adding
-a new piece of quantity data down here. So I will say `quantity` or default that to a
-one to start. And this is beautifully simple to some of the best parts of view right
-here. We can do a `v-model` here. `v-model="quantity"`. It's that simple.
-When the input changes that will change the quantity data and actually to be a little
-fancier, I'll say `v-model.number`. But that number is cool because it converts
-the string and the input into a number of type. Now we should be able to use this
-down in our Ajax call. So instead of `quantity: 1`, we say `quantity: this.quantity`
+Now, in the method, after the AJAX call finishes, say `this.addToCartSuccess = true`.
+Oh, and in case we add multiple things in the cart, when the method *starts*,
+make sure this is is `false`. So it starts `false`, then goes to `true` once
+we're done.
 
-Cool. Now, if we look over this input was actually blank. Is that going to go? Now?
-It says one. If we click this up to three instead of 12 in our cart now, and add a
-cart and refresh 15 items in our cart. Awesome. The last piece we're missing is the
-product color. Well, this product doesn't come in. Any other colors, only this
-beautiful yellow, but if you click furniture and click into the inflatable sofa, this
-does come in multiple colors. We need to grab the selected color and send that in the
-Ajax call. Let's do that next and update the car shopping cart number in the header
-automatically. Whenever we add a new item of car, that's a little bit interesting
-because that is outside of our view component.
+Back up in the template, we're going to use this in a very similar way. Copy the
+`<i>` tag, use `addToCartSuccess` and, for the `class`, use `fas fa-check` for
+a cool, not-spinning, check mark.
 
+Let's try it! Back on the page, click and... oh. That felt good. I think I should
+keep shopping.
+
+## Hooking up the Quantity Input
+
+Ok: when we call `addItemToCart`, in addition to `product`, there are two other
+pieces of data: `color` - for products that come in multiple colors - and
+`quantity`. Right now, both are hardcoded to boring values.
+
+Let's fix `quantity` first. What we need to do is basically bind this `input` to
+a piece of data so that when the input changes, the data changes! And... we know
+how to do that!
+
+Start by adding the new data key: `quantity` with a default value of 1.
+
+Next, up in the template, Vue makes it beautifully simple: `v-model="quantity"`.
+
+Thanks Vue! Now, when the input changes, the `quantity` data will change. And
+actually, to be a bit fancier, I'll say `v-model.number`.
+
+That cool trick will convert the string input into a `Number` type. *Now* we can
+use this below: instead of `quantity: 1`, we want `quantity: this.quantity`.
+
+Head back to the browser. Nice! A moment ago, the `input` was *blank*. *Now*,
+it starts at 1. Increase this to 3. We currently have 12 items in the cart, hit
+"Add to Cart", refresh and... woo! 15!
+
+Ok: the last missing piece is the product color. Well, *this* product doesn't come
+in multiple colors, so it's finished. But if you click "Furniture" and then the
+inflatable sofa, this *does* come in multiple colors. Next: we need to grab the
+selected color and send *that* in the Ajax call. And you know what else? Whenever
+we hit "Add to Cart", I'm tried of the header not updating until we refresh.
+Let's *also* fix that... which is a bit interesting because that is *outside* of
+our Vue component.

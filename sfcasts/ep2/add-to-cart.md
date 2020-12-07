@@ -1,67 +1,63 @@
 # Add To Cart
 
-Coming soon...
+The cart data is being loaded via AJAX... and we *need* that data *before* we
+can add a new item to the cart. It should all load pretty quickly, but to be safe,
+we need to prevent the user from clicking the "Add to cart" button *until* that
+AJAX call is done.
 
-All right. So first when we click it,
+Head up to find that button. This is delightfully simply: add `:disabled` set to
+`cart === null`.
 
-And one thing that we want to prevent is that cart object is being loaded.
-Asynchronously is we don't want someone to hit add to cart before we have the cart
-object. So we can fix that really easily. By going up to the add to cart button, and
-here we can say, `:disabled` set to `cart === null`. We don't have a cart, it
-should be disabled.
-And Now we can hook up the real functionality we want, which is that `@click=""`, let's call
-it a new `addToCart()` method down here. Let's add that method. I'll go down to the
-bottom `methods: {}`, `addToCart()` This one
+If we don't have a `cart`, this button will be disabled.
 
-Won't take, don't need any arguments here. And what we're gonna do here now is
-actually call that add to cart method from inside of our `cart-service`. So I'll say
+Now let's hook up the *real* functionality: `@click=""` and call a new `addToCart()`
+method. Head down to the component, add `methods: {}`, then `addToCart()`. This
+won't need any arguments.
 
-`addItemToCart()` I'll hit tab to auto, complete that again, it's a little redundant, but I just
-want to show you that that did add the import
+Inside, we can use an `addToCart` method from inside the `cart-service`. I'll
+type `addItemToCart()` and hit tab to auto-complete... because that little trick
+gets PhpStorm to add the import *for* me.
 
-Or up here.
+Ok, the first argument is the cart object - so `this.cart`. In practice, we know
+that it's safe to reference `this.cart` because our `addToCart` method can't be
+called until *after* the cart AJAX call has finished. Until then, the button is
+disabled.
 
-I'm the cart and what we need to pass. This is going to be the cart object, which we
-know is going to be `this.cart`. And we know that it's safe to reference that because
-we know that in practice, this `addToCart` method is not going to be callable. Um,
-until the cart is loaded because the button will be disabled.
+The second argument is the *item* to add. This is an object with *three* things
+in it: `product` - set to the product IRI, so `this.product['@id']`, `color` -
+which for right now, I'm going to set to `null` - and `quantity` set to 1.
 
-So `this.cart`, and then we need a pass the item
-Yeah. And what would, this actually is each item in the cart is actually three
-things. It is the product IRI, which we can set to `this.product['@id']` The `color`,
+If... you're thinking:
 
-Which for right now, I'm going to set to null or about that in a second and a
-`quantity`, which I will set to one. Now, if you look confused, why I know fields to
-put there again, this is just how my API is designed. So if I go back and look at the
-cart API and look at the put end point here, and the put end point allows us to, uh,
-add a product color and quantity and array of those objects inside of here. So that's
-what we are passing
+> How did Ryan magically know keys to pass here?
 
-All right. So that should be it. Let's actually see if this works. So let me refresh
-one more time. Fresh. I'm going to add a cart and I think it worked. I don't see any
-areas here. You can actually see the Ajax call was successful down here for post
-`/api/carts`. Since we don't have a cart yet to refresh
+That's... a fair question. This is just how the API is designed. If you go back
+to the API docs... and open the `put` endpoint, the example input shows the keys
+we're using. Both of those strings are IRI strings.
 
-And check the cart data and Oh, you can see it's actually still empty. This is
-actually a little bug I've been seeing on my computer. I wanted to show you in case
-any of you hit it. You actually look at the source code right now. You see the
-`window.cartIri` is still null. The problem is that I use `localhost:8000` for tons
-of projects. And since I'm using on HTTP, which means I already have cookies from
-other projects. And since I'm using this on HTTP, it's actually rejecting my cookie
-in favor of those existing secure cookies. Long way of saying, if you get this, you
-can actually go into application and clear your storage completely. So this is
-basically clearing my session storage. Now I'm going to refresh, I'll go back to the
-view data tools. I'm going to add a cart one more time.
+Anyways... I think it's testing time! I'll refresh to be sure... hit "Add to Cart"
+and... I think it worked? I don't see any errors... but I *can* see the successful
+AJAX call to `/api/carts`. It's a POST request since this is creating a *new* cart.
 
-This time when I refresh. Yeah. So you can see actually up in the header, it says
-shopping cart one. And if we look at the view tools down here, yes, our cart has one
-item in it with quantity one. So that kind of, we had that quantity thing going, I'm
-going to hit add a cart two more times and you actually see that this header doesn't
-update yet. We're going to fix that soon. But when we refresh now, it says three and
-our cart here still has one item in it. But now that one item has quantity three. So
-yes, we are adding things to our cart.
+Let's see if the `cart` data updated inside Vue. Hmm, it did not! This is a quirk
+that is *completely* unrelated to Vue... but I wanted to show in case it happens
+to you. If we look at the HTML source, we can see that `window.cartIri` is still
+`null`. The problem is that I use `localhost:8000` for tons of projects, which
+means I already have cookies from those other projects. And since I'm using `http`
+instead of `https` this time, my browser is *rejecting* my new session cookie.
 
-So next, let's make this fancier with some animations, hook up the quantity and color
-selectors for products that need a color and somehow update this cart header
-immediately, whenever we click add to cart. So we don't have to wait for it to
-refresh.
+The fix is to go to Application and clear the storage to get rid of any cookies
+from other projects.
+
+Let's try this again. Refresh... go back to the Vue dev tools and click "Add to Cart".
+This time when I refresh... yea! Look at the header! It says: "Shopping cart (1)".
+And if we look at the Vue tools... yes! The `cart` contains 1 item with `quantity`
+`one`.
+
+To prove we an *increase* the quantity, hit "Add to Cart" 2 more times. Notice
+that the header does *not* instantly update. That's no surprise, but we *will*
+fix that. Refresh to see the new value and... yes! it says 3! Our `cart` still
+only has one item, but with `quantity` 3.
+
+We can add things to our cart! Next, let's make this whole process fancier with
+some animations and hook up the `quantity` input and color selector.
