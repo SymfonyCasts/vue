@@ -1,93 +1,98 @@
-# External Dom Updates
+# External DOM Updates
 
-Coming soon...
+When we add something to the cart, the last piece of data that's hardcoded is
+the color. Now, some products come in multiple colors and some don't. But when
+we *are* on a product with multiple colors - like our inflatable sofa - we need
+to make sure that we send the selected colors IRI with the AJAX call.
 
-Let me add
+Doing this is... pretty similar to how we handled the quantity. In that case,
+we had an `input`. When the input changes, we update this `quantity` data via
+`v-model`. Then, down here, once we did that, it was very easy to reference
+`this.quantity` when adding the item to the cart.
 
-The cart, the last piece of data that we kind of have hard coded as no one here is
-the color. Now some of our products have colors and some don't. So when we, when
-we're on a product that has a color, like our inflatable sofa, we need to make sure
-that we sent this to that colors. IRI,
+## Listening to the color-selected Event
 
-This is actually pretty close to the, uh, how he handled the quantity. In that case,
-we had an input. Whenever the input changed, we updated the, this `quantity` data via
-`v-model`. And then down here, once we did that, it was very easy for us to just
-reference the `this.quantity` data. Now, as you can see, we already have this cool
-color selector component, which allows us to select a color on a page. This comes
-from our `components/color-selector.vue` An important thing to know is that
-whenever we change the color, this emits a `color-selected` event and send the IRI of
-that color. As the data on that event,
+For the color, we already have this cool color selector component. This comes
+from `assets/components/color-selector.vue` The important thing to know for *us*
+is that whenever we select a color, this component emits a `color-selected` event
+and send the IRI of that color as the data.
 
-We can use that in our components, same `products-show.vue`,
+So... we can use that! In `product-show.vue`, scroll up to the template and find
+the color selector. There it is. We've already made this *only* render if the
+product *does* come multiple colors. To listen to the event, add `@color-selected`
+set to a new method - how about `updateSelectedColor`.
 
-Go up to the template and find where our color selector is. There we go. You can
-already see, this is the only rendered. If the product actually has, uh, colors here,
-we'll say `@color-selected=""`, and we'll call a new method called 
-`updateSelectedColor`. We're going to do, and I'll copy that method name. Now we're going to
-do is just like with quantity, we'll add a `selectedColorId`
+Next, copy that method name and scroll down to add a new piece of data:
+`selectedColorId` set to null. Then, under `methods` add `updatesSelectedColor()`.
+And because the event we're listening to sends the `iri` as its data, this will
+receive an `iri` argument. Now... `this.selectedColorId = iri`!
 
-Piece
+By the way, later in the tutorial, we'll learn how we could have written the
+`colors-selector` component in a way that would have allowed us to use `v-model`
+on it, instead of creating this method. Yep, `v-model` isn't just for *real* form
+inputs: it can also be used for custom components.
 
-Of data, set it to null, and down here under `methods`, I'll add a new method called
-`updatesSelectedColor()`.
+Anyways, up in `addToCart()`, change to use `color: this.selectedColorId`. Because
+this defaults to null, if a product doesn't come in multiple colors, this will
+still be null, and everything will be happy.
 
-And we know
+## Very Basic Color Validation
 
-This is going to receive the `iri` as an argument. And very simply we can say
-`this.selectedColorId = iri`.
+Oh, except we need to make sure that if the product *does* have a color, that the
+user *selects* a color before adding the item to the cart. We can do that right
+here: if `this.product.colors.length` - so if this product comes in multiple colors -
+and `this.selectedColorId === null`, we have a problem! For now, I'm just going to
+`alert('Please select a color first')` and then return.
 
-Beautiful.
+That's not a great user experience, but it's good enough for us. But solving this
+correctly wouldn't be much more work: I'd create a new piece of data, like
+`addToCartError` - set that here, and render it above.
 
-Finally, up here and `addToCart()`. We can use this `color: this.selectedColorId`. And
-of course, that defaults to null also the product doesn't have a color that will
-still be null, everything will be happy.
+Anyways, let's try it! Move over and... I'll refresh just to be safe. Click
+"Add to Cart". Alert! Ok, we have 15 items in the cart now. Let's select green,
+quantity 1, "Add to Cart" and... it looks like it worked! Let's refresh. Yep!
+The cart is up to 16. In the Vue dev tools, find the `cart`: two items. And...
+this has `quantity` 1 *and* a color set.
 
-Oh, except
+## Updating the Shopping Cart Header Count
 
-We need to make sure that if the product does have a color, we need to enforce that a
-color is in fact selected. So up here and had a car. The first thing I'm gonna do is
-add an if statement that says if `this.product.colors.length`. So if, if
-this, if this product does have some and `this.selectedColorId === null` we have a
-problem for. Now. I'm just going to `alert('Please select a color first')`. And then down
-here, I will `return`. That's not a great user experience, but it's good enough for us
-in a real app. I'd set a new piece of data, a new error piece of data here and render
-it above. Alright, let's try it. When I move over, I'll refresh just to be safe and I
-click add to cart. You see our alert and let's see, we have 15 items in the cart now.
-So let's select green, one hit add to cart and it looks like it worked. Let me
-refresh. This one is 16, and let's go down to product show here and look at our cart.
-We have two items in there. Now look at item one, perfect exact quantity one. And
-this one has a color
+At this point. I'm pretty happy with our "add to cart". Well, happy except for one
+detail: I don't like that the shopping cart count in the header doesn't update
+until I refresh the page.
 
-At this point. I'm pretty happy with our add to cart. Well, except for one detail,
-it's not super great that I need to refresh to see the cart count, change in the
-header. I got to read, add a cart, nothing until we refresh the problem is that,
-well, what can we do? This is not inside of our view app, but who cares? If it's
-important for us to update this for a good user experience, we can totally do it
-using good, boring JavaScript. First open the template that holds this, that is in
-`templates/base.html.twig` let's see here. I'll sure search for shopping cart
-line 44. And here is where we're printing out the items on the span. I'm going to add
-an `id="js-shopping-cart-items"`. I'm doing that. So we can select that from
-inside of our JavaScript, back in our components.
+But... what can we do? This isn't inside of our Vue app!
 
-After we have successfully added the item to the cart, we can say 
-`document.getElementById()` paste. The ID `js-shopping-cart-items` and
-then `.innerHTML=getCartTotalItems()`. This is actually when I hit tab there,
-that was actually going to import a function. If I go up here, you can see all the
-way up here. You can see it actually important, this new cart, total items. I'm
-actually gonna move this back to one line that kind of annoys me. This is one of the
-methods that, uh, that exist in the cart service that we just copied from the
-templates directory to feel a cart service here, I'll search for `cartTotalItems` very
-simply just goes through the items and it counts up all of them using the quantity.
-So it's a simple helper to get the number. The point is in product showed up view. We
-go back down here. We can call, `getCartTotalItems()` and we can pass it `this.cart`. And
-since this returns a number, I'm actually call `.toString()` on this.
+The answer is... who cares? What I mean is, if it's important for us to update this
+count for a good user experience, we can *totally* do it using good, boring
+JavaScript.
 
-Beautiful. Yeah, That is not the most hipster code I've Ever written, but it, 
-but it will work.
+First open the template that holds this: `templates/base.html.twig`. I'll search
+for "shopping cart". Here it is: line 44. To be able to find this `span` in
+JavaScript, add an `id="js-shopping-cart-items"`.
 
-And of course, if I were doing this in multiple places in my code, I would definitely
-isolate this into its own JavaScript module so that I'm not repeating myself. We move
-our I'll refresh so that that new ID gets on there. And let's see, let's add three
-more green ones. Watch that header. Boom. That is so much nicer. So next let's create
-a shopping cart page.
+Next, back in the component, after we successfully added the item to the cart, we
+can say  `document.getElementById()` - paste the `js-shopping-cart-items` string -
+then `.innerHTML = getCartTotalItems()`.
 
+That's a *new* function that we haven't used yet. And when I hit tab to auto-complete
+it, PhpStorm added the new import for us... though I'm going to move this all back
+onto one line.
+
+Anyways, this function comes from `cart-service` - the file we copied into our project
+a few minutes ago. Here it is. Very simply. is loops through the items and counts
+all of them using their quantity. A simple helper to get the number.
+
+Back in `product-show.vue`, down in the method, we can call `getCartTotalItems()`
+and pass it `this.cart`. Because this returns a Number, call `.toString()` on the result.
+
+So... no. This is *not* the most hipster code that you will ever write. But it
+*will* work and give us the user experience we want. And if I needed to update
+this header from *multiple* places in my code, I would *definitely* isolate it
+into its own JavaScript module to avoid duplication.
+
+Let's see if it works! Back at the browser, make sure to refresh so the `span`
+gets the new id. Let's add 3 more green sofas. Watch the header... boom! That is
+*so* much nicer.
+
+Next: with the add to cart done, let's create a new page: one that will display
+the shopping cart and checkout!

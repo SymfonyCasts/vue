@@ -1,100 +1,106 @@
-# Webpack Entry
+# New Page, New Webpack Entry
 
-Coming soon...
+Yay! Our customers can now add these top-quality products to their cart. *Now*
+we need a way for them to check out. Here's the plan: we're going to create a
+*brand new* page that holds a, sort of, "shopping cart" / "checkout" combo.
 
-Now that our happy customers can buy our awesome products. We're ready to proceed to
-the shopping cart and checkout process. Ooh, and Hey, this shopping cart `/checkout`
-page will Be a new page so
+To build this page, if we want, we could build it *entirely* on the server-side
+with Twig. That's a great option if we don't need the power Vue... which we definitely
+do *not* always need. But... you know, because this *is* a Vue tutorial, I think
+we should use Vue.
 
-We can render this new page in twig. If we want it to completely server-side with no
-view, that's a great option if we don't need the power Vue, but, you know, because
-this is a Vue tutorial, I think we should use it. So step one is just a great a
-`/cart` page in Symfony, and I've done that work for us in `src/Controller/CartController`
-this `shoppingCart()` action renders a template in `templates/cart/cart.html.twig`
-that basically just yells has a giant to do
+## New Page Controller & Template
 
-The name Of the route for this page is `app_cart`. So as a first step, let's get this 
-link up  here to go to that page. I'll open `templates/base.html.twig`. And there we
-go down here. I'll find that and replace the `href=""` with `path('app_cart')`.
+The first step to creating a page is... *exactly* the same no matter if it will
+use Vue or not: to create a route, controller and template. And... I've done that
+work for us! Open `src/Controller/CartController.php`. This `shoppingCart()` action
+will be called when we go to `/cart` and it renders a template:
+`templates/cart/cart.html.twig`... which holds a giant TODO.
 
-I'll go over and refresh quick shopping cart. And then
+The name of the route for this page is `app_cart`. So, as a *first* step, let's
+link to this from the shopping cart total at the top of the page. Open
+`templates/base.html.twig`. And... set the cart link `href=""` to
+`{{ path('app_cart') }}`.
 
-There is our beautiful giant `<h1>` tag. So next let's bootstrap a new component for
-this page,
-But wait for this new page, are we going to make our `products.vue` page even smarter
-And make it and give it the
+Go back to the browser... refresh and click the shopping cart. Hello big, gigantic
+`<h1>` tag!
 
-Ability to render one of three different components? Remember this dynamic component
-here is already capable of rendering the catalog page or an individual product page,
-and we absolutely could make this one component smarter. Another option is to create
-a totally new Webpack entry that renders a new component. The benefit of that
-approach is that it split the final JavaScript into two different files. The user
-downloads one file for the catalog and product page
+## Adding to our Smart Component vs New Webpack Entry
 
-We've been working on and they will download an entirely different file when they get
-to the `cart/checkout` page, instead of downloading one gigantic file that contains
-all of that JavaScript. There are, there are other ways to optimize things and both
-are valid ways to organize.
+Ok! Let's create the new Vue component for this page! But... wait... because
+we have two options to choose from. First, we *could* make the `products.vue`
+component *even* smarter and give it the ability to render one of *three* different
+components. Remember: this dynamic `component` is already capable of rendering
+the `catalog` component or `product-show` component based on what page we're on.
+We could, pretty easily, make this able to render a new `cart` component if we're
+on the cart page.
 
-Let's create
+A second option is to create a totally new Webpack entry that renders the new
+component. The benefit of this approach is that it split the final JavaScript into
+two different files. If the user goes to the catalog or product page, they would
+download *one* JavaScript file containing the code for *those* two pages, but
+*not* the code for the cart component. They would only download *that* code once
+they actually *went* to that page.
 
-A separate entry file here at the very least, so we can see how that looks so inside
-of the `assets/pages/` directory, because that's where we're putting components that
-render the entire main part of our page. Let's create a new file called `shopping-cart.vue`
-paste in some contents, which are pretty boring
-right now at a very basic layout for the page, a component that's empty and some
-very, very basic CSS. Next, we need a new entry file that will be included on this
-page or the catalog and individual product show page. We were using `products.js`.
-The purpose of this file is to render all is to run all of the JavaScript for the new
-cart page, which for us will mean rendering this one new component. So let's copy
-`products.js`. We'll call it `shopping-cart.js`.
+This is *not* the only way to split and optimize your code... and you should beware
+of premature optimizations, but this *is* something to keep in mind.
 
-And inside of it, the only difference is that we will be loading the `shopping-cart`
-component. Finally, we need to tell Encore about this new entry file. So open up the
-`webpack.config.js` file, scroll down to the `addEntry` and let's copy the
-products one and change this to `shopping-cart`
+Anyways, for our new cart page, I'm going to create a totally separate Webpack
+entry file... in part so we can see how that approach looks.
 
-And then `shopping-cart`,
+## Creating the new Entry
 
-Because we just changed the webpack config file. We need to, it's a rare time that we
-need to restart Encore. So I'll go over my browser, go to my first tab where I'm
-running
+In `assets/pages/` directory - because that's where we're putting components that
+render the entire "main" part of the page - create a new file called
+`shopping-cart.vue`. I'll paste in some content, which is pretty boring right now:
+a basic layout, a component that's empty and a little CSS.
 
-Webpack and I'll hit control + C and I'll run it 
+Next, we need a new pure JavaScript "entry file" that will *render* this component.
+For the catalog and product show page, the entry file is `assets/products.js`.
+On a high level, the purpose of an entry file is to execute *all* of the JavaScript
+code needed for the page or pages where it's used. Since our entire page is being
+rendered in Vue... its only job is rendering that component!
+
+Copy `products.js` to create our new `shopping-cart.js` entry file. Inside, the
+only difference is that we want to render the `shopping-cart` component.
+
+Finally, we need to tell Encore about the new entry file. Open `webpack.config.js`,
+scroll down to `addEntry()`, copy the one for products and change this to
+`shopping-cart` and `shopping-cart`.
+
+Because we just updated `webpack.config.js` file, this is a *rare* instance where
+we need to restart Encore. Find your terminal, go to the tab that's running
+Encore, stop it with Control + C and re-start it:
 
 ```terminal
 yarn dev-server
 ```
 
-Perfect. The result of this is that even though we can't see it in the `public/`
-directory because of the dev server, we should have a new `shopping-cart.js`
-file, which is going to contain the compiled version of this code, the code that
-will execute our Vue application. So the last step is to update our new template, to
-include the script and link tag for that. So this is in `cart.html.twig` this
-is going to look a lot like our other template that renders our view app 
-`product/index.html.twig` So I'm actually going to copy the contents of this file. I'll
-close it and then paste it inside of `cart.html.twig`. Okay, let's see.
-This has a `<div id="app">`, which is good because in our shopping cart entry, we are
-rendering things into an app element. Um,
+Perfecto! The result is that Encore is now outputting new `shopping-cart` JS
+and CSS files that we can include on the page. And *that* means, we're ready
+to include those no the page.
 
-Uh, for the entry let's update
+Go back to `cart.html.twig`. This will look a *lot* like the template that renders
+the `products` vue app: `product/index.html.twig`. Let's copy the contents of this
+file, close it, and paste into `cart.html.twig`.
 
-This to be `shopping-cart` inside both the style sheets and then all the way in
-the bottom, the same thing for the JavaScript file. And so far, we don't need any
-global variables. So I'm going to delete all those. And this is as simple of a
-template as we get. It says, please render all the CSS and JS for the `shopping-cart`
-point. All right. So let's try it.
+Okay... let's see: this has a `<div id="app">` - which is perfect because, in our
+`shopping-cart.js` entry file, we're rendering *into* that element.
 
-I'll move over
+All we need to do is change the entry name to `shopping-cart` in both the
+`stylesheets` section and, at the bottom for the JavaScript file. And so far, we
+don't need any global variables... so I'll delete all of those. Remember: our
+new Vue component is, so far, completely empty.
 
-Refresh and TBA. There is our view application. I'll even reopen my view dev tools
-here so we can see it. So next, one of the things that this page has in common with
-our product page is that both need access to the shopping cart and both will need the
-ability to change items in the cart, because we're going to allow people to change
-the quantity of items in this cart from the page. In fact, there are going to be a
-bunch of things that those two pages share to tackle this. Let's talk about mix-ins,
-which are Vue2's way of sharing code between components in Vue3 mixes
-are replaced by the composition API, but both mixes and compositions
+That's... about as simple of a template as you can get! Let's try it! Find your
+browser, refresh and... tada! There's our Vue application. I'll even reopen my
+Vue dev tools... to see the component. Good start!
 
-Are fundamentally have a lot in common.
-
+Next: one of the things that this component has in common with the `product-show`
+component is that both need access to the shopping cart.... and both will need the
+ability to add items to the cart... because we're going to allow people to change
+the quantity of the items from this page. In fact, there are going to be a
+*bunch* of things that these two pages need to share. To tackle this, let's talk
+about mixins, which are Vue 2's way of sharing code between components. In Vue 3,
+mixins are replaced by the composition API. But both mixins and composition
+share the same fundamental goal and philosophy.
