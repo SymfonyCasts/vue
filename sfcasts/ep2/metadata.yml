@@ -10,3 +10,5 @@ chapters:
     - add-to-cart
     - cart-loading-quantity
     - external-dom-updates
+    - webpack-entry
+    - mixin-basics
