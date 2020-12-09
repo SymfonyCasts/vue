@@ -1,72 +1,85 @@
-# Mixin Basics
+# Sharing Vue-ish Logic: Mixin Basics
 
-Coming soon...
+We've talked quite a bit about code re-use in Vue. And there are few types we know
+about. For data related stuff, like Ajax calls, we have nice `services/` directory
+full of modules that return functions. For other logic, like formatting a price,
+we have a `helpers/` directory. And most importantly, to isolate chunks of markup
+and the behavior for that markup, we can create components. One of the nicest
+examples we have is `color-selector`: it's some markup along with behavior that
+let's us choose a color & emits an event.
 
-We've talked quite a bit about code reuse in Vue. And there are few types we know
-about for data related stuff like Ajax calls. We created a nice `services/`, directory
-full of modules that return functions, probably logic like formatting, a price
-string. We have a `helpers/` directory, and most importantly, for functionality related
-to markup and the behavior of that markup, we can create components. Probably one of
-the nicest ones is this color selector, which is a little bit of markup, but a lot of
-behavior for allowing you to click different colors. And it even emits an event when
-we click that color. But there's another type of functionality that you sometimes
-need to share. It's sort of view related behavior that isn't specific to any one
-component. The product page inside of `components/products-show.vue`. Currently
-it makes an Ajax call for the cart. This is down here inside of created,
+But there's *another* type of functionality that you sometimes need to share. It's
+sort Vue-related behavior that is *not* specific to any one component and markup.
 
-And allows us to have to add an item to the cart with a few extra benefits like
-tracking if that processing is still saving and when it's successful, even updates
-the header on the page with the new total items in the car, it turns out our new
+## Why Mixins?
+
+Consider the product page inside of `components/products-show.vue`. This makes an
+AJAX call for the cart down inside `created` and allows us to add an item to the
+cart with a few extra benefits like tracking if that's still saving and when it's
+successful. It even updates the header with the new cart item count!
+
+Well... it turns out that our new shopping cart page will *also* need to make an
+AJAX call for the `cart` data... and it will *also* need the ability to add an item
+to the cart. Well, not exactly. We're going to allow users to change the quantity
+of each item, which is similar to adding an item. In both cases, we may want to
+show a little loading animation when it's saving and update the header when it's
+done.
+
+The point: these two components need to share a bunch of behavior, like the logic
+in `addToCart` and even pieces of `data`... but with *totally* different HTML...
+which means we *can't* isolate this into its own component.
+
+What's the solution? Say hello to mixins. Very simply mixins allow us to extract
+parts of a Vue components - like `data`, `methods` or even things like a `created`
+function - into something that can be reused by many components. In Vue 3, mixins
+still exist, but are replaced by the composition API - something we'll talk about
+in a future tutorial. But fundamentally, both mixins in composition do the same
+thing, just with a slightly different mechanism.
+
+## Bootstrapping the Mixing
+
+Let's start really simple: with a mixin that holds a `cart` data and fetches that
+via AJAX in a `created` function. In `assets/`, create a new directory called
+`mixins/` and, inside, a new file called `get-shopping-cart.js`... because that's
+kind of the point of this file: to get the shopping cart data.
+
+Mixins mostly look... just like a component! We `export default` an object. And
+inside, we can have most of the same keys as a component. Start with a `data` key
+holding `cart` set to null.
+
+Next, back in the component, copy the `created` function, paste it into the mixin...
+then delete the part that fetches the product.
+
+Ok, that's enough to start! Oh, but now that this is the only AJAX call in `created`,
+we can simplify with await: `this.cart = await fetchCart()`.
+
+Cool! Say hello to our simple mixin! We can now use this inside any component and
+that component will magically have a `cart` data and a `created` function as *if*
+this code were *literally* written inside that component.
+
+## Using a Mixin
+
+So... let's go use this! In `product-show.vue`, find the `import` section and
+import the mixin like any normal variable:
+`import ShoppingCartMixin from '@/mixins/get-shopping-cart'`. Then, after the
+`components` option, add a special new key: `mixins`. This is simple: set it to
+an array with `ShoppingCartMixin` inside.
+
+Thanks to this, we do *not* need the `cart` data anymore. It will *already*
+exist thanks to the mixin. By the way, as *powerful* as mixins are, this is one
+of its biggest downsides: for our human brains... and also for my editor, it's not
+super clear that there *is* a `cart` data or where it's coming from. Mixins are
+truly Vue magic.
+
+We also don't need the `fetchCart` logic down in `created`. Both the `created`
+function from our component *and* the mixin will be called. I'll even remove the
+extra import on top to keep things clean.
+
+Ok! With any luck, this will work *exactly* like before. Let's try it! Go
+back to the homepage, click into a product and... let's add 3 more of these to
+our cart. Watch that 12 in the header... and hit "Add to Cart". Got it!
+
+Next, there is a lot more cart functionality that we can move into the mixin, like
+the logic to add an item to the cart - including the loading state - and updating
+the cart header. That will make this a *truly* valuable mixin when we build the
 shopping cart page.
-
-We'll also need to make an Ajax call for the cart data, and it will also need the
-ability to add an item to the cart. Well, not exactly. We're going to want to allow
-users to change the quantity of each item, which is similar to adding an item in both
-cases. And we may want to show a little loading animation when it's saving and update
-the header when it's done. So these two components need to share a bunch of behavior,
-a bunch of behavior, like adding an item to the car and even pieces of data, but with
-totally different HTML, which means we can't isolate this into its own component to
-solve this, say hello to mixins very simply mixins allow us to extract parts of a
-view components like data methods or even things like a creative function into
-something that can be reused by many components. In Vue3 mixins are replaced by
-the composition API. Something we'll talk about in a future tutorial, but
-fundamentally, both mixins in composition are doing the same thing. Let's start really
-simple. Let's create a mixing that allows that has a cart data and fetches that via
-Ajax in a creative function and `assets/` create a new directory called `mixins/`.
-
-And inside there a new file called `get-shopping-cart.js`, because that's kind of
-the point of this file to get the shopping cart data in soon, the behavior mixins
-mostly looked like components. We're going to `export default` in object and inside.
-Let's start with a `data` key, just like we can have in a component with `cart` set to
-know finally for now, we'll keep this mixing pretty simple, but I do want this mixin
-to at least, uh, make an Ajax call for the card data. As soon as the component is
-inside of his created slot over here, I'm going to copy the created function, Paste
-it into the components. Okay. And then delete the part about the product.
-
-Perfect.
-
-Oh, but now this is the only AJAXcall on created. We can simplify it with a weight.
-We'll say `this.cart = await fetchCart()` and we can remove the rest.
-So that's it. That's a very simple mixing.
-
-Now we can use this inside any component and that component will magically have a
-cart data and a creative function as if this code were literally written inside that
-component. All right. So let's use this in `product-show.vue`. I'll go up to the
-important section. And first we'll import this like a normal variable 
-`import ShoppingCartMixin from '@/mixins/get-shopping-cart';` Then below after components. If
-there's any special news to use, this will add a `mixins` key.
-
-Which is set to an array and inside we'll just say `ShoppingCartMixin`. That's all
-we need to do to get that. Now, thanks to this. We don't need the `cart` data down here
-anymore. We're already going to have a piece of cart, data, thanks. And the mixing.
-And we also don't need this fetch Cart logic down and `created` the creative function
-in the mixing, as well as this graded function, without both be called and I'll even
-clean up the import on top a little bit. I don't need to import the fetch cart at All.
-
-And that's it with any luck this will work exactly like before. So let's try it. I
-will go back to the homepage, click into a product and let's hit, add to cart. I'll
-do a quantity three. Watch that 12 had added cart and perfect. It works so next.
-There is a lot more Curt functionality that we can move into the mix in. Okay. Like
-the logic to add an item to the cart, including the loading state and updating the
-cart header that will make this a truly valuable mixing. When we need this on the
-shopping cart page,
