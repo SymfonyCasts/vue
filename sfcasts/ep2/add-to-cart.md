@@ -8,13 +8,21 @@ AJAX call is done.
 Head up to find that button. This is delightfully simply: add `:disabled` set to
 `cart === null`.
 
+[[[ code('69abe63cea') ]]]
+
 If we don't have a `cart`, no clicky the button! It's disabled.
 
 ## On Click, Add to Cart
 
 Now let's hook up the *real* functionality: `@click=""` and call a new `addToCart()`
-method. Head down to the component, add `methods: {}`, then `addToCart()`. This
+method:
+
+[[[ code('b265a4eb59') ]]]
+
+Head down to the component, add `methods: {}`, then `addToCart()`. This
 won't need any arguments.
+
+[[[ code('f45bc5feab') ]]]
 
 Inside, we can use an `addItemToCart` method from `cart-service`. I'll
 type `addItemToCart()` and hit tab to auto-complete... because that little trick
@@ -25,9 +33,13 @@ that it's safe to reference `this.cart` because our `addToCart` method can't be
 called until *after* the cart AJAX call has finished. Until then, the button is
 disabled.
 
+[[[ code('4f0f22de16') ]]]
+
 The second argument is the *item* to add. This is an object with *three* things:
 `product` - set to the product IRI, so `this.product['@id']` - `color` -
 which for right now, I'm going to set to `null` - and `quantity` set to 1.
+
+[[[ code('a668af6a6e') ]]]
 
 If... you're thinking:
 
