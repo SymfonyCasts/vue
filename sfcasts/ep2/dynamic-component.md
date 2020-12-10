@@ -26,11 +26,11 @@ set to `ProductShow`:
 
 Before we worry about rendering `catalog` *or* `product-show`, let's first
 see if we can render both. Start with
-`import ProductShow from '@/components/products-show'`:
+`import ProductShow from '@/components/product-show'`:
 
 [[[ code('85fb78aac9') ]]]
 
-Then, under `components`, make that available with `ProductShow`: 
+Then, under `components`, make that available with `ProductShow`:
 
 [[[ code('a5ce340eb2') ]]]
 

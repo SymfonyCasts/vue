@@ -1,21 +1,21 @@
 # Sharing Vue-ish Logic: Mixin Basics
 
 We've talked quite a bit about code re-use in Vue. And there are few types we know
-about. For data related stuff, like Ajax calls, we have nice `services/` directory
+about. For data related stuff, like Ajax calls, we have a nice `services/` directory
 full of modules that return functions. For other logic, like formatting a price,
 we have a `helpers/` directory. And most importantly, to isolate chunks of markup
 and the behavior for that markup, we can create components. One of the nicest
 examples we have is `color-selector`: it's some markup along with behavior that
 let's us choose a color & emits an event.
 
-But there's *another* type of functionality that you sometimes need to share. It's
-sort Vue-related behavior that is *not* specific to any one component and markup.
+But there's *another* type of functionality that you sometimes need to share. It's,
+sort of, Vue-related behavior that is *not* specific to any one component and markup.
 
 ## Why Mixins?
 
-Consider the product page inside of `components/products-show.vue`. This makes an
-AJAX call for the cart down inside `created` and allows us to add an item to the
-cart with a few extra benefits like tracking if that's still saving and when it's
+Consider the product page inside of `components/product-show.vue`. This makes an
+AJAX call for the cart down in `created`, and allows us to add an item to the
+cart with a few extra benefits: like tracking if it's still saving and when it's
 successful. It even updates the header with the new cart item count!
 
 Well... it turns out that our new shopping cart page will *also* need to make an
@@ -26,14 +26,14 @@ show a little loading animation when it's saving and update the header when it's
 done.
 
 The point: these two components need to share a bunch of behavior, like the logic
-in `addToCart` and even pieces of `data`... but with *totally* different HTML...
-which means we *can't* isolate this into its own component.
+in `addToCart` and even pieces of `data`... but with *totally* different HTML. That
+means we *can't* just isolate this stuff into its own component.
 
 What's the solution? Say hello to mixins. Very simply mixins allow us to extract
 parts of a Vue components - like `data`, `methods` or even things like a `created`
 function - into something that can be reused by many components. In Vue 3, mixins
 still exist, but are replaced by the composition API - something we'll talk about
-in a future tutorial. But fundamentally, both mixins in composition do the same
+in a future tutorial. But fundamentally, both mixins and composition do the same
 thing, just with a slightly different mechanism.
 
 ## Bootstrapping the Mixing
@@ -71,7 +71,7 @@ of its biggest downsides: for our human brains... and also for my editor, it's n
 super clear that there *is* a `cart` data or where it's coming from. Mixins are
 truly Vue magic.
 
-We also don't need the `fetchCart` logic down in `created`. Both the `created`
+We also don't need the `fetchCart` logic down in `created`. *Both* the `created`
 function from our component *and* the mixin will be called. I'll even remove the
 extra import on top to keep things clean.
 
