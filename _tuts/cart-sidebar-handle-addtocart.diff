@@ -11,7 +11,7 @@ index 72f1bdbc8..9670fe659 100644
              </div>
          </div>
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index f6add1998..b6074b2dd 100644
+index b96c8a809..34bf14035 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -8,6 +8,7 @@
@@ -22,7 +22,7 @@ index f6add1998..b6074b2dd 100644
                  />
              </aside>
  
-@@ -111,6 +112,10 @@ export default {
+@@ -105,6 +106,10 @@ export default {
  
              [this.featuredProduct] = featuredProductsResponse.data['hydra:member'];
          },

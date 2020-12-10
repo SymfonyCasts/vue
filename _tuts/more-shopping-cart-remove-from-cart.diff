@@ -24,7 +24,7 @@ index 1761d4fbd..eaf6cb097 100644
              document.getElementById('js-shopping-cart-items')
                  .innerHTML = getCartTotalItems(this.cart).toString();
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index fdde52611..e332d1e8f 100644
+index 0605a4c6f..d9c6ee9db 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -13,6 +13,7 @@
@@ -35,11 +35,10 @@ index fdde52611..e332d1e8f 100644
                      />
                  </div>
              </div>
-@@ -82,6 +83,10 @@ export default {
+@@ -79,6 +80,9 @@ export default {
          updateQuantity({ productId, colorId, quantity }) {
              this.updateProductQuantity(productId, colorId, quantity);
          },
-+
 +        removeFromCart({ productId, colorId }) {
 +            this.removeProductFromCart(productId, colorId);
 +        },

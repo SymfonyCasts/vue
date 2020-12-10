@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 3f71cf256..ed40faf2d 100644
+index c4ddb22b1..83284aee3 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -76,12 +76,8 @@ export default {
@@ -10,10 +10,10 @@ index 3f71cf256..ed40faf2d 100644
 -            deep: true,
 -
 -            async handler() {
--                this.loadColorsAndProducts();
+-                this.loadProducts();
 -            },
 +        'cart.items.length': async function watchCartItemsLength() {
-+            this.loadColorsAndProducts();
++            this.loadProducts();
          },
      },
-     created() {
+     async created() {

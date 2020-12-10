@@ -1221,8 +1221,13 @@
             "description": null
         },
         {
-            "id": "shopping-cart-listing-organize-into-a-method",
-            "name": "Shopping Cart Listing: organize into a method",
+            "id": "shopping-cart-listing-load-colors-in-created",
+            "name": "Shopping Cart Listing: load colors in created",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-listing-refactor-products-to-method",
+            "name": "Shopping Cart Listing: refactor products to method",
             "description": null
         },
         {
@@ -1691,5 +1696,5 @@
             "description": null
         }
     ],
-    "sha": "92c67929118014ebc17eca8aa50004952a3bb58d"
+    "sha": "9701de8d5e5c535869c1105a6783ee6e657e0f0f"
 }

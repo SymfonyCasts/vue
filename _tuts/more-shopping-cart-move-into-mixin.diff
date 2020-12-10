@@ -24,7 +24,7 @@ index 68f11e6f1..b15445888 100644
      },
  };
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index f9a1e796e..fdde52611 100644
+index 0b503952d..0605a4c6f 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -21,7 +21,6 @@
@@ -35,9 +35,9 @@ index f9a1e796e..fdde52611 100644
  import { fetchColors } from '@/services/colors-service';
  import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
-@@ -81,7 +80,7 @@ export default {
+@@ -78,7 +77,7 @@ export default {
+             this.products = productsResponse.data['hydra:member'];
          },
- 
          updateQuantity({ productId, colorId, quantity }) {
 -            updateCartItemQuantity(this.cart, productId, colorId, quantity);
 +            this.updateProductQuantity(productId, colorId, quantity);

@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index aedf7109a..4e1673e19 100644
+index a30640700..7bd40b9bf 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -28,7 +28,10 @@
@@ -22,14 +22,13 @@ index aedf7109a..4e1673e19 100644
              products: null,
              colors: null,
              featuredProduct: null,
-@@ -92,6 +96,10 @@ export default {
-         this.loadFeaturedProduct();
+@@ -93,6 +97,9 @@ export default {
+         this.colors = (await fetchColors()).data['hydra:member'];
      },
      methods: {
 +        switchState() {
 +            this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
 +        },
-+
-         async loadColorsAndProducts() {
+         async loadProducts() {
              const productIds = this.cart.items.map((item) => item.product);
  
