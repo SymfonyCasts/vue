@@ -24,7 +24,7 @@ index 68f11e6f1..b15445888 100644
      },
  };
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index d9d111408..1dbcb7b0c 100644
+index f9a1e796e..fdde52611 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -21,7 +21,6 @@
@@ -35,7 +35,7 @@ index d9d111408..1dbcb7b0c 100644
  import { fetchColors } from '@/services/colors-service';
  import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
-@@ -86,7 +85,7 @@ export default {
+@@ -81,7 +80,7 @@ export default {
          },
  
          updateQuantity({ productId, colorId, quantity }) {

@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 6283a6db0..bfbfba5da 100644
+index 1f41a7b32..bfbfba5da 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -27,6 +27,7 @@
@@ -10,18 +10,16 @@ index 6283a6db0..bfbfba5da 100644
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import Loading from '@/components/loading';
-@@ -38,6 +39,14 @@ export default {
-         TitleComponent,
+@@ -39,7 +40,11 @@ export default {
      },
      mixins: [ShoppingCartMixin],
-+    watch: {
+     watch: {
+-        cart() {
 +        async cart() {
 +            const productIds = this.cart.items.map((item) => item.product);
 +
 +            const productsResponse = await fetchProductsById(productIds);
 +            console.log(productsResponse, this.cart);
-+        },
-+    },
+         },
+     },
  };
- </script>
- 

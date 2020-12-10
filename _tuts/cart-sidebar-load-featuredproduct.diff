@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index cb69bded6..a0ad9e206 100644
+index e332d1e8f..4338d196c 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -23,7 +23,7 @@
@@ -29,7 +29,7 @@ index cb69bded6..a0ad9e206 100644
      methods: {
          async loadColorsAndProducts() {
              const productIds = this.cart.items.map((item) => item.product);
-@@ -92,6 +96,16 @@ export default {
+@@ -87,6 +91,16 @@ export default {
          removeFromCart({ productId, colorId }) {
              this.removeProductFromCart(productId, colorId);
          },

@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 945e5f430..9ae8cb72a 100644
+index 3f71cf256..ed40faf2d 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -76,12 +76,8 @@ export default {

@@ -1181,6 +1181,11 @@
             "description": null
         },
         {
+            "id": "shopping-cart-listing-empty-watcher",
+            "name": "Shopping Cart Listing: empty watcher",
+            "description": null
+        },
+        {
             "id": "shopping-cart-listing-add-first-watcher",
             "name": "Shopping Cart Listing: Add first watcher",
             "description": null
@@ -1686,5 +1691,5 @@
             "description": null
         }
     ],
-    "sha": "826e71b7b8abac356fa1fc85105f0557199edfbb"
+    "sha": "92c67929118014ebc17eca8aa50004952a3bb58d"
 }

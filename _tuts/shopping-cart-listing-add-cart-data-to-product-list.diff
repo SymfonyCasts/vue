@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 5e8299f3a..7a54b4c18 100644
+index dbf56aab6..f68e0f655 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -14,6 +14,7 @@
@@ -23,7 +23,7 @@ index 5e8299f3a..7a54b4c18 100644
                  {
                      product: this.products.find((product) => product['@id'] === cartItem.product),
 -                    color: cartItem.color,
-+                    color: cartItem.color ? this.colors[cartItem.color] : null,
++                    color: this.colors.find((color) => color['@id'] === cartItem.color),
                      quantity: cartItem.quantity,
                  }
              ));

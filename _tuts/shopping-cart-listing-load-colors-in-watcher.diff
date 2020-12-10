@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 17092fb8b..5e8299f3a 100644
+index 17092fb8b..dbf56aab6 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -27,6 +27,7 @@
@@ -18,18 +18,14 @@ index 17092fb8b..5e8299f3a 100644
          };
      },
      computed: {
-@@ -68,6 +70,14 @@ export default {
+@@ -68,7 +70,10 @@ export default {
              const productIds = this.cart.items.map((item) => item.product);
  
              const productsResponse = await fetchProductsById(productIds);
 +            const colorsResponse = await fetchColors();
 +
-+            // Map all colors to our object dictionary by @id
-+            this.colors = {};
-+            colorsResponse.data['hydra:member'].forEach((color) => {
-+                this.colors[color['@id']] = color;
-+            });
-+
              this.products = productsResponse.data['hydra:member'];
++            this.colors = colorsResponse.data['hydra:member'];
          },
      },
+ };

@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index ff1370080..3169c8198 100644
+index 0081627e7..ccb183554 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -170,7 +170,7 @@ export default {
+@@ -165,7 +165,7 @@ export default {
      }
  
      .fade-enter-active, .fade-leave-active {
