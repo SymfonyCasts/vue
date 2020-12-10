@@ -10,16 +10,22 @@ Find the `data()` section of the component. Our first mission is to add a loadin
 animation *while* the item is being added. To track that "state", create a new
 `addToCartLoading` data set to `false` by default.
 
+[[[ code('63bfac3929') ]]]
+
 Then, inside of the method, put `this.addToCartLoading = true` on top... and
 `this.addToCartLoading = false` on the bottom.
 
 Oh, but *now* we will need to make the AJAX call *wait* until it finishes. Add
 `await` and then, of course, we need to make the function `async`.
 
+[[[ code('809266f30e') ]]]
+
 I love it! Copy the new `addToCartLoading` and head up to the template. Let's see..
 right after the button, add an `<i />` tag that's self-closing with
 `v-show="addToCartLoading"`. Our project uses FontAwesome, so we can turn this into
 a loading animation with `class="fas fa-spinner fa-spin"`.
+
+[[[ code('d83ac9f6da') ]]]
 
 Yes, we *do* have a `Loading` component, but this will look nicer in this spot.
 Back at the browser, we shouldn't even need to refresh. Yep! It *instantly*
@@ -32,14 +38,20 @@ finishes. Back in the component, go find `data` again: I want to be able to trac
 whether or not an "add to cart" has finished successfully. Create a new piece of
 data for this called `addToCartSuccess` set to `false`.
 
+[[[ code('cb9e218464') ]]]
+
 Now, in the method, after the AJAX call finishes, say `this.addToCartSuccess = true`.
 Oh, and in case we add multiple things in the cart, when the method *starts*,
 make sure this is `false`. So it starts `false`, then goes to `true` once
 we're done.
 
+[[[ code('fed63ac1ba') ]]]
+
 Back up in the template, we're going to use this in a very similar way. Copy the
 `<i>` tag, use `addToCartSuccess` and, for the `class`, use `fas fa-check` for
 a cool, not-spinning, check mark.
+
+[[[ code('bd9e8972c0') ]]]
 
 Let's try it! Back on the page, click and... oh. That felt good. I feel this
 uncontrollable need to keep shopping...
@@ -56,13 +68,19 @@ how to do that!
 
 Start by adding the new data key: `quantity` with a default value of 1.
 
+[[[ code('a0f9ae14be') ]]]
+
 Next, up in the template, Vue makes it beautifully simple: `v-model="quantity"`.
 
 Thanks Vue! Now, when the input changes, the `quantity` data will change. And
 hmm, to be a bit fancier, I'll say `v-model.number`.
 
+[[[ code('fc5568144c') ]]]
+
 That cool trick will convert the string input value into a `Number` type. *Now*
 we can use this below: instead of `quantity: 1`, we want `quantity: this.quantity`.
+
+[[[ code('cde1ea3a79') ]]]
 
 Head back to the browser. Nice! A moment ago, the `input` was *blank*. *Now*,
 it starts at 1. Increase this to 3. We currently have 12 items in the cart. Hit
