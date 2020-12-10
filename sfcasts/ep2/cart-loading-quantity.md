@@ -90,6 +90,6 @@ Ok: the last missing piece is the product *color*. Well, *this* product doesn't 
 in multiple colors, so it's finished. But if you click "Furniture" and then the
 inflatable sofa, this *does* come in multiple colors. Next: we need to grab the
 selected color and send *that* in the Ajax call. And you know what else? Whenever
-we hit "Add to Cart", I'm tried of the header not updating until we refresh.
+we hit "Add to Cart", I'm tired of the header not updating until we refresh.
 Let's *also* fix that... which is a bit interesting because it lives *outside* of
 our Vue component.
