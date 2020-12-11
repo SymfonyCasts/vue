@@ -7,8 +7,14 @@ to make sure that we send the selected color's IRI with the AJAX call.
 
 Doing this is... pretty similar to how we handled the quantity. In that case,
 we had an `input`. When the input changes, we update this `quantity` data via
-`v-model`. Then, down here, it was very easy to reference `this.quantity` when
-adding the item to the cart.
+`v-model`:
+
+[[[ code('59471794a4') ]]]
+
+Then, down here, it was very easy to reference `this.quantity` when
+adding the item to the cart:
+
+[[[ code('061c951fa9') ]]]
 
 ## Listening to the color-selected Event
 
@@ -17,16 +23,29 @@ For the color, we already have this cool color selector component. It lives in
 is that whenever we select a color, this component emits a `color-selected` event
 *and* sends the IRI of that color as the event data.
 
+[[[ code('f943bad6ea') ]]]
+
 So... we can use that! In `product-show.vue`, scroll up to the template and find
 the color selector. There it is. We've already made this *only* render if the
 product *does* come in multiple colors. If a product doesn't have multiple colors,
 the `colors` array is empty. To listen to the event, add `@color-selected`
 set to a new method: how about `updateSelectedColor`.
 
+[[[ code('fb3c8eb320') ]]]
+
 Next, copy the method name and scroll down to add a new piece of data:
-`selectedColorId` set to null. Under `methods` paste `updateSelectedColor()`.
-And because the event we're listening to sends the `iri` as its data, this will
-receive an `iri` argument. Inside... `this.selectedColorId = iri`!
+`selectedColorId` set to null:
+
+[[[ code('0a4c740807') ]]]
+
+Under `methods` paste `updateSelectedColor()`. And because the event 
+we're listening to sends the `iri` as its data, this will  receive an `iri` argument:
+
+[[[ code('82b0e8583b') ]]]
+
+Inside... `this.selectedColorId = iri`!
+
+[[[ code('c5818347c9') ]]]
 
 By the way, later in the tutorial, we'll learn how we *could* have written the
 `color-selector` component in a way that would allow us to use `v-model`
@@ -37,13 +56,20 @@ Anyways, up in `addToCart()`, change to use `color: this.selectedColorId`. Becau
 this defaults to `null`, if a product doesn't come in multiple colors, this will
 still be null, and everyone will be happy.
 
+[[[ code('43c16ea9ac') ]]]
+
 ## Very Basic Color Validation
 
 Oh, except we need to make sure that if the product *does* have a color, that the
 user *selects* a color before adding the item. We can do that right here: if
 `this.product.colors.length` - so if this product comes in multiple colors -
-*and* `this.selectedColorId === null`, we have a problem! For now, I'm just going to
-`alert('Please select a color first')`... and return.
+*and* `this.selectedColorId === null`, we have a problem! 
+
+[[[ code('e8cf8349d0') ]]]
+
+For now, I'm just going to `alert('Please select a color first')`... and return.
+
+[[[ code('d98c1d06b9') ]]]
 
 That's not a great user experience, but it's good enough for us. Solving this
 correctly wouldn't be much more work: I'd create a new piece of data - like
@@ -73,9 +99,13 @@ Open the template that holds this: `templates/base.html.twig`. I'll search
 for "shopping cart". Here it is: line 44. To make it easy to *find* this `span`
 in JavaScript, add an `id="js-shopping-cart-items"`.
 
+[[[ code('be97996f3e') ]]]
+
 Next, back in the component, after we successfully add the item to the cart, we
 can say  `document.getElementById()` - paste `js-shopping-cart-items` -
 then `.innerHTML = getCartTotalItems()`.
+
+[[[ code('ecff21696f') ]]]
 
 That's a *new* function that we haven't used yet. When I hit tab to auto-complete
 it, PhpStorm added the new import for us... though I'm going to move this all back
@@ -85,9 +115,13 @@ Anyways, the function comes from `cart-service` - the file we copied into our pr
 a few minutes ago. Here it is. Very simply, it loops through the items and counts
 all of them using their quantity. A simple helper to get the number.
 
+[[[ code('5c2a363763') ]]]
+
 Back in `product-show.vue`, down in the method, we can call `getCartTotalItems()`
 and pass it `this.cart`. Because this returns a Number, call `.toString()` on the
 result.
+
+[[[ code('996de09ce0') ]]]
 
 So... no. This is *not* the most hipster code that you will ever write. But it
 *will* work and give us the great user experience we want. If I needed to update
