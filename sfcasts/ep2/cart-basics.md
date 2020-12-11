@@ -1,61 +1,86 @@
-# Cart Basics
+# The Cart Page
 
-Coming soon...
+Thanks to the mixin our `shopping-cart` component has the `cart` data, which is
+being loaded via AJAX on `created`. Let's use that to build this page!
 
-Thanks to the mix in our shopping cart component has the cart data, which is being
-loaded via Ajax on created. So let's use that to build this page. We'll start with a
-V if so that we don't try to use the cart data before it's loaded. So div V dash if =
-cart and I'll have to be extra, extra careful as a card does not equal. No, then
-let's leave. If you check the view. Well, what just happened here? Did that happen?
-What the hell happened? If you check the view dev tools down here in shopping cart,
-you can see that the cart contains an items key, and we can loop over those items.
-But each item does not have an ID, which is a bit of an odd setup in our API, but
-it's fine. It's really the product and color combination that are sort of a composite
-key. Anyways, let's loop, I'll say div, but that's on the multiple lines with V dash
-four and for the V4, I'm going to use the longer syntax. So I can say cart item.
-That's the thing we're going to loop over and comment index. So I can get the index
-of each item in cart dot items.
+Start with a `v-if` so that we don't try to use the `cart` data before it's loaded.
+`<div v-if=` then `cart !== null`.
 
-And I'm doing this because right now we don't have a key to use. I'm gonna use colon
-key = index. So I'm just gonna use the index for now and later we'll use something,
-we'll fix it up and make you something better. Perfect. Then inside, we can just say
-for now cart item that product, and let's say also card item quantity. All right,
-let's see how this looks. When I move over. It works and, but it's not very pretty or
-useful yet, but it is a start before I forget, let's also handle the situation where
-the cart is empty. Want to encourage people to start shopping. So down here, still
-inside the V if car will say div V if = cart, the items that cart, that items length
-= zero, then we know that the, your cart is empty. Get the shopping.
+To know what we can do inside of this, go check out the Vue dev tools. The
+`ShoppingCart` component's `cart` data has an `items` key that we can loop over.
+Now, each item does *not* have some kind of unique "id", which is a bit of an odd
+setup in our API, but it's fine. A unique id would really be the combination of
+the `product` IRI and the `color` IRI.
 
-We can test it over here by messing with the view dev tools. I'll go to shopping cart
-and go to item. And I will modify this just to be an empty array. And there we go. As
-a final touch, since the cart doesn't render until the cart Ajax call has finished,
-let's add a loading animation. So down on the phone, and we'll start by importing
-that import loading from at, at /components /loading to use our reusable loading
-components. I'll add loading down to our components. Then up top, just above the VF,
-we can add loading with Videsh show = art = equals. No, and we can also use V if
-there, as we talked about earlier, since this loading will probably just be shown
-once and then hidden forever, it doesn't really matter. And later we might need a
-smarter loading mechanism that actually tracks some loading data.
+Anyways, let's loop over this: add `div` that's on multiple lines, with `v-for`.
+I'm going to use the longer syntax so we can access the index: `cartItem, index`
+in `cart.items`.
 
-But for right now, if the cart is no, we know things are still loading seven, move
-over now. Yep. I can see the loading animation just there for a second before it
-loads. So this is working, but obviously we will want to render more stuff like the
-product name and price. The problem is, if you look at the view dev tools, we just
-don't have that data. Each car item is just these three pieces of data in a more
-perfect world. The cart API call would return more data. So we would just have
-everything. But since it doesn't, what we really need to do is make an Ajax call for
-the cart. And then when it finishes on another Ajax call to fetch the data for each
-product in the cart, start by opening assets, services, product service dot JS, and
-at the bottom, I'm going to paste in a new function, fetch products about by ID,
-which you can copy from the code block on this page.
+And I'm doing this because the `cartItem` doesn't have a unique id. So for right
+now, set `:key` to `index`. We'll improve that later with a *true* unique key,
+but it will work fine for now.
 
-This is cool because we can get the product. I, our eyes for every item in our cart,
-basically collect these string from each of these and call this function to make one
-Ajax call to fetch all of their data at once. But how exactly can we do that in
-shopping cart, we need to run some. We need to call that function to make that Ajax
-call after the cart Ajax call has finished, but the cart AGS call doesn't live in
-this component. It lives over here in created in the mixing. How can we run some code
-after this finishes next, let's talk about how to do that. And in general, we've got
-some work to do because our cart is missing details. Let's go fetch those details so
-that we can fully render this page.
+Inside the div, to start, let's print `cartItem.product` and also `cartItem.quantity`.
 
+Let's see how this looks! Move over to your browser. Hey! It works! It's
+not very pretty or *useful* yet... but it's a start. Crawl before you walk,
+as I like to say.
+
+## When the Cart is Empty
+
+Before I forget, let's also handle the situation where the cart is empty... we
+want to give those customers some *encouragement* to keep shopping. Down below,
+but still inside the `v-id` for `cart`, add `<div v-if` `cart.items.length === 0`,
+then we know that
+
+> Your cart is empty. Get to shopping!
+
+We can test this by messing with the Vue dev tools. Find the `cart` data, edit
+the `items` key and set it to an empty array. There we go!
+
+# Loading Animation
+
+As a final touch, since the cart doesn't render until the cart AJAX call has finished,
+let's add a loading animation. Down on the component, start by importing our
+re-usable loading component: `import Loading from '@/components/loading`. Then
+add that to the `components` option... and in the template, use it with
+`<loading v-show="cart === null" />`.
+
+We could also use `v-if` since the loading animation will be shown once and then
+hidden forever, but as we talked about, these are micro-optimizations, it doesn't
+really matter.
+
+Oh, and *later* we might need a smarter loading mechanism that uses some `loading`,
+but right now, checking the `cart` is perfect: if it's set, we know we're ready
+to render.
+
+Let's try it! Move over, refresh and... yep! It was quick - but we have a loading
+animation!
+
+## We need More Data!
+
+What's next? Well, we *really* need to render more data, like the product name and
+price. The problem is that... we don't have that data! Look at the Vue dev tools
+and find the `cart` data. Each cart item has just these three keys. In a more
+perfect world, the cart API call might return more data, like the actual product
+data instead of just the IRI.
+
+But since it doesn't, we're going to need to make *another* AJAX call to get that
+data - to get the product data for each item in the cart.
+
+Start by opening `assets/services/product-service.js`. At the bottom, I'm going
+to paste in a new function: `fetchProductsById()`, which you can copy from the
+code block on this page.
+
+This is going to be *really* useful. It will allow us to collect the product IRI
+for each item in the cart, then call this function to make *one* AJAX call to
+fetch *all* that product data at once.
+
+But... how exactly can we do that? In `shopping-cart`, we need to call this new
+function *after* the `cart` AJAX call has finished... because we *need* that data
+to know what product IRIs to fetch. But the cart AJAX call doesn't live in this
+component: it lives over in `created` in the mixin. How can we run some code
+after this finishes?
+
+Next, let's talk about how to do that. Then we'll get to work fetching and filling
+in all of our missing data thanks to a clever computed property.
