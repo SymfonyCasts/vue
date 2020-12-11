@@ -12,3 +12,7 @@ chapters:
     - external-dom-updates
     - webpack-entry
     - mixin-basics
+    - more-mixin
+    - cart-basics
+    - complete-cart
+    - parallel-ajax
