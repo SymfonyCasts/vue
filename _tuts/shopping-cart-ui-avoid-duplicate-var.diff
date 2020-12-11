@@ -1,0 +1,15 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 903476d25..7729d6546 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -48,8 +48,8 @@ export default {
+             }
+ 
+             const completeItems = this.cart.items.map((cartItem) => {
+-                const product = this.products.find((product) => product['@id'] === cartItem.product);
+-                const color = this.colors.find((color) => color['@id'] === cartItem.color);
++                const product = this.products.find((productItem) => productItem['@id'] === cartItem.product);
++                const color = this.colors.find((colorItem) => colorItem['@id'] === cartItem.color);
+ 
+                 return {
+                     product,

@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index d9c6ee9db..552b66ceb 100644
+index e2b9c176c..ac9389338 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -23,7 +23,7 @@
@@ -19,7 +19,7 @@ index d9c6ee9db..552b66ceb 100644
          };
      },
      computed: {
-@@ -68,6 +69,7 @@ export default {
+@@ -72,6 +73,7 @@ export default {
          },
      },
      async created() {
@@ -27,7 +27,7 @@ index d9c6ee9db..552b66ceb 100644
          this.colors = (await fetchColors()).data['hydra:member'];
      },
      methods: {
-@@ -83,6 +85,16 @@ export default {
+@@ -87,6 +89,16 @@ export default {
          removeFromCart({ productId, colorId }) {
              this.removeProductFromCart(productId, colorId);
          },

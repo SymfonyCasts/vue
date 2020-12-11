@@ -1,5 +1,5 @@
 diff --git a/assets/components/shopping-cart/index.vue b/assets/components/shopping-cart/index.vue
-index f411056ac..c10562269 100644
+index e9a60510f..28cf97f6a 100644
 --- a/assets/components/shopping-cart/index.vue
 +++ b/assets/components/shopping-cart/index.vue
 @@ -4,11 +4,30 @@
@@ -8,7 +8,7 @@ index f411056ac..c10562269 100644
  
 -        <shopping-cart-item
 -            v-for="item in items"
--            :key="item['@id']"
+-            :key="item.id"
 -            :item="item"
 -        />
 +        <div v-if="items.length">
@@ -27,7 +27,7 @@ index f411056ac..c10562269 100644
 +
 +            <shopping-cart-item
 +                v-for="item in items"
-+                :key="item['@id']"
++                :key="item.id"
 +                :item="item"
 +            />
 +

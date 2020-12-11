@@ -1266,8 +1266,8 @@
             "description": null
         },
         {
-            "id": "shopping-cart-ui-update-list-template",
-            "name": "Shopping Cart UI: update list template",
+            "id": "delete-me-1",
+            "name": "delete me 1",
             "description": null
         },
         {
@@ -1278,6 +1278,31 @@
         {
             "id": "shopping-cart-ui-include-component",
             "name": "Shopping Cart UI: Include Component",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-change-computed-fxn-format",
+            "name": "Shopping Cart UI: change computed fxn format",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-create-product-var",
+            "name": "Shopping Cart UI: create product var",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-avoid-duplicate-var",
+            "name": "Shopping Cart UI: avoid duplicate var",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-add-key-to-completecart",
+            "name": "Shopping Cart UI: add key to completeCart",
+            "description": null
+        },
+        {
+            "id": "shopping-cart-ui-use-proper-key-in-v-for",
+            "name": "Shopping Cart UI: use proper key in v-for",
             "description": null
         },
         {
@@ -1696,5 +1721,5 @@
             "description": null
         }
     ],
-    "sha": "9701de8d5e5c535869c1105a6783ee6e657e0f0f"
+    "sha": "1ad0c709b1e5bf96d44b5bd005a348772d5490e5"
 }

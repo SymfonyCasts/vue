@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index ebdf7f942..0b503952d 100644
+index cc11acb9a..7f73e675b 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -12,6 +12,7 @@
@@ -18,7 +18,7 @@ index ebdf7f942..0b503952d 100644
  import { fetchColors } from '@/services/colors-service';
  import { fetchProductsById } from '@/services/products-service';
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
-@@ -75,6 +77,9 @@ export default {
+@@ -79,6 +81,9 @@ export default {
              const productsResponse = await fetchProductsById(productIds);
              this.products = productsResponse.data['hydra:member'];
          },

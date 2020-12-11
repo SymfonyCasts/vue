@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 3fbc6c435..7ebbe0dc4 100644
+index 786b23058..488fd9149 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -13,7 +13,20 @@
@@ -24,7 +24,7 @@ index 3fbc6c435..7ebbe0dc4 100644
  
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
-@@ -98,11 +111,6 @@ export default {
+@@ -102,11 +115,6 @@ export default {
              };
          },
  
