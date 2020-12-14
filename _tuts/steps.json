@@ -1361,6 +1361,16 @@
             "description": null
         },
         {
+            "id": "more-shopping-cart-cast-to-int",
+            "name": "More Shopping Cart: cast to int",
+            "description": null
+        },
+        {
+            "id": "delete-me-2",
+            "name": "delete me 2",
+            "description": null
+        },
+        {
             "id": "more-shopping-cart-pass-events-up-the-parent-component",
             "name": "More Shopping Cart: Pass events up the parent component",
             "description": null
@@ -1371,6 +1381,11 @@
             "description": null
         },
         {
+            "id": "more-shopping-cart-emit-simpler-event",
+            "name": "More Shopping Cart: emit simpler event",
+            "description": null
+        },
+        {
             "id": "more-shopping-cart-move-into-mixin",
             "name": "More Shopping Cart: move into mixin",
             "description": null
@@ -1378,6 +1393,11 @@
         {
             "id": "more-shopping-cart-update-header-on-qty-change",
             "name": "More Shopping Cart: update header on qty change",
+            "description": null
+        },
+        {
+            "id": "more-shopping-cart-emit-removed-event",
+            "name": "More Shopping Cart: emit removed event",
             "description": null
         },
         {
@@ -1721,5 +1741,5 @@
             "description": null
         }
     ],
-    "sha": "1ad0c709b1e5bf96d44b5bd005a348772d5490e5"
+    "sha": "36c29379450cb14c5716122d4a94b3dde969751f"
 }

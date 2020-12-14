@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e2b9c176c..ac9389338 100644
+index 4e4e30691..c2c0e529e 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -23,7 +23,7 @@
+@@ -26,7 +26,7 @@
  
  <script>
  import { fetchColors } from '@/services/colors-service';
@@ -11,7 +11,7 @@ index e2b9c176c..ac9389338 100644
  import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
-@@ -41,6 +41,7 @@ export default {
+@@ -44,6 +44,7 @@ export default {
          return {
              products: null,
              colors: null,
@@ -19,7 +19,7 @@ index e2b9c176c..ac9389338 100644
          };
      },
      computed: {
-@@ -72,6 +73,7 @@ export default {
+@@ -75,6 +76,7 @@ export default {
          },
      },
      async created() {
@@ -28,8 +28,8 @@ index e2b9c176c..ac9389338 100644
      },
      methods: {
 @@ -87,6 +89,16 @@ export default {
-         removeFromCart({ productId, colorId }) {
-             this.removeProductFromCart(productId, colorId);
+         updateQuantity({ productId, colorId, quantity }) {
+             this.updateProductQuantity(productId, colorId, quantity);
          },
 +
 +        async loadFeaturedProduct() {

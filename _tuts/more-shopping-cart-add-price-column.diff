@@ -1,10 +1,10 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 3bed6b351..3c0669e05 100644
+index fc9add6e0..40ba7c0ac 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
 @@ -25,10 +25,16 @@
                  min="1"
-             >
+             />
          </div>
 +
 +        <div class="col-3">
