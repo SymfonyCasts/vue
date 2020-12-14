@@ -13,14 +13,23 @@ I was thinking that we should use Vue.
 
 The first step to creating a page is... *exactly* the same whether it will
 use Vue or not: create a route, controller and template in Symfony. And... I've
-done that for us! Open `src/Controller/CartController.php`. This `shoppingCart()`
-action will be called when we go to `/cart` and it renders a template:
-`templates/cart/cart.html.twig`. This holds a giant TODO!
+done that for us! Open `src/Controller/CartController.php`:
+
+[[[ code('2886101c01') ]]]
+
+This `shoppingCart()` action will be called when we go to `/cart` and it renders 
+a template: `templates/cart/cart.html.twig`:
+
+[[[ code('5913d396aa') ]]]
+
+This holds a giant TODO!
 
 The name of the route for this page is `app_cart`. So, as a *first* step, let's
 link to this from the shopping cart total at the top of the page. Open
 `templates/base.html.twig`. And... set the cart link `href=""` to
-`{{ path('app_cart') }}`.
+`{{ path('app_cart') }}`:
+
+[[[ code('aacfa0f1fa') ]]]
 
 Go back to the browser... refresh and click the shopping cart. Hello big, gigantic
 `<h1>` tag!
@@ -31,10 +40,14 @@ Ok! Let's create the new Vue component for this page! But... wait... because
 we have two options about how to *render* that component.
 
 First, we *could* make the `products.vue` component *even* smarter and give it the
-ability to render one of *three* different components. Remember: this dynamic
-`component` is already capable of rendering the `catalog` component or `product-show`
-component based on which page we're on. We could, pretty easily, make this able to
-render a new `shopping-cart` component if we're on the cart page.
+ability to render one of *three* different components:
+
+[[[ code('bbc462814b') ]]]
+
+Remember: this dynamic `component` is already capable of rendering the `catalog` 
+component or `product-show` component based on which page we're on. We could, 
+pretty easily, make this able to render a new `shopping-cart` component 
+if we're on the cart page.
 
 A second option is to create a totally new Webpack entry that renders the new
 component. The benefit of this approach is that it splits the final JavaScript into
@@ -56,6 +69,8 @@ render the entire "main" part of the page - create a new file called
 `shopping-cart.vue`. I'll paste in some content, which is pretty boring right now:
 a basic layout, a component that's empty and some CSS.
 
+[[[ code('b293e8851a') ]]]
+
 Next, we need a new pure JavaScript "entry file" that will *render* this component.
 For the catalog and product show page, the entry file is `assets/products.js`.
 On a high level, the purpose of an entry file is to execute *all* of the JavaScript
@@ -65,9 +80,13 @@ rendered in Vue... its only job is to render that component!
 Copy `products.js` and create our new `shopping-cart.js` entry file. Inside, the
 only difference is that we want to render the `shopping-cart` component.
 
+[[[ code('9dfff6f1d8') ]]]
+
 Finally, we need to tell Encore about the new entry file. Open `webpack.config.js`,
 scroll down to `addEntry()`, copy the one for products and change this to
 `shopping-cart` and `shopping-cart`.
+
+[[[ code('362c032817') ]]]
 
 And because we just updated `webpack.config.js`, this is a *rare* time when
 we need to restart Encore. Find your terminal, go to the tab that's running
@@ -84,6 +103,8 @@ Back to `cart.html.twig`. This will look a *lot* like the template that renders
 the `products` vue app: `product/index.html.twig`. Copy the contents of this
 file, close it, and paste into `cart.html.twig`.
 
+[[[ code('fc3bbd7f6d') ]]]
+
 Okay... let's see: this has a `<div id="app">` - which is perfect because, in
 `shopping-cart.js`, we're rendering *into* that element.
 
@@ -91,6 +112,8 @@ All we need to do is change the entry name to `shopping-cart` in both the
 `stylesheets` section and, at the bottom for the JavaScript file. And so far, we
 don't need any global variables... so I'll delete those. Remember: our
 new Vue component is, so far, almost completely empty.
+
+[[[ code('3e31436182') ]]]
 
 And... that's about as simple of a template as you can get! Let's try it! Find your
 browser, refresh and... tada! There's our Vue app! I'll even reopen my
