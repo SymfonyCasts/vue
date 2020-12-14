@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
-index f44287150..ad4226209 100644
+index 7e49434c8..fad23c8f6 100644
 --- a/assets/components/product-show/cart-add-controls.vue
 +++ b/assets/components/product-show/cart-add-controls.vue
 @@ -66,6 +66,12 @@ export default {

@@ -1,13 +1,13 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index c2c0e529e..18655ba50 100644
+index 0247ae9fc..44714cc7a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -97,7 +97,7 @@ export default {
                  return;
              }
  
--            this.featuredProduct = featuredProductsResponse.data['hydra:member'][0];
-+            [this.featuredProduct] = featuredProductsResponse.data['hydra:member'];
+-            this.featuredProduct = featuredProducts[0];
++            [this.featuredProduct] = featuredProducts;
          },
      },
  };
