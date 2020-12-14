@@ -1,78 +1,80 @@
 # No Data Duplication! Fancy Computed Prop
 
-Coming soon...
+This cool new `completeItems` array combines data from *two* AJAX calls:
+one for the `cart` and another for the products that are in that cart. If we can
+make this available to our template, we could loop over it and start printing
+out some *real* product.
 
-I want to be able to access this complete
-items from our templates so we can leap over it. So what's the best way to do that?
-Well, a simple thing would be to add this as data, we could add a new, complete
-items, data up here, set it in this cart function, and then reference it in the
-template,
+So... how can we do that! Easy! Create a new `completeItems` data, set it here,
+then reference it in the template! We're unstoppable!
 
-Easy but There's something about that. That bothers me.  What is it, duplicated data.
+## Be Careful with Duplicate Data
 
-If we set this complete items onto data, then the kind of cart items itself, their
-product IRI color IRI and quantity would be duplicated in two places. They would be
-reflected in the complaint items, but they would also be on the cart to data itself.
-And remember, even though these one of these lives in lives in a mixin and one lives
-in a component they're effectively inside the same component. So duplicated that data
-in two places, and we never want to store a piece of data in multiple places, because
-if we later change a piece of that data, it will change in one spot, but not the
-other. So it's really no different than a database, right? You would never want to
-start two pieces of data, uh, a piece of data, two places of database, because they
-could get out of sync. So let's be smarter. The only new piece of data here is
-actually the products data that we get back from the Ajax. If we store that as data,
-we could still get access to this nice, complete items, array in the template via a
-computed property. Let me show you, let's start by adding a new products data. So
-I'll add a new `data()` key here, which is a function,
+But... there's a problem with that approach, and I bet some of you see it too.
+What is it? Duplicaated data.
 
-And I'm going to return an array with
+If we set this `completeItems` onto data, then some of the basic cart items data -
+their product IRI, color IRI and quantity - would be *duplicated* in two places.
+They would be reflected in the `completeItems`... but they would *also* be on the
+`cart` data itself.
 
-Products and we'll initialize it to know. Now down below, we will set that. So
-instead of `const products`, I will say `this.products` equals, and then we can
-reference `this.products` below, inside of our loop. And that should do it. Now,
-check this out. We can move
+And we *never* want to store a piece of data in multiple places. Because, if we
+later *changed* a piece of data - like the `quantity` of an item - it would change
+in *one* spot... but not the other... unless we added extra code to keep them
+in sync. Yuck. It's really no different than a database: you typically don't want
+to store a piece of data in multiple places because they could get out of sync.
 
-The goods,
+## Computed Prop to the Rescue
 
-Middle chunk of this logic into a computed prop called complete cart. So I'll add a
-new `computed` key
+So let's be smarter. Think about it: the only *new* piece of data we have is the
+`products` data that we get back from the AJAX call. If we stored *that* as data...
+we could still access this nice `completeItems` array in the template via a
+computed property.
 
-Inside of there a new
+Let's do it! Start by adding a `data` key, which is a function, then returning
+an object with `products` initialized to `null`.
 
-Method called `completeCart()`. And the first thing I'm actually going to do inside of
-here is if anybody calls this before the car is actually loaded, I don't want to do
-anything. So I'm going to say, if not `this.cart`, so if the cart isn't there, or if
-not `this.products`, if we also haven't finished loading the products, then I'm
-going to return. `null`. So if the complete car returns, no, it basically means that, uh,
+Down below in the watcher function, instead of `const products`, say `this.products`...
+and reference `this.products` below inside the loop.
 
-Um, we're not done loading yet now
+Next, add a `computed` key with one new computed prop inside. Call it `completeCart()`.
 
-To copy all this complete item stuff from watch,
+Before we do *anything* else in this function, if someone calls us and the `cart`
+data is not ready yet, we should *also* return null. So if `!this.cart`... *or*
+of `!this.products` - if we *also* haven't finished loading the products - then
+return `null`. So if `completeCart` returns null, it means that things are not
+done loading yet.
 
-Hey, sit up here. But instead of logging, let's return a new object. We'll make this
-look like the cart. Remember the cart has an items key on here. So I'll say `items` set
-to `completeItems`. All right. So that should do it. So to follow the flow here, once
-our cart has initially loaded the Watcher's going to call our function, we will then
-make an Ajax request for the products. And then finally, in our template, we are
-going to reference this `completeCart`, which we'll use that data once it's available.
-Remember one of the magic things about, uh, computed properties is that it view will
-automatically rerender once any of the things inside of it, like `this.cart` of
-`this.products` changes, let's go to our template. And we just need to basically update
-a bunch of stuff from `cart` to `completeCart` And actually get a copy of that changed
-on the `v-if`
+Now, copy all this `completeItems` stuff from `watch`, move it here, but instead
+of logging, return a new object. We'll make this look *just* like the cart: with
+an `items` key set to `completeItems`.
 
-Inside the `v-for`
+That should do it. If we've done everything correctly, after the `cart` data has
+initially loaded the watcher will call our function, we will then make an AJAX
+request for the `products`, and then finally, in our template, we will reference
+this `completeCart` variable, which will combine all that data once it's available.
+Remember: one of the magic things about computed properties is that it Vue will
+automatically re-render and re-call the function whenever any pieces of data that
+it *references* - like `this.cart` or `this.products` - changes.
 
-Down here to prove it's working cart, item cart ended up product is now going to be
-an object. So I'll print `cartItem.product.name`, and
-then one more spot down here for the empty shop McCart. All right, let's try it move
-over and didn't even need to refresh it is already printing correctly. I know it
-doesn't look that impressive yet. We just put together a lot of data. If we look at
-the view dev tools, as you can see that we have the cart and we have the product
-stuff done here and with his beautiful completed cart, our computer property, that
-allows us to get what we need in our template without actually duplicating anything.
-So next, we're still missing one piece of data inside of our complete cart. And that
-is the color. This is still a color IRI, what we needed the color data, because
-that's going to contain the hex color so we can print that a little bit nicer on the
-screen. So let's fix that next and learn how we can send both the color Ajax call and
-this product's Ajax call in parallel instead of one waiting for the other.
+## Rendering Complete Cart Data
+
+So let's go to our template. We basically want to update everything from `cart`
+to `completeCart`. Copy that, use it on the `v-if` and inside the `v-for`.
+
+Then, since `cartItem.product` will now be an *object*, we can *prove* everything
+works by printing `cartItem.product.name`. Oh, and I'll change one more spot to
+`completeCart`.
+
+Testing time! Back at the browser... ha! I didn't even need to refresh: it's
+already printing the product name! I know, it doesn't look that impressive yet,
+but we just put together a lot of data.
+
+Check out the Vue dev tools for this component: `cart` data, `product` data and
+a beautiful `completeCart` computed prop that allows us to easily use the data
+we need in the template without duplicating anything.
+
+Next: we're still missing one piece of data inside `completeCart`: the color.
+This is still a color IRI string... but what we need is the color *data*, which
+will include the hex color so that we can render a color box on the screen. Let
+fix that *and* learn a cool trick for making AJAX requests in parallel.
