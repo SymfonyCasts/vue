@@ -1,157 +1,96 @@
-# Complete Cart
+# Loading the "Complete" Cart
 
-Coming soon...
+To render real product details on the cart page, we need more data than the original
+cart API returns.
 
-To render real product data on the cart page. We need more data than the original
-cart API is returning. So the goal is to wait for that Ajax called to finish, collect
-the product IRI of each cart item. Then make a second Ajax request for those product
-details. Normally waiting for one Ajax call to finish before starting another one is
-easy, but in this case, the card Ajax call lives in the mixing in `created()`, and this
-new code needs to live in our `shopping-cart` component.
+So here is what we need to do: wait for the cart AJAX call to finish, collect
+the product IRI strings for each cart item, then make a *second* AJAX request for
+*those* product details. Normally, waiting for one AJAX call to finish before starting
+another one is easy. But in this case, the cart AJAX call lives in the mixin, in
+`created()`... and this new code needs to live in our `shopping-cart` component.
 
-Probably also in `created()`, but after the original AGS call finishes. So how can we run
-code after the cart ajax call finishes. The answer is a watcher. Remember a watcher
-is a way to run a function whenever a piece of data changes, but we ran, but we
-rarely use them because there are usually other and better ways to do things like
-listening to an event. But in this case, a watcher watching for one, the cart data
-changes is probably our only option.
+So: how can we run code *after* the cart AJAX call finishes? The answer is... a
+watcher. Remember: a watcher is a way to run a function whenever a piece of data
+changes. We *rarely* use them, because there are usually *other* ways to accomplish
+what we need, like listening to an event. But in this case, a watcher that watches
+for the `cart` data to change - specifically for it to change from `null` to an
+object - is probably our only simple option.
 
-Okay.
+## Adding the Watcher
 
-Add a new `watch` key with a `cart()` function inside. Now in here, what we want to do is
-get an array of all the product iri's with `const productIds`. I also need to mention
-that this function won't be called until it is set, `= this.cart.items.map()`.
-And then I'll put a little callback here with an `item` argument and I'll use the very
-short syntax  `=> item.product`. So this will loop over all of the cart items,
-call this function one time and the function will always return `item.product`, and
-it will return that into the array. So a fancy way of creating an array with just the
-product IRI strings.
+Add a new `watch` key with a function called `cart()` inside... so that it's executed
+when the `cart` data changes. The first time this function will be called -
+and the *only* time in our app - is when the `cart` data change from `null` to
+an object.
 
-Then we can use that new function we copied a second ago. So I will say 
-`const productsResponse = await`, and I'll use that `fetchProductsById()` function graded a
-second ago. Now returns a promise, which is why I can use a wait and I'll pass this
-my `productIds`. And of course, as I added `await` there, this needs to become an
-`async` function. And just to see what that looks like, let's `console.log()` the
-`productsResponse`. Cool. Let's try it. Move over. I will refresh go to the console
-and nice here is the response things. The inside there is something called data and
-inside data, `hydra:member` is where we actually see our product details. The
-second thing that I,
+Inside, we need to get an array of all the product IRI's for all the items in
+the cart. Do that with `const productIds =`, `this.cart.items.map()`. Pass a
+callback with an `item` argument. I'll use the *very* short syntax
+`=> item.product`.
 
-Oh, well actually, I'm also going to go back here real quick and just log `this.cart`
-in addition to that. So I want you to see what the cart looks like as a
-reminder. So each card has an `items` key and each item just has `color` `product` and
-`quantity`. Of course, the problem being that the product is an IRI and a color. If it
-has a color is also just the IRI. So here's the plant looping over `this.cart.items`
-inside of our template is not very useful because it doesn't contain beginning
-because it contains so little details. Instead, I want to create a new array of cart
-items that has the same structure as this, but with more data like the product object
-and the color object, instead of just the, IRI strings, then we can loop over that
-in the template. So check this out, back in our component,
+So: this will loop over all the cart items, call this function for each item,
+and we return the IRI string via `item.product`. The result is that `productIds`
+will be an *array* of the IRI strings: *exactly* what we want.
 
-I'll remove the log and say `const products = productResponse.data`, that data left
-square bracket, `hydra:member` to get down to where the actual data is stored.
-And now I'm gonna create a new object called `const completeItems`. This is going
-to be kind of cool. I'm going to set this to `this.cart.items.map()`. So once
-again, this will loop over every item and it will call our function. So `cartItem`
-over the argument, and just like last time I'm going to use these short syntax here.
-Uh, but it's going to be multiline. So I'll use a parenthesis.
+We can use that with the new function we copied a few minutes ago:
+`const productsResponse = await` - then `fetchProductsById()`. Let PhpStorm
+autocomplete that so it adds the import. Pass this `productIds`. And, of course,
+as soon as we add `await`, the function needs to be `async`.
 
-And then inside of here, I'm going to return an object. So just as a reminder, when
-you use this short syntax here without a curly brace, what this means is that there's
-an implied return statement. So this function is going to return, whatever object I
-put here. So complete items will eventually be an array of these objects that we've
-put here. And what I'm going to put here are the same keys that we currently have in
-the cart. So `product`, but this time I'm going to set it to the product object, which
-we can use the, this array up here to find that. So I say `products.find()`, once
-again, we'll put a little arrow function, their `product` does the argument and we'll
-return. We want to return the one where `product` left square bracket `@ID`. Okay.
-That's where the IRI is stored on there `=== cartItem.product`, which we
-know holds the IRI. So we'll find the one product that matches the IRI that we know
-is in our cart now for the other things for color. Okay.
+To see what this looks like, let's `console.log(productsResponse)`.
 
-For `color`.
+Cool! Move over, refresh, go to the console and.... nice! The response has the
+usual `data` key... with a `hydra:member` property that holds an array of *all*
+those beautiful products.
 
-I'm just going to set this to, for now to `cartItem.color`. That's still an IRI
-string. We'll need to fix that later. And then for `quantity`, that is simple enough
-`cartItem.quantity` All right, after this, I'm going to `console.log(completeItem)`
+Oh, and to help us understand the next step, let's also log `this.cart`. Remember:
+the `cart` object has an `items` key and each item has `color`, `product` and
+`quantity`. The problem is that `product` and `color` are just IRI strings, instead
+of *real* data.
 
-All right, let's move on now.
+## Creating the Complete Cart Data
 
-And don't even need to refresh. It's already down here, three items in there and
-check this out much more useful. So you can see that we have still a color IRI, but
-our product is now actually in object. So if we loop over this, we're going to be a
-lot more dangerous. So the question now is I want to be able to access this complete
-items from our templates so we can leap over it. So what's the best way to do that?
-Well, a simple thing would be to add this as data, we could add a new, complete
-items, data up here, set it in this cart function, and then reference it in the
-template,
+Because of that, looping over `this.cart.items` inside our template is not very
+useful. Instead, I want to create a *new* array of cart items that has the *same*
+structure - `color`, `product` and `quantity` keys - but where `product` and `cart`
+are set to data *objects*, instead of strings. Then, we can loop over *that*
+in the template and have *everything* we need. What could go wrong?
 
-Easy but There's something about that. That bothers me.  What is it, duplicated data.
+Back in our component, remove the log and say
+`const products = productResponse.data['hydra:member']` to get to where the actual
+data is stored.
 
-If we set this complete items onto data, then the kind of cart items itself, their
-product IRI color IRI and quantity would be duplicated in two places. They would be
-reflected in the complaint items, but they would also be on the cart to data itself.
-And remember, even though these one of these lives in lives in a mixin and one lives
-in a component they're effectively inside the same component. So duplicated that data
-in two places, and we never want to store a piece of data in multiple places, because
-if we later change a piece of that data, it will change in one spot, but not the
-other. So it's really no different than a database, right? You would never want to
-start two pieces of data, uh, a piece of data, two places of database, because they
-could get out of sync. So let's be smarter. The only new piece of data here is
-actually the products data that we get back from the Ajax. If we store that as data,
-we could still get access to this nice, complete items, array in the template via a
-computed property. Let me show you, let's start by adding a new products data. So
-I'll add a new `data()` key here, which is a function,
+Now create a new object: `const completeItems`. This is going to be kind
+of cool: set it to `this.cart.items.map()`. So once again, this will loop over
+each item and call our function. Give it the `cartItem` argument, and, just like
+last time, I'm going to use the short syntax... but since I want to use multiple
+lines, I'll add parenthesis.
 
-And I'm going to return an array with
+Inside, return an object, well... thanks to the short syntax, the `return` statement
+is *implied* - our function will return this object. And this object will have
+the same keys as the cart items, like `product`! But *this* time, we want to set
+it to the product *object*. And we can use the `products` array to find it:
+`products.find()`, pass an arrow function with a `product` argument, and return
+true if `product['@id']` equals `cartItem.product`. So, we're comparing the IRI
+strings.
 
-Products and we'll initialize it to know. Now down below, we will set that. So
-instead of `const products`, I will say `this.products` equals, and then we can
-reference `this.products` below, inside of our loop. And that should do it. Now,
-check this out. We can move
+You *could* choose to write some extra code in case an item in the cart is *not*
+returned from the products AJAX call, like maybe it was removed from our system.
+But I'll skip that.
 
-The goods,
+Next, set `color` to `cartItem.color`. That's *still* the IRI string... not a
+color object - but we'll fix that soon. And then `quantity` is simple: set that
+to `cartItem.quantity`.
 
-Middle chunk of this logic into a computed prop called complete cart. So I'll add a
-new `computed` key
+To celebrate, let's see what this looks like! `console.log(completeItems)`.
 
-Inside of there a new
+Back at the browser... I don't even need to refresh: the log is already here:
+3 items... which are *much* more useful. The `color` is still a string, but
+`product` is an object.
 
-Method called `completeCart()`. And the first thing I'm actually going to do inside of
-here is if anybody calls this before the car is actually loaded, I don't want to do
-anything. So I'm going to say, if not `this.cart`, so if the cart isn't there, or if
-not `this.products`, if we also haven't finished loading the products, then I'm
-going to return. `null`. So if the complete car returns, no, it basically means that, uh,
+If we loop over *this*, we're going to be a *lot* more dangerous.
 
-Um, we're not done loading yet now
-
-To copy all this complete item stuff from watch,
-
-Hey, sit up here. But instead of logging, let's return a new object. We'll make this
-look like the cart. Remember the cart has an items key on here. So I'll say `items` set
-to `completeItems`. All right. So that should do it. So to follow the flow here, once
-our cart has initially loaded the Watcher's going to call our function, we will then
-make an Ajax request for the products. And then finally, in our template, we are
-going to reference this `completeCart`, which we'll use that data once it's available.
-Remember one of the magic things about, uh, computed properties is that it view will
-automatically rerender once any of the things inside of it, like `this.cart` of
-`this.products` changes, let's go to our template. And we just need to basically update
-a bunch of stuff from `cart` to `completeCart` And actually get a copy of that changed
-on the `v-if`
-
-Inside the `v-for`
-
-Down here to prove it's working cart, item cart ended up product is now going to be
-an object. So I'll print `cartItem.product.name`, and
-then one more spot down here for the empty shop McCart. All right, let's try it move
-over and didn't even need to refresh it is already printing correctly. I know it
-doesn't look that impressive yet. We just put together a lot of data. If we look at
-the view dev tools, as you can see that we have the cart and we have the product
-stuff done here and with his beautiful completed cart, our computer property, that
-allows us to get what we need in our template without actually duplicating anything.
-So next, we're still missing one piece of data inside of our complete cart. And that
-is the color. This is still a color IRI, what we needed the color data, because
-that's going to contain the hex color so we can print that a little bit nicer on the
-screen. So let's fix that next and learn how we can send both the color Ajax call and
-this product's Ajax call in parallel instead of one waiting for the other.
-
+So the question *now* is: how can we make this new `completeItems` array accessible
+to our template? The easiest thing to do would be to set it as a new key on data.
+But... that would *not* be our *best* idea. Let's talk about *why* next and find
+a solution that, honestly, I *love*.

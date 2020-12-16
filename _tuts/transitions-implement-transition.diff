@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 4bb0eee14..3b7bc54d6 100644
+index 3e101ab55..b184860b5 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -18,16 +18,18 @@
+@@ -22,19 +22,21 @@
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
  
@@ -10,7 +10,10 @@ index 4bb0eee14..3b7bc54d6 100644
 -                        v-if="completeCart && currentState === 'cart'"
 -                        :items="completeCart.items"
 -                        @updateQuantity="updateQuantity"
--                        @removeFromCart="removeFromCart"
+-                        @removeFromCart="removeProductFromCart(
+-                            $event.productId,
+-                            $event.colorId,
+-                        )"
 -                    />
 -
 -                    <checkout-form
@@ -21,7 +24,10 @@ index 4bb0eee14..3b7bc54d6 100644
 +                            v-if="completeCart && currentState === 'cart'"
 +                            :items="completeCart.items"
 +                            @updateQuantity="updateQuantity"
-+                            @removeFromCart="removeFromCart"
++                            @removeFromCart="removeProductFromCart(
++                                $event.productId,
++                                $event.colorId,
++                            )"
 +                        />
 +
 +                        <checkout-form

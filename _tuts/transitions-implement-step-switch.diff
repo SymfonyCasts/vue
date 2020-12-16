@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 445678c96..232ad4504 100644
+index 5930c52ff..c1e67390f 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -28,7 +28,10 @@
+@@ -35,7 +35,10 @@
                      <div
                          v-if="completeCart && completeCart.items.length > 0"
                      >
@@ -14,7 +14,7 @@ index 445678c96..232ad4504 100644
                              Check Out!
                          </button>
                      </div>
-@@ -58,6 +61,7 @@ export default {
+@@ -65,6 +68,7 @@ export default {
      mixins: [ShoppingCartMixin],
      data() {
          return {
@@ -22,7 +22,7 @@ index 445678c96..232ad4504 100644
              products: null,
              colors: null,
              featuredProduct: null,
-@@ -97,6 +101,9 @@ export default {
+@@ -104,6 +108,9 @@ export default {
          this.colors = (await fetchColors()).data['hydra:member'];
      },
      methods: {

@@ -15,4 +15,5 @@ chapters:
     - more-mixin
     - cart-basics
     - complete-cart
+    - cart-computed-prop
     - parallel-ajax

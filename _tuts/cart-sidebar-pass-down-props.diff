@@ -35,7 +35,7 @@ index 3533afe9c..72f1bdbc8 100644
      computed: {
          price() {
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 0f183c62e..4daa9399d 100644
+index 6d633f274..7ef5aa576 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -5,6 +5,9 @@

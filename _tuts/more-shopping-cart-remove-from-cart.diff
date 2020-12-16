@@ -24,24 +24,17 @@ index 1761d4fbd..eaf6cb097 100644
              document.getElementById('js-shopping-cart-items')
                  .innerHTML = getCartTotalItems(this.cart).toString();
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index cde55a5aa..e2b9c176c 100644
+index 0b52a1415..77d4d13c9 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -13,6 +13,7 @@
+@@ -13,6 +13,10 @@
                          v-if="completeCart"
                          :items="completeCart.items"
                          @updateQuantity="updateQuantity"
-+                        @removeFromCart="removeFromCart"
++                        @removeFromCart="removeProductFromCart(
++                            $event.productId,
++                            $event.colorId,
++                        )"
                      />
                  </div>
              </div>
-@@ -83,6 +84,9 @@ export default {
-         updateQuantity({ productId, colorId, quantity }) {
-             this.updateProductQuantity(productId, colorId, quantity);
-         },
-+        removeFromCart({ productId, colorId }) {
-+            this.removeProductFromCart(productId, colorId);
-+        },
-     },
- };
- </script>

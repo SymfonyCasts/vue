@@ -1,35 +1,28 @@
 diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
-index 72f1bdbc8..9670fe659 100644
+index 72f1bdbc8..d985d5bc4 100644
 --- a/assets/components/shopping-cart/cart-sidebar.vue
 +++ b/assets/components/shopping-cart/cart-sidebar.vue
 @@ -24,6 +24,7 @@
                      :allow-add-to-cart="allowAddToCart"
                      :product="featuredProduct"
                      add-button-text="+"
-+                    @add-to-cart="(data) => $emit('add-to-cart', data)"
++                    @add-to-cart="$emit('add-to-cart', $event)"
                  />
              </div>
          </div>
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 4daa9399d..5f5a01eae 100644
+index 7ef5aa576..e85db2305 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -8,6 +8,7 @@
+@@ -8,6 +8,11 @@
                      :allow-add-to-cart="cart !== null"
                      :add-to-cart-success="addToCartSuccess"
                      :add-to-cart-loading="addToCartLoading"
-+                    @add-to-cart="addToCart"
++                    @add-to-cart="addProductToCart(
++                        featuredProduct,
++                        $event.selectedColorId,
++                        $event.quantity
++                    )"
                  />
              </aside>
  
-@@ -109,6 +110,10 @@ export default {
- 
-             [this.featuredProduct] = featuredProductsResponse.data['hydra:member'];
-         },
-+
-+        addToCart({ quantity, selectedColorId }) {
-+            this.addProductToCart(this.featuredProduct, selectedColorId, quantity);
-+        },
-     },
- };
- </script>
