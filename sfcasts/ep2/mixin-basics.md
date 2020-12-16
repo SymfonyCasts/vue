@@ -47,11 +47,17 @@ Mixins mostly look... just like a component! We `export default` an object. And
 inside, we can have most of the same keys as a component. Start with a `data` key
 holding `cart` set to null.
 
+[[[ code('34b678584d') ]]]
+
 Next, back in the component, copy the `created` function, paste it into the mixin...
 then delete the part that fetches the product.
 
+[[[ code('8bd6332c3b') ]]]
+
 Ok, that's enough to start! Oh, but now that this is the only AJAX call in `created`,
 we can simplify with await: `this.cart = await fetchCart()`.
+
+[[[ code('ae56d6fc23') ]]]
 
 Cool! Say hello to our simple mixin! We can now use this inside any component and
 that component will magically have a `cart` data and a `created` function as *if*
@@ -61,9 +67,14 @@ this code were *literally* written inside that component.
 
 So... let's go use this! In `product-show.vue`, find the `import` section and
 import the mixin like any normal variable:
-`import ShoppingCartMixin from '@/mixins/get-shopping-cart'`. Then, after the
-`components` option, add a special new key: `mixins`. This is simple: set it to
-an array with `ShoppingCartMixin` inside.
+`import ShoppingCartMixin from '@/mixins/get-shopping-cart'`:
+
+[[[ code('3de0680434') ]]]
+
+Then, after the `components` option, add a special new key: `mixins`. 
+This is simple: set it to  an array with `ShoppingCartMixin` inside.
+
+[[[ code('5cc06ef398') ]]]
 
 Thanks to this, we do *not* need the `cart` data anymore. It will *already*
 exist thanks to the mixin. By the way, as *powerful* as mixins are, this is one
