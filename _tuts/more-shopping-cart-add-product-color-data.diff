@@ -1,18 +1,18 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 2b3a4985d..7f9d54496 100644
+index e6efba240..f99238fe8 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -9,6 +9,9 @@
-                 <span class="col-2">
-                     <span
-                         class="color-square"
-+                        :style="{
-+                            backgroundColor: `#${hexColor}`
-+                        }"
-                     />
-                 </span>
-             </div>
-@@ -25,6 +28,11 @@ export default {
+@@ -7,6 +7,9 @@
+         <div class="col-1">
+             <span
+                 class="color-square"
++                :style="{
++                    backgroundColor: `#${hexColor}`
++                }"
+             />
+         </div>
+     </div>
+@@ -21,6 +24,11 @@ export default {
              required: true,
          },
      },

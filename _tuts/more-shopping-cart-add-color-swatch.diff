@@ -1,23 +1,19 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 7defcd572..bfb28d3eb 100644
+index 7defcd572..3003b9899 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -1,6 +1,18 @@
+@@ -1,6 +1,14 @@
  <template>
      <div :class="[$style.component, 'row', 'p-3']">
 -        {{ item.product.name }}
-+        <div class="col-3">
-+            <div class="row">
-+                <span class="col">
-+                    {{ item.product.name }}
-+                </span>
++        <div class="col-2">
++            {{ item.product.name }}
++        </div>
 +
-+                <span class="col-2">
-+                    <span
-+                        class="color-square"
-+                    />
-+                </span>
-+            </div>
++        <div class="col-1">
++            <span
++                class="color-square"
++            />
 +        </div>
      </div>
  </template>

@@ -1,8 +1,8 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 9e4bb35cf..4f8c832c8 100644
+index 848c82f8a..08d6a0615 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -61,8 +61,6 @@ export default {
+@@ -57,8 +57,6 @@ export default {
      methods: {
          updateQuantity(event) {
              this.$emit('updateQuantity', {

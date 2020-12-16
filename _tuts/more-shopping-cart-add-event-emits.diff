@@ -1,8 +1,8 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index 401692a51..f7789e854 100644
+index 49fd19727..67b9b4d9e 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -23,6 +23,7 @@
+@@ -19,6 +19,7 @@
                  class="form-control"
                  type="number"
                  min="1"
@@ -10,7 +10,7 @@ index 401692a51..f7789e854 100644
              />
          </div>
  
-@@ -57,6 +58,15 @@ export default {
+@@ -53,6 +54,15 @@ export default {
              return formatPrice(this.item.product.price * this.item.quantity);
          },
      },

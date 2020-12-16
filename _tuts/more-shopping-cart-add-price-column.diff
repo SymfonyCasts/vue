@@ -1,8 +1,8 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index fc9add6e0..40ba7c0ac 100644
+index 357170463..9068bd052 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -25,10 +25,16 @@
+@@ -21,10 +21,16 @@
                  min="1"
              />
          </div>
@@ -19,7 +19,7 @@ index fc9add6e0..40ba7c0ac 100644
  export default {
      name: 'ShoppingCartItem',
      props: {
-@@ -41,6 +47,9 @@ export default {
+@@ -37,6 +43,9 @@ export default {
          hexColor() {
              return this.item.color ? this.item.color.hexColor : 'fff';
          },

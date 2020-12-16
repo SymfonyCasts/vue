@@ -1,8 +1,8 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index f7789e854..9e4bb35cf 100644
+index 67b9b4d9e..848c82f8a 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -63,7 +63,7 @@ export default {
+@@ -59,7 +59,7 @@ export default {
              this.$emit('updateQuantity', {
                  productId: this.item.product['@id'],
                  colorId: this.item.color ? this.item.color['@id'] : null,

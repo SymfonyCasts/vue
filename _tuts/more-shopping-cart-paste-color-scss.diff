@@ -1,8 +1,8 @@
 diff --git a/assets/components/shopping-cart/cart-item.vue b/assets/components/shopping-cart/cart-item.vue
-index bfb28d3eb..2b3a4985d 100644
+index 3003b9899..e6efba240 100644
 --- a/assets/components/shopping-cart/cart-item.vue
 +++ b/assets/components/shopping-cart/cart-item.vue
-@@ -31,7 +31,14 @@ export default {
+@@ -27,7 +27,14 @@ export default {
  <style lang="scss" module>
  @import '~styles/variables/colors.scss';
  
