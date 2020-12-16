@@ -1,96 +1,109 @@
-# Parallel Ajax
+# Parallel AJAX with Promises
 
-Coming soon...
+The last missing piece of data on the cart page is the item color. I want to show
+a box with the actual color... but for that, we need the hex value. All we have
+right now, if we look at the Vue Dev tools, is the color IRI. Of course, with
+another AJAX call, we could use that to *get* the color data!
 
-And the last missing piece of data on the cart page is the item
-color. I'd like to show the actual color here, but we need the hex value. All we have
-right now, if we look down in the Vue, dev tools is the color IRI, of course, with
-another ajax call, we could use that to get the color data, to do this. We'll
-follow exactly what we did with the product data. First, add a color data `colors` is
-set to `null` then below in the watcher, let's fetch all the colors and then set them
-on the data. So I'll say `const colorsResponse = await`, and we'll use a functional
-use before a `fetchColors()` and I'll hit tab. So that, that auto completes and adds the
-import way up here for me.
+Cool! Let's go! We'll do exactly what we did to fetch the product data. First,
+add a new `colors` data set to `null`. Then, below in the watcher, we can fetch
+all the colors and then *set* them on that data. Do that with
+`const colorsResponse = await` and then call a function we saw earlier:
+`fetchColors()`. Hit tab to auto-complete that so PhpStorm adds the import way up
+on top.
 
-Now down below, I'll kind of do the same thing as the products, 
-`this.colors = colorsResponse.data['hydra:member']`. We could also do something like we did with
-products where we only fetch the colors, the color data we need for the items in the
-cart, but on our site, there are, there are very few total colors, so I'm dispatching
-them all every time. Now let's update our `completeCart()`. First. If the colors are
-also first, we need to check if the colors, if not `this.colors`, then we should also
-return `null` from `completeCart()`. It means that the colors aren't loaded yet, then down
-here, I'm actually going to copy the trick we use for finding the matching product,
-paste that and change it to `this.colors`, `color`, `color`, and a `cartItem.color`. You
-okay to see if this is working up above and our template on a new line here, and
-we'll just print out the cart, the hex color, but first we need to check to see if
-there actually is a color. So I'll say `cartItem.color ? cartItem.color.hexColor`
-that `hexColor` is one of the properties that we get back
-from the Ajax call Ellis. I'll just print out an empty string.
+Back in the watcher function, all we need is
+`this.colors = colorsResponse.data['hydra:member']`.
 
-All right, let's try it. Move over in. I don't even need to refresh. You can see my
-two inflatable sofas have their color. Not all products have a color, but these that
-do are printing out the hex. Let's look back at the watcher function though. I bet a
-lot of you spotted something wrong here. It's in efficient. We're making the first
-Ajax call waiting and then making the second Ajax call. Sometimes you do need to wait
-for one Ajax call to finish before you start another one, because the second one
-depends on the first, but that's not the case here. We should start both of these
-Ajax calls at the same time. So they run in parallel. Now we could do that by
-refactoring these, to use the dot, then syntax like this.
+We *could* make this smarter - like we did with products - where we only
+fetch the color data that we need based on the items in the cart. But for our site,
+there are *very* few total colors, so I've decided to fetch *all* of them.
 
-And then in a callback, we would basically use this response argument here to go and
-set the products data. And we could do the same thing for colors, but I'm going to
-undo that because as a challenge, let's pretend that we need both of these Ajax calls
-to finish before we can run either of these lines of code. Like the example would be
-that you need to get an AGS call from two different sources so that you can then
-combine them in some way.
+Now update `completeCart()`. First, if the colors data is not set yet - if
+not `this.colors` - then we should *also* return `null` from `completeCart()`.
 
-I think we wait for it to promises, to finish running. The answer is with a cool
-promise dot all function. Check this out. Wouldn't say `const` and then set these to an
-array. So I'll say `const [productResponse, colorResponse]`. This is actually
-aray de-structuring `= await`. And then here, when I say `Promise.all()` and
-pass that in a Ray of all the promises that we want to wait for, which for us is
-`fetchProductsbyId()` then I'll do some reorganizing `fetchColors()`. So basically this is
-going to wait for both of these promises to finish. It doesn't matter which one
-finishes first. And then the resolve value of `fetchProductsById()` will be set to
-`productsResponse`, and `fetchColors()`, or was that the `colorsResponse`? So that's it,
-it's a kind of a really cool thing. And if we move over here and refresh, it works
-perfectly, but as cool as this is, and I purposely showed it because this `Promise.all()`
-thing is really cool. We don't need, we don't need it in this case. why since
-we're queering for all of the colors and not just the colors that are for the items
-in this, this cart, we don't need to wait for the cart Ajax call finish. Before we
-start fetching the colors. Nope. This color AGS call. It can start immediately. When
-the component is created,
+Inside the object, use the same trick we used to find the matching product:
+paste, and change the line to `this.colors`, `color`, `color`, and `cartItem.color`.
 
-Checking this out, down at the bottom, let's add an `async created()` Inside of here. I'm
-going to say `this.colors = await`. And then I will move my `fetchColors()` down here,
+To see if this is working, up in the template, on a new line, print the hex color:
+if `cartItem.color`, then `cartItem.color.hexColor` - because `hexColor` is one
+of the fields we get back from the AJAX call. If the product does *not* have a
+color, print nothing.
 
-But with
+Testing time! Back at the browser... woohoo! My two inflatable sofas have a
+color. Those are going to look *great* in the office. Not *all* products have a
+color, but those that do, *are* now printing it.
 
-Also with my `data[hydra:member']` on it. Oh, and make sure this is called async created
-not create. So this HS call will start immediately. And then up here after the cart
-changes. So after the cart HS call finishes, then we only need to make the, uh, ajax
-call for the products. So I'll simplify this again. `const productResponse = await`
-and then we only need to execute our `fetchProductsById()`. Then once that's finished,
-then we will set the products data. Oh, don't forget your equal sign.
+## Promise.all: Parallel Promises
 
-All right, let's make sure this didn't break anything and move over. I'm gonna do a
-full refresh and got it behind the scenes. The cart end colors, API calls start
-immediately in parallel. Then when the cart API call Ajax call finishes, the products
-AGS call starts. We can kind of see this a little bit down on our network tools on
-under the Ajax thing here, you can see that the order that they finishes, this is the
-cart one that happens to been at first. And the colors though, that might be in a
-different order. If the colors end point is ever a little faster, and then a little
-bit later, you can see where it actually finishes our products call right here. Oh.
-And before we keep going, I'm going to make one other small change At a `methods` key
-on the bottom of our component And great one in here called `async loadProducts()`.
+But look back at the watcher function. I bet a lot of you spotted something wrong
+here: it's inefficient! We're making the first AJAX call, waiting and *then* starting
+the second AJAX call. Sometimes you *do* need to wait for one AJAX call to finish
+before you start another one... because the second one *depends* on the first.
+But that is *not* the case here: we should be able to start both of these
+at the same time so they run in *parallel*.
 
-And
+We *could* accomplish that by refactoring these into separate methods... or
+with the `.then()` syntax: using the response argument to set the products
+data. We could do the same for colors.
 
-What I'm gonna do is actually move all of these three lines of code from our cart
-watcher, into `async loadProducts()`, and then just call `this.loadProducts()` from up
-there. There's no specific reason for this change. For me, it's just more readable to
-give these three lines of code, a name, like load products. So now I can see that I'm
-watching cart. And when cart changes, I reload my products. I do this line PHP by
-creating private methods. Anyways, now that we have all the data we need, let's bring
-this page truly to life. That's next.
+But... I'm going to undo that. As a challenge, let's pretend that *both* of these
+AJAX calls need to finish *before* we can run *either* of these lines of code.
+Like, maybe because we need to combine the data from *both* endpoints in some way.
 
+So the question is: how can we start *two* AJAX calls at the same time, but then
+wait until *both* of them finish? The answer is with a cool `Promise.all()`
+function.
+
+Check it out: say `const` and then an array with `productResponse` and
+`colorResponse` inside. Set that equal to `await Promise.all()`. Pass
+*this* the two promises that we need to wait for: `fetchProductsbyId()` and...
+after some reorganizing... `fetchColors()`.
+
+I love this! `Promise.all()` takes an array of Promises and *returns* a Promise.
+*That* Promise *resolves* once *all* of the *internal* promises resolve. The
+final resolved data is an array... and so we use array destructuring to set the
+`colorResponse` and `productResponse` variables. That's some fancy JavaScript!
+
+And when we try it... hey! That fanciness even works!
+
+## Loading Data Event Earlier
+
+But... as cool & hipster as this is, we don't *really* need it in this case. And
+we can make this even *more* performant. Think about it: because we're
+querying for *all* of the colors - and not just the colors for the items in the
+cart - we don't need to wait for the cart AJAX call to finish before fetching the
+colors. Nope, the color AJAX call can start immediately when the component is
+created.
+
+At the bottom, add an `async created()`. Inside, say `this.colors = await`, then
+move the `fetchColors()` here... but also with the `.data['hydra:member']` on it.
+Oh, and make sure this is called `created` not `create`.
+
+Thanks to this, up here when the cart changes - so after the cart AJAX call
+finishes - we only need to make the *one* AJAX call for products. I'll simplify
+this again: `const productResponse = await`, then `fetchProductsById()`. Once
+that's finished, set the `products` data. Oh, and don't forget your equal sign!
+
+Let's make sure I didn't bust anything. Do a full refresh and... got it!
+Behind the scenes, the `cart` and `colors` AJAX calls both start immediately.
+Then, when the cart API call finishes, the products AJAX call starts.
+
+We can see this down in the browser network tools, filtered to the XHR calls.
+The cart call starts first, then colors - though, you can see on the waterfall
+on the right that they started at *almost* the same moment. Then, later, after
+the `cart` call finishes, here is the products AJAX call. Pretty cool.
+
+## Method Refactoring
+
+Oh, but before we keep going, I want to make *one* tiny change. Add a `methods`
+key at the bottom of the component with one method inside: `async loadProducts()`.
+Move the three product AJAX lines from the cart watcher into this.
+Then, call it from the watcher: `this.loadProducts()`.
+
+There's no specific reason for this change. For me, it's more readable to give
+these three lines of code, a name, like `loadProducts`. It's now easier
+to understand that, when the `cart` changes, we load the products. I do this a lot
+in PHP by creating private methods.
+
+Next: we have all the data we need! So let's make this page *shine*.
