@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index e85db2305..057657dd6 100644
+index e85db2305..a66880c28 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -86,8 +86,12 @@ export default {
@@ -11,7 +11,7 @@ index e85db2305..057657dd6 100644
 +        cart: {
 +            deep: true,
 +
-+            async handler() {
++            handler() {
 +                this.loadProducts();
 +            },
          },

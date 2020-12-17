@@ -1,15 +1,15 @@
 diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
-index 72f1bdbc8..d985d5bc4 100644
+index 24b8b47f5..9ca47f24e 100644
 --- a/assets/components/shopping-cart/cart-sidebar.vue
 +++ b/assets/components/shopping-cart/cart-sidebar.vue
-@@ -24,6 +24,7 @@
-                     :allow-add-to-cart="allowAddToCart"
-                     :product="featuredProduct"
-                     add-button-text="+"
-+                    @add-to-cart="$emit('add-to-cart', $event)"
-                 />
-             </div>
+@@ -23,6 +23,7 @@
+                 :add-to-cart-success="addToCartSuccess"
+                 :allow-add-to-cart="allowAddToCart"
+                 add-button-text="+"
++                @add-to-cart="$emit('add-to-cart', $event)"
+             />
          </div>
+     </div>
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
 index 7ef5aa576..e85db2305 100644
 --- a/assets/pages/shopping-cart.vue

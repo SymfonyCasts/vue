@@ -1,29 +1,27 @@
 diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
 new file mode 100644
-index 000000000..9a9edf7f7
+index 000000000..bd68d320c
 --- /dev/null
 +++ b/assets/components/shopping-cart/cart-sidebar.vue
-@@ -0,0 +1,55 @@
+@@ -0,0 +1,53 @@
 +<template>
 +    <div :class="[$style.component, 'p-3', 'mb-5']">
 +        <h5 class="text-center">
 +            Featured Product!
 +        </h5>
 +
-+        <div v-if="featuredProduct">
-+            <img
-+                class="d-block"
-+                :src="featuredProduct.image"
-+                :alt="featuredProduct.name"
-+            >
++        <img
++            class="d-block"
++            :src="featuredProduct.image"
++            :alt="featuredProduct.name"
++        >
 +
-+            <div class="pt-3">
-+                <h6>
-+                    {{ featuredProduct.name }}
++        <div class="pt-3">
++            <h6>
++                {{ featuredProduct.name }}
 +
-+                    ${{ price }}
-+                </h6>
-+            </div>
++                ${{ price }}
++            </h6>
 +        </div>
 +    </div>
 +</template>

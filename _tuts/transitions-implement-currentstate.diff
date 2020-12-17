@@ -1,5 +1,5 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index c1e67390f..62627d126 100644
+index 230bb649c..898c4e053 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -17,7 +17,7 @@
@@ -37,4 +37,4 @@ index c1e67390f..62627d126 100644
 +        },
      },
      watch: {
-         'cart.items.length': async function watchCartItemsLength() {
+         'cart.items.length': function watchCartItemsLength() {

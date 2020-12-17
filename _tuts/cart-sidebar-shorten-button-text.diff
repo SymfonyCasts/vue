@@ -23,14 +23,14 @@ index fad23c8f6..14ea88dbc 100644
              type: Boolean,
              required: true,
 diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
-index 5dc35855a..3533afe9c 100644
+index 5ec4b4ace..76ed19cde 100644
 --- a/assets/components/shopping-cart/cart-sidebar.vue
 +++ b/assets/components/shopping-cart/cart-sidebar.vue
-@@ -23,6 +23,7 @@
-                     :add-to-cart-success="false"
-                     :allow-add-to-cart="false"
-                     :product="featuredProduct"
-+                    add-button-text="+"
-                 />
-             </div>
+@@ -22,6 +22,7 @@
+                 :add-to-cart-loading="false"
+                 :add-to-cart-success="false"
+                 :allow-add-to-cart="false"
++                add-button-text="+"
+             />
          </div>
+     </div>
