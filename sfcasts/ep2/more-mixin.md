@@ -138,7 +138,7 @@ So let's go use it there! Import `ShoppingCartMixin` from `@/mixins/get-shopping
 
 Then, like before, add a `mixins` key set to an array with this inside:
 
-[[[ code('15fea45ca3's) ]]]
+[[[ code('15fea45ca3') ]]]
 
 We're not going to *do* anything with that mixin yet, but we can already check
 if it's working. At your browser, click to the shopping cart and go down to the
