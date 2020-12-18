@@ -17,3 +17,6 @@ chapters:
     - complete-cart
     - cart-computed-prop
     - parallel-ajax
+    - cart-structure
+    - v-for-key
+    - prop-trap

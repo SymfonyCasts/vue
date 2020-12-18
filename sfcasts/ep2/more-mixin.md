@@ -11,15 +11,21 @@ we're going to add a "featured product" sidebar on this page with an "add the ca
 button. So, in preparation for that, let's *also* move the add to cart functionality
 from `product-show` into the mixin.
 
+[[[ code('ebc27499f7') ]]]
+
 ## Moving addToCart to the Mixin
 
 This *literally* means that we're going to move the `addToCart` method from the
 component into the mixin. So let's copy it, delete it, and then, in the mixin,
 I'll add `methods` and then paste.
 
+[[[ code('a5aae0dca5') ]]]
+
 Oh, and this references two pieces of data that are related to this process:
 `addToCartLoading` and `addToCartSuccess`. Those should *also* now live in the
 mixin. Go find them, copy them, delete them, and paste them inside the mixin.
+
+[[[ code('658b6fce91') ]]]
 
 If we stopped now, this probably *would* work because the new data and the new
 method are, as I mentioned, basically *copied* into our component. But it *is* a
@@ -39,12 +45,17 @@ that the mixin is *also* relying on this.
 
 Fixing this properly is simple enough. Instead of referencing these three
 pieces of data down here, let's force them to be passed as arguments to the method.
-So: `product`, `selectedColorId` and `quantity`. Then we can update the code below:
-change `this.product` to just `product`, and then `product`, `selectedColorId`
-and `quantity`.
+So: `product`, `selectedColorId` and `quantity`:
+
+[[[ code('06aa10d1d9') ]]]
+
+Then we can update the code below: change `this.product` to just `product`, 
+and then `product`, `selectedColorId` and `quantity`.
 
 Oh, but ESLint is mad because we can shorten this from `quantity: quantity` to just
 `quantity`.
+
+[[[ code('f8649d974f') ]]]
 
 Ok! I like this function... but it will *totally* not work yet. This method is
 called directly in the component thanks to the `@click` on the add to cart button.
@@ -55,10 +66,15 @@ One option is to switch to the "inline" `@click` syntax, where we say
 way to do it. Or, we could rearrange things a bit.
 
 Change it back to just point to the `addToCart` method. Then, in the mixin, rename
-the method from `addToCart` to, how about, `addProductToCart` so that our `@click`
-doesn't call this directly. Finally, in the component, find `methods`, re-add
-`addToCart()` and call the mixin method: `this.addProductToCart()`
+the method from `addToCart` to, how about, `addProductToCart`:
+
+[[[ code('01e2986ee9') ]]]
+
+so that our `@click` doesn't call this directly. Finally, in the component, 
+find `methods`, re-add `addToCart()` and call the mixin method: `this.addProductToCart()`
 with `this.product`, `this.selectedColorId` and `this.quantity`.
+
+[[[ code('3ddcee8ff0') ]]]
 
 Ok! That should do it! Testing time! Find your browser and... I'll refresh
 to be safe. We just want to make sure that this all still works. Hit add to cart
@@ -107,6 +123,8 @@ So... I messed up, but it *was* a nice chance to think about how things work
 under the hood inside our Vue instance. Let's fix it: change `data` to a function
 that returns our data object.
 
+[[[ code('77976c3f6f') ]]]
+
 Back in the browser, it looks like it already reloaded. Hit add to cart and... it
 works!
 
@@ -114,8 +132,13 @@ works!
 
 We now have some really nice, reusable code for our `shopping-cart` component.
 
-So let's go use it there! Import `ShoppingCartMixin` from `@/mixins/get-shopping-cart`.
-Then, like before, add a `mixins` key set to an array with this inside.
+So let's go use it there! Import `ShoppingCartMixin` from `@/mixins/get-shopping-cart`:
+
+[[[ code('77e798b1b7') ]]]
+
+Then, like before, add a `mixins` key set to an array with this inside:
+
+[[[ code('15fea45ca3') ]]]
 
 We're not going to *do* anything with that mixin yet, but we can already check
 if it's working. At your browser, click to the shopping cart and go down to the
