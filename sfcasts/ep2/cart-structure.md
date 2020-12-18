@@ -1,107 +1,78 @@
 # Cart Structure
 
-Coming soon...
+We now have *all* the cart data we need to *properly* render the products. For
+each item, we're going to print out *quite* a few details, including price,
+quantity box and a "remove from cart" button. To keep things organized, let's
+create a new component that will render each item.
 
-All right.
+In the `assets/components/` directory, create a new folder called `shopping-cart`.
+This time, to create the component, I'll do something a bit different: right click
+on `shopping-cart`, search for "Vue" and select "Vue component". Call it `cart-item`.
 
-Time to start rendering some products properly. Now, instead of just adding more
-logic right here to actually print out more cart details, you know, each card detail
-is actually going to contain quite a few things, including a quantity box and also a
-remove from cart button. So I'm actually going to stay going to create a component so
-that renters, each individual cart item to do that in the assets components
-directory, let's create a new new directory called shopping cart. I'll actually put a
-few components in here over the next few minutes. And then for this one, I'm going to
-do something different here. I'm actually going to go to new and then search for
-viewed, create a new view components. Let's call this one cart dash
+## Creating the cart-item Component
 
-Item. So cool.
+Ok! This generates a basic Vue structure... though it *does* look a bit different
+than how we normally do things. PhpStorm *does* let you customize these templates,
+if you want to improve this.
 
-That generates a basic view structure for me though. It does look a little bit
-different than our component Norma does. So let's clean it up. I'm going to start by
-adding a div and then inside of here a class, but I'm going to set the class to colon
-class and set this to an array
+Let's clean things up. Start by adding a div with a `class` attribute. But make
+it dynamic with `:class` set to an array so that we can reference a modular
+class - `$style.component` - but also give it a `row` class and extra padding.
+We'll add the `component` style in a minute.
 
-For two reasons.
+Next, in the component itself, give it a better name, like `ShoppingCartItem`. Then,
+because this will render an *individual* cart item, allow that object to be passed
+to us by adding a `props` key with `item` inside. This will be an object and
+`required: true`.
 
-First, I know that I'm going to need some costume styles. So I'm going to use a style
-that component right now, so I can send it, have some, a component class down here.
-And then I also know that this is going to need to be a row, and I'm going to give it
-a little extra padding before I finished the template down here in our component.
-Let's get us a better name, first
+What we're going to pass into this component will be the "complete cart item",
+the thing that we're looping over inside of `shopping-cart`. We know that this
+has `product`, `color` and `quantity` properties.
 
-Shopping cart item. And then,
+In the new template, start by printing `item.product.name`.
 
-And because this is going to be rendering an individual cart item, we are going to
-need a add props with an item prop. This will be typed object,
+Finally, at the bottom, instead of scoped styles, we're using module styles and
+`lang="scss"`. I'll paste in some basic styles that give each item a bottom border.
 
-Correct and required. True. Perfect.
+## Creating the Cart "list" Component
 
-So we're going to pass into here is the complete cart item. The thing that we're
-looping over inside of our shopping cart. So we know that this is a product key and a
-color key, and also a quantity heat. So I'm going to print out in here just to see if
-it's working. We can print out item.product.name,
+Awesome! We *could* use this new component directly inside of `shopping-cart.vue`:
+we would `v-for` over this component.
 
-Finally at the bottom instead of style scope, we're using module styles. So I'll say
-style module. And also we've been using Lang SCSS as the language I'll paste in some
-basic styling down here to give our component a border bottom. Okay, perfect. Now we
-could go ahead and use this directly inside of shopping cart dot view. We could
-actually do a V4 right here and render these cart items, but instead I'm actually
-going to create another component. That's kind of between shopping cart, that view in
-cart item dot view, and this is going to contain the act in the entire item list
-itself. So there's going to be kind of one component around all of these items. Now
-creating this middle component is not necessary. It's up to you. I'm doing it for two
-reasons. First, eventually on our shopping cart page, we're going to add the ability
-to hide the entire cart item list and instead show a shop, uh, a checkout form.
+And, that would be fine. But I'm going to create *another* component that's between
+`shopping-cart` and `cart-item`: it's job will be to render the entire "cart list",
+including the "your cart is empty message". You don't *have* to do this... but
+because the `shopping-cart` component is going to get more and more complex - including
+eventually rendering a checkout form - this will help keep things organized.
 
-So having the entire list inside one component, it's going to make it easier and, uh,
-to hide and show. The other reason is it's just going to keep our shopping cart, uh,
-cleaner, um, because we were able to isolate all this looping and cart item logic
-into another component. So anyways, in the shopping cart directory, let's create a
-new index dot view and then I'll paste in a basic template. So you can see this takes
-in an items array, and I've already had the little VF here to see if the item items
-are empty, that we can have. The, your part is empty message.
+In the `shopping-cart/` directory, create a new `index.vue`. I'll paste in a basic
+template. This receives an `items` array and it already has a `v-if` to show the
+"you cart is empty" message if there are no items.
 
-All we need to
+All *we* need to do is loop *over* those items and render `cart-item`.
 
-Now is do a V4 that renders the cart item. So let's start by importing that in import
-shopping cart item from ATT /components /shopping cart /cart dot dash item, and then
-add the components key down here with that shopping cart item inside. So now up here,
-we're actually going to do before, directly on the shopping cart item. So we can say
-shopping cart items
+Start by importing that component: `import ShoppingCartItem` from
+`@/components/shopping-cart/cart-item`. Then add a `components` key and pop that
+inside.
 
-And then V dash four equals.
+Up in the template, we can use the `v-for` *directly* on that component:
+`<shopping-cart-item` then `v-for=` with the long syntax: `(item, index) in items`.
+The reason we're doing *that* is each item in the cart does *not* have a unique
+key yet. So, temporarily, we will say `:key=index`. That's not ideal, but we'll
+improve it soon. Finally, pass the required prop: `:item="item"`
 
-And I'm gonna use that same long syntax we usually for, which is item, comma index in
-items. And the reason we're doing that remember is because our cart, each item
-doesn't really have a unique key yet. So for the key down here right now, we're
-saying colon key = index. That's not an ideal solution, but I'll talk about that
-soon. Then finally, each shopping, our item needs an item prop. So we'll pass colon
-item equals
+Ok! This component is ready! LEt's use it in the `shopping-cart`. Import it:
+`import ShoppingCartList` from `@/components/shopping-cart`, add that to the
+`components` option and... now we can simplify a *lot*. Remove this entire div and
+replace it with `<shopping-cart-list`. Oh, but we need to be careful: the
+`completeCart` variable is *not* available until after some AJAX calls. So add
+`v-if="completeCart"` and *then* pass in the prop: `:items=completeCart.items`.
 
-Item. Okay,
+Time to try this thing out! Find your browser and... got it! It doesn't look like
+much yet, but we have a flexible component structure we can use to add more features,
+while managing complexity.
 
-This component is ready. Let's go use it in shopping cart down. And the imports let's
-import
-
-Shopping cart list
-
-From at /components /shopping cart. Then I will add shopping cart list to the
-components.
-
-Bye-bye
-
-We can simplify a bunch. We don't need any of this div here, but we do need to be
-careful because remember the complete cart variable is not available instantly. So we
-can say shopping cart list then inside of that, we need a V if, so this only renders,
-if we actually have a complete cart, One prop that this needs is items set to
-complete card, that items.
-
-Yeah, let's try it move over and
-
-Perfect. It doesn't look a lot better yet, but you can already see it has some
-structure. And we now have a really clean place to render a lot of things, uh, and
-its own component while keeping things clean. But first in our index component, it
-does kind of bother me that we're still using just the index from the array as the
-key. And this could cause rendering problems when updating items in the list. So
-let's fix that next and we'll finally make this page look really good.
-
+But before we get there, in `index.vue`, it *does* bother me that we're still using
+the `index` from the array as the `key` in `v-for`. This... "might" be ok... but it
+could cause rendering problems when updating items in the list. Next: let's fix
+that and then render more stuff for each cart item.
