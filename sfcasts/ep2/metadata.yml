@@ -20,3 +20,8 @@ chapters:
     - cart-structure
     - v-for-key
     - prop-trap
+    - update-quantity
+    - remove-from-cart
+    - cart-controls-component
+    - featured-sidebar
+    - smart-watcher
