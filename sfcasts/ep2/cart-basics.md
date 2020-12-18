@@ -3,8 +3,12 @@
 Thanks to the mixin, our `shopping-cart` component has the `cart` data, which is
 being loaded via AJAX on `created`. Let's use that to build this page!
 
+[[[ code('37ae7a089d') ]]]
+
 Start with a `v-if` so that we don't try to use the `cart` data before it's loaded.
 `<div v-if=` then `cart !== null`.
+
+[[[ code('61181cd85e') ]]]
 
 To know what we can do inside of this, go check out the Vue dev tools. The
 `ShoppingCart` component's `cart` data has an `items` key that we can loop over.
@@ -20,7 +24,11 @@ I'm doing this because the `cartItem` doesn't have a unique id. So for right
 now, set `:key` to `index`. We'll improve that later with a *true* unique key,
 but it will work fine to start.
 
+[[[ code('4a99377415') ]]]
+
 Inside the div, let's print `cartItem.product` and also `cartItem.quantity`.
+
+[[[ code('bd1b9a62b4') ]]]
 
 Let's see how this looks! Move over to your browser. Hey! It works! It's
 not very pretty or *useful* yet... but it's a start! Crawl before you walk,
@@ -35,6 +43,8 @@ then we know that
 
 > Your cart is empty. Get to shopping!
 
+[[[ code('40f52ef310') ]]]
+
 We can test this by messing with the Vue dev tools. Find the `cart` data, edit
 the `items` key and set it to an empty array. There we go!
 
@@ -45,6 +55,8 @@ let's add a loading animation. Down on the component, start by importing our
 re-usable loading component: `import Loading from '@/components/loading`. Then
 add that to the `components` option... and in the template, use it with
 `<loading v-show="cart === null" />`.
+
+[[[ code('7c3301c269') ]]]
 
 We could also use `v-if` since the loading animation will be shown once and then
 hidden forever... but as we talked about, these are micro-optimizations. It doesn't
@@ -71,6 +83,8 @@ the product data for each item in the cart.
 Start by opening `assets/services/product-service.js`. At the bottom, I'm going
 to paste in a new function: `fetchProductsById()`, which you can copy from the
 code block on this page.
+
+[[[ code('190ee4c818') ]]]
 
 This is going to be *really* useful. It will allow us to collect the product IRI
 string for each item in the cart, then call this function to make *one* AJAX call
