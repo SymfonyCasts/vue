@@ -1,103 +1,92 @@
-# V For Key
+# Inventing a Proper v-for :key
 
-Coming soon...
+Our cart items are kind of weird... but it's not our fault! We fetch the `cart`
+via AJAX... but each item does *not* have a unique ID on it. Because of this, when
+we loop over the items in `index.vue`, we have to use the array index as the key.
 
-Our cart items are kind of weird. We fetch them via Ajax, but each item does not have
-a unique ID on it. Like we might expect for lots of things being returned from an
-API. And so, because of this, when we loop over them in index dot view, we have to
-use the array index as the key,
+## Why do we care about :key Again?
 
-But
+In a more perfect, sunnier world with rainbows, the key would be something that's
+unique *and* will always be the *same* for each item. The array index *is* unique,
+but if we re-ordered the items inside the `cart`, suddenly each would render with
+ a *different* key than it had before.
 
-In a perfect world, the key should be something that's unique and will always be the
-same for each item. If you use just the array index like we are, then if you, if
-something re ordered the items in inside of that items, data,
+hat's the problem with that? Well... there may be *no* problem. But under certain
+situations, this could could cause some rows to re-render incorrectly. And... that's
+really the whole point of the key prop! To help Vue keep track of which component -
+or HTML element - is associated with each *item* in the array.
 
-Suddenly
+## Creating a New, Unqiue :key
 
-Each one we rendered each item would have a different key. So what's the problem.
-Well, there's maybe no problem, but under certain situations, the fact that the key
-could change for each item could cause some rows to rerender incorrectly. That's
-really the whole point of key
+So let's improve this! How? By adding a unique key ourselves to each item! Really,
+if you combine an item's product and color, *that* forms a unique key. It *is*
+valid to have the same product in the cart twice, with different colors.
 
-To help them.
+In `shopping-cart.vue`, find the `completeCart` computed property. We have a *lot*
+of power here to add any data we want to each item, like an id!
 
-You keep track of which row in the HTML is associated with which item in the array
-That helps it update or remove the correct items. They're correct things. If the
-items array changes. So let's improve this, even though each cart item doesn't have a
-unique property, we can actually invent a unique property by combining the product
-and color I, our eyes, it is valid to have the same product in the cart, but with two
-different colors that shows up as two different items. So let's do this in a shopping
-cart, find the complete cart computed property. This is where we create the complete
-items.
+Change the function to use multiple lines instead of the super short format with
+the implied return statement: we need a bit more room. This is now equivalent to
+what we had before... except that ESLint is mad because it *wants* me to use the
+short format since we *only* have a `return` statement.
 
-Okay,
+Add a `const product =` set to the `products.find()` line... then use that below:
+`product: product`. Or, even better, shorten it to `product`. Do the same thing
+for color: `const color =`, copy the `find()` line, replace it with `color`,
+and paste that above.
 
-We're going to add a new ID key to each item. Let's first change the function to use
-multiple lines instead of the super short format, saw a curly brace and then a return
-statement. And then actually I have an extra set of parentheses and then a semicolon.
-So perfect. That's the same thing as before Eastland is only complaining because it's
-saying, Hey, you only have a return statement in your function, so you can use the
-short format, but now we're going to create a private variable, constant product =
-and set that to our products, find the thing. And now we can use down here. We can
-say product one product, or really, we know that we can actually just shorten that to
-just product. I'm going to do the same thing for color cons color Eagles.
+Cool! Except... for the duplicate `product` and `color` variables. In the callback,
+change it to `productItem`... and also `colorItem`.
 
-And I'll set this out, actually just use color down in the, uh, return and then paste
-that up there. Cool. Now of course you can see that it's mad because we're actually
-duplicating the product variable. So I'm going to change this to product item inside
-of my little callback and color item inside the second call back. Cool. So, so far I
-know Jane's just writing this code in a few extra lines, but now we can add that ID
-property. So I'll say ID colon, and I use the fancy tick format here. So I'll, I can
-say dollar sign, open parentheses cart item, item dot product cart item is the result
-of us looping over the original non-complete cart. So cart item dot product in that
-case is just the IRI underscore. And then the same dollar sign, open print, open
-curly brace, uh, current item dot color. I'll actually say I'll use the Turner's
-syntax. If we have a car I'm not color, then print a cart item that color else,
-Alfred, how about none? Or we could use, uh, an empty string. It doesn't really
-matter.
+So far, this is the same... just written with a few extra lines. But *now* we can
+say: `id:`, use fancy "ticks", then `${cartItem.product}`.
 
-Perfect. Okay. So now we can use this inside of our V4. So I will go to the simpler
-format just before item in items. And then key is going to be equal to item that
-item. The sweet love it. When we check our browser, it looks exactly the same, but
-you can see, see down here now in the shopping cart list, we open up the shopping
-cart items below it. You can see the key inside of each one. Okay. Let's give our
-cart some ex some struggle inside of index. That view I'll paste in a sort of table
-format for our cart with item, quantity, price kind of columns on top movies,
-shopping cart item, right into the middle of that. You can see, we have some rows.
-Each shopping. Our item has also its row and we'll have some columns inside of there
-instantly. This starts to take some sort of shape. So cool for the price. We need to
-total up the price of each of these items, which we're not rendering yet. And so
-that's a perfect opportunity. A computed property.
+The `cartItem` variable is here from the *original* AJAX data, which is equal to
+the IRI string. Add an underscore, then the same for color: `${}` then if
+`cartItem.color`, print `cartItem.color` else the string `none`... or an empty
+string - whatever you want.
 
-Let's go back over to our components. Let's add a computed prop or a computed, a key
-and have one called total price. And what we'll do inside of here is I'm going to
-keep it kind of as simple as possible to begin. So I'll say, let total = zero. Then
-I'll quickly put in some logic here that loops over each items and multiplies each
-product price by its quantity and adds that to the total. And at the bottom, finally,
-we will return format price, which we don't have important yet. And then total that
-format price. We've been reusing that in several different places. I'll go up here
-and say import format price from at /helpers /format price.
+Nice! Let's go use this in `index.vue`: use the simpler syntax - `item in items`
+then set `:key` to `id`.
 
-Perfect. So now that we have a total price computed, we can use that up here. Dollar
-sign, curly, curly, total price, back over gorgeous. Can't see the exact prices here,
-but if we did, they would total to $702. Oh. But if you do want to be a little bit
-more hipster down in our computer property, we can do that. It's your recall, check
-this out. Instead of the forage, I'm going to impress my friends by saying return
-format, price, and passing that this.items that reduce, Ooh, and this will take a
-call back with an accumulator and the actual item that we're going to be looping
-over. And I will use these super short syntax here to take the accumulator and add
-that to item dot product dot price, times, item that quantity, and then over to and
-set zero as the first argument to reduce.
+I love it! When we check the browser... it looks exactly the same. In the Vue dev
+tools, down below `ShoppingCartList`, we can see the `key` used for each item.
 
-Yikes, we're going to need a comma there. So if you like the item, the reduced
-function, you can use that, uh, I'm using this more and more of it. It still makes my
-head spin a little bit. Um, the accumulator will start at zero or we'll then loop
-over it every time and it'll add whatever the current number is, uh, like zero to,
-uh, the whatever. And it doesn't really matter. Anyways, this is more hipster. And if
-you look over and refresh, it works fine, but of course, hipster code is not always
-better, but it's fun to use here. So next let's finish each row here. Let's render
-the product color, the quantity, the quantity, input, the price, and even a remove
-button. The quantity input will be especially interesting because we're going to
-almost accidentally fall into a small anti-pattern.
+## Rendering More Cart Stuff!
 
+Enough of that! I want to fill in this page with more stuff! In `index.vue`, I'll
+paste in some HTML. This creates a, sort of, "table" structure for the items with
+quantity & price columns. Move the `v-for` into the middle of this. So, we have
+a row of headers, each cart-item is *also* a row, and then there are also columns
+for each bit of data.
+
+And... *now* the page is taking shape! For the price, we need to total up the price
+and quantity of each item. Hey! That's a *textbook* opportunity for a computed
+prop!
+
+Back in the component, add a computed key with one method called `totalPrice`. This
+is boring... "math" stuff, so I'll paste I some logic. This loops over each item,
+adding *its* total to the `total` variable. At the bottom, return
+`formatPrice(total)`.
+
+Head to the top to import that function: `import formatPrice` from
+`@/helpers/format-price`.
+
+Ok! Now that we have a `totalPrice` computed prop, we can use in the template:
+`{{ totalPrice }}`.
+
+Go check it out. Nice! We can't see the price of each item yet... but I'll
+"guess" that this is correct.
+
+Oh, but if you want to make your code more hipster... and probably less readable
+to most people, you can refactor the computed prop to use the `reduce()` function.
+Go go gadget fast typing! Dan Abramov - one of the maintainers of React -
+[would be impressed](https://twitter.com/dan_abramov/status/1338253118199508992) :p.
+But on a serious note, do whatever looks most *clear* to you. In a real project,
+I'd probably stick with the boring `forEach`.
+
+But, in the brower, *both* work.
+
+Next: let's finish each item row: we need to render the product color, quantity
+input price & a remove button. The quantity input will be especially interesting
+because we're going to *accidentally* fall into a trap!
