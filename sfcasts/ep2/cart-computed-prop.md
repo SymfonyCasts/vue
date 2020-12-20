@@ -70,7 +70,7 @@ Testing time! Back at the browser... ha! I didn't even need to refresh! It's
 already printing the product name. I know, it doesn't look that impressive yet,
 but we *did* just put together a lot of data.
 
-Check out the Vue dev tools for this component: `cart` data, `product` data and
+Check out the Vue dev tools for this component: `cart` data, `products` data and
 a beautiful `completeCart` computed prop that allows us to easily use the data
 we need in the template, without duplicating anything.
 
