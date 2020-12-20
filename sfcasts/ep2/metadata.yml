@@ -20,6 +20,7 @@ chapters:
     - cart-structure
     - v-for-key
     - prop-trap
+    - emit-update-quantity
     - update-quantity
     - remove-from-cart
     - cart-controls-component
