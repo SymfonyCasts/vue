@@ -23,10 +23,14 @@ when the `cart` data changes. The first time this function will be called -
 and the *only* time in our app - is when the `cart` data change from `null` to
 an object.
 
+[[[ code('18099fc16a') ]]]
+
 Inside, we need to get an array of all the product IRI's for all the items in
 the cart. Do that with `const productIds =`, `this.cart.items.map()`. Pass a
 callback with an `item` argument. I'll use the *very* short syntax
 `=> item.product`.
+
+[[[ code('41f7d958a1') ]]]
 
 So: this will loop over all the cart items, call this function for each item,
 and we return the IRI string via `item.product`. The result is that `productIds`
@@ -37,7 +41,11 @@ We can use that with the new function we copied a few minutes ago:
 autocomplete that so it adds the import. Pass this `productIds`. And, of course,
 as soon as we add `await`, the function needs to be `async`.
 
+[[[ code('9799d7f127') ]]]
+
 To see what this looks like, let's `console.log(productsResponse)`.
+
+[[[ code('5a03488677') ]]]
 
 Cool! Move over, refresh, go to the console and.... nice! The response has the
 usual `data` key... with a `hydra:member` property that holds an array of *all*
@@ -60,11 +68,15 @@ Back in our component, remove the log and say
 `const products = productResponse.data['hydra:member']` to get to where the actual
 data is stored.
 
+[[[ code('9f3795d904') ]]]
+
 Now create a new object: `const completeItems`. This is going to be kind
 of cool: set it to `this.cart.items.map()`. So once again, this will loop over
 each item and call our function. Give it the `cartItem` argument, and, just like
 last time, I'm going to use the short syntax... but since I want to use multiple
 lines, I'll add parenthesis.
+
+[[[ code('e5ed961260') ]]]
 
 Inside, return an object, well... thanks to the short syntax, the `return` statement
 is *implied* - our function will return this object. And this object will have
@@ -74,6 +86,8 @@ it to the product *object*. And we can use the `products` array to find it:
 true if `product['@id']` equals `cartItem.product`. So, we're comparing the IRI
 strings.
 
+[[[ code('cc59cb70bb') ]]]
+
 You *could* choose to write some extra code in case an item in the cart is *not*
 returned from the products AJAX call, like maybe it was removed from our system.
 But I'll skip that.
@@ -82,7 +96,11 @@ Next, set `color` to `cartItem.color`. That's *still* the IRI string... not a
 color object - but we'll fix that soon. And then `quantity` is simple: set that
 to `cartItem.quantity`.
 
+[[[ code('25016c4cc1') ]]]
+
 To celebrate, let's see what this looks like! `console.log(completeItems)`.
+
+[[[ code('00810d0fc8') ]]]
 
 Back at the browser... I don't even need to refresh: the log is already here:
 3 items... which are *much* more useful. The `color` is still a string, but
