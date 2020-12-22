@@ -5,6 +5,8 @@ one for the `cart` and another for the products that are in that cart. If we cou
 make this available to our template, we could loop over it and start printing
 out *real* product data.
 
+[[[ code('b22b6d0cb6') ]]]
+
 So... how can we do that? Easy! Create a new `completeItems` data, set it here,
 then reference it in the template! We're unstoppable!
 
@@ -34,10 +36,16 @@ computed property.
 Let's do it! Start by adding a `data` key, which is a function, then returning
 an object with `products` initialized to `null`.
 
+[[[ code('9a5b13e117') ]]]
+
 Down below in the watcher function, instead of `const products`, say `this.products`...
 and reference `this.products` below in the loop.
 
+[[[ code('aaf4c205cc') ]]]
+
 Next, add a `computed` key with one new computed prop. Call it `completeCart()`.
+
+[[[ code('85a7861366') ]]]
 
 Before we do *anything* else in this function, if someone calls us and the `cart`
 data is not ready yet, we should *also* return null. So if `!this.cart`... *or*
@@ -45,9 +53,13 @@ if `!this.products` - if we *also* haven't finished loading the products - then
 return `null`. This means that if `completeCart` returns null, things are *still*
 loading.
 
+[[[ code('9f2a2d0126') ]]]
+
 Now, copy all this `completeItems` stuff from `watch`, move it here, but instead
 of logging, return a new object. We'll make this look *just* like the cart... just
 for consistency: with an `items` key set to `completeItems`.
+
+[[[ code('617cbc7fa7') ]]]
 
 That should do it! If we've done everything correctly, after the `cart` data has
 finished loading, the watcher will call our function, we will make an AJAX request
@@ -65,6 +77,8 @@ to `completeCart`. Copy that, use it on the `v-if` and inside the `v-for`.
 Then, since `cartItem.product` will now be an *object*, we can *prove* everything
 works by printing `cartItem.product.name`. Oh, and I'll change one more spot to
 `completeCart`.
+
+[[[ code('415e963dc2') ]]]
 
 Testing time! Back at the browser... ha! I didn't even need to refresh! It's
 already printing the product name. I know, it doesn't look that impressive yet,
