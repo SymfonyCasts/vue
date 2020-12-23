@@ -6,14 +6,21 @@ right now, if we look at the Vue Dev tools, is the color IRI. Of course, with
 another AJAX call, we could use that to *get* the color data!
 
 Cool! Let's go! We'll do exactly what we did to fetch the product data. First,
-add a new `colors` data set to `null`. Then, below in the watcher, we can fetch
-all the colors and then *set* them on that data. Do that with
-`const colorsResponse = await` and then call a function we saw earlier:
-`fetchColors()`. Hit tab to auto-complete that so PhpStorm adds the import way up
-on top.
+add a new `colors` data set to `null`:
+
+[[[ code('904283cf0b') ]]]
+
+Then, below in the watcher, we can fetch all the colors and then *set* them 
+on that data. Do that with `const colorsResponse = await` and then call a function 
+we saw earlier: `fetchColors()`. Hit tab to auto-complete that so PhpStorm 
+adds the import way up on top:
+
+[[[ code('33ac29736c') ]]]
 
 Back in the watcher function, all we need is
-`this.colors = colorsResponse.data['hydra:member']`.
+`this.colors = colorsResponse.data['hydra:member']`:
+
+[[[ code('095075ffc9') ]]]
 
 We *could* make this smarter - like we did with products - where we only
 fetch the color data that we need based on the items in the cart. But for our site,
@@ -22,13 +29,19 @@ there are *very* few total colors, so I've decided to fetch *all* of them.
 Now update `completeCart()`. First, if the colors data is not set yet - if
 not `this.colors` - then we should *also* return `null` from `completeCart()`.
 
+[[[ code('b198bce24b') ]]]
+
 Inside the object, use the same trick we used to find the matching product:
 paste, and change the line to `this.colors`, `color`, `color`, and `cartItem.color`.
+
+[[[ code('3427fe23bd') ]]]
 
 To see if this is working, up in the template, on a new line, print the hex color:
 if `cartItem.color`, then `cartItem.color.hexColor` - because `hexColor` is one
 of the fields we get back from the AJAX call. If the product does *not* have a
 color, print nothing.
+
+[[[ code('138304b193') ]]]
 
 Testing time! Back at the browser... woohoo! My two inflatable sofas have a
 color. Those are going to look *great* in the office. Not *all* products have a
@@ -60,6 +73,8 @@ Check it out: say `const` and then an array with `productResponse` and
 *this* the two promises that we need to wait for: `fetchProductsbyId()` and...
 after some reorganizing... `fetchColors()`.
 
+[[[ code('0e13cfc57b') ]]]
+
 I love this! `Promise.all()` takes an array of Promises and *returns* a Promise.
 *That* Promise *resolves* once *all* of the *internal* promises resolve. The
 final resolved data is an array... and so we use array destructuring to set the
@@ -80,10 +95,14 @@ At the bottom, add an `async created()`. Inside, say `this.colors = await`, then
 move the `fetchColors()` here... but also with the `.data['hydra:member']` on it.
 Oh, and make sure this is called `created` not `create`.
 
+[[[ code('93918c7141') ]]]
+
 Thanks to this, up here when the cart changes - so after the cart AJAX call
 finishes - we only need to make the *one* AJAX call for products. I'll simplify
 this again: `const productResponse = await`, then `fetchProductsById()`. Once
 that's finished, set the `products` data. Oh, and don't forget your equal sign!
+
+[[[ code('93918c7141') ]]]
 
 Let's make sure I didn't bust anything. Do a full refresh and... got it!
 Behind the scenes, the `cart` and `colors` AJAX calls both start immediately.
@@ -97,9 +116,14 @@ the `cart` call finishes, here is the products AJAX call. Pretty cool.
 ## Method Refactoring
 
 Oh, but before we keep going, I want to make *one* tiny change. Add a `methods`
-key at the bottom of the component with one method inside: `async loadProducts()`.
+key at the bottom of the component with one method inside: `async loadProducts()`:
+
+[[[ code('66c1d0c28e') ]]]
+
 Move the three product AJAX lines from the cart watcher into this.
 Then, call it from the watcher: `this.loadProducts()`.
+
+[[[ code('4d7f65ec04') ]]]
 
 There's no specific reason for this change. For me, it's more readable to give
 these three lines of code, a name, like `loadProducts`. It's now easier
