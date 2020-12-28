@@ -1536,6 +1536,11 @@
             "description": null
         },
         {
+            "id": "transitionpractice-remove-opacity-0",
+            "name": "TransitionPractice: remove opacity 0",
+            "description": null
+        },
+        {
             "id": "transitionpractice-change-to-v-show",
             "name": "TransitionPractice: change to v-show",
             "description": null
@@ -1543,6 +1548,16 @@
         {
             "id": "transitionpractice-add-transition",
             "name": "TransitionPractice: add <transition",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-w-o-transition-css",
+            "name": "TransitionPractice: w\/o transition CSS",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-re-add-css",
+            "name": "TransitionPractice: re-add CSS",
             "description": null
         },
         {
@@ -1781,5 +1796,5 @@
             "description": null
         }
     ],
-    "sha": "c22a1bf531d923f8919d72e7e832e9f22e656358"
+    "sha": "4582b59cc94bf34d2e38c4533107c1ab6ba22f46"
 }
