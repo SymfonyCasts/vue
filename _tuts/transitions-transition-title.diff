@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 235f5d559..fe39b636b 100644
+index 4004a4224..3c0ffeb74 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -17,7 +17,20 @@
+@@ -17,7 +17,12 @@
              </aside>
  
              <div class="col-xs-12 col-lg-9">
@@ -11,28 +11,8 @@ index 235f5d559..fe39b636b 100644
 +                    name="fade"
 +                    mode="out-in"
 +                >
-+                    <title-component
-+                        v-if="currentState === 'cart'"
-+                        text="Shopping Cart"
-+                    />
-+
-+                    <title-component
-+                        v-else
-+                        text="Checkout"
-+                    />
++                    <title-component :text="pageTitle" />
 +                </transition>
  
                  <div class="content p-3">
                      <loading v-show="completeCart === null" />
-@@ -109,11 +122,6 @@ export default {
-             };
-         },
- 
--        pageTitle() {
--            return this.currentState === 'cart'
--                ? 'Shopping Cart'
--                : 'Checkout';
--        },
-         buttonText() {
-             return this.currentState === 'cart'
-                 ? 'Check Out >>'

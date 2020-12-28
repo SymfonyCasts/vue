@@ -1,11 +1,11 @@
 diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
-index db83a7e65..9e019271f 100644
+index db83a7e65..cb631225b 100644
 --- a/assets/components/product-show/cart-add-controls.vue
 +++ b/assets/components/product-show/cart-add-controls.vue
 @@ -1,5 +1,5 @@
  <template>
 -    <div class="d-flex align-items-center justify-content-center">
-+    <div :class="[$style.component, 'd-flex align-items-center', 'justify-content-center']">
++    <div :class="[$style.component, 'd-flex', 'align-items-center', 'justify-content-center']">
          <color-selector
              v-if="product.colors.length !== 0"
              @color-selected="updateSelectedColor"

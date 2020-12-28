@@ -1526,13 +1526,53 @@
             "description": null
         },
         {
+            "id": "transitionpractice-add-hide-show-element",
+            "name": "TransitionPractice: add hide\/show element",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-transition-css",
+            "name": "TransitionPractice: transition CSS",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-change-to-v-show",
+            "name": "TransitionPractice: change to v-show",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-add-transition",
+            "name": "TransitionPractice: add <transition",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-v-css",
+            "name": "TransitionPractice: v- CSS",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-name-fade",
+            "name": "TransitionPractice: name=\"fade\"",
+            "description": null
+        },
+        {
+            "id": "transitionpractice-remove-practice-el",
+            "name": "TransitionPractice: remove practice el",
+            "description": null
+        },
+        {
             "id": "transitions-implement-transition",
             "name": "Transitions: Implement transition",
             "description": null
         },
         {
-            "id": "transitions-temporary-long-transition",
-            "name": "Transitions: temporary long transition",
+            "id": "delete-me-3",
+            "name": "delete me 3",
+            "description": null
+        },
+        {
+            "id": "delete-me-4",
+            "name": "delete me 4",
             "description": null
         },
         {
@@ -1741,5 +1781,5 @@
             "description": null
         }
     ],
-    "sha": "1fa7531818ecd94fbb0fd07cd53f2876bf706165"
+    "sha": "c22a1bf531d923f8919d72e7e832e9f22e656358"
 }

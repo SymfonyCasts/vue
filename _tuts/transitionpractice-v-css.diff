@@ -1,0 +1,26 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index e6def2756..c23e62ac5 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -50,7 +50,6 @@
+                     <transition>
+                         <div
+                             v-show="currentState === 'cart'"
+-                            class="transition-testing"
+                         >
+                             Testing transitions!
+                         </div>
+@@ -168,11 +167,10 @@ export default {
+         @include light-component;
+     }
+ 
+-    .transition-testing {
++    .v-enter-active, .v-leave-active {
+         transition: opacity 3s;
+-        opacity: 1;
+     }
+-    .transition-testing.hidden {
++    .v-enter, .v-leave-to {
+         opacity: 0;
+     }
+ }

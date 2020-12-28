@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
-index 9e019271f..cae1ddcee 100644
+index cb631225b..50a221686 100644
 --- a/assets/components/product-show/cart-add-controls.vue
 +++ b/assets/components/product-show/cart-add-controls.vue
 @@ -14,7 +14,7 @@
