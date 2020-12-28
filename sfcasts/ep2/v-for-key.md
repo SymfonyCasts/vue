@@ -30,13 +30,22 @@ the implied return statement: we need a bit more space to work. This is now equi
 to what we had before... except that ESLint is mad because it *wants* me to use the
 short format since we *only* have a `return` statement.
 
+[[[ code('91730a3b32') ]]]
+
 Add a *new* statement: `const product =` set to the `products.find()` line. Then...
-use that below: `product: product`. Or, even better, shorten it to `product`. Repeat
-this for color: `const color =`, copy the `find()` line, replace it with `color`,
-and paste that above.
+use that below: `product: product`. Or, even better, shorten it to `product`:
+
+[[[ code('569a6ff3a8') ]]]
+
+Repeat this for color: `const color =`, copy the `find()` line, replace it with `color`,
+and paste that above:
+
+[[[ code('e4c575dd96') ]]]
 
 Cool! Except... for the duplicate `product` and `color` variables. In the callback,
 change the name to `productItem`... and also `colorItem`.
+
+[[[ code('8423d6a8f0') ]]]
 
 So far, this is the same... just written with extra lines. But *now* we can
 say: `id:`, use fancy "ticks", then `${cartItem.product}`.
@@ -46,8 +55,12 @@ The `cartItem` variable comes from the *original* AJAX data, which means the
 `${}` then if `cartItem.color`, print `cartItem.color` else the string `none`...
 or an empty string: whatever you want.
 
+[[[ code('d2d0cb771c') ]]]
+
 Nice! Let's go use this in `index.vue`: use the simpler syntax - `item in items` -
 then set `:key` to `id`.
+
+[[[ code('7e3622bcc8') ]]]
 
 I love it! When we check the browser... it looks exactly the same. In the Vue dev
 tools, down below `ShoppingCartList`, we can see the `key` used for each item.
@@ -60,6 +73,8 @@ with quantity & price columns. Move the `v-for` into the middle of this. So, we 
 a row of headers, each cart-item is *also* a row, and then there are columns for
 each bit of data.
 
+[[[ code('f285177eaa') ]]]
+
 And... *now* the page is taking shape! For the price, we need to total up the price
 and quantity of each item. Hey! That's a *textbook* case for a computed prop!
 
@@ -67,17 +82,26 @@ Back in the component, add a computed key with one method called `totalPrice`. T
 is boring... "math" stuff, so I'll paste in the logic. At the bottom, return
 `formatPrice(total)`.
 
+[[[ code('67f023181a') ]]]
+
 Head to the top to import that function: `import formatPrice` from
 `@/helpers/format-price`.
 
+[[[ code('8cd4fa4c56') ]]]
+
 Ok! Now that we have a `totalPrice` computed prop, we can use it in the template:
 `{{ totalPrice }}`.
+
+[[[ code('aed0ac28d8') ]]]
 
 Let's check it. Nice! We can't see the price of each *item* yet... or the quantity...
 but this total is *probably* correct.
 
 Oh, and if you want to make your code more hipster... and probably less readable
-to most people... you can refactor the computed prop to use the `reduce()` function.
+to most people... you can refactor the computed prop to use the `reduce()` function:
+
+[[[ code('e854cb76b3') ]]]
+
 Go go gadget fast typing! Dan Abramov - one of the maintainers of React -
 [would be impressed](https://twitter.com/dan_abramov/status/1338253118199508992)...
 or not. On a serious note, do whatever looks most *clear* to you. In a real project,
