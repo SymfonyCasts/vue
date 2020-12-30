@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 8e4b81fa0..d3166440f 100644
+index 12ba3288c..e877887c6 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -66,6 +66,7 @@
+@@ -63,6 +63,7 @@
  <script>
  import FormInput from '@/components/checkout/form-input';
  import Loading from '@/components/loading';
@@ -10,7 +10,7 @@ index 8e4b81fa0..d3166440f 100644
  
  export default {
      name: 'CheckoutForm',
-@@ -108,6 +109,22 @@ export default {
+@@ -105,6 +106,22 @@ export default {
                  errorMessage: this.validationErrors[id],
              };
          },
@@ -25,7 +25,7 @@ index 8e4b81fa0..d3166440f 100644
 +
 +                console.log(response.data);
 +            } catch (error) {
-+                console.log('error', error);
++                console.error(error.response);
 +            } finally {
 +                this.loading = false;
 +            }

@@ -851,6 +851,16 @@
             "description": null
         },
         {
+            "id": "pre-part2-expose-id-in-purchase-api",
+            "name": "Pre-Part2: expose id in Purchase api",
+            "description": null
+        },
+        {
+            "id": "pre-part2-add-comment-on-confirmation-page",
+            "name": "Pre-Part2: add comment on confirmation page",
+            "description": null
+        },
+        {
             "id": "pre-part2-move-assets-around",
             "name": "Pre-Part2: move assets\/ around",
             "description": null
@@ -1656,6 +1666,11 @@
             "description": null
         },
         {
+            "id": "custom-input-add-name-attribute",
+            "name": "Custom Input: add name attribute",
+            "description": null
+        },
+        {
             "id": "custom-input-v-model-input-emit",
             "name": "Custom Input: v-model input emit",
             "description": null
@@ -1796,5 +1811,5 @@
             "description": null
         }
     ],
-    "sha": "4582b59cc94bf34d2e38c4533107c1ab6ba22f46"
+    "sha": "454644451e57ea622b37788115b1861696083f95"
 }

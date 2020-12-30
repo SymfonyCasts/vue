@@ -1,0 +1,12 @@
+diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
+index bfce7a186..8152611cf 100644
+--- a/assets/components/checkout/form-input.vue
++++ b/assets/components/checkout/form-input.vue
+@@ -8,6 +8,7 @@
+         </label>
+         <input
+             :id="id"
++            :name="id"
+             :value="value"
+             type="text"
+             :class="{

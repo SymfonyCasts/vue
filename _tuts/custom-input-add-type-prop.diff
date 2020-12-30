@@ -1,18 +1,18 @@
 diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
-index c5e3632f8..22f78c99a 100644
+index 3949d399c..635f55b9f 100644
 --- a/assets/components/checkout/form-input.vue
 +++ b/assets/components/checkout/form-input.vue
-@@ -8,8 +8,8 @@
-         </label>
+@@ -9,8 +9,8 @@
          <input
              :id="id"
+             :name="id"
 +            :type="type"
              :value="value"
 -            type="text"
              :class="{
                  'is-invalid': !isValid,
                  'form-control': true,
-@@ -41,6 +41,10 @@ export default {
+@@ -42,6 +42,10 @@ export default {
              type: String,
              default: '',
          },

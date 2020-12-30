@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 44fa7b5bc..b0284558b 100644
+index 97d5f56fb..a170ccd10 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -176,7 +176,7 @@ export default {
+@@ -174,7 +174,7 @@ export default {
              if (!this.form[validationField]) {
                  this.validationErrors[validationField] = validationMessages[validationField];
              } else {

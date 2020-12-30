@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index b93b27ccd..731a092c0 100644
+index e97e97648..12e7cbe79 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -1,7 +1,7 @@
@@ -11,7 +11,7 @@ index b93b27ccd..731a092c0 100644
                  <div class="form-row">
                      <form-input
                          v-model="form.customerName"
-@@ -109,8 +109,7 @@ export default {
+@@ -106,8 +106,7 @@ export default {
                  errorMessage: this.validationErrors[id],
              };
          },

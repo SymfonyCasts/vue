@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 534a4b878..b93b27ccd 100644
+index 285b6080b..e97e97648 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -109,7 +109,8 @@ export default {
+@@ -106,7 +106,8 @@ export default {
                  errorMessage: this.validationErrors[id],
              };
          },

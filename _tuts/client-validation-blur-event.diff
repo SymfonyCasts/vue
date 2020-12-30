@@ -1,8 +1,8 @@
 diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
-index 22f78c99a..aa9303332 100644
+index 635f55b9f..40fbf317f 100644
 --- a/assets/components/checkout/form-input.vue
 +++ b/assets/components/checkout/form-input.vue
-@@ -15,6 +15,7 @@
+@@ -16,6 +16,7 @@
                  'form-control': true,
              }"
              @input="$emit('input', $event.target.value)"
@@ -11,10 +11,10 @@ index 22f78c99a..aa9303332 100644
          <span
              v-show="!isValid"
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 66c351f03..2773d7c44 100644
+index 40f62ec85..b636b7868 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -14,6 +14,7 @@
+@@ -15,6 +15,7 @@
                          v-model="form.customerName"
                          class="col"
                          v-bind="getFieldProps('customerName', 'Name:')"
@@ -22,7 +22,7 @@ index 66c351f03..2773d7c44 100644
                      />
  
                      <form-input
-@@ -21,12 +22,14 @@
+@@ -22,12 +23,14 @@
                          class="col"
                          type="email"
                          v-bind="getFieldProps('customerEmail', 'Email:')"
@@ -37,7 +37,7 @@ index 66c351f03..2773d7c44 100644
                  />
  
                  <div class="form-row">
-@@ -34,12 +37,14 @@
+@@ -35,12 +38,14 @@
                          v-model="form.customerZip"
                          class="col"
                          v-bind="getFieldProps('customerZip', 'Zip Code:')"
@@ -52,7 +52,7 @@ index 66c351f03..2773d7c44 100644
                      />
  
                      <form-input
-@@ -47,6 +52,7 @@
+@@ -48,6 +53,7 @@
                          class="col"
                          type="tel"
                          v-bind="getFieldProps('customerPhone', 'Phone Number:')"

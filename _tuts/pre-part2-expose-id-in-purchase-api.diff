@@ -1,0 +1,12 @@
+diff --git a/src/Entity/Purchase.php b/src/Entity/Purchase.php
+index e73383276..b97706379 100644
+--- a/src/Entity/Purchase.php
++++ b/src/Entity/Purchase.php
+@@ -22,6 +22,7 @@ class Purchase
+      * @ORM\Id()
+      * @ORM\GeneratedValue()
+      * @ORM\Column(type="integer")
++     * @Groups({"purchase:read"})
+      */
+     private $id;
+ 
