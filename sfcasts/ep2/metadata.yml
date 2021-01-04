@@ -26,3 +26,15 @@ chapters:
     - cart-controls-component
     - featured-sidebar
     - smart-watcher
+    - cart-checkout-toggle
+    - transitions
+    - transition-mode
+    - prop-transition
+    - checkout-form
+    - form-input-component
+    - v-model-custom-component
+    - v-bind-object
+    - checkout-submit
+    - form-validation
+    - client-validation
+    - losing-reactivity
