@@ -1,57 +1,58 @@
 # Remove From Cart
 
-Coming soon...
+Our cart page is *nearly* fully functional! Just one last task: make the remove
+button work.
 
-updates here and our cart header is updating. So the last thing we need to do is make
-this remove button work, which now it should be pretty easy. Let's repeat the process
-that we use for quantity. So first in cart item, find the button and we need to add
-an `@click` onto this. So I'll break this into multiple lines and I'll add `@click=`
-and I'll just use the inline `$emit` and let's call this one `removeFromCart` this
-time, we don't need to include any extra data. There's not like a quantity that we
-need to communicate next. In `index.vue`, we will also listen to, well, listen to
-this `@removeFromCart=""`. It'll do the same thing we did before. Will you
-miss? And I'll emit an event with that same thing with that same name, `removeFromCart`
-but now we do need to include the `productId` and `colorId` so that our parent
-component knows which item to remove. So I'll actually copy these from the method
-above
+Let's repeat the process we used for quantity. Start in `cart-item`. Find the
+button and add an "on click". I'll break this onto multiple lines.
+`@click=` then `$emit` and call the event, how about, `removeFromCart`, though
+`remove-from-cart` would follow a more standard naming convention.
 
-Finally, we can listen to this, `removeFromCart` on the top level, `shopping-cart.vue`
-So go up to our templates. I have an extra import I can remove yay. And
-we'll say, `@removeFromCart=""`. And then here, instead of calling a method on our
-components, let's go ahead and immediately put a new method in the mix in that helps
-us remove items from the cart.
+Unlike for quantity, this time, we do *not* need to include *any* data: we're
+simply "removing".
 
-So over in mixing, I'll add a new method here called `removeProductFromCart()`. And we
-know this is going to need the `productId` and the `colorId`, because those are the
-things that identify which item it is. And then inside of here, we can call another
-method on the car to service that we haven't used before. It's called `removeItemFromCart()`
-I'll hit tab so that it will add the import for me. And then we need to
-pass this, the cart, `this.cart`, `productId` and `colorId` I'll hold command and jump
-into this function. So you can see it just like last time. It actually does two
-things. The first thing it does is it actually modifies the data. So it actually
-removes the item from the cart and overrides `cart.items`. So it modifies our data
-and then it saves it on the server. So of course we don't also don't want to, we're
-also wanting to watch them once this finishes update the cart header. So I'll put
-that below and for consistency, with everything else, let's wait for this to happen
-before we actually update the cart header.
+Next, in `index.vue`, listen to this with `@removeFromCart=""`. Do the same thing
+we did before: emit an event with that same name - `removeFromCart` - and make
+sure to include `productId` and `colorId` so that our parent component knows *which*
+item to remove. I'll actually copy these from the emit above.
 
-So now we have this removed product from cart method. We can go back into
-`shopping-cart.vue`. And since we use that mix in here, we can call that method directly,
-which is kind of cool. I'll say `removeProductFromCart()`.
+*Finally*, we can listen to the `removeFromCart` event from the top level
+`shopping-cart.vue`. Scroll up. Hey! I have an extra import I can remove - yay!
+Now keep going to find the `<shopping-cart-list` component. Add
+`@removeFromCart=""`.
 
-Okay.
+But this time, instead of calling a method on *this* component, let's *immediately*
+put a new method in the mixin to handle removing items from the cart.
 
-And then here we can pack, can use the events, say `$event.productId`, comma
-`$event.colorId`. All right, let's try that on. Move over. I'll do another full page
-refresh just to be safe. And let's remove our inflatable 15 items in here. This is
-three I'll hit remove, and as looked like it worked, we've got the 12 up here. It's
-gone, the total updated. And most importantly, when I refresh it's gone still. So
-next I have a challenge for us to help sell more high quality merchandise. The
-marketing department has asked us to add a featured product sidebar
+## Adding More Mixin Logic
 
-To the cart,
+Over in `get-shopping-cart`, add a new method called `removeProductFromCart()`. We
+know this will need the `productId` and `colorId` to identify *which* item it is.
+Inside, we can call another function from `cart-service` that we haven't used yet
+called called `removeItemFromCart()`. I'll hit tab so that it adds the import for
+me. Pass this the cart: `this.cart`, `productId` and `colorId`.
 
-With the ability to actually add the item to the cart, including choosing the color.
-If we need to directly from this page to make this happen, we're going to need to
-reuse a lot of code between the sidebar and the cart show page with view. We can do
-that.
+Hold Command or Ctrl and click `removeItemFromCart` to jump into that function.
+Just like with `updateCartItemQuantity()`, this does two things. First it *modfies*
+the cart object to remove the item. And second, it *then* makes an AJAX call to
+save that to the server.
+
+Back in the mixin, don't forget to update the header: `this.updateCartHeaderTotal()`.
+Oh, but let's `await` for the AJAX call to finish before doing this.
+
+Let's put this new method to work! Back in `shopping-cart.vue`, since we use that
+mixin, we can call that method directly: `removeProductFromCart()` passing
+`$event.productId` and `$event.colorId`.
+
+Testing time! Find your browser, do a full page refresh to be safe. Right now,
+we have 15 items. Remove the couch with quantity 3 and.... it worked! The header
+says 12, the item is gone, the total updated. We rock! *And*, when we refresh,
+the item *is* still gone.
+
+Next: I have a challenge for us! To help sell, I mean, "share", more high quality
+merchandise with the world, the marketing department has asked us to add a
+"featured product" to the sidebar of the cart page *with* the ability to add
+them item to the cart *directly* from this page - including choosing the color.
+
+To accomplish this, we're going need to reuse a *lot* of code between the sidebar
+and the cart show page. Let's do it!
