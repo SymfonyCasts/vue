@@ -2,87 +2,6 @@
 
 Coming soon...
 
-In cart item, when the quantity changed, we're dispatching this update, we're
-emitting this `updateQuantity` event, but it occurred to me that we're kind of passing
-too much data in the event. I mean, it's fine, but think about it, both the `productId`
-and the `colorId` come from `this.item` and `item` is passed to us as a prop, which
-means that our parents components is aware of which item is tied to this component.
-So it's a bit redundant to pass `productId` and be in `colorId` to our parent. When it
-already has that information, all we should really need to say here and `updateQuantity`
-is my new quantity is, and then that value, the parent component already
-knows which cart item we are. This is a tiny detail, but let me show you move `productId`
-and `colorId` from
-
-Here. In fact, I will copy those and then delete them
-
-So that we're just emitting an event with the quantity data. Now, going to `index.vue`. 
-When we emit the event here, we do need to include the `productId` in `colorId`.
-So that shopping cart knows which item is being updated.
-
-Both. Since
-
-We already have the item inside of our loop, we can actually do that right here. So
-it looks like yours. We call the admit function and this time we will actually pass
-this an object and I will paste Paste those keys `productId` and `colorId`. I'm
-going to change `this` to `item`, to `item`
-
-In those three places.
-
-And then for the last part, we'll pass `quantity` and we can use the `$event.quantity`
-So that's it, it's a, it's a really minor detail and it would have
-worked either way. It just feels a little bit better to me, it's it feels a little
-bit cleaner. Everyone is responsible for what their part is. So, and back over here,
-it looks like everything is still working fine. The one thing that is not working is
-that when we change the quantity, the cart header is not updating
-
-Yet. We do
-
-Have logic to do this. So if we're looking at shopping cart dot view, we have update
-quantity here.
-
-Um,
-
-And we know that shopping cart uses are mixing our `get-shopping-cart.js` Mixin. So we do
-have inside of this mixing logic to update the shopping cart, uh, count header. And
-we call that after we add a new product to the cart. So one thing we could do is we
-could isolate this code here into its own method. And then we could call that from
-inside of shopping cart view. So let's do that. But actually, since we do have this
-really nice mix in that can hold the cart and data and methods related to the cart.
-Let's also move the update cart functionality as a new method inside here To check it
-out in the mix. Then I'm going to add a new method here called `updateProductQuantity()`
-
-Inside of here
-
-In order to update the product quantity. It's going to need to know the `productId`,
-`colorId`, and `quantity`. And then I'll actually go over my shopping cart here. It's
-really the same thing as this method. I'm going to steal this `updateCartItemQuantity()`,
-method. And I'm going to paste that here. Not when I did that. Just so
-you're aware that did add the, uh, extra import up here though. I don't love that
-syntax. Now that we have this new method, we can call it from our shopping cart
-component. So I'll go to the `console.log()` and it's just going to be 
-`this.updateProductQuantity()`, and then passing the same organs. So we don't need to pass in
-`this.cart` because that's going to be, that's handled by the mixing
-
-So
-
-Easy. That's just a reorganization of code to have a little bit of more logic inside
-of our mixing. And over here, it looks like when I change things, it is working just
-fine. Now, thanks to this updating, the current header is going to be much easier.
-First let's isolate this logic into its own function and his own methods. So I'll
-copy that logic. And then down here, I will create a new method called
-
-`updateCartHeaderTotal()`, and paste in that logic. Okay.
-
-And then we can very simply that from the end of our ad product to cart
-`this.updateCartHeaderTotal()` and then same thing down here and the `updateProductQuantity`,
-`this.updateCartHeaderTotal()`. Um, now the only thing here is that technically to
-make it a little bit more realistic with the saving, what I'll do here is I will add
-an `await` and then an `async`. So it doesn't really matter, but now we'll actually wait
-for that AGS called a finish. That updates the quantity before then updates the cart
-header total.
-
-Okay, let's try it. I'm going to do a full page refresher over here just to be sure
-we have 13 up here. We have 11 one-on-one. So when I hit up, boom, yes, everything
 updates here and our cart header is updating. So the last thing we need to do is make
 this remove button work, which now it should be pretty easy. Let's repeat the process
 that we use for quantity. So first in cart item, find the button and we need to add
@@ -116,13 +35,13 @@ also wanting to watch them once this finishes update the cart header. So I'll pu
 that below and for consistency, with everything else, let's wait for this to happen
 before we actually update the cart header.
 
-So now we have this removed product from cart method. We can go back into 
+So now we have this removed product from cart method. We can go back into
 `shopping-cart.vue`. And since we use that mix in here, we can call that method directly,
 which is kind of cool. I'll say `removeProductFromCart()`.
 
 Okay.
 
-And then here we can pack, can use the events, say `$event.productId`, comma 
+And then here we can pack, can use the events, say `$event.productId`, comma
 `$event.colorId`. All right, let's try that on. Move over. I'll do another full page
 refresh just to be safe. And let's remove our inflatable 15 items in here. This is
 three I'll hit remove, and as looked like it worked, we've got the 12 up here. It's
@@ -136,4 +55,3 @@ With the ability to actually add the item to the cart, including choosing the co
 If we need to directly from this page to make this happen, we're going to need to
 reuse a lot of code between the sidebar and the cart show page with view. We can do
 that.
-
