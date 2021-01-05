@@ -25,6 +25,7 @@ chapters:
     - mixin-quantity-header
     - remove-from-cart
     - cart-controls-component
+    - cart-controls-component2
     - featured-sidebar
     - smart-watcher
     - cart-checkout-toggle
