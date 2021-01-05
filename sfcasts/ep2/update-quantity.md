@@ -7,6 +7,8 @@ Up in the template, find where we render `shopping-cart-list`. Then add
 `@updateQuantity=` and make this execute a new method called, how about,
 `updateQuantity`.
 
+[[[ code('e936b84b7a') ]]]
+
 Copy that, go down to the `methods` section... here it is... and add that new
 function.
 
@@ -18,8 +20,13 @@ emitting that event, we know the object will have `productId`, `colorId` and
 
 In the new method, let's use array destructuring on the first argument to grab
 those values and set them onto variables. Do it with `{}`, `productId`, `colorId`
-and `quantity`. Let's `console.log()` all 3 values to make sure everything
-is hooked up.
+and `quantity`:
+
+[[[ code('14784dc144') ]]]
+
+Let's `console.log()` all 3 values to make sure everything is hooked up:
+
+[[[ code('cee1966141') ]]]
 
 At the browser... change the quantity on the inflatable sofa. Yes! The product IRI,
 color IRI and quantity *do* log.
@@ -36,8 +43,12 @@ has a function that does *both*. Down in `updateQuantity`, say
 the `import` on top. Pass this the cart - `this.cart` - then `productId`,
 `colorId` and `quantity`.
 
+[[[ code('5c71b08d16') ]]]
+
 That's it! But let's see what that function *really* does: hold Command or
 Ctrl and click the `updateCartItemQuantity` to jump into it.
+
+[[[ code('67f5f5b6fc') ]]]
 
 ## Setting Data from Outside a Component?
 
