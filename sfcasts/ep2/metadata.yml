@@ -27,6 +27,7 @@ chapters:
     - cart-controls-component
     - cart-controls-component2
     - featured-sidebar
+    - sidebar-controls
     - smart-watcher
     - cart-checkout-toggle
     - transitions
