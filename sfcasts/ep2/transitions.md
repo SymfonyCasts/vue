@@ -1,14 +1,19 @@
 # Vue Transitions
 
-Coming soon...
+When we click the button, our little "Testing transitions" div hides and shows
+thanks to `v-show`... but *without* any transitions. The reason is that Vue
+hides and shows by adding and removing `display: none`. Our CSS transition will
+only work if the *opacity* changes.
 
-is that view simply adds
-display none to hide or show an element. But what we need is for view to change the
-opacity from one to zero and then zero to one, or really more generically. What we
-need is for view to add a new class when it's hidden so that we can add the opacity
-zero to that class, just like we are currently doing with our hidden class, that
-would make things work just like before the key to doing this is by surrounding the
-element that we're hiding in showing with a special transition components. Check this
+So, instead of `display: none`, what we *really* need Vue to do is change the
+opacity from 1 to 0. Or, more generically, we need Vue to add a new class when
+it's hidden so that *we* can set `opacity: 0` on that class, just like we're
+already doing with our `hidden` class. That would make this works just like before.
+
+## Hello &lt;transition&gt;
+
+Fortunately, Vue has a feature *just* for this. The key is to surround the
+element that we're hiding and showing with a special `transition` component. Check this
 out. I'll add transition, put that on the other side of our div. And then I'll invent
 things to make my editor happy. But I want to be very, very clear about what this
 transition component does and does not do so first, if you move over here and click
