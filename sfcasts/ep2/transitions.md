@@ -1,71 +1,8 @@
-# Transitions
+# Vue Transitions
 
 Coming soon...
 
-Forget about view for a few minutes. Instead, I want to focus on how CSS transitions
-work by themselves. If you're already super familiar with CSS, transitions, feel free
-to jump ahead a couple of minutes. If not,
-
-Let's go in shopping card dot view. Let's add a temporary element. Temporary did with
-some text inside.
-
-I'll say testing transitions Also use the dynamic class syntax colon class = and then
-open and closed curly to give us two classes. First transition testing. That's a
-class that will have all the time. And then another one called it hidden. What you
-will only have when the, when the current state is equal to check out Down in the
-CSS, let's add some rules for
-
-This. So I'll add that transition testing
-
-And here I'll set it to opacity one,
-
-Instead of two opacity one,
-
-This is actually not necessary because that's the default for all elements, but it
-will help us understand things.
-
-Let's add. Also, when this,
-
-When this also has the hidden class, let's change the opacity to
-
-Zero.
-
-Basically, we're going to hide in show this element. Whenever we click our checkout
-
-Button,
-
-It doesn't use V show, but it should nearly do the same thing.
-
-And yeah, you can see
-
-That testing transitions, hide shows, hide show CSS transitions allow us to well add
-transitions between certain CSS property changes.
-
-For example, thanks to our CSS.
-
-Pasadena instantly changes from one to zero and zero to one, but we can tell CSS to
-make that change slowly like transitioning from one to zero over, let's say three
-seconds
-
-To do that on the element that on the class that, that the element always has,
-
-Has add transition and then opacity to, uh, add a transition specifically to the
-opacity and three seconds.
-
-And now how cool is that fades out and then fades back in. There are a lot more
-things you can do with CSS transitions, but this is the basic idea. And as I
-mentioned, this opacity here is redundant. So I'm going to remove it. Okay. What does
-this have to do with view? Let's find out, back up in the template, find our
-temporary element and let's change this to properly. Use a V show to hide and show
-the element. So I'll copy the current state = checkouts. Then we'll just change the
-class to a normal boring class = transition testing. I'll even put that
-
-[inaudible]
-
-Then above this, I'll add V show = current state equals, uh, checkout, but actually
-make it let's make it cart. We want it to show when we're on the cart. Now, when we
-try over here where she lose our transition entirely, we lost our transition find
-spec element on that item. We can see that the reason is that view simply adds
+is that view simply adds
 display none to hide or show an element. But what we need is for view to change the
 opacity from one to zero and then zero to one, or really more generically. What we
 need is for view to add a new class when it's hidden so that we can add the opacity
@@ -153,4 +90,3 @@ add any transitions. That's our job with the CSS. Next let's use this transition
 Let's use this to transition between our two components, the checkout form, and our
 shopping cart. We'll also talk about transition modes and transition the title as
 well.
-

@@ -30,6 +30,7 @@ chapters:
     - sidebar-controls
     - smart-watcher
     - cart-checkout-toggle
+    - css-transitions
     - transitions
     - transition-mode
     - prop-transition
