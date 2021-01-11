@@ -1,95 +1,113 @@
-# Cart Checkout Toggle
+# Advancing Between Cart & Checkout
 
-Coming soon...
+Shopping cart... check! There's just one more feature we need to add to the site:
+the ability to fill out a checkout form. No... we won't create a *real* checkout
+form with a credit card field and payment processing. That's not the point of this
+tutorial. But we *will* build a real form for the customer's info with real
+validation: both server-side and client-side.
 
-[inaudible]
+So: should this checkout form be a new page? We *could* do that. But this time,
+instead, I'm going to add that form right to this page. This one component will
+hold both steps of the checkout process. Step one will show this cart and
+then, by clicking a button, the user will go to step two: the checkout form.
+This will be a *great* opportunity to chat about Vue transitions so that this
+process *feels* really smooth.
 
-Shopping cart check. There's just one last feature we need to add to our site, the
-ability to fill out a checkout form. Now we won't create a real checkout form with a
-credit card field and all that payment processing. Isn't the target of this tutorial,
-but we will build a real form for the customer's info with real validation, both
-server side and client side. So is this checkout form a new page? We could do that,
-but this time, instead, we're going to make this page right here, able to hold both
-steps of a checkout process.
+## Adding the Checkout Button
 
-So step one will be kind of showing this cart and they'll have a button to move to
-step two, which will be filling out the credit card form. This would be a great
-opportunity to chat about view transitions. So let's get to work, start in assets
-pages, shopping cart dot view, which is the component that holds all of this stuff.
-Most importantly, it holds the car sidebar component and the shopping cart list
-component, which is what we see right here. What we're going to do now after the
-shopping cart list is add that button. That's going to allow us to move to the
-checkout step. So I'll add a div and inside of here, we need to give us a couple of
-classes. So we only want this button to show up if the complete cart item, uh, data
-is available. And if there are actually items in the cart. So I'll add a VF for
-complete cart and complete cart dot items. That length is greater than zero. And it's
-out of here. A lot of button give us a class of BTN, BTN dash primary.
+Let's get to work. In `assets/pages/shopping-cart.vue`, this component renders
+the entire page - including `cart-sidebar` and `shopping-cart-list`.
 
-And inside there, we'll say check out. He is enough and we move on and you can see it
-right down there. So now this, so now our shopping cart component is going to have to
-sort of States that the user can toggle between the cart state that shows the
-shopping cart and the checkout state that shows the checkout form and a piece of data
-to keep track of this. I'll add a current state and we'll default it to cart because
-that's our first state. I'll make sure I spell that correctly. Okay. Next, when the
-user clicks the button up here, we're going to call a new method to between those
-States. So I had at click = and then we can call it switch state, and I'll copy that
-name. Finally, head down to the bottom and I'll add that new method switch state. And
-instead of here, we're only going to have two States. So it's pretty simple. We can
-say this.current state equals. And then if this.current state = cart, then we want to
-go to the checkout state else. We are in the checkout state. Can we want to go back
-to the cart state? This button will be allowed, will allow us to switch back and
-forth between those two States.
+Add a div to hold the "Checkout" button. Give it a `v-if=` so that
+we *only* render this once the `completeCart` data has finished loading *and*
+if `completeCart.items.length > 0`. We don't want to show a checkout button if
+the cart is empty.
 
-So we're not using this current state in our template yet, but we can already at
-least see if clicking this button changes things. So I'll go to view dev tools, find
-my shopping cart and find that part of the data, current state cart, click it. And,
-huh, it didn't change. Actually it did change. If you click off of that component and
-back on and go find that piece of data, it did change to check out. This is a cork
-with the view dev tools. If you change a piece of data, but that data doesn't cause
-anything to rerender then the dev tools won't instantly update. So no big deal. Just
-have to know that that might happen. So let's render something based on this state.
-We'll start with two things. First. I want to change this title from shopping cart to
-checkout and they'll change the button itself from checkout to go back.
+Inside, say `<button class="btn btn-primary">` and "Check Out!".
 
-Let's add two computed properties to determine these two things. Okay. So let's see
-fun, our computed section. There it is. And I'll add one called page title. Again,
-this is pretty simple because we just have two States here, return this.current state
-= cart. So for in the cart States, then we will return the page title shop McCart,
-Elsa returned the page title of checkout. I'll copy this entire method because we'll
-do something very similar for a computer property called the button text. So for on
-the card, then we're going to want to have some button texts, like check out. And
-then if we are on the checkout form, then we'll have a little back arrows and the
-word back. Perfect. And then we can use these up above. So I'll scroll up and find
-the component or a passing in the text. This will not be colon text, page title, and
-then down here for the button, we can say curly curly button text.
+Let's see how that looks. Nice!
 
-Okay,
+## The "currentState" Data
 
-Correct. Now let me switch over. I actually closed my browser tools here for a
-second, so we can see the title, but click and we've got it. We already have the
-shopping cart itself, isolated into its own component to keep things organized. Let's
-also create a separate component for the checkout form so that we don't have to just
-kind of inline it here, create a new checkout directory And then a index that view
-file inside I'll paste in a very simple template that just prints some texts. And it
-has the most basic view, uh, export
+Our `ShoppingCart` component is going to have two, sort of, "states" that the user
+can toggle between: the "cart" state that shows the shopping cart and the "checkout"
+state that shows the checkout form. We're going to need a piece of data to keep
+track of the current state.
 
-Back in shopping cart review, let's use this. So step one, import this thing. So
-import checkout form from as last component /checkout, and you probably saw my
-mistake there. Check out needs to live in components, not directly in assets. There
-we go. Now that's happier. And then we'll put checkout form down here inside
-proponents, and then we can use this up above, but before we render it, let's
-actually look at the shopping cart list. So now you currently have a VF. So this only
-displays once the complete card data is there. Now we want to only display it when
-the complete card data is there. And if the current state is cart, so I'll add here
-and current state = now go right below this and add our checkout form.
+Add a new `currentState` data that defaults to `cart`. I'll... make sure I spell
+that correctly.
 
-And they're actually gonna do something very similar. Actually copy that VF from
-above and this time we'll change cart to checkout. All right, let's try it out, spin
-over. And boom, there we go. One page able to toggle between those two States, which
-is pretty cool, but this change is a little abrupt. I love to have some nice
-transition between the two, like the old one fades out and the new one fades in. Can
-we do that? Of course, CSS itself supports transitions and what they special view
-feature. We can leverage those CSS transitions perfectly. Let's learn how
+Next, when the user clicks the button, let's call a new method to *change* that
+data to the other state: `@click="switchState"`.
 
-Next.
+Copy that name and head down to the bottom of the component to add that method:
+`switchState()`. Inside, since we only have 2 states, it's pretty simple:
+`this.currentState =`, then if `this.currentState === 'cart'`, set it to `checkout`,
+else we are *in* the `checkout` state and want to go back to `cart`. The button
+will let us go back and forth.
 
+## Vue Dev Tools Quirk when no Re-Render
+
+We're not using `currentState` in the template yet... but we can
+*at least* check to see if clicking this button changes that data. Go to Vue dev
+tools, find `ShoppingCart` and find `currentState`. Yep, it's `cart`.
+
+Click the button. Huh. It didn't change! Spoiler alert: it *did* change! If you
+click *off* of that component and back on... and go find that data again, it *did*
+change! This is a quirk with the Vue dev tools. If you change a piece of data,
+but that data doesn't cause anything to re-render. the dev tools won't instantly
+update. No big deal: it *is* working.
+
+## Toggling the Title Between States
+
+So let's render something based on the data... actually two things. When we click
+the button, the title should change from "Shopping Cart" to "Checkout" *and* the
+text on the button itself should go from "Check out!" to "Go Back".
+
+Instead of hardcoding this logic and messages in the template, let's leverage
+some computed props. Find the `computed` section and call the first `pageTitle`.
+`return` if `this.currentState === 'cart'` then `Shopping Cart`, else `Checkout`.
+
+Copy this and do something similar for `buttonText`, returning `Check Out`
+if we're on the cart page and `Back` if we're on checkout.
+
+Very nice! Scroll up to use these. Change the title to `:text="pageTitle"`
+and... for the button, `{{ buttonText }}`.
+
+Let's check it! Back at the browser... click the button. Got it!
+
+## Creating the Checkout Form Component
+
+The last step is to toggle the content on the main part of the page. The
+shopping cart list is already isolated into its own component. Let's *now* create
+*another* component to hold the checkout form... so we don't have to add all
+its HTML and logic right into `shopping-cart`.
+
+Create a new `checkout/` directory and then an `index.vue` file inside. I'll
+paste in a very simple component that prints some text and exports a name.
+
+Back in `shopping-cart.vue`, use this. Step one: import it:
+`import CheckoutForm from` `@/components/checkout`... but where is my auto-complete?
+Ah! Ryan! I accidentally put the new `checkout/` directory in `assets/`. It
+should live in `components/`. *Now* Webpack is happy.
+
+Add `CheckoutForm` to components and scroll up to the template.
+
+Before we render this, look at `<shopping-cart-list`. Thanks to the `v-if`, this
+only renders once the `completeCart` data is available. *Now* we want to render
+it when the `completeCart` data is there *and* if the `currentState` equals cart.
+
+Below this, render `<checkout-form`. Oh, but copy the `v-if` from above, paste,
+and render it when the `currentState` is `checkout`.
+
+By the way, you could make a *really* good argument that the `currentState` logic
+should live in `v-show` instead of `v-if`. We'll talk more about that at the end of
+our discussion about Vue transitions.
+
+Anyways, let's do this! Find your browser and click "Check Out". Beautiful! We
+can switch back and forth, back and forth.
+
+But... the change *is* a little.. abrupt. I'd love to have a nice transition
+between the two pages, like the old one fades out and the new one fades in. Can
+we do that? Of course! CSS itself supports transitions and with a special feature
+from Vue, we can leverage those perfectly. Let's learn how next.

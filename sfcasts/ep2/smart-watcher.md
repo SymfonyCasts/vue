@@ -1,119 +1,119 @@
-# Smart Watcher
+# Deep and Smart Watchers
 
-Coming soon...
+The fact that we can add things to our cart from the sidebar and have everything
+just... magically update is *incredible* and shows the power of.. the dark side.
+I mean, Vue. But... we have a bug. Gasp sounds!
 
-The fact that we can add things to our cart like this and have everything just
-magically update is pretty incredible and shows the power of view. But we have a bug
-gasp sounds, remove all of the inflatable sofa items and then do a full page refresh.
-Now let's try to add a red sofa and, Oh, it did not show up. It's 11 plus one = 12,
-that sort of worked, but let's go on here, which I got the console. We have huge
-areas, cannot read property price of undefined coming from our shopping cart list.
-Yikes, here's the problem. And it's a little subtle head over to shopping cart dot
-view and find our watcher function. There it is. So as a reminder, when the, after
-the cart AGS call initially loads, our cart watcher right here is called it calls the
-load products function gets all the product IDs that are in that cart, makes an AGS
-call for all of them and sets the products data. So ultimately we have a cart object
-and we have a product array that contains all the data for all the products.
+## We have a Bug!
 
-The problem now is that when we add a totally new product to the cart view, re
-renders and down here, oops, sorry, up here. There we go. Complete cart. When they
-complete cart computed property method is called new product that was just added to
-the cart is not in the Vista dot products data. So basically we fail to find when
-we're looping over the new cart items, we failed to find that product and the product
-ends up being no here, which is not something we expect. And eventually we try to
-call a property on it.
+Remove all of the inflatable sofa items from the cart and do a full page refresh.
+*Now* try to add a red sofa and... oh! It did *not* show up in the cart! I see
+11 items in the cart... and I just added 1 more... so the new total should be 12...
+and that *does* show in the header! But the item is missing!
 
-So,
+Let's check the console. Woh! Huge error!
 
-So it's a long way of saying that we end up with an item in the cart for a product
-that is not in the, this.products data, but hold on a second, this doesn't make total
-sense. Let's think about the whole flow. First. We add a new item to the cart that
-should cause our cart watcher. There we go to be called because the cart just changed
-and that should cause the load products method to make a fresh Ajax call for all of
-the products in the cart at that moment, which will include the new product. And then
-when we rerender and complete cart is called, we should be able to find all our new
-products should be inside of the products data. So why isn't it? The answer is that
-the watcher function only watches to see if an entire piece of data is changed or
-replaced. Like when the cart goes from no to an object after the initial Ajax call,
-if a piece of data is an array or an object like cart, the watcher does not watch for
-changes to items in that array or keys on that object. In other words, when a new,
-when a new item is added to the cart dot items array, our watcher is not being
-called.
+> Cannot read property `price` of undefined
 
-And so the Ajax call for the front new product is never being made. So what's the
-fixed, what's the fix where you actually can make a watcher watch in deep mode, watch
-for all changes on any level, actually in a copy of this download products, it's a
-slightly different syntax here. We're going to say is cart colon. And then here,
-we're going to say deep, true. That's the key. And then down here, we're actually
-going to put the, uh, for the callback it's called async, we'll call it handler and
-we'll make it async okay. It's called handler. And here I'll pack paste in this.load
-products.
+Coming from `ShoppingCartList`. Yikes! The problem is... subtle. Head over to
+`shopping-cart.vue` and find our watcher function... here it is.
 
-All right. So let's try this go over now, do a full page refresh, make sure you
-remove the sofa and then refresh. Good. Uh, let's add a green one and it works. Look
-at it, actually added it here, but you probably also noticed we got an air. It's
-actually the same air as last time. That's because after the cart changes, but before
-the products, Ajax call finishes view re renders and be computed in the complete
-cart, computed property is still temporarily missing the product from the products,
-the data. And so it explodes a moment later, the products AGS called finishes view re
-renters again, and this works fine and we see it print it. So it eventually works,
-but we have this nasty air down here to fix this inside the computer property. I'm
-thinking that down here, if any of these items, after we go through our map is
-missing its product. Let's just filter them out. What that would mean is that
-temporarily there might be three items in the cart, but if one of them is missing
-their product, then we'll only run a two of them. Once that products AGS call
-finishes, it will rerender. And then we will include that third one.
+Let's remember how this works: after the cart AJAX request finishes, Vue calls our
+cart watcher function and *it* executes the `loadProducts` function. That
+collects the product ids from the items in the cart and makes one AJAX call to
+fetch all of that product data. By the end of this, we have a `cart` object *and*
+an array that holds the data for every product in the cart.
 
-So we can do that very simply by saying items, colon, complete items, dot filter with
-an item argument, and then we'll set that to item that product. So basically I'll put
-a little comment here, filter out missing products. They may still be loading.
+The problem *now* is that when we add a totally *new* product to the cart, this,
+naturally, causes our Vue component to re-render. That process calls our computed
+property: `completeCart`. But *this* time, the new product is *missing* from
+the `products` data! This means the `product` ends up being `null`, which is
+*not* something we expect. Eventually, we try to read the `price` property from
+this and... well, you saw it: things fall apart.
 
-Okay.
+But, hold on a minute... this doesn't make sense! When we add a new item to the
+cart, that *changes* the `cart` data. That should cause Vue to call our cart watcher
+function... and *that* should cause the load products method to make a *fresh* AJAX
+call for all of the products in the cart, *including* the new product.
 
-So now once again, we gotta do a full, we're gonna remove our item full page refresh.
-Let's add a red sofa quantity too. And got it shows up here. No heirs. That is
-awesome.
+## Watcher Functions are Not "Deep"
 
-Yeah,
+Then, when we re-render, the `completeCart` computed property should *work*...
+and everything should be awesome! So... why isn't everything awesome?
 
-But this deep watcher is kind of overkill. Now, even when we change the quantity,
-we're going to have new Ajax calls and check this out. Let's go over to my, uh, my
-network tools over here for XHR I'll clear things out and I'm just gonna change this.
-Check out. Every time I change the quantity, it calls our washer function and it
-makes a fresh call for products that is total overkill. And maybe it's not that big
-of a deal, but we can do better. So let's think about it. The only time that we
-really need to load the products is when a new item has been added to the cart, can
-we saw add a watcher to the length of the cart dot items, array, as strange as it
-sounds we can. I'm going a copy of this, that load products, and then change this
-back to and use a different syntax here. I'm actually gonna use a string that says
-cart dot items,
+The answer is that watcher functions *only* watch to see if an *entire* piece
+of data is changed or replaced: like when the cart goes from `null` to an object
+after the initial AJAX call. But if a piece of data is an array or an object like
+`cart`, a watcher does *not* watch for changes to the items in that array or the
+properties on that object. In other words, when a new item is added to the
+`cart.items` array, our watcher is *not* called. And so, the AJAX call for the
+fresh new products is never made!
 
-Dot length,
+## Ok, so make the Watcher Deep!
 
-And set that to a function. Doesn't matter what the name of that function is a I'll
-call it, watch cart items, length, and then I'll paste in this, that load products.
-Yep. That
+So what's the fix? Well, you actually *can* make a watcher watch in "deep" mode,
+where it calls the function for a change on *any* level. Copy the `loadProducts()`
+line. A deep watcher has a different syntax. Change `cart` to a property set to
+an object with `deep: true`. *That's* the key. The function now lives under a
+`handler()` callback. Inside, paste `this.loadProducts()`.
 
-Works. Let's try it out.
+Let's try it! Move over to the browser, remove the sofa from the cart and refresh.
+Now add the green sofa back and... woohoo! The new product showed up in the cart!
 
-And once again, I'll just hit, I'll remove that item and do a full page refresh so we
-can see the whole thing. And now if we've got a blue item here, let me clear my XHR
-first.
+## Coding Defensively while we Wait for It
 
-Okay,
+But... you probably also noticed the big error in the console... which is the
+*same* error as before! That's because, after the `cart` changes, but *before*
+the new products AJAX call finishes, Vue re-renders and the `completeCart` computed
+prop is *still* missing the new product data. And so, it explodes.
 
-Cool. Blue shows up. You can see the AGS call. Awesome. But if we change the
-quantity, the only AGS, obviously down there is saving the cart. We don't see the
-extra one for the cart items. There is a fresh AGS call one, and we remove an item
-which is technically not necessary, but I am happy with that.
+A moment later, the products AJAX call finishes, Vue re-renders *again*, and it
+works fine.
 
-So Watchers can be tricky
+To fix this, inside the computed prop, let's code defensively. I'm thinking that,
+after we go through the `map` function, if any of these items are missing their
+`product`, let's just filter them out. That would temporarily *hide* an item
+until its data is available.
 
-As part of the reason that I only use them when I absolutely need to. And this craze
-in this case, as crazy as it looks, it solves our problem perfectly
+We can do that very simply by setting the items key to `completeItems.filter`,
+with a callback that checks to see if `product.item` is .. truthy. So basically,
+this filters out any items that are missing their product.
 
-Next.
+Now, once again, refresh, remove the sofa, and refresh again. Add a red sofa
+with quantity 2 and... yes! That was perfect!
 
-I think I'm ready to buy these products. Let's learn about view transitions so that
-we can make this cart section over here, transition into a checkout form.
+## Watching the Cart Items Length
 
+But... this "deep" watcher is kind of overkill. Now, even when we change the
+*quantity* of an item, it will cause a new API call for the products. Check it
+out: open the Network tools and filter to XHR - or AJAX requests. I'll clear
+things out. Each time I change the quantity, 2 AJAX calls are made! The first one
+saves the cart - we expect that - but the second one is because our watcher function
+is called... and  *that* makes an unnecessary AJAX call for the products.
+
+And maybe... this isn't that big of a deal. But we can do better.
+
+So let's think about it. The only time that we *really* need to load the products
+is when a new item has been added to the cart. Could we... somehow... have a watcher
+watches the *length* of the `cart.items` array for changes? As strange as it
+sounds, we can!
+
+Copy that `loadProducts()` line and change this to yet *another* syntax. This time,
+make the key a string - `cart.items.length` - set to a function with... any name
+you want, like `watchCartItemsLength`. That part doesn't matter. Inside, call
+`this.loadProducts()`.
+
+Yup, that works! Try it! Once again, remove the item and refresh the page so we
+can see the *whole* process. I'll add a blue sofa... oh bit first clear the
+requests. And... it shows up! If we change the `quantity`... yes! There is *one*
+AJAX call to *save* the updated cart, but not an *extra* one for the products.
+There *is* a fresh AJAX call when we *remove* an item, which is technically not
+necessary, but I am happy with this.
+
+So... watchers are powerful, but can be tricky! That's part of the reason that
+I only use them when I absolutely need to. There are usually simpler, more direct
+solutions.
+
+Next: I think I'm ready to buy these great products. Let's make our
+shopping cart page able to toggle between the cart and a checkout component.
+Eventually, we'll use this setup to learn all about Vue transitions.

@@ -25,9 +25,12 @@ chapters:
     - mixin-quantity-header
     - remove-from-cart
     - cart-controls-component
+    - cart-controls-component2
     - featured-sidebar
+    - sidebar-controls
     - smart-watcher
     - cart-checkout-toggle
+    - css-transitions
     - transitions
     - transition-mode
     - prop-transition
