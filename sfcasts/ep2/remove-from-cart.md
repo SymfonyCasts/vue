@@ -8,6 +8,8 @@ button so we can add an "on click". I'll break this onto multiple lines.
 `@click=` then `$emit` and call the event, how about, `removeFromCart`, though
 `remove-from-cart` would better follow the standard naming convention for events.
 
+[[[ code('30daa091e1') ]]]
+
 Unlike quantity, this time, we do *not* need to include *any* data with the event:
 we're simply saying "remove from cart".
 
@@ -15,6 +17,8 @@ Next, in `index.vue`, listen to this with `@removeFromCart=""`. Do the same thin
 we did before: emit an event with the same name - `removeFromCart` - and make
 sure to include `productId` and `colorId` so that our parent component knows *which*
 item to remove. I'll copy these from the emit above.
+
+[[[ code('812d68bbad') ]]]
 
 *Finally*, we can listen to the `removeFromCart` event from the top level
 `shopping-cart.vue`. Scroll up. Hey! I have an extra import I can remove - yay!
@@ -32,17 +36,25 @@ is. Inside, we can call another function from `cart-service` that we haven't use
 yet. It's called `removeItemFromCart()`. Hit tab so that it adds the import
 for us. Pass this the cart: `this.cart`, `productId` and `colorId`.
 
+[[[ code('7d2d6f7fc9') ]]]
+
 Hold Command or Ctrl and click `removeItemFromCart` to jump into that function.
 Just like with `updateCartItemQuantity()`, this does two things: it *modifies*
 the cart object to remove the item and *then* makes an AJAX call to save that to
 the server.
 
+[[[ code('f6f9f91d6e') ]]]
+
 Back in the mixin, don't forget to update the header: `this.updateCartHeaderTotal()`.
 Oh, but let's `await` for the AJAX call to finish before doing this.
+
+[[[ code('34eba40bef') ]]]
 
 Ok: let's put our new method to work! Back in `shopping-cart.vue`, since we use that
 mixin, we can call the method directly: `removeProductFromCart()` passing
 `$event.productId` and `$event.colorId`.
+
+[[[ code('22a295a9c3') ]]]
 
 Testing time! Find your browser and do a full page refresh to be safe. Right now,
 we have 15 items. Remove the couch with quantity 3 and.... it worked! The header
