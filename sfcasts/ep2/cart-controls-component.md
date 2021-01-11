@@ -34,33 +34,49 @@ Inside `product-show/`, create the new file. Let's call it `cart-add-controls.vu
 Poetry. Start like we always do: add the `template` and the `script` with
 `export default`... and a `name` key to start. How about `ProductCartAddControls`.
 
+[[[ code('fb0b291bf6') ]]]
+
 For the template... let me first close a few old files so we can focus. Much better!
 Open `index.vue`: the component for the product show page. Up in the template,
 copy the entire div that surrounds all of these controls and replace it with a
 nice TODO.
 
-Paste this into the new component. Let's see: this uses the `color-selector`
-component, so we need to import that. Copy the import from the old file, delete
-it and delete the key from `components`. We can also remove this old, unused import.
+[[[ code('0743d9dee5') ]]]
+
+Paste this into the new component:
+
+[[[ code('f8b07e0806') ]]]
+
+Let's see: this uses the `color-selector` component, so we need to import that. 
+Copy the import from the old file, delete it and delete the key from `components`. 
+We can also remove this old, unused import.
 
 Back in the new component, paste the import, add a `components` key and put
 `ColorSelector` inside.
+
+[[[ code('f0de2fd149') ]]]
 
 Fixed! Back up in the template, let's see what else we need. Ah yes! The original
 component had some styling for an `input` element: this was for the quantity
 input. Copy that and delete it. In the new component, at the bottom, add the usual
 `<style lang="scss" module>`.
 
+[[[ code('941a001b2a') ]]]
+
 Then create a `.component` class with the `:global` pseudo-selector, though
 that's not important yet: it would just help remove excessive modular class prefixes
 *if* we later add nested CSS classes under `.component` . Paste the `input`
 styling inside.
+
+[[[ code('30025a6f40') ]]]
 
 Finally, for this to work, we need to add that `component` class to the top level
 element. Refactor to use `:class`, set it to an array and surround the existing
 classes with quotes. Oh, whoops! I forgot to separate `d-flex` and
 `align-items-center`. That won't cause any issues... but make sure to separate
 them in your app. Add `$style.component`.
+
+[[[ code('230e6f52a3') ]]]
 
 ## Adding & Organizing the Props
 
@@ -81,6 +97,8 @@ know if the cart AJAX call is currently happening or if it just finished success
 Scroll down to the component. Add `props`... and I'm going to paste those 3 props:
 `product` is an object, the other two are booleans and all are required.
 
+[[[ code('bf41d92ac3') ]]]
+
 Back up in the template, PhpStorm is a *bit* happier thanks to those new props,
 but we *are* still referencing a few other undefined things.
 
@@ -97,7 +115,11 @@ So instead of forcing the *entire* `cart` object to be passed as a prop, let's
 add a simpler prop. Copy `addToCartLoading`, paste and call this one
 `allowAddToCart`.
 
+[[[ code('afad208377') ]]]
+
 Now, on the button, it should be disabled if *not* `allowAddToCart`.
+
+[[[ code('ec4e8d4a04') ]]]
 
 Awesome! Another way to explain *why* I'm using an `allowAddToCart` prop instead
 of a prop for the entire `cart` is that I want my component to be as *dumb* as
@@ -117,8 +139,13 @@ If you think about it: both the `quantity` and the `selectedColorId` will need
 to be stored as *data* inside the new, reusable component: we need to keep track
 of both values so that we have them handy when the "add to cart" button is clicked.
 
-In `index.vue`, find `data`, copy those two keys and delete them. Back in the new
-component, add the `data` function and *return* the two keys.
+In `index.vue`, find `data`, copy those two keys and delete them:
+
+[[[ code('50061ab3bc') ]]]
+
+Back in the new component, add the `data` function and *return* the two keys:
+
+[[[ code('595a8839fd') ]]]
 
 Alright! Our template is *still* referencing some undefined methods... but I think
 we should at *least* get this to render!
