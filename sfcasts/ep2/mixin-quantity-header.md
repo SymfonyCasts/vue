@@ -89,7 +89,7 @@ Oh, and we don't need to do this, but I'm going to add an `await` and then make
 the method `async`. This will now wait for that quantity AJAX call to finish and
 *then* update the quantity in the header.
 
-[[[ code('3413772419') ]]]
+[[[ code('3fb30a3482') ]]]
 
 Let's try it! I'll do a full page refresh to be safe. The cart header says 13.
 Increase a quantity... boom! Everything updates - including the cart header.
