@@ -1,94 +1,86 @@
-# Form Input Component
+# Reusable "Form Input" Component
 
-Coming soon...
+Our new goal to avoid duplicating all of this markup for every single form field
+by creating a nice, reusable component. Woo!
 
-New goal to avoid duplication of all of this markup for every single form field.
-Let's isolate this into a nice reusable component inside the checkout directory,
-create a new form dash input. That view file for the template part. Let's copy the
-entire field, including the div around it. Delete that, and then paste it here next
-for the script export default. And give us a nice name like form input. Finally, go
-grab the methods key from the other component. Delete that and add that here. Okay.
-It's not at all dynamic yet, but it's a start. So now let's use this inside of index.
-That view here we can import form input from app /components /checkout /form input at
-a components key
+## Creating the new Component
 
-And put
+Inside the `checkout/` directory, create a new `form-input.vue` file. For the
+`template`, let's copy the *entire* field - including the div around it - delete
+that, and paste.
 
-And put the form input inside. Okay. Use that up top inside of our form form input,
-but that is not going to work yet. Some it's empty. So no. When we move over and
-click checkout, we get a huge air. A bunch of things are hard coded in the new
-components. And most importantly, we're referencing the form inside of a V model.
-It's a review model referencing a form piece of data that doesn't exist. Okay, so
-let's make this component truly reusable. So in order to allow it to be reused, we're
-going to need to pass a bunch of different pieces, uh, of things into this component,
-um, as props.
+For the `script`, `export default` and give us a nice `name`, like `FormInput`.
+Finally, go grab the `methods` key from the other component, delete that and add
+it to the new component.
 
-So let's head down here and add a new props key and start adding the things we need.
-First we're gonna need is the ID of the field that we need. That will be a type
-string. And we'll say required to then I'll copy this second thing we're going to
-need is the label, which will also be a type string. And then the next will be the
-error message. Because remember, like this component, isn't going to know whether or
-not its data is valid or not. It's just a dumb component that renders an input. The
-parent will need to tell it we'll need to run validation and tell this component
-whether or not it's valid. So this will be type string, but instead of required,
-true, I'll say default empty quotes. And finally, the last thing we're gonna need is
-a value. This would be the, whatever the value should be of that field. And I will
-say once again, I'll say I'll, I'll default that to empty quotes. We could actually
-have the value as a piece of data instead, but we would still need to have a prop
-here that is whatever the initial value should be in. Cause the parent components can
-need to be able to control what our initial value is.
+Okay: nothing is *dynamic* yet, but it's a start. Let's immediately try to use
+this inside of `index.vue`. Import `FormInput` from
+`@/components/checkout/form-input`, add a `components` key, and put this inside.
 
-And it turns out we don't really need a value data. All we're going to do in this
-component is just notify our parent whenever something changes.
+Use that up in the template: `<form-input />`.
 
-Okay,
+If you move back to your browser and click to check out... we get a huge error.
+A bunch of things are still hardcoded in the new component and, most importantly,
+we're `v-model` is referencing a `form` data that doesn't exist. Time to make this
+component *truly* reusable.
 
-Now we can use those up in the template. So the four all change to colon for ID,
+## Setting up the Props
 
-The name will change to label.
+To do that, we're going to need to pass several pieces of info *into* this component
+as props to replace the hardcoded parts.
 
-Then down here, the same things, the ID will just change to colon ID = ID, and then
-we won't be able to use V model anymore because the data will actually be stored in
-our parent component. All we want to do in here is just render whatever the value
-should be. So colon value = value. Now for this is field valid. We don't really need
-a method anymore where we pass ourselves the name, um, we'll know whether or not this
-field is valid, based on the Error message, uh, data. So, um, instead of a method
-here, I'll, I'll, let's still use a computer prop cause it'll make it a little bit
-clear. So I'm gonna go down here to our methods and actually change this to computed.
-And then we'll just call. This is valid. And of course now it will take no arguments
-and simply we can return not this.error message.
+Down in the component, add a `props` key. First, we need an `id` prop. This will
+be `type: string` and and `required: true`. Copy this. Another prop we need is
+`label`, which will also be a string... and then `errorMessage`. Remember, this
+component isn't going to know whether or not its data is valid: it's just a dumb
+component that renders an input. Its *parent* component will be responsible for
+executing validation and then *telling* this component whether or not it's valid.
+This will be also be a `String`, but instead of `required: true`, say `default`
+empty string. *Finally*, the last thing we need is a `value` - the value of the
+input. We could *technically* skip this... since the field will always *start*
+blank, but let's add it. Once again, set `default` to empty quotes.
 
-So
+Ok! Up in the template, let's make things dynamic! `for` becomes `:for="id"`,
+replace "Name" with `{{ label }}`,and `:id="id"`. We won't be able to use `v-model`
+anymore because the data will be stored in our *parent* component. All *we* need
+to do, for now, is set the value attribute: `:value="value"`.
 
-Up here, we can use that to simplify things a little bit, if not, is valid and then
-same thing down here for the V show, if not is valid and then for the error, it's
-just going to be printing out our air message. All right, cool. Um, Oh, and I'm also,
-I don't really need to do this one. I'm actually going to also add a colon name,
-name, attribute, set to ID. We don't really need a name because this form has only
-given me submitted by view, but it kind of bothered me that it didn't, it wasn't
-there. Okay. So this is good. This is now should be reusable. All we need to do now
-is pass these prompts in from our parent component. So up here, I'll drop my form
-input onto multiple lines and we can say ID = customer name, colon value = form. That
-customer name label = just name, colon. And then for the error message, we'll say
-colon air message equals, and we'll make this dynamic. It's going to be validation
-errors, that customer name, all right, let's check this out. When we move over and
-should go to checkout beautiful. We have our field.
+For this `isFieldValid()` method... hmm. We don't really need this anymore: we are
+*directly* passed an `errorMessage` prop. Down in the component, change `methods`
+to `computed` and rename this to `isValid()` with no argument. Inside, return
+*not* `this.errorMessage`.
 
-And if one of the nice things is that if you look at the view dev tools and go to
-checkout form and form input, you'll notice here that the data for error message is
-actually set to empty quotes. Um, in reality, we're passing validation, errors dot
-customer name, which is undefined, because if you remember validation, errors is just
-an empty object, but when you pass an undefined value into a, as a prop and that prop
-has a default value, it uses that default value. So it's just a nice thing in here
-that we end up with a nice empty quotes instead of an undefined value. Now, the only
-thing that doesn't work of course is that when we type our name into this, this is
-not updating that data on our parent component. It's still empty quotes, but no
-problem. We know how to fix this. We will emit any event from our new component.
-Whenever the input changes, then we can listen to that event inside of our parent
-components and update the data there. But hold on a second, because if you think
-about it, if this weren't a custom component, if this were just a normal, boring
-input, then we could use V dash model to update the data and be done with it. Okay.
+Back up, this will simplify things: use *not* `isValid` in both places... then
+print `{{ errorMessage }}`.
 
-My question is, could we still use V model here, even though this is a custom
-components? The answer is totally. Let's see how next.
+Oh, and I don't really need to do this, but I'm going to also add a `:name="id"`
+attribute. We don't need a `name` because the form won't *actually* submit: we're
+going to intercept that and send an AJAX call.
 
+*Anyways*, this is good! This component should now be re-usable. Back in `index.vue`,
+let's pass in some props! I'll drop the `form-input` onto multiple lines and pass
+`id="customerName"`, `:value="form.customerName"`, `label="Name:"` and
+`:errorMessage="validationErrors.customerName"`.
+
+Ok! Let's check it out! Back at the checkout form... beautiful! We have the *exact*
+same thing as before.
+
+## Undefined Props and Default Values
+
+Over on the Vue dev tools, on the `FormInput` component, notice that the
+`errorMessage` prop is set to empty quotes. In reality, we're passing
+`validationErrors.customerName`, which is *undefined*, because `validationErrors`
+is currently a empty object. When you pass an undefined value as a prop... and that
+prop has a default value, it uses that default, which is nice.
+
+The only thing that *doesn't* work is that when we type in the input, the `data`
+on `CheckoutForm` is *not* being updated: it's still empty quotes. No problem! We
+know how to fix this: we will emit an event from `FormInput` whenever the input
+changes, listen to that from `CheckoutForm` and update the data *there*.
+
+But... hold on a second. If this were *not* a custom component - if this were just
+a normal, boring `input` - then we could use `v-model` to update the data when the
+input changes and be done with it.
+
+My question is: could we *still* use `v-model` here... even though this is a custom
+component? The answer is... totally! Let's see how next.
