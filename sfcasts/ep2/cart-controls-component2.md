@@ -12,6 +12,8 @@ Back in `index.vue`, let's import this puppy: import `CartAddControls from` and
 I'll be lazy and just use `./cart-add-controls` because they live in the same
 directory. Add this to `components`...
 
+[[[ code('79adff3fb5') ]]]
+
 Then head up to the template: `<cart-add-controls`. Pass this the props it needs:
 `:product` set to `product` and then `allowAddToCart`. This should be true *if*
 the `cart` is done loading.
@@ -20,8 +22,12 @@ As a reminder, this component uses the `get-shopping-cart` mixin, which means it
 has a data called `cart`. We can use that here: `allowAddToCart` if
 `cart !== null`.
 
+[[[ code('b3751a42d6') ]]]
+
 Next add `:add-to-cart-loading` set to the `addToCartLoading` data - which also
 comes from the mixin - and `:add-to-cart-success` set to `addToCartSuccess`.
+
+[[[ code('8096e8ec85') ]]]
 
 Done! Let's try it out! Move over to the browser and... yes! It renders!
 Well, yes, it *does* render, but Vue is *totally* mad because our template
@@ -33,6 +39,8 @@ The first is `updateSelectedColor`. Go into the original component and find this
 method. This updates `this.selectedColorId`... which no longer *lives* in this
 component anyways. Copy the method, delete it, go to `cart-add-controls`, scroll
 down, add a new `methods` section and paste.
+
+[[[ code('cce3975a5d') ]]]
 
 Thanks to this, when the `color-selector` component emits its `color-selected`
 event, we call this method and *it* updates the `selectedColorId` data.
@@ -61,15 +69,21 @@ Down in methods, add `addToCart()`. But now, instead of modifying some data, say
 component needs to communicate: `quantity` set to `this.quantity` and
 `selectedColorId` set to `this.selectedColorId`.
 
+[[[ code('b65dce287a') ]]]
+
 Finally, back in `index.vue`, when we include `cart-add-controls`, we can listen
 to this: `@add-to-cart=` and then call the `addToCart()` method that we already
 have... we'll just need to tweak it slightly.
+
+[[[ code('c3311fccc4') ]]]
 
 Head down to find `addToCart()`. This will *now* receive the `event` object that
 we're sending to the `add-to-cart` event: with `quantity` and `selectedColorId`.
 Instead of adding an `event` argument and reading those keys off of it, let's
 put our fancy hat on and use object destructuring: `{}` then `quantity` and
 `selectedColorId`. Remove the `this` from both of those variables below.
+
+[[[ code('ff77bbfe09') ]]]
 
 Phew! We moved a *lot* of stuff around to get this working... but we now have a
 *beautiful* component that receives the props it needs, manages the data it
