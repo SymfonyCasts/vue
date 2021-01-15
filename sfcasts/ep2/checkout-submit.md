@@ -1,118 +1,122 @@
 # Checkout Submit
 
-Coming soon...
+To finish checkout. we need to submit this form via AJAX to an API endpoint. Copy
+the URL and open up a new tab to go to `/api`: the home of our our API documentation.
 
-To finish checkout. We need to submit this form via Ajax to some API end point, copy
-the URL and open up a new tab to go to `/api`, which holds our API documentation. One
-API resource in here is called purchase. This is what we'll be using specifically. We
-will send a post request to `/api/purchases` to create a new purchase. The fields it
-needs are pretty familiar. The six fields that we have in our form, plus a `purchaseItems`
-array field. This will contain the data for each item
-in the cart, the product IRI, the color IRI and the quantity. We have access to that
-data via our cart object. To help us talk to this end point in the `assets/services/`
-directory create a new file called `checkout-service.js` inside of here, I'm
-going to paste a function. It's only about one line long. We import Axios when new
-functions called create order, it takes in that data structure we Dessau and just
-makes a post request to that end point. So almost not even worth putting inside of a
-separate function, but now we have this next up in the checkout form components.
-After the last field,
+## POST /api/purchases
 
-I'm going to paste in a submit button. There's nothing special about this at all.
-It's `<button type="submit">` or not. It just has some structure set up, just some
-styling setup. We're also going to need a loading animation while this is saving. So
-down here, let's add a loading data, say `loading` all, and then we'll import our
-loading component. So import `Loading` from `@/components/loading`. And then we'll
-add that to our `components` then up in the templates, right inside that new dev that's
-where I'll add that new loading. So we'll say `<loading/>` with a `v-show="loading"`.
+One API resource in here is called `Purchase`. This is what *we* will be using
+for checkout: we'll send a POST request to `/api/purchases` to create a new
+"purchase". The fields it needs are pretty familiar: the six customer fields that
+we have in our form plus a `purchaseItems` array field. Each item in this array
+will be an object with `product`, `color` and `quantity` keys: the *exact* structure
+of the items in our `cart` data.
 
-Our next step is pretty straightforward. We need to add a method that when the form
-submits sends an Ajax request to the purchases, end point, let's start with that
-method. So down in the `methods`, ski, I'll add a new one called `async onSubmit()`. I'm
-immediately making this async because I know I'm going to need to wait for that Ajax
-call to finish. Before I do some stuff, we'll start by saying `this.loading = true`.
-Does that our loading state and then, because this is a checkout form, it's very
-sensitive. I'm going to do a little more air handling than I've done before. So I'm
-going to add a `try {} catch` And also a `finally`,
+To help us talk to this endpoint, in `assets/services/`, create a new file called
+`checkout-service.js`. Inside, I'll paste a function... which is only about one
+line long. We import `axios`, export new function called `createOrder`, which takes
+in that data structure we discussed, and posts to `/api/purchases`.
 
-And before I fell on the try and catch for the final, I'm gonna say this, that
-`loading = false`. So the idea here is whether we are successful or unsuccessful, the
-finally will be called and we'll set the loading state back to false inside the try.
-This is one we're going to use that new, uh, create order function. So I'm going to
-say `const response =` and we will await for that happen `await createOrder()`.
-Make sure you hit tab that added the import on top for me.
+## Adding the "Order" Button
 
-And then for the data
+Cool! Let's go use this! In the checkout form component - `index.vue` - after the
+last field, I'll paste in a submit button. Make sure to paste this *outside* of
+the `form-col` div - I just pasted it *inside*... and will regret it in a few
+minutes.
 
-Then for the data, as a reminder, we need to pass our individual form fields. Those
-are stored on here as a form of data. So what we can do down here is we can actually
-say `...this.form` So that will expand those out in their individual fields. The
-other thing we need is purchase items for now. Let's just set that to an empty array
-because we're going to need the cart data in order to fill that in. All right, then
-finally, for the catch for now, I'm just going to use a `console.log()`, but
-actually it, since it was an ALS who's `console.error()` that will make it a little
-bit more obvious. And I'm gonna say `error.response` If a Axios Ajax call fails,
-it's going to give you an error object that has the response on `error.response`. Oh,
-that's also a `console.log()` the success response that might be handy,
+Anyways, there's nothing special about this: just `<button type="submit">`.
 
-Actually `response.data`.
+We're also going to need a loading animation while this is saving, so, down in
+`data`, add a new key: `loading` set to `false`.
 
-Perfect. So that's the flow. We're eventually going to do something on success. We'll
-eventually do something on air, but this is a good start now for the purchase items.
-As I mentioned, what we really need that to be. If you go back to our view dev tools
-and click on the shopping cart components is this should really be set to the 
-`cart.items` data, it should be this array right here where each item has color product
-and quantity on it. So we just need access to the cart object inside of our checkout
-form so that we can access that. So over in our checkout form components after
-components, I'll add a new props key,
+Then pull in our trusty loading component: import `Loading` from
+`@/components/loading`. Add that to `components`:
 
-And we'll
+... and up in the template, inside that new div, say `<loading/>` with
+`v-show="loading"`.
 
-Add a `cart` prop, we'll say `type: Object` and `required: true`. Then before we use that, let's
-go up into the `shopping-cart.vue` component. Remember, this is what actually
-renders that component down here, checkout form. And we will pass `cart="cart"` notice. We
-don't need to, in this case, it's actually the space I'm purposely. No, I'm not going
-to say that. Then finally, back over in `index.vue` we can use that. So the
-`purchaseItems` is going to be set to `this.cart.items`. That's the exact rate or
-array
+## Sending the AJAX Call
 
-We want.
+Our next step is pretty straightforward: we need to add a method that, when the
+form submits. sends the Ajax request. Let's *start* with the method. Down under
+`methods` add a new one called `async onSubmit()`. I'm immediately making this
+`async` because I know I'm going want to `await` for the AJAX call to finish.
+Immediately start with `this.loading = true`.
 
-Okay, this now that our method has done, let's hook this up. When our button is
-clicked, we want to call that new method or really it would be better than on click.
-It would be better to add this on submit of the form that way, even if we hit enter
-on, uh, on one of our fields, it would call that would submit our form and it would
-still call our method. So up on the `<form>` tag, there
+Because this is a checkout form, I don't want *anything* weird to happen. And so,
+I'm going to write more error handling than we've done so far. Immediately add
+a `try {} catch` *and* a `finally`. Inside that part, set `this.loading = false`
+so that - whether we're successful or not - the loading animation turns off.
 
-It is.
+Inside try, say `const response =` `await createOrder()`. Make sure you hit tab
+so that PhpStorm adds the import on top.
 
-We'll add, `@submit="onSubmit"`.
+For the data argument, we need to pass the individual form fields and an extra
+field called `purchaseItems`. The form fields are stored on the `form` data. So
+what we can do down here is say `...this.form`. That will expand the object so
+we send each individual field.
 
-All right,
+The other key we need to send is `purchaseItems`. For now, set that to an empty
+array because we're going to need the `cart` data to fill that in.
 
-Let's try it. Move over, click the checkout form and submit an empty order. Oh, and
-actually, before we do, I've got my button in the wrong spot. Come on, Ryan. We want
-to move this div outside of our column. There we go. That's just a superficial
-change, but that looks better. Or when I hit submit it, it, okay. It looked like it
-worked a sort of loading animation, but then it did it full refresh. Probably a lot
-of, you know, why
+Down in catch, just `console.error()` - that's like `console.log()`... but will
+look red - with `error.response`. In Axios, if an AJAX call fails, it stores
+the error response on this key. Oh, and also `console.log()` the success response
+up in `try` - actually `response.data`.
 
-We forgot
+Awesome! We're eventually going to *do* something on success and on error, but
+this is a good start.
 
-To prevent the form some from submitting. So this is a classic thing. We on submit.
-We want our JavaScript to prevent the default. So the easiest way to do this is down
-on our async `onSubmit`. This is going to receive an `event` argument, and we can say
-`event.preventDefault`. That's it.
+## Grabbing the Purchase Items
 
-Or that will fix the issue. We can do it a different way using some view of magic.
-And that is to go back up to the form element where we use that. And we can say At
-`@submit.prevent`, which is one of a very small number of special things you can put
-there. It says, I want you to submit this book, prevent the default behavior. All
-right, let's try. Now. I'll go to checkout and awesome. You could see the loading
-icon there for just a second. And then it went away, go check our console suite. You
-can see 400 bad request and here it's dumping out the response from that. So next
-let's handle the AJAXfailure to both render a message in case there is an unexpected
-error. Oh, so why did the Ajax call fail? Because our API already has built in
-validation rules. So next let's handle the Ajax failure to both render a message in
-case there is some sort of unexpected air and render real air messages next to each
-field that fails validation.
+Let's fill in the `purchaseItems`. Go back to the Vue dev tools and click on the
+`ShoppingCart` component. Not by accident... because our API is fairly consistent,
+the `purchaseItems` key that we need to send matches the `cart.items` data exactly,
+where each item has `color`, `product` and `quantity`.
 
+This means that we need need access to the `cart` object inside our checkout
+form. Over in `index.vue`, we don't have access to that yet, so let's add a new
+prop so it can be passed in. Add `props`, then `cart` with `type: Object` and
+`required: true`.
+
+Before we use that, open `shopping-cart.vue`. Remember: this is *renders* the
+`CheckoutForm` component: `<checkout-form`. Pass `cart="cart"`, I mean `:cart=cart`.
+
+Back over in `index.vue`, now that the `cart` prop exists, use it: set
+`purchaseItems` to `this.cart.items`.
+
+## Hooking up the @submit
+
+Ok! Now that this method is... kind of done, let's hook it up! On submit of the
+form, we want Vue to call our method. Up on the `<form>` tag... here it is - add
+`@submit="onSubmit"`.
+
+Let's try it! Move over and click "check out". Uh... that button is *not* in the
+right place. Come on Ryan!
+
+Move the button div *outside* of the column. Now... much better.
+
+## Form Prevent Default
+
+Ok: submit the empty form. It... kinda looked like it worked? I saw the loading
+animation... and then the page reloaded. Duh. I forgot to *prevent* the form from
+its "default" behavior.
+
+The easiest way to fix this is down inside the `onSubmit` method, this will receive
+an `event` argument... and then we can say `event.preventDefault()`.
+
+Easy peasy. *Or*... we can use the Vue fancy way! Remove all of that... then go
+up to the form element where we use that. Now say `@submit.prevent`.
+
+That `.prevent` is one of a small number of "event modifiers". This says,
+"prevent the default". There are others like `.stop` and `once` that are less
+commonly used.
+
+Let's try it again! Go to check out and... awesome! I saw the loading animation
+for *just* a moment and then it went away. Go check the console. Woo! A 400
+bad request and a `console.error()` log of the response object.
+
+Why did our AJAX call fail? Because our API already has built-in validation rules.
+Next let's handle when the AJAX call fails: both to render an message if there is
+an *unexpected* error and to render error messages next to each field that fails
+validation.
