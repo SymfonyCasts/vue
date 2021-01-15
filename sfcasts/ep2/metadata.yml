@@ -39,6 +39,7 @@ chapters:
     - v-model-custom-component
     - v-bind-object
     - checkout-submit
+    - unexpected-errors
     - form-validation
     - client-validation
     - losing-reactivity
