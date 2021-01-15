@@ -18,11 +18,15 @@ Let's check the console. Woh! Huge error!
 Coming from `ShoppingCartList`. Yikes! The problem is... subtle. Head over to
 `shopping-cart.vue` and find our watcher function... here it is.
 
+[[[ code('1e21de9955') ]]]
+
 Let's remember how this works: after the cart AJAX request finishes, Vue calls our
 cart watcher function and *it* executes the `loadProducts` function. That
 collects the product ids from the items in the cart and makes one AJAX call to
 fetch all of that product data. By the end of this, we have a `cart` object *and*
 an array that holds the data for every product in the cart.
+
+[[[ code('c4a931f1fe') ]]]
 
 The problem *now* is that when we add a totally *new* product to the cart, this,
 naturally, causes our Vue component to re-render. That process calls our computed
@@ -30,6 +34,8 @@ property: `completeCart`. But *this* time, the new product is *missing* from
 the `products` data! This means the `product` ends up being `null`, which is
 *not* something we expect. Eventually, we try to read the `price` property from
 this and... well, you saw it: things fall apart.
+
+[[[ code('22a16f3b51') ]]]
 
 But, hold on a minute... this doesn't make sense! When we add a new item to the
 cart, that *changes* the `cart` data. That should cause Vue to call our cart watcher
@@ -54,8 +60,13 @@ fresh new products is never made!
 So what's the fix? Well, you actually *can* make a watcher watch in "deep" mode,
 where it calls the function for a change on *any* level. Copy the `loadProducts()`
 line. A deep watcher has a different syntax. Change `cart` to a property set to
-an object with `deep: true`. *That's* the key. The function now lives under a
-`handler()` callback. Inside, paste `this.loadProducts()`.
+an object with `deep: true`. *That's* the key:
+
+[[[ code('14a890b325') ]]]
+
+The function now lives under a `handler()` callback. Inside, paste `this.loadProducts()`:
+
+[[[ code('2f976f4259') ]]]
 
 Let's try it! Move over to the browser, remove the sofa from the cart and refresh.
 Now add the green sofa back and... woohoo! The new product showed up in the cart!
@@ -79,6 +90,8 @@ We can do that very simply by setting the items key to `completeItems.filter`,
 with a callback that checks to see if `product.item` is .. truthy. So basically,
 this filters out any items that are missing their product.
 
+[[[ code('b13a72d276') ]]]
+
 Now, once again, refresh, remove the sofa, and refresh again. Add a red sofa
 with quantity 2 and... yes! That was perfect!
 
@@ -100,8 +113,13 @@ sounds, we can!
 
 Copy that `loadProducts()` line and change this to yet *another* syntax. This time,
 make the key a string - `cart.items.length` - set to a function with... any name
-you want, like `watchCartItemsLength`. That part doesn't matter. Inside, call
-`this.loadProducts()`.
+you want, like `watchCartItemsLength`:
+
+[[[ code('dd411c1c9d') ]]]
+
+That part doesn't matter. Inside, call `this.loadProducts()`:
+
+[[[ code('6dfebce3c2') ]]]
 
 Yup, that works! Try it! Once again, remove the item and refresh the page so we
 can see the *whole* process. I'll add a blue sofa... oh bit first clear the
