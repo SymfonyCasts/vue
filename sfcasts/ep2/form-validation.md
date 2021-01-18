@@ -1,63 +1,64 @@
 # Form Validation
 
-Coming soon...
+Let's handle the *really* important case: when the POST request fails with
+validation errors. Look at the data from the response down here in our console log.
+The data has this really nice `violations` key... and then each violation has a
+`propertyPath` that tells us exactly *which* field it should be attached to.
 
-Okay. So let's handle validation errors. How can we do that? Well, if
-you look at the data in the response down here in our log response, the data has this
-really nice violations key on there. And then each violation has a property path
-which tells us exactly which field it should be attached to inside of our checkout
-form components. We also already have this validation errors object, which is being
-used by our individual fields to figure out whether they have a validation method
-while they have, whether they have a validation error. So basically all we need to do
-is read these areas off of violations and map each one to our validation errors data,
-and it should just work.
+Love that! Inside of our checkout form component, we also already built this
+`validationErrors` object, which is... already being used by each field to figure
+out whether that field is invalid and what error message to show. So... basically,
+all *we* need to do is read `violations` and map each one to the `validationErrors`.
+We planned ahead and it *rocks*.
 
-So
+## Mapping the API Errors into the Form
 
-Head down to `onSubmit`. And the first thing I'm going to do is at the beginning of on
-summit, say `this.validationErrors = ` an empty object. Now this is actually going
-to cause a reactivity problem, but don't worry about that yet. We're going to talk
-about that in a few minutes. When we talk about client side validation next, down in
-the ELLs, this is where we know we have a validation error.
-We can say `response.data.violations`
+Head down to `onSubmit()`. The first thing I'm going to do is, at the beginning,
+add `this.validationErrors = ` an empty object. This is actually going to cause
+a *reactivity* problem... a problem where things don't re-render at the right time.
+But... don't worry about that yet: we'll talk about it deeply in a few minutes.
 
-which is going to be that array that `forEach` and pass this, they call
-back with a `violation` argument. And inside what we're going to do is very simple.
-We're going to say `this.validationError` is left square bracket, and then read off
-the `violation.propertyPath` number each violation has a nice `propertyPath` key.
-You can actually see this easier inside of the interactive docs. That's going to be
-equal to the sort of ID that we've been using for each field. So this, that
-validation error is left square bracket, `violation.propertyPath` equals `violation.message`
-message with only one a and that should be it. Let's try it. However, do our form hit
-checkout, submit the form empty and Oh, beautiful. How gorgeous is that?
+Down in else, say `response.data.violations` - that will be an array - `.forEach()`
+and pass that a callback with a `violation` argument. The logic we need inside is
+pretty simple: `this.validationError[` `violation.propertyPath` because each
+violation has that key... and, as you can see in the docs, it will be equal to the,
+sort of "id" we've been using for each field. Set this to `violation.message`.
 
-Okay. Before we talk about client side validation, I think we should actually finish
-this and do the six handle the success case. What happens when we actually
-successfully create an order for this instead of `src/Controller/CheckoutController`
-I've already created a really simple order confirmation page. All we need
-to do is get the ID of the new purchase that was just created by the API, and then
-redirect the page, do `/confirmation/{id}` that ID. And there's nothing really fancy about
-this inside of the response side of things. I'm going to say `window.location =`
-and then I'll use ticks here to say `/confirmation/` and then I'll use a
-variable. And we can say `response.data.id`, I don't always return a data,
-an ID field, uh, on my, on my resources. But I do in this case, this is not `@ID`
+That... should do it! Move over, get to the checkout form and submit it empty. Woh!
+That's gorgeous!
 
-I'll show you. If you look over in our interactive docs, you can see that this will
-actually return to normal ad ID, but I've actually also included the nice database ID
-in the expected response. So we can use that here. Um, there's one other function
-that I'm going to call. It's not that important, but there's actually a method inside
-of our `cart-services.js`. I'll search in here for `clearCart`. This is actually something
-that goes and tells the API that the cart should now be deleted and reset. That could
-happen automatically when we create a purchase, but we have them as two separate
-things. The point is I'm actually going to say a `await clearCart()` and hit tabs. So
-that, that autocompletes and adds the import for me. So clear the cart, and then we
-will redirect to the confirmation page. All right, let's try this thing. Hit
-checkout. I'll pop in some real data here
+## Finishing Checkout Success
 
-And ordered. Yes, we got it.
+Before we talk about client-side validation, I think we should finish `onSubmit()`
+by handling the "successful" case: what happens after if the form *is* valid and
+a new `Purchase` *was* created in the API.
 
-User now sees a very cutting edge message about how they can mail us a check or money
-order to receive their products in a short three to six months. Well, we're not quite
-done with that checkout form yet. Next let's explore how we can also add a client
-side validation if we want, Oh, before this I mentioned. And if you look at the
-shopping cart is back to zero. It's been deleted.
+Open `src/Controller/CheckoutController.php`. I've already created a really simple
+"order confirmation" page. All we need to do is get the id of the new `Purchase`
+that was just created by the API and then redirect to `/confirmation/{id}` that ID.
+
+There's nothing really fancy about this. Back in Vue, inside of the successful
+side of things - the `try` - add `window.location =` and then we can use fancy
+ticks `/confirmation/`, then `${}` and `response.data.id`.
+
+This is not `@id`, it's actually `id`. If you look at the API docs, I don't always
+return an `id` field on my resource... since every resource already has an `@id`,
+but I did in this case... because it made my life easier.
+
+Oh, and there's one other function I'm going to call. In `cart-services.js`,
+search for `clearCart`. This makes an AJAX call that tells the API that the cart
+should now be deleted and reset. That *could* happen automatically on the server
+when we create a `Purchase`, but since it doesn't in our API, we'll do it in Vue.
+Add `await clearCart()` and hit tab so that adds the import for me.
+
+So: clear the cart and *then* redirect to the confirmation page.
+
+Let's try it! Go find the check out form, fill in some real data... this is - I kid
+you not - the real address of one of my friends - then some fake data and... submit!
+
+It worked! The user now sees a very cutting-edge message about how they can mail
+us a check or money order to receive their products in a short three to six months.
+Oh, and also, the shopping cart on top shows zero: the cart *was* reset.
+
+Before we go find out checkbook and an envelope, we're not *quite* done yet. Next,
+let's explore how we could *also* add client-side validation.
