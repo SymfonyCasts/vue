@@ -1,71 +1,83 @@
-# Client Validation
+# Client-Side Validation
 
-Coming soon...
+Click to go back view the shopping cart... which is now empty. We're not done
+shopping! Add another inflatable sofa to it. Awesome!
 
-Head back to you to the now empty cart and let's add a sofa to it. Perfect.
-Server-side validation is a must. We can't have API end points that allow any data
-and we've handled that nicely. Yay. Client side validation in JavaScript is optional.
-It requires extra work to get done, but can make your form even nicer. So let's add
-some, we'll keep it simple on blur of a field. So when we leave a field, if that
-field is empty, we'll immediately add a validation. Start by a new method. Start
-inside of our start inside of our checkout form components down and methods. Let's
-add a new method. So this is `methods` right here. Let's add a new method called
-[inaudible] `validateField()` I'll paste in the start of it.
+Server-side validation is a *must*: we can't have API end points that allow *any*
+data. And we've handled that nicely. Go us!
 
-This simply has a little object here containing the validation messages that will be
-used for each field. If that field is blank, before we add the real logic to this
-method, let's call this on a blur of each field. So I'll head to the top and I will
-add, `@blur="validateField"`, but wait, won't work. This is a custom component, not
-a normal input. Okay. No problem. Go in to `form-input`. And on the actual `<input>`
-itself, let's add `@blur=""` and then we'll just emit that same `blur` event from here
-and pass it the same event data for basically propagating that event up to, uh, ops
-so that we can listen to it. All right now, back in the next view, I'll copy that
-`@blur` and we will have to repeat this just on each of our six fields.
+*Client-side* validation in JavaScript is optional. It requires extra work, but it
+can make your form *even* nicer to use. So let's add some! We'll keep it simple:
+on "blur" of a field - so when we *leave* a field - if that field is empty, we'll
+immediately show a validation error.
 
-All right. That should work back in the method. Here we go. Here's the plans. Okay.
-We're going to read the `id` attribute of whatever input was just blur and use that to
-see if the form and data for that field is empty, which is basically a way for us to
-check to see if that field is empty. If it is, we'll add a new item to the
-`validationErrors`, uh, data. So first thing we're gonna need is the event object.
-That's going to help us get the `id` of the input that was just blurred. And then down
-here, we can say `const validationField = event.target.id`. So that's
-gonna be something like `customerName` or `customerEmail`, very simply, if not
-`this.form[validationField]`, then we know that that field is empty
-because remember this is going to hold the data for that field.
+Start inside of our checkout form component... down in `methods`. Add a new one
+called `validateField()`. I'll paste in the start of it: a n object that contains
+the validation messages that should be used for each field if that field is blank.
 
-So if there's nothing there and we know the field is empty and we want to add a
-validation error to do that, we'll say 
-`this.validationErrors[validationField] =`. And we'll use our little map up here to get the correct one.
-So `validationMessages[validationField]`, make sense. And then I'm
-also going to add an here in case the user just went back and filled something in and
-then blurred, if there was already an error before and now there shouldn't be one
-we'll remove it, which we're actually going to delete it. So we'll say 
-`delete this.validationErrors[validationField]`. The reason I'm using
-`delete` and not equals null is that's just the way that our `validationErrors` object works
-right now. You actually, it starts as an empty object and we only put things into it
-when they have errors, you can see at the beginning of on submit, we reset it back to
-an empty object.
+# Listening to blur on a Custom Component
 
-So down here, if it's not there anymore, we will delete that, uh, property from the
-object altogether. By the way, there are some view libraries to help with validation,
-like view the date. You can totally check these out. They make adding a lot of
-complex validation rules, a lot easier and cleaner right now. We're just checking to
-see if the field is blank, but you're still basically doing the same thing. You're
-storing the errors for a field somewhere like `validationErrors`. Then using that when
-you render to display the heirs anyways, let's try it head over. Click checkout to go
-the field, click in the name, field and hit tap. Oh, uh Hmm. Nothing happened. Uh,
-let's go check out the view dev tools of the `CheckoutForm`. Go down to my `validationErrors`
-And yeah, look, it actually says I have two validation errors for name and
-email, the two fields that I've blurred.
+Before we add the real logic to this method, let's call this "on blur" of each
+field. Easy! Head up to the template and add `@blur="validateField"`.
 
-So the data is right, but it's not rendering on the form. I want to see something
-even weirder, go into one of the other boxes and type something. Boom. As soon as we
-do the error messages show up. So this is super weird. You don't actually see any
-errors, any changes unless you modify a field. So what the heck is going on the short
-answer is that we accidentally removed reactivity on the `validationErrors` data.
-That's a fancy way of saying that when we change a value on validation, errors view,
-doesn't realize that it needs to rerender. So the data is being stored correctly, but
-it doesn't actually reflect on here until view re runners for a different reason,
-like us changing the data on one of the fields. So let's talk more about this next
-and how to fix it.
+Except... bah! That won't work! This is a custom *component*, not a normal form
+element.
 
+Okay, don't panic. Go into `form-input.vue`. And on the actual `<input>` element,
+add `@blur=""`... and then we'll just emit that same `blur` event from here... and
+pass it the same event data.
+
+We're basically propagating that event up so that our parent component can listen
+to it.
+
+Back in `index.vue`, now that this *should* work, copy the `@blur` and repeat this
+on each of the six fields... super fast.
+
+## Filling in the Validation Logic
+
+Ok! Head back down in `validateField()`... here it is. The plan is: read the
+`id` attribute of whatever input was just blurred, use that to see if the form
+data for that field is empty and, if it is, add a new item to the
+`validationErrors` data.
+
+To read the `id` attribute, we need the `event` argument. Then, down here, we can
+say `const validationField = event.target.id` - so that will be something like
+`customerName` or `customerEmail`. Then, if not `this.form[validationField]`, then
+we know that that field is empty. Add a validation error with
+`this.validationErrors[validationField] =` `validationMessages[validationField]`.
+
+Oh, and don't forget an `else`: in case the user just went *back* and filled
+something in... and then blurred. If there was already an error before, now we
+need to *remove* it. Do that with `delete this.validationErrors[validationField]`.
+
+The reason I'm using `delete` and not equals null is... well... that's just the way
+that our `validationErrors` object works right now. It starts as an empty object
+and we only put things into it *when* they have an error. We even reset it *back*
+to an empty object on submit. This *will* actually cause a "reactivity" problem...
+which we'll explore in a few minutes.
+
+By the way, there *are* some Vue libraries to help with validation, like Vuelidate.
+You can *totally* check these out. They make adding a lot of complex validation
+rules a lot easier and cleaner. Right now, we're just checking to see if the
+field is blank. But even with something like Vuelidate, you're still *basically*
+doing the same thing: you're storing the errors for a field somewhere like
+`validationErrors` and then using that when you render to display the error.
+
+*Anyways*, let's test this thing! Find your browser, click "Check Out", click int
+the name field... and hit tab. Huh. Nothing happened. Go check out the Vue dev
+tools, find `CheckoutForm`... then down to `validationErrors`. Yea, it says that
+we *do* have two validation errors for `name` and `email`: the two fields we
+blurred.
+
+So the *data* is right.... but it's not rendering the form. Want to see something
+even weirder? Go into one of the other boxes and type something. Boom! As soon as
+we do, the error messages show up! We don't see any errors until we modify a field.
+
+What the heck is going on? The short answer is that we accidentally removed
+*reactivity* from the `validationErrors` data. That's a fancy way of saying that
+when we change a value on `validationErrors`, Vue does *not* realize that it needs
+to re-render. So the data *is* being stored correctly... but it doesn't reflect
+on the page until Vue re-renders for a different reason, like us changing some
+of the form data.
+
+Next: let's explore this deeper... and fix it!
