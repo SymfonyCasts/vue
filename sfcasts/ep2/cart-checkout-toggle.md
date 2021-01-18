@@ -23,7 +23,11 @@ we *only* render this once the `completeCart` data has finished loading *and*
 if `completeCart.items.length > 0`. We don't want to show a checkout button if
 the cart is empty.
 
+[[[ code('68a32dffff') ]]]
+
 Inside, say `<button class="btn btn-primary">` and "Check Out!".
+
+[[[ code('d2010ce7e8') ]]]
 
 Let's see how that looks. Nice!
 
@@ -37,14 +41,20 @@ track of the current state.
 Add a new `currentState` data that defaults to `cart`. I'll... make sure I spell
 that correctly.
 
+[[[ code('ea39b4ebc0') ]]]
+
 Next, when the user clicks the button, let's call a new method to *change* that
 data to the other state: `@click="switchState"`.
+
+[[[ code('fc44ee2ef2') ]]]
 
 Copy that name and head down to the bottom of the component to add that method:
 `switchState()`. Inside, since we only have 2 states, it's pretty simple:
 `this.currentState =`, then if `this.currentState === 'cart'`, set it to `checkout`,
 else we are *in* the `checkout` state and want to go back to `cart`. The button
 will let us go back and forth.
+
+[[[ code('51b2e07046') ]]]
 
 ## Vue Dev Tools Quirk when no Re-Render
 
@@ -66,13 +76,22 @@ text on the button itself should go from "Check out!" to "Go Back".
 
 Instead of hardcoding this logic and messages in the template, let's leverage
 some computed props. Find the `computed` section and call the first `pageTitle`.
-`return` if `this.currentState === 'cart'` then `Shopping Cart`, else `Checkout`.
+`return` if `this.currentState === 'cart'` then `Shopping Cart`, else `Checkout`:
+
+[[[ code('460425292c') ]]]
 
 Copy this and do something similar for `buttonText`, returning `Check Out`
-if we're on the cart page and `Back` if we're on checkout.
+if we're on the cart page and `Back` if we're on checkout:
 
-Very nice! Scroll up to use these. Change the title to `:text="pageTitle"`
-and... for the button, `{{ buttonText }}`.
+[[[ code('137ac25fd3') ]]]
+
+Very nice! Scroll up to use these. Change the title to `:text="pageTitle"`:
+
+[[[ code('f25558262d') ]]]
+
+and... for the button, `{{ buttonText }}`:
+
+[[[ code('d29a4d5adf') ]]]
 
 Let's check it! Back at the browser... click the button. Got it!
 
@@ -86,6 +105,8 @@ its HTML and logic right into `shopping-cart`.
 Create a new `checkout/` directory and then an `index.vue` file inside. I'll
 paste in a very simple component that prints some text and exports a name.
 
+[[[ code('200203752f') ]]]
+
 Back in `shopping-cart.vue`, use this. Step one: import it:
 `import CheckoutForm from` `@/components/checkout`... but where is my auto-complete?
 Ah! Ryan! I accidentally put the new `checkout/` directory in `assets/`. It
@@ -93,12 +114,18 @@ should live in `components/`. *Now* Webpack is happy.
 
 Add `CheckoutForm` to components and scroll up to the template.
 
+[[[ code('e5d1195252') ]]]
+
 Before we render this, look at `<shopping-cart-list`. Thanks to the `v-if`, this
 only renders once the `completeCart` data is available. *Now* we want to render
 it when the `completeCart` data is there *and* if the `currentState` equals cart.
 
+[[[ code('c79b0df47e') ]]]
+
 Below this, render `<checkout-form`. Oh, but copy the `v-if` from above, paste,
 and render it when the `currentState` is `checkout`.
+
+[[[ code('3471196f95') ]]]
 
 By the way, you could make a *really* good argument that the `currentState` logic
 should live in `v-show` instead of `v-if`. We'll talk more about that at the end of
