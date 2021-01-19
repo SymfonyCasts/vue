@@ -1,104 +1,117 @@
 # Losing Reactivity
 
-Coming soon...
+Vue reactivity is *magic*. What I mean by "reactivity" is how Vue is smart enough
+to re-render whenever a piece of data changes. Or, even more impressive, if that
+piece of data is an object and you change just *one* property on it, Vue
+will *still* figure out that it needs to re-render any components that depend on
+that.
 
-Vue reactivity is magic. What I mean by reactivity is how view is smart enough to
-rerender whenever a piece of data changes, but not just an entire piece of data. If a
-data, if some piece of data is an object and you change just one property on that
-object Vue will still intercept that. And rerender any parts that depend on that
-data, but there are a few limitations to Vue reactivity, a few edge cases where view
-can't work its magic and does not realize it needs to rerender Google for vue
-reactivity, to find a page on their docks and scroll down to change detection
-caveats. There aren't many situations like this, but this first one talks about
-what's happening to us vue cannot detect property, addition or deletion, and a
-property must be present in the data object in order for vue to convert it and make
-it reactive.
+## The Situations When Reactivity Fails
 
-We talked about how reactivity works under the hood. In part one of this tutorial,
-the short explanation is that when a piece of data is an object view, replaces each
-property on that object with a getter and setter method, this is invisible to us, but
-it allows view to be notified via the setter method. Whenever we change that
-property, the problem comes when you create an empty object in the data function like
-we're doing inside of our checkout form with `validationErrors`, and then add a new
-property to it, which we're doing down inside of our new `validateField()` function.
-We're adding a new property to `validationErrors`, uh, that wasn't there before. When
-we do that view, doesn't have any way to detect that the new property was added. And
-so it can't make that property reactive. In other words, when we add that property,
-or even if we change a change, the value of that property, new property later vue
-has no idea we're doing it. This is a long way of saying that if you have a piece of
-data, that is an object like `validationErrors`. When you set that entire piece of
-data, be sure to include all of its properties, even if some are not. So basically up
-here in data, I'm going to add a new property or all those things. I'll set them to
-null this time.
+But there *are* a few limitations to Vue reactivity: a few edge cases where Vue
+can't work its magic and does *not* realize that it needs to re-render. Well,
+to be clear: Vue *2* has a few limitations... that Vue 3 solves. So if you're
+using Vue 3, feel free to skip ahead: it does *not* suffer from this issue.
 
-Now the moment that the validation errors data is initialized, it will have all of
-these properties. Then we're not creating properties down here inside
+Search for "Vue reactivity" to find a page on their docs. Scroll down to "change
+detection caveats".
 
-Of our
+There aren't many situations like this, but this first situation talks about
+what is currently happening to *us*: Vue cannot detect property addition or
+deletion. And a property must be present in the data object in order for Vue to
+convert it and make it reactive.
 
-Function. We're just changing the value on a property that already exists. Well, this
-also means that we're not going to delete a property. We're just going to say
-`this.validationErrors` equals null
+We talked about how reactivity works under the hood
+[in part one of this series](https://symfonycasts.com/screencast/vue/reactivity).
+The short explanation for Vue 2 is that when a piece of data is an object, Vue
+replaces each property on that object with a getter and setter method. This is
+invisible to us, but it allows Vue to be *notified* - via the setter method -
+whenever someone changes a property.
 
-Now let's try our client side validation. I go to checkout and perfect. It instantly
-updates. Yes, But if you submit the form,
+## Our Reactivity Problem: Property Addition
 
-Funny things start to happen.
+Our problem starts in the checkout form component's `data` function. We initialize
+`validationErrors` to an empty object. And then, in the `validateField()` method,
+we *add* a new property to `validationErrors`. That's the "property addition" that
+Vue was talking about. Vue doesn't have a way to detect that the new property was
+added. And so, it can't add the getter and setter methods that are the key to
+making that property reactive. We *can* still read from and write to that property...
+but Vue isn't *aware* that we're doing that.
 
-No validation error on Ryan. Right? That makes sense. But if I clear it out, hit tab,
-Hey, why didn't I get my validation error? This is actually the same problem, but
-this time I want to show it to you in more
+This is a long way of saying that if you have a piece of data that's an object
+like `validationErrors`, be sure to include all of its properties when you
+initialize it, even if some are null.
 
-Detail, back in the component
+Head up to `data` and add all 6 properties to the object - setting each one to
+`null`. Thanks to this, from the *very* first moment the data is initialized, it
+will have *all* of its properties. Then, we're not *creating* a property down
+inside `validateField()`: we're just changing its value!
 
-At the top of validate field let's `console.log(this.validationErrors)`. All
-right, back over my page already refreshed. Let's go to checkout and I'll go to my
-console. Now notice when I first blur the entire object is, has a `...` that's
-actually because this, uh, the `validationErrors` data is wrapped in a getter,
+Oh, and now, instead of deleting the property, set it to null.
 
-Which is views way of adding reactivity to it. And if we click to open this, it calls
-that getter and you can see each property also has `...` next to it. That's basically
-an easy way for us to see that each property is reactive view did have the
-opportunity to wrap this in a getter and setter method. So if we set that to
-property, it would trigger a rerender now submit the form and I'll go back to this
-and hit tab again. And I'll scroll to the bottom to see the new, uh, log and
-immediately you can see it's not `...` anymore. And more importantly, each
-individual property under there is not `...` The fact that those are gone
-means that each of these properties lost reactivity. If we set customers city
-directly, there's no setter. That view has been able to add to intercept that.
+Ok! Let's test this! Go to checkout and... perfect! It instantly updates! But if
+we submit the form... funny things start to happen.
 
-And so it
+No validation error on Ryan. Right? That makes sense. But if I clear that out and
+hit tab... hey! Why didn't I get my validation error? This... is the same problem,
+but I want to show it to you in more detail.
 
-Has no idea that it needs to rerender, it's just a normal object. The reason this is
-happening is up here `onSubmit()` at the top. We're resetting `validationErrors` back to
-an empty object. And when we set the `validationErrors` later, we are once again,
-creating new properties and those new properties are not reactive to see this some
-more detail let's reinitialize, just one field to start, I'll say customer name. So
-that's a Knoll. Now go back, go to the checkout form. And let's recent at the form.
-I'll go into my name, field and blur that. So we get the lock. Now, check this out.
-If you look at the things now, customer name is wrapped in a good or function, all
-the other ones that's because when we reset the `validationErrors` object, we included
-the `customerName`, property that allowed view to add reactivity to it. So the full
-solution is this. Whenever you set a key on data, Whenever you set or replace a key
-on data, that is an object, whether it's in the initial data or it's later, when you
-submit a form, be sure that that object has every property that it needs. So to do
-this without repeating ourselves, I'm going to add a new method called 
-`getEmptyValidationErrors()`,
+Back in the component, at the top of `validateField()`, let's
+`console.log(this.validationErrors)`.
 
-And this is going to return an object. And then I will go up to our initial data and
-I'm just going to steal all these fields here, go down and paste them. Perfect. Then
-we can use this up inside of our `data()` function `validationErrors = this.getEmptyValidationErrors()`
-and then same thing down here on, on summit. We'll say
-`this.getEmptyValidationErrors()`. All right, now, move back over, go to the checkout
-form. I'll hit. I'll hit submit the form right now. That should mess up. But now
+Head back over: my page already refreshed. Go to checkout and open the console.
+Now notice: when I first blur, the entire object has a `...`. That's
+because the `validationErrors` data is wrapped in a getter method, which is Vue's
+way of adding reactivity to it. And if we click to open this, each property
+*also* has a `...` next to it. That's an easy way for us to see that each property
+*is* reactive: Vue *did* have the opportunity to wrap it in a getter and setter.
 
-Now head over, got to check out. I'll hit submit. We see all the errors, but now
-typing a name hit tab, and it goes away. Our reactivity is back. I'll celebrate by
-removing my `console.log()` That team we're done. You did it. Wow. You are now massively
-dangerous in view. So go build something really cool. And tell me about it. I would
-love to know in a future tutorial, we'll cover the view three composition API. That's
-the really big change in view three that can make sharing data and other
-functionality between components a lot nicer. There was something else that you want
-to know about. You let us know down in the comments. All right, friends. See you next
-time.
+Now submit the form, focus the name field... and hit tab again. Scroll down on
+the console to see the *new* log. The object does *not* have the `...` anymore.
+And more importantly, each property under it *also* does not have `...`.
+The fact that those are gone means that each property lost reactivity.
+If we set the `customerCity` property, there is no setter, and so Vue would not
+be notified that it needs to re-render.
 
+The reason this is happening is, up at the top of `onSubmit()`, we're resetting
+`validationErrors` back to an empty object. Then, when we set a key on
+`validationErrors` later, we are, once again, creating new properties.
+
+Let's reinitialize just *one* field to start: set `customerName` to `null`.
+
+Now go back, head to the checkout form and re-submit it. Click on the name field
+and blur it to get the log. Oooo: `customerName` now *does* still have its
+getter method! But the other fields do *not*. By including the `customerName`
+property when we replaced the `validationErrors` data, Vue was able to *wrap*
+it and make it reactive at that moment.
+
+So the *full* solution is this. Either use Vue 3... and this will all just
+work, *or* whenever you set a full key on data that's an object, whether you're
+setting it inside the `data` function or somewhere else - be sure to include every
+property it needs. There *are* other work arounds the docs mention, but this is
+what I like.
+
+To do this without repeating ourselves, let's add a new method called
+`getEmptyValidationErrors()` that will return an object. Go up to our initial
+data, steal those fields, head down and paste. Perfect.
+
+We can use this up inside `data()`: `validationErrors` set to
+`this.getEmptyValidationErrors()`. Do the same thing down here in `onSubmit()`:
+`this.getEmptyValidationErrors()`.
+
+Let's check it! Go back to the checkout form, submit it... see the errors,
+type a name, hit tab and... it's gone! Reactivity is back!
+
+Let's celebrate by removing the `console.log()`.
+
+Woh team, we're done! You did it! You are now *massively* dangerous in Vue.
+So go build something really cool and tell us about it. I would love to know.
+
+In a future tutorial, we'll cover the Vue 3 composition API: that's the really
+big new, optional feature in Vue 3 that has the potential to make sharing code
+and data a lot nicer.
+
+If there's something else that you want to know about, let us know down in the
+comments.
+
+Alright friends, see you next time!
