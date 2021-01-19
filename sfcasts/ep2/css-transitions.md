@@ -22,7 +22,7 @@ help make things more clear.
 Then, when `.transition-testing` *also* has the `hidden` class, set opacity to
 zero. 
 
-[[[ code()'49fdbcf794' ]]]
+[[[ code('49fdbcf794') ]]]
 
 Basically, we're going to hide this element when we click the checkout
 button. Try it: there's the text and click the button. Gone! Back! Gone! Back!
