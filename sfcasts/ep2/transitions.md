@@ -16,6 +16,8 @@ Fortunately, Vue has a feature *just* for this. The key is to surround the
 element that we're hiding and showing with a special `transition` component. Check
 it out: add `<transition` before and after the div... and indent to keep ESLint happy.
 
+[[[ code('87f5042070') ]]]
+
 But I want to be *super* clear about what this `<transition>` tag does and does
 *not* do. Go back to your browser and do a full refresh. Now, click. Woh! It
 doesn't even hide anymore! Oh, wait... it *did* hide... it just took a few
@@ -40,6 +42,8 @@ That's it. Though it *is* a bit smarter than it first appears.
 Head over to the CSS in the component... and temporarily comment-out the
 `transition: opacity 3s`.
 
+[[[ code('4fd7ed9a35') ]]]
+
 Now go back to the browser and watch the `div` again. When I click the button...
 boom! It *instantly* hides and does *not* add those temporary classes! It turns
 out that the transition component actually *looks* at the element that's being hidden
@@ -59,12 +63,20 @@ classes that Vue is adding *instead* of the `hidden` class we were using before.
 Replace `.hidden` with `.v-enter` and `.v-leave-to`. If you're using Vue 3, it's
 called `.v-enter-from` instead of `.v-enter`.
 
+[[[ code('b9873301a9') ]]]
+
 These are both classes that Vue adds in specific situations. Don't worry, we'll
 talk about *exactly* how this all works in a minute.
 
 We can *also* replace the `transition-testing` class with `.v-enter-active` and
-`.v-leave-active`. Back up in the template, we can remove the `transition-testing`
-class that we're no longer using.
+`.v-leave-active`:
+
+[[[ code('c63edead34') ]]]
+
+Back up in the template, we can remove the `transition-testing` class that 
+we're no longer using:
+
+[[[ code('552406399a') ]]]
 
 Before we talk about how this all works, let's try it. Move over and... beautiful!
 It takes 3 seconds to fade out... and 3 seconds to fade in!
