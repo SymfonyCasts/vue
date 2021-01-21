@@ -7,10 +7,14 @@ We actually have partial control over how these are named. In the template,
 on the transition element, add `name="fade"`. What does that do? Very simply: it
 changes the *prefix* that Vue uses for the classes.
 
+[[[ code('85065f4a64') ]]]
+
 Thanks to this, down in the styles, instead of `v-`, everything needs to be `fade-`.
 
 We could have used `name=""` *anything*. Fade is a good name because the CSS
 causes the element to, ya know, fade in and out.
+
+[[[ code('d511633801') ]]]
 
 Move over and try it. Yep! It works like before, except that the classes are
 different. The advantage of this is that you could have CSS in your project for
@@ -30,6 +34,8 @@ we can *also* wrap a `transition` around *multiple* components or elements.
 Add `<transition name="fade"` so that we use the same CSS, wrap this around both
 components and indent them.
 
+[[[ code('ce0ef2f176') ]]]
+
 Wrapping multiple elements or components inside a single `transition` only works
 when you're using `v-if`, not `v-show`... and it only works when there's exactly
 *one* element or component being displayed at a time... which is exactly our
@@ -39,6 +45,8 @@ But let's try it! And... yea! It's *super* slow, but it works! Let's shorten
 that transition time to something more realistic. Down at the bottom of the component,
 change the 3 seconds to .2 seconds.
 
+[[[ code('7f2c0cf27d') ]]]
+
 ## Transition Modes
 
 Try it now. *Much* better. Though... it's still kinda jumpy. The problem
@@ -47,7 +55,10 @@ component is still there and fading out. So it... kind of jumps a bit, which wil
 look worse once the checkout component renders a form.
 
 Fortunately, because we wrapped *both* of these components inside the same transition,
-we can leverage a cool `mode` option on the `transition`. Say `mode="out-in"`.
+we can leverage a cool `mode` option on the `transition`. Say `mode="out-in"`:
+
+[[[ code('e48e527c2d') ]]]
+
 This says:
 
 > Fade out the old component and *then* fade in the new one... instead of doing
