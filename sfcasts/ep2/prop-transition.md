@@ -5,6 +5,8 @@ changes instantly, which is not that big of a deal... but we can do better. Back
 at your editor, find the `<title` component and wrap it in a `transition`. Copy
 the `name` and `mode` from earlier and use those here too.
 
+[[[ code('7ea444a27b') ]]]
+
 So the big question is: does this work? Are we allowed to transition a prop change?
 In this case, we're not hiding and showing a component, we're just changing the
 value passed to the `text` prop.
@@ -27,6 +29,8 @@ However, it *is* possible to, *sort of*, make this work. Over on the
 `title` component, add a new `key` prop. Yea, that's the prop we normally use
 in loops. Set this to something that will be unique for each title, like
 `currentState`, because we know the page title is *based* on the `currentState`.
+
+[[[ code('01ab1881cf') ]]]
 
 Move over and try it now. Ah! It works! The title fades out and fades in *just*
 like the rest of the page!
