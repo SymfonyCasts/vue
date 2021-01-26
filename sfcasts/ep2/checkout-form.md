@@ -11,16 +11,25 @@ a page with information about where to mail a check to. Very cutting edge.
 
 ## Setting up the Data
 
-Open `assets/components/checkout/index.vue`. This component will hold a bunch
-of form fields like customer name, email address, etc. And it's going to need
-to store those field values as data. Add a `data` function and return an object
-with a `form` key set to another object. Add a key for every field:
+Open `assets/components/checkout/index.vue`:
+
+[[[ code('9a9d8f2f6d') ]]]
+
+This component will hold a bunch of form fields like customer name, email address, 
+etc. And it's going to need to store those field values as data. Add a `data` function 
+and return an object with a `form` key set to another object. Add a key for every field:
 `customerName` initialized to an empty string, `customerEmail`, `customerAddress`,
 `customerZip`, `customerCity` and `customerPhone`.
 
+[[[ code('5a7803d28f') ]]]
+
 Next, because we are *definitely* going to add form validation, add a
-`validationErrors` data set to an empty object. This will eventually hold a map
-of which fields are currently *invalid* with their error message.
+`validationErrors` data set to an empty object:
+
+[[[ code('3b3efad0e9') ]]]
+
+This will eventually hold a map of which fields are currently *invalid* with their 
+error message.
 
 ## Adding the First Field
 
@@ -28,20 +37,31 @@ Nice! Up in the template, add the first field. Replace the text with a
 `form` tag, no `action` needed, then some Bootstrap markup: a div,
 the label - with "Name:" and a `for` attribute set to `customerName`. It's not
 necessary, but I've made this consistent with the data key... so I can keep my
-sanity. Add `class="col-form-label"`... then add the `<input` and make sure its
-`id` matches the `for` label attribute. Also add `v-model="form.customerName"`.
+sanity. Add `class="col-form-label"`:
+
+[[[ code('13171d9754') ]]]
+
+then add the `<input` and make sure its `id` matches the `for` label attribute. 
+Also add `v-model="form.customerName"`.
+
+[[[ code('9b1721acdb') ]]]
 
 Thanks to this, whenever the user updates this input, `v-model` will *also* make
 sure that the `form.customerName` data is *also* updated. Finish with `type="text"`
 and `class="form-control"`.
+
+[[[ code('ffd15d5bbb') ]]]
 
 Good start! And if we check it in the browser... it's there! Inspect element,
 open the Vue dev tools and find the `CheckoutForm` component. We can watch the
 `form.customerName` data stay in sync thanks to `v-model`.
 
 Oh, but to be *extra* cool, we can use `v-model.trim`, which is a shortcut to trim
-off any extra whitespace. Now if I go back... and put a bunch of spaces at the start,
-the data does *not* have those.
+off any extra whitespace:
+
+[[[ code('a05ef9fe95') ]]]
+
+Now if I go back... and put a bunch of spaces at the start, the data does *not* have those.
 
 ## Rendering Validation Errors
 
@@ -51,15 +71,21 @@ To help, add a new `methods` section at the bottom of the component with one
 function: `isFieldValid()` with a `fieldName` argument. Inside, return
 *not* `fieldName in this.validationErrors`.
 
+[[[ code('0ca3c66983') ]]]
+
 Use this above. First, on the input, if validation fails, this needs an
 extra class. Change to use `:class` and set `form-control` to `true` so that it
 *always* renders. We also want an `is-invalid` class if *not*
 `isFieldValid('customerName')`.
 
+[[[ code('af02cf1f0b') ]]]
+
 Then, after the input, add a `span` with `v-show` set to that same thing: *not*
 `isFieldValid('customerName')` so that this *only* shows when the field is
 *invalid*. Give this `class="invalid-feedback"` and print the validation error
 inside: `validationErrors.customerName`.
+
+[[[ code('676fd2e749') ]]]
 
 And... hmm... ah! ESLint is mad because I messed up my indentation. Good work
 ESLint!
