@@ -15,8 +15,12 @@ inline format to emit an event. Let's call it `input` to match the name of the
 event that's used for a *normal* form element. For the data, let's just pass the
 new value `$event.target.value`.
 
+[[[ code('a281f3feea') ]]]
+
 Cool! Now, in the parent component, we can listen to this: `@input=""` and then
 immediately update the data with `form.customerName = $event`.
+
+[[[ code('a281f3feea') ]]]
 
 Alrighty! Let's try it! Move over, click to check out, type in a name... and look
 at the data. Perfect! It *is* updating.
@@ -41,6 +45,8 @@ piece of data... and in `@input=""`, the event data is the new value! So yes!
 We can remove these two lines and replace them with `v-model`!
 
 Get rid of `@input` and `:value` and, instead, say `v-model="form.customerName"`.
+
+[[[ code('efe9ceb846') ]]]
 
 Let's try it! Move over, hit check out, find `CheckoutForm` in the Vue dev tools
 and open up the data. Type in the box. How cool is that?
