@@ -22,9 +22,13 @@ Let's start by printing a message up here if something *weird* happens on submit
 In the `CheckoutForm` component, find `data` and add a new key: `serverError` set
 to false.
 
+[[[ code('1198c25e6e') ]]]
+
 Then, head down to `onSubmit` and add `this.serverError = false` at the beginning.
 If the form is submitted multiple times, this will re-set this back to false each
 time.
+
+[[[ code('e578bc60cd') ]]]
 
 Down in `catch`, let's get to work. First, grab the response with some fancy
 de-structuring: `const { response } = error`. Then if `response.status` - that's
@@ -33,9 +37,13 @@ something weird happened. So let's say `this.serverError = true`. Else, we have
 a normal validation error situation... which we'll handle in a few minutes. For
 now, `console.error(response.data)`.
 
+[[[ code('d73e9e336c') ]]]
+
 Up in the template, let's use this new `serverError` to render a message right
 inside the form. Add a `<div>` with `v-show="serverError"`, some classes for
 styling and a message.
+
+[[[ code('2933972287') ]]]
 
 So how can we test this... when our API is *so* awesome that nothing unexpected
 *ever* happens? Great question! We'll just... break the URL! In
@@ -54,6 +62,8 @@ button so the user can't accidentally hit it multiple times. Our products are
 
 Thanks to our `loading` data... it's pretty easy. Down on the button, add
 `:disabled="loading"`.
+
+[[[ code('7c22283b15') ]]]
 
 We can immediately see the results: Bootstrap even has some styling to make it
 *look* disabled.
