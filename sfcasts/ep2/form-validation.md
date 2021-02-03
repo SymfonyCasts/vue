@@ -50,7 +50,7 @@ There's nothing really fancy about this. Back in Vue, inside of the successful
 side of things - the `try` - add `window.location =` and then we can use fancy
 ticks to say `/confirmation/`, `${}` then `response.data.id`.
 
-[[[ code()'293e493836' ]]]
+[[[ code('293e493836') ]]]
 
 This is not `@id`, it's actually `id`. If you look at the API docs, I don't always
 return an `id` field on my resource... since every resource already has an `@id`.
