@@ -17,6 +17,8 @@ Head down to `onSubmit()`. The first thing we need to do is, at the beginning,
 add `this.validationErrors = ` an empty object so that any errors from a *previous*
 submit are cleared.
 
+[[[ code('bb041430f7') ]]]
+
 This is actually going to cause a *reactivity* problem... a problem where things
 don't re-render at the right time. Don't worry about that yet: we'll talk about it
 deeply in a few minutes.
@@ -26,6 +28,8 @@ and pass that a callback with a `violation` argument. The logic we need inside i
 pretty simple: `this.validationErrors[` `violation.propertyPath` because each
 violation has that key... and, as you can see in the docs, it will be equal to the,
 sort of "id", we've been using for each field. Set this to `violation.message`.
+
+[[[ code('2fe2882c04') ]]]
 
 That... should do it! Move over, get to the checkout form and submit it empty. Woh!
 That's gorgeous!
@@ -40,9 +44,13 @@ Open `src/Controller/CheckoutController.php`. I've already created a really simp
 "order confirmation" page. All we need to do is get the id of the new `Purchase`
 that was just created by the API and then redirect to `/confirmation/{id}` that id.
 
+[[[ code('dcd6772a20') ]]]
+
 There's nothing really fancy about this. Back in Vue, inside of the successful
 side of things - the `try` - add `window.location =` and then we can use fancy
 ticks to say `/confirmation/`, `${}` then `response.data.id`.
+
+[[[ code()'293e493836' ]]]
 
 This is not `@id`, it's actually `id`. If you look at the API docs, I don't always
 return an `id` field on my resource... since every resource already has an `@id`.
@@ -53,6 +61,8 @@ search for `clearCart`. This makes an AJAX call that tells the API that the cart
 should now be deleted and reset. That *could* happen automatically on the server
 when we create a `Purchase`, but since it doesn't in our API, we'll do it in Vue.
 Add `await clearCart()` and hit tab so PhpStorm adds the import for us.
+
+[[[ code('93a034e5cb') ]]]
 
 So: clear the cart and *then* redirect to the confirmation page.
 
