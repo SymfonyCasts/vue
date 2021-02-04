@@ -15,10 +15,14 @@ Start inside of our checkout form component... down in `methods`. Add a new one
 called `validateField()`. I'll paste in the start: an object that contains the
 validation messages that should be used for each field if that field is blank.
 
+[[[ code('37f26a4387') ]]]
+
 # Listening to blur on a Custom Component
 
 Before we add the real logic to this method, let's call this "on blur" of each
 field. Easy! Head up to the template and add `@blur="validateField"`.
+
+[[[ code('aa565a1d45') ]]]
 
 Except... bah! That won't work! This is a custom *component*, not a normal form
 element.
@@ -27,11 +31,15 @@ Okay, don't panic. Go into `form-input.vue`. And on the actual `<input>` element
 add `@blur=""`... and then we'll just emit that same `blur` event from here... and
 pass it the same event data.
 
+[[[ code('f8dc7529f1') ]]]
+
 We're basically propagating that event up so that our parent component can listen
 to it.
 
 Back in `index.vue`, now that this *should* work, copy the `@blur` and repeat this
 on all six fields... super fast!
+
+[[[ code('8bcfb7af7c') ]]]
 
 ## Filling in the Validation Logic
 
@@ -40,15 +48,25 @@ Ok! Head back down to `validateField()`... here it is. The plan is: read the
 data for that field is empty and, if it is, add a new item to the
 `validationErrors` data.
 
-To read the `id` attribute, we need the `event` argument. Then, down here, we can
-say `const validationField = event.target.id` - so that will be something like
-`customerName` or `customerEmail`. Then, if not `this.form[validationField]`, then
-we know that field is empty. Add a validation error with
+To read the `id` attribute, we need the `event` argument:
+
+[[[ code('6d18d830b7') ]]]
+
+Then, down here, we can say `const validationField = event.target.id`: 
+
+[[[ code('52f0467de6') ]]]
+
+so that will be something like `customerName` or `customerEmail`. Then, if not 
+`this.form[validationField]`, then we know that field is empty. Add a validation error with
 `this.validationErrors[validationField] =` `validationMessages[validationField]`.
+
+[[[ code('7940b86d5d') ]]]
 
 Oh, and don't forget an `else`: in case the user just went *back*... filled
 something in... and then blurred. If there was already an error before, now we
 need to *remove* it. Do that with `delete this.validationErrors[validationField]`.
+
+[[[ code('7fafd042e7') ]]]
 
 The reason I'm using `delete` and not equals null is... well... that's just the way
 that our `validationErrors` object works right now. It starts as an empty object
