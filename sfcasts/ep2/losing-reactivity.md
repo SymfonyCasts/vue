@@ -32,11 +32,14 @@ whenever someone changes a property.
 
 Our problem starts in the checkout form component's `data` function. We initialize
 `validationErrors` to an empty object. And then, in the `validateField()` method,
-we *add* a new property to `validationErrors`. That's the "property addition" that
-Vue was talking about. Vue doesn't have a way to detect that the new property was
-added. And so, it can't add the getter and setter methods that are the key to
-making that property reactive. We *can* still read from and write to that property...
-but Vue isn't *aware* that we're doing that.
+we *add* a new property to `validationErrors`:
+
+[[[ code('6f33cb0074') ]]]
+
+That's the "property addition" that Vue was talking about. Vue doesn't have a way 
+to detect that the new property was added. And so, it can't add the getter and setter 
+methods that are the key to making that property reactive. We *can* still read from 
+and write to that property... but Vue isn't *aware* that we're doing that.
 
 This is a long way of saying that if you have a piece of data that's an object
 like `validationErrors`, be sure to include all of its properties when you
@@ -44,10 +47,16 @@ initialize it, even if some are null.
 
 Head up to `data` and add all 6 properties to the object - setting each one to
 `null`. Thanks to this, from the *very* first moment the data is initialized, it
-will have *all* of its properties. Then, we're not *creating* a property down
-inside `validateField()`: we're just changing its value!
+will have *all* of its properties:
+
+[[[ code('1649b2bebf') ]]]
+
+Then, we're not *creating* a property down inside `validateField()`: we're just 
+changing its value!
 
 Oh, and now, instead of deleting the property, set it to null.
+
+[[[ code('d33f70e1e3') ]]]
 
 Ok! Let's test this! Go to checkout and... perfect! It instantly updates! But if
 we submit the form... funny things start to happen.
@@ -58,6 +67,8 @@ but I want to show it to you in more detail.
 
 Back in the component, at the top of `validateField()`, let's
 `console.log(this.validationErrors)`.
+
+[[[ code('36de3848cf') ]]]
 
 Head back over: my page already refreshed. Go to checkout and open the console.
 Now notice: when I first blur, the entire object has a `...`. That's
@@ -79,6 +90,8 @@ The reason this is happening is, up at the top of `onSubmit()`, we're resetting
 
 Let's reinitialize just *one* field to start: set `customerName` to `null`.
 
+[[[ code('5973bdebde') ]]]
+
 Now go back, head to the checkout form and re-submit it. Click on the name field
 and blur it to get the log. Oooo: `customerName` now *does* still have its
 getter method! But the other fields do *not*. By including the `customerName`
@@ -95,9 +108,16 @@ To do this without repeating ourselves, let's add a new method called
 `getEmptyValidationErrors()` that will return an object. Go up to our initial
 data, steal those fields, head down and paste. Perfect.
 
+[[[ code('0b78bdb255') ]]]
+
 We can use this up inside `data()`: `validationErrors` set to
-`this.getEmptyValidationErrors()`. Do the same thing down here in `onSubmit()`:
-`this.getEmptyValidationErrors()`.
+`this.getEmptyValidationErrors()`
+
+[[[ code('3644671657') ]]]
+
+Do the same thing down here in `onSubmit()`: `this.getEmptyValidationErrors()`.
+
+[[[ code('a226f10c17') ]]]
 
 Let's check it! Go back to the checkout form, submit it... see the errors,
 type a name, hit tab and... it's gone! Reactivity is back!
