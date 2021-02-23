@@ -12,13 +12,13 @@ Up in the template, find where we render `shopping-cart-list`. Then add
 Copy that, go down to the `methods` section... here it is... and add that new
 function.
 
-## Array Destructing the Event Args
+## Object Destructing the Event Args
 
 We know that this will receive an event object... and because *we* are the ones
 emitting that event, we know the object will have `productId`, `colorId` and
 `quantity` keys.
 
-In the new method, let's use array destructuring on the first argument to grab
+In the new method, let's use object destructuring on the first argument to grab
 those values and set them onto variables. Do it with `{}`, `productId`, `colorId`
 and `quantity`:
 
