@@ -63,12 +63,14 @@
 
 <script>
 import { fetchOneProduct } from '@/services/products-service';
+import ColorSelector from '@/components/color-selector';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 
 export default {
     name: 'ProductShow',
     components: {
+        ColorSelector,
         Loading,
         TitleComponent,
     },
