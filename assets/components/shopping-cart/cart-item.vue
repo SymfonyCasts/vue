@@ -12,6 +12,15 @@
                 }"
             />
         </div>
+
+        <div class="col-3">
+            <input
+                v-model.number="item.quantity"
+                class="form-control"
+                type="number"
+                min="1"
+            />
+        </div>
     </div>
 </template>
 
@@ -43,6 +52,10 @@ export default {
         width: 25px;
         height: 25px;
         border-radius: 4px;
+    }
+
+    input {
+        width: 60px;
     }
 }
 </style>
