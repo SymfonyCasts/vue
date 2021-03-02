@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 import TitleComponent from '@/components/title';
 
 export default {
@@ -22,6 +23,7 @@ export default {
     components: {
         TitleComponent,
     },
+    mixins: [ShoppingCartMixin],
 };
 </script>
 
