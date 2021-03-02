@@ -103,7 +103,14 @@ export default {
                 customerCity: '',
                 customerPhone: '',
             },
-            validationErrors: {},
+            validationErrors: {
+                customerName: null,
+                customerEmail: null,
+                customerAddress: null,
+                customerZip: null,
+                customerCity: null,
+                customerPhone: null,
+            },
             loading: false,
             serverError: false,
         };
