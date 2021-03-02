@@ -15,6 +15,7 @@
                     :is="currentComponent"
                     :current-category-id="currentCategoryId"
                     :categories="categories"
+                    :product-id="currentProductId"
                 />
             </div>
         </div>
