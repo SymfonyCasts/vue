@@ -74,12 +74,13 @@
 </template>
 
 <script>
-import { fetchCart, addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
+import { addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
 import formatPrice from '@/helpers/format-price';
 import { fetchOneProduct } from '@/services/products-service';
 import ColorSelector from '@/components/color-selector';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
+import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 
 export default {
     name: 'ProductShow',
@@ -88,6 +89,7 @@ export default {
         Loading,
         TitleComponent,
     },
+    mixins: [ShoppingCartMixin],
     props: {
         productId: {
             type: String,
@@ -96,7 +98,6 @@ export default {
     },
     data() {
         return {
-            cart: null,
             quantity: 1,
             selectedColorId: null,
             addToCartLoading: false,
@@ -115,10 +116,6 @@ export default {
         },
     },
     async created() {
-        fetchCart().then((cart) => {
-            this.cart = cart;
-        });
-
         try {
             this.product = (await fetchOneProduct(this.productId)).data;
         } finally {
