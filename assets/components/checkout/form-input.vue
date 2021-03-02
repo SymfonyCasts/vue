@@ -9,8 +9,8 @@
         <input
             :id="id"
             :name="id"
+            :type="type"
             :value="value"
-            type="text"
             :class="{
                 'is-invalid': !isValid,
                 'form-control': true,
@@ -41,6 +41,10 @@ export default {
         errorMessage: {
             type: String,
             default: '',
+        },
+        type: {
+            type: String,
+            default: 'text',
         },
         value: {
             type: String,
