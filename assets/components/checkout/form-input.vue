@@ -8,6 +8,7 @@
         </label>
         <input
             :id="id"
+            :name="id"
             :value="value"
             type="text"
             :class="{
