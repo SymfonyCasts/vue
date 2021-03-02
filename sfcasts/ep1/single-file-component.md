@@ -45,6 +45,17 @@ Render it with `return h(App)`.
 
 [[[ code('b7d2b6a394') ]]]
 
+***TIP
+For Vue 3, the code should look like this:
+
+```javascript
+import { createApp } from 'vue';
+import App from './pages/products';
+
+createApp(App).mount('#app');
+```
+***
+
 That feels good! Let's try it: move over, refresh and... it still works!
 
 ## Adding a Component Name
