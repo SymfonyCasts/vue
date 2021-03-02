@@ -67,8 +67,6 @@ export default {
     },
     data() {
         return {
-            quantity: 1,
-            selectedColorId: null,
             product: null,
             loading: true,
         };

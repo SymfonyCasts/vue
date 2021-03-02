@@ -56,6 +56,12 @@ export default {
             required: true,
         },
     },
+    data() {
+        return {
+            quantity: 1,
+            selectedColorId: null,
+        };
+    },
 };
 </script>
 
