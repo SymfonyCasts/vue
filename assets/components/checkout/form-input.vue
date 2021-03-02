@@ -1,25 +1,25 @@
 <template>
     <div class="form-group">
         <label
-            for="customerName"
+            :for="id"
             class="col-form-label"
         >
-            Name:
+            {{ label }}
         </label>
         <input
-            id="customerName"
-            v-model.trim="form.customerName"
+            :id="id"
+            :value="value"
             type="text"
             :class="{
-                'is-invalid': !isFieldValid('customerName'),
+                'is-invalid': !isValid,
                 'form-control': true,
             }"
         >
         <span
-            v-show="!isFieldValid('customerName')"
+            v-show="!isValid"
             class="invalid-feedback"
         >
-            {{ validationErrors.customerName }}
+            {{ errorMessage }}
         </span>
     </div>
 </template>
@@ -27,9 +27,27 @@
 <script>
 export default {
     name: 'FormInput',
-    methods: {
-        isFieldValid(fieldName) {
-            return !(fieldName in this.validationErrors);
+    props: {
+        id: {
+            type: String,
+            required: true,
+        },
+        label: {
+            type: String,
+            required: true,
+        },
+        errorMessage: {
+            type: String,
+            default: '',
+        },
+        value: {
+            type: String,
+            default: '',
+        },
+    },
+    computed: {
+        isValid() {
+            return !this.errorMessage;
         },
     },
 };
