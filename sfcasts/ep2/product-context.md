@@ -43,7 +43,7 @@ In the template, copy the `currentCategoryId` code... then change everything to
 `currentProductId`. So if that variable is defined, set a new global JavaScript
 variable and escape it for JavaScript, just in case.
 
-[[[ code('3da73d79fb') ]]]
+[[[ code('90581b6ffa') ]]]
 
 Cool! So in theory, at the browser, if we click into a product, we should have that
 global variable. I'll try it in the console: `window.currentProductId`. Nice!
