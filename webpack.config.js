@@ -24,8 +24,8 @@ Encore
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-    .addEntry('app', './assets/js/app.js')
-    .addEntry('products', './assets/js/products.js')
+    .addEntry('app', './assets/app.js')
+    .addEntry('products', './assets/products.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 
@@ -38,8 +38,8 @@ Encore
 
     // This is our alias to the root vue components dir
     .addAliases({
-        '@': path.resolve(__dirname, 'assets', 'js'),
-        styles: path.resolve(__dirname, 'assets', 'scss'),
+        '@': path.resolve(__dirname, 'assets'),
+        styles: path.resolve(__dirname, 'assets', 'styles'),
     })
 
     /*
