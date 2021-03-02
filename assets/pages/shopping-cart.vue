@@ -44,7 +44,16 @@ export default {
             const productIds = this.cart.items.map((item) => item.product);
 
             const productsResponse = await fetchProductsById(productIds);
-            console.log(productsResponse, this.cart);
+            const products = productsResponse.data['hydra:member'];
+
+            const completeItems = this.cart.items.map((cartItem) => (
+                {
+                    product: products.find((product) => product['@id'] === cartItem.product),
+                    color: cartItem.color,
+                    quantity: cartItem.quantity,
+                }
+            ));
+            console.log(completeItems);
         },
     },
 };
