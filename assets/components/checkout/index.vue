@@ -145,6 +145,16 @@ export default {
                 this.loading = false;
             }
         },
+        validateField() {
+            const validationMessages = {
+                customerName: 'Please, enter your full name!',
+                customerEmail: 'Please, enter your email address!',
+                customerAddress: 'Please, enter your street address!',
+                customerZip: 'Please, enter your ZIP code!',
+                customerCity: 'Please, enter your city!',
+                customerPhone: 'Please, provide a phone number!',
+            };
+        },
     },
 };
 </script>
