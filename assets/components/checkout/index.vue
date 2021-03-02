@@ -2,14 +2,20 @@
     <div class="row p-3">
         <div class="col-12">
             <form>
+                <form-input />
             </form>
         </div>
     </div>
 </template>
 
 <script>
+import FormInput from '@/components/checkout/form-input';
+
 export default {
     name: 'CheckoutForm',
+    components: {
+        FormInput,
+    },
     data() {
         return {
             form: {
