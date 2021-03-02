@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import formatPrice from '@/helpers/format-price';
 import { fetchOneProduct } from '@/services/products-service';
 import ColorSelector from '@/components/color-selector';
 import Loading from '@/components/loading';
@@ -85,6 +86,15 @@ export default {
             product: null,
             loading: true,
         };
+    },
+    computed: {
+        /**
+         * Returns a formatted price for the product
+         * @returns {string}
+         */
+        price() {
+            return formatPrice(this.product.price);
+        },
     },
     async created() {
         try {
