@@ -7,6 +7,7 @@
                 <title-component text="Shopping Cart" />
 
                 <div class="content p-3">
+                    <loading v-show="cart === null" />
                     <div v-if="cart !== null">
                         <div
                             v-for="(cartItem, index) in cart.items"
@@ -28,10 +29,12 @@
 <script>
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 import TitleComponent from '@/components/title';
+import Loading from '@/components/loading';
 
 export default {
     name: 'ShoppingCart',
     components: {
+        Loading,
         TitleComponent,
     },
     mixins: [ShoppingCartMixin],
