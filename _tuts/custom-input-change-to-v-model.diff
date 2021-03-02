@@ -1,0 +1,16 @@
+diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
+index 193306722..06cfbe68b 100644
+--- a/assets/components/checkout/index.vue
++++ b/assets/components/checkout/index.vue
+@@ -4,10 +4,9 @@
+             <form>
+                 <form-input
+                     id="customerName"
+-                    :value="form.customerName"
++                    v-model="form.customerName"
+                     label="Name:"
+                     :error-message="validationErrors.customerName"
+-                    @input="form.customerName = $event"
+                 />
+             </form>
+         </div>
