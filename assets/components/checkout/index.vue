@@ -71,6 +71,12 @@ export default {
         FormInput,
         Loading,
     },
+    props: {
+        cart: {
+            type: Object,
+            required: true,
+        },
+    },
     data() {
         return {
             form: {
@@ -106,7 +112,7 @@ export default {
             try {
                 const response = await createOrder({
                     ...this.form,
-                    purchaseItems: [],
+                    purchaseItems: this.cart.items,
                 });
 
                 console.log(response.data);

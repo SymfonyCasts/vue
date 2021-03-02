@@ -46,6 +46,7 @@
 
                         <checkout-form
                             v-if="completeCart && currentState === 'checkout'"
+                            :cart="cart"
                         />
                     </transition>
 
