@@ -48,8 +48,8 @@ export default {
             }
 
             const completeItems = this.cart.items.map((cartItem) => {
-                const product = this.products.find((product) => product['@id'] === cartItem.product);
-                const color = this.colors.find((color) => color['@id'] === cartItem.color);
+                const product = this.products.find((productItem) => productItem['@id'] === cartItem.product);
+                const color = this.colors.find((colorItem) => colorItem['@id'] === cartItem.color);
 
                 return {
                     product,
