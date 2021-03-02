@@ -1,5 +1,7 @@
 <template>
     <div>
+        <loading v-if="loading" />
+
         <div v-if="product">
             <h1>{{ product.name }}</h1>
         </div>
@@ -8,9 +10,13 @@
 
 <script>
 import { fetchOneProduct } from '@/services/products-service';
+import Loading from '@/components/loading';
 
 export default {
     name: 'ProductShow',
+    components: {
+        Loading,
+    },
     props: {
         productId: {
             type: String,
