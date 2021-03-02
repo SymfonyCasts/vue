@@ -99,8 +99,6 @@ export default {
         return {
             quantity: 1,
             selectedColorId: null,
-            addToCartLoading: false,
-            addToCartSuccess: false,
             product: null,
             loading: true,
         };

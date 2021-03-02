@@ -4,6 +4,8 @@ export default {
     data() {
         return {
             cart: null,
+            addToCartLoading: false,
+            addToCartSuccess: false,
         };
     },
     async created() {
