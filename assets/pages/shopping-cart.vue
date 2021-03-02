@@ -21,7 +21,6 @@
 </template>
 
 <script>
-import { updateCartItemQuantity } from '@/services/cart-service';
 import { fetchColors } from '@/services/colors-service';
 import { fetchProductsById } from '@/services/products-service';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
@@ -82,8 +81,7 @@ export default {
             this.products = productsResponse.data['hydra:member'];
         },
         updateQuantity({ productId, colorId, quantity }) {
-            console.log(productId, colorId, quantity);
-            updateCartItemQuantity(this.cart, productId, colorId, quantity);
+            this.updateProductQuantity(productId, colorId, quantity);
         },
     },
 };

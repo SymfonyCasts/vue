@@ -1,4 +1,9 @@
-import { addItemToCart, fetchCart, getCartTotalItems } from '@/services/cart-service';
+import {
+    addItemToCart,
+    fetchCart,
+    getCartTotalItems,
+    updateCartItemQuantity,
+} from '@/services/cart-service';
 
 export default {
     data() {
@@ -30,6 +35,10 @@ export default {
 
             document.getElementById('js-shopping-cart-items')
                 .innerHTML = getCartTotalItems(this.cart).toString();
+        },
+
+        updateProductQuantity(productId, colorId, quantity) {
+            updateCartItemQuantity(this.cart, productId, colorId, quantity);
         },
     },
 };
