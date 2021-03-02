@@ -99,10 +99,6 @@ export default {
         addToCart() {
             this.addProductToCart(this.product, this.selectedColorId, this.quantity);
         },
-
-        updateSelectedColor(iri) {
-            this.selectedColorId = iri;
-        },
     },
 };
 </script>

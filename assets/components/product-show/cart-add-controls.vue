@@ -62,6 +62,11 @@ export default {
             selectedColorId: null,
         };
     },
+    methods: {
+        updateSelectedColor(iri) {
+            this.selectedColorId = iri;
+        },
+    },
 };
 </script>
 
