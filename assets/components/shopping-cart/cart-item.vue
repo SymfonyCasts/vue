@@ -25,6 +25,12 @@
         <div class="col-3">
             ${{ totalPrice }}
         </div>
+
+        <div class="col-3">
+            <button class="btn btn-info btn-sm">
+                Remove
+            </button>
+        </div>
     </div>
 </template>
 
