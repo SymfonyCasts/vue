@@ -59,6 +59,12 @@ export default {
             ],
         };
     },
+    props: {
+        testProp: {
+            type: String,
+            default: 'I am the default value',
+        },
+    },
     created() {
         console.log(this);
     },
