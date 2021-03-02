@@ -7,8 +7,6 @@ export default {
         };
     },
     async created() {
-        fetchCart().then((cart) => {
-            this.cart = cart;
-        });
+        this.cart = await fetchCart();
     },
 };
