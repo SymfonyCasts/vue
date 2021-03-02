@@ -19,3 +19,9 @@ export function fetchProducts(categoryIri, searchTerm) {
         params,
     });
 }
+
+export function fetchFeaturedProducts() {
+    return axios.get('/api/products', {
+        params: { featured: 1 },
+    });
+}
