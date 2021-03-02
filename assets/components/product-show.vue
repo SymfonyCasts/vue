@@ -1,6 +1,8 @@
 <template>
     <div>
-        <h1>{{ product.name }}</h1>
+        <div v-if="product">
+            <h1>{{ product.name }}</h1>
+        </div>
     </div>
 </template>
 
