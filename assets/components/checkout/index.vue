@@ -1,7 +1,7 @@
 <template>
     <div class="row p-3">
         <div class="col-12">
-            <form>
+            <form @submit="onSubmit">
                 <div class="form-row">
                     <form-input
                         v-model="form.customerName"
