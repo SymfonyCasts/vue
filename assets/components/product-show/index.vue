@@ -43,6 +43,7 @@
                             :allow-add-to-cart="cart !== null"
                             :add-to-cart-loading="addToCartLoading"
                             :add-to-cart-success="addToCartSuccess"
+                            @add-to-cart="addToCart"
                         />
                     </div>
                 </div>
@@ -96,8 +97,8 @@ export default {
         }
     },
     methods: {
-        addToCart() {
-            this.addProductToCart(this.product, this.selectedColorId, this.quantity);
+        addToCart({ quantity, selectedColorId }) {
+            this.addProductToCart(this.product, selectedColorId, quantity);
         },
     },
 };
