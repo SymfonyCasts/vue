@@ -5,9 +5,9 @@
 </template>
 
 <script>
-    export default {
-        name: "cart-item.vue"
-    }
+export default {
+    name: 'ShoppingCartItem',
+};
 </script>
 
 <style scoped>
