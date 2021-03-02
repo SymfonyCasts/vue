@@ -47,13 +47,13 @@ export default {
                 return null;
             }
 
-            const completeItems = this.cart.items.map((cartItem) => (
-                {
+            const completeItems = this.cart.items.map((cartItem) => {
+                return {
                     product: this.products.find((product) => product['@id'] === cartItem.product),
                     color: this.colors.find((color) => color['@id'] === cartItem.color),
                     quantity: cartItem.quantity,
-                }
-            ));
+                };
+            });
 
             return {
                 items: completeItems,
