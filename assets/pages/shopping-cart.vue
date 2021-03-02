@@ -31,6 +31,14 @@
                             $event.colorId,
                         )"
                     />
+
+                    <div
+                        v-if="completeCart && completeCart.items.length > 0"
+                    >
+                        <button class="btn btn-primary">
+                            Check Out!
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
