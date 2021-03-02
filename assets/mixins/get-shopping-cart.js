@@ -33,12 +33,18 @@ export default {
             this.addToCartLoading = false;
             this.addToCartSuccess = true;
 
-            document.getElementById('js-shopping-cart-items')
-                .innerHTML = getCartTotalItems(this.cart).toString();
+            this.updateCartHeaderTotal();
         },
 
-        updateProductQuantity(productId, colorId, quantity) {
-            updateCartItemQuantity(this.cart, productId, colorId, quantity);
+        async updateProductQuantity(productId, colorId, quantity) {
+            await updateCartItemQuantity(this.cart, productId, colorId, quantity);
+
+            this.updateCartHeaderTotal();
+        },
+
+        updateCartHeaderTotal() {
+            document.getElementById('js-shopping-cart-items')
+                .innerHTML = getCartTotalItems(this.cart).toString();
         },
     },
 };
