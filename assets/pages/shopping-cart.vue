@@ -27,6 +27,7 @@
 </template>
 
 <script>
+import { fetchProductsById } from '@/services/products-service';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 import TitleComponent from '@/components/title';
 import Loading from '@/components/loading';
@@ -39,7 +40,11 @@ export default {
     },
     mixins: [ShoppingCartMixin],
     watch: {
-        cart() {
+        async cart() {
+            const productIds = this.cart.items.map((item) => item.product);
+
+            const productsResponse = await fetchProductsById(productIds);
+            console.log(productsResponse, this.cart);
         },
     },
 };
