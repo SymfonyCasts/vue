@@ -42,6 +42,19 @@
                         v-bind="getFieldProps('customerPhone', 'Phone Number:')"
                     />
                 </div>
+
+                <div class="form-row justify-content-end align-items-center">
+                    <loading v-show="loading" />
+
+                    <div class="col-auto">
+                        <button
+                            type="submit"
+                            class="btn btn-info btn-lg"
+                        >
+                            Order!
+                        </button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -49,11 +62,13 @@
 
 <script>
 import FormInput from '@/components/checkout/form-input';
+import Loading from '@/components/loading';
 
 export default {
     name: 'CheckoutForm',
     components: {
         FormInput,
+        Loading,
     },
     data() {
         return {
@@ -66,6 +81,7 @@ export default {
                 customerPhone: '',
             },
             validationErrors: {},
+            loading: false,
         };
     },
     methods: {
