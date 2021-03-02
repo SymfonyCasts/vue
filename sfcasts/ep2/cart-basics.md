@@ -80,7 +80,7 @@ data instead of just the IRI string.
 But since it doesn't, we're going to need to make *another* AJAX call to get
 the product data for each item in the cart.
 
-Start by opening `assets/services/product-service.js`. At the bottom, I'm going
+Start by opening `assets/services/products-service.js`. At the bottom, I'm going
 to paste in a new function: `fetchProductsById()`, which you can copy from the
 code block on this page.
 
