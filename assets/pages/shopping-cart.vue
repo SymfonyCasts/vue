@@ -1,7 +1,12 @@
 <template>
     <div :class="[$style.component, 'container-fluid']">
         <div class="row">
-            <aside class="col-xs-12 col-lg-3" />
+            <aside class="col-xs-12 col-lg-3">
+                <cart-sidebar
+                    v-if="featuredProduct"
+                    :featured-product="featuredProduct"
+                />
+            </aside>
 
             <div class="col-xs-12 col-lg-9">
                 <title-component text="Shopping Cart" />
@@ -31,6 +36,7 @@ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 import TitleComponent from '@/components/title';
 import ShoppingCartList from '@/components/shopping-cart';
 import Loading from '@/components/loading';
+import CartSidebar from '@/components/shopping-cart/cart-sidebar';
 
 export default {
     name: 'ShoppingCart',
@@ -38,6 +44,7 @@ export default {
         Loading,
         ShoppingCartList,
         TitleComponent,
+        CartSidebar,
     },
     mixins: [ShoppingCartMixin],
     data() {
