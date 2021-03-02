@@ -48,10 +48,8 @@
                     </div>
 
                     <div
-                        :class="{
-                            'transition-testing': true,
-                            'hidden': currentState === 'checkout'
-                        }"
+                        v-show="currentState === 'cart'"
+                        class="transition-testing"
                     >
                         Testing transitions!
                     </div>
