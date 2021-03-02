@@ -11,14 +11,14 @@ index 635f55b9f..40fbf317f 100644
          <span
              v-show="!isValid"
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 40f62ec85..b636b7868 100644
+index c52159eeb..3379a44b6 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -15,6 +15,7 @@
                          v-model="form.customerName"
                          class="col"
                          v-bind="getFieldProps('customerName', 'Name:')"
-+                        @blur="validateForm"
++                        @blur="validateField"
                      />
  
                      <form-input
@@ -26,14 +26,14 @@ index 40f62ec85..b636b7868 100644
                          class="col"
                          type="email"
                          v-bind="getFieldProps('customerEmail', 'Email:')"
-+                        @blur="validateForm"
++                        @blur="validateField"
                      />
                  </div>
  
                  <form-input
                      v-model="form.customerAddress"
                      v-bind="getFieldProps('customerAddress', 'Address:')"
-+                    @blur="validateForm"
++                    @blur="validateField"
                  />
  
                  <div class="form-row">
@@ -41,14 +41,14 @@ index 40f62ec85..b636b7868 100644
                          v-model="form.customerZip"
                          class="col"
                          v-bind="getFieldProps('customerZip', 'Zip Code:')"
-+                        @blur="validateForm"
++                        @blur="validateField"
                      />
  
                      <form-input
                          v-model="form.customerCity"
                          class="col"
                          v-bind="getFieldProps('customerCity', 'City:')"
-+                        @blur="validateForm"
++                        @blur="validateField"
                      />
  
                      <form-input
@@ -56,7 +56,7 @@ index 40f62ec85..b636b7868 100644
                          class="col"
                          type="tel"
                          v-bind="getFieldProps('customerPhone', 'Phone Number:')"
-+                        @blur="validateForm"
++                        @blur="validateField"
                      />
                  </div>
  
