@@ -23,6 +23,7 @@
                 :add-to-cart-success="addToCartSuccess"
                 :allow-add-to-cart="allowAddToCart"
                 add-button-text="+"
+                @add-to-cart="$emit('add-to-cart', $event)"
             />
         </div>
     </div>

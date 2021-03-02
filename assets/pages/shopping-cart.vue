@@ -8,6 +8,11 @@
                     :allow-add-to-cart="cart !== null"
                     :add-to-cart-success="addToCartSuccess"
                     :add-to-cart-loading="addToCartLoading"
+                    @add-to-cart="addProductToCart(
+                        featuredProduct,
+                        $event.selectedColorId,
+                        $event.quantity
+                    )"
                 />
             </aside>
 
