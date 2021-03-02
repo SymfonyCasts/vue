@@ -1,6 +1,14 @@
 <template>
     <div :class="[$style.component, 'row', 'p-3']">
-        {{ item.product.name }}
+        <div class="col-2">
+            {{ item.product.name }}
+        </div>
+
+        <div class="col-1">
+            <span
+                class="color-square"
+            />
+        </div>
     </div>
 </template>
 
