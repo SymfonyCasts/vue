@@ -7,16 +7,16 @@
                 <title-component text="Shopping Cart" />
 
                 <div class="content p-3">
-                    <loading v-show="cart === null" />
-                    <div v-if="cart !== null">
+                    <loading v-show="completeCart === null" />
+                    <div v-if="completeCart !== null">
                         <div
-                            v-for="(cartItem, index) in cart.items"
+                            v-for="(cartItem, index) in completeCart.items"
                             :key="index"
                         >
-                            {{ cartItem.product }} ({{ cartItem.quantity }})
+                            {{ cartItem.product.name }} ({{ cartItem.quantity }})
                         </div>
 
-                        <div v-if="cart.items.length === 0">
+                        <div v-if="completeCart.items.length === 0">
                             Your cart is empty! Get to shopping!
                         </div>
                     </div>
@@ -44,12 +44,11 @@ export default {
             products: null,
         };
     },
-    watch: {
-        async cart() {
-            const productIds = this.cart.items.map((item) => item.product);
-
-            const productsResponse = await fetchProductsById(productIds);
-            this.products = productsResponse.data['hydra:member'];
+    computed: {
+        completeCart() {
+            if (!this.cart || !this.products) {
+                return null;
+            }
 
             const completeItems = this.cart.items.map((cartItem) => (
                 {
@@ -58,7 +57,18 @@ export default {
                     quantity: cartItem.quantity,
                 }
             ));
-            console.log(completeItems);
+
+            return {
+                items: completeItems,
+            };
+        },
+    },
+    watch: {
+        async cart() {
+            const productIds = this.cart.items.map((item) => item.product);
+
+            const productsResponse = await fetchProductsById(productIds);
+            this.products = productsResponse.data['hydra:member'];
         },
     },
 };
