@@ -12,7 +12,7 @@ export default {
         this.cart = await fetchCart();
     },
     methods: {
-        async addToCart(product, selectedColorId, quantity) {
+        async addProductToCart(product, selectedColorId, quantity) {
             if (product.colors.length && selectedColorId === null) {
                 alert('Please select a color first!');
                 return;
