@@ -5,12 +5,21 @@ namespace App\DataFixtures;
 use App\Entity\Category;
 use App\Entity\Color;
 use App\Entity\Product;
+use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Filesystem\Filesystem;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class AppFixtures extends Fixture
 {
+    private $passwordEncoder;
+
+    public function __construct(UserPasswordEncoderInterface $passwordEncoder)
+    {
+        $this->passwordEncoder = $passwordEncoder;
+    }
+
     public function load(ObjectManager $manager)
     {
         $colorRed = new Color('red', 'ff0000');
@@ -71,6 +80,12 @@ class AppFixtures extends Fixture
         $fs->remove($target);
         $fs->mirror(__DIR__.'/uploads', $target);
         $fs->chmod($target, 0777);
+
+        $user = new User();
+        $user->setEmail('shopper@example.com');
+        $user->setPassword($this->passwordEncoder->encodePassword($user, 'buy'));
+
+        $manager->persist($user);
 
         $manager->flush();
     }

@@ -58,6 +58,13 @@
         </p>
 
         {% block javascripts %}
+            <script>
+                {% if app.session.has('_cart_id') %}
+                    window.cartIri = '{{ app.session.get('_cart_'~app.session.get('_cart_id'))|iri }}';
+                {% else %}
+                    window.cartIri = null;
+                {% endif %}
+            </script>
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
     </body>
