@@ -11,15 +11,13 @@ index 222504fea..0411b4301 100644
                              Order!
                          </button>
 diff --git a/assets/services/checkout-service.js b/assets/services/checkout-service.js
-index decb83e83..bca8d23a7 100644
+index 5e5bb6a3a..28e530740 100644
 --- a/assets/services/checkout-service.js
 +++ b/assets/services/checkout-service.js
-@@ -9,7 +9,7 @@ import axios from 'axios';
+@@ -7,5 +7,5 @@ import axios from 'axios';
+  * @return {Promise}
+  */
  export function createOrder(data) {
-     return axios({
-         method: 'post',
--        url: '/api/slfjasfd',
-+        url: '/api/purchases',
-         data,
-     });
+-    return axios.post('/api/slfjasfd', data);
++    return axios.post('/api/purchases', data);
  }
