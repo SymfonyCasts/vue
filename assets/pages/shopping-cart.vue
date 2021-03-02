@@ -38,6 +38,10 @@ export default {
         TitleComponent,
     },
     mixins: [ShoppingCartMixin],
+    watch: {
+        cart() {
+        },
+    },
 };
 </script>
 
