@@ -70,8 +70,10 @@ export default {
         async cart() {
             const productIds = this.cart.items.map((item) => item.product);
 
-            const productsResponse = await fetchProductsById(productIds);
-            const colorsResponse = await fetchColors();
+            const [colorsResponse, productsResponse] = await Promise.all([
+                fetchColors(),
+                fetchProductsById(productIds),
+            ]);
 
             this.products = productsResponse.data['hydra:member'];
             this.colors = colorsResponse.data['hydra:member'];
