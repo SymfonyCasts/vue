@@ -22,6 +22,7 @@
                 v-for="item in items"
                 :key="item.id"
                 :item="item"
+                @updateQuantity="$emit('updateQuantity', $event)"
             />
 
             <div class="p-3">
