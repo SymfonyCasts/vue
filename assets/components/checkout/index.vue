@@ -133,7 +133,9 @@ export default {
         async onSubmit() {
             this.loading = true;
             this.serverError = false;
-            this.validationErrors = {};
+            this.validationErrors = {
+                customerName: null
+            };
 
             try {
                 const response = await createOrder({
