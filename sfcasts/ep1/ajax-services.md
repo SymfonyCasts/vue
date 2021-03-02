@@ -97,7 +97,7 @@ That's looking great!
 ## Use the Service in `catalog.vue`
 
 Let's put it to use in `catalog.vue`. Like before, start by importing it:
-`import {} from '@/services/product-service'` and then bring in the
+`import {} from '@/services/products-service'` and then bring in the
 `fetchProducts` function.
 
 [[[ code('d1023c3bf8') ]]]
