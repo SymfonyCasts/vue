@@ -19,6 +19,7 @@
                 class="form-control"
                 type="number"
                 min="1"
+                @input="updateQuantity"
             />
         </div>
 
@@ -51,6 +52,15 @@ export default {
         },
         totalPrice() {
             return formatPrice(this.item.product.price * this.item.quantity);
+        },
+    },
+    methods: {
+        updateQuantity(event) {
+            this.$emit('updateQuantity', {
+                productId: this.item.product['@id'],
+                colorId: this.item.color ? this.item.color['@id'] : null,
+                quantity: event.target.value,
+            });
         },
     },
 };
