@@ -48,9 +48,13 @@
 
 <script>
 import axios from 'axios';
+import Loading from '@/components/loading';
 
 export default {
     name: 'Sidebar',
+    components: {
+        Loading,
+    },
     props: {
         collapsed: {
             type: Boolean,
