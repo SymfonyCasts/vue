@@ -173,7 +173,7 @@ export default {
             if (!this.form[validationField]) {
                 this.validationErrors[validationField] = validationMessages[validationField];
             } else {
-                delete this.validationErrors[validationField];
+                this.validationErrors[validationField] = null;
             }
         },
     },
