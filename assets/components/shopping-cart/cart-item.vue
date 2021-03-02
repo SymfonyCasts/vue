@@ -7,6 +7,12 @@
 <script>
 export default {
     name: 'ShoppingCartItem',
+    props: {
+        item: {
+            type: Object,
+            required: true,
+        },
+    },
 };
 </script>
 
