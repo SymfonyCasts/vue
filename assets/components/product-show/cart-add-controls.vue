@@ -1,5 +1,5 @@
 <template>
-    <div class="d-flex align-items-center justify-content-center">
+    <div :class="[$style.component, 'd-flex', 'align-items-center', 'justify-content-center']">
         <color-selector
             v-if="product.colors.length !== 0"
             @color-selected="updateSelectedColor"
@@ -40,3 +40,11 @@ export default {
     },
 };
 </script>
+
+<style lang="scss" module>
+.component :global {
+    input {
+        width: 60px;
+    }
+}
+</style>

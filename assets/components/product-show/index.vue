@@ -111,9 +111,5 @@ export default {
         max-width:100%;
         max-height:100%;
     }
-
-    input {
-        width: 60px;
-    }
 }
 </style>
