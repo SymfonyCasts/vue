@@ -37,7 +37,13 @@
                     </div>
 
                     <div class="col-8 p-3">
-                        TODO
+                        <cart-add-controls
+                            v-if="product"
+                            :product="product"
+                            :allow-add-to-cart="cart !== null"
+                            :add-to-cart-loading="addToCartLoading"
+                            :add-to-cart-success="addToCartSuccess"
+                        />
                     </div>
                 </div>
             </div>
@@ -51,12 +57,14 @@ import { fetchOneProduct } from '@/services/products-service';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+import CartAddControls from './cart-add-controls';
 
 export default {
     name: 'ProductShow',
     components: {
         Loading,
         TitleComponent,
+        CartAddControls,
     },
     mixins: [ShoppingCartMixin],
     props: {
