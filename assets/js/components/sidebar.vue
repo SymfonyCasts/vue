@@ -56,6 +56,11 @@ export default {
             categories: [],
         };
     },
+    computed: {
+        currentCategoryId() {
+            return window.currentCategoryId;
+        },
+    },
     async created() {
         const response = await axios.get('/api/categories');
 
