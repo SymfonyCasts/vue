@@ -15,6 +15,7 @@
                 'is-invalid': !isValid,
                 'form-control': true,
             }"
+            @input="$emit('input', $event.target.value)"
         >
         <span
             v-show="!isValid"
