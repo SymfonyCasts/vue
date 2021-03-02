@@ -74,7 +74,7 @@
 </template>
 
 <script>
-import { fetchCart, addItemToCart } from '@/services/cart-service.js';
+import { fetchCart, addItemToCart, getCartTotalItems } from '@/services/cart-service.js';
 import formatPrice from '@/helpers/format-price';
 import { fetchOneProduct } from '@/services/products-service';
 import ColorSelector from '@/components/color-selector';
@@ -141,6 +141,9 @@ export default {
             });
             this.addToCartLoading = false;
             this.addToCartSuccess = true;
+
+            document.getElementById('js-shopping-cart-items')
+                .innerHTML = getCartTotalItems(this.cart).toString();
         },
 
         updateSelectedColor(iri) {
