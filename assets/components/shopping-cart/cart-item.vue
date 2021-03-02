@@ -15,7 +15,7 @@
 
         <div class="col-3">
             <input
-                v-model.number="item.quantity"
+                :value="item.quantity"
                 class="form-control"
                 type="number"
                 min="1"
