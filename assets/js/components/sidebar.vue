@@ -13,7 +13,8 @@
             </li>
 
             <li
-                v-for="category in categories"
+                v-for="(category, index) in categories"
+                :key="index"
                 class="nav-item"
             >
                 <a
