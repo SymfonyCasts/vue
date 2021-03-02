@@ -59,7 +59,7 @@ export default {
             this.$emit('updateQuantity', {
                 productId: this.item.product['@id'],
                 colorId: this.item.color ? this.item.color['@id'] : null,
-                quantity: event.target.value,
+                quantity: parseFloat(event.target.value),
             });
         },
     },
