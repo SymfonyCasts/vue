@@ -13,8 +13,17 @@
                         id="customerName"
                         v-model.trim="form.customerName"
                         type="text"
-                        class="form-control"
+                        :class="{
+                            'is-invalid': !isFieldValid('customerName'),
+                            'form-control': true,
+                        }"
                     >
+                    <span
+                        v-show="!isFieldValid('customerName')"
+                        class="invalid-feedback"
+                    >
+                        {{ validationErrors.customerName }}
+                    </span>
                 </div>
             </form>
         </div>
@@ -36,6 +45,11 @@ export default {
             },
             validationErrors: {},
         };
+    },
+    methods: {
+        isFieldValid(fieldName) {
+            return !(fieldName in this.validationErrors);
+        },
     },
 };
 </script>
