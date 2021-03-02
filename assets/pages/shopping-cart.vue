@@ -22,7 +22,10 @@
                 <div class="content p-3">
                     <loading v-show="completeCart === null" />
 
-                    <transition name="fade">
+                    <transition
+                        name="fade"
+                        mode="out-in"
+                    >
                         <shopping-cart-list
                             v-if="completeCart && currentState === 'cart'"
                             :items="completeCart.items"
