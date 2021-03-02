@@ -11,15 +11,14 @@ index 8152611cf..3949d399c 100644
          <span
              v-show="!isValid"
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index bf73c0154..af7d7b725 100644
+index 3ea1e3165..193306722 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -4,7 +4,7 @@
-             <form>
-                 <form-input
-                     id="customerName"
--                    :value="form.customerName"
-+                    v-model="form.customerName"
+@@ -7,6 +7,7 @@
+                     :value="form.customerName"
                      label="Name:"
                      :error-message="validationErrors.customerName"
++                    @input="form.customerName = $event"
                  />
+             </form>
+         </div>
