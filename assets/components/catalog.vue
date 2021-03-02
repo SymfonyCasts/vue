@@ -2,10 +2,7 @@
     <div>
         <div class="row">
             <div class="col-3">
-                <title-component
-                    :current-category-id="currentCategoryId"
-                    :categories="categories"
-                />
+                <title-component :text="categoryName" />
             </div>
             <div class="col-9">
                 <search-bar @search-products="onSearchProducts" />
