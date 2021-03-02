@@ -2,7 +2,7 @@
     <div class="container-fluid">
         <div class="row">
             <aside class="col-xs-12 col-3">
-                <div :class="$style.sidebar">
+                <div :class="[$style.sidebar, 'p-3', 'mb-5']">
                     <h5 class="text-center">
                         Categories
                     </h5>
