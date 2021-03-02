@@ -8,7 +8,7 @@
                 />
             </div>
             <div class="col-9">
-                <search-bar />
+                <search-bar @search-products="onSearchProducts" />
             </div>
         </div>
 
@@ -71,6 +71,11 @@ export default {
         }
 
         this.products = response.data['hydra:member'];
+    },
+    methods: {
+        onSearchProducts(event) {
+            this.searchTerm = event.term;
+        },
     },
 };
 </script>
