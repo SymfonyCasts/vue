@@ -1626,8 +1626,8 @@
             "description": null
         },
         {
-            "id": "checkout-form-include-cart-prop",
-            "name": "Checkout Form: Include Cart prop",
+            "id": "delete-me-5",
+            "name": "delete me 5",
             "description": null
         },
         {
@@ -1666,6 +1666,11 @@
             "description": null
         },
         {
+            "id": "custom-input-pass-in-props",
+            "name": "Custom Input: pass in props",
+            "description": null
+        },
+        {
             "id": "custom-input-add-name-attribute",
             "name": "Custom Input: add name attribute",
             "description": null
@@ -1673,6 +1678,11 @@
         {
             "id": "custom-input-v-model-input-emit",
             "name": "Custom Input: v-model input emit",
+            "description": null
+        },
+        {
+            "id": "custom-input-change-to-v-model",
+            "name": "Custom Input: change to v-model",
             "description": null
         },
         {
@@ -1718,6 +1728,11 @@
         {
             "id": "server-validation-onsubmit",
             "name": "Server Validation: onSubmit",
+            "description": null
+        },
+        {
+            "id": "server-validation-pass-cart-prop",
+            "name": "Server Validation: pass cart prop",
             "description": null
         },
         {
@@ -1811,5 +1826,5 @@
             "description": null
         }
     ],
-    "sha": "454644451e57ea622b37788115b1861696083f95"
+    "sha": "3d43760446290c0aa08b3ea48fb1bdbade277502"
 }
