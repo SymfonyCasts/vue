@@ -55,6 +55,11 @@ export default {
             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
         };
     },
+    watch: {
+        currentCategoryId(newVal, oldVal) {
+            console.log(newVal, oldVal);
+        },
+    },
     created() {
         this.loadProducts(null);
     },
