@@ -46,14 +46,6 @@
                             {{ buttonText }}
                         </button>
                     </div>
-
-                    <transition name="fade">
-                        <div
-                            v-show="currentState === 'cart'"
-                        >
-                            Testing transitions!
-                        </div>
-                    </transition>
                 </div>
             </div>
         </div>
