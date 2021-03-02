@@ -13,9 +13,7 @@
             <div :class="contentClass">
                 <component
                     :is="currentComponent"
-                    :current-category-id="currentCategoryId"
-                    :categories="categories"
-                    :product-id="currentProductId"
+                    v-bind="currentProps"
                 />
             </div>
         </div>
@@ -55,6 +53,14 @@ export default {
         },
         currentComponent() {
             return this.currentProductId !== null ? ProductShow : Catalog;
+        },
+        currentProps() {
+            return this.currentComponent === ProductShow ? {
+                productId: this.currentProductId,
+            } : {
+                currentCategoryId: this.currentCategoryId,
+                categories: this.categories,
+            };
         },
     },
     async created() {
