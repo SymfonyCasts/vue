@@ -1,17 +1,17 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 357d4e2ec..40f62ec85 100644
+index 3b635d541..c52159eeb 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -146,7 +146,7 @@ export default {
+@@ -145,7 +145,7 @@ export default {
                  this.loading = false;
              }
          },
--        validateForm() {
-+        validateForm(event) {
+-        validateField() {
++        validateField(event) {
              const validationMessages = {
                  customerName: 'Please, enter your full name!',
                  customerEmail: 'Please, enter your email address!',
-@@ -155,6 +155,14 @@ export default {
+@@ -154,6 +154,14 @@ export default {
                  customerCity: 'Please, enter your city!',
                  customerPhone: 'Please, provide a phone number!',
              };
