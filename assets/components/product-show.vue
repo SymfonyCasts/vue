@@ -58,6 +58,10 @@
                                     v-show="addToCartLoading"
                                     class="fas fa-spinner fa-spin"
                                 />
+                                <i
+                                    v-show="addToCartSuccess"
+                                    class="fas fa-check"
+                                />
                             </button>
                         </div>
                     </div>
@@ -92,6 +96,7 @@ export default {
         return {
             cart: null,
             addToCartLoading: false,
+            addToCartSuccess: false,
             product: null,
             loading: true,
         };
@@ -119,12 +124,14 @@ export default {
     methods: {
         async addToCart() {
             this.addToCartLoading = true;
+            this.addToCartSuccess = false;
             await addItemToCart(this.cart, {
                 product: this.product['@id'],
                 color: null,
                 quantity: 1,
             });
             this.addToCartLoading = false;
+            this.addToCartSuccess = true;
         },
     },
 };
