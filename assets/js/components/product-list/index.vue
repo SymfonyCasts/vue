@@ -26,6 +26,10 @@ export default {
         ProductCard,
     },
     props: {
+        loading: {
+            type: Boolean,
+            required: true,
+        },
         products: {
             type: Array,
             required: true,
