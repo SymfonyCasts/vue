@@ -64,6 +64,13 @@ Encore
     // Enable .vue file processing
     .enableVueLoader()
 
+    // gives better module CSS naming in dev
+    .configureCssLoader((config) => {
+        if (!Encore.isProduction() && config.modules) {
+            config.modules.localIdentName = '[name]_[local]_[hash:base64:5]';
+        }
+    })
+
     // enables Sass/SCSS support
     .enableSassLoader()
 
