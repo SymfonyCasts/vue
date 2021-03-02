@@ -63,6 +63,7 @@
 <script>
 import FormInput from '@/components/checkout/form-input';
 import Loading from '@/components/loading';
+import { createOrder } from '@/services/checkout-service';
 
 export default {
     name: 'CheckoutForm',
@@ -98,6 +99,22 @@ export default {
                 label,
                 errorMessage: this.validationErrors[id],
             };
+        },
+        async onSubmit() {
+            this.loading = true;
+
+            try {
+                const response = await createOrder({
+                    ...this.form,
+                    purchaseItems: [],
+                });
+
+                console.log(response.data);
+            } catch (error) {
+                console.error(error.response);
+            } finally {
+                this.loading = false;
+            }
         },
     },
 };
