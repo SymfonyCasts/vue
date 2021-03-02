@@ -4,10 +4,9 @@
             <form>
                 <form-input
                     id="customerName"
-                    :value="form.customerName"
+                    v-model="form.customerName"
                     label="Name:"
                     :error-message="validationErrors.customerName"
-                    @input="form.customerName = $event"
                 />
             </form>
         </div>
