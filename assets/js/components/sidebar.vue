@@ -66,7 +66,7 @@ export default {
         },
     },
     created() {
-        console.log(this);
+        console.log(this, this.categories);
     },
     methods: {
         toggleCollapsed() {
