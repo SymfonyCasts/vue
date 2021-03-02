@@ -14,6 +14,10 @@
                         >
                             {{ cartItem.product }} ({{ cartItem.quantity }})
                         </div>
+
+                        <div v-if="cart.items.length === 0">
+                            Your cart is empty! Get to shopping!
+                        </div>
                     </div>
                 </div>
             </div>
