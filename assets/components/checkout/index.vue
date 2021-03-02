@@ -103,14 +103,7 @@ export default {
                 customerCity: '',
                 customerPhone: '',
             },
-            validationErrors: {
-                customerName: null,
-                customerEmail: null,
-                customerAddress: null,
-                customerZip: null,
-                customerCity: null,
-                customerPhone: null,
-            },
+            validationErrors: this.getEmptyValidationErrors(),
             loading: false,
             serverError: false,
         };
@@ -133,9 +126,7 @@ export default {
         async onSubmit() {
             this.loading = true;
             this.serverError = false;
-            this.validationErrors = {
-                customerName: null
-            };
+            this.validationErrors = this.getEmptyValidationErrors();
 
             try {
                 const response = await createOrder({
@@ -179,6 +170,16 @@ export default {
             } else {
                 this.validationErrors[validationField] = null;
             }
+        },
+        getEmptyValidationErrors() {
+            return {
+                customerName: null,
+                customerEmail: null,
+                customerAddress: null,
+                customerZip: null,
+                customerCity: null,
+                customerPhone: null,
+            };
         },
     },
 };
