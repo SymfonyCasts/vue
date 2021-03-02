@@ -119,6 +119,7 @@ export default {
         async onSubmit() {
             this.loading = true;
             this.serverError = false;
+            this.validationErrors = {};
 
             try {
                 const response = await createOrder({
@@ -133,7 +134,9 @@ export default {
                 if (response.status !== 400) {
                     this.serverError = true;
                 } else {
-                    console.error(response.data);
+                    response.data.violations.forEach((violation) => {
+                        this.validationErrors[violation.propertyPath] = violation.message;
+                    });
                 }
             } finally {
                 this.loading = false;
