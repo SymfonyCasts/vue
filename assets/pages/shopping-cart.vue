@@ -52,6 +52,7 @@ export default {
                 const color = this.colors.find((colorItem) => colorItem['@id'] === cartItem.color);
 
                 return {
+                    id: `${cartItem.product}_${cartItem.color ? cartItem.color : 'none'}`,
                     product,
                     color,
                     quantity: cartItem.quantity,
