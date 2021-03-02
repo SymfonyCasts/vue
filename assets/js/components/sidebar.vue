@@ -28,6 +28,16 @@
                 </a>
             </li>
         </ul>
+
+        <hr>
+
+        <div class="d-flex justify-content-end">
+            <button
+                class="btn btn-secondary btn-sm"
+            >
+                {{ collapsed ? '>>' : '<< Collapse' }}
+            </button>
+        </div>
     </div>
 </template>
 
