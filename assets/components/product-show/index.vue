@@ -37,35 +37,7 @@
                     </div>
 
                     <div class="col-8 p-3">
-                        <div class="d-flex align-items-center justify-content-center">
-                            <color-selector
-                                v-if="product.colors.length !== 0"
-                                @color-selected="updateSelectedColor"
-                            />
-
-                            <input
-                                v-model.number="quantity"
-                                class="form-control mx-3"
-                                type="number"
-                                min="1"
-                            >
-
-                            <button
-                                class="btn btn-info btn-sm"
-                                :disabled="cart === null"
-                                @click="addToCart"
-                            >
-                                Add to Cart
-                                <i
-                                    v-show="addToCartLoading"
-                                    class="fas fa-spinner fa-spin"
-                                />
-                                <i
-                                    v-show="addToCartSuccess"
-                                    class="fas fa-check"
-                                />
-                            </button>
-                        </div>
+                        TODO
                     </div>
                 </div>
             </div>
@@ -76,7 +48,6 @@
 <script>
 import formatPrice from '@/helpers/format-price';
 import { fetchOneProduct } from '@/services/products-service';
-import ColorSelector from '@/components/color-selector';
 import Loading from '@/components/loading';
 import TitleComponent from '@/components/title';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
@@ -84,7 +55,6 @@ import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 export default {
     name: 'ProductShow',
     components: {
-        ColorSelector,
         Loading,
         TitleComponent,
     },
