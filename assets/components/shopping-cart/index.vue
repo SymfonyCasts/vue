@@ -5,8 +5,8 @@
         </div>
 
         <shopping-cart-item
-            v-for="(item, index) in items"
-            :key="index"
+            v-for="item in items"
+            :key="item.id"
             :item="item"
         />
     </div>
