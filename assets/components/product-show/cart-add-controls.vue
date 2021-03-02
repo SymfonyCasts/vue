@@ -14,7 +14,7 @@
 
         <button
             class="btn btn-info btn-sm"
-            :disabled="cart === null"
+            :disabled="!allowAddToCart"
             @click="addToCart"
         >
             Add to Cart
@@ -37,6 +37,24 @@ export default {
     name: 'ProductCartAddControls',
     components: {
         ColorSelector,
+    },
+    props: {
+        product: {
+            type: Object,
+            required: true,
+        },
+        allowAddToCart: {
+            type: Boolean,
+            required: true,
+        },
+        addToCartLoading: {
+            type: Boolean,
+            required: true,
+        },
+        addToCartSuccess: {
+            type: Boolean,
+            required: true,
+        },
     },
 };
 </script>
