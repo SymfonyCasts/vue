@@ -3,6 +3,7 @@
         "defaults"
     ],
     "devDependencies": {
+        "@fortawesome/fontawesome-free": "^5.15.1",
         "@symfony/webpack-encore": "^0.30.0",
         "axios": "^0.19.2",
         "bootstrap": "^4.4.1",
