@@ -1,9 +1,9 @@
 diff --git a/assets/services/checkout-service.js b/assets/services/checkout-service.js
 new file mode 100644
-index 000000000..bca8d23a7
+index 000000000..28e530740
 --- /dev/null
 +++ b/assets/services/checkout-service.js
-@@ -0,0 +1,15 @@
+@@ -0,0 +1,11 @@
 +import axios from 'axios';
 +
 +/**
@@ -13,9 +13,5 @@ index 000000000..bca8d23a7
 + * @return {Promise}
 + */
 +export function createOrder(data) {
-+    return axios({
-+        method: 'post',
-+        url: '/api/purchases',
-+        data,
-+    });
++    return axios.post('/api/purchases', data);
 +}
