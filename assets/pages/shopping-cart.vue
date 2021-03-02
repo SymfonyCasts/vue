@@ -35,7 +35,10 @@
                     <div
                         v-if="completeCart && completeCart.items.length > 0"
                     >
-                        <button class="btn btn-primary">
+                        <button
+                            class="btn btn-primary"
+                            @click="switchState"
+                        >
                             Check Out!
                         </button>
                     </div>
@@ -65,6 +68,7 @@ export default {
     mixins: [ShoppingCartMixin],
     data() {
         return {
+            currentState: 'cart',
             products: null,
             colors: null,
             featuredProduct: null,
@@ -104,6 +108,9 @@ export default {
         this.colors = (await fetchColors()).data['hydra:member'];
     },
     methods: {
+        switchState() {
+            this.currentState = this.currentState === 'cart' ? 'checkout' : 'cart';
+        },
         async loadProducts() {
             const productIds = this.cart.items.map((item) => item.product);
 
