@@ -53,13 +53,9 @@ export default {
          * @return {string}
          */
         totalPrice() {
-            let total = 0;
-
-            this.items.forEach((item) => {
-                total += item.product.price * item.quantity;
-            });
-
-            return formatPrice(total);
+            return formatPrice(
+                this.items.reduce((acc, item) => (acc + (item.product.price * item.quantity)), 0),
+            );
         },
     },
 };
