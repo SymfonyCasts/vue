@@ -15,6 +15,7 @@
                         v-model="form.customerName"
                         class="col"
                         v-bind="getFieldProps('customerName', 'Name:')"
+                        @blur="validateField"
                     />
 
                     <form-input
@@ -22,12 +23,14 @@
                         class="col"
                         type="email"
                         v-bind="getFieldProps('customerEmail', 'Email:')"
+                        @blur="validateField"
                     />
                 </div>
 
                 <form-input
                     v-model="form.customerAddress"
                     v-bind="getFieldProps('customerAddress', 'Address:')"
+                    @blur="validateField"
                 />
 
                 <div class="form-row">
@@ -35,12 +38,14 @@
                         v-model="form.customerZip"
                         class="col"
                         v-bind="getFieldProps('customerZip', 'Zip Code:')"
+                        @blur="validateField"
                     />
 
                     <form-input
                         v-model="form.customerCity"
                         class="col"
                         v-bind="getFieldProps('customerCity', 'City:')"
+                        @blur="validateField"
                     />
 
                     <form-input
@@ -48,6 +53,7 @@
                         class="col"
                         type="tel"
                         v-bind="getFieldProps('customerPhone', 'Phone Number:')"
+                        @blur="validateField"
                     />
                 </div>
 
