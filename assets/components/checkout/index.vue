@@ -159,6 +159,8 @@ export default {
             }
         },
         validateField(event) {
+            console.log(this.validationErrors);
+
             const validationMessages = {
                 customerName: 'Please, enter your full name!',
                 customerEmail: 'Please, enter your email address!',
