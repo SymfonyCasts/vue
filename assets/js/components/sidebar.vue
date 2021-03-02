@@ -41,6 +41,8 @@
 </template>
 
 <script>
+import axios from 'axios';
+
 export default {
     name: 'Sidebar',
     props: {
@@ -53,6 +55,11 @@ export default {
         return {
             categories: [],
         };
+    },
+    async created() {
+        const response = await axios.get('/api/products');
+
+        this.products = response.data['hydra:member'];
     },
 };
 </script>
