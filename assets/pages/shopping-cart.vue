@@ -86,8 +86,12 @@ export default {
         },
     },
     watch: {
-        async cart() {
-            this.loadProducts();
+        cart: {
+            deep: true,
+
+            handler() {
+                this.loadProducts();
+            },
         },
     },
     async created() {
