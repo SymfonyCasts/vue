@@ -89,6 +89,7 @@ export default {
             },
             validationErrors: {},
             loading: false,
+            serverError: false,
         };
     },
     methods: {
@@ -108,6 +109,7 @@ export default {
         },
         async onSubmit() {
             this.loading = true;
+            this.serverError = false;
 
             try {
                 const response = await createOrder({
@@ -117,7 +119,13 @@ export default {
 
                 console.log(response.data);
             } catch (error) {
-                console.error(error.response);
+                const { response } = error;
+
+                if (response.status !== 400) {
+                    this.serverError = true;
+                } else {
+                    console.error(response.data);
+                }
             } finally {
                 this.loading = false;
             }
