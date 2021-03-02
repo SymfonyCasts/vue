@@ -14,6 +14,7 @@
                             :key="index"
                         >
                             {{ cartItem.product.name }} ({{ cartItem.quantity }})
+                            {{ cartItem.color ? cartItem.color.hexColor : '' }}
                         </div>
 
                         <div v-if="completeCart.items.length === 0">
@@ -48,14 +49,14 @@ export default {
     },
     computed: {
         completeCart() {
-            if (!this.cart || !this.products) {
+            if (!this.cart || !this.products || !this.colors) {
                 return null;
             }
 
             const completeItems = this.cart.items.map((cartItem) => (
                 {
                     product: this.products.find((product) => product['@id'] === cartItem.product),
-                    color: cartItem.color,
+                    color: this.colors.find((color) => color['@id'] === cartItem.color),
                     quantity: cartItem.quantity,
                 }
             ));
