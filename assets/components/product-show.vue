@@ -62,6 +62,7 @@
 </template>
 
 <script>
+import { fetchCart } from '@/services/cart-service.js';
 import formatPrice from '@/helpers/format-price';
 import { fetchOneProduct } from '@/services/products-service';
 import ColorSelector from '@/components/color-selector';
