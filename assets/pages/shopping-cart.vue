@@ -7,7 +7,14 @@
                 <title-component text="Shopping Cart" />
 
                 <div class="content p-3">
-                    TODO - show the cart!
+                    <div v-if="cart !== null">
+                        <div
+                            v-for="(cartItem, index) in cart.items"
+                            :key="index"
+                        >
+                            {{ cartItem.product }} ({{ cartItem.quantity }})
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
