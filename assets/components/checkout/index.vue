@@ -2,6 +2,14 @@
     <div class="row p-3">
         <div class="col-12">
             <form @submit.prevent="onSubmit">
+                <div
+                    v-show="serverError"
+                    class="alert alert-danger"
+                >
+                    Well this is embarrassing ... something went wrong!
+                    Please try again!
+                </div>
+
                 <div class="form-row">
                     <form-input
                         v-model="form.customerName"
