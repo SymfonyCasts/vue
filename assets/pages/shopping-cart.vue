@@ -170,7 +170,6 @@ export default {
 
     .transition-testing {
         transition: opacity 3s;
-        opacity: 1;
     }
     .transition-testing.hidden {
         opacity: 0;
