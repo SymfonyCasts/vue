@@ -84,6 +84,7 @@ export default {
     },
     data() {
         return {
+            cart: null,
             product: null,
             loading: true,
         };
@@ -98,6 +99,10 @@ export default {
         },
     },
     async created() {
+        fetchCart().then((cart) => {
+            this.cart = cart;
+        });
+
         try {
             this.product = (await fetchOneProduct(this.productId)).data;
         } finally {
