@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 12ba3288c..e877887c6 100644
+index a6746e9b0..b022700ba 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -63,6 +63,7 @@
@@ -10,7 +10,7 @@ index 12ba3288c..e877887c6 100644
  
  export default {
      name: 'CheckoutForm',
-@@ -105,6 +106,22 @@ export default {
+@@ -99,6 +100,22 @@ export default {
                  errorMessage: this.validationErrors[id],
              };
          },
@@ -20,7 +20,7 @@ index 12ba3288c..e877887c6 100644
 +            try {
 +                const response = await createOrder({
 +                    ...this.form,
-+                    purchaseItems: this.cart.items,
++                    purchaseItems: [],
 +                });
 +
 +                console.log(response.data);
