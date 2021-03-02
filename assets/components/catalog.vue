@@ -56,6 +56,17 @@ export default {
             searchTerm: null,
         };
     },
+    computed: {
+        categoryName() {
+            if (this.currentCategoryId === null) {
+                return 'All Products';
+            }
+
+            const category = this.categories.find((cat) => (cat['@id'] === this.currentCategoryId));
+
+            return category ? category.name : '';
+        },
+    },
     watch: {
         currentCategoryId() {
             this.loadProducts();
