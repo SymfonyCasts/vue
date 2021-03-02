@@ -43,6 +43,7 @@
                             />
 
                             <input
+                                v-model.number="quantity"
                                 class="form-control mx-3"
                                 type="number"
                                 min="1"
@@ -95,6 +96,7 @@ export default {
     data() {
         return {
             cart: null,
+            quantity: 1,
             addToCartLoading: false,
             addToCartSuccess: false,
             product: null,
@@ -128,7 +130,7 @@ export default {
             await addItemToCart(this.cart, {
                 product: this.product['@id'],
                 color: null,
-                quantity: 1,
+                quantity: this.quantity,
             });
             this.addToCartLoading = false;
             this.addToCartSuccess = true;
