@@ -11,10 +11,8 @@
             </aside>
 
             <div :class="contentClass">
-                Product: {{ currentProductId }}
-                <product-show />
-
-                <catalog
+                <component
+                    :is="currentComponent"
                     :current-category-id="currentCategoryId"
                     :categories="categories"
                 />
