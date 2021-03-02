@@ -1,17 +1,12 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index c62d7053b..bf73c0154 100644
+index d36706ab1..60f8b4ddc 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -2,14 +2,25 @@
+@@ -2,14 +2,20 @@
      <div class="row p-3">
          <div class="col-12">
              <form>
-+                <form-input
-+                    id="customerName"
-+                    :value="form.customerName"
-+                    label="Name:"
-+                    :error-message="validationErrors.customerName"
-+                />
++                <form-input />
              </form>
          </div>
      </div>
@@ -25,6 +20,6 @@ index c62d7053b..bf73c0154 100644
 +    components: {
 +        FormInput,
 +    },
-     props: {
-         cart: {
-             type: Object,
+     data() {
+         return {
+             form: {
