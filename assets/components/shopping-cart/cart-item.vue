@@ -7,6 +7,9 @@
         <div class="col-1">
             <span
                 class="color-square"
+                :style="{
+                    backgroundColor: `#${hexColor}`
+                }"
             />
         </div>
     </div>
@@ -19,6 +22,11 @@ export default {
         item: {
             type: Object,
             required: true,
+        },
+    },
+    computed: {
+        hexColor() {
+            return this.item.color ? this.item.color.hexColor : 'fff';
         },
     },
 };
