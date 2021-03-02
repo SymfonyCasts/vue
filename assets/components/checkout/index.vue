@@ -2,7 +2,12 @@
     <div class="row p-3">
         <div class="col-12">
             <form>
-                <form-input />
+                <form-input
+                    id="customerName"
+                    :value="form.customerName"
+                    label="Name:"
+                    :error-message="validationErrors.customerName"
+                />
             </form>
         </div>
     </div>
