@@ -12,6 +12,7 @@
                     <form-input
                         v-model="form.customerEmail"
                         class="col"
+                        type="email"
                         v-bind="getFieldProps('customerEmail', 'Email:')"
                     />
                 </div>
@@ -37,6 +38,7 @@
                     <form-input
                         v-model="form.customerPhone"
                         class="col"
+                        type="tel"
                         v-bind="getFieldProps('customerPhone', 'Phone Number:')"
                     />
                 </div>
