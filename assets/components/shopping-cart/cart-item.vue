@@ -21,10 +21,16 @@
                 min="1"
             />
         </div>
+
+        <div class="col-3">
+            ${{ totalPrice }}
+        </div>
     </div>
 </template>
 
 <script>
+import formatPrice from '@/helpers/format-price';
+
 export default {
     name: 'ShoppingCartItem',
     props: {
@@ -36,6 +42,9 @@ export default {
     computed: {
         hexColor() {
             return this.item.color ? this.item.color.hexColor : 'fff';
+        },
+        totalPrice() {
+            return formatPrice(this.item.product.price * this.item.quantity);
         },
     },
 };
