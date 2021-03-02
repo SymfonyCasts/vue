@@ -3,7 +3,7 @@
         <loading v-if="loading" />
 
         <div v-if="product">
-            <h1>{{ product.name }}</h1>
+            <title-component />
         </div>
     </div>
 </template>
@@ -11,11 +11,13 @@
 <script>
 import { fetchOneProduct } from '@/services/products-service';
 import Loading from '@/components/loading';
+import TitleComponent from '@/components/title';
 
 export default {
     name: 'ProductShow',
     components: {
         Loading,
+        TitleComponent,
     },
     props: {
         productId: {
