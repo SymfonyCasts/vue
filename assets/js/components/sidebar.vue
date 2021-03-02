@@ -57,9 +57,9 @@ export default {
         };
     },
     async created() {
-        const response = await axios.get('/api/products');
+        const response = await axios.get('/api/categories');
 
-        this.products = response.data['hydra:member'];
+        this.categories = response.data['hydra:member'];
     },
 };
 </script>
