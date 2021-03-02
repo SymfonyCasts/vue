@@ -47,7 +47,7 @@
                         </button>
                     </div>
 
-                    <transition>
+                    <transition name="fade">
                         <div
                             v-show="currentState === 'cart'"
                         >
@@ -167,10 +167,10 @@ export default {
         @include light-component;
     }
 
-    .v-enter-active, .v-leave-active {
+    .fade-enter-active, .fade-leave-active {
         transition: opacity 3s;
     }
-    .v-enter, .v-leave-to {
+    .fade-enter, .fade-leave-to {
         opacity: 0;
     }
 }
