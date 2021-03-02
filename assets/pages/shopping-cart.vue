@@ -26,7 +26,7 @@
 
 <script>
 import { fetchColors } from '@/services/colors-service';
-import { fetchProductsById } from '@/services/products-service';
+import { fetchFeaturedProducts, fetchProductsById } from '@/services/products-service';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 import TitleComponent from '@/components/title';
 import ShoppingCartList from '@/components/shopping-cart';
@@ -44,6 +44,7 @@ export default {
         return {
             products: null,
             colors: null,
+            featuredProduct: null,
         };
     },
     computed: {
@@ -75,6 +76,7 @@ export default {
         },
     },
     async created() {
+        this.loadFeaturedProduct();
         this.colors = (await fetchColors()).data['hydra:member'];
     },
     methods: {
@@ -86,6 +88,16 @@ export default {
         },
         updateQuantity({ productId, colorId, quantity }) {
             this.updateProductQuantity(productId, colorId, quantity);
+        },
+
+        async loadFeaturedProduct() {
+            const featuredProducts = (await fetchFeaturedProducts()).data['hydra:member'];
+
+            if (featuredProducts.length === 0) {
+                return;
+            }
+
+            this.featuredProduct = featuredProducts[0];
         },
     },
 };
