@@ -25,7 +25,7 @@
             />
 
             <div class="p-3">
-                Total: <strong>$ // TODO</strong>
+                Total: <strong>${{ totalPrice }}</strong>
             </div>
         </div>
     </div>
@@ -33,6 +33,7 @@
 
 <script>
 import ShoppingCartItem from '@/components/shopping-cart/cart-item';
+import formatPrice from '@/helpers/format-price';
 
 export default {
     name: 'ShoppingCartList',
@@ -43,6 +44,22 @@ export default {
         items: {
             type: Array,
             required: true,
+        },
+    },
+    computed: {
+        /**
+         * Returns the formatted total price of the list
+         *
+         * @return {string}
+         */
+        totalPrice() {
+            let total = 0;
+
+            this.items.forEach((item) => {
+                total += item.product.price * item.quantity;
+            });
+
+            return formatPrice(total);
         },
     },
 };
