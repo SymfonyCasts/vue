@@ -19,9 +19,9 @@
 
             <cart-add-controls
                 :product="featuredProduct"
-                :add-to-cart-loading="false"
-                :add-to-cart-success="false"
-                :allow-add-to-cart="false"
+                :add-to-cart-loading="addToCartLoading"
+                :add-to-cart-success="addToCartSuccess"
+                :allow-add-to-cart="allowAddToCart"
                 add-button-text="+"
             />
         </div>
@@ -40,6 +40,18 @@ export default {
     props: {
         featuredProduct: {
             type: Object,
+            required: true,
+        },
+        allowAddToCart: {
+            type: Boolean,
+            required: true,
+        },
+        addToCartLoading: {
+            type: Boolean,
+            required: true,
+        },
+        addToCartSuccess: {
+            type: Boolean,
             required: true,
         },
     },

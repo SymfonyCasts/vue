@@ -5,6 +5,9 @@
                 <cart-sidebar
                     v-if="featuredProduct"
                     :featured-product="featuredProduct"
+                    :allow-add-to-cart="cart !== null"
+                    :add-to-cart-success="addToCartSuccess"
+                    :add-to-cart-loading="addToCartLoading"
                 />
             </aside>
 
