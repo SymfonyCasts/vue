@@ -57,14 +57,14 @@ export default {
         };
     },
     computed: {
-        filteredProducts() {
+        async filteredProducts() {
             if (!this.searchTerm) {
                 return this.products;
             }
 
-            return this.products.filter((product) => (
-                product.name.toLowerCase().includes(this.searchTerm.toLowerCase())
-            ));
+            const response = await fetchProducts(this.currentCategoryId, this.searchTerm)
+
+            return response.data['hydra:member'];
         },
     },
     async created() {
@@ -72,7 +72,7 @@ export default {
 
         let response;
         try {
-            response = await fetchProducts(this.currentCategoryId);
+            response = await fetchProducts(this.currentCategoryId, null);
 
             this.loading = false;
         } catch (e) {
