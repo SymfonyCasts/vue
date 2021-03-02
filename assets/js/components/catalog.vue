@@ -13,7 +13,7 @@
         </div>
 
         <product-list
-            :products="filteredProducts"
+            :products="products"
             :loading="loading"
         />
 
@@ -56,36 +56,29 @@ export default {
             legend: 'Shipping takes 10-13 weeks, and products probably won\'t work',
         };
     },
-    computed: {
-        async filteredProducts() {
-            if (!this.searchTerm) {
-                return this.products;
-            }
-
-            const response = await fetchProducts(this.currentCategoryId, this.searchTerm)
-
-            return response.data['hydra:member'];
-        },
-    },
     async created() {
-        this.loading = true;
-
-        let response;
-        try {
-            response = await fetchProducts(this.currentCategoryId, null);
-
-            this.loading = false;
-        } catch (e) {
-            this.loading = false;
-
-            return;
-        }
-
-        this.products = response.data['hydra:member'];
+        this.loadProducts(null);
     },
     methods: {
         onSearchProducts(event) {
             this.searchTerm = event.term;
+        },
+
+        async loadProducts(searchTerm) {
+            this.loading = true;
+
+            let response;
+            try {
+                response = await fetchProducts(this.currentCategoryId, searchTerm);
+
+                this.loading = false;
+            } catch (e) {
+                this.loading = false;
+
+                return;
+            }
+
+            this.products = response.data['hydra:member'];
         },
     },
 };
