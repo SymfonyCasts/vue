@@ -22,6 +22,7 @@ class Purchase
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"purchase:read"})
      */
     private $id;
 
