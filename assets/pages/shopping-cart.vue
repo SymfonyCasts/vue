@@ -22,19 +22,21 @@
                 <div class="content p-3">
                     <loading v-show="completeCart === null" />
 
-                    <shopping-cart-list
-                        v-if="completeCart && currentState === 'cart'"
-                        :items="completeCart.items"
-                        @updateQuantity="updateQuantity"
-                        @removeFromCart="removeProductFromCart(
-                            $event.productId,
-                            $event.colorId,
-                        )"
-                    />
+                    <transition name="fade">
+                        <shopping-cart-list
+                            v-if="completeCart && currentState === 'cart'"
+                            :items="completeCart.items"
+                            @updateQuantity="updateQuantity"
+                            @removeFromCart="removeProductFromCart(
+                                $event.productId,
+                                $event.colorId,
+                            )"
+                        />
 
-                    <checkout-form
-                        v-if="completeCart && currentState === 'checkout'"
-                    />
+                        <checkout-form
+                            v-if="completeCart && currentState === 'checkout'"
+                        />
+                    </transition>
 
                     <div
                         v-if="completeCart && completeCart.items.length > 0"
