@@ -58,6 +58,7 @@
                         <button
                             type="submit"
                             class="btn btn-info btn-lg"
+                            :disabled="loading"
                         >
                             Order!
                         </button>
