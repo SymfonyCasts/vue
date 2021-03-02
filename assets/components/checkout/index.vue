@@ -9,5 +9,17 @@
 <script>
 export default {
     name: 'CheckoutForm',
+    data() {
+        return {
+            form: {
+                customerName: '',
+                customerEmail: '',
+                customerAddress: '',
+                customerZip: '',
+                customerCity: '',
+                customerPhone: '',
+            },
+        };
+    },
 };
 </script>
