@@ -23,13 +23,17 @@
                     <loading v-show="completeCart === null" />
 
                     <shopping-cart-list
-                        v-if="completeCart"
+                        v-if="completeCart && currentState === 'cart'"
                         :items="completeCart.items"
                         @updateQuantity="updateQuantity"
                         @removeFromCart="removeProductFromCart(
                             $event.productId,
                             $event.colorId,
                         )"
+                    />
+
+                    <checkout-form
+                        v-if="completeCart && currentState === 'checkout'"
                     />
 
                     <div
@@ -52,6 +56,7 @@
 import { fetchColors } from '@/services/colors-service';
 import { fetchFeaturedProducts, fetchProductsById } from '@/services/products-service';
 import ShoppingCartMixin from '@/mixins/get-shopping-cart';
+import CheckoutForm from '@/components/checkout';
 import TitleComponent from '@/components/title';
 import ShoppingCartList from '@/components/shopping-cart';
 import Loading from '@/components/loading';
@@ -60,6 +65,7 @@ import CartSidebar from '@/components/shopping-cart/cart-sidebar';
 export default {
     name: 'ShoppingCart',
     components: {
+        CheckoutForm,
         Loading,
         ShoppingCartList,
         TitleComponent,
