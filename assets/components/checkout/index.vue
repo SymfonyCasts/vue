@@ -19,6 +19,7 @@ export default {
                 customerCity: '',
                 customerPhone: '',
             },
+            validationErrors: {},
         };
     },
 };
