@@ -11,6 +11,7 @@
             </aside>
 
             <div :class="contentClass">
+                Product: {{ currentProductId }}
                 <catalog
                     :current-category-id="currentCategoryId"
                     :categories="categories"
@@ -23,7 +24,7 @@
 <script>
 import Catalog from '@/components/catalog';
 import Sidebar from '@/components/sidebar';
-import { getCurrentCategoryId } from '@/services/page-context';
+import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 import { fetchCategories } from '@/services/categories-service';
 
 export default {
@@ -45,6 +46,9 @@ export default {
         },
         contentClass() {
             return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
+        },
+        currentProductId() {
+            return getCurrentProductId();
         },
     },
     async created() {
