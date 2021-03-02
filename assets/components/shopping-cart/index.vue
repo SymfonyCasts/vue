@@ -27,6 +27,10 @@
                     colorId: item.color ? item.color['@id'] : null,
                     quantity: $event.quantity,
                 })"
+                @removeFromCart="$emit('removeFromCart', {
+                    productId: item.product['@id'],
+                    colorId: item.color ? item.color['@id'] : null,
+                })"
             />
 
             <div class="p-3">
