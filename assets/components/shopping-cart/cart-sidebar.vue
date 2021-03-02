@@ -22,6 +22,7 @@
                 :add-to-cart-loading="false"
                 :add-to-cart-success="false"
                 :allow-add-to-cart="false"
+                add-button-text="+"
             />
         </div>
     </div>
