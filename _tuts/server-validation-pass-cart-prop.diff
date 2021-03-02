@@ -1,11 +1,11 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 127f8567c..980c9610e 100644
+index b022700ba..e877887c6 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
-@@ -9,6 +9,12 @@
- <script>
- export default {
-     name: 'CheckoutForm',
+@@ -71,6 +71,12 @@ export default {
+         FormInput,
+         Loading,
+     },
 +    props: {
 +        cart: {
 +            type: Object,
@@ -15,6 +15,15 @@ index 127f8567c..980c9610e 100644
      data() {
          return {
              form: {
+@@ -106,7 +112,7 @@ export default {
+             try {
+                 const response = await createOrder({
+                     ...this.form,
+-                    purchaseItems: [],
++                    purchaseItems: this.cart.items,
+                 });
+ 
+                 console.log(response.data);
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
 index e37b13a8f..941fd3857 100644
 --- a/assets/pages/shopping-cart.vue
