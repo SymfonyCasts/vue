@@ -22,7 +22,24 @@ chapters:
     - prop-trap
     - emit-update-quantity
     - update-quantity
+    - mixin-quantity-header
     - remove-from-cart
     - cart-controls-component
+    - cart-controls-component2
     - featured-sidebar
+    - sidebar-controls
     - smart-watcher
+    - cart-checkout-toggle
+    - css-transitions
+    - transitions
+    - transition-mode
+    - prop-transition
+    - checkout-form
+    - form-input-component
+    - v-model-custom-component
+    - v-bind-object
+    - checkout-submit
+    - unexpected-errors
+    - form-validation
+    - client-validation
+    - losing-reactivity
