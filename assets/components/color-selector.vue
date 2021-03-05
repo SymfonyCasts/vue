@@ -12,11 +12,7 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-import { getColors } from '@/services/colors-service';
-=======
 import { fetchColors } from '@/services/colors-service';
->>>>>>> vue-2-final
 
 export default {
     name: 'ColorSelector',
@@ -27,19 +23,7 @@ export default {
         };
     },
     async created() {
-<<<<<<< HEAD
-        let response;
-
-        try {
-            response = await getColors();
-        } catch (e) {
-            return;
-        }
-
-        this.colors = response.data['hydra:member'];
-=======
         this.colors = (await fetchColors()).data['hydra:member'];
->>>>>>> vue-2-final
     },
     methods: {
         selectColor(iri) {
@@ -52,11 +36,6 @@ export default {
 
 <style lang="scss" module>
 .component :global {
-<<<<<<< HEAD
-    display: inline-block;
-    width: 105px;
-=======
->>>>>>> vue-2-final
     height: 25px;
 
     span {
