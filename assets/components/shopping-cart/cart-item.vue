@@ -1,34 +1,26 @@
 <template>
-    <div :class="[$style.component, 'row', 'p-3', 'align-items-center']">
-        <div class="col-3">
-            <div class="row">
-                <span class="col">
-                    {{ cartItem.name }}
-                </span>
+    <div :class="[$style.component, 'row', 'p-3']">
+        <div class="col-2">
+            {{ item.product.name }}
+        </div>
 
-                <span class="col-2">
-                    <span
-                        class="color-square"
-                        :style="{
-                            backgroundColor: `#${cartItem.hexColor}`
-                        }"
-                    />
-                </span>
-            </div>
+        <div class="col-1">
+            <span
+                class="color-square"
+                :style="{
+                    backgroundColor: `#${hexColor}`
+                }"
+            />
         </div>
 
         <div class="col-3">
             <input
-                v-model.number="cartItem.qty"
+                :value="item.quantity"
                 class="form-control"
                 type="number"
                 min="1"
-                @input="$emit('updateQuantity', {
-                    product: cartItem['@id'],
-                    color: cartItem.colorId,
-                    quantity: cartItem.qty
-                })"
-            >
+                @input="updateQuantity"
+            />
         </div>
 
         <div class="col-3">
@@ -38,10 +30,7 @@
         <div class="col-3">
             <button
                 class="btn btn-info btn-sm"
-                @click="$emit('removeFromCart', {
-                    product: cartItem['@id'],
-                    color: cartItem.colorId
-                })"
+                @click="$emit('removeFromCart')"
             >
                 Remove
             </button>
@@ -55,14 +44,24 @@ import formatPrice from '@/helpers/format-price';
 export default {
     name: 'ShoppingCartItem',
     props: {
-        cartItem: {
+        item: {
             type: Object,
             required: true,
         },
     },
     computed: {
+        hexColor() {
+            return this.item.color ? this.item.color.hexColor : 'fff';
+        },
         totalPrice() {
-            return formatPrice(this.cartItem.price * this.cartItem.qty);
+            return formatPrice(this.item.product.price * this.item.quantity);
+        },
+    },
+    methods: {
+        updateQuantity(event) {
+            this.$emit('updateQuantity', {
+                quantity: parseFloat(event.target.value),
+            });
         },
     },
 };
@@ -74,7 +73,7 @@ export default {
 .component :global {
     border-bottom: 1px solid $light-component-border;
 
-    span.color-square {
+    .color-square {
         display: inline-block;
         width: 25px;
         height: 25px;

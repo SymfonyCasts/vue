@@ -20,14 +20,20 @@ export function fetchProducts(categoryIri, searchTerm) {
     });
 }
 
+export function fetchFeaturedProducts() {
+    return axios.get('/api/products', {
+        params: { featured: 1 },
+    });
+}
+
 /**
- * Gets a product from the API according to the productIri
+ * Gets a product from the API according to the IRI.
  *
- * @param {string} productIri
+ * @param {string} iri
  * @return {Promise}
  */
-export function getProduct(productIri) {
-    return axios.get(productIri);
+export function fetchOneProduct(iri) {
+    return axios.get(iri);
 }
 
 /**
@@ -36,9 +42,9 @@ export function getProduct(productIri) {
  * @param {string[]} ids
  * @return {Promise}
  */
-export function getProductsById(ids) {
+export function fetchProductsById(ids) {
     if (!ids.length) {
-        return Promise.resolve({ 'hydra:member': [] });
+        return Promise.resolve({ data: { 'hydra:member': [] } });
     }
 
     return axios.get(

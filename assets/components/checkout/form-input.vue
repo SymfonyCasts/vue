@@ -1,5 +1,5 @@
 <template>
-    <div class="p-3">
+    <div class="form-group">
         <label
             :for="id"
             class="col-form-label"
@@ -8,12 +8,13 @@
         </label>
         <input
             :id="id"
+            :name="id"
             :type="type"
+            :value="value"
             :class="{
                 'is-invalid': !isValid,
                 'form-control': true,
             }"
-            :value="value"
             @input="$emit('input', $event.target.value)"
             @blur="$emit('blur', $event)"
         >

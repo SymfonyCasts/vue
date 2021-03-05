@@ -1,13 +1,10 @@
 <template>
     <div>
-        <div
-            v-show="!items.length"
-            class="p-3"
-        >
-            Sorry! You haven't bought anything yet!
+        <div v-if="items.length === 0">
+            Your cart is empty! Get to shopping!
         </div>
 
-        <div v-show="items.length">
+        <div v-if="items.length">
             <div class="row p-3">
                 <div class="col-3">
                     Item Name
@@ -23,10 +20,17 @@
 
             <shopping-cart-item
                 v-for="item in items"
-                :key="item['@id']"
-                :cart-item="item"
-                @updateQuantity="(data) => $emit('updateQuantity', data)"
-                @removeFromCart="(data) => $emit('removeFromCart', data)"
+                :key="item.id"
+                :item="item"
+                @updateQuantity="$emit('updateQuantity', {
+                    productId: item.product['@id'],
+                    colorId: item.color ? item.color['@id'] : null,
+                    quantity: $event.quantity,
+                })"
+                @removeFromCart="$emit('removeFromCart', {
+                    productId: item.product['@id'],
+                    colorId: item.color ? item.color['@id'] : null,
+                })"
             />
 
             <div class="p-3">
@@ -59,7 +63,7 @@ export default {
          */
         totalPrice() {
             return formatPrice(
-                this.items.reduce((acc, item) => (acc + (item.price * item.qty)), 0),
+                this.items.reduce((acc, item) => (acc + (item.product.price * item.quantity)), 0),
             );
         },
     },

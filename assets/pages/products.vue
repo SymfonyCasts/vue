@@ -22,20 +22,18 @@
 
 <script>
 import Catalog from '@/components/catalog';
-import Product from '@/components/product';
+import ProductShow from '@/components/product-show';
 import Sidebar from '@/components/sidebar';
 import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 import { fetchCategories } from '@/services/categories-service';
-import shoppingCartMixin from '@/mixins/get-shopping-cart';
 
 export default {
     name: 'Products',
     components: {
         Catalog,
-        Product,
+        ProductShow,
         Sidebar,
     },
-    mixins: [shoppingCartMixin],
     data() {
         return {
             sidebarCollapsed: false,
@@ -54,18 +52,15 @@ export default {
             return getCurrentProductId();
         },
         currentComponent() {
-            return this.currentProductId !== null ? Product : Catalog;
+            return this.currentProductId !== null ? ProductShow : Catalog;
         },
         currentProps() {
-            return this.currentProductId !== null
-                ? {
-                    currentProductId: this.currentProductId,
-                    cart: this.cart,
-                }
-                : {
-                    currentCategoryId: this.currentCategoryId,
-                    categories: this.categories,
-                };
+            return this.currentComponent === ProductShow ? {
+                productId: this.currentProductId,
+            } : {
+                currentCategoryId: this.currentCategoryId,
+                categories: this.categories,
+            };
         },
     },
     async created() {

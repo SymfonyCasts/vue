@@ -7,9 +7,5 @@ import axios from 'axios';
  * @return {Promise}
  */
 export function createOrder(data) {
-    return axios({
-        method: 'post',
-        url: '/api/purchases',
-        data,
-    });
+    return axios.post('/api/purchases', data);
 }

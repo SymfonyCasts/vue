@@ -3,63 +3,70 @@
         <div class="col-12">
             <form @submit.prevent="onSubmit">
                 <div
-                    v-show="formError"
-                    class="alert alert-danger m-3"
+                    v-show="serverError"
+                    class="alert alert-danger"
                 >
-                    Oops, there's been an error sending your data! Please, try again!
+                    Well this is embarrassing ... something went wrong!
+                    Please try again!
                 </div>
 
-                <form-input
-                    v-model="form.customerName"
-                    v-bind="getFieldProps('customerName', 'Name:')"
-                    @blur="validateForm"
-                />
+                <div class="form-row">
+                    <form-input
+                        v-model="form.customerName"
+                        class="col"
+                        v-bind="getFieldProps('customerName', 'Name:')"
+                        @blur="validateField"
+                    />
 
-                <form-input
-                    v-model="form.customerEmail"
-                    type="email"
-                    v-bind="getFieldProps('customerEmail', 'Email:')"
-                    @blur="validateForm"
-                />
+                    <form-input
+                        v-model="form.customerEmail"
+                        class="col"
+                        type="email"
+                        v-bind="getFieldProps('customerEmail', 'Email:')"
+                        @blur="validateField"
+                    />
+                </div>
 
                 <form-input
                     v-model="form.customerAddress"
                     v-bind="getFieldProps('customerAddress', 'Address:')"
-                    @blur="validateForm"
+                    @blur="validateField"
                 />
 
-                <form-input
-                    v-model="form.customerZip"
-                    v-bind="getFieldProps('customerZip', 'Zip Code:')"
-                    @blur="validateForm"
-                />
-
-                <form-input
-                    v-model="form.customerCity"
-                    v-bind="getFieldProps('customerCity', 'City:')"
-                    @blur="validateForm"
-                />
-
-                <form-input
-                    v-model="form.customerPhone"
-                    type="tel"
-                    v-bind="getFieldProps('customerPhone', 'Phone Number:')"
-                    @blur="validateForm"
-                />
-
-                <div class="row p-3 justify-content-end align-items-center">
-                    <loading
-                        v-show="loading"
-                        class="col-auto"
+                <div class="form-row">
+                    <form-input
+                        v-model="form.customerZip"
+                        class="col"
+                        v-bind="getFieldProps('customerZip', 'Zip Code:')"
+                        @blur="validateField"
                     />
+
+                    <form-input
+                        v-model="form.customerCity"
+                        class="col"
+                        v-bind="getFieldProps('customerCity', 'City:')"
+                        @blur="validateField"
+                    />
+
+                    <form-input
+                        v-model="form.customerPhone"
+                        class="col"
+                        type="tel"
+                        v-bind="getFieldProps('customerPhone', 'Phone Number:')"
+                        @blur="validateField"
+                    />
+                </div>
+
+                <div class="form-row justify-content-end align-items-center">
+                    <loading v-show="loading" />
 
                     <div class="col-auto">
                         <button
                             type="submit"
-                            class="btn btn-info btn-sm"
+                            class="btn btn-info btn-lg"
                             :disabled="loading"
                         >
-                            Checkout!
+                            Order!
                         </button>
                     </div>
                 </div>
@@ -95,11 +102,10 @@ export default {
                 customerZip: '',
                 customerCity: '',
                 customerPhone: '',
-                purchaseItems: [],
             },
-            validationErrors: {},
+            validationErrors: this.getEmptyValidationErrors(),
             loading: false,
-            formError: false,
+            serverError: false,
         };
     },
     methods: {
@@ -119,21 +125,23 @@ export default {
         },
         async onSubmit() {
             this.loading = true;
-            this.form.purchaseItems = this.cart.items;
-            this.formError = false;
-            this.validationErrors = {};
+            this.serverError = false;
+            this.validationErrors = this.getEmptyValidationErrors();
 
             try {
-                const response = await createOrder(this.form);
+                const response = await createOrder({
+                    ...this.form,
+                    purchaseItems: this.cart.items,
+                });
+
                 await clearCart();
 
-                const id = Number(response.data['@id'].split('/').pop());
-                window.location = `/confirmation/${id}`;
+                window.location = `/confirmation/${response.data.id}`;
             } catch (error) {
                 const { response } = error;
 
                 if (response.status !== 400) {
-                    this.formError = true;
+                    this.serverError = true;
                 } else {
                     response.data.violations.forEach((violation) => {
                         this.validationErrors[violation.propertyPath] = violation.message;
@@ -143,13 +151,13 @@ export default {
                 this.loading = false;
             }
         },
-        validateForm(event) {
+        validateField(event) {
             const validationMessages = {
                 customerName: 'Please, enter your full name!',
                 customerEmail: 'Please, enter your email address!',
                 customerAddress: 'Please, enter your street address!',
                 customerZip: 'Please, enter your ZIP code!',
-                customerCity: 'Please, enter your City!',
+                customerCity: 'Please, enter your city!',
                 customerPhone: 'Please, provide a phone number!',
             };
 
@@ -158,8 +166,18 @@ export default {
             if (!this.form[validationField]) {
                 this.validationErrors[validationField] = validationMessages[validationField];
             } else {
-                delete this.validationErrors[validationField];
+                this.validationErrors[validationField] = null;
             }
+        },
+        getEmptyValidationErrors() {
+            return {
+                customerName: null,
+                customerEmail: null,
+                customerAddress: null,
+                customerZip: null,
+                customerCity: null,
+                customerPhone: null,
+            };
         },
     },
 };
