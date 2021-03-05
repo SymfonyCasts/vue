@@ -1,4 +1,0 @@
-diff --git a/assets/components/product-show.vue b/assets/components/product-show/index.vue
-similarity index 100%
-rename from assets/components/product-show.vue
-rename to assets/components/product-show/index.vue
