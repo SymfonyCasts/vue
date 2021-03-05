@@ -1,4 +1,4 @@
-import { getCart, getCartTotalItems } from '@/services/cart-service';
+import { fetchCart, getCartTotalItems } from '@/services/cart-service';
 
 export default {
     data() {
@@ -11,7 +11,7 @@ export default {
     },
     async mounted() {
         try {
-            this.cart = await getCart();
+            this.cart = await fetchCart();
         } catch (e) {
             return;
         }

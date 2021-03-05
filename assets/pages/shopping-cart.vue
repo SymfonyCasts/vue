@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import { getFullShoppingCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
+import { fetchCart, updateCartItemQuantity, removeItemFromCart } from '@/services/cart-service';
 import Loading from '@/components/loading';
 import CheckoutForm from '@/components/checkout';
 import TitleComponent from '@/components/title';
@@ -109,7 +109,7 @@ export default {
             }
 
             try {
-                this.items = await getFullShoppingCart(this.cart);
+                this.items = await fetchCart();
             } catch (e) {
                 this.loading = false;
             }
