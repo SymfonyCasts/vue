@@ -22,18 +22,18 @@
                             </p>
                             <code>
                                 1233 Nineties Dr.<br />
-                                10443 Vintage City, VN<br />
+                                10443 Vintage City, MI<br />
                                 USA
                             </code>
                             <p>
-                                Your products will arrive within 12-24 weeks.
+                                Your products will arrive within 12-24 weeks... or probably later.
                             </p>
 
                             <hr />
 
-                            <code>
-                                Order Details<br /><br />
+                            Order Details<br /><br />
 
+                            <code>
                                 Customer Name: {{ purchase.customerName }}<br />
                                 Address: {{ purchase.customerAddress }}<br />
                                 Zip: {{ purchase.customerZip }}<br />
@@ -42,31 +42,36 @@
                             </code>
                             <hr />
 
-                            {% for item in purchase.purchaseItems %}
-                                <div class="row flex-row purchase-row">
-                                    <code>
-                                        {{ item.quantity }} |
-                                    </code>
-                                    <code class="flex-grow-1">
-                                        {% if item.color is not null %}{{ item.color.name }}{% endif %}
-                                        {{ item.product.name }}
-                                    </code>
-                                    <code>
-                                        | $ {{ (item.product.price / 100)|number_format(2) }} <br />
-                                    </code>
-                                </div>
-                            {% endfor %}
+                            <table class="table">
+                                <tbody>
+                                    {% for item in purchase.purchaseItems %}
+                                        <tr>
+                                            <td>
+                                                {% if item.color is not null %}{{ item.color.name }}{% endif %}
+                                                {{ item.product.name }}
+                                            </td>
+                                            <td>
+                                                {{ item.quantity }}
+                                            </td>
+                                            <td>
+                                                ${{ (item.product.price / 100)|number_format(2) }} <br />
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
 
-                            <hr />
-
-                            <div class="row flex-row purchase-row">
-                                <code class="flex-grow-1">
-                                    Total Price:
-                                </code>
-                                <code>
-                                    $ {{ (totalPrice / 100)|number_format(2) }}
-                                </code>
-                            </div>
+                                <tfoot>
+                                    <tr>
+                                        <td class="flex-grow-1">
+                                            Total Price:
+                                        </td>
+                                        <td></td>
+                                        <td>
+                                        ${{ (totalPrice / 100)|number_format(2) }}
+                                        </td>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
                 </div>

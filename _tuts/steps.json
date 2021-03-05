@@ -271,11 +271,6 @@
             "description": null
         },
         {
-            "id": "delete-me-1",
-            "name": "delete-me-1",
-            "description": null
-        },
-        {
             "id": "migrate-shopping-cart-switch-to-watcheffect",
             "name": "Migrate Shopping Cart: Switch to watchEffect",
             "description": null

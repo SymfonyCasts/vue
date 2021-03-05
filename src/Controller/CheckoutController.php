@@ -23,6 +23,9 @@ class CheckoutController extends AbstractController
      */
     public function confirmation(Purchase $purchase): Response
     {
+        // TODO - you would have security here to prevent someone
+        // from viewing my order details!
+
         $totalPrice = 0;
         $purchaseItems = $purchase->getPurchaseItems();
 

@@ -1,6 +1,9 @@
 import axios from 'axios';
+<<<<<<< HEAD
 import { getColors } from '@/services/colors-service';
 import { getProductsById } from '@/services/products-service';
+=======
+>>>>>>> vue-2-final
 
 /**
  * @typedef {Object} CartCollection
@@ -19,8 +22,17 @@ import { getProductsById } from '@/services/products-service';
  *
  * @return {string|null}
  */
+<<<<<<< HEAD
 function getCartId() {
     return window.cartId;
+=======
+function getCartIri() {
+    return window.cartIri;
+}
+
+function setCartIri(cartIri) {
+    window.cartIri = cartIri;
+>>>>>>> vue-2-final
 }
 
 /**
@@ -39,12 +51,21 @@ function findItemIndex(cart, productId, colorId) {
 /**
  * Gets the current cart or an empty object if no cart is present
  *
+<<<<<<< HEAD
  * @return {CartCollection}
  */
 export async function getCart() {
     const cartId = getCartId();
 
     if (cartId === null) {
+=======
+ * @return {Promise<CartCollection>}
+ */
+export async function fetchCart() {
+    const cartIri = getCartIri();
+
+    if (cartIri === null) {
+>>>>>>> vue-2-final
         return new Promise((resolve) => {
             resolve({
                 items: [],
@@ -52,7 +73,12 @@ export async function getCart() {
         });
     }
 
+<<<<<<< HEAD
     const response = await axios.get(`/api/carts/${cartId}`);
+=======
+    const response = await axios.get(cartIri);
+
+>>>>>>> vue-2-final
     return { items: response.data.items };
 }
 
@@ -63,8 +89,13 @@ export async function getCart() {
  * @param {CartItem} item
  * @return {Promise}
  */
+<<<<<<< HEAD
 export function addItemToCart(cart, item) {
     const cartId = getCartId();
+=======
+export async function addItemToCart(cart, item) {
+    const cartIri = getCartIri();
+>>>>>>> vue-2-final
     const itemIndex = findItemIndex(cart, item.product, item.color);
 
     if (itemIndex !== -1) {
@@ -73,11 +104,23 @@ export function addItemToCart(cart, item) {
         cart.items.push(item);
     }
 
+<<<<<<< HEAD
     if (cartId !== null) {
         return axios.put(`/api/carts/${cartId}`, cart);
     }
 
     return axios.post('/api/carts', cart);
+=======
+    let response = null;
+    if (cartIri !== null) {
+        response = await axios.put(cartIri, cart);
+    } else {
+        response = await axios.post('/api/carts', cart);
+        setCartIri(response.data['@id']);
+    }
+
+    return { items: response.data.items };
+>>>>>>> vue-2-final
 }
 
 /**
@@ -88,14 +131,24 @@ export function addItemToCart(cart, item) {
  * @param {string} colorId
  * @return {Promise}
  */
+<<<<<<< HEAD
 export function removeItemFromCart(cart, productId, colorId) {
     const cartId = getCartId();
 
+=======
+export async function removeItemFromCart(cart, productId, colorId) {
+>>>>>>> vue-2-final
     cart.items = cart.items.filter(
         (item) => (!(item.product === productId && item.color === colorId)),
     );
 
+<<<<<<< HEAD
     return axios.put(`/api/carts/${cartId}`, cart);
+=======
+    const response = await axios.put(getCartIri(), cart);
+
+    return { items: response.data.items };
+>>>>>>> vue-2-final
 }
 
 /**
@@ -107,8 +160,12 @@ export function removeItemFromCart(cart, productId, colorId) {
  * @param {number} quantity
  * @return {Promise}
  */
+<<<<<<< HEAD
 export function updateCartItemQuantity(cart, productId, colorId, quantity) {
     const cartId = getCartId();
+=======
+export async function updateCartItemQuantity(cart, productId, colorId, quantity) {
+>>>>>>> vue-2-final
     const cartItemIndex = findItemIndex(cart, productId, colorId);
 
     if (cartItemIndex === -1) {
@@ -117,7 +174,13 @@ export function updateCartItemQuantity(cart, productId, colorId, quantity) {
 
     cart.items[cartItemIndex].quantity = quantity;
 
+<<<<<<< HEAD
     return axios.put(`/api/carts/${cartId}`, cart);
+=======
+    const response = await axios.put(getCartIri(), cart);
+
+    return { items: response.data.items };
+>>>>>>> vue-2-final
 }
 
 /**
@@ -126,7 +189,11 @@ export function updateCartItemQuantity(cart, productId, colorId, quantity) {
  * @return {Promise}
  */
 export function clearCart() {
+<<<<<<< HEAD
     return axios.delete(`/api/carts/${getCartId()}`);
+=======
+    return axios.delete(getCartIri());
+>>>>>>> vue-2-final
 }
 
 /**
@@ -138,6 +205,7 @@ export function clearCart() {
 export function getCartTotalItems(cart) {
     return cart.items.reduce((acc, item) => (acc + item.quantity), 0);
 }
+<<<<<<< HEAD
 
 /**
  * Gets the full info on the shopping cart
@@ -183,3 +251,5 @@ export async function getFullShoppingCart(cart) {
         };
     });
 }
+=======
+>>>>>>> vue-2-final

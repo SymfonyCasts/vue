@@ -5,7 +5,11 @@ import axios from 'axios';
  *
  * @return {Promise}
  */
+<<<<<<< HEAD
 export function getColors() {
+=======
+export function fetchColors() {
+>>>>>>> vue-2-final
     return axios({
         method: 'get',
         url: '/api/colors',

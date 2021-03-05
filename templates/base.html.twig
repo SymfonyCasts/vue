@@ -41,7 +41,11 @@
                     {% endif %}
                     <li class="nav-item">
                         <a class="nav-link" href="{{ path('app_cart') }}">
+<<<<<<< HEAD
                             Shopping Cart (<span id="js-shopping-cart-items">0</span>)
+=======
+                            Shopping Cart (<span id="js-shopping-cart-items">{{ count_cart_items() }}</span>)
+>>>>>>> vue-2-final
                         </a>
                     </li>
                 </ul>
@@ -60,9 +64,9 @@
         {% block javascripts %}
             <script>
                 {% if app.session.has('_cart_id') %}
-                    window.cartId = '{{ app.session.get('_cart_id') }}';
+                    window.cartIri = '{{ app.session.get('_cart_'~app.session.get('_cart_id'))|iri }}';
                 {% else %}
-                    window.cartId = null;
+                    window.cartIri = null;
                 {% endif %}
             </script>
             {{ encore_entry_script_tags('app') }}
