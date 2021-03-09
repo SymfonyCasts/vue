@@ -108,6 +108,12 @@ Why? Head over to your terminal, open `products.vue` and... let's see... I'll
 make my favorite change: adding some exclamation points! I'll save then move back
 to my browser.
 
+***TIP
+If you're using Webpack Encore 1.0 or higher, the page will not automatically reload anymore.
+But that's ok: that's been disabled to show something even cooler, which we'll talk about in
+the next video.
+***
+
 Nice! The page refreshed *for* me. If I remove those exclamation points and come
 back, it did it again! Ok, that's kinda cool: as soon as it detects a change,
 it automatically reloads.
