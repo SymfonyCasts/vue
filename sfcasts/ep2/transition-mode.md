@@ -36,6 +36,11 @@ components and indent them.
 
 [[[ code('ce0ef2f176') ]]]
 
+***TIP
+In Vue 3, for this to work, you need to change the `v-if` to `v-else-if` on the 2nd element. This
+helps Vue know *for sure* that only 1 element will ever be visible at a time.
+***
+
 Wrapping multiple elements or components inside a single `transition` only works
 when you're using `v-if`, not `v-show`... and it only works when there's exactly
 *one* element or component being displayed at a time... which is exactly our
