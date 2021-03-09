@@ -4,6 +4,11 @@ If you use Webpack's `dev-server`, then as soon as it detects a change, our page
 automatically reloads. Cool... but not cool enough! Find your terminal, hit
 Control + C to stop Encore, then re-run the dev server with a `--hot` option.
 
+***TIP
+If you're using Webpack Encore 1.0 or higher, you do not need to pass the `--hot`
+flag: it's already, automatically, enabled.
+***
+
 ```terminal-silent
 yarn dev-server --hot
 ```
