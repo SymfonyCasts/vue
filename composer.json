@@ -2,7 +2,7 @@
     "type": "project",
     "license": "proprietary",
     "require": {
-        "php": "^7.2.9",
+        "php": "^7.4.0 || ^8.0",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "api-platform/core": "^2.1",
@@ -40,7 +40,7 @@
         },
         "sort-packages": true,
         "platform": {
-            "php": "7.2.9"
+            "php": "7.4.0"
         }
     },
     "autoload": {
