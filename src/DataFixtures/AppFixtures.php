@@ -6,7 +6,7 @@ use App\Entity\Category;
 use App\Entity\Color;
 use App\Entity\Product;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\Filesystem\Filesystem;
 
 class AppFixtures extends Fixture
