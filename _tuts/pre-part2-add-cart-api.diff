@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index b4a962218..6f2ef8209 100644
+index 81ddb7ed7..beb1b4634 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -16,6 +16,7 @@
@@ -11,21 +11,21 @@ index b4a962218..6f2ef8209 100644
          "symfony/asset": "5.1.*",
          "symfony/console": "5.1.*",
 diff --git a/composer.lock b/composer.lock
-index d558cb66f..03b3fbd8c 100644
+index 540f2cdcf..cee0949d7 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "eccb25eea70c4c91962cf31a306afe78",
-+    "content-hash": "950310f089ce416d75d7021230fbf383",
+-    "content-hash": "6c3ac943b26aa752953ff7d7795aaca0",
++    "content-hash": "8f12b98be138a69fbe3fbef9416c748b",
      "packages": [
          {
              "name": "api-platform/core",
-@@ -159,6 +159,62 @@
-             },
-             "time": "2020-08-28T16:23:13+00:00"
+@@ -162,6 +162,62 @@
+             ],
+             "time": "2021-01-22T10:36:37+00:00"
          },
 +        {
 +            "name": "brick/math",
@@ -86,7 +86,7 @@ index d558cb66f..03b3fbd8c 100644
          {
              "name": "composer/package-versions-deprecated",
              "version": "1.11.99",
-@@ -2513,6 +2569,162 @@
+@@ -2636,6 +2692,171 @@
              },
              "time": "2020-03-23T09:12:05+00:00"
          },
@@ -151,6 +151,10 @@ index d558cb66f..03b3fbd8c 100644
 +                "queue",
 +                "set"
 +            ],
++            "support": {
++                "issues": "https://github.com/ramsey/collection/issues",
++                "source": "https://github.com/ramsey/collection/tree/1.1.0"
++            },
 +            "funding": [
 +                {
 +                    "url": "https://github.com/ramsey",
@@ -238,6 +242,11 @@ index d558cb66f..03b3fbd8c 100644
 +                "identifier",
 +                "uuid"
 +            ],
++            "support": {
++                "issues": "https://github.com/ramsey/uuid/issues",
++                "rss": "https://github.com/ramsey/uuid/releases.atom",
++                "source": "https://github.com/ramsey/uuid"
++            },
 +            "funding": [
 +                {
 +                    "url": "https://github.com/ramsey",
@@ -341,7 +350,7 @@ index 000000000..ee259b7f4
 +    }
 +}
 diff --git a/src/DataFixtures/AppFixtures.php b/src/DataFixtures/AppFixtures.php
-index d40958a87..317c9cd13 100644
+index f08005e91..317c9cd13 100644
 --- a/src/DataFixtures/AppFixtures.php
 +++ b/src/DataFixtures/AppFixtures.php
 @@ -5,12 +5,21 @@ namespace App\DataFixtures;
@@ -350,8 +359,7 @@ index d40958a87..317c9cd13 100644
  use App\Entity\Product;
 +use App\Entity\User;
  use Doctrine\Bundle\FixturesBundle\Fixture;
--use Doctrine\Common\Persistence\ObjectManager;
-+use Doctrine\Persistence\ObjectManager;
+ use Doctrine\Persistence\ObjectManager;
  use Symfony\Component\Filesystem\Filesystem;
 +use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
  
@@ -600,7 +608,7 @@ index 97f810b7f..792047082 100644
 +    }
  }
 diff --git a/symfony.lock b/symfony.lock
-index 0bab824ac..7079f6e8f 100644
+index 3552baf3d..cf4f4f0a2 100644
 --- a/symfony.lock
 +++ b/symfony.lock
 @@ -16,6 +16,9 @@
@@ -613,7 +621,7 @@ index 0bab824ac..7079f6e8f 100644
      "doctrine/annotations": {
          "version": "1.0",
          "recipe": {
-@@ -161,6 +164,12 @@
+@@ -167,6 +170,12 @@
      "psr/log": {
          "version": "1.1.3"
      },
