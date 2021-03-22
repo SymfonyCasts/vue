@@ -12,7 +12,7 @@ index d8afab2cd..81ddb7ed7 100644
          "doctrine/orm": "^2",
          "nelmio/cors-bundle": "^2.1",
 diff --git a/composer.lock b/composer.lock
-index b3a0c7481..540f2cdcf 100644
+index f1d2e5904..bf5457297 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
@@ -92,20 +92,20 @@ index b3a0c7481..540f2cdcf 100644
          },
          {
              "name": "doctrine/migrations",
--            "version": "2.3.2",
-+            "version": "3.1.0",
+-            "version": "2.3.3",
++            "version": "3.1.1",
              "source": {
                  "type": "git",
                  "url": "https://github.com/doctrine/migrations.git",
--                "reference": "39520699043d9bfaaebeb81fa026bf2b02a8f735"
-+                "reference": "260991be753a38aa25b6f2d13dbb7f113f8dbf8f"
+-                "reference": "c4c46f7064f6e7795bd7f26549579918b46790fa"
++                "reference": "e543224170a61ffe49fcadb8e7339c345df1baa2"
              },
              "dist": {
                  "type": "zip",
--                "url": "https://api.github.com/repos/doctrine/migrations/zipball/39520699043d9bfaaebeb81fa026bf2b02a8f735",
--                "reference": "39520699043d9bfaaebeb81fa026bf2b02a8f735",
-+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/260991be753a38aa25b6f2d13dbb7f113f8dbf8f",
-+                "reference": "260991be753a38aa25b6f2d13dbb7f113f8dbf8f",
+-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/c4c46f7064f6e7795bd7f26549579918b46790fa",
+-                "reference": "c4c46f7064f6e7795bd7f26549579918b46790fa",
++                "url": "https://api.github.com/repos/doctrine/migrations/zipball/e543224170a61ffe49fcadb8e7339c345df1baa2",
++                "reference": "e543224170a61ffe49fcadb8e7339c345df1baa2",
                  "shasum": ""
              },
              "require": {
@@ -173,8 +173,8 @@ index b3a0c7481..540f2cdcf 100644
              ],
              "support": {
                  "issues": "https://github.com/doctrine/migrations/issues",
--                "source": "https://github.com/doctrine/migrations/tree/2.3.2"
-+                "source": "https://github.com/doctrine/migrations/tree/3.1.0"
+-                "source": "https://github.com/doctrine/migrations/tree/2.3.3"
++                "source": "https://github.com/doctrine/migrations/tree/3.1.1"
              },
              "funding": [
                  {
@@ -182,8 +182,8 @@ index b3a0c7481..540f2cdcf 100644
                      "type": "tidelift"
                  }
              ],
--            "time": "2020-12-23T14:06:04+00:00"
-+            "time": "2021-02-07T21:16:17+00:00"
+-            "time": "2021-03-14T10:22:48+00:00"
++            "time": "2021-03-14T11:10:58+00:00"
          },
          {
              "name": "doctrine/orm",
