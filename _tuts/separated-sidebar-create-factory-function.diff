@@ -1,8 +1,8 @@
-diff --git a/assets/js/modules/collapsible-sidebar.js b/assets/js/modules/collapsible-sidebar.js
+diff --git a/assets/modules/collapsible-sidebar.js b/assets/modules/collapsible-sidebar.js
 new file mode 100644
 index 00000000..67028593
 --- /dev/null
-+++ b/assets/js/modules/collapsible-sidebar.js
++++ b/assets/modules/collapsible-sidebar.js
 @@ -0,0 +1,19 @@
 +export default function useCollapsibleSidebar() {
 +    /*

@@ -1,0 +1,26 @@
+diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
+index b9a835c3..78890e54 100644
+--- a/assets/modules/shopping-cart.js
++++ b/assets/modules/shopping-cart.js
+@@ -1,3 +1,4 @@
++import { ref } from 'vue';
+ import {
+     addItemToCart,
+     fetchCart,
+@@ -6,13 +7,14 @@ import {
+     updateCartItemQuantity,
+ } from '@/services/cart-service';
+ 
++const addToCartLoading = ref(false);
++const addToCartSuccess = ref(false);
++
+ export default function useShoppingCart() {
+     return {
+         data() {
+             return {
+                 cart: null,
+-                addToCartLoading: false,
+-                addToCartSuccess: false,
+             };
+         },
+         async created() {

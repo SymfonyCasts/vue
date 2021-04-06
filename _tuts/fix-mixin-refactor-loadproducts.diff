@@ -1,0 +1,43 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 0e420d0d..4c863864 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -67,6 +67,7 @@
+ </template>
+ 
+ <script>
++import { reactive } from 'vue';
+ import { fetchColors } from '@/services/colors-service';
+ import { fetchFeaturedProducts, fetchProductsById } from '@/services/products-service';
+ import CheckoutForm from '@/components/checkout';
+@@ -167,11 +168,18 @@ export default {
+             updateProductQuantity,
+         } = useShoppingCart();
+ 
++        const products = reactive([]);
++
+         const loadProducts = async () => {
+-            const productIds = this.cart.items.map((item) => item.product);
++            const productIds = cart.items.map((item) => item.product);
+ 
+             const productsResponse = await fetchProductsById(productIds);
+-            this.products = productsResponse.data['hydra:member'];
++
++            products.splice(0, products.length);
++
++            productsResponse.data['hydra:member'].forEach((product) => {
++                products.push(product);
++            });
+         };
+ 
+         loadCart();
+@@ -181,7 +189,9 @@ export default {
+             addToCartSuccess,
+             cartLoading,
+             cart,
++            products,
+             addProductToCart,
++            loadProducts,
+             removeProductFromCart,
+             updateProductQuantity,
+         };

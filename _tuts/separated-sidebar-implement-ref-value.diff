@@ -1,7 +1,7 @@
-diff --git a/assets/js/modules/collapsible-sidebar.js b/assets/js/modules/collapsible-sidebar.js
+diff --git a/assets/modules/collapsible-sidebar.js b/assets/modules/collapsible-sidebar.js
 index 67028593..1a1a65a5 100644
---- a/assets/js/modules/collapsible-sidebar.js
-+++ b/assets/js/modules/collapsible-sidebar.js
+--- a/assets/modules/collapsible-sidebar.js
++++ b/assets/modules/collapsible-sidebar.js
 @@ -1,7 +1,8 @@
 +import { ref } from 'vue';
 +
@@ -22,11 +22,11 @@ index 67028593..1a1a65a5 100644
 +        sidebarCollapsed,
 +    };
  }
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 39a22d0a..914f8d12 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
-@@ -38,7 +38,6 @@ export default {
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 743700c2..64009d39 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -37,7 +37,6 @@ export default {
      },
      data() {
          return {

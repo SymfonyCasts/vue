@@ -1,0 +1,90 @@
+diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
+index ec76ec16..356ee23d 100644
+--- a/assets/modules/shopping-cart.js
++++ b/assets/modules/shopping-cart.js
+@@ -24,48 +24,49 @@ export default function useShoppingCart() {
+         });
+     };
+ 
+-    return {
+-        addToCartLoading,
+-        addToCartSuccess,
+-        cart,
+-        loadCart,
+-        /*
+-        methods: {
+-            async addProductToCart(product, selectedColorId, quantity) {
+-                if (product.colors.length && selectedColorId === null) {
+-                    alert('Please select a color first!');
+-                    return;
+-                }
++    /*
++    methods: {
++        async addProductToCart(product, selectedColorId, quantity) {
++            if (product.colors.length && selectedColorId === null) {
++                alert('Please select a color first!');
++                return;
++            }
++
++            this.addToCartLoading = true;
++            this.addToCartSuccess = false;
++            await addItemToCart(this.cart, {
++                product: product['@id'],
++                color: selectedColorId,
++                quantity,
++            });
++            this.addToCartLoading = false;
++            this.addToCartSuccess = true;
+ 
+-                this.addToCartLoading = true;
+-                this.addToCartSuccess = false;
+-                await addItemToCart(this.cart, {
+-                    product: product['@id'],
+-                    color: selectedColorId,
+-                    quantity,
+-                });
+-                this.addToCartLoading = false;
+-                this.addToCartSuccess = true;
++            this.updateCartHeaderTotal();
++        },
+ 
+-                this.updateCartHeaderTotal();
+-            },
++        async updateProductQuantity(productId, colorId, quantity) {
++            await updateCartItemQuantity(this.cart, productId, colorId, quantity);
+ 
+-            async updateProductQuantity(productId, colorId, quantity) {
+-                await updateCartItemQuantity(this.cart, productId, colorId, quantity);
++            this.updateCartHeaderTotal();
++        },
+ 
+-                this.updateCartHeaderTotal();
+-            },
++        async removeProductFromCart(productId, colorId) {
++            await removeItemFromCart(this.cart, productId, colorId);
+ 
+-            async removeProductFromCart(productId, colorId) {
+-                await removeItemFromCart(this.cart, productId, colorId);
++            this.updateCartHeaderTotal();
++        },
+ 
+-                this.updateCartHeaderTotal();
+-            },
++        updateCartHeaderTotal() {
++            document.getElementById('js-shopping-cart-items')
++                .innerHTML = getCartTotalItems(this.cart).toString();
++        },
++    },*/
+ 
+-            updateCartHeaderTotal() {
+-                document.getElementById('js-shopping-cart-items')
+-                    .innerHTML = getCartTotalItems(this.cart).toString();
+-            },
+-        },*/
++    return {
++        addToCartLoading,
++        addToCartSuccess,
++        cart,
++        loadCart,
+     };
+ }

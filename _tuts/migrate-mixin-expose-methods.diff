@@ -1,0 +1,44 @@
+diff --git a/assets/components/product-show/index.vue b/assets/components/product-show/index.vue
+index c9f6bef8..384e08ff 100644
+--- a/assets/components/product-show/index.vue
++++ b/assets/components/product-show/index.vue
+@@ -106,6 +106,7 @@ export default {
+             addToCartSuccess,
+             cart,
+             loadCart,
++            addProductToCart,
+         } = useShoppingCart();
+ 
+         loadCart();
+@@ -114,6 +115,7 @@ export default {
+             addToCartLoading,
+             addToCartSuccess,
+             cart,
++            addProductToCart,
+         };
+     },
+ };
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 4e0d47b6..6991fc56 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -167,6 +167,9 @@ export default {
+             addToCartSuccess,
+             cart,
+             loadCart,
++            addProductToCart,
++            removeProductFromCart,
++            updateProductQuantity,
+         } = useShoppingCart();
+ 
+         loadCart();
+@@ -175,6 +178,9 @@ export default {
+             addToCartLoading,
+             addToCartSuccess,
+             cart,
++            addProductToCart,
++            removeProductFromCart,
++            updateProductQuantity,
+         };
+     },
+ };

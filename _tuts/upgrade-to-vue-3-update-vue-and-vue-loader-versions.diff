@@ -1,10 +1,10 @@
 diff --git a/package.json b/package.json
-index effa5d4a..d65ac937 100644
+index 3f5d6f77..deb6f467 100644
 --- a/package.json
 +++ b/package.json
-@@ -15,8 +15,8 @@
-         "node-sass": "^4.13.0",
+@@ -16,8 +16,8 @@
          "regenerator-runtime": "^0.13.2",
+         "sass": "^1.29.0",
          "sass-loader": "^8.0.0",
 -        "vue": "^2.6.11",
 -        "vue-loader": "^15.9.1",
@@ -14,10 +14,10 @@ index effa5d4a..d65ac937 100644
      },
      "license": "UNLICENSED",
 diff --git a/yarn.lock b/yarn.lock
-index bc400307..b640f26e 100644
+index 700aa553..b1c91832 100644
 --- a/yarn.lock
 +++ b/yarn.lock
-@@ -1007,21 +1007,29 @@
+@@ -1012,21 +1012,29 @@
      "@vue/compiler-dom" "3.0.0"
      "@vue/shared" "3.0.0"
  
@@ -61,18 +61,18 @@ index bc400307..b640f26e 100644
  
  "@vue/shared@3.0.0":
    version "3.0.0"
-@@ -1601,7 +1609,7 @@ block-stream@*:
+@@ -1532,7 +1540,7 @@ bindings@^1.5.0:
    dependencies:
-     inherits "~2.0.0"
+     file-uri-to-path "1.0.0"
  
 -bluebird@^3.1.1, bluebird@^3.5.5, bluebird@^3.7.2:
 +bluebird@^3.5.5, bluebird@^3.7.2:
    version "3.7.2"
    resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
    integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
-@@ -2189,13 +2197,6 @@ console-control-strings@^1.0.0, console-control-strings@~1.1.0:
-   resolved "https://registry.yarnpkg.com/console-control-strings/-/console-control-strings-1.1.0.tgz#3d7cf4464db6446ea644bf4b39507f9851008e8e"
-   integrity sha1-PXz0Rk22RG6mRL9LOVB/mFEAjo4=
+@@ -2089,13 +2097,6 @@ console-browserify@^1.1.0:
+   resolved "https://registry.yarnpkg.com/console-browserify/-/console-browserify-1.2.0.tgz#67063cef57ceb6cf4993a2ab3a55840ae8c49336"
+   integrity sha512-ZMkYO/LkF17QvCPqM0gxw8yUzigAOZOSWSHg91FH6orS7vcEj5dVZTidN2fQ14yBSdg97RqhSNwLUXInd52OTA==
  
 -consolidate@^0.15.1:
 -  version "0.15.1"
@@ -84,7 +84,7 @@ index bc400307..b640f26e 100644
  consolidate@^0.16.0:
    version "0.16.0"
    resolved "https://registry.yarnpkg.com/consolidate/-/consolidate-0.16.0.tgz#a11864768930f2f19431660a65906668f5fbdc16"
-@@ -2532,6 +2533,11 @@ csso@^4.0.2:
+@@ -2424,6 +2425,11 @@ csso@^4.0.2:
    dependencies:
      css-tree "1.0.0-alpha.39"
  
@@ -93,10 +93,10 @@ index bc400307..b640f26e 100644
 +  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.13.tgz#a6893015b90e84dd6e85d0e3b442a1e84f2dbe0f"
 +  integrity sha512-ul26pfSQTZW8dcOnD2iiJssfXw0gdNVX9IJDH/X3K5DGPfj+fUYe3kB+swUY6BF3oZDxaID3AJt+9/ojSAE05A==
 +
- currently-unhandled@^0.4.1:
-   version "0.4.1"
-   resolved "https://registry.yarnpkg.com/currently-unhandled/-/currently-unhandled-0.4.1.tgz#988df33feab191ef799a61369dd76c17adf957ea"
-@@ -3858,11 +3864,6 @@ hash-base@^3.0.0:
+ cyclist@^1.0.1:
+   version "1.0.1"
+   resolved "https://registry.yarnpkg.com/cyclist/-/cyclist-1.0.1.tgz#596e9698fd0c80e12038c2b82d6eb1b35b6224d9"
+@@ -3609,11 +3615,6 @@ hash-base@^3.0.0:
      readable-stream "^3.6.0"
      safe-buffer "^5.2.0"
  
@@ -108,7 +108,7 @@ index bc400307..b640f26e 100644
  hash-sum@^2.0.0:
    version "2.0.0"
    resolved "https://registry.yarnpkg.com/hash-sum/-/hash-sum-2.0.0.tgz#81d01bb5de8ea4a214ad5d6ead1b523460b0b45a"
-@@ -4668,7 +4669,7 @@ loader-utils@1.2.3:
+@@ -4330,7 +4331,7 @@ loader-utils@1.2.3:
      emojis-list "^2.0.0"
      json5 "^1.0.1"
  
@@ -117,16 +117,22 @@ index bc400307..b640f26e 100644
    version "1.4.0"
    resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.4.0.tgz#c579b5e34cb34b1a74edc6c1fb36bfa371d5a613"
    integrity sha512-qH0WSMBtn/oHuwjy/NucEgbx5dbxxnxup9s4PVXJUDHZBQY+s0NWA9rJf53RBnQZxfch7euUui7hpoAPvALZdA==
-@@ -4747,7 +4748,7 @@ loud-rejection@^1.0.0:
-     currently-unhandled "^0.4.1"
-     signal-exit "^3.0.0"
+@@ -4401,14 +4402,6 @@ loose-envify@^1.0.0:
+   dependencies:
+     js-tokens "^3.0.0 || ^4.0.0"
  
--lru-cache@^4.0.1, lru-cache@^4.1.2:
-+lru-cache@^4.0.1:
-   version "4.1.5"
-   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.5.tgz#8bbe50ea85bed59bc9e33dcab8235ee9bcf443cd"
-   integrity sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==
-@@ -6020,11 +6021,6 @@ prelude-ls@~1.1.2:
+-lru-cache@^4.1.2:
+-  version "4.1.5"
+-  resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-4.1.5.tgz#8bbe50ea85bed59bc9e33dcab8235ee9bcf443cd"
+-  integrity sha512-sWZlbEP2OsHNkXrMl5GYk/jKk70MBng6UU4YI/qGDYbgf6YbP4EvmqISbXCoJiRKs+1bSpFHVgQxvJ17F2li5g==
+-  dependencies:
+-    pseudomap "^1.0.2"
+-    yallist "^2.1.2"
+-
+ lru-cache@^5.1.1:
+   version "5.1.1"
+   resolved "https://registry.yarnpkg.com/lru-cache/-/lru-cache-5.1.1.tgz#1da27e6710271947695daf6848e847f01d84b920"
+@@ -5551,11 +5544,6 @@ prelude-ls@~1.1.2:
    resolved "https://registry.yarnpkg.com/prelude-ls/-/prelude-ls-1.1.2.tgz#21932a549f5e52ffd9a827f570e04be62a97da54"
    integrity sha1-IZMqVJ9eUv/ZqCf1cOBL5iqX2lQ=
  
@@ -138,7 +144,19 @@ index bc400307..b640f26e 100644
  pretty-error@^2.1.1:
    version "2.1.1"
    resolved "https://registry.yarnpkg.com/pretty-error/-/pretty-error-2.1.1.tgz#5f4f87c8f91e5ae3f3ba87ab4cf5e03b1a17f1a3"
-@@ -7689,39 +7685,23 @@ vue-eslint-parser@^7.0.0:
+@@ -5597,11 +5585,6 @@ prr@~1.0.1:
+   resolved "https://registry.yarnpkg.com/prr/-/prr-1.0.1.tgz#d3fc114ba06995a45ec6893f484ceb1d78f5f476"
+   integrity sha1-0/wRS6BplaRexok/SEzrHXj19HY=
+ 
+-pseudomap@^1.0.2:
+-  version "1.0.2"
+-  resolved "https://registry.yarnpkg.com/pseudomap/-/pseudomap-1.0.2.tgz#f052a28da70e618917ef0a8ac34c1ae5a68286b3"
+-  integrity sha1-8FKijacOYYkX7wqKw0wa5aaChrM=
+-
+ public-encrypt@^4.0.0:
+   version "4.0.3"
+   resolved "https://registry.yarnpkg.com/public-encrypt/-/public-encrypt-4.0.3.tgz#4fcc9d77a07e48ba7527e7cbe0de33d0701331e0"
+@@ -7036,39 +7019,23 @@ vue-eslint-parser@^7.0.0:
      esquery "^1.0.1"
      lodash "^4.17.15"
  
@@ -192,3 +210,15 @@ index bc400307..b640f26e 100644
  
  watchpack-chokidar2@^2.0.0:
    version "2.0.0"
+@@ -7309,11 +7276,6 @@ y18n@^4.0.0:
+   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
+   integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
+ 
+-yallist@^2.1.2:
+-  version "2.1.2"
+-  resolved "https://registry.yarnpkg.com/yallist/-/yallist-2.1.2.tgz#1c11f9218f076089a47dd512f93c6699a6a81d52"
+-  integrity sha1-HBH5IY8HYImkfdUS+TxmmaaoHVI=
+-
+ yallist@^3.0.2:
+   version "3.1.1"
+   resolved "https://registry.yarnpkg.com/yallist/-/yallist-3.1.1.tgz#dbb7daf9bfd8bac9ab45ebf602b8cbad0d5d08fd"

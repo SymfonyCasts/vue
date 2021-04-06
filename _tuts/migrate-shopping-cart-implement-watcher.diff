@@ -1,54 +1,51 @@
-diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index 8df10ef8..50ff5ed9 100644
---- a/assets/js/pages/shopping-cart.vue
-+++ b/assets/js/pages/shopping-cart.vue
-@@ -68,7 +68,7 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index c1af6e83..b24ca4da 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -67,7 +67,7 @@
  </template>
  
  <script>
--import { onMounted, ref } from 'vue';
-+import { onMounted, ref, watch } from 'vue';
- import { getFullShoppingCart } from '@/services/cart-service';
- import Loading from '@/components/loading';
+-import { reactive } from 'vue';
++import { reactive, watch } from 'vue';
+ import { fetchColors } from '@/services/colors-service';
+ import { fetchFeaturedProducts, fetchProductsById } from '@/services/products-service';
  import CheckoutForm from '@/components/checkout';
-@@ -112,25 +112,24 @@ export default {
-             fullCartItems,
-         } = useShoppingCart();
- 
--        watch: {
--            'cart.items.length': async function watchCartItemsLength() {
--                this.loading = true;
--                this.fullCartItems.items = [];
-+        watch(cart.items.length, async () => {
-+            loading.value = true;
-+            fullCartItems.items.length = 0;
- 
--                if (!this.cart.items.length) {
--                    this.loading = false;
--                    return;
--                }
-+            if (!cart.items.length) {
-+                loading.value = false;
-+                return;
-+            }
- 
--                try {
--                    this.fullCartItems.items = await getFullShoppingCart(this.cart);
--                } catch (e) {
--                    this.loading = false;
--                }
-+            try {
-+                fullCartItems.items = await getFullShoppingCart(cart);
-+            } catch (e) {
-+                loading.value = false;
-+                return;
-+            }
- 
--                this.loading = false;
--            },
+@@ -129,11 +129,6 @@ export default {
+                 : '<< Back';
+         },
+     },
+-    watch: {
+-        'cart.items.length': function watchCartItemsLength() {
+-            this.loadProducts();
 -        },
-+            loading.value = false;
+-    },
+     async created() {
+         this.loadFeaturedProduct();
+         this.colors = (await fetchColors()).data['hydra:member'];
+@@ -170,7 +165,7 @@ export default {
+ 
+         const products = reactive([]);
+ 
+-        const loadProducts = async () => {
++        watch(cart.items.length, async () => {
+             const productIds = cart.items.map((item) => item.product);
+ 
+             const productsResponse = await fetchProductsById(productIds);
+@@ -180,7 +175,7 @@ export default {
+             productsResponse.data['hydra:member'].forEach((product) => {
+                 products.push(product);
+             });
+-        };
 +        });
  
-         onMounted(() => {
-             loadShoppingCart();
+         loadCart();
+ 
+@@ -191,7 +186,6 @@ export default {
+             cart,
+             products,
+             addProductToCart,
+-            loadProducts,
+             removeProductFromCart,
+             updateProductQuantity,
+         };

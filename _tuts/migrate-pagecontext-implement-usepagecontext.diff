@@ -1,10 +1,11 @@
-diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
-index 71be51d9..136371ff 100644
---- a/assets/js/modules/page-context.js
-+++ b/assets/js/modules/page-context.js
-@@ -1,39 +1,39 @@
-+import { computed, ref, onCreated } from 'vue';
- import Product from '@/components/product';
+diff --git a/assets/modules/page-context.js b/assets/modules/page-context.js
+index 77bbc32b..bd7f4d91 100644
+--- a/assets/modules/page-context.js
++++ b/assets/modules/page-context.js
+@@ -1,39 +1,40 @@
+-import Product from '@/components/product';
++import { computed, ref } from 'vue';
++import Product from '@/components/product-show';
  import Catalog from '@/components/catalog';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';
@@ -27,7 +28,7 @@ index 71be51d9..136371ff 100644
 -        currentProps() {
 -            return this.currentProductId !== null
 -                ? {
--                    currentProductId: this.currentProductId,
+-                    productId: this.currentProductId,
 -                    cart: this.cart,
 -                }
 -                : {
@@ -46,7 +47,7 @@ index 71be51d9..136371ff 100644
 +    const currentProps = computed(() => (
 +        currentProductId.value !== null
 +            ? {
-+                currentProductId: currentProductId.value,
++                productId: currentProductId.value,
 +                cart,
 +            }
 +            : {
@@ -55,14 +56,14 @@ index 71be51d9..136371ff 100644
 +            }
 +    ));
 +
-+    onCreated(async () => {
++    const loadCategories = async () => {
          const response = await fetchCategories();
  
 -        this.categories = response.data['hydra:member'];
 -    },
 -     */
 +        categories.value = response.data['hydra:member'];
-+    });
++    };
 +
 +    return {
 +        categories,
@@ -70,5 +71,6 @@ index 71be51d9..136371ff 100644
 +        currentProductId,
 +        currentComponent,
 +        currentProps,
++        loadCategories,
 +    };
  }

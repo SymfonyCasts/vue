@@ -1,57 +1,64 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 2f2d0d43..6899bf0a 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
-@@ -26,7 +26,7 @@ import Product from '@/components/product';
- import Sidebar from '@/components/sidebar';
- import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
- import { fetchCategories } from '@/services/categories-service';
--import shoppingCartMixin from '@/mixins/get-shopping-cart';
+diff --git a/assets/components/product-show/index.vue b/assets/components/product-show/index.vue
+index 972701db..0d443c50 100644
+--- a/assets/components/product-show/index.vue
++++ b/assets/components/product-show/index.vue
+@@ -57,7 +57,7 @@ import formatPrice from '@/helpers/format-price';
+ import { fetchOneProduct } from '@/services/products-service';
+ import Loading from '@/components/loading';
+ import TitleComponent from '@/components/title';
+-import ShoppingCartMixin from '@/mixins/get-shopping-cart';
 +import useShoppingCart from '@/modules/shopping-cart';
+ import CartAddControls from './cart-add-controls';
  
  export default {
-     name: 'Products',
-@@ -35,7 +35,6 @@ export default {
-         Product,
-         Sidebar,
+@@ -67,7 +67,6 @@ export default {
+         TitleComponent,
+         CartAddControls,
      },
--    mixins: [shoppingCartMixin],
-     data() {
-         return {
-             sidebarCollapsed: false,
-@@ -79,6 +78,9 @@ export default {
+-    mixins: [ShoppingCartMixin],
+     props: {
+         productId: {
+             type: String,
+@@ -101,6 +100,11 @@ export default {
+             this.addProductToCart(this.product, selectedColorId, quantity);
          },
      },
-     setup() {
++    setup() {
 +        return {
 +            ...useShoppingCart(),
 +        };
-     },
++    },
  };
  </script>
-diff --git a/assets/js/pages/shopping-cart.vue b/assets/js/pages/shopping-cart.vue
-index c7a268af..ee784393 100644
---- a/assets/js/pages/shopping-cart.vue
-+++ b/assets/js/pages/shopping-cart.vue
-@@ -73,7 +73,7 @@ import Loading from '@/components/loading';
+ 
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index ea3d9054..c27fc640 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -69,12 +69,12 @@
+ <script>
+ import { fetchColors } from '@/services/colors-service';
+ import { fetchFeaturedProducts, fetchProductsById } from '@/services/products-service';
+-import ShoppingCartMixin from '@/mixins/get-shopping-cart';
  import CheckoutForm from '@/components/checkout';
  import TitleComponent from '@/components/title';
  import ShoppingCartList from '@/components/shopping-cart';
--import shoppingCartMixin from '@/mixins/get-shopping-cart';
+ import Loading from '@/components/loading';
+ import CartSidebar from '@/components/shopping-cart/cart-sidebar';
 +import useShoppingCart from '@/modules/shopping-cart';
  
  export default {
      name: 'ShoppingCart',
-@@ -83,7 +83,6 @@ export default {
-         ShoppingCartList,
+@@ -85,7 +85,6 @@ export default {
          TitleComponent,
+         CartSidebar,
      },
--    mixins: [shoppingCartMixin],
+-    mixins: [ShoppingCartMixin],
      data() {
          return {
              currentState: 'cart',
-@@ -147,6 +146,11 @@ export default {
-             this.updateShoppingCartHeader();
+@@ -162,6 +161,11 @@ export default {
+             [this.featuredProduct] = featuredProducts;
          },
      },
 +    setup() {

@@ -1,36 +1,40 @@
-diff --git a/assets/js/modules/shopping-cart.js b/assets/js/modules/shopping-cart.js
-index 14533204..9fdb5d47 100644
---- a/assets/js/modules/shopping-cart.js
-+++ b/assets/js/modules/shopping-cart.js
-@@ -1,15 +1,16 @@
-+import { reactive } from 'vue';
- import { getCart, getCartTotalItems } from '@/services/cart-service';
+diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
+index 78890e54..8d57f4c9 100644
+--- a/assets/modules/shopping-cart.js
++++ b/assets/modules/shopping-cart.js
+@@ -1,4 +1,4 @@
+-import { ref } from 'vue';
++import { reactive, ref } from 'vue';
+ import {
+     addItemToCart,
+     fetchCart,
+@@ -10,14 +10,15 @@ import {
+ const addToCartLoading = ref(false);
+ const addToCartSuccess = ref(false);
  
-+/** @type CartCollection */
-+const cart = reactive({
-+    items: [],
-+});
++/** @type CartCollection|null */
++const cart = reactive(null);
 +
  export default function useShoppingCart() {
      return {
 -        data() {
 -            return {
--                /** @type CartCollection */
--                cart: {
--                    items: [],
--                },
+-                cart: null,
 -            };
 -        },
+-        async created() {
++        addToCartLoading,
++        addToCartSuccess,
 +        cart,
-+    };
-+    /*
-         async mounted() {
-             try {
-                 this.cart = await getCart();
-@@ -25,5 +26,5 @@ export default function useShoppingCart() {
++        /* async created() {
+             this.cart = await fetchCart();
+         },
+         methods: {
+@@ -56,6 +57,6 @@ export default function useShoppingCart() {
+                 document.getElementById('js-shopping-cart-items')
                      .innerHTML = getCartTotalItems(this.cart).toString();
              },
-         },
--    };
-+    */
+-        },
++        },*/
+     };
  }

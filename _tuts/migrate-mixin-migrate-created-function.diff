@@ -1,0 +1,34 @@
+diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
+index 8d57f4c9..ec76ec16 100644
+--- a/assets/modules/shopping-cart.js
++++ b/assets/modules/shopping-cart.js
+@@ -11,16 +11,25 @@ const addToCartLoading = ref(false);
+ const addToCartSuccess = ref(false);
+ 
+ /** @type CartCollection|null */
+-const cart = reactive(null);
++const cart = reactive({
++    items: [],
++});
+ 
+ export default function useShoppingCart() {
++    const loadCart = async () => {
++        cart.items.splice(0, cart.items.length);
++
++        (await fetchCart()).items.forEach((cartItem) => {
++            cart.items.push(cartItem);
++        });
++    };
++
+     return {
+         addToCartLoading,
+         addToCartSuccess,
+         cart,
+-        /* async created() {
+-            this.cart = await fetchCart();
+-        },
++        loadCart,
++        /*
+         methods: {
+             async addProductToCart(product, selectedColorId, quantity) {
+                 if (product.colors.length && selectedColorId === null) {

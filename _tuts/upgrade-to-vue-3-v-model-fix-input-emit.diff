@@ -1,11 +1,11 @@
-diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index 1f8d5f2d..f0753db7 100644
---- a/assets/js/components/checkout/form-input.vue
-+++ b/assets/js/components/checkout/form-input.vue
-@@ -14,7 +14,7 @@
+diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
+index 36ecf88b..1098ed27 100644
+--- a/assets/components/checkout/form-input.vue
++++ b/assets/components/checkout/form-input.vue
+@@ -15,7 +15,7 @@
+                 'is-invalid': !isValid,
                  'form-control': true,
              }"
-             :value="modelValue"
 -            @input="$emit('input', $event.target.value)"
 +            @input="$emit('update:modelValue', $event.target.value)"
              @blur="$emit('blur', $event)"

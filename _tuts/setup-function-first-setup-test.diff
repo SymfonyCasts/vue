@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 525e01d8..094d72d7 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 6d5b3cc1..feef4b1c 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -8,6 +8,7 @@
                      :categories="categories"
                      @toggle-collapsed="toggleSidebarCollapsed"
@@ -10,7 +10,7 @@ index 525e01d8..094d72d7 100644
              </aside>
  
              <div :class="contentClass">
-@@ -78,5 +79,10 @@ export default {
+@@ -73,5 +74,10 @@ export default {
              this.sidebarCollapsed = !this.sidebarCollapsed;
          },
      },

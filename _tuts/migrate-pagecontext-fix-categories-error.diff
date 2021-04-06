@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/catalog.vue b/assets/js/components/catalog.vue
+diff --git a/assets/components/catalog.vue b/assets/components/catalog.vue
 index a125ab8c..b9055357 100644
---- a/assets/js/components/catalog.vue
-+++ b/assets/js/components/catalog.vue
+--- a/assets/components/catalog.vue
++++ b/assets/components/catalog.vue
 @@ -59,7 +59,7 @@ export default {
                  return 'All Products';
              }

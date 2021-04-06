@@ -1,8 +1,8 @@
 diff --git a/webpack.config.js b/webpack.config.js
-index 50ff08ee..ff9b2f8c 100644
+index b7639aab..2628a6c9 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
-@@ -70,7 +70,9 @@ Encore
+@@ -71,7 +71,9 @@ Encore
      })
  
      // Enable .vue file processing

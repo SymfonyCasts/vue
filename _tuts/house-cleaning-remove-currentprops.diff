@@ -1,8 +1,8 @@
-diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
-index 490c589b..5bef2d6d 100644
---- a/assets/js/modules/page-context.js
-+++ b/assets/js/modules/page-context.js
-@@ -3,30 +3,14 @@ import Product from '@/components/product';
+diff --git a/assets/modules/page-context.js b/assets/modules/page-context.js
+index 6caf3dd0..299ca3e4 100644
+--- a/assets/modules/page-context.js
++++ b/assets/modules/page-context.js
+@@ -3,30 +3,14 @@ import Product from '@/components/product-show';
  import Catalog from '@/components/catalog';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';
@@ -21,7 +21,7 @@ index 490c589b..5bef2d6d 100644
 -    const currentProps = computed(() => (
 -        currentProductId.value !== null
 -            ? {
--                currentProductId: currentProductId.value,
+-                productId: currentProductId.value,
 -                cart,
 -            }
 -            : {
@@ -30,7 +30,7 @@ index 490c589b..5bef2d6d 100644
 -            }
 -    ));
 -
-     const initCategories = async () => {
+     const loadCategories = async () => {
          const response = await fetchCategories();
  
 @@ -38,7 +22,6 @@ export default function usePageContext() {
@@ -38,13 +38,13 @@ index 490c589b..5bef2d6d 100644
          currentProductId,
          currentComponent,
 -        currentProps,
-         initCategories,
+         loadCategories,
      };
  }
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 952feb5f..2c6a23bd 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 83fd4de4..90071a18 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -6,10 +6,7 @@
              </aside>
  
@@ -57,22 +57,22 @@ index 952feb5f..2c6a23bd 100644
              </div>
          </div>
      </div>
-@@ -28,13 +25,8 @@ export default {
+@@ -26,21 +23,13 @@ export default {
          Sidebar,
      },
      setup() {
++        const { currentComponent } = usePageContext();
+         const { asideClass, contentClass } = useCollapsibleSidebar();
+ 
 -        const {
+-            loadCategories,
 -            currentComponent,
 -            currentProps,
 -        } = usePageContext();
 -
-+        const { currentComponent } = usePageContext();
-         const { loadShoppingCart } = useShoppingCart();
+-        loadCategories();
 -
-         const { asideClass, contentClass } = useCollapsibleSidebar();
- 
-         onMounted(() => {
-@@ -45,7 +37,6 @@ export default {
+         return {
              asideClass,
              contentClass,
              currentComponent,

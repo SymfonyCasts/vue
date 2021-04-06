@@ -1,0 +1,26 @@
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 2428476c..e0d8810b 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -22,6 +22,7 @@
+ 
+ <script>
+ import Sidebar from '@/components/sidebar';
++import usePageContext from '@/modules/page-context';
+ import useCollapsibleSidebar from '@/modules/collapsible-sidebar';
+ 
+ export default {
+@@ -30,8 +31,13 @@ export default {
+         Sidebar,
+     },
+     setup() {
++        const pageContext = usePageContext();
++
++        pageContext.loadCategories();
++
+         return {
+             ...useCollapsibleSidebar(),
++            ...pageContext,
+         };
+     },
+ };

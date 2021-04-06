@@ -1,17 +1,17 @@
-diff --git a/assets/js/components/checkout/form-input.vue b/assets/js/components/checkout/form-input.vue
-index f8b29d00..1f8d5f2d 100644
---- a/assets/js/components/checkout/form-input.vue
-+++ b/assets/js/components/checkout/form-input.vue
-@@ -13,7 +13,7 @@
-                 'is-invalid': !isValid,
-                 'form-control': true,
-             }"
+diff --git a/assets/components/checkout/form-input.vue b/assets/components/checkout/form-input.vue
+index 40fbf317..36ecf88b 100644
+--- a/assets/components/checkout/form-input.vue
++++ b/assets/components/checkout/form-input.vue
+@@ -10,7 +10,7 @@
+             :id="id"
+             :name="id"
+             :type="type"
 -            :value="value"
 +            :value="modelValue"
-             @input="$emit('input', $event.target.value)"
-             @blur="$emit('blur', $event)"
-         >
-@@ -46,7 +46,7 @@ export default {
+             :class="{
+                 'is-invalid': !isValid,
+                 'form-control': true,
+@@ -47,7 +47,7 @@ export default {
              type: String,
              default: 'text',
          },

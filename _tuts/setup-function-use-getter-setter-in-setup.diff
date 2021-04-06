@@ -1,8 +1,8 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 7e2e8632..65d5ff63 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
-@@ -100,7 +100,7 @@ export default {
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index b8c7bdf3..97c77971 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -95,7 +95,7 @@ export default {
          window.firstName = firstName;
  
          return {

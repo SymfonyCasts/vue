@@ -1,7 +1,7 @@
-diff --git a/assets/js/modules/collapsible-sidebar.js b/assets/js/modules/collapsible-sidebar.js
+diff --git a/assets/modules/collapsible-sidebar.js b/assets/modules/collapsible-sidebar.js
 index 2efd6c6e..ae157e9f 100644
---- a/assets/js/modules/collapsible-sidebar.js
-+++ b/assets/js/modules/collapsible-sidebar.js
+--- a/assets/modules/collapsible-sidebar.js
++++ b/assets/modules/collapsible-sidebar.js
 @@ -10,16 +10,15 @@ export default function useCollapsibleSidebar() {
      const contentClass = computed(
          () => (sidebarCollapsed.value ? 'col-xs-12 col-11' : 'col-xs-12 col-9'),
@@ -25,11 +25,11 @@ index 2efd6c6e..ae157e9f 100644
 +        toggleSidebarCollapsed,
      };
  }
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 43ab5950..6f317f5e 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
-@@ -66,11 +66,6 @@ export default {
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 0e2c6899..a709c8bc 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -62,11 +62,6 @@ export default {
  
          this.categories = response.data['hydra:member'];
      },
@@ -40,4 +40,4 @@ index 43ab5950..6f317f5e 100644
 -    },
      setup() {
          return {
-             ...useShoppingCart(),
+             ...useCollapsibleSidebar(),

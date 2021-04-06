@@ -1,7 +1,7 @@
-diff --git a/assets/js/modules/collapsible-sidebar.js b/assets/js/modules/collapsible-sidebar.js
+diff --git a/assets/modules/collapsible-sidebar.js b/assets/modules/collapsible-sidebar.js
 index ae157e9f..7da36815 100644
---- a/assets/js/modules/collapsible-sidebar.js
-+++ b/assets/js/modules/collapsible-sidebar.js
+--- a/assets/modules/collapsible-sidebar.js
++++ b/assets/modules/collapsible-sidebar.js
 @@ -1,8 +1,8 @@
  import { computed, ref } from 'vue';
  

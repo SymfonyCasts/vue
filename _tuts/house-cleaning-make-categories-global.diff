@@ -1,7 +1,7 @@
-diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
-index 2bd4e7a6..490c589b 100644
---- a/assets/js/modules/page-context.js
-+++ b/assets/js/modules/page-context.js
+diff --git a/assets/modules/page-context.js b/assets/modules/page-context.js
+index 39866f87..6caf3dd0 100644
+--- a/assets/modules/page-context.js
++++ b/assets/modules/page-context.js
 @@ -5,10 +5,11 @@ import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-conte
  import { fetchCategories } from '@/services/categories-service';
  import useShoppingCart from '@/modules/shopping-cart';

@@ -1,8 +1,8 @@
-diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
+diff --git a/assets/modules/page-context.js b/assets/modules/page-context.js
 new file mode 100644
-index 00000000..71be51d9
+index 00000000..77bbc32b
 --- /dev/null
-+++ b/assets/js/modules/page-context.js
++++ b/assets/modules/page-context.js
 @@ -0,0 +1,39 @@
 +import Product from '@/components/product';
 +import Catalog from '@/components/catalog';
@@ -27,7 +27,7 @@ index 00000000..71be51d9
 +        currentProps() {
 +            return this.currentProductId !== null
 +                ? {
-+                    currentProductId: this.currentProductId,
++                    productId: this.currentProductId,
 +                    cart: this.cart,
 +                }
 +                : {
@@ -43,27 +43,26 @@ index 00000000..71be51d9
 +    },
 +     */
 +}
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 6f317f5e..36f4df76 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
-@@ -21,51 +21,15 @@
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index a709c8bc..2428476c 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -21,47 +21,14 @@
  </template>
  
  <script>
 -import Catalog from '@/components/catalog';
--import Product from '@/components/product';
+-import ProductShow from '@/components/product-show';
  import Sidebar from '@/components/sidebar';
 -import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
 -import { fetchCategories } from '@/services/categories-service';
- import useShoppingCart from '@/modules/shopping-cart';
  import useCollapsibleSidebar from '@/modules/collapsible-sidebar';
  
  export default {
      name: 'Products',
      components: {
 -        Catalog,
--        Product,
+-        ProductShow,
          Sidebar,
      },
 -    data() {
@@ -77,18 +76,15 @@ index 6f317f5e..36f4df76 100644
 -            return getCurrentProductId();
 -        },
 -        currentComponent() {
--            return this.currentProductId !== null ? Product : Catalog;
+-            return this.currentProductId !== null ? ProductShow : Catalog;
 -        },
 -        currentProps() {
--            return this.currentProductId !== null
--                ? {
--                    currentProductId: this.currentProductId,
--                    cart: this.cart,
--                }
--                : {
--                    currentCategoryId: this.currentCategoryId,
--                    categories: this.categories,
--                };
+-            return this.currentComponent === ProductShow ? {
+-                productId: this.currentProductId,
+-            } : {
+-                currentCategoryId: this.currentCategoryId,
+-                categories: this.categories,
+-            };
 -        },
 -    },
 -    async created() {
@@ -98,4 +94,4 @@ index 6f317f5e..36f4df76 100644
 -    },
      setup() {
          return {
-             ...useShoppingCart(),
+             ...useCollapsibleSidebar(),

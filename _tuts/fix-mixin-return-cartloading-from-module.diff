@@ -1,0 +1,12 @@
+diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
+index 6effbe1f..f33d5311 100644
+--- a/assets/modules/shopping-cart.js
++++ b/assets/modules/shopping-cart.js
+@@ -68,6 +68,7 @@ export default function useShoppingCart() {
+     return {
+         addToCartLoading,
+         addToCartSuccess,
++        cartLoading,
+         cart,
+         addProductToCart,
+         loadCart,

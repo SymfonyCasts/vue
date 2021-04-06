@@ -1,0 +1,38 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 6991fc56..422c1df7 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -28,7 +28,7 @@
+                 </transition>
+ 
+                 <div class="content p-3">
+-                    <loading v-show="completeCart === null" />
++                    <loading v-show="cartLoading" />
+ 
+                     <transition
+                         name="fade"
+@@ -95,7 +95,7 @@ export default {
+     },
+     computed: {
+         completeCart() {
+-            if (!this.cart || !this.products || !this.colors) {
++            if (!this.products || !this.colors) {
+                 return null;
+             }
+ 
+@@ -165,6 +165,7 @@ export default {
+         const {
+             addToCartLoading,
+             addToCartSuccess,
++            cartLoading,
+             cart,
+             loadCart,
+             addProductToCart,
+@@ -177,6 +178,7 @@ export default {
+         return {
+             addToCartLoading,
+             addToCartSuccess,
++            cartLoading,
+             cart,
+             addProductToCart,
+             removeProductFromCart,

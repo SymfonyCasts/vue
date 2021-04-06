@@ -1,0 +1,13 @@
+diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
+index 4c863864..c1af6e83 100644
+--- a/assets/pages/shopping-cart.vue
++++ b/assets/pages/shopping-cart.vue
+@@ -96,7 +96,7 @@ export default {
+     },
+     computed: {
+         completeCart() {
+-            if (!this.products || !this.colors) {
++            if (!this.colors) {
+                 return null;
+             }
+ 

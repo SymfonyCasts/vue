@@ -26,6 +26,11 @@
             "description": null
         },
         {
+            "id": "upgrade-to-vue-3-fix-transitions-error",
+            "name": "Upgrade to Vue 3: Fix transitions error",
+            "description": null
+        },
+        {
             "id": "upgrade-to-vue-3-make-v-model-work",
             "name": "Upgrade to Vue 3: Make v-model work",
             "description": null
@@ -81,6 +86,11 @@
             "description": null
         },
         {
+            "id": "migrate-mixin-migrate-refs",
+            "name": "Migrate Mixin: Migrate refs",
+            "description": null
+        },
+        {
             "id": "migrate-mixin-migrate-data-to-reactive",
             "name": "Migrate Mixin: Migrate data to reactive",
             "description": null
@@ -91,18 +101,63 @@
             "description": null
         },
         {
-            "id": "migrate-mixin-copy-paste-mounted-function",
-            "name": "Migrate Mixin: Copy\/Paste mounted function",
+            "id": "migrate-mixin-migrate-created-function",
+            "name": "Migrate Mixin: Migrate created function",
             "description": null
         },
         {
-            "id": "migrate-mixin-implement-onmounted",
-            "name": "Migrate Mixin: Implement onMounted",
+            "id": "migrate-mixin-implement-created",
+            "name": "Migrate Mixin: Implement created",
             "description": null
         },
         {
-            "id": "migrate-mixin-implement-updateshoppingcartheader",
-            "name": "Migrate Mixin: Implement updateShoppingCartHeader",
+            "id": "migrate-mixin-move-methods-around",
+            "name": "Migrate Mixin: Move methods around",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-refactor-methods",
+            "name": "Migrate Mixin: Refactor Methods",
+            "description": null
+        },
+        {
+            "id": "migrate-mixin-expose-methods",
+            "name": "Migrate Mixin: Expose Methods",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-add-cartloading-ref",
+            "name": "Fix Mixin: Add cartLoading ref",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-use-cartloading-inside-loadcart",
+            "name": "Fix Mixin: Use cartLoading inside loadCart",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-return-cartloading-from-module",
+            "name": "Fix Mixin: Return cartLoading from module",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-fix-shopping-cart-loading-mechanism",
+            "name": "Fix Mixin: Fix Shopping Cart loading mechanism",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-move-loadproducts-method",
+            "name": "Fix Mixin: Move loadProducts method",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-refactor-loadproducts",
+            "name": "Fix Mixin: Refactor loadProducts",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-cleanup-completeproducts",
+            "name": "Fix Mixin: Cleanup completeProducts",
             "description": null
         },
         {
@@ -141,8 +196,8 @@
             "description": null
         },
         {
-            "id": "migrate-pagecontext-remove-nonexistent-oncreated",
-            "name": "Migrate pageContext: Remove nonexistent onCreated",
+            "id": "migrate-pagecontext-implement-module-in-products",
+            "name": "Migrate pageContext: Implement module in products",
             "description": null
         },
         {
@@ -156,13 +211,13 @@
             "description": null
         },
         {
-            "id": "migrate-pagecontext-fix-onmounted",
-            "name": "Migrate pageContext: Fix onMounted",
+            "id": "migrate-pagecontext-fix-array-error",
+            "name": "Migrate pageContext: Fix Array error",
             "description": null
         },
         {
-            "id": "migrate-pagecontext-add-onmounted-to-shopping-cart",
-            "name": "Migrate pageContext: Add onMounted to shopping-cart",
+            "id": "delete-me-1",
+            "name": "delete-me-1",
             "description": null
         },
         {
@@ -178,6 +233,11 @@
         {
             "id": "house-cleaning-clean-up-products-vue-from-collapsible-sidebar",
             "name": "House Cleaning: Clean up Products.vue from collapsible-sidebar",
+            "description": null
+        },
+        {
+            "id": "house-cleaning-restyle-produtcs-vue-setup-code",
+            "name": "House Cleaning: Restyle produtcs.vue setup code",
             "description": null
         },
         {
@@ -211,38 +271,38 @@
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-move-methods",
-            "name": "Migrate Shopping Cart: Move methods",
+            "id": "delete-me-2",
+            "name": "delete-me-2",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-correct-methods-syntax",
-            "name": "Migrate Shopping Cart: Correct methods syntax",
+            "id": "delete-me-3",
+            "name": "delete-me-3",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-correct-cart-methods-in-page",
-            "name": "Migrate Shopping Cart: Correct cart methods in page",
+            "id": "delete-me-4",
+            "name": "delete-me-4",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-move-items",
-            "name": "Migrate Shopping Cart: Move items",
+            "id": "delete-me-5",
+            "name": "delete-me-5",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-fix-template",
-            "name": "Migrate Shopping Cart: Fix template",
+            "id": "delete-me-6",
+            "name": "delete-me-6",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-loading-as-a-ref",
-            "name": "Migrate Shopping Cart: loading as a ref",
+            "id": "delete-me-7",
+            "name": "delete-me-7",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-copy-paste-watcher",
-            "name": "Migrate Shopping Cart: copy paste watcher",
+            "id": "delete-me-8",
+            "name": "delete-me-8",
             "description": null
         },
         {
@@ -256,18 +316,18 @@
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-fix-watcher-for-real-now",
-            "name": "Migrate Shopping Cart: Fix watcher for real now",
+            "id": "delete-me-9",
+            "name": "delete-me-9",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-copy-paste-watcher-into-module",
-            "name": "Migrate Shopping Cart: copy\/paste watcher into module",
+            "id": "delete-me-10",
+            "name": "delete-me-10",
             "description": null
         },
         {
-            "id": "migrate-shopping-cart-correct-helper-in-factory",
-            "name": "Migrate Shopping Cart: Correct helper in factory",
+            "id": "delete-me-11",
+            "name": "delete-me-11",
             "description": null
         },
         {
@@ -281,5 +341,5 @@
             "description": null
         }
     ],
-    "sha": "d439e8a7e29911c22e3eb0481b93ece59040bf68"
+    "sha": "666ef1a4048f73a2e26e2552f175f630b950837a"
 }

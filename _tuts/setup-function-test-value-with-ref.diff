@@ -1,16 +1,16 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 65d5ff63..94e5c723 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 97c77971..c6594f86 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -22,6 +22,7 @@
  </template>
  
  <script>
 +import { ref } from 'vue';
  import Catalog from '@/components/catalog';
- import Product from '@/components/product';
+ import ProductShow from '@/components/product-show';
  import Sidebar from '@/components/sidebar';
-@@ -80,27 +81,11 @@ export default {
+@@ -75,27 +76,11 @@ export default {
          },
      },
      setup() {

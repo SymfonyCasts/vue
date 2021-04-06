@@ -1,0 +1,31 @@
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 989a8bc8..9b5579dc 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -31,14 +31,23 @@ export default {
+     setup() {
+         const { asideClass, contentClass } = useCollapsibleSidebar();
+ 
+-        const pageContext = usePageContext();
++        const {
++            loadCategories,
++            categories,
++            currentCategoryId,
++            currentComponent,
++            currentProps,
++        } = usePageContext();
+ 
+-        pageContext.loadCategories();
++        loadCategories();
+ 
+         return {
+             asideClass,
+             contentClass,
+-            ...pageContext,
++            categories,
++            currentCategoryId,
++            currentComponent,
++            currentProps,
+         };
+     },
+ };

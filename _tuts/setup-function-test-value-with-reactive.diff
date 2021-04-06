@@ -1,7 +1,7 @@
-diff --git a/assets/js/pages/products.vue b/assets/js/pages/products.vue
-index 94e5c723..5c720437 100644
---- a/assets/js/pages/products.vue
-+++ b/assets/js/pages/products.vue
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index c6594f86..64476bd4 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
 @@ -8,7 +8,7 @@
                      :categories="categories"
                      @toggle-collapsed="toggleSidebarCollapsed"
@@ -18,9 +18,9 @@ index 94e5c723..5c720437 100644
 -import { ref } from 'vue';
 +import { reactive } from 'vue';
  import Catalog from '@/components/catalog';
- import Product from '@/components/product';
+ import ProductShow from '@/components/product-show';
  import Sidebar from '@/components/sidebar';
-@@ -81,11 +81,14 @@ export default {
+@@ -76,11 +76,14 @@ export default {
          },
      },
      setup() {

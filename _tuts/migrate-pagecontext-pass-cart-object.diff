@@ -1,8 +1,8 @@
-diff --git a/assets/js/modules/page-context.js b/assets/js/modules/page-context.js
-index 8ddc19b1..2bd4e7a6 100644
---- a/assets/js/modules/page-context.js
-+++ b/assets/js/modules/page-context.js
-@@ -3,8 +3,11 @@ import Product from '@/components/product';
+diff --git a/assets/modules/page-context.js b/assets/modules/page-context.js
+index bd7f4d91..39866f87 100644
+--- a/assets/modules/page-context.js
++++ b/assets/modules/page-context.js
+@@ -3,8 +3,11 @@ import Product from '@/components/product-show';
  import Catalog from '@/components/catalog';
  import { getCurrentCategoryId, getCurrentProductId } from '@/services/page-context';
  import { fetchCategories } from '@/services/categories-service';

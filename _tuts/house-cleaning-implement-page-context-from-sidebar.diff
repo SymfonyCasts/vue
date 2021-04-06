@@ -1,7 +1,7 @@
-diff --git a/assets/js/components/sidebar.vue b/assets/js/components/sidebar.vue
-index b1ace471..83f9fa20 100644
---- a/assets/js/components/sidebar.vue
-+++ b/assets/js/components/sidebar.vue
+diff --git a/assets/components/sidebar.vue b/assets/components/sidebar.vue
+index b1ace471..0ea87332 100644
+--- a/assets/components/sidebar.vue
++++ b/assets/components/sidebar.vue
 @@ -51,22 +51,13 @@
  <script>
  import Loading from '@/components/loading';
@@ -30,9 +30,9 @@ index b1ace471..83f9fa20 100644
      },
      setup() {
          const { sidebarCollapsed, toggleSidebarCollapsed } = useCollapsibleSidebar();
-+        const { currentCategoryId, categories, initCategories } = usePageContext();
++        const { currentCategoryId, categories, loadCategories } = usePageContext();
 +
-+        initCategories();
++        loadCategories();
  
          return {
 +            categories,

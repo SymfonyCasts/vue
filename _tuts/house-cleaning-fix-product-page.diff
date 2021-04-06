@@ -1,46 +1,50 @@
-diff --git a/assets/js/components/product.vue b/assets/js/components/product.vue
-index 1d8186a5..ab25ae08 100644
---- a/assets/js/components/product.vue
-+++ b/assets/js/components/product.vue
-@@ -78,6 +78,8 @@ import { getProduct } from '@/services/products-service';
- import ColorSelector from '@/components/color-selector';
+diff --git a/assets/components/product-show/index.vue b/assets/components/product-show/index.vue
+index 384e08ff..670fe430 100644
+--- a/assets/components/product-show/index.vue
++++ b/assets/components/product-show/index.vue
+@@ -58,6 +58,7 @@ import { fetchOneProduct } from '@/services/products-service';
  import Loading from '@/components/loading';
  import TitleComponent from '@/components/title';
+ import useShoppingCart from '@/modules/shopping-cart';
 +import usePageContext from '@/modules/page-context';
-+import useShoppingCart from '@/modules/shopping-cart';
+ import CartAddControls from './cart-add-controls';
  
  export default {
-     name: 'Product',
-@@ -86,16 +88,6 @@ export default {
-         Loading,
+@@ -67,12 +68,6 @@ export default {
          TitleComponent,
+         CartAddControls,
      },
 -    props: {
--        currentProductId: {
+-        productId: {
 -            type: String,
--            default: null,
--        },
--        cart: {
--            type: Object,
--            default: null,
+-            required: true,
 -        },
 -    },
      data() {
          return {
-             product: {
-@@ -155,6 +147,15 @@ export default {
-             this.selectedColorId = colorId;
-         },
+             product: null,
+@@ -90,7 +85,7 @@ export default {
      },
-+    setup() {
-+        const { cart } = useShoppingCart();
+     async created() {
+         try {
+-            this.product = (await fetchOneProduct(this.productId)).data;
++            this.product = (await fetchOneProduct(this.currentProductId)).data;
+         } finally {
+             this.loading = false;
+         }
+@@ -109,12 +104,15 @@ export default {
+             addProductToCart,
+         } = useShoppingCart();
+ 
 +        const { currentProductId } = usePageContext();
 +
-+        return {
-+            cart,
-+            currentProductId,
-+        };
-+    },
- };
- </script>
+         loadCart();
  
+         return {
+             addToCartLoading,
+             addToCartSuccess,
+             cart,
++            currentProductId,
+             addProductToCart,
+         };
+     },
