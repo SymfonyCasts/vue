@@ -6,8 +6,8 @@
             "description": null
         },
         {
-            "id": "upgrade-to-vue-3-enable-vue-3-in-encore",
-            "name": "Upgrade to Vue 3: Enable Vue 3 in Encore",
+            "id": "upgrade-to-vue-3-update-vue-in-packages-json",
+            "name": "Upgrade to Vue 3: update Vue in packages.json",
             "description": null
         },
         {
@@ -21,13 +21,18 @@
             "description": null
         },
         {
+            "id": "upgrade-to-vue-3-fix-transition-issue",
+            "name": "Upgrade to Vue 3: Fix transition issue",
+            "description": null
+        },
+        {
             "id": "upgrade-to-vue-3-make-pages-render",
             "name": "Upgrade to Vue 3: Make pages render",
             "description": null
         },
         {
-            "id": "upgrade-to-vue-3-fix-transitions-error",
-            "name": "Upgrade to Vue 3: Fix transitions error",
+            "id": "delete-me-12",
+            "name": "delete-me-12",
             "description": null
         },
         {
@@ -341,5 +346,5 @@
             "description": null
         }
     ],
-    "sha": "666ef1a4048f73a2e26e2552f175f630b950837a"
+    "sha": "b9cb392688941ea6983574dd098c85869480e75b"
 }
