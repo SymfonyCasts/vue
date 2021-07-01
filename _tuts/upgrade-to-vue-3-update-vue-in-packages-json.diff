@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index f647b7ae..b822f2d8 100644
+index cd3e80ad..9dce8300 100644
 --- a/package.json
 +++ b/package.json
 @@ -16,7 +16,7 @@
@@ -12,7 +12,7 @@ index f647b7ae..b822f2d8 100644
          "vue-template-compiler": "^2.6.11",
          "webpack-notifier": "^1.13.0"
 diff --git a/yarn.lock b/yarn.lock
-index 0e5dc7f2..626e614e 100644
+index 77e99591..e92165ed 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -390,7 +390,7 @@

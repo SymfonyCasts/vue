@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index 980aa8a5..89a608b7 100644
+index e1911a5a..b35687d1 100644
 --- a/package.json
 +++ b/package.json
 @@ -18,7 +18,7 @@
@@ -12,7 +12,7 @@ index 980aa8a5..89a608b7 100644
      },
      "license": "UNLICENSED",
 diff --git a/yarn.lock b/yarn.lock
-index 723f35b3..f57aa864 100644
+index 8fd6705c..1911ca87 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -1098,22 +1098,6 @@

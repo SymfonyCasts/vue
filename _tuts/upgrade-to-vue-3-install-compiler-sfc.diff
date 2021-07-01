@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index b822f2d8..980aa8a5 100644
+index 9dce8300..e1911a5a 100644
 --- a/package.json
 +++ b/package.json
 @@ -17,8 +17,8 @@
@@ -13,7 +13,7 @@ index b822f2d8..980aa8a5 100644
      },
      "license": "UNLICENSED",
 diff --git a/yarn.lock b/yarn.lock
-index 626e614e..723f35b3 100644
+index e92165ed..8fd6705c 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -2,14 +2,7 @@
@@ -764,19 +764,6 @@ index 626e614e..723f35b3 100644
    version "3.7.2"
    resolved "https://registry.yarnpkg.com/bluebird/-/bluebird-3.7.2.tgz#9f229c15be272454ffa973ace0dbee79a1b0c36f"
    integrity sha512-XpNj6GDQzdfW+r2Wnn7xiSAd7TM3jzkxGXBGTtWKuSXv1xUV+azxAm8jdWZN06QTQk+2N2XB9jRDkvbmQmcRtg==
-@@ -1784,9 +1596,9 @@ boolbase@^1.0.0:
-   integrity sha1-aN/1++YMUes3cl6p4+0xDcwed24=
- 
- bootstrap@^4.4.1:
--  version "4.5.0"
--  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.5.0.tgz#97d9dbcb5a8972f8722c9962483543b907d9b9ec"
--  integrity sha512-Z93QoXvodoVslA+PWNdk23Hze4RBYIkpb5h8I2HY2Tu2h7A0LpAgLcyrhrSUyo2/Oxm2l1fRZPs1e5hnxnliXA==
-+  version "4.6.0"
-+  resolved "https://registry.yarnpkg.com/bootstrap/-/bootstrap-4.6.0.tgz#97b9f29ac98f98dfa43bf7468262d84392552fd7"
-+  integrity sha512-Io55IuQY3kydzHtbGvQya3H+KorS/M9rSNyfCGCg9WZ4pyT/lCxIlpJgG1GXW/PswzC84Tr2fBYi+7+jFVQQBw==
- 
- brace-expansion@^1.1.7:
-   version "1.1.11"
 @@ -1803,17 +1615,7 @@ braces@^3.0.1, braces@~3.0.2:
    dependencies:
      fill-range "^7.0.1"
