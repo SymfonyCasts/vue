@@ -10,54 +10,57 @@
                     Please try again!
                 </div>
 
-                <div class="form-row">
+                <div class="row">
                     <form-input
                         v-model="form.customerName"
-                        class="col"
+                        class="col-6"
                         v-bind="getFieldProps('customerName', 'Name:')"
                         @blur="validateField"
                     />
 
                     <form-input
                         v-model="form.customerEmail"
-                        class="col"
+                        class="col-6"
                         type="email"
                         v-bind="getFieldProps('customerEmail', 'Email:')"
                         @blur="validateField"
                     />
                 </div>
 
-                <form-input
-                    v-model="form.customerAddress"
-                    v-bind="getFieldProps('customerAddress', 'Address:')"
-                    @blur="validateField"
-                />
+                <div class="row">
+                    <form-input
+                        v-model="form.customerAddress"
+                        class="col-12"
+                        v-bind="getFieldProps('customerAddress', 'Address:')"
+                        @blur="validateField"
+                    />
+                </div>
 
-                <div class="form-row">
+                <div class="row">
                     <form-input
                         v-model="form.customerZip"
-                        class="col"
+                        class="col-4"
                         v-bind="getFieldProps('customerZip', 'Zip Code:')"
                         @blur="validateField"
                     />
 
                     <form-input
                         v-model="form.customerCity"
-                        class="col"
+                        class="col-4"
                         v-bind="getFieldProps('customerCity', 'City:')"
                         @blur="validateField"
                     />
 
                     <form-input
                         v-model="form.customerPhone"
-                        class="col"
+                        class="col-4"
                         type="tel"
                         v-bind="getFieldProps('customerPhone', 'Phone Number:')"
                         @blur="validateField"
                     />
                 </div>
 
-                <div class="form-row justify-content-end align-items-center">
+                <div class="row mt-3 justify-content-end align-items-center">
                     <loading v-show="loading" />
 
                     <div class="col-auto">
