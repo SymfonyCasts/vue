@@ -1,5 +1,5 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 85229563..8a9f5dec 100644
+index b09263d1..c4fdddb8 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
 @@ -10,7 +10,7 @@
@@ -14,7 +14,7 @@ index 85229563..8a9f5dec 100644
 @@ -83,6 +83,7 @@ export default {
      setup() {
          const person = reactive({
-             firstName: 'Ryan',
+             firstName: 'Matias',
 +            collapsedMessage: this.sidebarCollapsed ? 'Collapsed' : 'Expanded',
          });
  

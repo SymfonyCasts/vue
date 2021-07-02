@@ -1,5 +1,5 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 8a9f5dec..6d5b3cc1 100644
+index c4fdddb8..6d5b3cc1 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
 @@ -8,9 +8,6 @@
@@ -30,7 +30,7 @@ index 8a9f5dec..6d5b3cc1 100644
 -    },
 -    setup() {
 -        const person = reactive({
--            firstName: 'Ryan',
+-            firstName: 'Matias',
 -            collapsedMessage: this.sidebarCollapsed ? 'Collapsed' : 'Expanded',
 -        });
 -

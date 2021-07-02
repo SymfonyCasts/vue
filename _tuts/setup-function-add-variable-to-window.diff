@@ -1,16 +1,16 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index feef4b1c..22b1b57f 100644
+index aaa22ec4..7e87cac1 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
 @@ -75,8 +75,11 @@ export default {
          },
      },
      setup() {
-+        const firstName = 'Ryan';
++        const firstName = 'Matias';
 +        window.firstName = firstName;
 +
          return {
--            firstName: 'Ryan',
+-            firstName: 'Matias',
 +            firstName,
          };
      },

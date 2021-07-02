@@ -1,12 +1,12 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 22b1b57f..b8c7bdf3 100644
+index 7e87cac1..b355e99c 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
 @@ -75,7 +75,23 @@ export default {
          },
      },
      setup() {
--        const firstName = 'Ryan';
+-        const firstName = 'Matias';
 +        class FirstName {
 +            constructor(value) {
 +                this._value = value;
@@ -23,7 +23,7 @@ index 22b1b57f..b8c7bdf3 100644
 +            }
 +        }
 +
-+        const firstName = new FirstName('Ryan');
++        const firstName = new FirstName('Matias');
          window.firstName = firstName;
  
          return {

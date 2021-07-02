@@ -1,5 +1,5 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index 97c77971..c6594f86 100644
+index 5f84c878..00a0e3cc 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
 @@ -22,6 +22,7 @@
@@ -30,8 +30,8 @@ index 97c77971..c6594f86 100644
 -            }
 -        }
 -
--        const firstName = new FirstName('Ryan');
-+        const firstName = ref('Ryan');
+-        const firstName = new FirstName('Matias');
++        const firstName = ref('Matias');
          window.firstName = firstName;
  
          return {
