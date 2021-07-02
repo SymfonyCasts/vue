@@ -1,0 +1,23 @@
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 64476bd4..85229563 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -9,6 +9,8 @@
+                     @toggle-collapsed="toggleSidebarCollapsed"
+                 />
+                 {{ person.firstName }}
++
++                {{ printFirstname() }}
+             </aside>
+ 
+             <div :class="contentClass">
+@@ -74,6 +76,9 @@ export default {
+         toggleSidebarCollapsed() {
+             this.sidebarCollapsed = !this.sidebarCollapsed;
+         },
++        printFirstname() {
++            return this.person.firstName;
++        },
+     },
+     setup() {
+         const person = reactive({

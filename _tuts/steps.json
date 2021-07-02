@@ -76,8 +76,18 @@
             "description": null
         },
         {
-            "id": "migrate-mixin-remove-setup-contents",
-            "name": "Migrate Mixin: Remove setup contents",
+            "id": "setup-function-printfirstname-function",
+            "name": "Setup Function: PrintFirstName function",
+            "description": null
+        },
+        {
+            "id": "setup-function-add-new-value-to-setup",
+            "name": "Setup Function: Add new value to setup",
+            "description": null
+        },
+        {
+            "id": "setup-function-clean-up",
+            "name": "Setup Function: Clean Up",
             "description": null
         },
         {
@@ -346,5 +356,5 @@
             "description": null
         }
     ],
-    "sha": "f7e173689846b51e0731cd225b6684df820d1287"
+    "sha": "dd751332982bbdd111af62700be1e13c49da0b2a"
 }

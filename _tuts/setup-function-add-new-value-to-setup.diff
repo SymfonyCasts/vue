@@ -1,0 +1,21 @@
+diff --git a/assets/pages/products.vue b/assets/pages/products.vue
+index 85229563..8a9f5dec 100644
+--- a/assets/pages/products.vue
++++ b/assets/pages/products.vue
+@@ -10,7 +10,7 @@
+                 />
+                 {{ person.firstName }}
+ 
+-                {{ printFirstname() }}
++                {{ person.collapsedMessage }}
+             </aside>
+ 
+             <div :class="contentClass">
+@@ -83,6 +83,7 @@ export default {
+     setup() {
+         const person = reactive({
+             firstName: 'Ryan',
++            collapsedMessage: this.sidebarCollapsed ? 'Collapsed' : 'Expanded',
+         });
+ 
+         window.person = person;
