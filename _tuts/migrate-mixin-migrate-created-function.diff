@@ -1,23 +1,21 @@
 diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
-index 8d57f4c9..ec76ec16 100644
+index 8d57f4c9..6a4adddb 100644
 --- a/assets/modules/shopping-cart.js
 +++ b/assets/modules/shopping-cart.js
-@@ -11,16 +11,25 @@ const addToCartLoading = ref(false);
+@@ -10,17 +10,22 @@ import {
+ const addToCartLoading = ref(false);
  const addToCartSuccess = ref(false);
  
- /** @type CartCollection|null */
+-/** @type CartCollection|null */
 -const cart = reactive(null);
++/** @type CartCollection */
 +const cart = reactive({
 +    items: [],
 +});
  
  export default function useShoppingCart() {
 +    const loadCart = async () => {
-+        cart.items.splice(0, cart.items.length);
-+
-+        (await fetchCart()).items.forEach((cartItem) => {
-+            cart.items.push(cartItem);
-+        });
++        cart.items = (await fetchCart()).items;
 +    };
 +
      return {

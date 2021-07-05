@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show/index.vue b/assets/components/product-show/index.vue
-index 384e08ff..670fe430 100644
+index 375ea9fa..dbcb01df 100644
 --- a/assets/components/product-show/index.vue
 +++ b/assets/components/product-show/index.vue
 @@ -58,6 +58,7 @@ import { fetchOneProduct } from '@/services/products-service';
@@ -32,14 +32,12 @@ index 384e08ff..670fe430 100644
          } finally {
              this.loading = false;
          }
-@@ -109,12 +104,15 @@ export default {
+@@ -108,10 +103,13 @@ export default {
              addProductToCart,
          } = useShoppingCart();
  
 +        const { currentProductId } = usePageContext();
 +
-         loadCart();
- 
          return {
              addToCartLoading,
              addToCartSuccess,

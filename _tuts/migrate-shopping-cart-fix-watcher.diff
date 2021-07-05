@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index b24ca4da..486ae401 100644
+index 6dfd1f55..4ec1d15a 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -165,7 +165,7 @@ export default {
+@@ -164,7 +164,7 @@ export default {
  
          const products = reactive([]);
  

@@ -176,6 +176,16 @@
             "description": null
         },
         {
+            "id": "fix-mixin-remove-loadcart",
+            "name": "Fix Mixin: Remove loadCart",
+            "description": null
+        },
+        {
+            "id": "fix-mixin-automatically-run-loadcart",
+            "name": "Fix Mixin: Automatically run loadCart",
+            "description": null
+        },
+        {
             "id": "separated-sidebar-create-factory-function",
             "name": "Separated Sidebar: Create factory function",
             "description": null
@@ -356,5 +366,5 @@
             "description": null
         }
     ],
-    "sha": "83d88d07fd34b1ceab037d1aec1fad8f7422bf04"
+    "sha": "e42bfce8b11d9b2dd0b4015744885e32a78d10ec"
 }

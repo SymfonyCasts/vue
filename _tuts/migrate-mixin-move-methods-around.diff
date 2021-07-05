@@ -1,9 +1,9 @@
 diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
-index ec76ec16..356ee23d 100644
+index 6a4adddb..f4219785 100644
 --- a/assets/modules/shopping-cart.js
 +++ b/assets/modules/shopping-cart.js
-@@ -24,48 +24,49 @@ export default function useShoppingCart() {
-         });
+@@ -20,48 +20,49 @@ export default function useShoppingCart() {
+         cart.items = (await fetchCart()).items;
      };
  
 -    return {

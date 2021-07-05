@@ -1,0 +1,24 @@
+diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
+index 0bf2b94b..63fcae5a 100644
+--- a/assets/modules/shopping-cart.js
++++ b/assets/modules/shopping-cart.js
+@@ -10,6 +10,7 @@ import {
+ const addToCartLoading = ref(false);
+ const addToCartSuccess = ref(false);
+ const cartLoading = ref(false);
++let cartInitialized = false;
+ 
+ /** @type CartCollection */
+ const cart = reactive({
+@@ -23,6 +24,11 @@ export default function useShoppingCart() {
+         cartLoading.value = false;
+     };
+ 
++    if (!cartInitialized) {
++        loadCart();
++        cartInitialized = true;
++    }
++
+     const updateCartHeaderTotal = () => {
+         document.getElementById('js-shopping-cart-items')
+             .innerHTML = getCartTotalItems(cart).toString();

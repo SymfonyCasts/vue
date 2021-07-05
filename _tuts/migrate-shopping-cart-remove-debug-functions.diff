@@ -1,8 +1,8 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index f6e89336..c22ccad5 100644
+index 15d66754..e81a4f25 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
-@@ -175,9 +175,6 @@ export default {
+@@ -174,9 +174,6 @@ export default {
              productsResponse.data['hydra:member'].forEach((product) => {
                  products.push(product);
              });
@@ -11,4 +11,4 @@ index f6e89336..c22ccad5 100644
 -            onTrigger: (data) => { console.log('triggering', data); },
          });
  
-         loadCart();
+         return {

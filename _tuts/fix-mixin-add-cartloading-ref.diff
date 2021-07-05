@@ -1,5 +1,5 @@
 diff --git a/assets/modules/shopping-cart.js b/assets/modules/shopping-cart.js
-index 6d606bfd..7dda039d 100644
+index fcbe3c2f..f60a7188 100644
 --- a/assets/modules/shopping-cart.js
 +++ b/assets/modules/shopping-cart.js
 @@ -9,6 +9,7 @@ import {
@@ -8,5 +8,5 @@ index 6d606bfd..7dda039d 100644
  const addToCartSuccess = ref(false);
 +const cartLoading = ref(false);
  
- /** @type CartCollection|null */
+ /** @type CartCollection */
  const cart = reactive({
