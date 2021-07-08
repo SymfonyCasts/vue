@@ -1,10 +1,10 @@
 diff --git a/assets/modules/collapsible-sidebar.js b/assets/modules/collapsible-sidebar.js
-index 2efd6c6e..ae157e9f 100644
+index 4f82846e..36542766 100644
 --- a/assets/modules/collapsible-sidebar.js
 +++ b/assets/modules/collapsible-sidebar.js
 @@ -10,16 +10,15 @@ export default function useCollapsibleSidebar() {
      const contentClass = computed(
-         () => (sidebarCollapsed.value ? 'col-xs-12 col-11' : 'col-xs-12 col-9'),
+         () => (sidebarCollapsed.value ? 'col-12 col-md-11' : 'col-12 col-md-9'),
      );
 -    /*
 -    methods: {
