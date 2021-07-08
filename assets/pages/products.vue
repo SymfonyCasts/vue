@@ -43,10 +43,10 @@ export default {
     },
     computed: {
         asideClass() {
-            return this.sidebarCollapsed ? 'aside-collapsed' : 'col-xs-12 col-3';
+            return this.sidebarCollapsed ? 'aside-collapsed' : 'col-12 col-md-3';
         },
         contentClass() {
-            return this.sidebarCollapsed ? 'col-xs-12 col-11' : 'col-xs-12 col-9';
+            return this.sidebarCollapsed ? 'col-12 col-md-11' : 'col-12 col-md-9';
         },
         currentProductId() {
             return getCurrentProductId();
