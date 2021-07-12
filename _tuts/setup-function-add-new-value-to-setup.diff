@@ -1,12 +1,12 @@
 diff --git a/assets/pages/products.vue b/assets/pages/products.vue
-index e593eaf9..d9b9c703 100644
+index f79c95d1..a7c192b7 100644
 --- a/assets/pages/products.vue
 +++ b/assets/pages/products.vue
 @@ -10,7 +10,7 @@
                  />
                  {{ person.firstName }}
  
--                {{ printFirstname() }}
+-                {{ printFirstName() }}
 +                {{ person.collapsedMessage }}
              </aside>
  

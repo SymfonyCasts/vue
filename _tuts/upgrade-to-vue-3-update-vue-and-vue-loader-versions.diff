@@ -1,23 +1,23 @@
 diff --git a/package.json b/package.json
-index e1911a5a..b35687d1 100644
+index 9e87efb7..2d4e3fe3 100644
 --- a/package.json
 +++ b/package.json
 @@ -18,7 +18,7 @@
          "sass-loader": "^12.0.0",
-         "vue": "^3.1.2",
-         "@vue/compiler-sfc": "^3.1.2",
+         "vue": "^3",
+         "@vue/compiler-sfc": "^3.1.4",
 -        "vue-loader": "^15.9.5",
 +        "vue-loader": "^16.1.0",
          "webpack-notifier": "^1.13.0"
      },
      "license": "UNLICENSED",
 diff --git a/yarn.lock b/yarn.lock
-index 8fd6705c..1911ca87 100644
+index acf62275..59cc8459 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -1098,22 +1098,6 @@
-     "@vue/compiler-dom" "3.1.2"
-     "@vue/shared" "3.1.2"
+     "@vue/compiler-dom" "3.1.4"
+     "@vue/shared" "3.1.4"
  
 -"@vue/component-compiler-utils@^3.1.0":
 -  version "3.2.2"
@@ -35,9 +35,9 @@ index 8fd6705c..1911ca87 100644
 -  optionalDependencies:
 -    prettier "^1.18.2"
 -
- "@vue/reactivity@3.1.2":
-   version "3.1.2"
-   resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.1.2.tgz#66fa530dd726d2fef285ae55d02106a727db463b"
+ "@vue/reactivity@3.1.4":
+   version "3.1.4"
+   resolved "https://registry.yarnpkg.com/@vue/reactivity/-/reactivity-3.1.4.tgz#d926ed46fb0d48582ccf8665b062d37b5d35ba99"
 @@ -1557,7 +1541,7 @@ binary-extensions@^2.0.0:
    resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-2.2.0.tgz#75f502eeaf9ffde42fc98829645be4ea76bd9e2d"
    integrity sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==
@@ -170,8 +170,8 @@ index 8fd6705c..1911ca87 100644
 +    hash-sum "^2.0.0"
 +    loader-utils "^2.0.0"
  
- vue@^3.1.2:
-   version "3.1.2"
+ vue@^3:
+   version "3.1.4"
 @@ -5908,11 +5842,6 @@ ws@^7.4.5:
    resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.1.tgz#44fc000d87edb1d9c53e51fbc69a0ac1f6871d66"
    integrity sha512-2c6faOUH/nhoQN6abwMloF7Iyl0ZS2E9HGtsiLrWn0zOOMWlhtDmdf/uihDt6jnuCxgtwGBNy6Onsoy2s2O2Ow==
