@@ -20,7 +20,7 @@ new value `$event.target.value`.
 Cool! Now, in the parent component, we can listen to this: `@input=""` and then
 immediately update the data with `form.customerName = $event`.
 
-[[[ code('a281f3feea') ]]]
+[[[ code('2c5be7484d') ]]]
 
 Alrighty! Let's try it! Move over, click to check out, type in a name... and look
 at the data. Perfect! It *is* updating.
