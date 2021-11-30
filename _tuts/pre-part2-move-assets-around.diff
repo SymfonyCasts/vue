@@ -14,7 +14,7 @@ diff --git a/assets/js/components/loading.vue b/assets/components/loading.vue
 similarity index 76%
 rename from assets/js/components/loading.vue
 rename to assets/components/loading.vue
-index 601dc6650..2410aeb9a 100644
+index 601dc665..2410aeb9 100644
 --- a/assets/js/components/loading.vue
 +++ b/assets/components/loading.vue
 @@ -12,7 +12,7 @@ export default {
@@ -111,7 +111,7 @@ similarity index 100%
 rename from assets/scss/variables/colors.scss
 rename to assets/styles/variables/colors.scss
 diff --git a/webpack.config.js b/webpack.config.js
-index 5b7629b13..eac2f3aa2 100644
+index 5b7629b1..eac2f3aa 100644
 --- a/webpack.config.js
 +++ b/webpack.config.js
 @@ -24,8 +24,8 @@ Encore

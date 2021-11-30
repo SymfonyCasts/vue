@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index 025ea24f2..d8afab2cd 100644
+index 025ea24f..d8afab2c 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -19,24 +19,27 @@
@@ -33,7 +33,7 @@ index 025ea24f2..d8afab2cd 100644
      "config": {
          "preferred-install": {
 diff --git a/composer.lock b/composer.lock
-index 391f942c9..f1d2e5904 100644
+index 1c7cf6c8..2cd5d9c4 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
@@ -181,7 +181,7 @@ index 391f942c9..f1d2e5904 100644
          {
              "name": "symfony/dependency-injection",
              "version": "v5.1.7",
-@@ -5477,51 +5348,6 @@
+@@ -5475,51 +5346,6 @@
              ],
              "time": "2020-10-23T14:02:19+00:00"
          },
@@ -233,7 +233,7 @@ index 391f942c9..f1d2e5904 100644
          {
              "name": "symfony/property-access",
              "version": "v5.1.7",
-@@ -7223,88 +7049,6 @@
+@@ -7221,88 +7047,6 @@
              ],
              "time": "2020-05-28T08:20:44+00:00"
          },
@@ -322,7 +322,7 @@ index 391f942c9..f1d2e5904 100644
          {
              "name": "symfony/webpack-encore-bundle",
              "version": "v1.8.0",
-@@ -7699,6 +7443,89 @@
+@@ -7697,6 +7441,89 @@
              },
              "time": "2020-09-26T10:30:38+00:00"
          },
@@ -412,7 +412,7 @@ index 391f942c9..f1d2e5904 100644
          {
              "name": "symfony/maker-bundle",
              "version": "v1.23.0",
-@@ -7785,6 +7612,88 @@
+@@ -7783,6 +7610,88 @@
                  }
              ],
              "time": "2020-10-28T15:35:16+00:00"
@@ -502,7 +502,7 @@ index 391f942c9..f1d2e5904 100644
      ],
      "aliases": [],
 diff --git a/symfony.lock b/symfony.lock
-index f89d6d0af..3552baf3d 100644
+index f89d6d0a..3552baf3 100644
 --- a/symfony.lock
 +++ b/symfony.lock
 @@ -213,12 +213,9 @@

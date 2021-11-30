@@ -1,5 +1,5 @@
 diff --git a/config/packages/doctrine_migrations.yaml b/config/packages/doctrine_migrations.yaml
-index 3bf0fbcae..61e661240 100644
+index 3bf0fbca..61e66124 100644
 --- a/config/packages/doctrine_migrations.yaml
 +++ b/config/packages/doctrine_migrations.yaml
 @@ -1,5 +1,5 @@

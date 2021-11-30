@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index 81ddb7ed7..beb1b4634 100644
+index 81ddb7ed..beb1b463 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -16,6 +16,7 @@
@@ -11,7 +11,7 @@ index 81ddb7ed7..beb1b4634 100644
          "symfony/asset": "5.1.*",
          "symfony/console": "5.1.*",
 diff --git a/composer.lock b/composer.lock
-index bf5457297..011d12378 100644
+index d3fe7dde..dcd37e61 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
@@ -260,7 +260,7 @@ index bf5457297..011d12378 100644
              "version": "v5.6.1",
 diff --git a/src/ApiPlatform/CartDataPersister.php b/src/ApiPlatform/CartDataPersister.php
 new file mode 100644
-index 000000000..f249b337d
+index 00000000..f249b337
 --- /dev/null
 +++ b/src/ApiPlatform/CartDataPersister.php
 @@ -0,0 +1,45 @@
@@ -311,7 +311,7 @@ index 000000000..f249b337d
 +}
 diff --git a/src/ApiPlatform/CartDataProvider.php b/src/ApiPlatform/CartDataProvider.php
 new file mode 100644
-index 000000000..ee259b7f4
+index 00000000..ee259b7f
 --- /dev/null
 +++ b/src/ApiPlatform/CartDataProvider.php
 @@ -0,0 +1,34 @@
@@ -350,7 +350,7 @@ index 000000000..ee259b7f4
 +    }
 +}
 diff --git a/src/DataFixtures/AppFixtures.php b/src/DataFixtures/AppFixtures.php
-index f08005e91..317c9cd13 100644
+index f08005e9..317c9cd1 100644
 --- a/src/DataFixtures/AppFixtures.php
 +++ b/src/DataFixtures/AppFixtures.php
 @@ -5,12 +5,21 @@ namespace App\DataFixtures;
@@ -390,7 +390,7 @@ index f08005e91..317c9cd13 100644
  
 diff --git a/src/Entity/Cart.php b/src/Entity/Cart.php
 new file mode 100644
-index 000000000..c44173643
+index 00000000..c4417364
 --- /dev/null
 +++ b/src/Entity/Cart.php
 @@ -0,0 +1,80 @@
@@ -476,7 +476,7 @@ index 000000000..c44173643
 +}
 diff --git a/src/Entity/CartItem.php b/src/Entity/CartItem.php
 new file mode 100644
-index 000000000..0d38ca0af
+index 00000000..0d38ca0a
 --- /dev/null
 +++ b/src/Entity/CartItem.php
 @@ -0,0 +1,62 @@
@@ -543,7 +543,7 @@ index 000000000..0d38ca0af
 +    }
 +}
 diff --git a/src/Serializer/ProductNormalizer.php b/src/Serializer/ProductNormalizer.php
-index 204a128d4..783aa6f49 100644
+index 204a128d..783aa6f4 100644
 --- a/src/Serializer/ProductNormalizer.php
 +++ b/src/Serializer/ProductNormalizer.php
 @@ -49,10 +49,15 @@ class ProductNormalizer implements ContextAwareNormalizerInterface, CacheableSup
@@ -565,7 +565,7 @@ index 204a128d4..783aa6f49 100644
 \ No newline at end of file
 +}
 diff --git a/src/Twig/SerializerExtension.php b/src/Twig/SerializerExtension.php
-index 97f810b7f..792047082 100644
+index 97f810b7..79204708 100644
 --- a/src/Twig/SerializerExtension.php
 +++ b/src/Twig/SerializerExtension.php
 @@ -2,6 +2,7 @@
@@ -608,7 +608,7 @@ index 97f810b7f..792047082 100644
 +    }
  }
 diff --git a/symfony.lock b/symfony.lock
-index 3552baf3d..cf4f4f0a2 100644
+index 3552baf3..cf4f4f0a 100644
 --- a/symfony.lock
 +++ b/symfony.lock
 @@ -16,6 +16,9 @@
@@ -635,7 +635,7 @@ index 3552baf3d..cf4f4f0a2 100644
          "version": "5.2",
          "recipe": {
 diff --git a/templates/base.html.twig b/templates/base.html.twig
-index 53b0297d7..102b46d18 100644
+index 53b0297d..102b46d1 100644
 --- a/templates/base.html.twig
 +++ b/templates/base.html.twig
 @@ -58,6 +58,13 @@

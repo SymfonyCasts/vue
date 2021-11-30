@@ -1,5 +1,5 @@
 diff --git a/assets/services/page-context.js b/assets/services/page-context.js
-index bc18cdc30..0f57ae969 100644
+index bc18cdc3..0f57ae96 100644
 --- a/assets/services/page-context.js
 +++ b/assets/services/page-context.js
 @@ -6,3 +6,12 @@

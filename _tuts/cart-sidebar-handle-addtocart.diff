@@ -1,5 +1,5 @@
 diff --git a/assets/components/shopping-cart/cart-sidebar.vue b/assets/components/shopping-cart/cart-sidebar.vue
-index 24b8b47f5..9ca47f24e 100644
+index 24b8b47f..9ca47f24 100644
 --- a/assets/components/shopping-cart/cart-sidebar.vue
 +++ b/assets/components/shopping-cart/cart-sidebar.vue
 @@ -23,6 +23,7 @@
@@ -11,7 +11,7 @@ index 24b8b47f5..9ca47f24e 100644
          </div>
      </div>
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 7ef5aa576..e85db2305 100644
+index 7ef5aa57..e85db230 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -8,6 +8,11 @@

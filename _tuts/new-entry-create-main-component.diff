@@ -1,6 +1,6 @@
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
 new file mode 100644
-index 000000000..447b03e6b
+index 00000000..447b03e6
 --- /dev/null
 +++ b/assets/pages/shopping-cart.vue
 @@ -0,0 +1,36 @@

@@ -1,6 +1,6 @@
 diff --git a/assets/components/product-show/cart-add-controls.vue b/assets/components/product-show/cart-add-controls.vue
 new file mode 100644
-index 000000000..db83a7e65
+index 00000000..db83a7e6
 --- /dev/null
 +++ b/assets/components/product-show/cart-add-controls.vue
 @@ -0,0 +1,42 @@
@@ -47,7 +47,7 @@ index 000000000..db83a7e65
 +};
 +</script>
 diff --git a/assets/components/product-show/index.vue b/assets/components/product-show/index.vue
-index 7d8348faa..912e7a33f 100644
+index 7d8348fa..912e7a33 100644
 --- a/assets/components/product-show/index.vue
 +++ b/assets/components/product-show/index.vue
 @@ -37,35 +37,7 @@

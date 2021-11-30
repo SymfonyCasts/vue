@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index ac8a14190..63a6913da 100644
+index ac8a1419..63a6913d 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
 @@ -50,6 +50,7 @@

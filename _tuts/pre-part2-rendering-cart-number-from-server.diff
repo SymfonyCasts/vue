@@ -1,6 +1,6 @@
 diff --git a/src/Twig/CartExtension.php b/src/Twig/CartExtension.php
 new file mode 100644
-index 000000000..b3daa1a16
+index 00000000..b3daa1a1
 --- /dev/null
 +++ b/src/Twig/CartExtension.php
 @@ -0,0 +1,48 @@
@@ -53,7 +53,7 @@ index 000000000..b3daa1a16
 +    }
 +}
 diff --git a/templates/base.html.twig b/templates/base.html.twig
-index 102b46d18..982744911 100644
+index 102b46d1..98274491 100644
 --- a/templates/base.html.twig
 +++ b/templates/base.html.twig
 @@ -41,7 +41,7 @@

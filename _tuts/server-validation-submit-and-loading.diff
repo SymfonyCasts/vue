@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 393c9b89c..a6746e9b0 100644
+index 393c9b89..a6746e9b 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -42,6 +42,19 @@

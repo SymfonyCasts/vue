@@ -1,5 +1,5 @@
 diff --git a/assets/js/components/product-list/index.vue b/assets/js/components/product-list/index.vue
-index 62fc0f280..71d6b05a8 100644
+index 62fc0f28..71d6b05a 100644
 --- a/assets/js/components/product-list/index.vue
 +++ b/assets/js/components/product-list/index.vue
 @@ -9,11 +9,13 @@

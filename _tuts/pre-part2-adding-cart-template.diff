@@ -2,7 +2,7 @@ diff --git a/src/Controller/ShoppingCartController.php b/src/Controller/CartCont
 similarity index 63%
 rename from src/Controller/ShoppingCartController.php
 rename to src/Controller/CartController.php
-index 4af39da6d..e238e0003 100644
+index 4af39da6..e238e000 100644
 --- a/src/Controller/ShoppingCartController.php
 +++ b/src/Controller/CartController.php
 @@ -7,13 +7,13 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -24,7 +24,7 @@ index 4af39da6d..e238e0003 100644
  }
 diff --git a/templates/cart/cart.html.twig b/templates/cart/cart.html.twig
 new file mode 100644
-index 000000000..261522de2
+index 00000000..261522de
 --- /dev/null
 +++ b/templates/cart/cart.html.twig
 @@ -0,0 +1,5 @@

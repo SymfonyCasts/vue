@@ -1,5 +1,5 @@
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index af917eaf5..ede946de1 100644
+index af917eaf..ede946de 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -7,8 +7,6 @@ export default {

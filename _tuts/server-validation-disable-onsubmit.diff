@@ -1,5 +1,5 @@
 diff --git a/assets/components/checkout/index.vue b/assets/components/checkout/index.vue
-index 222504fea..0411b4301 100644
+index 222504fe..0411b430 100644
 --- a/assets/components/checkout/index.vue
 +++ b/assets/components/checkout/index.vue
 @@ -58,6 +58,7 @@
@@ -11,7 +11,7 @@ index 222504fea..0411b4301 100644
                              Order!
                          </button>
 diff --git a/assets/services/checkout-service.js b/assets/services/checkout-service.js
-index 5e5bb6a3a..28e530740 100644
+index 5e5bb6a3..28e53074 100644
 --- a/assets/services/checkout-service.js
 +++ b/assets/services/checkout-service.js
 @@ -7,5 +7,5 @@ import axios from 'axios';

@@ -1,5 +1,5 @@
 diff --git a/assets/services/products-service.js b/assets/services/products-service.js
-index efdc6da97..77666ce86 100644
+index efdc6da9..77666ce8 100644
 --- a/assets/services/products-service.js
 +++ b/assets/services/products-service.js
 @@ -35,3 +35,22 @@ export function fetchFeaturedProducts() {

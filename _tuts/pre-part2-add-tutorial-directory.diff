@@ -1,6 +1,6 @@
 diff --git a/tutorial/cart-service.js b/tutorial/cart-service.js
 new file mode 100644
-index 000000000..4efcd765a
+index 00000000..4efcd765
 --- /dev/null
 +++ b/tutorial/cart-service.js
 @@ -0,0 +1,148 @@
@@ -154,7 +154,7 @@ index 000000000..4efcd765a
 +}
 diff --git a/tutorial/cart-sidebar.vue b/tutorial/cart-sidebar.vue
 new file mode 100644
-index 000000000..bd68d320c
+index 00000000..bd68d320
 --- /dev/null
 +++ b/tutorial/cart-sidebar.vue
 @@ -0,0 +1,53 @@
@@ -213,7 +213,7 @@ index 000000000..bd68d320c
 +</style>
 diff --git a/tutorial/color-selector.vue b/tutorial/color-selector.vue
 new file mode 100644
-index 000000000..12f59fc9c
+index 00000000..12f59fc9
 --- /dev/null
 +++ b/tutorial/color-selector.vue
 @@ -0,0 +1,55 @@
@@ -274,7 +274,7 @@ index 000000000..12f59fc9c
 +</style>
 diff --git a/tutorial/colors-service.js b/tutorial/colors-service.js
 new file mode 100644
-index 000000000..ec82627db
+index 00000000..ec82627d
 --- /dev/null
 +++ b/tutorial/colors-service.js
 @@ -0,0 +1,13 @@

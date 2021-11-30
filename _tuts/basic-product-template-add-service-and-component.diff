@@ -1,6 +1,6 @@
 diff --git a/assets/components/color-selector.vue b/assets/components/color-selector.vue
 new file mode 100644
-index 000000000..12f59fc9c
+index 00000000..12f59fc9
 --- /dev/null
 +++ b/assets/components/color-selector.vue
 @@ -0,0 +1,55 @@
@@ -61,7 +61,7 @@ index 000000000..12f59fc9c
 +</style>
 diff --git a/assets/services/colors-service.js b/assets/services/colors-service.js
 new file mode 100644
-index 000000000..ec82627db
+index 00000000..ec82627d
 --- /dev/null
 +++ b/assets/services/colors-service.js
 @@ -0,0 +1,13 @@

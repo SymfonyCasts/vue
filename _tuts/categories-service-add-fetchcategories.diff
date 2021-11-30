@@ -1,6 +1,6 @@
 diff --git a/assets/js/services/categories-service.js b/assets/js/services/categories-service.js
 new file mode 100644
-index 000000000..697774b1e
+index 00000000..697774b1
 --- /dev/null
 +++ b/assets/js/services/categories-service.js
 @@ -0,0 +1,8 @@

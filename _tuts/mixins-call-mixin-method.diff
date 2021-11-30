@@ -1,5 +1,5 @@
 diff --git a/assets/components/product-show.vue b/assets/components/product-show.vue
-index 4ff036336..7d8348faa 100644
+index 4ff03633..7d8348fa 100644
 --- a/assets/components/product-show.vue
 +++ b/assets/components/product-show.vue
 @@ -120,6 +120,10 @@ export default {
@@ -14,7 +14,7 @@ index 4ff036336..7d8348faa 100644
              this.selectedColorId = iri;
          },
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index 2dd5a57c0..68f11e6f1 100644
+index 2dd5a57c..68f11e6f 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -12,7 +12,7 @@ export default {

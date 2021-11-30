@@ -1,5 +1,5 @@
 diff --git a/assets/components/title.vue b/assets/components/title.vue
-index bf266bc99..6787140ea 100644
+index bf266bc9..6787140e 100644
 --- a/assets/components/title.vue
 +++ b/assets/components/title.vue
 @@ -15,17 +15,6 @@ export default {

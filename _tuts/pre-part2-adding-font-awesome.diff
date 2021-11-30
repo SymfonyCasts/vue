@@ -1,5 +1,5 @@
 diff --git a/assets/styles/app.scss b/assets/styles/app.scss
-index 79b4e2f7d..a7062c9ca 100644
+index 79b4e2f7..a7062c9c 100644
 --- a/assets/styles/app.scss
 +++ b/assets/styles/app.scss
 @@ -2,6 +2,7 @@
@@ -11,7 +11,7 @@ index 79b4e2f7d..a7062c9ca 100644
  
  body {
 diff --git a/package.json b/package.json
-index 91d2df9de..497d2eb0c 100644
+index 91d2df9d..497d2eb0 100644
 --- a/package.json
 +++ b/package.json
 @@ -3,6 +3,7 @@
@@ -23,7 +23,7 @@ index 91d2df9de..497d2eb0c 100644
          "axios": "^0.19.2",
          "bootstrap": "^4.4.1",
 diff --git a/yarn.lock b/yarn.lock
-index ff7875d34..5cea7c7e5 100644
+index ff7875d3..5cea7c7e 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -824,6 +824,11 @@

@@ -1,6 +1,6 @@
 diff --git a/assets/services/checkout-service.js b/assets/services/checkout-service.js
 new file mode 100644
-index 000000000..28e530740
+index 00000000..28e53074
 --- /dev/null
 +++ b/assets/services/checkout-service.js
 @@ -0,0 +1,11 @@

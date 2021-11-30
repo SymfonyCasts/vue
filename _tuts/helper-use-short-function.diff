@@ -1,5 +1,5 @@
 diff --git a/assets/js/helpers/format-price.js b/assets/js/helpers/format-price.js
-index bbad13683..f574b17d3 100644
+index bbad1368..f574b17d 100644
 --- a/assets/js/helpers/format-price.js
 +++ b/assets/js/helpers/format-price.js
 @@ -1,4 +1,4 @@

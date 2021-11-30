@@ -1,5 +1,5 @@
 diff --git a/assets/mixins/get-shopping-cart.js b/assets/mixins/get-shopping-cart.js
-index 1761d4fbd..eaf6cb097 100644
+index 1761d4fb..eaf6cb09 100644
 --- a/assets/mixins/get-shopping-cart.js
 +++ b/assets/mixins/get-shopping-cart.js
 @@ -2,6 +2,7 @@ import {
@@ -24,7 +24,7 @@ index 1761d4fbd..eaf6cb097 100644
              document.getElementById('js-shopping-cart-items')
                  .innerHTML = getCartTotalItems(this.cart).toString();
 diff --git a/assets/pages/shopping-cart.vue b/assets/pages/shopping-cart.vue
-index 0b52a1415..77d4d13c9 100644
+index 0b52a141..77d4d13c 100644
 --- a/assets/pages/shopping-cart.vue
 +++ b/assets/pages/shopping-cart.vue
 @@ -13,6 +13,10 @@

@@ -1,5 +1,5 @@
 diff --git a/package.json b/package.json
-index eefe03312..91d2df9de 100644
+index eefe0331..91d2df9d 100644
 --- a/package.json
 +++ b/package.json
 @@ -4,6 +4,7 @@
@@ -11,7 +11,7 @@ index eefe03312..91d2df9de 100644
          "core-js": "^3.0.0",
          "eslint": "^6.7.2",
 diff --git a/yarn.lock b/yarn.lock
-index f554615b7..37572c7c4 100644
+index f554615b..37572c7c 100644
 --- a/yarn.lock
 +++ b/yarn.lock
 @@ -1293,6 +1293,23 @@ atob@^2.1.2:
