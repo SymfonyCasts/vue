@@ -1,26 +1,32 @@
 diff --git a/composer.json b/composer.json
-index d8afab2c..81ddb7ed 100644
+index dfe0a693..b839f21a 100644
 --- a/composer.json
 +++ b/composer.json
-@@ -11,7 +11,7 @@
+@@ -11,11 +11,11 @@
          "doctrine/common": "^3",
          "doctrine/doctrine-bundle": "^2",
          "doctrine/doctrine-fixtures-bundle": "^3.3",
 -        "doctrine/doctrine-migrations-bundle": "^2",
 +        "doctrine/doctrine-migrations-bundle": "^3",
-         "doctrine/inflector": "1.4.* || ^2.0",
-         "doctrine/orm": "^2",
-         "nelmio/cors-bundle": "^2.1",
+         "doctrine/inflector": "^1.4 || ^2.0",
+         "doctrine/orm": "^2.4.5",
+-        "nelmio/cors-bundle": "^1.5 || ^2.0",
+-        "phpdocumentor/reflection-docblock": "^3.0 || ^4.0 || ^5.0",
++        "nelmio/cors-bundle": "^2.1",
++        "phpdocumentor/reflection-docblock": "^5.2",
+         "sensio/framework-extra-bundle": "^5.5",
+         "symfony/asset": "5.1.*",
+         "symfony/console": "5.1.*",
 diff --git a/composer.lock b/composer.lock
-index 2cd5d9c4..d3fe7dde 100644
+index e9bf2bcb..81120f69 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "354c8c3cb4bf2a483f4f6d53baa7b180",
-+    "content-hash": "6c3ac943b26aa752953ff7d7795aaca0",
+-    "content-hash": "2183dca920f6709cc19391ae68fcc27d",
++    "content-hash": "7e794ed355e493f758cf8391f1bfcf50",
      "packages": [
          {
              "name": "api-platform/core",

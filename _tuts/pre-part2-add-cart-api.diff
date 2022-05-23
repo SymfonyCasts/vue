@@ -1,9 +1,9 @@
 diff --git a/composer.json b/composer.json
-index 81ddb7ed..beb1b463 100644
+index b839f21a..5d60b7c6 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -16,6 +16,7 @@
-         "doctrine/orm": "^2",
+         "doctrine/orm": "^2.4.5",
          "nelmio/cors-bundle": "^2.1",
          "phpdocumentor/reflection-docblock": "^5.2",
 +        "ramsey/uuid": "^4.1",
@@ -11,15 +11,15 @@ index 81ddb7ed..beb1b463 100644
          "symfony/asset": "5.1.*",
          "symfony/console": "5.1.*",
 diff --git a/composer.lock b/composer.lock
-index d3fe7dde..dcd37e61 100644
+index 81120f69..97f695f7 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "6c3ac943b26aa752953ff7d7795aaca0",
-+    "content-hash": "8f12b98be138a69fbe3fbef9416c748b",
+-    "content-hash": "7e794ed355e493f758cf8391f1bfcf50",
++    "content-hash": "da87fde8ff99ce6f27b223f249389a5b",
      "packages": [
          {
              "name": "api-platform/core",
@@ -86,7 +86,7 @@ index d3fe7dde..dcd37e61 100644
          {
              "name": "composer/package-versions-deprecated",
              "version": "1.11.99",
-@@ -2636,6 +2692,171 @@
+@@ -2505,6 +2561,171 @@
              },
              "time": "2020-03-23T09:12:05+00:00"
          },
