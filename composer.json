@@ -10,6 +10,7 @@
         "doctrine/annotations": "^1.0",
         "doctrine/doctrine-bundle": "^1.6 || ^2.0",
         "doctrine/doctrine-fixtures-bundle": "^3.3",
+        "doctrine/doctrine-migrations-bundle": "^2",
         "doctrine/inflector": "2.0.*",
         "doctrine/orm": "^2.4.5",
         "nelmio/cors-bundle": "^1.5 || ^2.0",
@@ -17,22 +18,24 @@
         "sensio/framework-extra-bundle": "^5.5",
         "symfony/asset": "5.1.*",
         "symfony/console": "5.1.*",
-        "symfony/debug-pack": "^1.0",
+        "symfony/debug-bundle": "5.1.*",
         "symfony/dotenv": "5.1.*",
         "symfony/expression-language": "5.1.*",
         "symfony/flex": "^1.9",
         "symfony/form": "5.1.*",
         "symfony/framework-bundle": "5.1.*",
-        "symfony/orm-pack": "^1.0",
+        "symfony/monolog-bundle": "^3.0",
         "symfony/security-bundle": "5.1.*",
+        "symfony/stopwatch": "5.1.*",
         "symfony/twig-bundle": "5.1.*",
         "symfony/validator": "5.1.*",
+        "symfony/var-dumper": "5.1.*",
+        "symfony/web-profiler-bundle": "5.1.*",
         "symfony/webpack-encore-bundle": "^1.7",
         "symfony/yaml": "5.1.*"
     },
     "require-dev": {
-        "symfony/maker-bundle": "^1.14",
-        "symfony/profiler-pack": "^1.0"
+        "symfony/maker-bundle": "^1.14"
     },
     "config": {
         "preferred-install": {
@@ -41,6 +44,9 @@
         "sort-packages": true,
         "platform": {
             "php": "7.4.0"
+        },
+        "allow-plugins": {
+            "symfony/flex": true
         }
     },
     "autoload": {
