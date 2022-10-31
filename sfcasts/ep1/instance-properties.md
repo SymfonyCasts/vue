@@ -47,7 +47,7 @@ have a `collapsed` property! And if you look back at the log, the instance *also
 has a method called `toggleCollapsed`. This is here because, under the `methods`
 option, we added one with that name.
 
-Before we talk more about this, let's try one more thing. Right now, sidebar
+Before we talk more about this, let's try one more thing. Right now, the sidebar
 doesn't have any `props`. Let's temporarily add one. Say `props:` and create one
 called `testProp` with `type: String`. One of the *other* things you can do here
 is give a prop a *default* value in case it's not passed to the component. Set this
