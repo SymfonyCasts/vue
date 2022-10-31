@@ -3,7 +3,7 @@
 As we've seen, it's *totally* possible to configure the Vue instance and put the
 template in the same file. But... this is going to get *crazy* as our app grows:
 can you imagine writing 100 lines of HTML inside this string... or more? Yikes!
-Fortunately, Vue solves in a unique, and pretty cool way: with single file components.
+Fortunately, Vue solves this in a unique, and pretty cool way: with single file components.
 
 Inside the `js/` directory create a new folder called `pages/`, and then a file
 called `products.vue`. We'll talk more about the directory structure we're creating
