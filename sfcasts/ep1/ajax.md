@@ -15,7 +15,7 @@ yarn add axios --dev
 
 The `--dev` part isn't very important.
 
-The other popular option for AJAX calls is to use `fetch()` instead of Axios.
+The other popular option for Ajax calls is to use `fetch()` instead of Axios.
 `fetch()` is actually a built-in JavaScript function, which means you don't need
 any outside library. However, if you need to support IE 11, then you *will* need
 a polyfill to use it. Both Axios and fetch are great options.
@@ -48,7 +48,7 @@ hack: add `.jsonld` to the end of the URL. *This* is our endpoint.
 
 Let's go *all* the way back to our homepage and... I'll re-open the browser dev tools.
 
-## Making the AJAX Call from mounted()
+## Making the Ajax Call from mounted()
 
 Ok, when we load products, which component is going to *need* that data? The
 top-level `products.vue` component renders the sidebar and catalog. We *could*
@@ -57,7 +57,7 @@ and click `<catalog` to jump to that component.
 
 Ah, *this* is the component that needs the products data.
 
-Here's the goal: as *soon* as Vue loads this component, we'll start the AJAX call
+Here's the goal: as *soon* as Vue loads this component, we'll start the Ajax call
 so that we can load the products as quickly as possible. Fortunately, Vue allows
 us to run code during its startup process, and there are two main "hook" points:
 `mounted` and `created`. We'll talk more about these later but Vue considers your
@@ -65,14 +65,14 @@ component `mounted` when it's actually added to the page - like, in `products.js
 when we call `.$mount()`.
 
 To run code right *after* our component is mounted, all we need to do is create
-a function called `mounted()`. Inside, we'll make the AJAX call.
+a function called `mounted()`. Inside, we'll make the Ajax call.
 
 How? First, at the top of the `script` section `import axios from 'axios'`.
 
 [[[ code('ce714dd447') ]]]
 
 Then, *using* Axios is beautifully simple: `axios.get('/api/products')`. And like 
-every AJAX library, this will return a *Promise*, which you can learn *all* about
+every Ajax library, this will return a *Promise*, which you can learn *all* about
 in a [JavaScript Tutorial](https://symfonycasts.com/screencast/javascript/all-about-promises)
 here on SymfonyCasts.
 
