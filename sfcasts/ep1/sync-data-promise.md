@@ -1,4 +1,4 @@
-# Faking AJAX calls: Reading Synchronously
+# Faking Ajax calls: Reading Synchronously
 
 The `categories` data is now available as a global variable: `window.categories`.
 
@@ -6,7 +6,7 @@ In `sidebar.vue`, we're calling `fetchCategories()`, which lives in our fancy
 new `categories-service` module. You can find this at
 `assets/js/services/categories-service.js`.
 
-To switch this from an AJAX call to the global variable, just `return window.categories`. 
+To switch this from an Ajax call to the global variable, just `return window.categories`. 
 Celebrate by removing the `axios` import on top.
 
 [[[ code('cf391754d1') ]]]
@@ -47,7 +47,7 @@ accomplished!
 
 ## Returning a Promise from the Sync Method
 
-One of the cool things about isolating our AJAX calls into functions like
+One of the cool things about isolating our Ajax calls into functions like
 `fetchCategories()` is that, when we call that function, we don't need to know
 or care if it's talking to an API, or which API, or if we're just loading the
 data locally from local storage or a variable.
@@ -74,8 +74,8 @@ Let's try that: `return new Promise()`. This needs one argument: a callback with
 [[[ code('85aeae5467') ]]]
 
 Anyways, once our work is done - which will be *instantly* since we don't need
-to make any AJAX calls, call `resolve()` and pass it the *data* that we want the
-promise to return. Now, we're not *really* making an AJAX request... so we can't
+to make any Ajax calls, call `resolve()` and pass it the *data* that we want the
+promise to return. Now, we're not *really* making an Ajax request... so we can't
 *exactly* return the same data as before because... we don't have a response. But
 we know that what we *really* care about is that this Promise returns a object with
 a `data` key and a `hydra:member` key below it. Let's at least fake that here: add
@@ -94,7 +94,7 @@ that's not *exactly* the same as an Axios response, but it's close.
 
 Moment of truth! At our browser... it *looks* like it's working. Let's refresh.
 Yes! It *definitely* works. So this is a *great* way to get dynamic data from
-your server *without* needing an AJAX call when you *really* want something to
+your server *without* needing an Ajax call when you *really* want something to
 be available almost instantly.
 
 Next, let's use the categories data and `currentCategoryId` to print the *name*
