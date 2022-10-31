@@ -1,4 +1,4 @@
-# Smarter Loading: AJAX status as State
+# Smarter Loading: Ajax status as State
 
 Oh no! The snacks category is *empty*! That's a *huge* problem
 on its own! To make things worse, you can't even tell! It looks like it's
@@ -13,19 +13,19 @@ And that's *totally* the situation we have: sometimes a category *has* no produc
 And later when we add a search, sometimes no products will match.
 
 So... the easy solution didn't work. What we need *instead* is a flag that
-*specifically* tracks whether or not the products AJAX call is finished.
+*specifically* tracks whether or not the products Ajax call is finished.
 
 ## Add `loading` to Catalog
 
 We know Catalog is the smart component that takes care of making the
-AJAX request. This is means that it is *also* aware of whether or not we are
-*currently* making an AJAX call for the products. To track this, let's add a new
+Ajax request. This is means that it is *also* aware of whether or not we are
+*currently* making an Ajax call for the products. To track this, let's add a new
 data: call it `loading` and set it to `false` by default.
 
 [[[ code('f857b6f274') ]]]
 
 Now, very simply, in `created()`, say `this.loading = true` right before
-the AJAX call and, right after, `this.loading = false`.
+the Ajax call and, right after, `this.loading = false`.
 
 And *just* like that, we have a flag that we can use to render things based on
 the *true* loading status!
@@ -35,7 +35,7 @@ the *true* loading status!
 ## Try...catch
 
 While we're here, we can *also* add some simple error handling *just* in
-case the AJAX call fails. To do that, wrap all of this in a `try...catch` block.
+case the Ajax call fails. To do that, wrap all of this in a `try...catch` block.
 Then, inside `catch`, set `this.loading = false`.
 
 [[[ code('c92c01ff9d') ]]]
@@ -64,7 +64,7 @@ probably *wouldn't* do this because, if my API endpoint is failing, I have bigge
 problems: my site is broken! Giving the user a graceful error is nice, but maybe
 I'll save that for V2.
 
-However, if you *do* have a valid situation where an AJAX request might fail - like
+However, if you *do* have a valid situation where an Ajax request might fail - like
 if you're *sending* data to the server that might fail validation - then *this*
 is how you can catch that error and deal with it. We'll talk about sending data
 in the next tutorial.
@@ -111,13 +111,13 @@ snacks page - except for the fact that there are *no* snacks - works great.
 ## Adding Loading to the Sidebar
 
 The products loading part is now works flawlessly. But there is one other spot that
-we're loading with AJAX that does *not* have any loading info: the categories
+we're loading with Ajax that does *not* have any loading info: the categories
 sidebar!
 
 We're actually going to fix this soon by making the categories load instantly.
-But since they *are* still loading via AJAX, let's add the loading component
+But since they *are* still loading via Ajax, let's add the loading component
 there as well. Open up `sidebar.vue`: this is the component that makes the
-AJAX request for the categories and renders them in its template.
+Ajax request for the categories and renders them in its template.
 
 To do this right, should we add another `loading` data like we just did in
 catalog? We *totally* could! And that's probably a great option. But... I'm going
@@ -152,6 +152,6 @@ And when we move over to the browser... I'm *hoping* to see the loading animatio
 right before the categories load. That was super quick! But it *was* there.
 We have proper loading on both sides!
 
-Next, I want to start organizing our AJAX calls: we currently make them from inside
+Next, I want to start organizing our Ajax calls: we currently make them from inside
 of `sidebar.vue` and `catalog.vue`. That's maybe ok, but I'd like to explore a
 *better* way to organize these.
