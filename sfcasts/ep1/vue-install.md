@@ -148,7 +148,7 @@ tools. Got it! Our boring JavaScript file is alive!
 ## Our First Vue Instance
 
 Let's... make it cooler with Vue! Back in `products.js`, start by importing Vue:
-`import vue from 'vue'`. This is one of the *few* parts that will look different
+`import Vue from 'vue'`. This is one of the *few* parts that will look different
 in Vue 3 - but the ideas are the same.
 
 [[[ code('fc9c4c4bf4') ]]]
