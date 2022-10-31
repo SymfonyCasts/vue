@@ -1,8 +1,8 @@
 # Encore, Symfony & API Platform
 
-Well hey friends! Welcome to the Delightful world of Vue.js. I know I say that
+Well hey friends! Welcome to the delightful world of Vue.js. I know I say that
 *every* topic we cover at SymfonyCasts is fun - and I *totally* mean that - but
-this tutorial is going to be a *blast* as we build a *rich* and realistic JavaScript
+this tutorial is going to be a *blast*, as we build a *rich* and realistic JavaScript
 frontend for a store.
 
 ## React vs Vue
