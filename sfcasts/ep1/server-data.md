@@ -88,7 +88,7 @@ Awesome! Back in the template, add `window.categories` set to
 
 [[[ code('073e762c57') ]]]
 
-Let's go see what that look like! Find your browser, refresh and view the page
+Let's go see what that looks like! Find your browser, refresh and view the page
 source. Near the bottom... there it is! It's has the *same* JSON-LD format as the
 API! In the console, try to access it: `window.categories`. Yes! Here are the four
 categories with the normal `@context`, `@id` and `@type`.
