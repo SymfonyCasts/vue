@@ -13,7 +13,7 @@ message.
 
 [[[ code('d5999abf0f') ]]]
 
-Now that we have a `data` called legend, back up on the template, we're allowed
+Now that we have a `data` called `legend`, back up on the template, we're allowed
 to say `{{ legend }}`.
 
 [[[ code('d90e540993') ]]]
