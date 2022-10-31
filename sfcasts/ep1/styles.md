@@ -32,7 +32,7 @@ First, inside the `aside` element, give this `<div>` a new class called `sidebar
 
 [[[ code('b670ae57de') ]]]
 
-Next, at the bottom - though it doesn't matter where - there is *third* special
+Next, at the bottom - though it doesn't matter where - there is a *third* special
 section that any `.vue` file can have: you can have a `<template>` tag, a
 `<script>` tag and also a `<style>` tag. Inside, we're writing CSS: add `.sidebar`
 and let's give it a border, a `box-shadow` and a `border-radius`.
