@@ -1,22 +1,22 @@
-# AJAX Services
+# Ajax Services
 
-Head over to `sidebar.vue` where we make the categories AJAX call. In
+Head over to `sidebar.vue` where we make the categories Ajax call. In
 Symfony, we often isolate complex logic - or logic that we need to reuse - into
 services. One of the *most* common places that we do that is for database queries:
 we almost *always* have a *repository* class that holds all the database queries
 for a specific table.
 
 It's optional, but I'd like to do the same with my frontend code! I'd like
-to isolate all of my AJAX requests for a specific *resource* - like categories
+to isolate all of my Ajax requests for a specific *resource* - like categories
 or products - into its own, reusable JavaScript module. Then, instead of having
-AJAX calls inside my components, all that logic will be centralized.
+Ajax calls inside my components, all that logic will be centralized.
 
 ## Adding a Service!
 
 In Symfony, "Services" is *kind of* a generic word for any class that does work.
 But in this context, I'm using "services" to mean something slightly
 different. These "services" are *API* services... or, really, any code that
-loads data - whether that's via an AJAX call, local storage or reading
+loads data - whether that's via an Ajax call, local storage or reading
 global variables that we set in Twig.
 
 Inside of `js/services/`, create a new file called `categories-service.js`.
@@ -24,9 +24,9 @@ The `-service` on the end is *totally* redundant since we're in a `services/`
 directory, but I like to have descriptive filenames.
 
 The `services/` directory already holds one other file called `page-context`. This
-has *nothing* to do with AJAX calls or APIs but it *is* something that returns data,
+has *nothing* to do with Ajax calls or APIs but it *is* something that returns data,
 which is why I put it here. Right now it reads a global variable, but if we
-decided later to load this via AJAX, it would *still* be a service.
+decided later to load this via Ajax, it would *still* be a service.
 
 In `categories-service.js` export a function called, how about, `fetchCategories()`.
 For the logic, copy the `axios` line from `sidebar`... and paste it here. PhpStorm
@@ -35,7 +35,7 @@ function, return `axios.get()`.
 
 [[[ code('99cdef390d') ]]]
 
-This is a really, *really* simple AJAX call, but at *least* we're centralizing the
+This is a really, *really* simple Ajax call, but at *least* we're centralizing the
 URL so that we don't have it all over the place. Let's also be good programmers and
 add some documentation above this: it returns a `Promise`... which, actually,
 PhpStorm already knew without us saying anything.
@@ -63,11 +63,11 @@ component, we can remove the import.
 
 ## Create the Products Service
 
-The *other* place where we're making an AJAX call is in `catalog.vue` to fetch
+The *other* place where we're making an Ajax call is in `catalog.vue` to fetch
 the products. This one is a *bit* more complex because *if* we have a
 category, we need to pass a `category` query parameter.
 
-Since this AJAX call is for a different API resource, inside the `services/`
+Since this Ajax call is for a different API resource, inside the `services/`
 directory, create a third file called `products-service.js`.
 
 Start the same way: `export function fetchProducts()` with a `categoryIri` argument.
@@ -129,7 +129,7 @@ But if you want, you *could* go a bit further in the service and add
 `.then((response) => response.data)`.
 
 By doing this, our function *still* returns a Promise. But instead of the
-payload of the promise being the full AJAX response, it will be the JSON data.
+payload of the promise being the full Ajax response, it will be the JSON data.
 To make the code work in `catalog`, we would set the function directly to the
 `data` variable.
 
