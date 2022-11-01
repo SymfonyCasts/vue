@@ -1,4 +1,4 @@
-# Skipping AJAX: Sending JSON Straight to Vue
+# Skipping Ajax: Sending JSON Straight to Vue
 
 With *both* the categories and products loading dynamically, our app is starting
 to get really exciting! But there's a part of the user experience that I'm *not*
@@ -13,7 +13,7 @@ of the page layout... and it's a bit jarring when the sidebar is empty.
 And... it could get worse! What if we wanted to include the current category
 name in the page title... or as the h1 on the page! In that case, *both* of those
 would be missing on load! And if we started to render info about the authenticated
-user in Vue - like a user menu, if we loaded that data via AJAX, then we would
+user in Vue - like a user menu, if we loaded that data via Ajax, then we would
 need to hide that menu at first and *then* show it.
 
 The point is: too much loading can be a big problem.
@@ -22,7 +22,7 @@ What's the solution? Well, we're already making a request to the server each tim
 we visit a category. When we do that, our server is *already* primed to make
 fast database queries. So, in theory, we should be able to fetch data - like for
 the categories or user information - *during* that page load and avoid the slow
-AJAX request.
+Ajax request.
 
 In general, there are two solutions to this problem of "too much loading". The
 first is called server-side rendering where you render the Vue app on your *server*,
@@ -36,7 +36,7 @@ and execute Node on your server.
 The second option, which is a lot simpler and almost as fast, is to pass the *data*
 from our server into Vue. Literally, in the controller, we're going to load all the
 categories, pass them into Twig and set them on a variable that we can read in
-JavaScript. That will make the data *instantly* available: no AJAX call needed!
+JavaScript. That will make the data *instantly* available: no Ajax call needed!
 
 Ok, let's do this! Remember: the controller for this page is
 `src/Controller/ProductController.php`. And actually, there are *two*
@@ -71,7 +71,7 @@ is more interesting: the `categories` variable is an array of `Category`
 
 Go to `/api/categories.jsonld`: that's a quick way to see what
 the API response for categories looks like. So if we're going to send categories
-data from the server instead of making an AJAX call, that data should, ideally,
+data from the server instead of making an Ajax call, that data should, ideally,
 look *exactly* like this.
 
 This means that, in our Symfony app, we somehow need to serialize these `Category`
@@ -109,7 +109,7 @@ If you need pagination info, that's also possible. Let us know in the comments i
 you need that.
 
 But for us this data is going to be *perfect*, because all we need are the
-categories. Next, let's use this data in our Vue app to avoid the AJAX call!
-When we do, suddenly, our AJAX service function will *change* to be synchronous.
+categories. Next, let's use this data in our Vue app to avoid the Ajax call!
+When we do, suddenly, our Ajax service function will *change* to be synchronous.
 But by leveraging a Promise directly, we can *hide* that fact from the rest of
 our code.

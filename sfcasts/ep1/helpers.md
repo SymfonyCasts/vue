@@ -3,7 +3,7 @@
 We've already been organizing our code in several ways. The biggest way
 is that we've been breaking our components down into smaller pieces, which is
 *awesome*! We also created services for fetching data, whether that's via
-AJAX calls or by grabbing a global variable.
+Ajax calls or by grabbing a global variable.
 
 But these aren't the only ways we can organize our code. In
 JavaScript, like with most languages, if you have a chunk of code that's

@@ -19,7 +19,7 @@ search query and get a sub-set of results.
 ## Adding Search to the Product Service
 
 Back in our code, open up `services/products-service.js`. This function is
-responsible for making the AJAX request for products and it can already filter by
+responsible for making the Ajax request for products and it can already filter by
 category. Now, add a *second* argument called `searchTerm`. Then, very simply,
 if we have a `searchTerm`, say `params.name = searchTerm` to add the query parameter.
 I'll even document the new param: it  will be a `string` or `null` and it's
@@ -29,7 +29,7 @@ called `searchTerm`.
 
 Very nice!
 
-## AJAX inside a Computed Property?
+## Ajax inside a Computed Property?
 
 Let's use this in `catalog.vue`. I'm going to do this in the *simplest* way
 possible first... and it's totally *not* going to work! We currently have a
@@ -50,7 +50,7 @@ Much better! To finish the function, I'll go steal some more code and say
 [[[ code('72cfdccf60') ]]]
 
 So... this makes sense, right? When we reference `filteredProducts` in the template,
-that will call our function, we make the AJAX call, wait for it to finish
+that will call our function, we make the Ajax call, wait for it to finish
 and then return the new array of products. Genius!
 
 But... you can already see that we have an angry underline below `await`.
@@ -81,13 +81,13 @@ but are "boo!" for async stuff.
 The solution is to abandon your project and take up a peaceful career herding
 sheep. *Or*, you'll need to convert the computed property into a piece of data.
 And then, whenever that data needs to change - like whenever the `searchTerm`
-changes - you'll call a method that will *make* the AJAX call
+changes - you'll call a method that will *make* the Ajax call
 and *update* that data once its done.
 
 So... let's do this! The first step is to add a piece of data that can hold the
 filtered products. But, actually, now that we're not trying to keep *all* the
 products in the `products` data so that we can filter based off of it, whenever our
-AJAX call finishes, it's now ok to *change* that `products` array directly.
+Ajax call finishes, it's now ok to *change* that `products` array directly.
 So instead of adding a *new* piece of data - we'll just change products.
 
 Sweet! This means that, up in the template, we should change `filteredProducts`
@@ -98,7 +98,7 @@ back to `products`. And back down, we can remove the computed section entirely.
 ## Updating products on searchTerm Change
 
 Here's the plan then: whenever the `searchTerm` changes, we basically want to
-re-run all of the code that makes the AJAX call and updates the `products` data...
+re-run all of the code that makes the Ajax call and updates the `products` data...
 but with a minor addition to *also* include the search query.
 
 To help re-use this, create a new method called `loadProducts()` with a
@@ -127,7 +127,7 @@ Add `this.loadProducts()` and pass `event.term`.
 
 [[[ code('fe215217d1') ]]]
 
-Thanks to this, when `onSearchProducts()` is called, this will *start* the AJAX
+Thanks to this, when `onSearchProducts()` is called, this will *start* the Ajax
 call. Later, when it finishes, the `products` data will get updated and the component
 will re-render.
 
@@ -139,7 +139,7 @@ So celebrate by removing the `searchTerm` data.
 
 Moment of truth! Let's refresh the page to be safe and... type. Yes! This
 matches 2 products and `disk` matches one. In Symfony's web debug toolbar, you
-can see the AJAX calls. We now have the ability to make our search as *powerful*
+can see the Ajax calls. We now have the ability to make our search as *powerful*
 as our heart desires.
 
 ## Destructured Event Arg
@@ -157,7 +157,7 @@ string. Extra credit if you describe the function above.
 [[[ code('011fe3787c') ]]]
 
 After this change... the search still works. But... wow! This is making a *lot*
-of AJAX calls! Even if we type *really* fast, it makes one AJAX call per letter!
+of Ajax calls! Even if we type *really* fast, it makes one Ajax call per letter!
 Let's fix that next by adding debouncing.
 
 Oh, but before we do, it's not hurting anything, but since the `created()`

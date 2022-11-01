@@ -3,9 +3,9 @@
 Let's start to make our app a bit more dynamic. See these categories on the sidebar?
 They are 100% hardcoded in the template. Boring!
 
-Eventually, when the page loads, we'll make an AJAX request to dynamically load
+Eventually, when the page loads, we'll make an Ajax request to dynamically load
 the *real* categories from our API. This means that the categories will be empty
-at first and then will *change* to be the *real* categories as soon as that AJAX
+at first and then will *change* to be the *real* categories as soon as that Ajax
 call finishes. And so technically, the categories are something that will
 *change* during the lifetime of our Vue app. And anything that changes must live
 as a key on `data`.
@@ -13,7 +13,7 @@ as a key on `data`.
 ## Creating categories Data
 
 Cool! Let's add our first piece of `data` to sidebar: `data()`, then `return`
-an object with `categories:` set to an array. We're going to worry about the AJAX
+an object with `categories:` set to an array. We're going to worry about the Ajax
 call in a few minutes. For now, let's set the initial data to some hardcoded
 categories. Each category can look however we want - how about an object with
 a `name` property set to our top-selling category - "Dot matrix printers" and a

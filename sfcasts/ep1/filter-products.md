@@ -22,7 +22,7 @@ Head back to our app. From the top level `products.vue`, hold Command or Ctrl an
 click `<catalog />` to jump into that component. Catalog is responsible
 for loading our products on `created` by making a request to `/api/products`. Hmm...
 I *wish* we had access to the `currentCategoryId` here... because we could use
-that to change the URL in the AJAX call! Well then... let's go get it!
+that to change the URL in the Ajax call! Well then... let's go get it!
 
 Back in `products.vue`, add `:current-category-id="currentCategoryId"` to pass it
 as a prop... *just* like we did with the sidebar.
@@ -34,7 +34,7 @@ definition from sidebar - it's perfect there - and paste it here.
 
 [[[ code('a54515f596') ]]]
 
-## Using currentCategoryId to Filter on the AJAX call
+## Using currentCategoryId to Filter on the Ajax call
 
 Wonderful! We are *now* receiving `currentCategoryId`. To use this, down in
 `created` we *could* add `?category=` and then the `currentCategoryId`. But with
@@ -76,5 +76,5 @@ That's... my fault. When `catalog` renders `product-list` - hold Command or Ctrl
 click to jump to that - the loading is showing based on whether the `products`
 length is zero or not. An empty category *looks* like it's still loading!
 
-We *need* to improve this: we need to *truly* know whether or not the AJAX call
+We *need* to improve this: we need to *truly* know whether or not the Ajax call
 has finished! Let's make a *smarter* loading mechanism next!

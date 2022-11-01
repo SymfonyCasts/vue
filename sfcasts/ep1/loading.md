@@ -20,7 +20,7 @@ your component is completely removed.
 
 ## mounted vs created
 
-We used `mounted` earlier to start our AJAX call. That means that our Vue instance
+We used `mounted` earlier to start our Ajax call. That means that our Vue instance
 was created, mounted into the DOM, and *then* the function was called. It turns
 out that a better place to load data is actually `created`.
 
@@ -30,7 +30,7 @@ That works *just* fine.
 [[[ code('63e5042dc0') ]]]
 
 The `created()` function is called as *soon* as the Vue instance for our component
-is instantiated. That lets us start our AJAX call as *early* as possible. By the
+is instantiated. That lets us start our Ajax call as *early* as possible. By the
 time it's mounted onto the page, the `products` data may or may *not* yet be available,
 probably they aren't. But it doesn't really matter. And we can see this when we
 refresh: the products are *missing* for a moment.
@@ -96,7 +96,7 @@ We're not *conditionally* hiding and showing that yet but... there it is! Not ba
 
 ## Hiding / Showing the Loading Animation
 
-Ok: we only want to show the `Loading` component when the products AJAX
+Ok: we only want to show the `Loading` component when the products Ajax
 call hasn't finished. The two different ways to conditionally hide or show something
 are `v-show` and `v-if`. In this case, especially because we're *eventually* going
 to be loading the product list multiple times when we have a search bar, let's use
@@ -113,7 +113,7 @@ We can also add a `v-show=""` on the `product-card` element with
 `products.length > 0`. It's not *really* needed since this won't even loop if there
 are no products, but it balances things.
 
-We now have dynamic products *and* a loading animation while the AJAX call is
+We now have dynamic products *and* a loading animation while the Ajax call is
 finishing. I'm super happy about that! But our categories are *not* dynamic yet.
 Wah, wah. Let's fix that next. But after we do, we'll explore a *faster* way to
 load them.

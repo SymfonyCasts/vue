@@ -64,15 +64,15 @@ the product list. What's going on?
 Put on your debugging hat and dive into `catalog.vue`, the component that
 holds the `products`
 data. The `products` data depends on two things. If we
-go down to `loadProducts()` - the method that actually makes the AJAX call -
+go down to `loadProducts()` - the method that actually makes the Ajax call -
 we can see that `products` depends on the `searchTerm` and *also* on
 `currentCategoryId`. This means that when *either* of these change,
-we need to *re-call* `loadProducts()` so that it will make the new AJAX request.
+we need to *re-call* `loadProducts()` so that it will make the new Ajax request.
 
 Making sure that `loadProducts()` was called when the `searchTerm` changes
 was easy because the `search-bar` component already emits an
 event whenever the search changes. We then call the `onSearchProducts()` method,
-*that* calls `this.loadProducts()` and *that* makes the AJAX call and changes
+*that* calls `this.loadProducts()` and *that* makes the Ajax call and changes
 the `products` data. *That* part is wonderful.
 
 The question *now* is: how can we run code when `currentCategoryId` changes?

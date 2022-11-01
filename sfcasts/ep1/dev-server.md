@@ -68,13 +68,13 @@ the changes.
 ## dev-server & HTTPS
 
 But... the dev-server opens up some interesting possibilities. First, you might
-notice that a bunch of AJAX requests are failing on this page. It's some
+notice that a bunch of Ajax requests are failing on this page. It's some
 `sockjs-node` thing from that dev server. One of the super powers of the dev
 server is that it can automatically update the JavaScript and CSS in your browser
 *without* you needing to reload the page. To do that, it makes a connection back
 to the dev-server to look for changes.
 
-This if failing because it's trying to use https for the AJAX call and, unless
+This if failing because it's trying to use https for the Ajax call and, unless
 you configure it, the dev-server only works for http. And it's trying to use https
 because *our* page is running on https.
 
@@ -95,7 +95,7 @@ access your site with http so that this request *also* uses http.
 When we originally started the Symfony web server, we started it
 with `symfony serve -d` and then `--allow-http`. This means that the web server
 supports https, but we're *allowed* to use http. Once we change to http in the
-URL... the AJAX call starts working!
+URL... the Ajax call starts working!
 
 If you have a more complex setup, like you need to change the host name or have
 CORS issues, check out the Encore dev-server docs or drop us a question in the

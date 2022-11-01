@@ -114,6 +114,6 @@ to pass it down as props. If we want to, it would be *totally* ok fetch the
 categories directly from `categories-service` wherever we need it.
 
 Now that you know the *easy* solution, let's take the *harder* path. Let's pretend
-that our categories *are* still loading via AJAX... which means that *technically*
+that our categories *are* still loading via Ajax... which means that *technically*
 they *do* change during our app's lifecycle: they're empty for a moment, and
 *then* they populate. Let's tackle this next.

@@ -1,6 +1,6 @@
 # The await Keyword
 
-Before we start using the products data from the AJAX call, there's *one* other
+Before we start using the products data from the Ajax call, there's *one* other
 way to work with promises... and I really like it! It's the `await` syntax. We
 know that Axios returns a Promise... and that we *normally* run code *after* a
 promise has finished - or "resolved" - by calling `.then()` on it.
@@ -12,7 +12,7 @@ If we stopped right now, response would actually be a *Promise* - not a response
 But if we put `await` in front of it, it *will* be a response! The `await`
 keyword causes your code to *wait* for that Promise to resolve. And whatever data
 is *normally* passed to your callback as an argument is instead *returned*. There
-is *still* an asynchronous AJAX call happening, but our code *reads* a bit more like
+is *still* an asynchronous Ajax call happening, but our code *reads* a bit more like
 synchronous code. The `await` keyword is syntactic sugar.
 
 [[[ code('463cdb202c') ]]]
@@ -41,15 +41,15 @@ automatically and *always* return a `Promise`. If your function has a `return` v
 that will be the *data* of the Promise.
 
 This... can be confusing at first: when `mounted()` is called, our code *will*
-freeze on the `async` line and wait for the AJAX call to finish. But this doesn't
+freeze on the `async` line and wait for the Ajax call to finish. But this doesn't
 freeze our entire JavaScript app. In reality, the `mounted()` function will almost
 *immediately* finish and will return a Promise. That Promise will *resolve* once
 all of our code executes.
 
 To say this a different way: if *we* called `mounted()` directly from our code -
 we won't do that, but just pretend - then `mounted()` would finish before the
-AJAX call and it would *now* return a Promise. If we wanted to do something
-*after* the AJAX call and the rest of the code in `mounted()` finished, we could
+Ajax call and it would *now* return a Promise. If we wanted to do something
+*after* the Ajax call and the rest of the code in `mounted()` finished, we could
 chain a `.then()` *from* that Promise.
 
 But in reality, *Vue* is responsible for calling `mounted()` and Vue doesn't
@@ -60,9 +60,9 @@ method to return a Promise.
 The key thing to know about `async` and `await` is that even though our code will
 wait on this line, *really* the `mounted()` function will finish nearly instantly.
 Vue isn't going to call `mounted()` then freeze our *entire* Vue app waiting for
-it to finish. It starts our AJAX call then keeps going. That's *perfect*.
+it to finish. It starts our Ajax call then keeps going. That's *perfect*.
 
-Anyways, now when we refresh... yes! The AJAX call finishes and logs the response.
+Anyways, now when we refresh... yes! The Ajax call finishes and logs the response.
 Feel free to use Promises directly or with `await`: we'll use `await` in this tutorial.
 
 ## Adding the products Data & hydra:member

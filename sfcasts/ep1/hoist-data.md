@@ -1,12 +1,12 @@
 # Hoisting Data Up
 
 We just discussed that, because the `categories` in our app are static - we
-don't load them with AJAX and they never change - they don't *really* need to live
+don't load them with Ajax and they never change - they don't *really* need to live
 as data on a component and it would be *totally* ok to fetch them directly - wherever
 we need them - from `categories-service`.
 
 But... we're going to take the more complex path by pretending that our categories
-*are* still loading via AJAX... which means they *do* change during the lifecycle
+*are* still loading via Ajax... which means they *do* change during the lifecycle
 of our app... which means that they *do* need to live as data on a component.
 
 ## Computed property for Category Name
@@ -33,7 +33,7 @@ The `find()` function *effectively* loops over all the categories, calls this
 function for each one, and returns the first that makes this expression true.
 
 At the bottom, add `return` and use the ternary syntax: if a category was found,
-which... it should be unless the `categories` data is loading via AJAX and is
+which... it should be unless the `categories` data is loading via Ajax and is
 empty at first - then return `category.name`. Else, use an empty string...
 or you could say "Loading...".
 

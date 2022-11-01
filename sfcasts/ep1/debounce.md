@@ -1,11 +1,11 @@
 # Debouncing: Data can Hold Anything
 
 The only problem is that we made our search *too* awesome. When I type...
-wow! Look at those are AJAX requests - one for *every* character I type. It's,
+wow! Look at those are Ajax requests - one for *every* character I type. It's,
 sort of unnecessarily flooding our API.
 
 This is a common problem with a common solution: debouncing, which is *almost*
-as fun as it sounds. With debouncing, instead of sending an AJAX request after
+as fun as it sounds. With debouncing, instead of sending an Ajax request after
 *every* letter, we wait until the user *stops* typing - maybe 200 milliseconds -
 and *then* make the request.
 
@@ -28,7 +28,7 @@ Easy peasy! Oh, and the arrow function is important: if we used a traditional
 function, the `this` variable wouldn't be our Vue instance. Silly JavaScript!
 
 Now, some of you probably realize that this isn't going to *quite* work yet.
-If we refresh... and then type really fast. Ah! It *still* sent four AJAX
+If we refresh... and then type really fast. Ah! It *still* sent four Ajax
 requests... it just waited 200 milliseconds before making each of them. Whoops!
 
 ## Storing and Clearing the Timeout
@@ -63,7 +63,7 @@ can reset the `searchTimeout` back to null.
 Now, if we type really fast, the second time `onInput()` is called, it will
 *clear* the timeout, and then, below, start a *new* one.
 
-Let's try it! I'll refresh to be sure then... type super fast. Yes! Just one AJAX
+Let's try it! I'll refresh to be sure then... type super fast. Yes! Just one Ajax
 call down here to the categories API. That's *beautiful*!
 
 ## Non-Reactive Stuff on Data?

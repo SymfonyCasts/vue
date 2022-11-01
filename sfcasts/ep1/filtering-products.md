@@ -70,4 +70,4 @@ list? Or maybe we have a super-cool Elasticsearch system that we want to use?
 
 The point is: filtering on the client-side *might* work in some simple cases...
 but most of the time, you'll probably want to perform a search on the server via
-an AJAX call. Let's do that next!
+an Ajax call. Let's do that next!

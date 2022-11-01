@@ -6,7 +6,7 @@ to our front-end app. But global variables are still global variables and we
 should *try* to *at least* isolate and organize them as much as possible. Because,
 for example, what if we changed our app to use the Vue router? Instead of full
 page refreshes where we set the `currentCategoryId` as a global variable in Twig,
-*now* that data would be returned in a *different* way: via an AJAX call.
+*now* that data would be returned in a *different* way: via an Ajax call.
 
 The point is: the way we get `currentCategoryId` could change. And if we have
 `window.currentCategoryId` sprinkled around our code everywhere, it's... not ideal.
@@ -18,7 +18,7 @@ JavaScript services!
 I think you're *really* going to like this. Inside my `js/` directory, create
 a new folder called `services/`. So far, everything we've worked on has been
 Vue components... but there's a lot more to our app. We have code for making
-AJAX calls - which we will eventually centralize - and we're also going to have
+Ajax calls - which we will eventually centralize - and we're also going to have
 generic logic that we want to reuse from multiple places.
 
 In our app, the `services/` directory is going to hold files that help us

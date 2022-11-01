@@ -113,7 +113,7 @@ earlier: the fact that we kept the `products` data inside `catalog.vue` even
 though the `product-list` component is *technically* the deepest component that
 needs it.
 
-If you look at `catalog.vue`, it holds the AJAX call and pretty soon it will
+If you look at `catalog.vue`, it holds the Ajax call and pretty soon it will
 hold logic for a search bar. But... it doesn't render a lot of markup. I mean,
 yeah, it has an `<h1>` up here and a `<div>` down here, but its *main* job is
 to contain data and logic.
@@ -126,7 +126,7 @@ that's often followed in Vue and React. It's called smart versus dumb components
 or container versus presentational components.
 
 This pattern says that you should try to organize some components to be smart -
-components that make AJAX calls and change state - and other components to be
+components that make Ajax calls and change state - and other components to be
 dumb - that receive props, render HTML and maybe emit an event when the user does
 something.
 
@@ -146,6 +146,6 @@ obsess over it. We're doing a good job of making this separation in some places,
 but we're not perfect either, and I think that's great. However, if you can
 *generally* follow this, you'll be happier with your components.
 
-Next, now that we're loading data via AJAX, we need a way to tell the *user*
+Next, now that we're loading data via Ajax, we need a way to tell the *user*
 that things are loading... not that our server is on fire and they're waiting for
 nothing. Let's create a Loading component that we can re-use anywhere.
