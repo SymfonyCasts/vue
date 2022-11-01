@@ -1,4 +1,4 @@
-# Dynamic Categories via AJAX
+# Dynamic Categories via Ajax
 
 I've gotta say, now that we have dynamic products, these hardcoded categories
 are starting to *stress me out*! So let's make those dynamic too!
@@ -15,7 +15,7 @@ it's just hardcoded. Set this to an empty array to start.
 
 [[[ code('2dd59a3202') ]]]
 
-To make the AJAX call, head over to `catalog.vue` to celebrate one of programming's 
+To make the Ajax call, head over to `catalog.vue` to celebrate one of programming's 
 oldest arts: stealing code. Copy the entire `created()` function and paste it in 
 `sidebar.vue` under `data`. We just need to change the URL to `/api/categories` and 
 the data from `this.products` to `this.categories`.
@@ -90,8 +90,8 @@ When we only loaded the products, that was probably okay: it was just one spot t
 loaded pretty fast. But *also* having the categories waiting to load is starting to
 look a bit jarring. Plus, we're eventually going to have multiple pages that will
 use the same categories sidebar. This means that on *every* page, the user will wait
-for the *same* list of categories to be fetched via AJAX. We can do better!
+for the *same* list of categories to be fetched via Ajax. We can do better!
 
 So next, let's investigate how we can get data from the server in a way that
-*avoids* an AJAX call. We'll use this at *first* to highlight the current category
-on the sidebar. Then later, we'll replace the AJAX call completely.
+*avoids* an Ajax call. We'll use this at *first* to highlight the current category
+on the sidebar. Then later, we'll replace the Ajax call completely.
