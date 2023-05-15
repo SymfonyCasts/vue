@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index dfe0a693..b839f21a 100644
+index 47080682..662a8154 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -11,11 +11,11 @@
@@ -18,15 +18,15 @@ index dfe0a693..b839f21a 100644
          "symfony/asset": "5.1.*",
          "symfony/console": "5.1.*",
 diff --git a/composer.lock b/composer.lock
-index e9bf2bcb..81120f69 100644
+index d1e4db17..3cb2fd53 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "2183dca920f6709cc19391ae68fcc27d",
-+    "content-hash": "7e794ed355e493f758cf8391f1bfcf50",
+-    "content-hash": "d815cce93c3a1286857f96914d3f6fae",
++    "content-hash": "872330c359144bd019a96e5780a5c494",
      "packages": [
          {
              "name": "api-platform/core",

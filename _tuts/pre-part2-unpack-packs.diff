@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index e6ef5366..dfe0a693 100644
+index 40e44166..47080682 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -19,18 +19,16 @@
@@ -35,19 +35,19 @@ index e6ef5366..dfe0a693 100644
      "config": {
          "preferred-install": {
 diff --git a/composer.lock b/composer.lock
-index f6c8e144..e9bf2bcb 100644
+index 502fe43b..d1e4db17 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "63b1961358fa2ac72163af627dcea33e",
-+    "content-hash": "2183dca920f6709cc19391ae68fcc27d",
+-    "content-hash": "0f5c9cdf5af029d4fbf19cf57bd95300",
++    "content-hash": "d815cce93c3a1286857f96914d3f6fae",
      "packages": [
          {
              "name": "api-platform/core",
-@@ -3005,89 +3005,6 @@
+@@ -3002,89 +3002,6 @@
              ],
              "time": "2020-10-07T15:23:00+00:00"
          },
@@ -137,7 +137,7 @@ index f6c8e144..e9bf2bcb 100644
          {
              "name": "symfony/dependency-injection",
              "version": "v5.1.7",
-@@ -7475,6 +7392,89 @@
+@@ -7472,6 +7389,89 @@
              },
              "time": "2020-09-26T10:30:38+00:00"
          },
