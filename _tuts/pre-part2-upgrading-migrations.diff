@@ -18,7 +18,7 @@ index 47080682..662a8154 100644
          "symfony/asset": "5.1.*",
          "symfony/console": "5.1.*",
 diff --git a/composer.lock b/composer.lock
-index d1e4db17..3cb2fd53 100644
+index d044d773..4faaa0c9 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
