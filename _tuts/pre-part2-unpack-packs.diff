@@ -1,5 +1,5 @@
 diff --git a/composer.json b/composer.json
-index 40e44166..47080682 100644
+index 97332f7f..6f74b053 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -19,18 +19,16 @@
@@ -35,15 +35,15 @@ index 40e44166..47080682 100644
      "config": {
          "preferred-install": {
 diff --git a/composer.lock b/composer.lock
-index 5490663f..492ef96d 100644
+index 668232c6..599892f4 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "0f5c9cdf5af029d4fbf19cf57bd95300",
-+    "content-hash": "d815cce93c3a1286857f96914d3f6fae",
+-    "content-hash": "e0fdfaa66bb11afb0872b96990aa3231",
++    "content-hash": "af21367d262816835468eaa3ae8f9a9e",
      "packages": [
          {
              "name": "api-platform/core",

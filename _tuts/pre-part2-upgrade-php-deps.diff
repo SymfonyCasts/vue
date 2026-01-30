@@ -1,9 +1,9 @@
 diff --git a/composer.json b/composer.json
-index e67f466e..40e44166 100644
+index dec4de00..97332f7f 100644
 --- a/composer.json
 +++ b/composer.json
 @@ -5,13 +5,14 @@
-         "php": ">=8.1",
+         "php": ">=8.2",
          "ext-ctype": "*",
          "ext-iconv": "*",
 -        "api-platform/core": "^2.1",
@@ -32,15 +32,15 @@ index e67f466e..40e44166 100644
          "symfony/security-bundle": "5.1.*",
          "symfony/stopwatch": "5.1.*",
 diff --git a/composer.lock b/composer.lock
-index b1ebcb51..5490663f 100644
+index 58a02cba..668232c6 100644
 --- a/composer.lock
 +++ b/composer.lock
 @@ -4,7 +4,7 @@
          "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
          "This file is @generated automatically"
      ],
--    "content-hash": "8c7cb51d693633b3655aa07b74785193",
-+    "content-hash": "0f5c9cdf5af029d4fbf19cf57bd95300",
+-    "content-hash": "cea275193d956454d8747def481e5c5a",
++    "content-hash": "e0fdfaa66bb11afb0872b96990aa3231",
      "packages": [
          {
              "name": "api-platform/core",
